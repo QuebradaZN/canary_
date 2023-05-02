@@ -3,9 +3,15 @@ combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_DIVINE_DAZZLE)
 
 function canChain(creature, target)
 	if target:isMonster() then
-		if target:getType():isRewardBoss() then
-			return false
-		elseif target:getMaster() == nil and target:getType():getTargetDistance() > 1 then
+		local monster = creature:getMonster()
+		if creature:getType():isRewardBoss() then
+			return -1
+		end
+		if creature:getMaster() ~= nil then return false end
+		if monster:isChallenged() then return false end
+
+		local type = creature:getType()
+		if type:getTargetDistance() > 1 or type:getRunHealth() > 0 then
 			return true
 		end
 	end
@@ -14,7 +20,7 @@ end
 combat:setCallback(CALLBACK_PARAM_CHAINPICKER, "canChain")
 
 function getChainValue(creature)
-	local targets = 3
+	local targets = 5
 	local player = creature:getPlayer()
 	if creature and player then
 		targets = targets + player:getWheelSpellAdditionalTarget("Divine Dazzle")
@@ -67,7 +73,7 @@ spell:level(250)
 spell:mana(80)
 spell:isAggressive(false)
 spell:isPremium(true)
-spell:cooldown(16 * 1000)
+spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
 spell:vocation("paladin;true", "royal paladin;true")
 spell:needLearn(false)

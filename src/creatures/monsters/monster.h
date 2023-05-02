@@ -152,9 +152,12 @@ class Monster final : public Creature {
 
 		void onThink(uint32_t interval) override;
 
-		bool challengeCreature(Creature* creature, int targetChangeCooldown) override;
+		bool challengeCreature(Creature* creature, int targetChangeCooldown);
 
 		bool changeTargetDistance(int32_t distance, uint32_t duration = 12000);
+		bool isChallenged() const {
+			return challengeFocusDuration > 0 || challengeMeleeDuration > 0;
+		}
 
 		CreatureIcon_t getIcon() const override {
 			if (challengeMeleeDuration > 0 && mType->info.targetDistance > targetDistance) {

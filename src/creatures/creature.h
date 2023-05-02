@@ -495,7 +495,6 @@ class Creature : virtual public Thing {
 		}
 
 		int32_t getWalkCache(const Position &pos) const;
-
 		const Position &getLastPosition() const {
 			return lastPosition;
 		}

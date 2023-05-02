@@ -3,7 +3,14 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_BLUE)
 combat:setArea(createCombatArea(AREA_CIRCLE2X2))
 
 function onTargetCreature(creature, target)
-	return doChallengeCreature(creature, target)
+	local duration = 6000
+	if target:isMonster() then
+		local monster = target:getMonster()
+		if not target:getType():isRewardBoss() then
+			monster:changeTargetDistance(1, duration)
+		end
+	end
+	return doChallengeCreature(creature, target, duration)
 end
 
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")

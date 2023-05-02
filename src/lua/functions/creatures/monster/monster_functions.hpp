@@ -40,6 +40,7 @@ class MonsterFunctions final : LuaScriptInterface {
 			registerMethod(L, "Monster", "getTargetList", MonsterFunctions::luaMonsterGetTargetList);
 			registerMethod(L, "Monster", "getTargetCount", MonsterFunctions::luaMonsterGetTargetCount);
 			registerMethod(L, "Monster", "changeTargetDistance", MonsterFunctions::luaMonsterChangeTargetDistance);
+			registerMethod(L, "Monster", "isChallenged", MonsterFunctions::luaMonsterIsChallenged);
 			registerMethod(L, "Monster", "selectTarget", MonsterFunctions::luaMonsterSelectTarget);
 			registerMethod(L, "Monster", "searchTarget", MonsterFunctions::luaMonsterSearchTarget);
 			registerMethod(L, "Monster", "setSpawnPosition", MonsterFunctions::luaMonsterSetSpawnPosition);
@@ -96,6 +97,7 @@ class MonsterFunctions final : LuaScriptInterface {
 		static int luaMonsterGetTargetCount(lua_State* L);
 
 		static int luaMonsterChangeTargetDistance(lua_State* L);
+		static int luaMonsterIsChallenged(lua_State* L);
 
 		static int luaMonsterSelectTarget(lua_State* L);
 		static int luaMonsterSearchTarget(lua_State* L);

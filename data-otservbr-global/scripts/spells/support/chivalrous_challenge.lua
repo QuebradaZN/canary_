@@ -3,9 +3,17 @@ combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_CHIVALRIOUS_CHALLENGE)
 
 function canChain(creature, target)
 	if target:isMonster() then
-		if target:getType():isRewardBoss() then
-			return false
-		elseif target:getMaster() == nil and target:getType():getTargetDistance() > 1 then
+		local monster = creature:getMonster()
+		if creature:getType():isRewardBoss() then
+			return -false
+		end
+		if creature:getMaster() ~= nil then return false end
+
+		if creature:getType():getTargetDistance() > 1 then
+			return true
+		elseif not monster:isChallenged() then
+			return true
+		elseif creature:getTarget():getId() ~= player:getId() then
 			return true
 		end
 	end
@@ -14,7 +22,7 @@ end
 combat:setCallback(CALLBACK_PARAM_CHAINPICKER, "canChain")
 
 function getChainValue(creature)
-	local targets = 5
+	local targets = 6
 	local player = creature:getPlayer()
 	if creature and player then
 		targets = targets + player:getWheelSpellAdditionalTarget("Chivalrous Challenge")
