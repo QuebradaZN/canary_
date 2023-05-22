@@ -3,11 +3,9 @@ name: Build - Ubuntu
 
 on:
   workflow_dispatch:
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches:
-      - main
+      - elysiera
 
 env:
   CMAKE_BUILD_PARALLEL_LEVEL: 2
@@ -22,11 +20,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, ubuntu-22.04]
-        buildtype: [linux-release, linux-debug]
+        os: [ubuntu-22.04]
+        buildtype: [linux-release]
         include:
-          - os: ubuntu-20.04
-            triplet: x64-linux
           - os: ubuntu-22.04
             triplet: x64-linux
 
