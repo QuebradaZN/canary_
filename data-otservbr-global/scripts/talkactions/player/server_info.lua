@@ -13,18 +13,18 @@ function serverInfo.onSay(player, words, param)
 	else
 		text = "Server Info Stages Rates: \n"
 		.. "\nExp rate stages: " .. getRateFromTable(experienceStages, player:getLevel(), expstagesrate) .. "x"
-		.. "\nSword Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_SWORD), configRateSkill) .. "x"
-		.. "\nClub Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_CLUB), configRateSkill) .. "x"
-		.. "\nAxe Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_AXE), configRateSkill) .. "x"
+		.. "\nCooking Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_MELEE), configRateSkill) .. "x"
+		.. "\nMelee Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_MELEE), configRateSkill) .. "x"
+		.. "\nRunic Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_MELEE), configRateSkill) .. "x"
 		.. "\nDistance Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_DISTANCE), configRateSkill) .. "x"
-		.. "\nShield Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_SHIELD), configRateSkill) .. "x"
-		.. "\nFist Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_FIST), configRateSkill) .. "x"
+		.. "\nDefense Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_DEFENSE), configRateSkill) .. "x"
+		.. "\nLuck Skill Stages rate: " .. getRateFromTable(skillsStages, player:getSkillLevel(SKILL_LUCK), configRateSkill) .. "x"
 		.. "\nMagic rate: " .. getRateFromTable(magicLevelStages, player:getBaseMagicLevel(), configManager.getNumber(configKeys.RATE_MAGIC)) .. "x"
 		.. "\nLoot rate: " .. configManager.getNumber(configKeys.RATE_LOOT) .. "x"
 		.. "\nSpawns rate: " .. configManager.getNumber(configKeys.RATE_SPAWN) .. "x"
 	end
 		text = text .. "\n\nMore Server Info: \n"
-		.. "\nLevel to buy house: " .. configManager.getNumber(configKeys.HOUSE_BUY_LEVEL) 
+		.. "\nLevel to buy house: " .. configManager.getNumber(configKeys.HOUSE_BUY_LEVEL)
 		.. "\nProtection level: " .. configManager.getNumber(configKeys.PROTECTION_LEVEL)
 		.. "\nWorldType: " .. configManager.getString(configKeys.WORLD_TYPE)
 		.. "\nKills/day to red skull: " .. configManager.getNumber(configKeys.DAY_KILLS_TO_RED)

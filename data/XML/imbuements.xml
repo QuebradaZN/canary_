@@ -17,7 +17,7 @@
 	<category id="10" name="Increase Speed" agressive="0" />
 	<category id="11" name="Skillboost (Axe Fighting)" agressive="1" />
 	<category id="12" name="Skillboost (Sword Fighting)" agressive="1" />
-	<category id="13" name="Skillboost (Club Fighting)" agressive="1" />
+	<category id="13" name="Skillboost (Melee fighting)" agressive="1" />
 	<category id="14" name="Skillboost (Shielding)" agressive="1" />
 	<category id="15" name="Skillboost (Distance Fighting)" agressive="1" />
 	<category id="16" name="Skillboost (Magic Level)" agressive="1" />
@@ -337,18 +337,18 @@
 		<attribute key="item" value="9654" count="5" />
 	</imbuement>
 	<imbuement name="Bash" base="1" category="13" iconid="52" premium="0" storage="0">
-		<attribute key="description" value="Raises club fighting skill by 1." />
+		<attribute key="description" value="Raises melee fighting skill by 1." />
 		<attribute key="effect" type="skill" value="club" bonus="1" />
 		<attribute key="item" value="9657" count="20" />
 	</imbuement>
 	<imbuement name="Bash" base="2" category="13" iconid="52" premium="1" storage="0">
-		<attribute key="description" value="Raises club fighting skill by 2." />
+		<attribute key="description" value="Raises melee fighting skill by 2." />
 		<attribute key="effect" type="skill" value="club" bonus="2" />
 		<attribute key="item" value="9657" count="20" />
 		<attribute key="item" value="22189" count="15" />
 	</imbuement>
 	<imbuement name="Bash" base="3" category="13" iconid="52" premium="1" storage="50492">
-		<attribute key="description" value="Raises club fighting skill by 4." />
+		<attribute key="description" value="Raises melee fighting skill by 4." />
 		<attribute key="effect" type="skill" value="club" bonus="4" />
 		<attribute key="item" value="9657" count="20" />
 		<attribute key="item" value="22189" count="15" />

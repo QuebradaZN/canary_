@@ -750,56 +750,52 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value) {
 
 	switch (param) {
 		case CONDITION_PARAM_SKILL_MELEE: {
-			skills[SKILL_CLUB] = value;
-			skills[SKILL_AXE] = value;
-			skills[SKILL_SWORD] = value;
+			skills[SKILL_MELEE] = value;
 			return true;
 		}
 
 		case CONDITION_PARAM_SKILL_MELEEPERCENT: {
-			skillsPercent[SKILL_CLUB] = value;
-			skillsPercent[SKILL_AXE] = value;
-			skillsPercent[SKILL_SWORD] = value;
+			skillsPercent[SKILL_MELEE] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_FIST: {
-			skills[SKILL_FIST] = value;
+		case CONDITION_PARAM_SKILL_LUCK: {
+			skills[SKILL_LUCK] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_FISTPERCENT: {
-			skillsPercent[SKILL_FIST] = value;
+		case CONDITION_PARAM_SKILL_LUCKPERCENT: {
+			skillsPercent[SKILL_LUCK] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_CLUB: {
-			skills[SKILL_CLUB] = value;
+		case CONDITION_PARAM_SKILL_MELEE_UNUSED: {
+			skills[SKILL_MELEE] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_CLUBPERCENT: {
-			skillsPercent[SKILL_CLUB] = value;
+		case CONDITION_PARAM_SKILL_MELEEPERCENT_UNUSED: {
+			skillsPercent[SKILL_MELEE] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_SWORD: {
-			skills[SKILL_SWORD] = value;
+		case CONDITION_PARAM_SKILL_COOKING: {
+			skills[SKILL_MELEE] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_SWORDPERCENT: {
-			skillsPercent[SKILL_SWORD] = value;
+		case CONDITION_PARAM_SKILL_COOKINGPERCENT: {
+			skillsPercent[SKILL_MELEE] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_AXE: {
-			skills[SKILL_AXE] = value;
+		case CONDITION_PARAM_SKILL_RUNIC: {
+			skills[SKILL_RUNIC] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_AXEPERCENT: {
-			skillsPercent[SKILL_AXE] = value;
+		case CONDITION_PARAM_SKILL_RUNICPERCENT: {
+			skillsPercent[SKILL_RUNIC] = value;
 			return true;
 		}
 
@@ -813,23 +809,23 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value) {
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_SHIELD: {
-			skills[SKILL_SHIELD] = value;
+		case CONDITION_PARAM_SKILL_DEFENSE: {
+			skills[SKILL_DEFENSE] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_SHIELDPERCENT: {
-			skillsPercent[SKILL_SHIELD] = value;
+		case CONDITION_PARAM_SKILL_DEFENSEPERCENT: {
+			skillsPercent[SKILL_DEFENSE] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_FISHING: {
-			skills[SKILL_FISHING] = value;
+		case CONDITION_PARAM_SKILL_TONICITY: {
+			skills[SKILL_TONICITY] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_FISHINGPERCENT: {
-			skillsPercent[SKILL_FISHING] = value;
+		case CONDITION_PARAM_SKILL_TONICITYPERCENT: {
+			skillsPercent[SKILL_TONICITY] = value;
 			return true;
 		}
 

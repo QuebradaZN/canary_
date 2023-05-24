@@ -89,11 +89,9 @@ namespace InternalGame {
 } // Namespace InternalGame
 
 Game::Game() {
-	offlineTrainingWindow.choices.emplace_back("Sword Fighting and Shielding", SKILL_SWORD);
-	offlineTrainingWindow.choices.emplace_back("Axe Fighting and Shielding", SKILL_AXE);
-	offlineTrainingWindow.choices.emplace_back("Club Fighting and Shielding", SKILL_CLUB);
-	offlineTrainingWindow.choices.emplace_back("Distance Fighting and Shielding", SKILL_DISTANCE);
-	offlineTrainingWindow.choices.emplace_back("Magic Level and Shielding", SKILL_MAGLEVEL);
+	offlineTrainingWindow.choices.emplace_back("Melee fighting and Defense", SKILL_MELEE);
+	offlineTrainingWindow.choices.emplace_back("Distance Fighting and Defense", SKILL_DISTANCE);
+	offlineTrainingWindow.choices.emplace_back("Magic Level and Defense", SKILL_MAGLEVEL);
 	offlineTrainingWindow.buttons.emplace_back("Okay", 1);
 	offlineTrainingWindow.buttons.emplace_back("Cancel", 0);
 	offlineTrainingWindow.defaultEscapeButton = 1;
@@ -7761,25 +7759,25 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 
 	std::string categoryName;
 	switch (category) {
-		case HIGHSCORE_CATEGORY_FIST_FIGHTING:
+		case HIGHSCORE_CATEGORY_LUCK:
 			categoryName = "skill_fist";
 			break;
-		case HIGHSCORE_CATEGORY_CLUB_FIGHTING:
+		case HIGHSCORE_CATEGORY_MELEE_FIGHTING:
 			categoryName = "skill_club";
 			break;
-		case HIGHSCORE_CATEGORY_SWORD_FIGHTING:
+		case HIGHSCORE_CATEGORY_COOKING:
 			categoryName = "skill_sword";
 			break;
-		case HIGHSCORE_CATEGORY_AXE_FIGHTING:
+		case HIGHSCORE_CATEGORY_RUNIC_FIGHTING:
 			categoryName = "skill_axe";
 			break;
 		case HIGHSCORE_CATEGORY_DISTANCE_FIGHTING:
 			categoryName = "skill_dist";
 			break;
-		case HIGHSCORE_CATEGORY_SHIELDING:
+		case HIGHSCORE_CATEGORY_DEFENSE:
 			categoryName = "skill_shielding";
 			break;
-		case HIGHSCORE_CATEGORY_FISHING:
+		case HIGHSCORE_CATEGORY_TONICITY:
 			categoryName = "skill_fishing";
 			break;
 		case HIGHSCORE_CATEGORY_MAGIC_LEVEL:
@@ -8643,7 +8641,7 @@ void Game::playerAnswerModalWindow(uint32_t playerId, uint32_t modalWindowId, ui
 	// offline training, hardcoded
 	if (modalWindowId == std::numeric_limits<uint32_t>::max()) {
 		if (button == 1) {
-			if (choice == SKILL_SWORD || choice == SKILL_AXE || choice == SKILL_CLUB || choice == SKILL_DISTANCE || choice == SKILL_MAGLEVEL) {
+			if (choice == SKILL_MELEE|| choice == SKILL_DISTANCE || choice == SKILL_MAGLEVEL) {
 				BedItem* bedItem = player->getBedItem();
 				if (bedItem && bedItem->sleep(player)) {
 					player->setOfflineTrainingSkill(static_cast<int8_t>(choice));

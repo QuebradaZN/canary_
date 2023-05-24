@@ -1,18 +1,20 @@
 local function getSkillId(skillName)
-	if skillName == "club" then
-		return SKILL_CLUB
+	if skillName == "melee" then
+		return SKILL_MELEE
+	elseif skillName == "club" then
+		return SKILL_MELEE
 	elseif skillName == "sword" then
-		return SKILL_SWORD
+		return SKILL_MELEE
 	elseif skillName == "axe" then
-		return SKILL_AXE
+		return SKILL_MELEE
 	elseif skillName:sub(1, 4) == "dist" then
 		return SKILL_DISTANCE
-	elseif skillName:sub(1, 6) == "shield" then
-		return SKILL_SHIELD
-	elseif skillName:sub(1, 4) == "fish" then
-		return SKILL_FISHING
+	elseif skillName:sub(1, 3) == "def" then
+		return SKILL_DEFENSE
+	elseif skillName:sub(1, 4) == "toni" then
+		return SKILL_TONICITY
 	else
-		return SKILL_FIST
+		return SKILL_LUCK
 	end
 end
 
@@ -60,7 +62,7 @@ function addSkill.onSay(player, words, param)
 		targetExp = getExpForLevel(targetLevel)
 		addExp = targetExp - target:getExperience()
 		target:addExperience(addExp, false)
-	elseif ch == "m" then
+	elseif split[2] == "magic" then
 		for i = 1, count do
 			target:addManaSpent(target:getVocation():getRequiredManaSpent(target:getBaseMagicLevel() + 1) - target:getManaSpent(), true)
 		end

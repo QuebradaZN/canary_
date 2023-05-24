@@ -32,12 +32,12 @@ function Player.changeVocation(self, newVocationId)
 		magic.manaSpent = magic.manaSpent + self:getVocation():getRequiredManaSpent(level)
 	end
 	local skills = {
-		{id = SKILL_FIST},
-		{id = SKILL_CLUB},
-		{id = SKILL_SWORD},
-		{id = SKILL_AXE},
+		{id = SKILL_LUCK},
+		{id = SKILL_MELEE},
+		{id = SKILL_COOKING},
+		{id = SKILL_RUNIC},
 		{id = SKILL_DISTANCE},
-		{id = SKILL_SHIELD}
+		{id = SKILL_DEFENSE}
 	}
 	-- Get current vocation skills levels and skills tries
 	for i = 1, #skills do

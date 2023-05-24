@@ -146,7 +146,7 @@ bool Weapon::useFist(Player* player, Creature* target) {
 	}
 
 	float attackFactor = player->getAttackFactor();
-	int32_t attackSkill = player->getSkillLevel(SKILL_FIST);
+	int32_t attackSkill = player->getSkillLevel(SKILL_MELEE);
 	int32_t attackValue = 7;
 
 	int32_t maxDamage = Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor, true);
@@ -164,7 +164,7 @@ bool Weapon::useFist(Player* player, Creature* target) {
 
 	Combat::doCombatHealth(player, target, damage, params);
 	if (!player->hasFlag(PlayerFlags_t::NotGainSkill) && player->getAddAttackSkill()) {
-		player->addSkillAdvance(SKILL_FIST, 1);
+		player->addSkillAdvance(SKILL_MELEE, 1);
 	}
 
 	return true;
@@ -435,17 +435,17 @@ bool WeaponMelee::getSkillType(const Player* player, const Item* item, skills_t 
 	WeaponType_t weaponType = item->getWeaponType();
 	switch (weaponType) {
 		case WEAPON_SWORD: {
-			skill = SKILL_SWORD;
+			skill = SKILL_MELEE;
 			return true;
 		}
 
 		case WEAPON_CLUB: {
-			skill = SKILL_CLUB;
+			skill = SKILL_MELEE;
 			return true;
 		}
 
 		case WEAPON_AXE: {
-			skill = SKILL_AXE;
+			skill = SKILL_MELEE;
 			return true;
 		}
 

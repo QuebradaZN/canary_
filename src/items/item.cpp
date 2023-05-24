@@ -1125,7 +1125,7 @@ Item::getDescriptions(const ItemType &it, const Item* item /*= nullptr*/) {
 				skillBoost = true;
 			}
 
-			for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; i++) {
+			for (uint8_t i = SKILL_FIRST; i <= SKILL_TONICITY; i++) {
 				if (!it.abilities->skills[i]) {
 					continue;
 				}
@@ -1531,7 +1531,7 @@ Item::getDescriptions(const ItemType &it, const Item* item /*= nullptr*/) {
 				skillBoost = true;
 			}
 
-			for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; i++) {
+			for (uint8_t i = SKILL_FIRST; i <= SKILL_TONICITY; i++) {
 				if (!it.abilities->skills[i]) {
 					continue;
 				}
@@ -1992,7 +1992,7 @@ std::string Item::parseShowAttributesDescription(const Item* item, const uint16_
 		}
 
 		if (itemType.abilities) {
-			for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; i++) {
+			for (uint8_t i = SKILL_FIRST; i <= SKILL_TONICITY; i++) {
 				if (!itemType.abilities->skills[i]) {
 					continue;
 				}
@@ -2293,7 +2293,7 @@ std::string Item::getDescription(const ItemType &it, int32_t lookDistance, const
 			}
 
 			if (it.abilities) {
-				for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; i++) {
+				for (uint8_t i = SKILL_FIRST; i <= SKILL_TONICITY; i++) {
 					if (!it.abilities->skills[i]) {
 						continue;
 					}
@@ -2541,7 +2541,7 @@ std::string Item::getDescription(const ItemType &it, int32_t lookDistance, const
 			}
 
 			if (it.abilities) {
-				for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; i++) {
+				for (uint8_t i = SKILL_FIRST; i <= SKILL_TONICITY; i++) {
 					if (!it.abilities->skills[i]) {
 						continue;
 					}

@@ -9,7 +9,7 @@ chilliConCarniphila:setParameter(CONDITION_PARAM_SPEED, 80)
 
 local svargrondSalmonFilet = Condition(CONDITION_ATTRIBUTES)
 svargrondSalmonFilet:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-svargrondSalmonFilet:setParameter(CONDITION_PARAM_SKILL_FISHING, 30)
+svargrondSalmonFilet:setParameter(CONDITION_PARAM_SKILL_TONICITY, 30)
 
 local tropicalMarinatedTiger = Condition(CONDITION_ATTRIBUTES)
 tropicalMarinatedTiger:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
@@ -21,7 +21,7 @@ delicatessenSalad:setParameter(CONDITION_PARAM_SKILL_MELEE, 3)
 
 local roastedWyvernWings = Condition(CONDITION_ATTRIBUTES)
 roastedWyvernWings:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-roastedWyvernWings:setParameter(CONDITION_PARAM_SKILL_SHIELD, 7)
+roastedWyvernWings:setParameter(CONDITION_PARAM_SKILL_DEFENSE, 7)
 
 local carrotPie = Condition(CONDITION_ATTRIBUTES)
 carrotPie:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)

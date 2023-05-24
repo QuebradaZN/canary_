@@ -7,7 +7,6 @@ combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_TELEPORT)
 local condition = Condition(CONDITION_ATTRIBUTES)
 condition:setParameter(CONDITION_PARAM_TICKS, 35000)
 condition:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, i)
-condition:setParameter(CONDITION_PARAM_SKILL_FISTPERCENT, i)
 
 	local area = createCombatArea({
 		{0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},

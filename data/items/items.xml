@@ -5036,7 +5036,7 @@
 	</item>
 	<item id="3087" article="a" name="power ring">
 		<attribute key="showduration" value="1"/>
-		<attribute key="skillfist" value="6"/>
+		<attribute key="skillluck" value="6"/>
 		<attribute key="duration" value="1800"/>
 		<attribute key="transformdeequipto" value="3050"/>
 		<attribute key="decayTo" value="0"/>
@@ -5090,7 +5090,7 @@
 	</item>
 	<item id="3094" article="a" name="sword ring">
 		<attribute key="showduration" value="1"/>
-		<attribute key="skillsword" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="duration" value="1800"/>
 		<attribute key="transformdeequipto" value="3091"/>
 		<attribute key="decayTo" value="0"/>
@@ -5098,7 +5098,7 @@
 	</item>
 	<item id="3095" article="an" name="axe ring">
 		<attribute key="showduration" value="1"/>
-		<attribute key="skillaxe" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="duration" value="1800"/>
 		<attribute key="transformdeequipto" value="3092"/>
 		<attribute key="decayTo" value="0"/>
@@ -5106,7 +5106,7 @@
 	</item>
 	<item id="3096" article="a" name="club ring">
 		<attribute key="showduration" value="1"/>
-		<attribute key="skillclub" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="duration" value="1800"/>
 		<attribute key="transformdeequipto" value="3093"/>
 		<attribute key="decayTo" value="0"/>
@@ -12871,7 +12871,7 @@
 		<attribute key="description" value="Wearing it makes you feel a little weaker than usual"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="absorbpercentdeath" value="5"/>
-		<attribute key="skillshield" value="-10"/>
+		<attribute key="skilldefense" value="-10"/>
 		<attribute key="duration" value="480"/>
 		<attribute key="transformdeequipto" value="6299"/>
 		<attribute key="decayTo" value="0"/>
@@ -16205,28 +16205,28 @@
 	<item id="8053" article="a" name="fireborn giant armor">
 		<attribute key="absorbpercentice" value="-5"/>
 		<attribute key="absorbpercentfire" value="5"/>
-		<attribute key="skillsword" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="armor" value="15"/>
 		<attribute key="weight" value="12000"/>
 	</item>
 	<item id="8054" article="an" name="earthborn titan armor">
 		<attribute key="absorbpercentpoison" value="5"/>
 		<attribute key="absorbpercentfire" value="-5"/>
-		<attribute key="skillaxe" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="armor" value="15"/>
 		<attribute key="weight" value="12000"/>
 	</item>
 	<item id="8055" article="a" name="windborn colossus armor">
 		<attribute key="absorbpercentpoison" value="-5"/>
 		<attribute key="absorbpercentenergy" value="5"/>
-		<attribute key="skillclub" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="armor" value="15"/>
 		<attribute key="weight" value="12000"/>
 	</item>
 	<item id="8056" article="an" name="oceanborn leviathan armor">
 		<attribute key="absorbpercentice" value="5"/>
 		<attribute key="absorbpercentenergy" value="-5"/>
-		<attribute key="skillshield" value="1"/>
+		<attribute key="skilldefense" value="1"/>
 		<attribute key="armor" value="15"/>
 		<attribute key="weight" value="10000"/>
 	</item>
@@ -16357,7 +16357,7 @@
 	<item id="8078" article="a" name="fiery rainbow shield">
 		<attribute key="description" value="It has been temporarily imbued with fire magic and boosts your shielding skill"/>
 		<attribute key="weaponType" value="shield"/>
-		<attribute key="skillshield" value="3"/>
+		<attribute key="skilldefense" value="3"/>
 		<attribute key="duration" value="1200"/>
 		<attribute key="decayTo" value="8077"/>
 		<attribute key="defense" value="36"/>
@@ -21752,7 +21752,7 @@
 	</item>
 	<item id="11686" article="a" name="royal draken mail">
 		<attribute key="absorbpercentphysical" value="5"/>
-		<attribute key="skillshield" value="3"/>
+		<attribute key="skilldefense" value="3"/>
 		<attribute key="armor" value="16"/>
 		<attribute key="weight" value="13000"/>
 	</item>
@@ -21765,7 +21765,7 @@
 	<item id="11688" article="a" name="shield of corruption">
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="defense" value="36"/>
 		<attribute key="weight" value="4900"/>
 		<attribute key="imbuementslot" value="1">
@@ -24075,7 +24075,7 @@
 	<item id="13993" article="an" name="ornate chestplate">
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentphysical" value="8"/>
-		<attribute key="skillshield" value="3"/>
+		<attribute key="skilldefense" value="3"/>
 		<attribute key="armor" value="16"/>
 		<attribute key="weight" value="15600"/>
 		<attribute key="imbuementslot" value="2">
@@ -25729,7 +25729,7 @@
 	</item>
 	<item id="16109" article="a" name="prismatic helmet">
 		<attribute key="absorbpercentphysical" value="5"/>
-		<attribute key="skillshield" value="1"/>
+		<attribute key="skilldefense" value="1"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="weight" value="5600"/>
 	</item>
@@ -25793,7 +25793,7 @@
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentphysical" value="4"/>
-		<attribute key="skillshield" value="2"/>
+		<attribute key="skilldefense" value="2"/>
 		<attribute key="defense" value="37"/>
 		<attribute key="weight" value="7200"/>
 	</item>
@@ -25966,7 +25966,7 @@
 	<item id="16161" article="a" name="crystalline axe">
 		<attribute key="description" value="Even in the light of day, the stars seem to reflect in each facet of this crystalline axe"/>
 		<attribute key="weaponType" value="axe"/>
-		<attribute key="skillaxe" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="attack" value="51"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="29"/>
@@ -25981,7 +25981,7 @@
 	</item>
 	<item id="16162" article="a" name="mycological mace">
 		<attribute key="weaponType" value="club"/>
-		<attribute key="skillclub" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="attack" value="50"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="31"/>
@@ -26045,7 +26045,7 @@
 	<item id="16174" name="crystal glass floor"/>
 	<item id="16175" article="a" name="shiny blade">
 		<attribute key="weaponType" value="sword"/>
-		<attribute key="skillsword" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="attack" value="49"/>
 		<attribute key="extradef" value="2"/>
 		<attribute key="defense" value="35"/>
@@ -26147,7 +26147,7 @@
 		<attribute key="description" value="Use this statue to train your axe fighting and shielding skill offline."/>
 	</item>
 	<item id="16200" article="a" name="skill trainer">
-		<attribute key="description" value="Use this statue to train your club fighting and shielding skill offline."/>
+		<attribute key="description" value="Use this statue to train your melee fighting and shielding skill offline."/>
 	</item>
 	<item id="16201" article="a" name="skill trainer">
 		<attribute key="description" value="Use this statue to train your distance fighting and shielding skill offline."/>
@@ -30525,7 +30525,7 @@
 	</item>
 	<item id="20066" article="an" name="umbral masterblade">
 		<attribute key="weaponType" value="sword"/>
-		<attribute key="skillsword" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="attack" value="52"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="31"/>
@@ -30562,7 +30562,7 @@
 	<item id="20069" article="an" name="umbral master slayer">
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="54"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="weight" value="9000"/>
@@ -30597,7 +30597,7 @@
 	</item>
 	<item id="20072" article="an" name="umbral master axe">
 		<attribute key="weaponType" value="axe"/>
-		<attribute key="skillaxe" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="attack" value="53"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="30"/>
@@ -30634,7 +30634,7 @@
 	<item id="20075" article="an" name="umbral master chopper">
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
-		<attribute key="skillaxe" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="54"/>
 		<attribute key="defense" value="34"/>
 		<attribute key="weight" value="11000"/>
@@ -30669,7 +30669,7 @@
 	</item>
 	<item id="20078" article="an" name="umbral master mace">
 		<attribute key="weaponType" value="club"/>
-		<attribute key="skillclub" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="attack" value="52"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="30"/>
@@ -30706,7 +30706,7 @@
 	<item id="20081" article="an" name="umbral master hammer">
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
-		<attribute key="skillclub" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="55"/>
 		<attribute key="defense" value="34"/>
 		<attribute key="weight" value="16000"/>
@@ -33861,7 +33861,7 @@
 	<item id="22112" name="RESERVED SPRITE"/>
 	<!-- club -->
 	<item id="22113" article="an" name="enchanted werewolf helmet">
-		<attribute key="description" value="This helmet can only be worn by knights and amplifies club fighting."/>
+		<attribute key="description" value="This helmet can only be worn by knights and amplifies melee fighting."/>
 		<attribute key="transformequipto" value="22128"/>
 		<attribute key="weight" value="2500"/>
 	</item>
@@ -33911,7 +33911,7 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentphysical" value="4"/>
-		<attribute key="skillaxe" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="decayTo" value="22062"/>
 		<attribute key="armor" value="9"/>
@@ -33922,7 +33922,7 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentphysical" value="4"/>
-		<attribute key="skillclub" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="decayTo" value="22062"/>
 		<attribute key="armor" value="9"/>
@@ -33959,7 +33959,7 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentphysical" value="4"/>
-		<attribute key="skillsword" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="decayTo" value="22062"/>
 		<attribute key="armor" value="9"/>
@@ -34258,84 +34258,84 @@
 	<item id="22518" article="a" name="Fireheart cuirass">
 		<attribute key="absorbpercentice" value="-8"/>
 		<attribute key="absorbpercentfire" value="8"/>
-		<attribute key="skillsword" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22519" article="a" name="fireheart hauberk">
 		<attribute key="absorbpercentice" value="-8"/>
 		<attribute key="absorbpercentfire" value="8"/>
-		<attribute key="skillaxe" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22520" article="a" name="fireheart platemail">
 		<attribute key="absorbpercentice" value="-8"/>
 		<attribute key="absorbpercentfire" value="8"/>
-		<attribute key="skillclub" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22521" article="an" name="earthheart cuirass">
 		<attribute key="absorbpercentpoison" value="8"/>
 		<attribute key="absorbpercentfire" value="-8"/>
-		<attribute key="skillsword" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22522" article="an" name="earthheart hauberk">
 		<attribute key="absorbpercentpoison" value="8"/>
 		<attribute key="absorbpercentfire" value="-8"/>
-		<attribute key="skillaxe" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22523" article="an" name="earthheart platemail">
 		<attribute key="absorbpercentpoison" value="8"/>
 		<attribute key="absorbpercentfire" value="-8"/>
-		<attribute key="skillclub" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22524" article="a" name="thunderheart cuirass">
 		<attribute key="absorbpercentpoison" value="-8"/>
 		<attribute key="absorbpercentenergy" value="8"/>
-		<attribute key="skillsword" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22525" article="a" name="thunderheart hauberk">
 		<attribute key="absorbpercentpoison" value="-8"/>
 		<attribute key="absorbpercentenergy" value="8"/>
-		<attribute key="skillaxe" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22526" article="a" name="thunderheart platemail">
 		<attribute key="absorbpercentpoison" value="-8"/>
 		<attribute key="absorbpercentenergy" value="8"/>
-		<attribute key="skillclub" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22527" article="a" name="frostheart cuirass">
 		<attribute key="absorbpercentice" value="8"/>
 		<attribute key="absorbpercentenergy" value="-8"/>
-		<attribute key="skillsword" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22528" article="a" name="frostheart hauberk">
 		<attribute key="absorbpercentice" value="8"/>
 		<attribute key="absorbpercentenergy" value="-8"/>
-		<attribute key="skillaxe" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
 	<item id="22529" article="a" name="frostheart platemail">
 		<attribute key="absorbpercentice" value="8"/>
 		<attribute key="absorbpercentenergy" value="-8"/>
-		<attribute key="skillclub" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="14500"/>
 	</item>
@@ -35740,9 +35740,9 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentphysical" value="5"/>
-		<attribute key="skillclub" value="4"/>
-		<attribute key="skillaxe" value="4"/>
-		<attribute key="skillsword" value="4"/>
+		<attribute key="skillmelee" value="4"/>
+		<attribute key="skillmelee" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="duration" value="1800"/>
 		<attribute key="transformdeequipto" value="23544"/>
 		<attribute key="decayTo" value="0"/>
@@ -35793,9 +35793,9 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentphysical" value="3"/>
-		<attribute key="skillclub" value="3"/>
-		<attribute key="skillaxe" value="3"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="duration" value="1800"/>
 		<attribute key="transformdeequipto" value="23533"/>
 		<attribute key="decayTo" value="0"/>
@@ -40236,7 +40236,7 @@
 		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="absorbpercentice" value="-2"/>
 		<attribute key="absorbpercentenergy" value="8"/>
-		<attribute key="skillshield" value="2"/>
+		<attribute key="skilldefense" value="2"/>
 		<attribute key="defense" value="38"/>
 		<attribute key="weight" value="6000"/>
 		<attribute key="imbuementslot" value="1">
@@ -40253,7 +40253,7 @@
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="elementenergy" value="42"/>
 		<attribute key="absorbpercentenergy" value="6"/>
-		<attribute key="skillsword" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="29"/>
@@ -41568,7 +41568,7 @@
 	<item id="28715" article="a" name="falcon coif">
 		<attribute key="absorbpercentphysical" value="3"/>
 		<attribute key="absorbpercentfire" value="10"/>
-		<attribute key="skillshield" value="2"/>
+		<attribute key="skilldefense" value="2"/>
 		<attribute key="skilldist" value="2"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="weight" value="2800"/>
@@ -41630,7 +41630,7 @@
 	</item>
 	<item id="28719" article="a" name="falcon plate">
 		<attribute key="absorbpercentphysical" value="12"/>
-		<attribute key="skillshield" value="4"/>
+		<attribute key="skilldefense" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="18800"/>
 		<attribute key="imbuementslot" value="2">
@@ -41647,9 +41647,9 @@
 		<attribute key="absorbpercentphysical" value="7"/>
 		<attribute key="absorbpercentice" value="7"/>
 		<attribute key="skilldist" value="3"/>
-		<attribute key="skillclub" value="3"/>
-		<attribute key="skillaxe" value="3"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="weight" value="3600"/>
 	</item>
@@ -41689,7 +41689,7 @@
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="absorbpercentpoison" value="10"/>
-		<attribute key="skillsword" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="attack" value="56"/>
 		<attribute key="defense" value="34"/>
 		<attribute key="weight" value="8200"/>
@@ -41706,7 +41706,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementenergy" value="47"/>
 		<attribute key="absorbpercentenergy" value="12"/>
-		<attribute key="skillaxe" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="defense" value="33"/>
 		<attribute key="weight" value="9500"/>
@@ -41721,7 +41721,7 @@
 		<attribute key="weaponType" value="club"/>
 		<attribute key="elementenergy" value="41"/>
 		<attribute key="absorbpercentenergy" value="7"/>
-		<attribute key="skillclub" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="11"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="33"/>
@@ -42724,7 +42724,7 @@
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementice" value="46"/>
-		<attribute key="skillclub" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="attack" value="11"/>
 		<attribute key="defense" value="33"/>
 		<attribute key="weight" value="8900"/>
@@ -42754,7 +42754,7 @@
 	<item id="29421" article="a" name="summerblade">
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="elementfire" value="41"/>
-		<attribute key="skillsword" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="20"/>
@@ -42769,7 +42769,7 @@
 	<item id="29422" article="a" name="winterblade">
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="elementice" value="40"/>
-		<attribute key="skillsword" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="22"/>
@@ -42857,8 +42857,8 @@
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="absorbpercentice" value="7"/>
 		<attribute key="absorbpercentfire" value="-3"/>
-		<attribute key="skillclub" value="3"/>
-		<attribute key="skillaxe" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="defense" value="37"/>
 		<attribute key="weight" value="5800"/>
 		<attribute key="imbuementslot" value="1">
@@ -44260,7 +44260,7 @@
 	</item>
 	<item id="30395" name="cobra club">
 		<attribute key="elementfire" value="44"/>
-		<attribute key="skillclub" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="extradef" value="2"/>
 		<attribute key="defense" value="29"/>
@@ -44274,7 +44274,7 @@
 	</item>
 	<item id="30396" name="cobra axe">
 		<attribute key="elementice" value="44"/>
-		<attribute key="skillaxe" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="extradef" value="2"/>
 		<attribute key="defense" value="29"/>
@@ -44289,9 +44289,9 @@
 	<item id="30397" article="a" name="cobra hood">
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentphysical" value="5"/>
-		<attribute key="skillclub" value="1"/>
-		<attribute key="skillaxe" value="1"/>
-		<attribute key="skillsword" value="1"/>
+		<attribute key="skillmelee" value="1"/>
+		<attribute key="skillmelee" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="weight" value="2700"/>
 		<attribute key="imbuementslot" value="2">
@@ -44304,7 +44304,7 @@
 		</attribute>
 	</item>
 	<item id="30398" name="cobra sword">
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="52"/>
 		<attribute key="extradef" value="2"/>
 		<attribute key="defense" value="31"/>
@@ -45687,9 +45687,9 @@
 	<item id="31577" article="a" name="terra helmet">
 		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentpoison" value="5"/>
-		<attribute key="skillclub" value="2"/>
-		<attribute key="skillaxe" value="2"/>
-		<attribute key="skillsword" value="2"/>
+		<attribute key="skillmelee" value="2"/>
+		<attribute key="skillmelee" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="weight" value="3100"/>
 		<attribute key="imbuementslot" value="1">
@@ -45732,7 +45732,7 @@
 	<item id="31580" article="a" name="mortal mace">
 		<attribute key="weaponType" value="club"/>
 		<attribute key="elementdeath" value="44"/>
-		<attribute key="skillclub" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="extradef" value="2"/>
 		<attribute key="defense" value="27"/>
@@ -45865,7 +45865,7 @@
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementearth" value="49"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="7"/>
 		<attribute key="defense" value="32"/>
 		<attribute key="weight" value="8100"/>
@@ -48005,7 +48005,7 @@
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementfire" value="49"/>
-		<attribute key="skillaxe" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="attack" value="5"/>
 		<attribute key="defense" value="32"/>
 		<attribute key="weight" value="7200"/>
@@ -48020,9 +48020,9 @@
 		<attribute key="absorbpercentphysical" value="4"/>
 		<attribute key="absorbpercentfire" value="2"/>
 		<attribute key="skilldist" value="2"/>
-		<attribute key="skillclub" value="2"/>
-		<attribute key="skillaxe" value="2"/>
-		<attribute key="skillsword" value="2"/>
+		<attribute key="skillmelee" value="2"/>
+		<attribute key="skillmelee" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="weight" value="5500"/>
 	</item>
@@ -50007,7 +50007,7 @@
 		<attribute key="manaleechchance" value="100"/>
 		<attribute key="lifeleechamount" value="500"/>
 		<attribute key="lifeleechchance" value="100"/>
-		<attribute key="skillsword" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="attack" value="7"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="32"/>
@@ -50025,7 +50025,7 @@
 		<attribute key="elementice" value="47"/>
 		<attribute key="criticalhitdamage" value="10"/>
 		<attribute key="criticalhitchance" value="10"/>
-		<attribute key="skillsword" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="weight" value="8100"/>
@@ -50043,7 +50043,7 @@
 		<attribute key="manaleechchance" value="100"/>
 		<attribute key="lifeleechamount" value="500"/>
 		<attribute key="lifeleechchance" value="100"/>
-		<attribute key="skillaxe" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="attack" value="7"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="32"/>
@@ -50061,7 +50061,7 @@
 		<attribute key="elementice" value="47"/>
 		<attribute key="criticalhitdamage" value="10"/>
 		<attribute key="criticalhitchance" value="10"/>
-		<attribute key="skillaxe" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="defense" value="34"/>
 		<attribute key="weight" value="7200"/>
@@ -50079,7 +50079,7 @@
 		<attribute key="manaleechchance" value="100"/>
 		<attribute key="lifeleechamount" value="500"/>
 		<attribute key="lifeleechchance" value="100"/>
-		<attribute key="skillclub" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="attack" value="6"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="33"/>
@@ -50097,7 +50097,7 @@
 		<attribute key="elementenergy" value="47"/>
 		<attribute key="criticalhitdamage" value="10"/>
 		<attribute key="criticalhitchance" value="10"/>
-		<attribute key="skillclub" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="weight" value="8900"/>
@@ -50239,9 +50239,9 @@
 	<item id="34097" name="pair of soulwalkers">
 		<attribute key="absorbpercentphysical" value="7"/>
 		<attribute key="absorbpercentfire" value="5"/>
-		<attribute key="skillclub" value="1"/>
-		<attribute key="skillaxe" value="1"/>
-		<attribute key="skillsword" value="1"/>
+		<attribute key="skillmelee" value="1"/>
+		<attribute key="skillmelee" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="speed" value="15"/>
 		<attribute key="armor" value="4"/>
 		<attribute key="weight" value="1300"/>
@@ -50534,7 +50534,7 @@
 	<item id="34155" article="a" name="lion longsword">
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="elementearth" value="44"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="extradef" value="2"/>
 		<attribute key="defense" value="31"/>
@@ -50565,9 +50565,9 @@
 	</item>
 	<item id="34157" article="a" name="lion plate">
 		<attribute key="absorbpercentphysical" value="6"/>
-		<attribute key="skillclub" value="3"/>
-		<attribute key="skillaxe" value="3"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="armor" value="17"/>
 		<attribute key="weight" value="15000"/>
 		<attribute key="imbuementslot" value="2">
@@ -50851,7 +50851,7 @@
 	<item id="34253" article="a" name="lion axe">
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="elementearth" value="44"/>
-		<attribute key="skillaxe" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="extradef" value="2"/>
 		<attribute key="defense" value="31"/>
@@ -50866,7 +50866,7 @@
 	<item id="34254" article="a" name="lion hammer">
 		<attribute key="weaponType" value="club"/>
 		<attribute key="elementearth" value="44"/>
-		<attribute key="skillclub" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="extradef" value="2"/>
 		<attribute key="defense" value="31"/>
@@ -51617,7 +51617,7 @@
 	</item>
 	<item id="35515" article="a" name="throwing axe">
 		<attribute key="weaponType" value="axe"/>
-		<attribute key="skillaxe" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="attack" value="51"/>
 		<attribute key="extradef" value="2"/>
 		<attribute key="defense" value="30"/>
@@ -52833,7 +52833,7 @@
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementfire" value="50"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="6"/>
 		<attribute key="defense" value="33"/>
 		<attribute key="cleavepercent" value="3"/>
@@ -52850,7 +52850,7 @@
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementfire" value="50"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="6"/>
 		<attribute key="defense" value="33"/>
 		<attribute key="cleavepercent" value="3"/>
@@ -52866,7 +52866,7 @@
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementfire" value="50"/>
-		<attribute key="skillclub" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="6"/>
 		<attribute key="defense" value="33"/>
 		<attribute key="cleavepercent" value="3"/>
@@ -52883,7 +52883,7 @@
 		<attribute key="weaponType" value="club"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementfire" value="50"/>
-		<attribute key="skillclub" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="6"/>
 		<attribute key="defense" value="33"/>
 		<attribute key="cleavepercent" value="3"/>
@@ -52898,7 +52898,7 @@
 	<item id="36661" article="a" name="eldritch greataxe">
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
-		<attribute key="skillaxe" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="56"/>
 		<attribute key="defense" value="33"/>
 		<attribute key="cleavepercent" value="3"/>
@@ -52915,7 +52915,7 @@
 		<attribute key="description" value="Refined by the legendary artisan Gnomaurum"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
-		<attribute key="skillaxe" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="56"/>
 		<attribute key="defense" value="33"/>
 		<attribute key="cleavepercent" value="3"/>
@@ -56127,9 +56127,9 @@
 	<item id="39146" article="a" name="blessed pound"/>
 	<item id="39147" article="a" name="spiritthorn armor">
 		<attribute key="absorbpercentphysical" value="13"/>
-		<attribute key="skillsword" value="4"/>
-		<attribute key="skillaxe" value="4"/>
-		<attribute key="skillclub" value="4"/>
+		<attribute key="skillmelee" value="4"/>
+		<attribute key="skillmelee" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="reflectdamage" value="19"/>
 		<attribute key="armor" value="20"/>
 		<attribute key="weight" value="16000"/>
@@ -56146,9 +56146,9 @@
 	<item id="39148" article="a" name="spiritthorn helmet">
 		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="absorbpercentenergy" value="10"/>
-		<attribute key="skillsword" value="3"/>
-		<attribute key="skillaxe" value="3"/>
-		<attribute key="skillclub" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="reflectdamage" value="13"/>
 		<attribute key="armor" value="12"/>
 		<attribute key="weight" value="4400"/>
@@ -56255,7 +56255,7 @@
 	<item id="39155" article="a" name="naga sword">
 		<attribute key="weaponType" value="sword"/>
 		<attribute key="elementice" value="44"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="31"/>
@@ -56270,7 +56270,7 @@
 	<item id="39156" article="a" name="naga axe">
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="elementenergy" value="44"/>
-		<attribute key="skillaxe" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="31"/>
@@ -56284,7 +56284,7 @@
 	</item>
 	<item id="39157" article="a" name="naga club">
 		<attribute key="weaponType" value="club"/>
-		<attribute key="skillclub" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="attack" value="52"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="31"/>
@@ -56426,9 +56426,9 @@
 		<attribute key="absorbpercentearth" value="4"/>
 		<attribute key="absorbpercentenergy" value="4"/>
 		<attribute key="absorbpercentice" value="4"/>
-		<attribute key="skillclub" value="3"/>
-		<attribute key="skillaxe" value="3"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="transformDeEquipTo" value="39177"/>
 		<attribute key="showduration" value="1" />
@@ -56705,9 +56705,7 @@
 	<item id="39234" article="an" name="enchanted turtle amulet">
 		<attribute key="absorbpercentphysical" value="7"/>
 		<attribute key="absorbpercentice" value="15"/>
-		<attribute key="skillclub" value="3"/>
-		<attribute key="skillaxe" value="3"/>
-		<attribute key="skillsword" value="3"/>
+		<attribute key="skillmelee" value="3"/>
 		<attribute key="transformDeEquipTo" value="39233"/>
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
@@ -58192,9 +58190,9 @@
 	<item id="40588" article="a" name="antler-horn helmet">
 		<attribute key="absorbpercentphysical" value="3"/>
 		<attribute key="absorbpercentice" value="7"/>
-		<attribute key="skillclub" value="1"/>
-		<attribute key="skillaxe" value="1"/>
-		<attribute key="skillsword" value="1"/>
+		<attribute key="skillmelee" value="1"/>
+		<attribute key="skillmelee" value="1"/>
+		<attribute key="skillmelee" value="1"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="weight" value="2200"/>
 		<attribute key="imbuementslot" value="2">
@@ -58210,9 +58208,9 @@
 	<item id="40589" name="stitched mutant hide legs">
 		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentpoison" value="5"/>
-		<attribute key="skillclub" value="2"/>
-		<attribute key="skillaxe" value="2"/>
-		<attribute key="skillsword" value="2"/>
+		<attribute key="skillmelee" value="2"/>
+		<attribute key="skillmelee" value="2"/>
+		<attribute key="skillmelee" value="2"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="weight" value="3400"/>
 	</item>

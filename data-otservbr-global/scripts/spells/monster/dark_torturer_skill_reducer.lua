@@ -6,7 +6,7 @@ combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SOUND_PURPLE)
 
 local condition = Condition(CONDITION_ATTRIBUTES)
 condition:setParameter(CONDITION_PARAM_TICKS, 4000)
-condition:setParameter(CONDITION_PARAM_SKILL_SHIELDPERCENT, i)
+condition:setParameter(CONDITION_PARAM_SKILL_DEFENSEPERCENT, i)
 
 local area = createCombatArea({
 	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},

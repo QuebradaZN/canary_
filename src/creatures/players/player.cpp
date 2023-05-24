@@ -317,7 +317,7 @@ WeaponType_t Player::getWeaponType() const {
 
 int32_t Player::getWeaponSkill(const Item* item) const {
 	if (!item) {
-		return getSkillLevel(SKILL_FIST);
+		return getSkillLevel(SKILL_MELEE);
 	}
 
 	int32_t attackSkill;
@@ -325,17 +325,17 @@ int32_t Player::getWeaponSkill(const Item* item) const {
 	WeaponType_t weaponType = item->getWeaponType();
 	switch (weaponType) {
 		case WEAPON_SWORD: {
-			attackSkill = getSkillLevel(SKILL_SWORD);
+			attackSkill = getSkillLevel(SKILL_MELEE);
 			break;
 		}
 
 		case WEAPON_CLUB: {
-			attackSkill = getSkillLevel(SKILL_CLUB);
+			attackSkill = getSkillLevel(SKILL_MELEE);
 			break;
 		}
 
 		case WEAPON_AXE: {
-			attackSkill = getSkillLevel(SKILL_AXE);
+			attackSkill = getSkillLevel(SKILL_MELEE);
 			break;
 		}
 
@@ -400,7 +400,7 @@ float Player::getMitigation() const {
 }
 
 int32_t Player::getDefense() const {
-	int32_t defenseSkill = getSkillLevel(SKILL_FIST);
+	int32_t defenseSkill = getSkillLevel(SKILL_LUCK);
 	int32_t defenseValue = 7;
 	const Item* weapon;
 	const Item* shield;
@@ -421,7 +421,7 @@ int32_t Player::getDefense() const {
 		if (shield->getDefense() > 0) {
 			defenseValue += wheel()->getMajorStatConditional("Combat Mastery", WheelMajor_t::DEFENSE);
 		}
-		defenseSkill = getSkillLevel(SKILL_SHIELD);
+		defenseSkill = getSkillLevel(SKILL_DEFENSE);
 	}
 
 	if (defenseSkill == 0) {
@@ -2425,7 +2425,7 @@ void Player::onBlockHit() {
 		--shieldBlockCount;
 
 		if (hasShield()) {
-			addSkillAdvance(SKILL_SHIELD, 1);
+			addSkillAdvance(SKILL_DEFENSE, 1);
 		}
 	}
 }
@@ -5183,13 +5183,13 @@ uint16_t Player::getSkillLevel(skills_t skill) const {
 	}
 
 	// Wheel of destiny
-	if (skill >= SKILL_CLUB && skill <= SKILL_AXE) {
+	if (skill == SKILL_MELEE) {
 		skillLevel += m_wheelPlayer->getStat(WheelStat_t::MELEE);
 		skillLevel += m_wheelPlayer->getMajorStatConditional("Battle Instinct", WheelMajor_t::MELEE);
 	} else if (skill == SKILL_DISTANCE) {
 		skillLevel += m_wheelPlayer->getMajorStatConditional("Positional Tatics", WheelMajor_t::DISTANCE);
 		skillLevel += m_wheelPlayer->getStat(WheelStat_t::DISTANCE);
-	} else if (skill == SKILL_SHIELD) {
+	} else if (skill == SKILL_DEFENSE) {
 		skillLevel += m_wheelPlayer->getMajorStatConditional("Battle Instinct", WheelMajor_t::SHIELD);
 	} else if (skill == SKILL_MAGLEVEL) {
 		skillLevel += m_wheelPlayer->getMajorStatConditional("Positional Tatics", WheelMajor_t::MAGIC);

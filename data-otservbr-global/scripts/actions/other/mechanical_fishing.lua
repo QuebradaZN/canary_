@@ -44,8 +44,7 @@ function mechanicalFishing.onUse(player, item, fromPosition, target, toPosition,
 		return true
 	end
 
-	player:addSkillTries(SKILL_FISHING, 1, true)
-	if math.random(100) <= math.min(math.max(10 + (player:getEffectiveSkillLevel(SKILL_FISHING) - 10) * 0.597, 10), 50) then
+	if math.random(100) <= math.min(math.max(10 + 80 * 0.597, 10), 50) then
 		if useWorms and not player:removeItem("nail", 1) then
 			return true
 		end

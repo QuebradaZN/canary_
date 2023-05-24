@@ -1,7 +1,7 @@
 local berserk = Condition(CONDITION_ATTRIBUTES)
 berserk:setParameter(CONDITION_PARAM_TICKS, 10 * 60 * 1000)
 berserk:setParameter(CONDITION_PARAM_SKILL_MELEE, 5)
-berserk:setParameter(CONDITION_PARAM_SKILL_SHIELD, -10)
+berserk:setParameter(CONDITION_PARAM_SKILL_DEFENSE, -10)
 berserk:setParameter(CONDITION_PARAM_BUFF_SPELL, true)
 
 local mastermind = Condition(CONDITION_ATTRIBUTES)
@@ -12,7 +12,7 @@ mastermind:setParameter(CONDITION_PARAM_BUFF_SPELL, true)
 local bullseye = Condition(CONDITION_ATTRIBUTES)
 bullseye:setParameter(CONDITION_PARAM_TICKS, 10 * 60 * 1000)
 bullseye:setParameter(CONDITION_PARAM_SKILL_DISTANCE, 5)
-bullseye:setParameter(CONDITION_PARAM_SKILL_SHIELD, -10)
+bullseye:setParameter(CONDITION_PARAM_SKILL_DEFENSE, -10)
 bullseye:setParameter(CONDITION_PARAM_BUFF_SPELL, true)
 
 local antidote = Combat()
@@ -278,7 +278,7 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	player:getPosition():sendSingleSoundEffect(SOUND_EFFECT_TYPE_ITEM_USE_POTION, player:isInGhostMode() and nil or player)
 	-- Delay potion
 	playerDelayPotion[player:getId()] = systemTime() + 500
-	
+
 	if potion.func then
 		potion.func(player)
 		player:say("Aaaah...", MESSAGE_POTION)

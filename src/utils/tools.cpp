@@ -848,26 +848,26 @@ SpawnType_t getSpawnType(const std::string &strValue) {
 
 std::string getSkillName(uint8_t skillid) {
 	switch (skillid) {
-		case SKILL_FIST:
-			return "fist fighting";
+		case SKILL_LUCK:
+			return "luck";
 
-		case SKILL_CLUB:
-			return "club fighting";
+		case SKILL_MELEE:
+			return "melee fighting";
 
-		case SKILL_SWORD:
-			return "sword fighting";
+		case SKILL_COOKING:
+			return "cooking";
 
-		case SKILL_AXE:
-			return "axe fighting";
+		case SKILL_RUNIC:
+			return "runic fighting";
 
 		case SKILL_DISTANCE:
 			return "distance fighting";
 
-		case SKILL_SHIELD:
-			return "shielding";
+		case SKILL_DEFENSE:
+			return "defense";
 
-		case SKILL_FISHING:
-			return "fishing";
+		case SKILL_TONICITY:
+			return "tonicity";
 
 		case SKILL_CRITICAL_HIT_CHANCE:
 			return "critical hit chance";
@@ -1345,26 +1345,26 @@ const char* getReturnMessage(ReturnValue value) {
 		case RETURNVALUE_YOUDONTHAVEREQUIREDPROFESSION:
 			return "You don't have the required profession.";
 
-		case RETURNVALUE_NOTENOUGHFISTLEVEL:
-			return "You do not have enough fist level";
+		case RETURNVALUE_NOTENOUGHLUCKLEVEL:
+			return "You do not have enough luck level";
 
-		case RETURNVALUE_NOTENOUGHCLUBLEVEL:
-			return "You do not have enough club level";
+		case RETURNVALUE_NOTENOUGHMELEELEVEL:
+			return "You do not have enough melee level";
 
-		case RETURNVALUE_NOTENOUGHSWORDLEVEL:
-			return "You do not have enough sword level";
+		case RETURNVALUE_NOTENOUGHCOOKINGLEVEL:
+			return "You do not have enough cooking level";
 
-		case RETURNVALUE_NOTENOUGHAXELEVEL:
-			return "You do not have enough axe level";
+		case RETURNVALUE_NOTENOUGHRUNICLEVEL:
+			return "You do not have enough runic level";
 
 		case RETURNVALUE_NOTENOUGHDISTANCELEVEL:
 			return "You do not have enough distance level";
 
-		case RETURNVALUE_NOTENOUGHSHIELDLEVEL:
-			return "You do not have enough shielding level";
+		case RETURNVALUE_NOTENOUGHDEFENSELEVEL:
+			return "You do not have enough defense level";
 
-		case RETURNVALUE_NOTENOUGHFISHLEVEL:
-			return "You do not have enough fishing level";
+		case RETURNVALUE_NOTENOUGHTONICITYLEVEL:
+			return "You do not have enough tonicity level";
 
 		case RETURNVALUE_NOTPOSSIBLE:
 			return "Sorry, not possible.";

@@ -2074,13 +2074,13 @@ void ProtocolGame::sendHighscores(const std::vector<HighscoreCharacter> &charact
 
 	HighscoreCategory highscoreCategories[] = {
 		{ "Experience Points", HIGHSCORE_CATEGORY_EXPERIENCE },
-		{ "Fist Fighting", HIGHSCORE_CATEGORY_FIST_FIGHTING },
-		{ "Club Fighting", HIGHSCORE_CATEGORY_CLUB_FIGHTING },
-		{ "Sword Fighting", HIGHSCORE_CATEGORY_SWORD_FIGHTING },
-		{ "Axe Fighting", HIGHSCORE_CATEGORY_AXE_FIGHTING },
+		{ "Luck", HIGHSCORE_CATEGORY_LUCK },
+		{ "Melee fighting", HIGHSCORE_CATEGORY_MELEE_FIGHTING },
+		{ "Cooking", HIGHSCORE_CATEGORY_COOKING },
+		{ "Runic Fighting", HIGHSCORE_CATEGORY_RUNIC_FIGHTING },
 		{ "Distance Fighting", HIGHSCORE_CATEGORY_DISTANCE_FIGHTING },
-		{ "Shielding", HIGHSCORE_CATEGORY_SHIELDING },
-		{ "Fishing", HIGHSCORE_CATEGORY_FISHING },
+		{ "Defense", HIGHSCORE_CATEGORY_DEFENSE },
+		{ "Tonicity", HIGHSCORE_CATEGORY_TONICITY },
 		{ "Magic Level", HIGHSCORE_CATEGORY_MAGIC_LEVEL }
 	};
 
@@ -3455,7 +3455,7 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 		}
 	} else {
 		float attackFactor = player->getAttackFactor();
-		int32_t attackSkill = player->getSkillLevel(SKILL_FIST);
+		int32_t attackSkill = player->getSkillLevel(SKILL_LUCK);
 		int32_t attackValue = 7;
 
 		int32_t maxDamage = Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor, true);
@@ -5140,7 +5140,7 @@ void ProtocolGame::sendMarketDetail(uint16_t itemId, uint8_t tier) {
 		std::ostringstream ss;
 		bool separator = false;
 
-		for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; i++) {
+		for (uint8_t i = SKILL_FIRST; i <= SKILL_TONICITY; i++) {
 			if (!it.abilities->skills[i]) {
 				continue;
 			}
@@ -7074,7 +7074,7 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 	msg.addByte(0xA1);
 
 	if (oldProtocol) {
-		for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; ++i) {
+		for (uint8_t i = SKILL_FIRST; i <= SKILL_TONICITY; ++i) {
 			skills_t skill = static_cast<skills_t>(i);
 			msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(skill), std::numeric_limits<uint16_t>::max()));
 			msg.add<uint16_t>(player->getBaseSkill(skill));
@@ -7086,7 +7086,7 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage &msg) {
 		msg.add<uint16_t>(player->getLoyaltyMagicLevel());
 		msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
 
-		for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; ++i) {
+		for (uint8_t i = SKILL_FIRST; i <= SKILL_TONICITY; ++i) {
 			skills_t skill = static_cast<skills_t>(i);
 			msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(skill), std::numeric_limits<uint16_t>::max()));
 			msg.add<uint16_t>(player->getBaseSkill(skill));

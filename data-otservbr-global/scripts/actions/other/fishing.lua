@@ -44,7 +44,7 @@ function fishing.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 		toPosition:sendMagicEffect(CONST_ME_WATERSPLASH)
 		target:transform(target.itemid + 1)
-		
+
 		local chance = math.random(10000)
 		for i = 1, #elementals.chances do
 			local randomItem = elementals.chances[i]
@@ -89,16 +89,12 @@ function fishing.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "With a giant splash, you heave an enormous fish out of the water.")
 				return true
 			end
-		elseif math.random(100) <= math.min(math.max(10 + (player:getEffectiveSkillLevel(SKILL_FISHING) - 10) * 0.597, 10), 50) then
+		elseif math.random(100) <= math.min(math.max(10 + 80 * 0.597, 10), 50) then
 			player:addItem(3578, 1)
 		end
 	end
 
-	if player:getItemCount(3492) > 0 then
-		player:addSkillTries(SKILL_FISHING, 1, true)
-	end
-	
-	if math.random(100) <= math.min(math.max(10 + (player:getEffectiveSkillLevel(SKILL_FISHING) - 10) * 0.597, 10), 50) then
+	if math.random(100) <= math.min(math.max(10 + 80 * 0.597, 10), 50) then
 		if useWorms and not player:removeItem("worm", 1) then
 			return true
 		end

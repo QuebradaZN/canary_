@@ -197,19 +197,19 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 						uint8_t skillId;
 						std::string tmpStrValue = asLowerCaseString(attr.as_string());
 						if (tmpStrValue == "sword") {
-							skillId = SKILL_SWORD;
+							skillId = SKILL_MELEE;
 						} else if (tmpStrValue == "axe") {
-							skillId = SKILL_AXE;
+							skillId = SKILL_MELEE;
 						} else if (tmpStrValue == "club") {
-							skillId = SKILL_CLUB;
+							skillId = SKILL_MELEE;
 						} else if ((tmpStrValue == "dist") || (tmpStrValue == "distance")) {
 							skillId = SKILL_DISTANCE;
 						} else if (tmpStrValue == "fish") {
-							skillId = SKILL_FISHING;
+							skillId = SKILL_TONICITY;
 						} else if (tmpStrValue == "shield") {
-							skillId = SKILL_SHIELD;
-						} else if (tmpStrValue == "fist") {
-							skillId = SKILL_FIST;
+							skillId = SKILL_DEFENSE;
+						} else if (tmpStrValue == "luck") {
+							skillId = SKILL_LUCK;
 						} else if (tmpStrValue == "magicpoints") {
 							skillId = STAT_MAGICPOINTS;
 							usenormalskill = 2;

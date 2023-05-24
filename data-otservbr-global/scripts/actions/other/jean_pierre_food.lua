@@ -8,7 +8,7 @@ local condition_shield = createConditionObject(CONDITION_ATTRIBUTES)
 setConditionParam(condition_shield, CONDITION_PARAM_SUBID, 3)
 setConditionParam(condition_shield, CONDITION_PARAM_BUFF_SPELL, 1)
 setConditionParam(condition_shield, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-setConditionParam(condition_shield, CONDITION_PARAM_SKILL_SHIELD, 10)
+setConditionParam(condition_shield, CONDITION_PARAM_SKILL_DEFENSE, 10)
 setConditionParam(condition_shield, CONDITION_PARAM_FORCEUPDATE, true)
 local condition_ml = createConditionObject(CONDITION_ATTRIBUTES)
 setConditionParam(condition_ml, CONDITION_PARAM_SUBID, 4)
@@ -32,7 +32,7 @@ local condition_f = createConditionObject(CONDITION_ATTRIBUTES)
 setConditionParam(condition_f, CONDITION_PARAM_SUBID, 6)
 setConditionParam(condition_f, CONDITION_PARAM_BUFF_SPELL, 1)
 setConditionParam(condition_f, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-setConditionParam(condition_f, CONDITION_PARAM_SKILL_FISHING, 50)
+setConditionParam(condition_f, CONDITION_PARAM_SKILL_TONICITY, 50)
 setConditionParam(condition_f, CONDITION_PARAM_FORCEUPDATE, true)
 local condition_speed = createConditionObject(CONDITION_HASTE)
 setConditionParam(condition_speed, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
@@ -195,7 +195,7 @@ function jeanPierreFood.onUse(player, item, frompos, item2, topos)
 		else
 			r_m_am = 1
 		end
-		
+
 		for i = 1, 10 do
 			doPlayerAddItem(cid, r_t[ring.itemid], r_m_am)
 		end
@@ -204,7 +204,7 @@ function jeanPierreFood.onUse(player, item, frompos, item2, topos)
 		return true
 	else
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This ring cannot be multiplied.")
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)	 
+		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return true
 		end
 	end

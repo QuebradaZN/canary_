@@ -1907,7 +1907,7 @@ int32_t PlayerWheel::checkDrainBodyLeech(const Creature* target, skills_t skill)
 }
 
 int32_t PlayerWheel::checkBattleHealingAmount() const {
-	double amount = (double)m_player.getSkillLevel(SKILL_SHIELD) * 0.2;
+	double amount = (double)m_player.getSkillLevel(SKILL_DEFENSE) * 0.2;
 	uint8_t healthPercent = (m_player.getHealth() * 100) / m_player.getMaxHealth();
 	if (healthPercent <= 30) {
 		amount *= 3;
@@ -2539,7 +2539,7 @@ void PlayerWheel::adjustDamageBasedOnResistanceAndSkill(int32_t &damage, CombatT
 }
 
 float PlayerWheel::calculateMitigation() const {
-	int32_t skill = m_player.getSkillLevel(SKILL_SHIELD);
+	int32_t skill = m_player.getSkillLevel(SKILL_DEFENSE);
 	int32_t defenseValue = 0;
 	const Item* weapon = m_player.inventory[CONST_SLOT_LEFT];
 	const Item* shield = m_player.inventory[CONST_SLOT_RIGHT];

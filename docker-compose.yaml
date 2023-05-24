@@ -1,0 +1,74 @@
+version: '3.1'
+
+services:
+
+  mysql:
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tibia
+      MYSQL_USER: tibia
+      MYSQL_PASSWORD: tibia
+    ports:
+      - 33060:3306
+    volumes:
+      - canary-db:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - canary
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - canary
+    depends_on:
+      - mysql
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - canary
+    volumes:
+      - ../canaryaac/:/var/www/html/
+      - .:/canary
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    networks:
+      - canary
+    volumes:
+      - ../canaryaac/:/var/www/html/
+  # pre-built-server:
+  #   image: ubuntu:22.04
+  #   restart: always
+  #   ports:
+  #     - 7171:7171
+  #     - 7172:7172
+  #   working_dir: /srv/canary
+  #   volumes:
+  #     - ./build/linux-release/bin/canary:/srv/canary/canary
+  #     - ./data:/srv/canary/data
+  #     - ./data-canary:/srv/canary/data-canary
+  #     - ./data-otservbr-global:/srv/canary/data-otservbr-global
+  #     - ./config.lua:/srv/canary/config.lua
+  #   networks:
+  #     - canary
+  #   depends_on:
+  #     - mysql
+
+networks:
+  canary:
+    name: canary
+
+volumes:
+  canary-db:

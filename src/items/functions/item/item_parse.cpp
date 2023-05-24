@@ -434,20 +434,20 @@ void ItemParse::parseHealthAndMana(const std::string &tmpStrValue, pugi::xml_att
 
 void ItemParse::parseSkills(const std::string &tmpStrValue, pugi::xml_attribute valueAttribute, ItemType &itemType) {
 	std::string stringValue = tmpStrValue;
-	if (stringValue == "skillsword") {
-		itemType.getAbilities().skills[SKILL_SWORD] = pugi::cast<int32_t>(valueAttribute.value());
-	} else if (stringValue == "skillaxe") {
-		itemType.getAbilities().skills[SKILL_AXE] = pugi::cast<int32_t>(valueAttribute.value());
-	} else if (stringValue == "skillclub") {
-		itemType.getAbilities().skills[SKILL_CLUB] = pugi::cast<int32_t>(valueAttribute.value());
+	if (stringValue == "skillcooking") {
+		itemType.getAbilities().skills[SKILL_COOKING] = pugi::cast<int32_t>(valueAttribute.value());
+	} else if (stringValue == "skillrunic") {
+		itemType.getAbilities().skills[SKILL_RUNIC] = pugi::cast<int32_t>(valueAttribute.value());
+	} else if (stringValue == "skillmelee") {
+		itemType.getAbilities().skills[SKILL_MELEE] = pugi::cast<int32_t>(valueAttribute.value());
 	} else if (stringValue == "skilldist") {
 		itemType.getAbilities().skills[SKILL_DISTANCE] = pugi::cast<int32_t>(valueAttribute.value());
-	} else if (stringValue == "skillfish") {
-		itemType.getAbilities().skills[SKILL_FISHING] = pugi::cast<int32_t>(valueAttribute.value());
-	} else if (stringValue == "skillshield") {
-		itemType.getAbilities().skills[SKILL_SHIELD] = pugi::cast<int32_t>(valueAttribute.value());
-	} else if (stringValue == "skillfist") {
-		itemType.getAbilities().skills[SKILL_FIST] = pugi::cast<int32_t>(valueAttribute.value());
+	} else if (stringValue == "skilltonicity") {
+		itemType.getAbilities().skills[SKILL_TONICITY] = pugi::cast<int32_t>(valueAttribute.value());
+	} else if (stringValue == "skilldefense") {
+		itemType.getAbilities().skills[SKILL_DEFENSE] = pugi::cast<int32_t>(valueAttribute.value());
+	} else if (stringValue == "skillluck") {
+		itemType.getAbilities().skills[SKILL_LUCK] = pugi::cast<int32_t>(valueAttribute.value());
 	}
 }
 
