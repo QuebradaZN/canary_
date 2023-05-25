@@ -245,6 +245,7 @@ void LuaEnums::initCallbackParamEnums(lua_State* L) {
 	registerEnum(L, CALLBACK_PARAM_SKILLVALUE);
 	registerEnum(L, CALLBACK_PARAM_TARGETTILE);
 	registerEnum(L, CALLBACK_PARAM_TARGETCREATURE);
+	registerEnum(L, CALLBACK_PARAM_RUNICVALUE);
 	registerEnum(L, CALLBACK_PARAM_CHAINVALUE);
 	registerEnum(L, CALLBACK_PARAM_CHAINPICKER);
 }
@@ -277,6 +278,7 @@ void LuaEnums::initCombatFormulaEnums(lua_State* L) {
 	registerEnum(L, COMBAT_FORMULA_LEVELMAGIC);
 	registerEnum(L, COMBAT_FORMULA_SKILL);
 	registerEnum(L, COMBAT_FORMULA_DAMAGE);
+	registerEnum(L, COMBAT_FORMULA_RUNIC);
 }
 
 void LuaEnums::initDirectionEnums(lua_State* L) {

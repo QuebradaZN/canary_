@@ -10,7 +10,7 @@ function onGetFormulaValues(player, level, maglevel)
 	return -min, -max
 end
 
-combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
+combat:setCallback(CALLBACK_PARAM_RUNICVALUE, "onGetFormulaValues")
 
 local rune = Spell("rune")
 

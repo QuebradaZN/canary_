@@ -441,3 +441,6 @@ vipBonusSkill = 0
 vipAutoLootVipOnly = false
 vipStayOnline = false
 vipFamiliarTimeCooldownReduction = 0
+
+-- Runic
+runicMultiplier = 1/500
