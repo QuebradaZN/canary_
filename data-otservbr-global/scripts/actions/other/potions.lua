@@ -246,13 +246,30 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 		return true
 	end
 
+	local skillGain = 1
+	local tonicity = player:getSkillLevel(SKILL_TONICITY)
+	local level = player:getLevel()
+
 	if potion.health or potion.mana or potion.combat then
 		if potion.health then
-			doTargetCombatHealth(player, target, COMBAT_HEALING, potion.health[1], potion.health[2], CONST_ME_MAGIC_BLUE)
+			local max = potion.health[2] * (1 + (0.5 + (level / 500)) * (tonicity / 1000))
+			local rangeRatio = 250 / tonicity
+			local min = max - (potion.health[2] - potion.health[1]) / rangeRatio
+			if min < max then
+				min = max
+			end
+
+			doTargetCombatHealth(player, target, COMBAT_HEALING, min, max, CONST_ME_MAGIC_BLUE)
+			skillGain = skillGain + potion.health[2] / 100
 		end
 
 		if potion.mana then
-			doTargetCombatMana(0, target, potion.mana[1], potion.mana[2], CONST_ME_MAGIC_BLUE)
+			local max = potion.mana[2] * (1 + (0.75 + (level / 500)) * (tonicity / 750))
+			local rangeRatio = 250 / tonicity
+			local min = max - (potion.mana[2] - potion.mana[1]) / rangeRatio
+
+			doTargetCombatMana(0, target, min, max, CONST_ME_MAGIC_BLUE)
+			skillGain = skillGain + potion.mana[2] / 100
 		end
 
 		if potion.combat then
@@ -290,6 +307,8 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 		player:say(potion.text, MESSAGE_POTION)
 		player:getPosition():sendMagicEffect(potion.effect)
 	end
+
+	player:addSkillTries(SKILL_TONICITY, skillGain)
 
 	if potion.transform then
 		if item:getCount() >= 1 then
