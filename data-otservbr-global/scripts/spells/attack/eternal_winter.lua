@@ -1,4 +1,6 @@
+local spell = Spell("instant")
 local combat = Combat()
+
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ICEDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ICETORNADO)
 combat:setArea(createCombatArea(AREA_CIRCLE5X5))
@@ -11,9 +13,18 @@ end
 
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 
-local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
+	local condition = Condition(CONDITION_FREEZING)
+	condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+
+	local player = creature:getPlayer()
+
+	if creature and player then
+		local dotDmg = -1 * ((player:getLevel() / 5) + (player:getMagicLevel() * 9)) / 10
+		condition:addDamage(3, 1000, dotDmg/3)
+		combat:addCondition(condition)
+	end
+
 	return combat:execute(creature, var)
 end
 
