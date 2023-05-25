@@ -13,6 +13,8 @@ local function getSkillId(skillName)
 		return SKILL_DEFENSE
 	elseif skillName:sub(1, 4) == "toni" then
 		return SKILL_TONICITY
+	elseif skillName:sub(1, 4) == "runi" then
+		return SKILL_RUNIC
 	else
 		return SKILL_LUCK
 	end

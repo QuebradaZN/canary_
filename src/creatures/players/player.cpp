@@ -400,7 +400,7 @@ float Player::getMitigation() const {
 }
 
 int32_t Player::getDefense() const {
-	int32_t defenseSkill = getSkillLevel(SKILL_LUCK);
+	int32_t defenseSkill = getSkillLevel(SKILL_DEFENSE);
 	int32_t defenseValue = 7;
 	const Item* weapon;
 	const Item* shield;
@@ -412,7 +412,6 @@ int32_t Player::getDefense() const {
 
 	if (weapon) {
 		defenseValue = weapon->getDefense() + weapon->getExtraDefense();
-		defenseSkill = getWeaponSkill(weapon);
 	}
 
 	if (shield) {
@@ -421,7 +420,6 @@ int32_t Player::getDefense() const {
 		if (shield->getDefense() > 0) {
 			defenseValue += wheel()->getMajorStatConditional("Combat Mastery", WheelMajor_t::DEFENSE);
 		}
-		defenseSkill = getSkillLevel(SKILL_DEFENSE);
 	}
 
 	if (defenseSkill == 0) {

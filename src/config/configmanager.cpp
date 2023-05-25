@@ -346,6 +346,15 @@ bool ConfigManager::load() {
 	integer[HAZARD_SPAWN_PLUNDER_MULTIPLIER] = getGlobalNumber(L, "hazardSpawnPlunderMultiplier", 25);
 	integer[LOW_LEVEL_BONUS_EXP] = getGlobalNumber(L, "lowLevelBonusExp", 50);
 
+	floating[RUNIC_MULTIPLIER] = getGlobalFloat(L, "runicMultiplier", 1 / 500.0);
+
+	boolean[VIP_SYSTEM_ENABLED] = getGlobalBoolean(L, "vipSystemEnabled", false);
+	integer[VIP_BONUS_EXP] = getGlobalNumber(L, "vipBonusExp", 20);
+	integer[VIP_BONUS_LOOT] = getGlobalNumber(L, "vipBonusLoot", 20);
+	integer[VIP_BONUS_SKILL] = getGlobalNumber(L, "vipBonusSkill", 20);
+	boolean[VIP_STAY_ONLINE] = getGlobalBoolean(L, "vipStayOnline", false);
+	boolean[VIP_AUTOLOOT_VIP_ONLY] = getGlobalBoolean(L, "vipAutoLootVipOnly", false);
+
 	boolean[LOYALTY_ENABLED] = getGlobalBoolean(L, "loyaltyEnabled", true);
 	integer[LOYALTY_POINTS_PER_CREATION_DAY] = getGlobalNumber(L, "loyaltyPointsPerCreationDay", 1);
 	integer[LOYALTY_POINTS_PER_PREMIUM_DAY_SPENT] = getGlobalNumber(L, "loyaltyPointsPerPremiumDaySpent", 0);

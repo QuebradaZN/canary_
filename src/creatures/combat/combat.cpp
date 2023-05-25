@@ -1471,10 +1471,11 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage &damage, bool u
 
 	switch (type) {
 		case COMBAT_FORMULA_LEVELMAGIC: {
-			// onGetPlayerMinMaxValues(player, level, maglevel)
+			// onGetPlayerMinMaxValues(player, level, maglevel, runic)
 			lua_pushnumber(L, player->getLevel());
 			lua_pushnumber(L, getMagicLevelSkill(player, damage));
-			parameters += 2;
+			lua_pushnumber(L, player->getSkillLevel(SKILL_RUNIC));
+			parameters += 3;
 			break;
 		}
 

@@ -3455,7 +3455,7 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 		}
 	} else {
 		float attackFactor = player->getAttackFactor();
-		int32_t attackSkill = player->getSkillLevel(SKILL_LUCK);
+		int32_t attackSkill = player->getSkillLevel(SKILL_MELEE);
 		int32_t attackValue = 7;
 
 		int32_t maxDamage = Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor, true);
