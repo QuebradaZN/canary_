@@ -1506,6 +1506,7 @@ struct CombatDamage {
 		bool extension = false;
 		std::string exString;
 		bool fatal = false;
+		bool runic = false;
 
 		int32_t criticalDamage = 0;
 		int32_t criticalChance = 0;
