@@ -5206,6 +5206,9 @@ uint16_t Player::getSkillLevel(skills_t skill) const {
 	if (skill == SKILL_CRITICAL_HIT_CHANCE && avatarCritChance > 0) {
 		skillLevel = avatarCritChance; // 100%
 	}
+	if (skill == SKILL_CRITICAL_HIT_CHANCE) {
+		skillLevel = getSkillLevel(SKILL_LUCK) / 13;
+	}
 
 	return std::min<uint16_t>(std::numeric_limits<uint16_t>::max(), std::max<uint16_t>(0, static_cast<uint16_t>(skillLevel)));
 }
