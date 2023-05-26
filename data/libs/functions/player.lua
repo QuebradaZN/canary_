@@ -494,6 +494,10 @@ function Player.getFinalLowLevelBonus(self)
 	return self:getGrindingXpBoost()
 end
 
+function Player.getLuckLootBoost(self)
+	return (self:getSkillLevel(SKILL_LUCK) - 10) / 500
+end
+
 function Player.updateHazard(self)
 	local area = self:getPosition():getHazardArea()
 	if not area then

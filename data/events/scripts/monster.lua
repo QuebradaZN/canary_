@@ -19,6 +19,11 @@ local function checkItemType(itemId)
 	return false
 end
 
+function calculateLuckExp(chance)
+	local exp =  math.floor(500 * 0.99 ^ chance + 0.5)
+	return exp
+end
+
 function Monster:onDropLoot(corpse)
 	if configManager.getNumber(configKeys.RATE_LOOT) == 0 then
 		return
@@ -46,6 +51,8 @@ function Monster:onDropLoot(corpse)
 		local participants = {}
 		local modifier = 1
 		local vipBoost = 0
+		local luckExp = 0
+		local luckBoost = 0
 
 		if player then
 			participants = { player }
@@ -84,35 +91,52 @@ function Monster:onDropLoot(corpse)
 		modifier = modifier * (1 + vipBoost)
 
 		for i = 1, #monsterLoot do
-			corpse:createLootItem(monsterLoot[i], charmBonus, modifier)
+			local item = corpse:createLootItem(monsterLoot[i], charmBonus, 1 + vipBoost + luckBoost)
+			if item then
+				luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance)
+			end
+
 			if self:getName():lower() == Game.getBoostedCreature():lower() then
-				 corpse:createLootItem(monsterLoot[i], charmBonus, modifier)
+				local itemBoosted = corpse:createLootItem(monsterLoot[i], charmBonus, modifier)
+				if itemBoosted and #itemBoosted > 0 then
+					luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance)
+				end
+
+				if not itemBoosted then
+					Spdlog.warn(string.format("[1][Monster:onDropLoot] - Could not add loot item to boosted monster: %s, from corpse id: %d.", self:getName(), corpse:getId()))
+				end
 			end
 			if self:hazard() and player then
 				local chanceTo = math.random(1, 100)
 				if chanceTo <= (2 * player:getHazardSystemPoints() * configManager.getNumber(configKeys.HAZARDSYSTEM_LOOT_BONUS_MULTIPLIER)) then
-					if corpse:createLootItem(monsterLoot[i], charmBonus, modifier) then
+					local podItem = corpse:createLootItem(monsterLoot[i], charmBonus, preyChanceBoost)
+					if podItem and #podItem > 0 then
+						luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance)
+					end
+					if not podItem then
+						Spdlog.warn(string.format("[Monster:onDropLoot] - Could not add loot item to hazard monster: %s, from corpse id: %d.", self:getName(), corpse:getId()))
+					else
 						hazardMsg = true
 					end
 				end
 			end
 		end
 
+		local preyActivators = {}
 		if #participants > 0 and player then
-			local preyLootPercent = player:getPreyLootPercentage(mType:raceId())
+			local preyLootPercent = 0
 			for i = 1, #participants do
 				local participant = participants[i]
-				local memberBoost = participant:getPreyLootPercentage(mType:raceId())
-				if memberBoost > preyLootPercent then
-					preyLootPercent = memberBoost
-				end
+				local memberBoost = (participant:getPreyLootPercentage(mType:raceId()) / 1.3 ^ (i - 1))
+				table.insert(preyActivators, participant:getName())
+				preyLootPercent = preyLootPercent + memberBoost
 			end
-			-- Runs the loot again if the player gets a chance to loot in the prey
+			-- Runs the loot again if the party gets a chance to loot in the prey
 			if preyLootPercent > 0 then
-				local probability = math.random(0, 100)
-				if probability < preyLootPercent then
-					for _, loot in pairs(monsterLoot) do
-						 corpse:createLootItem(loot, charmBonus, modifier)
+				for _, loot in pairs(monsterLoot) do
+					local item = corpse:createLootItem(loot, charmBonus, preyLootPercent / 100)
+					if item then
+						luckExp = luckExp + calculateLuckExp(loot.chance)
 					end
 				end
 			end
@@ -156,7 +180,7 @@ function Monster:onDropLoot(corpse)
 				text = ("Loot of %s: %s"):format(mType:getNameDescription(), contentDescription)
 			end
 			if preyLootPercent > 0 then
-				text = text .. " (active prey bonus)"
+				text = text .. " (active prey bonus for " .. table.concat(preyActivators, ", ") .. ")"
 			end
 			if (vipBoost > 0) then
 				text = text .. " (vip loot bonus " .. (vipBoost * 100) .. "%)"
@@ -170,6 +194,17 @@ function Monster:onDropLoot(corpse)
 			if wealthDuplexMsg then
 				text = text .. " (active wealth duplex)"
 			end
+			if luckBoost > 0 then
+				text = text .. (" (Luck bonus: %d%%)"):format(math.floor(luckBoost * 100 + 0.5))
+			end
+			if vipBoost > 0 then
+				text = text .. (" (VIP bonus: %d%%)"):format(math.floor(vipBoost * 100 + 0.5))
+			end
+
+			for _, member in ipairs(participants) do
+				member:addSkillTries(SKILL_LUCK, luckExp)
+			end
+
 			local party = player:getParty()
 			if party then
 				party:broadcastPartyLoot(text)
