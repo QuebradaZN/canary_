@@ -11,5 +11,18 @@ fi
 ulimit -c unlimited
 set -o pipefail
 
-while true; do ./canary 2>&1 | awk '{ print strftime("%F %T - "), 
-$0; fflush(); }' | tee "logs/$(date +"%F %H-%M-%S.log")" done;
+	while true; do
+		./canary-current 2>&1 | awk '{ print strftime("%F %T - "), $0; fflush(); }' | tee "logs/$(date +"%F %H-%M-%S.log")"
+
+		if [ $? -eq 0 ]; then
+			echo -e "\e[0;31m Exit code 0, wait 30 seconds... \e[0m"
+			sleep 30
+		else
+			echo -e "\e[0;31m Restarting the server in 5 seconds "The log file is stored in the logs folder" \e[0m"
+			echo -e "\e[01;31m If you want to shut down the server, press CTRL + C... \e[0m"
+			sleep 5
+		fi
+	done
+}
+
+main

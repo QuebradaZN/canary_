@@ -1,76 +1,144 @@
-# OpenTibiaBR - Canary
+# Elysiera
 
-[![Discord Channel](https://img.shields.io/discord/528117503952551936.svg?style=flat-square&logo=discord)](https://discord.gg/gvTj5sh9Mp)
-[![GitHub issues](https://img.shields.io/github/issues/opentibiabr/canary)](https://github.com/opentibiabr/canary/issues)
-[![GitHub pull request](https://img.shields.io/github/issues-pr/opentibiabr/canary)](https://github.com/opentibiabr/canary/pulls)
-[![Contributors](https://img.shields.io/github/contributors/opentibiabr/canary.svg?style=flat-square)](https://github.com/opentibiabr/canary/graphs/contributors)
-[![GitHub](https://img.shields.io/github/license/opentibiabr/canary)](https://github.com/opentibiabr/canary/blob/master/LICENSE)
+## Setting up server
 
-![GitHub repo size](https://img.shields.io/github/repo-size/opentibiabr/canary)
+Install dependencies:
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=opentibiabr_canary&metric=alert_status)](https://sonarcloud.io/dashboard?id=opentibiabr_canary)
+```sh
+sudo apt update -y
+sudo apt install -y gdb git jq unzip libtool ca-certificates curl zip unzip tar nginx mysql-server ufw tmux neovim
+sudo apt install software-properties-common apt-transport-https -y
+sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update -y
+sudo apt install php8.1 php8.1-cli php8.1-curl php8.1-fpm php8.1-gd php8.1-mysql php8.1-xml php8.1-zip php8.1-bcmath php8.1-mbstring -y
+```
 
-## Builds
-[![Build - Ubuntu](https://github.com/opentibiabr/canary/actions/workflows/build-ubuntu.yml/badge.svg)](https://github.com/opentibiabr/canary/actions/workflows/build-ubuntu.yml)
-[![Build - Windows](https://github.com/opentibiabr/canary/actions/workflows/build-windows.yml/badge.svg)](https://github.com/opentibiabr/canary/actions/workflows/build-windows.yml)
+Setup firewall:
 
-## Docker
-`docker pull opentibiabr/canary:latest`<br><br>
-[![Automation](https://img.shields.io/docker/cloud/automated/opentibiabr/canary)](https://hub.docker.com/r/opentibiabr/canary)
-[![Image Size](https://img.shields.io/docker/image-size/opentibiabr/canary)](https://hub.docker.com/r/opentibiabr/canary/tags?page=1&ordering=last_updated)
-![Pulls](https://img.shields.io/docker/pulls/opentibiabr/canary)
-[![Build](https://img.shields.io/docker/cloud/build/opentibiabr/canary)](https://hub.docker.com/r/opentibiabr/canary/builds)
+```sh
+sudo ufw allow 22/tcp
+sudo ufw allow 7171/tcp
+sudo ufw allow 7172/tcp
+sudo ufw allow 8245/tcp
 
-## Project
-OpenTibiaBR - Canary is a free and open-source MMORPG server emulator written in C++.
+# Cloudflare IPs
+for cfip in `curl -sw '\n' https://www.cloudflare.com/ips-v{4,6}`; do sudo ufw allow proto tcp from $cfip to any port 80,443 comment 'Cloudflare IP'; done
 
-It is a fork of the [OTServBR-Global](https://github.com/opentibiabr/otservbr-global) project. You can see the repository history in the [releases](https://github.com/opentibiabr/otservbr-global/releases/).
+sudo ufw enable
+sudo ufw reload
+```
 
-This project was created with the intention of being a base as clean as possible, to work as an MMORPG engine and not necessarily linked to Tibia Global, although it will also work. The OpenTibiaBR - Global was adapted to work with the source of the Canary, so that it will be the first repository to use this engine.
+Configure nginx (`/etc/nginx/sites-enabled/default`):
 
-To connect to the server and to take a stable experience, you can use [mehah's otclient](https://github.com/mehah/otclient) or [tibia client](https://github.com/dudantas/tibia-client/releases/latest) and if you want to edit something, check our [customized tools](https://docs.opentibiabr.com/others/downloads/tools).
+```nginx
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
-If you want edit the map, use the [own remere's map editor](https://github.com/opentibiabr/remeres-map-editor/).
+	root /var/www/html;
 
-You are subject to our code of conduct, read at [this link](https://github.com/opentibiabr/canary/blob/master/CODE_OF_CONDUCT.md).
+	# Add index.php to the list if you are using PHP
+	index index.php  index.html index.htm index.nginx-debian.html;
 
-### Getting **Started**
+	server_name _;
+
+	location / {
+		try_files $uri $uri/ /index.php?$args;
+	}
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+	}
+
+	location ~ /\.ht {
+		deny all;
+	}
+}
+```
+
+Start and enable nginx:
+
+```sh
+sudo service nginx start
+sudo systemctl enable nginx
+```
+
+Setup MySQL (`sudo mysql`):
+
+```sql
+CREATE USER 'tibia'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';
+GRANT ALL PRIVILEGES ON *.* TO 'tibia'@'localhost' WITH GRANT OPTION; 
+CREATE DATABASE tibia;
+```
+
+Setup deploy keys:
+
+```sh
+ssh-keygen -t ecdsa -q -f "$HOME/.ssh/id_ecdsa" -N ""
+cat ~/.ssh/id_ecdsa.pub # use this in the canary repo
+sudo ssh-keygen -t ecdsa -q -f "/root/.ssh/id_ecdsa" -N ""
+sudo cat /root/.ssh/id_ecdsa.pub # use this on the canaryaac repo
+```
+
+Clone repositories:
+
+```sh
+git clone git@github.com:elysiera/canary
+chmod -R a+r ~
+sudo su
+cd /var/www/html
+rm -f *
+git init .
+git remote add origin git@github.com:elysiera/canaryaac
+git fetch origin
+git reset --hard origin/elysiera
+chown -R www-data.www-data /var/www/*
+git config --global --add safe.directory /var/www/html
+```
+
+Setup website `.env` (`/var/www/html/.env`):
+
+```sh
+URL='https://elysiera.com'
+SERVER_PATH='/home/ubuntu/canary'
+
+# Database connection
+DB_HOST='127.0.0.1'
+DB_NAME='tibia'
+DB_USER='tibia'
+DB_PASS='<db-password>'
+DB_PORT='3306'
+
+# Website configs
+MAINTENANCE=false
+DEV_MODE=false
+
+# PagSeguro
+PAGSEGURO_EMAIL=''
+PAGSEGURO_TOKEN=''
+
+# Mercado Pago
+MERCADOPAGO_TOKEN=''
+MERCADOPAGO_KEY=''
+MERCADOPAGO_CLIENTID=''
+MERCADOPAGO_SECRET=''
+
+# Paypal
+PAYPAL_CLIENTID=''
+PAYPAL_SECRET=''
+
+# Mail
+MAIL_SMTP='smtp://localhost'
+MAIL_WEB='no-reply@elysiera.com'
+
+# Outfits Folder
+OUTFITS_FOLDER='./resources/images/charactertrade/outfits'
+```
+
+Don't forget to add `GITHUB_TOKEN` to `~/.profile`. Now you can run `./update.sh` and `./start.sh` (don't forget `tmux`).
+
+### Canary docs
 
 * [Gitbook](https://docs.opentibiabr.com/projects/canary).
 * [Wiki](https://github.com/opentibiabr/canary/wiki).
-
-### Issues
-
-We use the [issue tracker on GitHub](https://github.com/opentibiabr/canary/issues). Keep in mind that everyone who is watching the repository gets notified by e-mail when there is an activity, so be thoughtful and avoid writing comments that aren't meant for an issue (e.g. "+1"). If you'd like for an issue to be fixed faster, you should either fix it yourself and submit a pull request, or place a bounty on the issue.
-
-### Pull requests
-
-Before [creating a pull request](https://github.com/opentibiabr/canary/pulls) please keep in mind:
-
-  * Do not send Pull Request changing the map, as we can't review the changes it's better to use our [Discord](https://discord.gg/gvTj5sh9Mp) to talk about or send the map changes to the responsible for updating it.
-  * Focus on fixing only one thing, mixing too much things on the same Pull Request make it harder to review, harder to test and if we need to revert the change it will remove other things together.
-  * Follow the project indentation, if your editor support you can use the [editorconfig](https://editorconfig.org/) to automatic configure the indentation.
-  * There are people that doesn't play the game on the official server, so explain your changes to help understand what are you changing and why.
-  * Avoid opening a Pull Request to just update one line of an xml file.
-
-### Special Thanks
-
-  * our partners
-  * our crew (majesty, gpedro, eduardo dantas, foot)
-  * [our contributors](https://github.com/opentibiabr/canary/graphs/contributors)
-  * [fear lucien](https://github.com/FearLucien)
-  * [cjaker](https://github.com/Eternal-Scripts)
-  * [slavidodo](https://github.com/slavidodo)
-  * [mignari and our awesome tools](https://github.com/ottools)
-  * [mattyx14/otxserver](https://github.com/mattyx14/otxserver) and contributors
-  * [otland/forgottenserver](https://github.com/otland/forgottenserver) and contributors
-  * [saiyansking/optimized_forgottenserver](https://github.com/SaiyansKing/optimized_forgottenserver) and contributors
-  * if we forget someone, we apologize by forgot you. but you know, **forgot**tenserver.
-
-### **Sponsors**
-
-See our [donate page](https://docs.opentibiabr.com/home/donate)
-
-### Partners
-
-[![Supported by OTServ Brasil](https://raw.githubusercontent.com/otbr/otserv-brasil/main/otbr.png)](https://forums.otserv.com.br)
