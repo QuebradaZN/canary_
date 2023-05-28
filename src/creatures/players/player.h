@@ -2776,6 +2776,10 @@ class Player final : public Creature, public Cylinder {
 		uint32_t MAX_ATTACK_SPEED = g_configManager().getNumber(MAX_SPEED_ATTACKONFIST);
 
 		uint32_t getAttackSpeed() const {
+			float_t multiplier = 1.0f;
+			if (getWeapon() && getWeapon()->getWeaponType() == WEAPON_SWORD) {
+				multiplier = 1.2f;
+			}
 			if (onFistAttackSpeed) {
 				uint32_t baseAttackSpeed = vocation->getAttackSpeed();
 				uint32_t skillLevel = getSkillLevel(SKILL_COOKING);
@@ -2787,7 +2791,7 @@ class Player final : public Creature, public Cylinder {
 
 				return static_cast<uint32_t>(attackSpeed);
 			} else {
-				return vocation->getAttackSpeed();
+				return vocation->getAttackSpeed() / multiplier;
 			}
 		}
 

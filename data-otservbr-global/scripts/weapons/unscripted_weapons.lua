@@ -5398,11 +5398,35 @@ local function chain(player, target, combat, maxCreatures, maxDistance, animatio
 	return recursiveChain(player, target, nil, monsters, combat, maxCreatures, maxDistance, visited, animation) ~= nil
 end
 
-
 local axeCombat = Combat()
 axeCombat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
 axeCombat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
 axeCombat:setFormula(COMBAT_FORMULA_SKILL, 0, 0, 0.8, 0)
+axeCombat:setParameter(COMBAT_PARAM_IMPACTSOUND, MELEE_ATK_AXE)
+
+local clubCombat = Combat()
+local area = createCombatArea({
+     {0, 0, 0, 1, 0, 0, 0},
+     {0, 1, 1, 1, 1, 1, 0},
+     {0, 1, 1, 1, 1, 1, 0},
+     {1, 1, 1, 3, 1, 1, 1},
+     {0, 1, 1, 1, 1, 1, 0},
+     {0, 1, 1, 1, 1, 1, 0},
+     {0, 0, 0, 1, 0, 0, 0},
+ })
+clubCombat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
+clubCombat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
+clubCombat:setFormula(COMBAT_FORMULA_SKILL, 0, 0, 0.5, 0)
+clubCombat:setArea(area)
+clubCombat:setParameter(COMBAT_PARAM_IMPACTSOUND, MELEE_ATK_CLUB)
+clubCombat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_BLACK_BLOOD)
+
+local swordCombat = Combat()
+swordCombat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
+swordCombat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
+swordCombat:setFormula(COMBAT_FORMULA_SKILL, 0, 0, 1.0, 0)
+swordCombat:setParameter(COMBAT_PARAM_IMPACTSOUND, MELEE_ATK_SWORD)
+swordCombat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SLASH)
 
 for _, w in ipairs(weapons) do
 	local weapon = Weapon(w.type)
@@ -5443,6 +5467,18 @@ for _, w in ipairs(weapons) do
 			end
 
 			return chain(player, target, axeCombat, 5, 1,  CONST_ANI_WHIRLWINDAXE)
+		end
+	end
+
+	if (w.type == WEAPON_CLUB) then
+		weapon.onUseWeapon = function(player, variant)
+			return clubCombat:execute(player, variant)
+		end
+	end
+
+	if (w.type == WEAPON_SWORD) then
+		weapon.onUseWeapon = function(player, variant)
+			return swordCombat:execute(player, variant)
 		end
 	end
 
