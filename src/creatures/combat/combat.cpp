@@ -87,7 +87,7 @@ CombatDamage Combat::getCombatDamage(Creature* creature, Creature* target) const
 					);
 
 					damage.secondary.type = weapon->getElementType();
-					damage.secondary.value = weapon->getElementDamage(player, target, tool);
+					damage.secondary.value = weapon->getElementDamage(player, target, tool) * maxa + maxb;
 					if (params.useCharges) {
 						auto charges = tool->getAttribute<uint16_t>(ItemAttribute_t::CHARGES);
 						if (charges != 0) {
