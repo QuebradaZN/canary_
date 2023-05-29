@@ -90,12 +90,12 @@ DailyReward = {
 
 	strikeBonuses = {
 		-- day
-		[1] = {text = "No bonus for first day"},
-		[2] = {text = "Allow Hit Point Regeneration"},
-		[3] = {text = "Allow Mana Regeneration"},
-		[4] = {text = "Stamina Regeneration"},
-		[5] = {text = "Double Hit Point Regeneration"},
-		[6] = {text = "Double Mana Regeneration"},
+		[1] = {text = "No bonus"},
+		[2] = {text = "Double Hit Point Regeneration"},
+		[3] = {text = "Double Mana Regeneration"},
+		[4] = {text = "No bonus"},
+		[5] = {text = "Triple Hit Point Regeneration"},
+		[6] = {text = "Triple Mana Regeneration"},
 		[7] = {text = "Soul Points Regeneration"}
 	},
 

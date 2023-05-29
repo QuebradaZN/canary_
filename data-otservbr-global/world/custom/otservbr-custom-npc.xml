@@ -24,4 +24,73 @@
 	<npc centerx="998" centery="1037" centerz="6" radius="1">
 		<npc name="Rashid of Island" x="0" y="-1" z="6" spawntime="60" />
 	</npc>
+	<npc centerx="32325" centery="31781" centerz="6" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="6" spawntime="60" direction="1" />
+	</npc>
+	<npc centerx="32329" centery="31786" centerz="6" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="6" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="33622" centery="31891" centerz="6" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="6" spawntime="60" direction="2" />
+	</npc>
+	<npc centerx="33629" centery="31891" centerz="6" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="6" spawntime="60" direction="2" />
+	</npc>
+	<npc centerx="32913" centery="32069" centerz="6" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="6" spawntime="60" direction="2" />
+	</npc>
+	<npc centerx="32923" centery="32069" centerz="6" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="6" spawntime="60" direction="2" />
+	</npc>
+	<npc centerx="32778" centery="31244" centerz="7" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</npc>
+	<npc centerx="32778" centery="31251" centerz="7" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="32341" centery="32218" centerz="7" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</npc>
+	<npc centerx="32350" centery="32230" centerz="7" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="32190" centery="32293" centerz="7" radius="1">
+		<npc name="Cledwyn" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="32209" centery="32297" centerz="7" radius="1">
+		<npc name="Rotem Valos" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="32192" centery="32299" centerz="7" radius="1">
+		<npc name="Zethra" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="32194" centery="32305" centerz="7" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" direction="1" />
+	</npc>
+	<npc centerx="32207" centery="32305" centerz="7" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="33548" centery="32376" centerz="7" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="33559" centery="32376" centerz="7" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="33123" centery="32844" centerz="7" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" direction="1" />
+	</npc>
+	<npc centerx="33129" centery="32844" centerz="7" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="33162" centery="31811" centerz="8" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="8" spawntime="60" direction="1" />
+	</npc>
+	<npc centerx="33174" centery="31811" centerz="8" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="8" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="33203" centery="32460" centerz="8" radius="1">
+		<npc name="The Lootmonger" x="0" y="0" z="8" spawntime="60" direction="1" />
+	</npc>
+	<npc centerx="33225" centery="32460" centerz="8" radius="1">
+		<npc name="Battlemart" x="0" y="0" z="8" spawntime="60" direction="3" />
+	</npc>
 </npcs>
