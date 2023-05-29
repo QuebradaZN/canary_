@@ -305,6 +305,7 @@
 	</item>
 	<item id="236" article="a" name="strong health potion">
 		<attribute key="description" value="This potion can only be consumed by paladins and knights of level 50 or higher."/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="290"/>
 	</item>
 	<item id="237" article="a" name="strong mana potion">
@@ -318,6 +319,7 @@
 	<item id="239" article="a" name="great health potion">
 		<attribute key="weight" value="310"/>
 		<attribute key="description" value="This potion can only be consumed by knights of level 80 or higher."/>
+		<attribute key="stacksize" value="250"/>
 	</item>
 	<item fromid="240" toid="252" name="linen"/>
 	<item fromid="253" toid="265" article="a" name="tent"/>
@@ -1510,6 +1512,7 @@
 	<item fromid="756" toid="760" name="dirt"/>
 	<item id="761" article="a" name="flash arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="flasharrow"/>
 		<attribute key="elementenergy" value="14"/>
@@ -1519,6 +1522,7 @@
 	</item>
 	<item id="762" article="a" name="shiver arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="shiverarrow"/>
 		<attribute key="elementice" value="14"/>
@@ -1528,6 +1532,7 @@
 	</item>
 	<item id="763" article="a" name="flaming arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="flammingarrow"/>
 		<attribute key="elementfire" value="14"/>
@@ -1589,6 +1594,7 @@
 	</item>
 	<item id="774" article="an" name="earth arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="eartharrow"/>
 		<attribute key="elementearth" value="14"/>
@@ -5259,250 +5265,296 @@
 	</item>
 	<item id="3147" article="a" name="blank rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="3148" article="a" name="destroy field rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adito grav"/>
 		<attribute key="charges" value="3"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="3149" article="an" name="energy bomb rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo mas vis"/>
 		<attribute key="charges" value="2"/>
 		<attribute key="weight" value="105"/>
 	</item>
 	<item fromid="3150" toid="3151" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3152" article="an" name="intense healing rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adura gran"/>
 		<attribute key="charges" value="1"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="3153" article="a" name="cure poison rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adana pox"/>
 		<attribute key="charges" value="1"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="3154" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3155" article="a" name="sudden death rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori gran mort"/>
 		<attribute key="charges" value="3"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="3156" article="a" name="wild growth rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo grav vita"/>
 		<attribute key="charges" value="2"/>
 		<attribute key="weight" value="105"/>
 	</item>
 	<item id="3157" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3158" article="an" name="icicle rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori frigo"/>
 		<attribute key="charges" value="5"/>
 		<attribute key="weight" value="42"/>
 	</item>
 	<item id="3159" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3160" article="an" name="ultimate healing rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adura vita"/>
 		<attribute key="charges" value="1"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="3161" article="an" name="avalanche rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori mas frigo"/>
 		<attribute key="charges" value="4"/>
 		<attribute key="weight" value="52"/>
 	</item>
 	<item fromid="3162" toid="3163" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3164" article="an" name="energy field rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo grav vis"/>
 		<attribute key="charges" value="3"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="3165" article="a" name="paralyse rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adana ani"/>
 		<attribute key="charges" value="1"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="3166" article="an" name="energy wall rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo mas grav vis"/>
 		<attribute key="charges" value="4"/>
 		<attribute key="weight" value="52"/>
 	</item>
 	<item fromid="3167" toid="3171" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3172" article="a" name="poison field rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo grav pox"/>
 		<attribute key="charges" value="3"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="3173" article="a" name="poison bomb rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo mas pox"/>
 		<attribute key="charges" value="2"/>
 		<attribute key="weight" value="105"/>
 	</item>
 	<item id="3174" article="a" name="light magic missile rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori min vis"/>
 		<attribute key="charges" value="10"/>
 		<attribute key="weight" value="21"/>
 	</item>
 	<item id="3175" article="a" name="stone shower rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori mas tera"/>
 		<attribute key="charges" value="4"/>
 		<attribute key="weight" value="52"/>
 	</item>
 	<item id="3176" article="a" name="poison wall rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo mas grav pox"/>
 		<attribute key="charges" value="4"/>
 		<attribute key="weight" value="52"/>
 	</item>
 	<item id="3177" article="a" name="convince creature rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adeta sio"/>
 		<attribute key="charges" value="1"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="3178" article="a" name="chameleon rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo ina"/>
 		<attribute key="charges" value="1"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="3179" article="a" name="stalagmite rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori tera"/>
 		<attribute key="charges" value="10"/>
 		<attribute key="weight" value="21"/>
 	</item>
 	<item id="3180" article="a" name="magic wall rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo grav tera"/>
 		<attribute key="charges" value="3"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="3181" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3182" article="a" name="holy missile rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori san"/>
 		<attribute key="charges" value="5"/>
 		<attribute key="weight" value="42"/>
 	</item>
 	<item fromid="3183" toid="3187" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3188" article="a" name="fire field rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo grav flam"/>
 		<attribute key="charges" value="3"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="3189" article="a" name="fireball rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori flam"/>
 		<attribute key="charges" value="5"/>
 		<attribute key="weight" value="42"/>
 	</item>
 	<item id="3190" article="a" name="fire wall rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo mas grav flam"/>
 		<attribute key="charges" value="4"/>
 		<attribute key="weight" value="52"/>
 	</item>
 	<item id="3191" article="a" name="great fireball rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori mas flam"/>
 		<attribute key="charges" value="4"/>
 		<attribute key="weight" value="52"/>
 	</item>
 	<item id="3192" article="a" name="fire bomb rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo mas flam"/>
 		<attribute key="charges" value="2"/>
 		<attribute key="weight" value="105"/>
 	</item>
 	<item fromid="3193" toid="3194" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3195" article="a" name="soulfire rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo res flam"/>
 		<attribute key="charges" value="3"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="3196" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3197" article="a" name="disintegrate rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adito tera"/>
 		<attribute key="charges" value="3"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="3198" article="a" name="heavy magic missile rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori vis"/>
 		<attribute key="charges" value="10"/>
 		<attribute key="weight" value="21"/>
 	</item>
 	<item id="3199" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3200" article="an" name="explosion rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adevo mas hur"/>
 		<attribute key="charges" value="6"/>
 		<attribute key="weight" value="35"/>
 	</item>
 	<item id="3201" article="a" name="spell rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="3202" article="a" name="thunderstorm rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori mas vis"/>
 		<attribute key="charges" value="4"/>
 		<attribute key="weight" value="52"/>
 	</item>
 	<item id="3203" article="an" name="animate dead rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adana mort"/>
 		<attribute key="charges" value="1"/>
 		<attribute key="weight" value="210"/>
@@ -7354,6 +7406,7 @@
 	</item>
 	<item id="3446" article="a" name="bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="bolt"/>
 		<attribute key="maxhitchance" value="87"/>
@@ -7362,6 +7415,7 @@
 	</item>
 	<item id="3447" article="an" name="arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="arrow"/>
 		<attribute key="maxhitchance" value="91"/>
@@ -7370,6 +7424,7 @@
 	</item>
 	<item id="3448" article="a" name="poison arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="poisonarrow"/>
 		<attribute key="maxhitchance" value="91"/>
@@ -7378,6 +7433,7 @@
 	</item>
 	<item id="3449" article="a" name="burst arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="burstarrow"/>
 		<attribute key="maxhitchance" value="100"/>
@@ -7386,6 +7442,7 @@
 	</item>
 	<item id="3450" article="a" name="power bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="powerbolt"/>
 		<attribute key="maxhitchance" value="91"/>
@@ -13492,6 +13549,7 @@
 	</item>
 	<item id="6528" article="an" name="infernal bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="infernalbolt"/>
 		<attribute key="maxhitchance" value="91"/>
@@ -14458,6 +14516,7 @@
 	<item fromid="7361" toid="7362" article="a" name="sarcophagus"/>
 	<item id="7363" article="a" name="piercing bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="piercingbolt"/>
 		<attribute key="maxhitchance" value="87"/>
@@ -14466,6 +14525,7 @@
 	</item>
 	<item id="7364" article="a" name="sniper arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="sniperarrow"/>
 		<attribute key="maxhitchance" value="100"/>
@@ -14474,6 +14534,7 @@
 	</item>
 	<item id="7365" article="an" name="onyx arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="onyxarrow"/>
 		<attribute key="maxhitchance" value="94"/>
@@ -15510,10 +15571,12 @@
 	<item fromid="7630" toid="7641" name="earth"/>
 	<item id="7642" article="a" name="great spirit potion">
 		<attribute key="description" value="This potion can only be consumed by paladins of level 80 or higher"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="310"/>
 	</item>
 	<item id="7643" article="an" name="ultimate health potion">
 		<attribute key="description" value="This potion can only be consumed by knights of level 130 or higher"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="310"/>
 	</item>
 	<item id="7644" article="an" name="antidote potion">
@@ -24664,6 +24727,7 @@
 	</item>
 	<item id="14251" article="a" name="tarsal arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="tarsalarrow"/>
 		<attribute key="maxhitchance" value="94"/>
@@ -24672,6 +24736,7 @@
 	</item>
 	<item id="14252" article="a" name="vortex bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="vortexbolt"/>
 		<attribute key="maxhitchance" value="89"/>
@@ -25227,6 +25292,7 @@
 	<item fromid="15790" toid="15791" name="icy bones"/>
 	<item id="15792" article="a" name="crystal bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="vortexbolt"/>
 		<attribute key="maxhitchance" value="90"/>
@@ -25235,6 +25301,7 @@
 	</item>
 	<item id="15793" article="a" name="crystalline arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="crystallinearrow"/>
 		<attribute key="maxhitchance" value="95"/>
@@ -25881,6 +25948,7 @@
 	</item>
 	<item id="16141" article="a" name="prismatic bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="prismaticbolt"/>
 		<attribute key="maxhitchance" value="90"/>
@@ -25889,6 +25957,7 @@
 	</item>
 	<item id="16142" article="a" name="drill bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="drillbolt"/>
 		<attribute key="maxhitchance" value="90"/>
@@ -25897,6 +25966,7 @@
 	</item>
 	<item id="16143" article="an" name="envenomed arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="envenomedarrow"/>
 		<attribute key="elementearth" value="27"/>
@@ -26405,10 +26475,12 @@
 	</item>
 	<item id="17112" article="a" name="sorc and druid attack rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="21"/>
 	</item>
 	<item id="17113" article="a" name="healing rune for druids">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="17114" name="RESERVED SPRITE"/>
@@ -26759,10 +26831,12 @@
 	<item fromid="17493" toid="17510" name="plaster"/>
 	<item id="17511" article="a" name="tiny healing rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="17512" article="a" name="lightest magic missile rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori dis min vis"/>
 		<attribute key="charges" value="10"/>
 		<attribute key="weight" value="21"/>
@@ -32388,12 +32462,14 @@
 	</item>
 	<item id="21351" article="a" name="light stone shower rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori infir mas tera"/>
 		<attribute key="charges" value="4"/>
 		<attribute key="weight" value="210"/>
 	</item>
 	<item id="21352" article="a" name="lightest missile rune">
 		<attribute key="type" value="rune"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="runespellname" value="adori infir vis"/>
 		<attribute key="charges" value="4"/>
 		<attribute key="weight" value="210"/>
@@ -32673,6 +32749,7 @@
 	</item>
 	<item id="21470" article="a" name="simple arrow" plural="simple arrows">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="arrow"/>
 		<attribute key="maxhitchance" value="40"/>
@@ -35191,14 +35268,17 @@
 	<item id="23372" article="a" name="spike trap"/>
 	<item id="23373" article="an" name="ultimate mana potion">
 		<attribute key="description" value="This potion can only be consumed by sorcerers and druids of level 130 or higher"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="310"/>
 	</item>
 	<item id="23374" article="an" name="ultimate spirit potion">
 		<attribute key="description" value="This potion can only be consumed by paladins of level 130 or higher"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="310"/>
 	</item>
 	<item id="23375" article="a" name="supreme health potion">
 		<attribute key="description" value="This potion can only be consumed by knights of level 200 or higher"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="350"/>
 	</item>
 	<item fromid="23376" toid="23387" name="unknown item"/>
@@ -37640,6 +37720,7 @@
 	</item>
 	<item id="25758" article="a" name="spectral bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="spectralbolt"/>
 		<attribute key="stopduration" value="0"/>
@@ -51721,6 +51802,7 @@
 	</item>
 	<item id="35563" article="a" name="magic shield potion">
 		<attribute key="description" value="This potion can only be consumed by druids and sorcerers of level 14 or higher"/>
+		<attribute key="stacksize" value="250"/>
 		<attribute key="weight" value="320"/>
 	</item>
 	<item id="35571" article="a" name="small treasure chest" plural="small treasure chests">
@@ -52240,6 +52322,7 @@
 	</item>
 	<item id="35901" article="a" name="diamond arrow">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="diamondarrow"/>
 		<attribute key="maxhitchance" value="100"/>
@@ -52248,6 +52331,7 @@
 	</item>
 	<item id="35902" article="a" name="spectral bolt">
 		<attribute key="weaponType" value="ammunition"/>
+		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="bolt"/>
 		<attribute key="shootType" value="spectralbolt"/>
 		<attribute key="maxhitchance" value="100"/>
