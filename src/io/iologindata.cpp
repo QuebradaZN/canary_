@@ -230,6 +230,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result, bool disable /
 	player->quickLootFallbackToMainContainer = result->getNumber<bool>("quickloot_fallback");
 
 	player->setSex(static_cast<PlayerSex_t>(result->getNumber<uint16_t>("sex")));
+	player->setPronoun(static_cast<PlayerPronoun_t>(result->getNumber<uint16_t>("pronoun")));
 	player->level = std::max<uint32_t>(1, result->getNumber<uint32_t>("level"));
 
 	uint64_t experience = result->getNumber<uint64_t>("experience");
@@ -933,6 +934,7 @@ bool IOLoginData::savePlayerGuard(Player* player) {
 
 	query << "`cap` = " << (player->capacity / 100) << ',';
 	query << "`sex` = " << static_cast<uint16_t>(player->sex) << ',';
+	query << "`pronoun` = " << static_cast<uint16_t>(player->pronoun) << ',';
 
 	if (player->lastLoginSaved != 0) {
 		query << "`lastlogin` = " << player->lastLoginSaved << ',';

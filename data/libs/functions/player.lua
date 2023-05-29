@@ -1,6 +1,10 @@
 -- Functions from The Forgotten Server
 local foodCondition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
 
+function firstToUpper(str)
+    return (str:gsub("^%l", string.upper))
+end
+
 function Player.feed(self, food)
 	local condition = self:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
 	if condition then
@@ -341,10 +345,8 @@ function Player.getMarriageDescription(thing)
 		playerSpouse = getPlayerSpouse(thing:getGuid())
 		if self == thing then
 			descr = descr .. " You are "
-		elseif thing:getSex() == PLAYERSEX_FEMALE then
-			descr = descr .. " She is "
 		else
-			descr = descr .. " He is "
+			descr = descr .. " " .. firstToUpper(thing:getSubjectPronoun()) .. " " .. thing:getSubjectVerb() .. " "
 		end
 		descr = descr .. "married to " .. getPlayerNameById(playerSpouse) .. '.'
 	end
@@ -496,6 +498,22 @@ end
 
 function Player.getLuckLootBoost(self)
 	return (self:getSkillLevel(SKILL_LUCK) - 10) / 500
+end
+
+function Player.getSubjectPronoun(self)
+	return Pronouns.getPlayerSubjectPronoun(self:getPronoun(), self:getSex(), self:getName())
+end
+
+function Player.getObjectPronoun(self)
+	return Pronouns.getPlayerObjectPronoun(self:getPronoun(), self:getSex(), self:getName())
+end
+
+function Player.getPossessivePronoun(self)
+	return Pronouns.getPlayerPossessivePronoun(self:getPronoun(), self:getSex(), self:getName())
+end
+
+function Player.getSubjectVerb(self, past)
+	return Pronouns.getPlayerSubjectVerb(self:getPronoun(), past)
 end
 
 function Player.updateHazard(self)
