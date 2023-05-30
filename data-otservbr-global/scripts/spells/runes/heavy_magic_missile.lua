@@ -1,11 +1,10 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYAREA)
-combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_ENERGY)
 
 function onGetFormulaValues(player, level, maglevel)
-	local min = (level / 5) + (maglevel * 0.4) + 2
-	local max = (level / 5) + (maglevel * 1.59) + 10
+	local min = (level / 5) + (maglevel * 2.605) + 28
+	local max = (level / 5) + (maglevel * 4.395) + 46
 	return -min, -max
 end
 
@@ -14,7 +13,11 @@ combat:setCallback(CALLBACK_PARAM_RUNICVALUE, "onGetFormulaValues")
 local rune = Spell("rune")
 
 function rune.onCastSpell(creature, var, isHotkey)
-	return combat:execute(creature, var)
+	local target = Creature(var:getNumber())
+	if not target then
+		return false
+	end
+	return Chain.combat(creature, target, combat, 5, 5, CONST_ANI_ENERGY, true)
 end
 
 rune:id(8)

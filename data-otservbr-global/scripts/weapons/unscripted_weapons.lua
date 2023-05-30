@@ -5345,59 +5345,6 @@ local weapons = {
 	}
 }
 
-local function recursiveChain(player, target, previousTarget, monsters, combat, maxCreatures, maxDistance, visited, animation)
-	if maxCreatures <= 0 then
-		return 0
-	end
-
-	if not target then
-		return maxCreatures
-	end
-
-	if previousTarget then
-		previousTarget:getPosition():sendDistanceEffect(target:getPosition(), animation)
-	end
-	if not combat:execute(player, Variant(target:getId())) then
-		return nil
-	end
-
-	maxCreatures = maxCreatures - 1
-
-	local eligibleMonsters = {}
-
-	for index, monster in pairs(monsters) do
-		local dist = target:getPosition():getDistance(monster:getPosition())
-		if not visited[monster:getId()] and dist <= maxDistance then
-			table.insert(eligibleMonsters, { monster = monster, distance = dist })
-		end
-	end
-
-	table.sort(eligibleMonsters, function(a, b) return a.distance < b.distance end)
-
-	for index, m in pairs(eligibleMonsters) do
-		visited[m.monster:getId()] = true
-		maxCreatures = recursiveChain(player, m.monster, target, monsters, combat, maxCreatures, maxDistance, visited, animation)
-		if maxCreatures == nil or maxCreatures == 0 then
-			return maxCreatures
-		end
-	end
-
-	return maxCreatures
-end
-
-local function chain(player, target, combat, maxCreatures, maxDistance, animation)
-	local range = math.max(6, maxDistance * (maxCreatures + 1))
-	local creatures = Game.getSpectators(player:getPosition(), false, false, range, range, range, range)
-	local monsters = {}
-	for _, creature in pairs(creatures) do
-		if creature:isMonster() then
-			table.insert(monsters, creature)
-		end
-	end
-	local visited = { [target:getId()] = true }
-	return recursiveChain(player, target, nil, monsters, combat, maxCreatures, maxDistance, visited, animation) ~= nil
-end
-
 local axeCombat = Combat()
 axeCombat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
 axeCombat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
@@ -5466,7 +5413,7 @@ for _, w in ipairs(weapons) do
 				return false
 			end
 
-			return chain(player, target, axeCombat, 5, 1,  CONST_ANI_WHIRLWINDAXE)
+			return Chain.combat(player, target, axeCombat, 5, 1, CONST_ANI_WHIRLWINDAXE)
 		end
 	end
 

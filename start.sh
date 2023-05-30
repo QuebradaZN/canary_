@@ -1,15 +1,16 @@
 #!/bin/bash -e
 
-if [ -d "logs" ]
-then
-	echo -e "\e[01;32m Starting server \e[0m"
-else
-	mkdir -p logs
-	sudo apt install -y gdb
-fi
+main() {
+	if [ -d "logs" ]
+	then
+		echo -e "\e[01;32m Starting server \e[0m"
+	else
+		mkdir -p logs
+		sudo apt install -y gdb
+	fi
 
-ulimit -c unlimited
-set -o pipefail
+	ulimit -c unlimited
+	set -o pipefail
 
 	if [ -f update ]; then
 		echo -e "\e[01;32m Updating server \e[0m"
