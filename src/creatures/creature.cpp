@@ -201,15 +201,15 @@ void Creature::onCreatureWalk() {
 }
 
 void Creature::onWalk(Direction &dir) {
-	if (hasCondition(CONDITION_DRUNK)) {
-		uint32_t r = uniform_random(0, 20);
-		if (r <= DIRECTION_DIAGONAL_MASK) {
-			if (r < DIRECTION_DIAGONAL_MASK) {
-				dir = static_cast<Direction>(r);
-			}
-			g_game().internalCreatureSay(this, TALKTYPE_MONSTER_SAY, "Hicks!", false);
-		}
-	}
+	// if (hasCondition(CONDITION_DRUNK)) {
+	// 	uint32_t r = uniform_random(0, 20);
+	// 	if (r <= DIRECTION_DIAGONAL_MASK) {
+	// 		if (r < DIRECTION_DIAGONAL_MASK) {
+	// 			dir = static_cast<Direction>(r);
+	// 		}
+	// 		g_game().internalCreatureSay(this, TALKTYPE_MONSTER_SAY, "Hicks!", false);
+	// 	}
+	// }
 }
 
 bool Creature::getNextStep(Direction &dir, uint32_t &) {
