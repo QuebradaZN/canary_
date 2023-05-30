@@ -5134,6 +5134,7 @@
 		<attribute key="suppressdrunk" value="1"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
+		<attribute key="skilltonicity" value="8"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="transformdeequipto" value="3097"/>
 		<attribute key="decayTo" value="0"/>
