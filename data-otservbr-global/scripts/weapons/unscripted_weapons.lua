@@ -5390,7 +5390,7 @@ local function chain(player, target, combat, maxCreatures, maxDistance, animatio
 	local creatures = Game.getSpectators(player:getPosition(), false, false, range, range, range, range)
 	local monsters = {}
 	for _, creature in pairs(creatures) do
-		if creature:isMonster() and creature:getMaster() == nil then
+		if creature:isMonster() then
 			table.insert(monsters, creature)
 		end
 	end
