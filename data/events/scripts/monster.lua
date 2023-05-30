@@ -20,7 +20,7 @@ local function checkItemType(itemId)
 end
 
 function calculateLuckExp(chance)
-	local exp =  math.floor(500 * 0.99 ^ chance + 0.5)
+	local exp =  math.floor(250 * 0.98 ^ chance + 0.5)
 	return exp
 end
 
