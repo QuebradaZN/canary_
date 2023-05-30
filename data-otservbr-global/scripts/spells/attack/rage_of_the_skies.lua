@@ -24,11 +24,11 @@ function spell.onCastSpell(creature, var)
 		condition:addDamage(3, 1000, dotDmg/3)
 		combat:addCondition(condition)
 	end
-	
+
 	return combat:execute(creature, var)
 end
 
-spell:group("attack", "focus")
+spell:group("attack")
 spell:id(119)
 spell:name("Rage of the Skies")
 spell:words("exevo gran mas vis")
@@ -37,8 +37,8 @@ spell:level(55)
 spell:mana(600)
 spell:isSelfTarget(true)
 spell:isPremium(true)
-spell:cooldown(40 * 1000)
-spell:groupCooldown(4 * 1000, 40 * 1000)
+spell:cooldown(20 * 1000)
+spell:groupCooldown(2 * 1000)
 spell:needLearn(false)
 spell:vocation("sorcerer;true", "master sorcerer;true")
 spell:register()

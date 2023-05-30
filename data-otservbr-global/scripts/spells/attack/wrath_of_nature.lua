@@ -17,7 +17,7 @@ combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 function spell.onCastSpell(creature, var)
 	local condition = Condition(CONDITION_POISON)
 	condition:setParameter(CONDITION_PARAM_DELAYED, 1)
-	
+
 	local player = creature:getPlayer()
 
 	if creature and player then
@@ -25,11 +25,11 @@ function spell.onCastSpell(creature, var)
 		condition:addDamage(3, 1000, dotDmg/3)
 		combat:addCondition(condition)
 	end
-	
+
 	return combat:execute(creature, var)
 end
 
-spell:group("attack", "focus")
+spell:group("attack")
 spell:id(56)
 spell:name("Wrath of Nature")
 spell:words("exevo gran mas tera")
@@ -38,8 +38,8 @@ spell:level(55)
 spell:mana(700)
 spell:isPremium(true)
 spell:isSelfTarget(true)
-spell:cooldown(40 * 1000)
-spell:groupCooldown(4 * 1000, 40 * 1000)
+spell:cooldown(20 * 1000)
+spell:groupCooldown(2 * 1000)
 spell:needLearn(false)
 spell:vocation("druid;true", "elder druid;true")
 spell:register()
