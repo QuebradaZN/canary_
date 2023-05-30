@@ -1102,8 +1102,11 @@ DepotLocker* Player::getDepotLocker(uint32_t depotId) {
 	// We need to make room for supply stash on 12+ protocol versions and remove it for 10x.
 	bool createSupplyStash = !client->oldProtocol;
 
-	DepotLocker* depotLocker = new DepotLocker(ITEM_LOCKER, createSupplyStash ? 4 : 3);
+	DepotLocker* depotLocker = new DepotLocker(ITEM_LOCKER, createSupplyStash ? 5 : 4);
 	depotLocker->setDepotId(depotId);
+	auto adventurerStone = Item::CreateItem(ITEM_ADVENTURER_STONE);
+	adventurerStone->setAttribute(ItemAttribute_t::ACTIONID, IMMOVABLE_ACTION_ID);
+	depotLocker->internalAddThing(adventurerStone);
 	depotLocker->internalAddThing(Item::CreateItem(ITEM_MARKET));
 	depotLocker->internalAddThing(inbox);
 	if (createSupplyStash) {
