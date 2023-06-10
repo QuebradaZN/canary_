@@ -1,0 +1,17 @@
+[Unit]
+Description=Canary Server
+After=mysql.service
+StartLimitIntervalSec=1
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+StandardOutput=syslog
+StandardError=syslog
+
+WorkingDirectory=/home/ubuntu/canary
+ExecStart=/bin/bash /home/ubuntu/canary/start.sh
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target

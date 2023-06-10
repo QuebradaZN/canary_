@@ -1,0 +1,18 @@
+[Unit]
+Description=Canary Server
+After=mysql.service
+StartLimitIntervalSec=1
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+StandardOutput=syslog
+StandardError=syslog
+
+WorkingDirectory=/home/ubuntu/slenderaac
+ExecStart=/bin/bash /home/ubuntu/slenderaac/start.sh
+Environment=NODE_ENV=production
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target
