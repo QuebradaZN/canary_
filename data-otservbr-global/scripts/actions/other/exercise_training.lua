@@ -1,5 +1,7 @@
 local exerciseTraining = Action()
 
+local cooldown = 2
+
 function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not target then
 		return
@@ -9,7 +11,7 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 
 	if target:isItem() and (table.contains(HouseDummies, targetId) or table.contains(FreeDummies, targetId)) then
 		if onExerciseTraining[playerId] then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This exercise dummy can only be used after a 30 second cooldown.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This exercise dummy can only be used after a " .. cooldown .. " second cooldown.")
 			LeaveTraining(playerId)
 			return true
 		end
@@ -48,7 +50,7 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 		end
 
 		if player:getStorageValue(Storage.IsTraining) > os.time() then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This exercise dummy can only be used after a 30 second cooldown.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This exercise dummy can only be used after a " .. cooldown .. " second cooldown.")
 			return true
 		end
 
@@ -57,7 +59,7 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 			onExerciseTraining[playerId].event = addEvent(ExerciseEvent, 0, playerId, targetPos, item.itemid, targetId)
 			onExerciseTraining[playerId].dummyPos = targetPos
 			player:setTraining(true)
-			player:setStorageValue(Storage.IsTraining, os.time() + 30)
+			player:setStorageValue(Storage.IsTraining, os.time() + cooldown)
 		end
 		return true
 	end

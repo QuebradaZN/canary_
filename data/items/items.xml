@@ -40952,34 +40952,22 @@
 	</item>
 	<item id="28539" article="a" name="bonelord statue"/>
 	<item id="28540" article="a" name="training sword">
-		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="50"/>
-		<attribute key="weight" value="1000"/>
+		<attribute key="weight" value="1"/>
 	</item>
 	<item id="28541" article="a" name="training axe">
-		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="50"/>
-		<attribute key="weight" value="1000"/>
+		<attribute key="weight" value="1"/>
 	</item>
 	<item id="28542" article="a" name="training club">
-		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="50"/>
-		<attribute key="weight" value="1000"/>
+		<attribute key="weight" value="1"/>
 	</item>
 	<item id="28543" article="a" name="training bow">
-		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="50"/>
-		<attribute key="weight" value="1000"/>
+		<attribute key="weight" value="1"/>
 	</item>
 	<item id="28544" article="a" name="training rod">
-		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="50"/>
-		<attribute key="weight" value="1000"/>
+		<attribute key="weight" value="1"/>
 	</item>
 	<item id="28545" article="a" name="training wand">
-		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="50"/>
-		<attribute key="weight" value="1000"/>
+		<attribute key="weight" value="1"/>
 	</item>
 	<item fromid="28546" toid="28551" name="RESERVED SPRITE"/>
 	<item id="28552" article="an" name="exercise sword">
