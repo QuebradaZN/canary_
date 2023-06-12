@@ -1,8 +1,11 @@
 local createSummon = TalkAction("/s")
-
 function createSummon.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
+	end
+	local monsterTypes = Game.getMonsterTypes()
+	for _, mType in pairs(monsterTypes) do
+		db.query("INSERT IGNORE INTO `monsters` (`name`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `lookmount`, `looktypeex`, `raceid`) VALUES (" .. db.escapeString(mType:getName()) .. ", " .. mType:outfit().lookBody .. ", " .. mType:outfit().lookFeet .. ", " .. mType:outfit().lookHead .. ", " .. mType:outfit().lookLegs .. ", " .. mType:outfit().lookType .. ", " .. mType:outfit().lookAddons .. ", " .. mType:outfit().lookMount .. ", " .. mType:outfit().lookTypeEx .. ", " .. mType:raceId() .. ")")
 	end
 
 	if param == "" then
