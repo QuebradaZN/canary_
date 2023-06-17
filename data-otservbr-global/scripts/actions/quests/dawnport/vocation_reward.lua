@@ -14,49 +14,45 @@ local reward = {
 	container = 2854,
 	commonItems = {
 		{id = 16277, amount = 1},	-- Adventurer's stone
-		-- Parchment
-		{id = 2819, amount = 1, text = adventurersGuildText}
 	},
 	vocationItems = {
 		-- Sorcerer
 		[14025] = {
-			{id = 7992, amount = 1},	-- Mage hat
-			{id = 7991, amount = 1},	-- Magician's robe
-			{id = 3559, amount = 1},	-- Leather legs
+			{id = 3210, amount = 1},	-- Hat of the mad
+			{id = 8042, amount = 1},	-- Spirit cloak
+			{id = 24404, amount = 1},	-- Tatty dragon scale legs
+			{id = 8072, amount = 1},	-- Wand of cosmic energy
+			{id = 3073, amount = 1},  -- Spellbook of enlightenment
 			{id = 3552, amount = 1},	-- Leather boots
-			{id = 3074, amount = 1},	-- Wand of vortex
-			{id = 3059, amount = 1}		-- Spellbook
 		},
 		-- Druid
 		[14026] = {
-			{id = 7992, amount = 1},	-- Mage hat
-			{id = 7991, amount = 1},	-- Magician's robe
-			{id = 3559, amount = 1},	-- Leather legs
+			{id = 3210, amount = 1},	-- Hat of the mad
+			{id = 8042, amount = 1},	-- Spirit cloak
+			{id = 9013, amount = 1},	-- Leaf legs
+			{id = 3065, amount = 1},	-- Terra rod
+			{id = 3073, amount = 1},  -- Spellbook of enlightenment
 			{id = 3552, amount = 1},	-- Leather boots
-			{id = 3066, amount = 1},	-- Snakebite rod
-			{id = 3059, amount = 1}		-- Spellbook
 		},
 		-- Paladin
 		[14027] = {
-			{id = 3355, amount = 1},	-- Leader helmet
+			{id = 3575, amount = 1},	-- Wood cape
 			{id = 3571, amount = 1},	-- Ranger's cloak
 			{id = 8095, amount = 1},	-- Ranger legs
-			{id = 3552, amount = 1},	-- Leather boots
-			{id = 3350, amount = 1},	-- Bow
+			{id = 7438, amount = 1},	-- Elvish Bow
 			{id = 3277, amount = 1},	-- Spear
 			{id = 35562, amount = 1},	-- Quiver
-			{id = 3447, amount = 100}	-- Arrows
+			{id = 3447, amount = 1},	-- Arrows
+			{id = 3552, amount = 1},	-- Leather boots
 		},
 		-- Knight
 		[14028] = {
-			{id = 3375, amount = 1},	-- Soldier helmet
-			{id = 3359, amount = 1},	-- Brass armor
-			{id = 3372, amount = 1},	-- Brass legs
+			{id = 7461, amount = 1},	-- Krimhorn helmet
+			{id = 3357, amount = 1},	-- Plate armor
+			{id = 3557, amount = 1},	-- Plate legs
 			{id = 3552, amount = 1},	-- Leather boots
-			{id = 7774, amount = 1},	-- Jagged sword
-			{id = 17824, amount = 1},	-- Swampling club
-			{id = 7773, amount = 1},	-- steel axe
-			{id = 3409, amount = 1}		-- Steel shield
+			{id = 7408, amount = 1},	-- Wyvern fang
+			{id = 3428, amount = 1}		-- Dwarven Shield
 		}
 	}
 }
@@ -81,7 +77,7 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	end
 	for i = 1, #reward.commonItems do
 		rewardsWeight = rewardsWeight + (ItemType(reward.commonItems[i].id):getWeight() * reward.commonItems[i].amount)
-	end	
+	end
 	-- Check if enough weight capacity
 	if player:getFreeCapacity() < rewardsWeight then
 		player:sendTextMessage(
@@ -112,7 +108,7 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 		else
 			container:addItem(reward.commonItems[i].id, reward.commonItems[i].amount)
 		end
-	end	
+	end
 	-- Add vocation items
 	for i = #vocationItems, 1, -1 do
 		container:addItem(vocationItems[i].id, vocationItems[i].amount)

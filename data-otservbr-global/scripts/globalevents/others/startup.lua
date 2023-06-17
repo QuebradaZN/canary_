@@ -142,7 +142,8 @@ function serverstartup.onStartup()
 	db.query("TRUNCATE TABLE `towns`")
 	for i, town in ipairs(Game.getTowns()) do
 		local position = town:getTemplePosition()
-		db.query("INSERT INTO `towns` (`id`, `name`, `posx`, `posy`, `posz`) VALUES (" .. town:getId() .. ", " .. db.escapeString(town:getName()) .. ", " .. position.x .. ", " .. position.y .. ", " .. position.z .. ")")
+		local isStarter = table.contains(STARTER_TOWNS, town:getId()) and '1' or '0'
+		db.query("INSERT INTO `towns` (`id`, `name`, `posx`, `posy`, `posz`, `starter`) VALUES (" .. town:getId() .. ", " .. db.escapeString(town:getName()) .. ", " .. position.x .. ", " .. position.y .. ", " .. position.z .. ", " .. isStarter .. ")")
 	end
 
 	do

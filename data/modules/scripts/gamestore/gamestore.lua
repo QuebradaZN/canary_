@@ -1016,6 +1016,7 @@ GameStore.Categories = {
 				count = 250,
 				description = "{character}\n{storeinbox}\n{vocationlevelcheck}\n{battlesign}\n{capacity}\n\n<i>Soulfire is an immensely evil spell as it directly targets a creature's very life essence. When the rune is used on a victim, its soul is temporarily moved out of its body, casting it down into the blazing fires of hell itself! Note that the experience and the mental strength of the caster influence the damage that is caused.</i>",
 				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				moveable = true,
 			},
 			{
 				icons = { "Stone_Shower_Rune.png" },

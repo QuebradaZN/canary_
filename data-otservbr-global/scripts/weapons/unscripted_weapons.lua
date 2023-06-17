@@ -2332,8 +2332,8 @@ local weapons = {
 		-- cowtana
 		itemid = 21177,
 		type = WEAPON_SWORD,
-		level = 25,
-		unproperly = true
+		-- level = 25,
+		-- unproperly = true
 	},
 	{
 		-- execowtioner axe
@@ -4327,8 +4327,8 @@ local weapons = {
 		-- wyvern fang
 		itemid = 7408,
 		type = WEAPON_SWORD,
-		level = 25,
-		unproperly = true
+		-- level = 25,
+		-- unproperly = true
 	},
 	{
 		-- haunted blade
@@ -4654,13 +4654,13 @@ local weapons = {
 		-- arrow
 		itemid = 3447,
 		type = WEAPON_AMMO,
-		action = "removecount"
+		-- action = "removecount"
 	},
 	{
 		-- bolt
 		itemid = 3446,
 		type = WEAPON_AMMO,
-		action = "removecount"
+		-- action = "removecount"
 	},
 	{
 		-- bow
@@ -4993,9 +4993,7 @@ local weapons = {
 	{
 		-- bright sword
 		itemid = 3295,
-		type = WEAPON_SWORD,
-		level = 30,
-		unproperly = true
+		type = WEAPON_SWORD
 	},
 	{
 		-- short sword
@@ -5110,7 +5108,7 @@ local weapons = {
 		-- spear
 		itemid = 3277,
 		type = WEAPON_MISSILE,
-		breakchance = 3
+		-- breakchance = 3
 	},
 	{
 		-- hatchet
@@ -5232,7 +5230,7 @@ local weapons = {
 		itemid = 3073,
 		type = WEAPON_WAND,
 		wandType = "energy",
-		level = 26,
+		-- level = 26,
 		mana = 8,
 		damage = {37, 53},
 		vocation = {
@@ -5323,7 +5321,7 @@ local weapons = {
 		itemid = 3065,
 		type = WEAPON_WAND,
 		wandType = "earth",
-		level = 26,
+		-- level = 26,
 		mana = 8,
 		damage = {37, 53},
 		vocation = {

@@ -23,7 +23,7 @@ local playerLogin = CreatureEvent("PlayerLogin")
 function playerLogin.onLogin(player)
 	local items = {
 		{ 3003, 1 },
-		{ 3031, 3 }
+		{ 3457, 1 }
 	}
 	if player:getLastLoginSaved() == 0 then
 		player:sendOutfitWindow()
@@ -33,7 +33,17 @@ function playerLogin.onLogin(player)
 				backpack:addItem(items[i][1], items[i][2])
 			end
 		end
-		player:addItem(2920, 1, true, 1, CONST_SLOT_AMMO)
+		if player:getTown():getId() == TOWNS_LIST.ROOKGAARD then
+			player:addItem(2920, 1, true, 1, CONST_SLOT_AMMO)
+			player:addItem(3552, 1, true, 1, CONST_SLOT_FEET)
+			player:addItem(3361, 1, true, 1, CONST_SLOT_ARMOR)
+			player:addItem(3559, 1, true, 1, CONST_SLOT_LEGS)
+			player:addItem(3355, 1, true, 1, CONST_SLOT_HELMET)
+			player:addItem(3412, 1, true, 1, CONST_SLOT_RIGHT)
+			player:addItem(3294, 1, true, 1, CONST_SLOT_LEFT)
+			player:addItem(3572, 1, true, 1, CONST_SLOT_NECKLACE)
+		end
+
 		db.query('UPDATE `players` SET `istutorial` = 0 where `id`=' .. player:getGuid())
 		-- Open channels
 		if table.contains({ TOWNS_LIST.DAWNPORT, TOWNS_LIST.DAWNPORT_TUTORIAL }, player:getTown():getId()) then

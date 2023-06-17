@@ -68,8 +68,51 @@ local config = {
 		},
 		["knight"] = {
 			text = "A KNIGHT! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
-			vocationId = VOCATION.ID.KNIGHT
+			vocationId = VOCATION.ID.KNIGHT,
 		}
+	},
+	starterItems = {
+		[VOCATION.ID.KNIGHT] = {
+			backpack = 2870,
+			items = {
+				7461, -- Krimhorn Helmet
+				3357, -- Plate Armor
+				3557, -- Plate Legs
+				3428, -- Dwarven Shield
+				7408, -- Wyvern Fang
+			}
+		},
+		[VOCATION.ID.PALADIN] = {
+			backpack = 2866,
+			items = {
+				3575, -- Wood Cape
+				3571, -- Ranger's Cloak
+				8095, -- Ranger Legs
+				7438, -- Elvish Bow
+				3447, -- Arrow
+				35562, -- Quiver
+			}
+		},
+		[VOCATION.ID.DRUID] = {
+			backpack = 2865,
+			items = {
+				3210, -- Hat of the Mad
+				8042, -- Spirit Cloak
+				9014, -- Leaf Legs
+				8072, -- Spellbook of Enlightenment
+				3065, -- Terra Rod
+			}
+		},
+		[VOCATION.ID.SORCERER] = {
+			backpack = 2867,
+			items = {
+				3210, -- Hat of the Mad
+				8042, -- Spirit Cloak
+				24404, -- Tatty Dragon Scale Legs
+				8072, -- Spellbook of Enlightenment
+				3073, -- Wand of Cosmic Energy
+			}
+		},
 	}
 }
 
@@ -131,6 +174,20 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif npcHandler:getTopic(playerId) == 3 then
 		if MsgContains(message, "yes") then
 			npcHandler:say("SO BE IT!", npc, creature)
+			local starter = config.starterItems[vocation[playerId]]
+			local items = starter.items
+			player:setBankBalance(player:getBankBalance() + 10000)
+			local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
+			inbox:addItem(28540, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+			inbox:addItem(28543, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+			inbox:addItem(28544, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+			inbox:addItem(28545, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+			local backpack = inbox:addItem(starter.backpack, INDEX_WHEREEVER, FLAG_NOLIMIT)
+			if backpack then
+				for i = 1, #items do
+					backpack:addItem(items[i], 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+				end
+			end
 			player:setVocation(Vocation(vocation[playerId]))
 			player:setTown(Town(town[playerId]))
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

@@ -33,7 +33,7 @@ npcConfig.voices = {
 	{ text = "This island is too small. I need sea water around me." }
 }
 
-npcConfig.moneyToNeedDonation = 500 --value in gold coins (ex: 500 = 500gp, 10000 = 10k)
+npcConfig.moneyToNeedDonation = 50000 --value in gold coins (ex: 500 = 500gp, 10000 = 10k)
 
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
@@ -188,7 +188,7 @@ local towns = {
 	}
 }
 
-local defaultTown = TOWNS_LIST.VENORE
+local defaultTown = TOWNS_LIST.THAIS
 local townNames = {all = "", free = "", premium = ""}
 
 -- Function to build town names strings and adds additional data to sailable/premium towns about
@@ -285,9 +285,10 @@ local function townTravelHandler(npc, creature, message, keywords, parameters, n
 		player:setTown(town)
 		player:teleportTo(towns[townId].destination)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:setBankBalance(player:getBankBalance() + 10000)
 		player:setStorageValue(Storage.Dawnport.Mainland, 1)
 		npcHandler:say(
-			"Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... err, shops and \z
+			"I've given you 10,000 gold to get you started, now, cast off! Don't forget to talk to the guide at the port for directions to nearest bars... err, shops and \z
 			bank and such!", npc, creature)
 		npcHandler:resetNpc(creature)
 		npcHandler:removeInteraction(npc, creature)
@@ -322,7 +323,7 @@ keywordHandler:addKeyword({"ship"}, StdModule.say,
 {
 	npcHandler = npcHandler,
 	text = "She's pretty, isn't she? Will ship you safely to any port. Though a young landlubber such as you should \z
-	consider to travel to Venore first. The travel is for free. Just once though! You have to ask for a {passage}."
+	consider to travel to Thais first. The travel is for free. Just once though! You have to ask for a {passage}."
 })
 keywordHandler:addKeyword({"mainland"}, StdModule.say,
 {
@@ -340,7 +341,7 @@ keywordHandler:addKeyword({"adventurers guild"}, StdModule.say,
 	npcHandler = npcHandler,
 	text = {
 		"Those fellows help still green adventurers like you, so you learn the lay of the Tibian Mainlands. \z
-		With the adventurer's stone you can reach their guild hall from all major temples. ...", 
+		With the adventurer's stone you can reach their guild hall from all major temples. ...",
 		"I recommend you travel there as soon as possible."
 	}
 })
@@ -420,7 +421,7 @@ local sailNode = keywordHandler:addKeyword({"sail"}, StdModule.say,
 local confirmNode = KeywordNode:new({"yes"}, townTravelHandler, {confirm = true})
 local declineNode = KeywordNode:new({"no"}, townTravelHandler, {decline = true})
 for id, town in pairs(towns) do
-	local townSailNode = KeywordNode:new({town.name:lower()}, townTravelHandler, {townId = id})	
+	local townSailNode = KeywordNode:new({town.name:lower()}, townTravelHandler, {townId = id})
 	townSailNode:addChildKeywordNode(confirmNode)
 	townSailNode:addChildKeywordNode(declineNode)
 	sailNode:addChildKeywordNode(townSailNode)
@@ -429,7 +430,7 @@ end
 keywordHandler:addAliasKeyword({"passage"})
 keywordHandler:addAliasKeyword({"travel"})
 -- Donate topic nodes
-local donateNode = keywordHandler:addKeyword({"donate"}, donationHandler, {}, 
+local donateNode = keywordHandler:addKeyword({"donate"}, donationHandler, {},
 function(player) return player:getMoney() > 500 end
 )
 donateNode:addChildKeywordNode(KeywordNode:new({"yes"}, donationHandler, {confirm = true}))

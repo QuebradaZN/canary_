@@ -358,10 +358,7 @@ MigrationBackup/
 docker/**/otserver
 
 # VSCode
-settings.json
-c_cpp_properties.json
 .history
-tasks.json
 
 # CLion (JetBrains)
 .idea/
