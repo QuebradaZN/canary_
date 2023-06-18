@@ -448,7 +448,6 @@ function parseBuyStoreOffer(playerId, msg)
 
 	local configure = useOfferConfigure(offer.type)
 	if configure ~= GameStore.ConfigureOffers.SHOW_CONFIGURE then
-
 		if not player:makeCoinTransaction(offer) then
 			return player:showInfoModal("Error", "Purchase transaction error")
 		end
@@ -1018,7 +1017,7 @@ function sendStoreTransactionHistory(playerId, page, entriesPerPage)
 		msg:addByte(entry.mode) -- 0 = normal, 1 = gift, 2 = refund
 		msg:add32(entry.amount)
 		if not oldProtocol then
-			msg:addByte(0x0) -- 0 = transferable tibia coin, 1 = normal tibia coin
+			msg:addByte(entry.type or 0x00) -- 0 = transferable tibia coin, 1 = normal tibia coin
 		end
 		msg:addString(entry.description)
 		if not(oldProtocol) then
@@ -1041,8 +1040,7 @@ function sendStorePurchaseSuccessful(playerId, message)
 	msg:addString(message)
 	if oldProtocol then
 		-- Send all coins can be used for buy store offers
-		local totalCoins = player:getTibiaCoins() + player:getTransferableCoins()
-		msg:addU32(totalCoins)
+		msg:addU32(player:getTibiaCoins())
 		-- Send transferable coins can be used on transfer
 		msg:addU32(player:getTransferableCoins())
 	end
@@ -1096,8 +1094,7 @@ function sendUpdatedStoreBalances(playerId)
 	msg:addByte(0x01)
 
 	-- Send total of coins (transferable and normal coin)
-	local totalCoins = player:getTibiaCoins() + player:getTransferableCoins()
-	msg:addU32(totalCoins)
+	msg:addU32(player:getTibiaCoins())
 	msg:addU32(player:getTransferableCoins()) -- How many are Transferable
 	if not oldProtocol then
 		-- How many are reserved for a Character Auction
@@ -1514,7 +1511,9 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
 	if inbox and inbox:getEmptySlots() > 0 then
 		if (isKeg and offerCount > 500) or offerCount > 100 then
 			local parcel = inbox:addItem(PARCEL_ID, 1)
-			parcel:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime());
+			if moveable ~= true and parcel then
+				parcel:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime());
+			end
 			if parcel then
 				parcel:setAttribute(ITEM_ATTRIBUTE_NAME, '' .. offerCount .. 'x ' .. offerName .. ' package.')
 				local pendingCount = offerCount
@@ -1818,16 +1817,14 @@ end
 --==Player==--
 -- Character auction coins
 function Player.canRemoveCoins(self, coins)
-	if self:getTibiaCoins() < coins then
-		return false
-	end
-	return true
+	return self:getTibiaCoins() >= coins
 end
 
 function Player.removeCoinsBalance(self, coins)
 	if self:canRemoveCoins(coins) then
 		sendStoreBalanceUpdating(self:getId(), true)
-		return self:removeTibiaCoins(coins)
+		self:removeTibiaCoins(coins)
+		return true
 	end
 
 	return false
@@ -1841,51 +1838,16 @@ function Player.addCoinsBalance(self, coins, update)
 	return true
 end
 
--- Transferable + normal coin
-function Player.canRemoveAllCoins(self, coins)
-	if self:getTibiaCoins() + self:getTransferableCoins() < coins then
-		return false
-	end
-	return true
-end
-
---[[
-	Removes a specified amount of coins from the player's inventory.
-	@param coins (number) - The amount of coins to be removed.
-	@return (boolean) - Returns true if the coins were successfully removed, false otherwise.
---]]
-function Player.removeAllCoins(self, coins)
-	-- Check if it is possible to remove all the coins.
-	if self:canRemoveAllCoins(coins) then
-		local tibiaCoins = self:getTibiaCoins()
-		-- Check if there are enough Tibia coins to remove.
-		if tibiaCoins >= coins then
-			self:removeTibiaCoins(coins)
-		else
-			-- Remove the available Tibia coins and calculate the remaining amount to remove from transferable coins.
-			self:removeTibiaCoins(tibiaCoins)
-			self:removeTransferableCoins(coins - tibiaCoins)
-		end
-
-		sendStoreBalanceUpdating(self:getId(), true)
-		return true
-	end
-
-	return false
-end
-
 -- Transferable coins
 function Player.canRemoveTransferableCoins(self, coins)
-	if self:getTransferableCoins() < coins then
-		return false
-	end
-	return true
+	return self:getTransferableCoins() >= coins
 end
 
 function Player.removeTransferableCoinsBalance(self, coins)
 	if self:canRemoveTransferableCoins(coins) then
 		sendStoreBalanceUpdating(self:getId(), true)
-		return self:removeTransferableCoins(coins)
+		self:removeTransferableCoins(coins)
+		return true
 	end
 
 	return false
@@ -1901,7 +1863,7 @@ end
 
 --- Support Functions
 function Player.makeCoinTransaction(self, offer, desc)
-	local op = true
+	local op = false
 
 	if desc then
 		desc = offer.name .. ' (' .. desc ..')'
@@ -1909,14 +1871,9 @@ function Player.makeCoinTransaction(self, offer, desc)
 		desc = offer.name
 	end
 
-	-- First try remove normal coins, later the transferable coins
-	if self:canRemoveAllCoins(offer.price) then
-		op = self:removeAllCoins(offer.price)
-	elseif self:canRemoveCoins(offer.price) then
-		-- Remove normal coins
+	if offer.coinType == GameStore.CoinType.Coin and self:canRemoveCoins(offer.price) then
 		op = self:removeCoinsBalance(offer.price)
-	else
-		-- Remove transferable coins
+	elseif offer.coinType == GameStore.CoinType.Transferable and self:canRemoveTransferableCoins(offer.price) then
 		op = self:removeTransferableCoinsBalance(offer.price)
 	end
 
@@ -1933,23 +1890,17 @@ end
 -- @param coinType (string) - The type of the offer.
 -- @return (boolean) - Returns true if the player can pay for the offer, false otherwise.
 function Player.canPayForOffer(self, coinsToRemove, coinType)
-	local can_remove_coins = self:canRemoveCoins(coinsToRemove)
-	local can_remove_transferable_coins = self:canRemoveTransferableCoins(coinsToRemove)
-
 	-- Check if the player has the required amount of regular coins and the offer type is regular.
-	if self:getTibiaCoins() >= coinsToRemove and coinType == GameStore.CoinType.Coin then
-		return can_remove_coins
+	if coinType == GameStore.CoinType.Coin then
+		return self:canRemoveCoins(coinsToRemove)
 	end
 
 	-- Check if the player has the required amount of transferable coins and the offer type is transferable.
-	if self:getTransferableCoins() >= coinsToRemove and coinType == GameStore.CoinType.Transferable then
-		return can_remove_transferable_coins
+	if  coinType == GameStore.CoinType.Transferable then
+		return self:canRemoveTransferableCoins(coinsToRemove)
 	end
 
-	-- Check if the player has either the required amount of regular coins or transferable coins,
-	-- or both amounts combined.
-	local remove_all_coins = self:canRemoveAllCoins(coinsToRemove)
-	return remove_all_coins or (can_remove_coins or can_remove_transferable_coins)
+	return false
 end
 
 --- Other players functions
