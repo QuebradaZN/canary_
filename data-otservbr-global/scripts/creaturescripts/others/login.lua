@@ -44,6 +44,10 @@ function playerLogin.onLogin(player)
 			player:addItem(3572, 1, true, 1, CONST_SLOT_NECKLACE)
 		end
 
+		if player:getLevel() == 1 then
+			player:setCapacity(45000)
+		end
+
 		db.query('UPDATE `players` SET `istutorial` = 0 where `id`=' .. player:getGuid())
 		-- Open channels
 		if table.contains({ TOWNS_LIST.DAWNPORT, TOWNS_LIST.DAWNPORT_TUTORIAL }, player:getTown():getId()) then

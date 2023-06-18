@@ -88,7 +88,7 @@ function Player.changeVocation(self, newVocationId)
 	-- Set health, mana and capacity stats based on the vocation if is higher than level 8
 	if self:getLevel() > 8 then
 		-- Base stats for level 1
-		local stats = {health = 150, mana = 55, capacity = 40000}
+		local stats = {health = 150, mana = 55, capacity = 45000}
 		-- No vocation
 		if self:getVocation():getId() == VOCATION.ID.NONE then
 			local level = self:getLevel() - 1
