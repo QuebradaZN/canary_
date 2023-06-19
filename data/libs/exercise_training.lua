@@ -1,32 +1,46 @@
+ExerciseSpeedMultipliers = {
+	Training = 1.0,
+	Basic = 1.10,
+	Enhanced = 1.20,
+	Masterful = 1.30
+}
 ExerciseWeaponsTable = {
 	-- MELE
-	[28540] = { skill = SKILL_MELEE },
-	[28552] = { skill = SKILL_MELEE },
-	[35279] = { skill = SKILL_MELEE },
-	[35285] = { skill = SKILL_MELEE },
-	[28553] = { skill = SKILL_MELEE },
-	[28541] = { skill = SKILL_MELEE },
-	[35280] = { skill = SKILL_MELEE },
-	[35286] = { skill = SKILL_MELEE },
-	[28554] = { skill = SKILL_MELEE },
-	[28542] = { skill = SKILL_MELEE },
-	[35281] = { skill = SKILL_MELEE },
-	[35287] = { skill = SKILL_MELEE },
+	-- Training
+	[28540] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
+	[28541] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE  , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
+	[28542] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
+
+	-- Exercise
+	[28552] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+	[28553] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE  , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+	[28554] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+
+	-- Enhanced
+	[35279] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	[35280] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE  , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	[35281] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+
+	-- Supreme
+	[35285] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
+	[35286] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE  , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
+	[35287] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
+
 	-- ROD
 	[28544] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true },
-	[28556] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true },
-	[35283] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true },
-	[35289] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true },
+	[28556] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+	[35283] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	[35289] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
 	-- RANGE
 	[28543] = { skill = SKILL_DISTANCE, effect = CONST_ANI_SIMPLEARROW, allowFarUse = true },
-	[28555] = { skill = SKILL_DISTANCE, effect = CONST_ANI_SIMPLEARROW, allowFarUse = true },
-	[35282] = { skill = SKILL_DISTANCE, effect = CONST_ANI_SIMPLEARROW, allowFarUse = true },
-	[35288] = { skill = SKILL_DISTANCE, effect = CONST_ANI_SIMPLEARROW, allowFarUse = true },
+	[28555] = { skill = SKILL_DISTANCE, effect = CONST_ANI_SIMPLEARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+	[35282] = { skill = SKILL_DISTANCE, effect = CONST_ANI_SIMPLEARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	[35288] = { skill = SKILL_DISTANCE, effect = CONST_ANI_SIMPLEARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
 	-- WAND
 	[28545] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE, allowFarUse = true },
-	[28557] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE, allowFarUse = true },
-	[35284] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE, allowFarUse = true },
-	[35290] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE, allowFarUse = true }
+	[28557] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+	[35284] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	[35290] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful }
 }
 
 FreeDummies = {28558, 28565}
@@ -98,7 +112,7 @@ function ExerciseEvent(playerId, tilePosition, weaponId, dummyId)
 	local multiplier = 1
 
 	if bonusDummy then bonusDummy = 1.1 else bonusDummy = 1 end
-	if not weapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then multiplier = 0.2 end 
+	if not weapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then multiplier = 0.2 end
 
 	if isMagic then
 		player:addManaSpent(500 * bonusDummy * multiplier)
@@ -124,6 +138,7 @@ function ExerciseEvent(playerId, tilePosition, weaponId, dummyId)
 	end
 
 	local vocation = player:getVocation()
-	onExerciseTraining[playerId].event = addEvent(ExerciseEvent, vocation:getBaseAttackSpeed() / configManager.getFloat(configKeys.RATE_EXERCISE_TRAINING_SPEED), playerId, tilePosition, weaponId, dummyId)
+	local speed = (vocation:getBaseAttackSpeed() / configManager.getFloat(configKeys.RATE_EXERCISE_TRAINING_SPEED)) / (ExerciseWeaponsTable[weaponId].speedMultiplier or 1)
+	onExerciseTraining[playerId].event = addEvent(ExerciseEvent, speed, playerId, tilePosition, weaponId, dummyId)
 	return true
 end
