@@ -1,0 +1,41 @@
+# Movement
+/a NUMBER - teleport X tiles forward
+/down - Move down a floor
+/up - Move up a floor
+/t - teleport to your home town
+/town NAME - teleport to a town
+/goto CREATURE - can be player or monster
+
+# Spawning
+/c CREATURE - Teleport creature to you
+/m MONSTER - spawns a monster around you
+/s NPC - Spawns an NPC in front of you
+/summon MONSTER - Same as summon creature spell
+
+# Items
+/i ITEMID, COUNT - creates an item
+/attr ATTRIBUTE, VALUE - set an items attribute
+
+# Players
+/addskill PLAYER, SKILL, AMOUNT
+
+# Server Management
+/r - remove/delete item/tile in front of you
+/clean - clean discarded items from ground
+/reload SYSTEM - scripts, NPCs etc. Not recommended
+/raid NAME - forces a raid to start
+/B MESSAGE - server wide message broadcast
+/owner - clears owner of house "evicts"
+/ghost - Go invisible
+/mccheck - check for mutliclients
+/addtutor NAME - Promote player to tutor
+/removetutor NAME - Demote tutor to player
+/openserver
+/closeserver
+/kick NAME - Kicks a player
+/ban NAME, REASON - ban a player
+/ipban - ban an IP address
+/info NAME - return the info of the player
+/looktype NUMBER - Change your appearance
+/hide - removes your name
+/chameleon ITEMID - Same as chameleon rune

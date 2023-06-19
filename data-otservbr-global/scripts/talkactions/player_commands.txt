@@ -1,0 +1,15 @@
+# Banking
+!depositall - deposit all gold to bank account
+!balance - Get your bank balance
+!withdraw AMOUNT - withdraw money from your bank account
+
+###PERSONAL###
+!emote on/off - Emote spells
+!buyhouse - Face door of house you want to buy
+!sellhouse - Face door of house you want to sell
+!leavehouse - Face door of house you want to leave
+!bless - Buy all blessings
+
+# Server
+!online - Displays who is online
+!serverinfo - Displays server Exp, Skill, Magic, Loot Rates
