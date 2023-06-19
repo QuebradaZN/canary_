@@ -39,6 +39,8 @@ Item* Item::CreateItem(const uint16_t type, uint16_t count /*= 0*/, Position* it
 	if (it.id != 0) {
 		if (it.isDepot()) {
 			newItem = new DepotLocker(type, 4);
+		} else if (it.id == ITEM_STORE_INBOX) {
+			newItem = new Container(type, 28, true, true);
 		} else if (it.isRewardChest()) {
 			newItem = new RewardChest(type);
 		} else if (it.isContainer()) {

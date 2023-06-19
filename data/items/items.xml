@@ -35336,7 +35336,7 @@
 		<attribute key="decayTo" value="0"/>
 	</item>
 	<item id="23396" article="your" name="your store inbox">
-		<attribute key="containersize" value="20"/>
+		<attribute key="containersize" value="28"/>
 	</item>
 	<item id="23397" name="RESERVED SPRITE"/>
 	<item id="23398" article="a" name="decoration kit"/>
@@ -36209,9 +36209,9 @@
 		<attribute key="wrapableto" value="23398"/>
 		<attribute key="weight" value="850"/>
 	</item>
-	<item id="23721" article="a" name="gold pouch">
+	<item id="23721" article="a" name="loot pouch">
 		<attribute key="description" value="A infinity bag where you can hold coins."/>
-		<attribute key="containersize" value="20"/>
+		<attribute key="containersize" value="56"/>
 		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="23722" article="a" name="gold converter">
@@ -36955,7 +36955,9 @@
 		<attribute key="description" value="The rune has become inert and will need some hours to regain full strength"/>
 		<attribute key="weight" value="850"/>
 	</item>
-	<item fromid="25060" toid="25061" article="an" name="imbuing shrine"/>
+	<item fromid="25060" toid="25061" article="an" name="imbuing shrine">
+		<attribute key="pickupable" value="1"/>
+	</item>
 	<item id="25062" article="a" name="Pinata Dragon">
 		<attribute key="weight" value="3800"/>
 	</item>
@@ -40966,27 +40968,21 @@
 	</item>
 	<item id="28539" article="a" name="bonelord statue"/>
 	<item id="28540" article="a" name="training sword">
-		<attribute key="weight" value="1"/>
 		<attribute key="moveable" value="0" />
 	</item>
 	<item id="28541" article="a" name="training axe">
-		<attribute key="weight" value="1"/>
 		<attribute key="moveable" value="0" />
 	</item>
 	<item id="28542" article="a" name="training club">
-		<attribute key="weight" value="1"/>
 		<attribute key="moveable" value="0" />
 	</item>
 	<item id="28543" article="a" name="training bow">
-		<attribute key="weight" value="1"/>
 		<attribute key="moveable" value="0" />
 	</item>
 	<item id="28544" article="a" name="training rod">
-		<attribute key="weight" value="1"/>
 		<attribute key="moveable" value="0" />
 	</item>
 	<item id="28545" article="a" name="training wand">
-		<attribute key="weight" value="1"/>
 		<attribute key="moveable" value="0" />
 	</item>
 	<item fromid="28546" toid="28551" name="RESERVED SPRITE"/>

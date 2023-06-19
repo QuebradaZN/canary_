@@ -33,6 +33,16 @@ function playerLogin.onLogin(player)
 				backpack:addItem(items[i][1], items[i][2])
 			end
 		end
+		player:setSkillLevel(SKILL_CRITICAL_HIT_DAMAGE, 50)
+		local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
+		local shrine = inbox:addItem(25061, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+		shrine:setAttribute(ITEM_ATTRIBUTE_ARTICLE, 'a')
+		shrine:setAttribute(ITEM_ATTRIBUTE_NAME, 'portable imbuing shrine')
+		shrine:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, 'You can use this to imbue items with elemental powers from anywhere.')
+		inbox:addItem(28540, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+		inbox:addItem(28543, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+		inbox:addItem(28545, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+
 		if player:getTown():getId() == TOWNS_LIST.ROOKGAARD then
 			player:addItem(2920, 1, true, 1, CONST_SLOT_AMMO)
 			player:addItem(3552, 1, true, 1, CONST_SLOT_FEET)
