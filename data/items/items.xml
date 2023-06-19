@@ -44231,7 +44231,7 @@
 		<attribute key="absorbpercentphysical" value="7"/>
 		<attribute key="absorbpercentpoison" value="24"/>
 		<attribute key="skilldist" value="3"/>
-		<attribute key="duration" value="3600"/>
+		<attribute key="duration" value="72000"/>
 		<attribute key="decayTo" value="29428"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="weight" value="430"/>
@@ -44444,7 +44444,7 @@
 		<attribute key="transformDeEquipTo" value="30403" />
 		<attribute key="magiclevelpoints" value="3"/>
 		<attribute key="showduration" value="1" />
-		<attribute key="duration" value="7200"/>
+		<attribute key="duration" value="72000"/>
 		<attribute key="decayTo" value="30401"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="weight" value="500"/>
@@ -48203,7 +48203,7 @@
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentphysical" value="2"/>
 		<attribute key="absorbpercentlifedrain" value="10"/>
-		<attribute key="duration" value="7200"/>
+		<attribute key="duration" value="72000"/>
 		<attribute key="transformdeequipto" value="32621"/>
 		<attribute key="decayTo" value="32636"/>
 		<attribute key="weight" value="80"/>
@@ -56526,7 +56526,7 @@
 		<attribute key="transformDeEquipTo" value="39177"/>
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
-		<attribute key="duration" value="10800"/>
+		<attribute key="duration" value="72000"/>
 		<attribute key="decayTo" value="39179"/>
 		<attribute key="weight" value="95"/>
 	</item>
@@ -56559,7 +56559,7 @@
 		<attribute key="transformDeEquipTo" value="39180"/>
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
-		<attribute key="duration" value="10800"/>
+		<attribute key="duration" value="72000"/>
 		<attribute key="decayTo" value="39182"/>
 		<attribute key="weight" value="85"/>
 	</item>
@@ -56592,7 +56592,7 @@
 		<attribute key="transformDeEquipTo" value="39183"/>
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
-		<attribute key="duration" value="10800"/>
+		<attribute key="duration" value="72000"/>
 		<attribute key="decayTo" value="39185"/>
 		<attribute key="weight" value="90"/>
 	</item>
@@ -56625,7 +56625,7 @@
 		<attribute key="transformDeEquipTo" value="39186"/>
 		<attribute key="showattributes" value="1" />
 		<attribute key="showduration" value="1" />
-		<attribute key="duration" value="10800"/>
+		<attribute key="duration" value="72000"/>
 		<attribute key="decayTo" value="39188"/>
 	</item>
 	<item id="39188" article="an" name="arboreal ring">
@@ -56802,7 +56802,7 @@
 		<attribute key="transformDeEquipTo" value="39233"/>
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
-		<attribute key="duration" value="7200"/>
+		<attribute key="duration" value="72000"/>
 		<attribute key="decayTo" value="39235"/>
 		<attribute key="weight" value="480"/>
 	</item>
@@ -57658,7 +57658,7 @@
 	<item id="39536" article="a" name="candy lure">
 		<attribute key="description" value="It is slowly melting"/>
 		<attribute key="decayTo" value="36539" />
-		<attribute key="duration" value="7200" />
+		<attribute key="duration" value="72000" />
 		<attribute key="weight" value="50"/>
 	</item>
 	<item id="39537" article="a" name="lazyfairy"/>
