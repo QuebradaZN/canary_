@@ -23,7 +23,7 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_TEMPLE = 13,
 	OFFER_TYPE_BLESSINGS = 14,
 	OFFER_TYPE_PREMIUM = 15,
-	OFFER_TYPE_POUNCH = 16,
+	OFFER_TYPE_POUCH = 16,
 	OFFER_TYPE_ALLBLESSINGS = 17,
 	OFFER_TYPE_INSTANT_REWARD_ACCESS = 18,
 	OFFER_TYPE_CHARMS = 19,
@@ -33,7 +33,9 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_HIRELING_SKILL = 23,
 	OFFER_TYPE_HIRELING_OUTFIT = 24,
 	OFFER_TYPE_HUNTINGSLOT = 25,
-	OFFER_TYPE_ITEM_BED = 26
+	OFFER_TYPE_ITEM_BED = 26,
+
+	OFFER_TYPE_SHRINE = 100,
 }
 
 GameStore.SubActions = {
@@ -64,7 +66,7 @@ GameStore.ActionType = {
 }
 
 GameStore.CoinType = {
-	Coin = 0,
+	Online = 0,
 	Transferable = 1,
 }
 
@@ -94,6 +96,7 @@ function convertType(type)
 		[GameStore.OfferTypes.OFFER_TYPE_STACKABLE] = GameStore.ConverType.SHOW_ITEM,
 		[GameStore.OfferTypes.OFFER_TYPE_HOUSE] = GameStore.ConverType.SHOW_ITEM,
 		[GameStore.OfferTypes.OFFER_TYPE_CHARGES] = GameStore.ConverType.SHOW_ITEM,
+		[GameStore.OfferTypes.OFFER_TYPE_SHRINE] = GameStore.ConverType.SHOW_ITEM,
 		[GameStore.OfferTypes.OFFER_TYPE_HIRELING] = GameStore.ConverType.SHOW_HIRELING,
 		[GameStore.OfferTypes.OFFER_TYPE_ITEM_BED] = GameStore.ConverType.SHOW_NONE,
 	}
@@ -280,8 +283,8 @@ function parseTransferableCoins(playerId, msg)
 	addPlayerEvent(sendStorePurchaseSuccessful, 550, playerId, "You have transfered " .. amount .. " coins to " .. reciver .. " successfully")
 
 	-- Adding history for both reciver/sender
-	GameStore.insertHistory(accountId, GameStore.HistoryTypes.HISTORY_TYPE_NONE, player:getName() .. " transfered you this amount.", amount, GameStore.CoinType.Coin)
-	GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, "You transfered this amount to " .. reciver, -1 * amount, GameStore.CoinType.Coin)
+	GameStore.insertHistory(accountId, GameStore.HistoryTypes.HISTORY_TYPE_NONE, player:getName() .. " transfered you this amount.", amount, GameStore.CoinType.Online)
+	GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, "You transfered this amount to " .. reciver, -1 * amount, GameStore.CoinType.Online)
 	openStore(playerId)
 end
 
@@ -381,7 +384,8 @@ function parseBuyStoreOffer(playerId, msg)
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_TEMPLE and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS and
-			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUNCH and
+			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUCH and
+			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_SHRINE and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_NAMECHANGE and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE and
@@ -404,7 +408,8 @@ function parseBuyStoreOffer(playerId, msg)
 	-- Handled errors have a code index and unhandled errors do not
 	local pcallOk, pcallError = pcall(function()
 		if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM               then GameStore.processItemPurchase(player, offer.itemtype, offer.count, offer.moveable)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_POUNCH         then GameStore.processItemPurchase(player, offer.itemtype, offer.count)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_POUCH         then GameStore.processItemPurchase(player, offer.itemtype, offer.count)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SHRINE         then GameStore.processItemPurchase(player, offer.itemtype, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS then GameStore.processInstantRewardAccess(player, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARMS         then GameStore.processCharmsPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS      then GameStore.processSignleBlessingPurchase(player, offer.blessid, offer.count)
@@ -419,7 +424,6 @@ function parseBuyStoreOffer(playerId, msg)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE      then GameStore.processSexChangePurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST       then GameStore.processExpBoostPuchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT       then GameStore.processPreyThirdSlot(player)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HUNTINGSLOT    then GameStore.processTaskHuntingThirdSlot(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(player, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TEMPLE         then GameStore.processTempleTeleportPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARGES        then GameStore.processChargesPurchase(player, offer.itemtype, offer.name, offer.charges, offer.moveable)
@@ -559,7 +563,8 @@ function Player.canBuyOffer(self, offer)
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYBONUS and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_TEMPLE and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE and
-	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUNCH and
+	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUCH and
+	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_SHRINE and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT and
 	not offer.id then
@@ -572,11 +577,17 @@ function Player.canBuyOffer(self, offer)
 	end
 
 	if disabled ~= 1 then
-		if offer.type == GameStore.OfferTypes.OFFER_TYPE_POUNCH then
-			local pounch = self:getItemById(23721, true)
-			if pounch then
+		if offer.type == GameStore.OfferTypes.OFFER_TYPE_POUCH then
+			local pouch = self:getItemById(23721, true)
+			if pouch then
 				disabled = 1
-				disabledReason = "You already have Loot Pouch."
+				disabledReason = "You already have a Loot Pouch."
+			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SHRINE then
+			local shrine = self:getItemById(25061, true)
+			if shrine then
+				disabled = 1
+				disabledReason = "You already have a portable shrine."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS then
 			if self:getBlessingCount(offer.blessid) >= 5 then
@@ -910,7 +921,7 @@ function sendShowStoreOffersOnOldProtocol(playerId, category)
 	for _, offer in ipairs(category.offers) do
 		if limit > 0 then
 			-- Blocking offers that are not on coin currency. On old protocol we cannot change or validate any currency instead the default (Coin)
-			if (not(offer.coinType) or offer.coinType == GameStore.CoinType.Coin) then
+			if (not(offer.coinType) or offer.coinType == GameStore.CoinType.Online) then
 				count = count + 1
 			end
 			limit = limit - 1
@@ -919,7 +930,7 @@ function sendShowStoreOffersOnOldProtocol(playerId, category)
 
 	msg:addU16(count)
 	for _, offer in ipairs(category.offers) do
-		if (count > 0 and offer.coinType == GameStore.CoinType.Coin) then
+		if (count > 0 and offer.coinType == GameStore.CoinType.Online) then
 			count = count - 1
 			local name = ""
 			if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM and offer.count then
@@ -1691,14 +1702,12 @@ function GameStore.processPreyThirdSlot(player)
 		return error({code = 1, message = "You already have unlocked all prey slots."})
 	end
 	player:preyThirdSlot(true)
-end
-
-function GameStore.processTaskHuntingThirdSlot(player)
 	if player:taskHuntingThirdSlot() then
 		return error({code = 1, message = "You already have unlocked all task hunting slots."})
 	end
 	player:taskHuntingThirdSlot(true)
 end
+
 
 function GameStore.processPreyBonusReroll(player, offerCount)
 	if player:getPreyCards() + offerCount >= 51 then
@@ -1871,7 +1880,7 @@ function Player.makeCoinTransaction(self, offer, desc)
 		desc = offer.name
 	end
 
-	if offer.coinType == GameStore.CoinType.Coin and self:canRemoveCoins(offer.price) then
+	if offer.coinType == GameStore.CoinType.Online and self:canRemoveCoins(offer.price) then
 		op = self:removeCoinsBalance(offer.price)
 	elseif offer.coinType == GameStore.CoinType.Transferable and self:canRemoveTransferableCoins(offer.price) then
 		op = self:removeTransferableCoinsBalance(offer.price)
@@ -1891,7 +1900,7 @@ end
 -- @return (boolean) - Returns true if the player can pay for the offer, false otherwise.
 function Player.canPayForOffer(self, coinsToRemove, coinType)
 	-- Check if the player has the required amount of regular coins and the offer type is regular.
-	if coinType == GameStore.CoinType.Coin then
+	if coinType == GameStore.CoinType.Online then
 		return self:canRemoveCoins(coinsToRemove)
 	end
 
