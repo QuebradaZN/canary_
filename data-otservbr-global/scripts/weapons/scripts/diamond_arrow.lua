@@ -17,8 +17,8 @@ combat:setParameter(COMBAT_PARAM_CASTSOUND, SOUND_EFFECT_TYPE_DIST_ATK_BOW)
 combat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
 function onGetFormulaValues(player, skill, attack, factor)
     local distanceSkill = player:getEffectiveSkillLevel(SKILL_DISTANCE)
-    local min = (player:getLevel() / 5)
-    local max = (0.09 * factor) * distanceSkill * 37 + (player:getLevel() / 5)
+    local min = (0.09 * factor) * distanceSkill * 10 + (player:getLevel() / 5)
+    local max = (0.09 * factor) * distanceSkill * 40 + (player:getLevel() / 5)
     return -min, -max
 end
 
