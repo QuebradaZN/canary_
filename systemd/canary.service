@@ -6,8 +6,6 @@ StartLimitIntervalSec=1
 Type=simple
 Restart=always
 RestartSec=1
-StandardOutput=syslog
-StandardError=syslog
 
 WorkingDirectory=/home/ubuntu/canary
 ExecStart=/bin/bash /home/ubuntu/canary/start.sh
