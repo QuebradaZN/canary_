@@ -54,15 +54,6 @@
 	<npc centerx="32350" centery="32230" centerz="7" radius="1">
 		<npc name="Battlemart" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</npc>
-	<npc centerx="32190" centery="32293" centerz="7" radius="1">
-		<npc name="Cledwyn" x="0" y="0" z="7" spawntime="60" />
-	</npc>
-	<npc centerx="32209" centery="32297" centerz="7" radius="1">
-		<npc name="Rotem Valos" x="0" y="0" z="7" spawntime="60" />
-	</npc>
-	<npc centerx="32192" centery="32299" centerz="7" radius="1">
-		<npc name="Zethra" x="0" y="0" z="7" spawntime="60" />
-	</npc>
 	<npc centerx="32194" centery="32305" centerz="7" radius="1">
 		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</npc>
