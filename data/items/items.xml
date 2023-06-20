@@ -55405,10 +55405,10 @@
 		<attribute key="description" value="It was awarded during the festivities of Tibia's anniversary" />
 		<attribute key="weight" value="800"/>
 	</item>
-	<item id="37536" article="a" name="changing backpack">
-		<attribute key="description" value="It changes its appearance in the course of years, just like Tibia" />
-		<attribute key="containersize" value="20"/>
-		<attribute key="weight" value="1500"/>
+	<item id="37536" article="a" name="backpack of elysium">
+		<attribute key="description" value="It is what the gods used to hike around in elysium." />
+		<attribute key="containersize" value="200"/>
+		<attribute key="weight" value="1000"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="increase capacity" value="3"/>
 		</attribute>

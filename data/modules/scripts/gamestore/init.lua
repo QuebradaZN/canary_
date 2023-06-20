@@ -396,7 +396,8 @@ function parseBuyStoreOffer(playerId, msg)
 	end
 
 	-- At this point the purchase is assumed to be formatted correctly
-	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or offer.price
+	-- local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or offer.price
+	local offerPrice = offer.price
 	local offerCoinType = offer.coinType
 	-- Check if offer can be honored
 	if not player:canPayForOffer(offerPrice, offerCoinType) then
@@ -662,10 +663,10 @@ function Player.canBuyOffer(self, offer)
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
 			local remainingBoost = self:getExpBoostStamina()
-			if self:getStorageValue(GameStore.Storages.expBoostCount) == 6 then
-				disabled = 1
-				disabledReason = "You can't buy XP Boost for today."
-			end
+			-- if self:getStorageValue(GameStore.Storages.expBoostCount) == 6 then
+			-- 	disabled = 1
+			-- 	disabledReason = "You can't buy XP Boost for today."
+			-- end
 			if (remainingBoost > 0) then
 				disabled = 1
 				disabledReason = "You already have an active XP boost."
@@ -804,14 +805,15 @@ function sendShowStoreOffers(playerId, category, redirectId)
 			msg:addByte(#offer.offers)
 			sendOfferDescription(player, offer.id and offer.id or 0xFFFF, offer.description)
 			for _, off in ipairs(offer.offers) do
-				xpBoostPrice = nil
-				if offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
-					xpBoostPrice = GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)]
-				end
+				-- xpBoostPrice = nil
+				-- if offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
+				-- 	xpBoostPrice = GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)]
+				-- end
 
 				msg:addU32(off.id)
 				msg:addU16(off.count)
-				msg:addU32(xpBoostPrice or off.price)
+				-- msg:addU32(xpBoostPrice or off.price)
+				msg:addU32(off.price)
 				msg:addByte(off.coinType or 0x00)
 
 				msg:addByte((off.disabledReadonIndex ~= nil) and 1 or 0)
@@ -951,7 +953,8 @@ function sendShowStoreOffersOnOldProtocol(playerId, category)
 			end
 
 			local disabled, disabledReason = player:canBuyOffer(offer).disabled, player:canBuyOffer(offer).disabledReason
-			local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or (newPrice or offer.price or 0xFFFF)
+			-- local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or (newPrice or offer.price or 0xFFFF)
+			local offerPrice = newPrice or offer.price or 0xFFFF
 			msg:addU32(offer.id and offer.id or 0xFFFF)
 			msg:addString(name)
 			msg:addString(offer.description or GameStore.getDefaultDescription(offer.type,offer.count))
@@ -1690,11 +1693,11 @@ function GameStore.processExpBoostPuchase(player)
 	player:setStoreXpBoost(50)
 	player:setExpBoostStamina(currentExpBoostTime + 3600)
 
-	if (player:getStorageValue(GameStore.Storages.expBoostCount) == -1 or expBoostCount == 6) then
-		player:setStorageValue(GameStore.Storages.expBoostCount, 1)
-	end
+	-- if (player:getStorageValue(GameStore.Storages.expBoostCount) == -1 or expBoostCount == 6) then
+	-- 	player:setStorageValue(GameStore.Storages.expBoostCount, 1)
+	-- end
 
-	player:setStorageValue(GameStore.Storages.expBoostCount, expBoostCount + 1)
+	-- player:setStorageValue(GameStore.Storages.expBoostCount, expBoostCount + 1)
 end
 
 function GameStore.processPreyThirdSlot(player)
