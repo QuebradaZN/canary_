@@ -410,7 +410,7 @@ function parseBuyStoreOffer(playerId, msg)
 	local pcallOk, pcallError = pcall(function()
 		if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM               then GameStore.processItemPurchase(player, offer.itemtype, offer.count, offer.moveable)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_POUCH         then GameStore.processItemPurchase(player, offer.itemtype, offer.count)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SHRINE         then GameStore.processItemPurchase(player, offer.itemtype, offer.count)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SHRINE         then GameStore.processShrinePurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS then GameStore.processInstantRewardAccess(player, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARMS         then GameStore.processCharmsPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS      then GameStore.processSignleBlessingPurchase(player, offer.blessid, offer.count)
@@ -1436,6 +1436,18 @@ end
 -- Must throw an error when the purchase has not been made. The error must of
 -- take a table {code = ..., message = ...} if the error is handled. When no code
 -- index is present the error is assumed to be unhandled.
+
+function GameStore.processShrinePurchase(player)
+	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
+	if inbox and inbox:getEmptySlots() > 1 then
+		local shrine = inbox:addItem(25061, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+		shrine:setAttribute(ITEM_ATTRIBUTE_ARTICLE, 'a')
+		shrine:setAttribute(ITEM_ATTRIBUTE_NAME, 'portable imbuing shrine')
+		shrine:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, 'You can use this to imbue items with elemental powers from anywhere.')
+	else
+		return error({ code = 0, message = "Please make sure you have free slots in your store inbox."})
+	end
+end
 
 function GameStore.processItemPurchase(player, offerId, offerCount, moveable)
 	if player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount) then
