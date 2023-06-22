@@ -177,7 +177,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			local starter = config.starterItems[vocation[playerId]]
 			local items = starter.items
 			player:setBankBalance(player:getBankBalance() + 10000)
-			local backpack = inbox:addItem(starter.backpack, INDEX_WHEREEVER, FLAG_NOLIMIT)
+			local backpack = player:addItem(starter.backpack, INDEX_WHEREEVER, FLAG_NOLIMIT)
 			if backpack then
 				for i = 1, #items do
 					backpack:addItem(items[i], 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
