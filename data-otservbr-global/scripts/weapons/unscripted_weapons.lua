@@ -5373,6 +5373,52 @@ swordCombat:setFormula(COMBAT_FORMULA_SKILL, 0, 0, 1.0, 0)
 swordCombat:setParameter(COMBAT_PARAM_IMPACTSOUND, MELEE_ATK_SWORD)
 swordCombat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SLASH)
 
+local wandCombats = {
+	fire = Combat(),
+	energy = Combat(),
+	ice = Combat(),
+	earth = Combat(),
+	death = Combat()
+}
+
+local wandAnims = {
+	fire = CONST_ANI_FIRE,
+	energy = CONST_ANI_ENERGY,
+	ice = CONST_ANI_SMALLICE,
+	earth = CONST_ANI_SMALLEARTH,
+	death = CONST_ANI_DEATH
+}
+
+wandCombats.fire:setParameter(COMBAT_PARAM_TYPE, COMBAT_FIREDAMAGE)
+wandCombats.energy:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
+wandCombats.ice:setParameter(COMBAT_PARAM_TYPE, COMBAT_ICEDAMAGE)
+wandCombats.earth:setParameter(COMBAT_PARAM_TYPE, COMBAT_EARTHDAMAGE)
+wandCombats.death:setParameter(COMBAT_PARAM_TYPE, COMBAT_DEATHDAMAGE)
+
+function onGetWandDamageValues(player, skill, attack, factor)
+	local maglevel = player:getMagicLevel()
+	local level = player:getLevel()
+	local min = (level / 5) + (maglevel + attack) / 3
+	local max = (level / 5) + (maglevel + attack)
+	return min, max
+end
+
+fireCallback = onGetWandDamageValues
+energyCallback = onGetWandDamageValues
+iceCallback = onGetWandDamageValues
+earthCallback = onGetWandDamageValues
+deathCallback = onGetWandDamageValues
+
+wandCombats.fire:setCallback(CALLBACK_PARAM_SKILLVALUE, "fireCallback")
+wandCombats.energy:setCallback(CALLBACK_PARAM_SKILLVALUE, "energyCallback")
+wandCombats.ice:setCallback(CALLBACK_PARAM_SKILLVALUE, "iceCallback")
+wandCombats.earth:setCallback(CALLBACK_PARAM_SKILLVALUE, "earthCallback")
+wandCombats.death:setCallback(CALLBACK_PARAM_SKILLVALUE, "deathCallback")
+
+-- for wType, _ in pairs(wandCombats) do
+-- 	wandCombats[wType]:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetWandDamageValues")
+-- end
+
 for _, w in ipairs(weapons) do
 	local weapon = Weapon(w.type)
 	weapon:id(w.itemid or w.itemId)
@@ -5424,6 +5470,19 @@ for _, w in ipairs(weapons) do
 	if (w.type == WEAPON_SWORD) then
 		weapon.onUseWeapon = function(player, variant)
 			return swordCombat:execute(player, variant)
+		end
+	end
+
+	if (w.type == WEAPON_WAND) then
+		weapon.onUseWeapon = function(player, variant)
+			local target = Creature(variant:getNumber())
+			local wandCombat = wandCombats[w.wandType or w.wandtype]
+			local wandAnim = wandAnims[w.wandType or w.wandtype]
+
+			if not target or not wandCombat then
+				return false
+			end
+			return Chain.combat(player, target, wandCombat, 4, 2, wandAnim, wandAnim)
 		end
 	end
 

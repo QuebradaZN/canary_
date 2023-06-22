@@ -21,8 +21,6 @@ function Chain.combat(player, target, combat, maxCreatures, maxDistance, animati
 			return maxCreatures
 		end
 
-		Spdlog.info("previousTarget: " .. (previousTarget and previousTarget:getName() or "") .. " - target: " .. target:getName())
-
 		if previousTarget and animation then
 			previousTarget:getPosition():sendDistanceEffect(target:getPosition(), animation)
 		end

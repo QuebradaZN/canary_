@@ -4895,6 +4895,7 @@
 	<item id="3065" article="a" name="terra rod">
 		<attribute key="description" value="Small stones are flying from its tip"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="33"/>
 		<attribute key="shootType" value="smallearth"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2500"/>
@@ -4902,6 +4903,7 @@
 	<item id="3066" article="a" name="snakebite rod">
 		<attribute key="description" value="It seems to twitch and quiver as if trying to escape your grip"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="23"/>
 		<attribute key="shootType" value="smallearth"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="1900"/>
@@ -4909,6 +4911,7 @@
 	<item id="3067" article="a" name="hailstorm rod">
 		<attribute key="description" value="It grants you the power of striking your foes with furious hailstorms"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="40"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2700"/>
@@ -4919,6 +4922,7 @@
 	<item id="3069" article="a" name="necrotic rod">
 		<attribute key="description" value="It was brought up from hell to deliver death"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="28"/>
 		<attribute key="shootType" value="death"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2300"/>
@@ -4926,6 +4930,7 @@
 	<item id="3070" article="a" name="moonlight rod">
 		<attribute key="description" value="Icecold rays of moonlight shimmer on its tip"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="28"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2100"/>
@@ -4933,6 +4938,7 @@
 	<item id="3071" article="a" name="wand of inferno">
 		<attribute key="description" value="It unleashes the very fires of hell"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="40"/>
 		<attribute key="shootType" value="fire"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2700"/>
@@ -4940,6 +4946,7 @@
 	<item id="3072" article="a" name="wand of decay">
 		<attribute key="description" value="It is half-rotten itself and reeks terribly"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="28"/>
 		<attribute key="shootType" value="death"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2300"/>
@@ -4947,6 +4954,7 @@
 	<item id="3073" article="a" name="wand of cosmic energy">
 		<attribute key="description" value="The energy of a radiant star is trapped inside its globe"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="33"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2500"/>
@@ -4954,6 +4962,7 @@
 	<item id="3074" article="a" name="wand of vortex">
 		<attribute key="description" value="Surges of energy rush through the tip of this wand"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="23"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="1900"/>
@@ -4961,6 +4970,7 @@
 	<item id="3075" article="a" name="wand of dragonbreath">
 		<attribute key="description" value="Legends say that this wand holds the soul of a young dragon"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="25"/>
 		<attribute key="shootType" value="fire"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2300"/>
@@ -16471,6 +16481,7 @@
 	<item id="8082" article="an" name="underworld rod">
 		<attribute key="description" value="No one knows which hell this unholy rod comes from"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="42"/>
 		<attribute key="shootType" value="death"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2900"/>
@@ -16483,6 +16494,7 @@
 	<item id="8083" article="a" name="northwind rod">
 		<attribute key="description" value="It was made by one of the shamans in Svargrond and symbolises an icy mammoth"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="30"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2900"/>
@@ -16495,6 +16507,7 @@
 	<item id="8084" article="a" name="springsprout rod">
 		<attribute key="description" value="It is filled with the energy of growing plants"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="40"/>
 		<attribute key="shootType" value="smallearth"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2700"/>
@@ -16513,6 +16526,7 @@
 	<item id="8092" article="a" name="wand of starstorm">
 		<attribute key="description" value="It is sparkling with universal energy"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="40"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2550"/>
@@ -16525,6 +16539,7 @@
 	<item id="8093" article="a" name="wand of draconia">
 		<attribute key="description" value="This wand holds the spirit and soul of a dragon lord"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="30"/>
 		<attribute key="shootType" value="fire"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2700"/>
@@ -16537,6 +16552,7 @@
 	<item id="8094" article="a" name="wand of voodoo">
 		<attribute key="description" value="It is filled with the dark hatred and rage of a tormented demonic being"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="42"/>
 		<attribute key="shootType" value="death"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2850"/>
@@ -23004,6 +23020,7 @@
 	<item id="12603" article="a" name="wand of dimensions">
 		<attribute key="description" value="This wand controls the rift between time and space"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="40"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2800"/>
@@ -23239,6 +23256,7 @@
 	<item id="12732" article="a" name="shimmer rod">
 		<attribute key="description" value="It feels cold and smooth"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="42"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="showduration" value="0"/>
 		<attribute key="duration" value="604800"/>
@@ -23281,6 +23299,7 @@
 	<item id="12741" article="a" name="shimmer wand">
 		<attribute key="description" value="It feels cold and smooth"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="40"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="showduration" value="0"/>
 		<attribute key="duration" value="604800"/>
@@ -25733,6 +25752,7 @@
 	<item id="16096" article="a" name="wand of defiance">
 		<attribute key="description" value="It reveals devastating energy arcs"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="magiclevelpoints" value="1"/>
 		<attribute key="range" value="4"/>
@@ -25865,6 +25885,7 @@
 	<item id="16115" article="a" name="wand of everblazing">
 		<attribute key="description" value="It contains the everblazing fire"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="fire"/>
 		<attribute key="magiclevelpoints" value="1"/>
 		<attribute key="range" value="4"/>
@@ -25881,6 +25902,7 @@
 	<item id="16117" article="a" name="muck rod">
 		<attribute key="description" value="A true staff of old, spitting slimy orbs"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="smallearth"/>
 		<attribute key="magiclevelpoints" value="1"/>
 		<attribute key="range" value="4"/>
@@ -25889,6 +25911,7 @@
 	<item id="16118" article="a" name="glacial rod">
 		<attribute key="description" value="Hurls the icy essence of the Svargrond glaciers"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="magiclevelpoints" value="1"/>
 		<attribute key="range" value="4"/>
@@ -26483,6 +26506,7 @@
 	<item id="17111" article="a" name="sorcerer and druid staff">
 		<attribute key="description" value="It can only be wielded properly by players without vocation."/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="10"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="1900"/>
@@ -32462,6 +32486,7 @@
 	<item id="21348" article="the" name="scorcher">
 		<attribute key="description" value="It's warm to the touch"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="10"/>
 		<attribute key="shootType" value="fire"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="1500"/>
@@ -32470,6 +32495,7 @@
 	<item id="21350" article="the" name="chiller">
 		<attribute key="description" value="It is a little, well, chilly to the touch"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="10"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="1500"/>
@@ -34201,6 +34227,7 @@
 	</item>
 	<item id="22183" article="an" name="ogre scepta">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="40"/>
 		<attribute key="shootType" value="smallearth"/>
 		<attribute key="range" value="3"/>
 		<attribute key="weight" value="2900"/>
@@ -34912,6 +34939,7 @@
 	<item id="22765" article="a" name="Ferumbras' staff">
 		<attribute key="description" value="It is made of platinum and emeralds and topped by a large F made of gold"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="duration" value="86400"/>
 		<attribute key="decayTo" value="22764"/>
@@ -34922,6 +34950,7 @@
 	<item id="22766" article="a" name="Ferumbras' staff">
 		<attribute key="description" value="It is made of platinum and emeralds and topped by a large F made of gold"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="magiclevelpoints" value="1"/>
 		<attribute key="duration" value="86400"/>
@@ -37588,6 +37617,7 @@
 	<item id="25700" article="a" name="dream blossom staff">
 		<attribute key="description" value="It's a gnarly branch with a gleaming blue blossom"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="49"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="magiclevelpoints" value="1"/>
 		<attribute key="range" value="5"/>
@@ -37757,6 +37787,7 @@
 	<item id="25760" article="a" name="wand of darkness">
 		<attribute key="description" value="Temporary magic powers enchant this staff."/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="42"/>
 		<attribute key="shootType" value="death"/>
 		<attribute key="stopduration" value="0"/>
 		<attribute key="showduration" value="1"/>
@@ -39766,6 +39797,7 @@
 	</item>
 	<item id="27457" article="a" name="wand of destruction">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="51"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="magiclevelpoints" value="1"/>
 		<attribute key="range" value="4"/>
@@ -39779,6 +39811,7 @@
 	</item>
 	<item id="27458" article="a" name="rod of destruction">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="51"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="magiclevelpoints" value="1"/>
 		<attribute key="range" value="4"/>
@@ -41670,7 +41703,9 @@
 	</item>
 	<item id="28716" article="a" name="falcon rod">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="earth"/>
+		<attribute key="attack" value="55"/>
 		<attribute key="absorbpercentenergy" value="8"/>
 		<attribute key="magiclevelpoints" value="3"/>
 		<attribute key="range" value="5"/>
@@ -41684,6 +41719,7 @@
 	</item>
 	<item id="28717" article="a" name="falcon wand">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="absorbpercentfire" value="8"/>
 		<attribute key="magiclevelpoints" value="3"/>
@@ -42188,6 +42224,7 @@
 	</item>
 	<item id="28825" article="a" name="deepling ceremonial dagger">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="51"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="absorbpercentpoison" value="5"/>
 		<attribute key="magiclevelpoints" value="2"/>
@@ -42202,6 +42239,7 @@
 	</item>
 	<item id="28826" article="a" name="deepling fork">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="51"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="absorbpercentholy" value="8"/>
 		<attribute key="magiclevelpoints" value="2"/>
@@ -42892,6 +42930,7 @@
 	</item>
 	<item id="29425" article="an" name="energized limb">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="51"/>
 		<attribute key="shootType" value="fire"/>
 		<attribute key="absorbpercentenergy" value="10"/>
 		<attribute key="magiclevelpoints" value="2"/>
@@ -44405,6 +44444,7 @@
 	</item>
 	<item id="30399" name="cobra wand">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="magiclevelpoints" value="2"/>
 		<attribute key="criticalhitdamage" value="35"/>
@@ -44419,6 +44459,7 @@
 	</item>
 	<item id="30400" name="cobra rod">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="smallearth"/>
 		<attribute key="magiclevelpoints" value="2"/>
 		<attribute key="lifeleechamount" value="1800"/>
@@ -50236,6 +50277,7 @@
 	</item>
 	<item id="34090" article="a" name="soultainter">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="suddendeath"/>
 		<attribute key="absorbpercentdeath" value="12"/>
 		<attribute key="magiclevelpoints" value="5"/>
@@ -50251,6 +50293,7 @@
 	</item>
 	<item id="34091" article="a" name="soulhexer">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="absorbpercentice" value="12"/>
 		<attribute key="magiclevelpoints" value="5"/>
@@ -50558,6 +50601,7 @@
 	</item>
 	<item id="34151" article="a" name="lion rod">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="magiclevelpoints" value="2"/>
 		<attribute key="criticalhitdamage" value="35"/>
@@ -50572,6 +50616,7 @@
 	</item>
 	<item id="34152" article="a" name="lion wand">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="magiclevelpoints" value="2"/>
 		<attribute key="lifeleechamount" value="1800"/>
@@ -51765,6 +51810,7 @@
 	</item>
 	<item id="35521" article="a" name="jungle rod">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="50"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="absorbpercentpoison" value="3"/>
 		<attribute key="magiclevelpoints" value="1"/>
@@ -51778,6 +51824,7 @@
 	</item>
 	<item id="35522" article="a" name="jungle wand">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="50"/>
 		<attribute key="shootType" value="smallearth"/>
 		<attribute key="absorbpercentice" value="3"/>
 		<attribute key="magiclevelpoints" value="1"/>
@@ -53084,6 +53131,7 @@
 	</item>
 	<item id="36668" article="a" name="eldritch wand">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="fire"/>
 		<attribute key="absorbpercentenergy" value="4"/>
 		<attribute key="magiclevelpoints" value="2"/>
@@ -53100,6 +53148,7 @@
 	<item id="36669" article="a" name="gilded eldritch wand">
 		<attribute key="description" value="Refined by the legendary artisan Gnomaurum"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="fire"/>
 		<attribute key="absorbpercentenergy" value="4"/>
 		<attribute key="magiclevelpoints" value="2"/>
@@ -53179,6 +53228,7 @@
 	</item>
 	<item id="36674" article="a" name="eldritch rod">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="ice"/>
 		<attribute key="absorbpercentpoison" value="4"/>
 		<attribute key="magiclevelpoints" value="2"/>
@@ -53198,6 +53248,7 @@
 	<item id="36675" article="a" name="gilded eldritch rod">
 		<attribute key="description" value="Refined by the legendary artisan Gnomaurum"/>
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="ice"/>
 		<attribute key="absorbpercentpoison" value="4"/>
 		<attribute key="magiclevelpoints" value="2"/>
@@ -56432,6 +56483,7 @@
 	</item>
 	<item id="39162" article="a" name="naga wand">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="absorbpercentice" value="4"/>
 		<attribute key="magiclevelpoints" value="2"/>
@@ -56447,6 +56499,7 @@
 	</item>
 	<item id="39163" article="a" name="naga rod">
 		<attribute key="weaponType" value="wand"/>
+		<attribute key="attack" value="52"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="absorbpercentfire" value="4"/>
 		<attribute key="magiclevelpoints" value="2"/>
