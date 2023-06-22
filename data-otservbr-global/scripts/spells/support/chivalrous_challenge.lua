@@ -32,13 +32,27 @@ end
 combat:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValue")
 
 function onChain(creature, target)
+	local party = creature:getParty()
+	local hasSynergy = false
+	if party and party:isSharedExperienceEnabled() then
+		hasSynergy = party:hasPaladin()
+	end
 	local duration = 12000
+	if hasSynergy then
+		duration = duration + 2000
+	end
+	local challengeDuration = 6000
+	if hasSynergy then
+		challengeDuration = challengeDuration + 2000
+	end
+	doChallengeCreature(player, closestMonster, 6000)
+
 	local player = creature:getPlayer()
 	if creature and player then
 		duration = duration + (player:getWheelSpellAdditionalDuration("Chivalrous Challenge") * 1000)
 	end
 	if target and target:isMonster() then
-		doChallengeCreature(player, target:getMonster(), 12000)
+		doChallengeCreature(player, target:getMonster(), 12000, challengeDuration)
 		target:changeTargetDistance(1, duration)
 	end
 	return true

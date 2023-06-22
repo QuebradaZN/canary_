@@ -1,4 +1,10 @@
 function onTargetCreature(creature, target)
+	local party = creature:getParty()
+	local hasSynergy = false
+	if party and party:isSharedExperienceEnabled() then
+		hasSynergy = party:hasPaladin()
+	end
+
 	local player = creature:getPlayer()
 
 	if target:isPlayer() then
@@ -8,9 +14,14 @@ function onTargetCreature(creature, target)
 		return true
 	end
 
+	local boostPercent = 105
+	if hasSynergy then
+		boostPercent = 106
+	end
+
 	local condition = Condition(CONDITION_ATTRIBUTES)
 	condition:setParameter(CONDITION_PARAM_TICKS, 16000)
-	condition:setParameter(CONDITION_PARAM_BUFF_DAMAGERECEIVED, 105)
+	condition:setParameter(CONDITION_PARAM_BUFF_DAMAGERECEIVED, boostPercent)
 
 	local grade = 0
 	if (creature and creature:getPlayer()) then

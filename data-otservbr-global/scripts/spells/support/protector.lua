@@ -2,9 +2,11 @@ local combat = Combat()
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_GREEN)
 combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
 
+local duration = 13000
+
 local skill = Condition(CONDITION_ATTRIBUTES)
 skill:setParameter(CONDITION_PARAM_SUBID, 5)
-skill:setParameter(CONDITION_PARAM_TICKS, 13000)
+skill:setParameter(CONDITION_PARAM_TICKS, duration)
 skill:setParameter(CONDITION_PARAM_SKILL_DEFENSEPERCENT, 220)
 skill:setParameter(CONDITION_PARAM_BUFF_DAMAGEDEALT, 65)
 skill:setParameter(CONDITION_PARAM_BUFF_DAMAGERECEIVED, 85)

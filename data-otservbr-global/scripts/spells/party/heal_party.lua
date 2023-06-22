@@ -7,14 +7,24 @@ local condition = Condition(CONDITION_REGENERATION)
 condition:setParameter(CONDITION_PARAM_SUBID, 1)
 condition:setParameter(CONDITION_PARAM_BUFF_SPELL, 1)
 condition:setParameter(CONDITION_PARAM_TICKS, 2 * 60 * 1000)
-condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 20)
-condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 2000)
+condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 30)
+condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 1000)
 
 local baseMana = 120
 
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
+	local party = creature:getParty()
+	local hasSynergy = false
+	if party and party:isSharedExperienceEnabled() then
+		hasSynergy = party:hasPaladin()
+	end
+
+	if hasSynergy then
+		condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 50)
+	end
+
 	local position = creature:getPosition()
 
 	local party = creature:getParty()

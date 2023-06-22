@@ -5,12 +5,8 @@ combat:setParameter(COMBAT_PARAM_DISPEL, CONDITION_PARALYZE)
 combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
 
 function onGetFormulaValues(player, level, magicLevel)
-	local min = (level * 0.2 + magicLevel * 10) + 3
-	local max = (level * 0.2 + magicLevel * 14) + 5
-	local grade = player:upgradeSpellsWORD("Nature's Embrace")
-	if grade >= WHEEL_GRADE_UPGRADED then
-		return min * 1.1, max * 1.1
-	end
+	local min = 0.6 * (level * 0.2 + magicLevel * 10) + 3
+	local max = 0.6 * (level * 0.2 + magicLevel * 14) + 5
 	return min, max
 end
 
@@ -25,30 +21,24 @@ function spell.onCastSpell(creature, variant)
 		hasSynergy = party:hasKnight()
 	end
 
-	local groupCooldown = 1000
-	if hasSynergy then
-		groupCooldown = 800
+	if not hasSynergy then
+		creature:sendCancelMessage("You can't use this spell if there's no knight in your party or shared experience isn't active.")
+		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
+		return false
 	end
 	creature:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-	if combat:execute(creature, variant) then
-		local condition = Condition(CONDITION_SPELLGROUPCOOLDOWN, CONDITIONID_DEFAULT, 258)
-		condition:setTicks((groupCooldown) / configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN))
-		creature:addCondition(condition)
-		return true
-	end
-	return false
+	return combat:execute(creature, variant)
 end
 
-spell:name("Heal Friend")
-spell:words("exura sio")
+spell:name("Aid Friend")
+spell:words("exura med sio")
 spell:group("healing")
-spell:vocation("druid;true", "elder druid;true")
-spell:castSound(SOUND_EFFECT_TYPE_SPELL_HEAL_FRIEND)
+spell:vocation("sorcerer;true", "master sorcerer;true")
 spell:id(84)
-spell:cooldown(1000)
-spell:groupCooldown(0) -- group cooldown is calculated on the casting
-spell:level(18)
-spell:mana(120)
+spell:cooldown(2000)
+spell:groupCooldown(2000)
+spell:level(100)
+spell:mana(250)
 spell:needTarget(true)
 spell:hasParams(true)
 spell:hasPlayerNameParam(true)

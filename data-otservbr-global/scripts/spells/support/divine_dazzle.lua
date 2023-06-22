@@ -1,14 +1,30 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_DIVINE_DAZZLE)
 
+local function synergies(player)
+	if not player then return {} end
+
+	local party = player:getParty()
+	local val = {
+		knight = false,
+		druid = false
+	}
+	if party and party:isSharedExperienceEnabled() then
+		if party:hasKnight() then val.knight = true end
+		if party:hasDruid() then val.druid = true end
+	end
+	return val
+end
+
 function canChain(creature, target)
 	if target:isMonster() then
+		local player = creature:getPlayer()
 		local monster = creature:getMonster()
 		if creature:getType():isRewardBoss() then
 			return -1
 		end
 		if creature:getMaster() ~= nil then return false end
-		if monster:isChallenged() then return false end
+		if (not synergies(player).knight) and monster:isChallenged() then return false end
 
 		local type = creature:getType()
 		if type:getTargetDistance() > 1 or type:getRunHealth() > 0 then
@@ -32,11 +48,27 @@ combat:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValue")
 function onChain(creature, target)
 	local duration = 12000
 	local player = creature:getPlayer()
-	if creature and player then
+	if synergies(player).knight then
+		duration = duration + 2000
+	end
+
+	if player then
 		duration = duration + (player:getWheelSpellAdditionalDuration("Divine Dazzle") * 1000)
 	end
 	if target and target:isMonster() then
-		target:changeTargetDistance(1, duration)
+		local monster = creature:getMonster()
+		if synergies(player).knight then
+			local monsterHaste = createConditionObject(CONDITION_HASTE)
+			setConditionParam(monsterHaste, CONDITION_PARAM_TICKS, duration)
+			setConditionParam(monsterHaste, CONDITION_PARAM_SPEED, monster:getBaseSpeed() + 20)
+			monster:addCondition(monsterHaste)
+		end
+		if not monster:isChallenged() then
+			monster:changeTargetDistance(1, duration)
+			if synergies.druid then
+				doChallengeCreature(player, monster, 6000)
+			end
+		end
 	end
 	return true
 end

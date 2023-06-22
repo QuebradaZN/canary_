@@ -3,7 +3,16 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_BLUE)
 combat:setArea(createCombatArea(AREA_CIRCLE2X2))
 
 function onTargetCreature(creature, target)
+	local party = creature:getParty()
+	local hasSynergy = false
+	if party and party:isSharedExperienceEnabled() then
+		hasSynergy = party:hasDruid()
+	end
+
 	local duration = 6000
+	if hasSynergy then
+		duration = duration + 2000
+	end
 	if target:isMonster() then
 		local monster = target:getMonster()
 		if not target:getType():isRewardBoss() then

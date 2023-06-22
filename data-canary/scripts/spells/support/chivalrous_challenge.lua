@@ -8,6 +8,16 @@ local function getDiagonalDistance(pos1, pos2)
 	end
 end
 local function chain(player)
+	local party = creature:getParty()
+	local hasSynergy = false
+	if party and party:isSharedExperienceEnabled() then
+		hasSynergy = party:hasPaladin()
+	end
+
+	if hasSynergy then
+		duration = duration + 2000
+	end
+
 	local creatures = Game.getSpectators(player:getPosition(), false, false, 9, 9, 6, 6)
 	local totalChain = 0
 	local monsters = {}
@@ -65,6 +75,11 @@ local function chain(player)
 		if updateLastChain then
 			closestMonsterPosition:sendMagicEffect(CONST_ME_CHIVALRIOUS_CHALLENGE)
 			closestMonster:changeTargetDistance(1)
+			local challengeDuration = 6000
+			if hasSynergy then
+				challengeDuration = challengeDuration + 2000
+			end
+			doChallengeCreature(player, closestMonster, 6000)
 			lastChain = closestMonster
 			lastChainPosition = closestMonsterPosition
 			totalChain = totalChain + 1
