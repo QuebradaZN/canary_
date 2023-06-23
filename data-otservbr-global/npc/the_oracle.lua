@@ -100,7 +100,7 @@ local config = {
 				8042, -- Spirit Cloak
 				9014, -- Leaf Legs
 				8072, -- Spellbook of Enlightenment
-				3065, -- Terra Rod
+				3066, -- Snakebite Rod
 			}
 		},
 		[VOCATION.ID.SORCERER] = {
@@ -110,7 +110,7 @@ local config = {
 				8042, -- Spirit Cloak
 				24404, -- Tatty Dragon Scale Legs
 				8072, -- Spellbook of Enlightenment
-				3073, -- Wand of Cosmic Energy
+				3074, -- Wand of Vortex
 			}
 		},
 	}
@@ -182,6 +182,8 @@ local function creatureSayCallback(npc, creature, type, message)
 				for i = 1, #items do
 					backpack:addItem(items[i], 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
 				end
+				backpack:addItem(3725, 200, INDEX_WHEREVER, FLAG_NOLIMIT)	-- Brown Mushrooms
+				backpack:addItem(16277, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)	-- Adventurer's stone
 			end
 			player:setVocation(Vocation(vocation[playerId]))
 			player:setTown(Town(town[playerId]))

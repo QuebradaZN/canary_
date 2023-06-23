@@ -14,6 +14,7 @@ local reward = {
 	container = 2854,
 	commonItems = {
 		{id = 16277, amount = 1},	-- Adventurer's stone
+		{id = 3725, amount = 200}, 	-- Brown Mushrooms
 	},
 	vocationItems = {
 		-- Sorcerer
@@ -21,8 +22,8 @@ local reward = {
 			{id = 3210, amount = 1},	-- Hat of the mad
 			{id = 8042, amount = 1},	-- Spirit cloak
 			{id = 24404, amount = 1},	-- Tatty dragon scale legs
-			{id = 8072, amount = 1},	-- Wand of cosmic energy
-			{id = 3073, amount = 1},  -- Spellbook of enlightenment
+			{id = 8072, amount = 1},	-- Spellbook of enlightenment
+			{id = 3074, amount = 1},  	-- Wand of vortex
 			{id = 3552, amount = 1},	-- Leather boots
 		},
 		-- Druid
@@ -30,8 +31,8 @@ local reward = {
 			{id = 3210, amount = 1},	-- Hat of the mad
 			{id = 8042, amount = 1},	-- Spirit cloak
 			{id = 9013, amount = 1},	-- Leaf legs
-			{id = 3065, amount = 1},	-- Terra rod
-			{id = 3073, amount = 1},  -- Spellbook of enlightenment
+			{id = 3066, amount = 1},	-- Snakebite Rod
+			{id = 8072, amount = 1},  	-- Spellbook of enlightenment
 			{id = 3552, amount = 1},	-- Leather boots
 		},
 		-- Paladin
