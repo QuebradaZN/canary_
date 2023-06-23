@@ -199,6 +199,7 @@ PRIVATE
 	game/scheduling/scheduler.cpp
 	game/scheduling/events_scheduler.cpp
 	game/scheduling/tasks.cpp
+	game/scheduling/save_manager.cpp
 	io/fileloader.cpp
 	io/io_wheel.cpp
 	io/iobestiary.cpp

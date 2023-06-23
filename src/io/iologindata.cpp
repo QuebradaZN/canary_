@@ -13,6 +13,7 @@
 #include "io/functions/iologindata_load_player.hpp"
 #include "io/functions/iologindata_save_player.hpp"
 #include "game/game.h"
+#include "game/scheduling/save_manager.h"
 #include "creatures/monsters/monster.h"
 #include "creatures/players/wheel/player_wheel.hpp"
 #include "io/ioprey.h"
@@ -850,7 +851,15 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList &itemList,
 	return query_insert.execute();
 }
 
-bool IOLoginData::savePlayer(Player* player) {
+bool IOLoginData::savePlayer(Player* player, bool async /* = false */) {
+	if (async) {
+		g_saveManager().schedulePlayer(player);
+		return true;
+	} else {
+		// We're saving the player right now, so we can proactively unschedule it.
+		g_saveManager().unschedulePlayer(player);
+	}
+
 	bool success = DBTransaction::executeWithinTransaction([player]() {
 		return savePlayerGuard(player);
 	});
