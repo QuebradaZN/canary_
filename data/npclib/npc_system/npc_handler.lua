@@ -386,6 +386,7 @@ if NpcHandler == nil then
 				local parseInfo = { [TAG_PLAYERNAME] = playerName }
 				msg = self:parseMessage(msg, parseInfo)
 				self:say(msg, npc, player)
+				self:tradeRequest(npc, player)
 			end
 		end
 		self:setInteraction(npc, player)
