@@ -3000,6 +3000,10 @@ Storage = {
 		OnlineCoinsGain = 150002,
 		OnlineTokensGain = 150003,
 	},
+
+	Custom = {
+		LevelReward = 15000,
+	}
 }
 
 GlobalStorage = {

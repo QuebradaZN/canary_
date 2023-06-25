@@ -10,7 +10,7 @@ local table = {
 	[200] = {type = "bank", id = {200000, 0}, msg = "You received 100,000 gold for reaching level 200."},
 }
 
-local storage = 15000
+local storage = Storage.Custom.LevelReward
 
 local levelReward = CreatureEvent("Level Reward")
 function levelReward.onAdvance(player, skill, oldLevel, newLevel)
@@ -18,7 +18,7 @@ function levelReward.onAdvance(player, skill, oldLevel, newLevel)
 		return true
 	end
 
-	if newLevel >= 20 and player.getStorageValue(STORAGEVALUE_PROMOTION) ~= 1 then
+	if newLevel >= 20 and player:getStorageValue(STORAGEVALUE_PROMOTION) ~= 1 then
 		if player:getVocation():getPromotion() ~= nil then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Congratulations on reaching level 20. You have been automatically promoted to " .. player:getVocation():getPromotion():getName() .. ".")
 			player:setVocation(player:getVocation():getPromotion())
