@@ -19,9 +19,10 @@ local function checkItemType(itemId)
 	return false
 end
 
-function calculateLuckExp(chance)
-	local exp =  math.floor(250 * 0.98 ^ chance + 0.5)
-	return exp
+function calculateLuckExp(chance, experience)
+	local exp =  math.floor(250 * 0.985 ^ chance + 0.5)
+	local multiplier = experience / 2500
+	return exp * multiplier
 end
 
 function Monster:onDropLoot(corpse)
@@ -136,7 +137,7 @@ function Monster:onDropLoot(corpse)
 				for _, loot in pairs(monsterLoot) do
 					local item = corpse:createLootItem(loot, charmBonus, preyLootPercent / 100)
 					if item then
-						luckExp = luckExp + calculateLuckExp(loot.chance)
+						luckExp = luckExp + calculateLuckExp(loot.chance, mType:experience())
 					end
 				end
 			end
