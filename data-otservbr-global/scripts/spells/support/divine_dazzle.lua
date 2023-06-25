@@ -27,7 +27,7 @@ function canChain(creature, target)
 		if (not synergies(player).knight) and monster:isChallenged() then return false end
 
 		local type = creature:getType()
-		if type:getTargetDistance() > 1 or type:getRunHealth() > 0 then
+		if type:getTargetDistance() > 1 or type:getRunHealth() > 0 or synergies(player).druid then
 			return true
 		end
 	end
