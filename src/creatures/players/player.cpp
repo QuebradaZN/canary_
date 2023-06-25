@@ -1657,11 +1657,11 @@ void Player::onChangeZone(ZoneType_t zone) {
 			onAttackedCreatureDisappear(false);
 		}
 
-		if (!group->access && isMounted()) {
-			dismount();
-			g_game().internalCreatureChangeOutfit(this, defaultOutfit);
-			wasMounted = true;
-		}
+		// if (!group->access && isMounted()) {
+		// 	dismount();
+		// 	g_game().internalCreatureChangeOutfit(this, defaultOutfit);
+		// 	wasMounted = true;
+		// }
 	} else {
 		if (wasMounted) {
 			toggleMount(true);
@@ -4339,6 +4339,7 @@ void Player::onAddCondition(ConditionType_t type) {
 
 	if (type == CONDITION_OUTFIT && isMounted()) {
 		dismount();
+		wasMounted = true;
 	}
 
 	sendIcons();
@@ -4410,6 +4411,11 @@ void Player::onEndCondition(ConditionType_t type) {
 		if (getSkull() != SKULL_RED && getSkull() != SKULL_BLACK) {
 			setSkull(SKULL_NONE);
 		}
+	}
+
+	if (type == condition_outfit && wasmounted) {
+		togglemount(true);
+		wasmounted = false;
 	}
 
 	sendIcons();
@@ -5594,10 +5600,10 @@ bool Player::toggleMount(bool mount) {
 			return false;
 		}
 
-		if (!group->access && tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
-			sendCancelMessage(RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE);
-			return false;
-		}
+		// if (!group->access && tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
+		// 	sendCancelMessage(RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE);
+		// 	return false;
+		// }
 
 		const Outfit* playerOutfit = Outfits::getInstance().getOutfitByLookType(getSex(), defaultOutfit.lookType);
 		if (!playerOutfit) {
