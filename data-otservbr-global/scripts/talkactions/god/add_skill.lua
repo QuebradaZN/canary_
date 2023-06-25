@@ -1,12 +1,6 @@
 local function getSkillId(skillName)
 	if skillName == "melee" then
 		return SKILL_MELEE
-	elseif skillName == "club" then
-		return SKILL_MELEE
-	elseif skillName == "sword" then
-		return SKILL_MELEE
-	elseif skillName == "axe" then
-		return SKILL_MELEE
 	elseif skillName:sub(1, 4) == "dist" then
 		return SKILL_DISTANCE
 	elseif skillName:sub(1, 3) == "def" then
@@ -15,8 +9,12 @@ local function getSkillId(skillName)
 		return SKILL_TONICITY
 	elseif skillName:sub(1, 4) == "runi" then
 		return SKILL_RUNIC
-	else
+	elseif skillName:sub(1, 4) == "luck" then
 		return SKILL_LUCK
+	elseif skillName:sub(1, 4) == "cook" then
+		return SKILL_COOKING
+	else
+		return nil
 	end
 end
 
@@ -58,8 +56,7 @@ function addSkill.onSay(player, words, param)
 		count = tonumber(split[3])
 	end
 
-	local ch = split[2]:sub(1, 1)
-	if ch == "l" or ch == "e" then
+	if split[2] == "level" then
 		targetLevel = target:getLevel() + count
 		targetExp = getExpForLevel(targetLevel)
 		addExp = targetExp - target:getExperience()
@@ -70,6 +67,10 @@ function addSkill.onSay(player, words, param)
 		end
 	else
 		local skillId = getSkillId(split[2])
+		if not skillId then
+			player:sendCancelMessage("Invalid skill name.")
+			return false
+		end
 		for i = 1, count do
 			target:addSkillTries(skillId, target:getVocation():getRequiredSkillTries(skillId, target:getSkillLevel(skillId) + 1) - target:getSkillTries(skillId), true)
 		end

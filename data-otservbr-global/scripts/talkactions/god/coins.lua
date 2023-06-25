@@ -29,7 +29,7 @@ function tibiaCoins.onSay(player, words, param)
 			player:sendCancelMessage("Added " .. amount .. " online points to the character '" .. target:getName() .. "'.")
 			target:sendCancelMessage("Received " .. amount .. " online points!")
 			target:addTibiaCoins(tonumber(amount))
-		elseif type == "online" then
+		elseif type == "elysiera" then
 			player:sendCancelMessage("Added " .. amount .. " elysiera coins to the character '" .. target:getName() .. "'.")
 			target:sendCancelMessage("Received " .. amount .. " elysiera coins!")
 			target:addTransferableCoins(tonumber(amount))
