@@ -41,7 +41,7 @@
 		<skill id="2" multiplier="1.1" /> <!-- Cooking -->
 		<skill id="3" multiplier="1.1" /> <!-- Runic -->
 		<skill id="4" multiplier="1.1" /> <!-- Distance -->
-		<skill id="5" multiplier="1.1" /> <!-- Defense -->
+		<skill id="5" multiplier="1.15" /> <!-- Defense -->
 		<skill id="6" multiplier="1.2" /> <!-- Tonicity -->
 	</vocation>
 	<vocation id="4" clientid="1" baseid="4" name="Knight" description="a knight" magicshield="0" gaincap="25" gainhp="15" gainmana="5" gainhpticks="6000" gainhpamount="1" gainmanaticks="6000" gainmanaamount="2" manamultiplier="3.0" attackspeed="2000" basespeed="160" soulmax="100" gainsoulticks="120000" fromvoc="4">
