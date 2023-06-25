@@ -94,13 +94,13 @@ function Monster:onDropLoot(corpse)
 		for i = 1, #monsterLoot do
 			local item = corpse:createLootItem(monsterLoot[i], charmBonus, 1 + vipBoost + luckBoost)
 			if item then
-				luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance)
+				luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
 			end
 
 			if self:getName():lower() == Game.getBoostedCreature():lower() then
 				local itemBoosted = corpse:createLootItem(monsterLoot[i], charmBonus, modifier)
 				if itemBoosted and #itemBoosted > 0 then
-					luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance)
+					luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
 				end
 
 				if not itemBoosted then
@@ -112,7 +112,7 @@ function Monster:onDropLoot(corpse)
 				if chanceTo <= (2 * player:getHazardSystemPoints() * configManager.getNumber(configKeys.HAZARDSYSTEM_LOOT_BONUS_MULTIPLIER)) then
 					local podItem = corpse:createLootItem(monsterLoot[i], charmBonus, preyChanceBoost)
 					if podItem and #podItem > 0 then
-						luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance)
+						luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
 					end
 					if not podItem then
 						Spdlog.warn(string.format("[Monster:onDropLoot] - Could not add loot item to hazard monster: %s, from corpse id: %d.", self:getName(), corpse:getId()))

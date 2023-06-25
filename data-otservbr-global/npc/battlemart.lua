@@ -59,6 +59,7 @@ npcConfig.shop = {
 	{ itemName = "backpack", clientId = 2854, buy = 20 },
 	{ itemName = "blank rune", clientId = 3147, buy = 10 },
 	{ itemName = "blue quiver", clientId = 35848, buy = 400 },
+	{ itemName = "brown mushroom", clientId = 3725, buy = 10 },
 	{ itemName = "bolt", clientId = 3446, buy = 4 },
 	{ itemName = "bow", clientId = 3350, buy = 400 },
 	{ itemName = "chameleon rune", clientId = 3178, buy = 210 },
