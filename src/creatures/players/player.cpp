@@ -2145,9 +2145,9 @@ void Player::drainMana(Creature* attacker, int32_t manaLoss) {
 }
 
 void Player::addManaSpent(uint64_t amount) {
-	if (hasFlag(PlayerFlags_t::NotGainMana)) {
-		return;
-	}
+	// if (hasFlag(PlayerFlags_t::NotGainMana)) {
+	// 	return;
+	// }
 
 	uint64_t currReqMana = vocation->getReqMana(magLevel);
 	uint64_t nextReqMana = vocation->getReqMana(magLevel + 1);

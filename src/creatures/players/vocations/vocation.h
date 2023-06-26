@@ -112,7 +112,7 @@ class Vocation {
 
 		std::map<uint32_t, uint64_t> cacheMana;
 		std::map<uint32_t, absl::uint128> cacheManaTotal;
-		std::map<uint32_t, uint32_t> cacheSkill[SKILL_LAST + 1];
+		std::map<uint32_t, uint64_t> cacheSkill[SKILL_LAST + 1];
 		std::map<uint32_t, absl::uint128> cacheSkillTotal[SKILL_LAST + 1];
 
 		std::string name = "none";
