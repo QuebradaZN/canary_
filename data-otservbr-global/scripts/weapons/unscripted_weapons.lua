@@ -5415,10 +5415,6 @@ wandCombats.ice:setCallback(CALLBACK_PARAM_SKILLVALUE, "iceCallback")
 wandCombats.earth:setCallback(CALLBACK_PARAM_SKILLVALUE, "earthCallback")
 wandCombats.death:setCallback(CALLBACK_PARAM_SKILLVALUE, "deathCallback")
 
--- for wType, _ in pairs(wandCombats) do
--- 	wandCombats[wType]:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetWandDamageValues")
--- end
-
 for _, w in ipairs(weapons) do
 	local weapon = Weapon(w.type)
 	weapon:id(w.itemid or w.itemId)
