@@ -1163,51 +1163,51 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 	if (player) {
 		PlayerdailyStreak = player->getStorageValue(STORAGEVALUE_DAILYREWARD);
 	}
-	if (creature->getZone() != ZONE_PROTECTION || PlayerdailyStreak >= DAILY_REWARD_HP_REGENERATION) {
-		if (internalHealthTicks >= getHealthTicks(creature)) {
-			internalHealthTicks = 0;
+	if (internalHealthTicks >= getHealthTicks(creature)) {
+		internalHealthTicks = 0;
 
-			int32_t realHealthGain = creature->getHealth();
-			if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_DOUBLE_HP_REGENERATION) {
-				creature->changeHealth(healthGain * 2); // Double regen from daily reward
-			} else {
-				creature->changeHealth(healthGain);
-			}
-			realHealthGain = creature->getHealth() - realHealthGain;
+		int32_t realHealthGain = creature->getHealth();
+		if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_HP_REGENERATION) {
+			creature->changeHealth(healthGain * 2); // Double regen from daily reward
+		} else if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_DOUBLE_HP_REGENERATION) {
+			creature->changeHealth(healthGain * 3); // Double regen from daily reward
+		} else {
+			creature->changeHealth(healthGain);
+		}
+		realHealthGain = creature->getHealth() - realHealthGain;
 
-			if (isBuff && realHealthGain > 0) {
-				if (player) {
-					std::string healString = fmt::format("{} hitpoint{}.", realHealthGain, (realHealthGain != 1 ? "s" : ""));
+		if (isBuff && realHealthGain > 0) {
+			if (player) {
+				std::string healString = fmt::format("{} hitpoint{}.", realHealthGain, (realHealthGain != 1 ? "s" : ""));
 
-					TextMessage message(MESSAGE_HEALED, "You were healed for " + healString);
-					message.position = player->getPosition();
-					message.primary.value = realHealthGain;
-					message.primary.color = TEXTCOLOR_PASTELRED;
-					player->sendTextMessage(message);
+				TextMessage message(MESSAGE_HEALED, "You were healed for " + healString);
+				message.position = player->getPosition();
+				message.primary.value = realHealthGain;
+				message.primary.color = TEXTCOLOR_PASTELRED;
+				player->sendTextMessage(message);
 
-					SpectatorHashSet spectators;
-					g_game().map.getSpectators(spectators, player->getPosition(), false, true);
-					spectators.erase(player);
-					if (!spectators.empty()) {
-						message.type = MESSAGE_HEALED_OTHERS;
-						message.text = player->getName() + " was healed for " + healString;
-						for (Creature* spectator : spectators) {
-							spectator->getPlayer()->sendTextMessage(message);
-						}
+				SpectatorHashSet spectators;
+				g_game().map.getSpectators(spectators, player->getPosition(), false, true);
+				spectators.erase(player);
+				if (!spectators.empty()) {
+					message.type = MESSAGE_HEALED_OTHERS;
+					message.text = player->getName() + " was healed for " + healString;
+					for (Creature* spectator : spectators) {
+						spectator->getPlayer()->sendTextMessage(message);
 					}
 				}
 			}
 		}
 	}
 
-	if (creature->getZone() != ZONE_PROTECTION || PlayerdailyStreak >= DAILY_REWARD_MP_REGENERATION) {
-		if (internalManaTicks >= getManaTicks(creature)) {
-			internalManaTicks = 0;
-			if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_DOUBLE_MP_REGENERATION) {
-				creature->changeMana(manaGain * 2); // Double regen from daily reward
-			} else {
-				creature->changeMana(manaGain);
-			}
+	if (internalManaTicks >= getManaTicks(creature)) {
+		internalManaTicks = 0;
+		if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_MP_REGENERATION) {
+			creature->changeMana(manaGain * 2); // Double regen from daily reward
+		} else if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_DOUBLE_MP_REGENERATION) {
+			creature->changeMana(manaGain * 3); // Double regen from daily reward
+		} else {
+			creature->changeMana(manaGain);
 		}
 	}
 
