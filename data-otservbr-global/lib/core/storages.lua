@@ -3003,7 +3003,14 @@ Storage = {
 
 	Custom = {
 		LevelReward = 15000,
-	}
+		ReceivedInitialBoosts = 15003,
+	},
+
+	Voucher = {
+		LastActivation = 15004,
+		Experience = { Received = 15005 },
+		Skill = { Received = 15006 },
+	},
 }
 
 GlobalStorage = {

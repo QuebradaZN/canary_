@@ -22306,14 +22306,14 @@
 	</item>
 	<item fromid="12212" toid="12213" article="a" name="stone"/>
 	<item fromid="12214" toid="12225" article="a" name="dark sand"/>
-	<item id="12226" name="strange red powder">
-		<attribute key="weight" value="50"/>
+	<item id="12226" article="an" name="expired experience voucher">
+		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
 	</item>
 	<item id="12227" name="strange yellow powder">
 		<attribute key="weight" value="50"/>
 	</item>
-	<item id="12228" name="strange blue powder">
-		<attribute key="weight" value="50"/>
+	<item id="12228" article="an" name="expired skill voucher">
+		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
 	</item>
 	<item id="12229" name="screaming cherry">
 		<attribute key="description" value="This fruit was gathered from the Screaming Cherry Tree"/>
@@ -35791,13 +35791,26 @@
 		<attribute key="showCount" value="0"/>
 		<attribute key="weight" value="600"/>
 	</item>
-	<item id="23514" name="volatile proto matter" plural="volatile proto matter">
+	<item id="23514" name="skill voucher">
+	 	<attribute key="description" value="You use this to enable/disable your double skill voucher."/>
+		<!-- 12 hours -->
+		<attribute key="duration" value="43200"/>
 		<attribute key="showCount" value="0"/>
-		<attribute key="weight" value="600"/>
+		<attribute key="showduration" value="1"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="decayTo" value="12228"/>
+		<attribute key="stacksize" value="1"/>
+		<!-- <attribute key="moveable" value="0"/> -->
 	</item>
-	<item id="23515" name="dangerous proto matter" plural="dangerous proto matter">
+	<item id="23515" article="an" name="experience voucher">
+	 	<attribute key="description" value="You use this to enable/disable your double experience voucher."/>
+		<!-- 3 hours -->
+		<attribute key="duration" value="10800"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="showduration" value="1"/>
 		<attribute key="showCount" value="0"/>
-		<attribute key="weight" value="600"/>
+		<attribute key="decayTo" value="12226"/>
+		<attribute key="stacksize" value="1"/>
 	</item>
 	<item id="23516" name="instable proto matter" plural="instable proto matter">
 		<attribute key="showCount" value="0"/>
@@ -43398,12 +43411,13 @@
 		<attribute key="decayTo" value="30080"/>
 		<attribute key="containersize" value="20"/>
 	</item>
-	<item id="30082" article="a" name="blue ectoplasm">
-		<attribute key="description" value="The stuff nightmares are made of - literally"/>
+	<item id="30082" article="an" name="active skill voucher">
+	 	<attribute key="description" value="You use this to enable/disable your double skill voucher."/>
+		<!-- 12 hours -->
+		<attribute key="duration" value="43200"/>
 		<attribute key="showduration" value="1"/>
-		<attribute key="duration" value="600"/>
-		<attribute key="decayTo" value="0"/>
-		<attribute key="weight" value="100"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="decayTo" value="12228"/>
 	</item>
 	<item id="30083" article="a" name="green ectoplasm">
 		<attribute key="description" value="The stuff nightmares are made of - literally"/>
@@ -43412,12 +43426,12 @@
 		<attribute key="decayTo" value="0"/>
 		<attribute key="weight" value="100"/>
 	</item>
-	<item id="30084" article="a" name="red ectoplasm">
-		<attribute key="description" value="The stuff nightmares are made of - literally"/>
-		<attribute key="showduration" value="1"/>
-		<attribute key="duration" value="600"/>
-		<attribute key="decayTo" value="0"/>
-		<attribute key="weight" value="100"/>
+	<item id="30084" article="an" name="active experience voucher">
+	 	<attribute key="description" value="You use this to enable/disable your double experience voucher."/>
+		<!-- 3 hours -->
+		<attribute key="duration" value="10800"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="decayTo" value="12226"/>
 	</item>
 	<item id="30085" article="a" name="blue ectoplasmic residue">
 		<attribute key="description" value="It seems a ghost was here"/>

@@ -56,7 +56,6 @@ npcConfig.shop = {
 	{ itemName = "crystal bone", clientId = 23521, sell = 250 },
 	{ itemName = "crystallized anger", clientId = 23507, sell = 400 },
 	{ itemName = "curious matter", clientId = 23511, sell = 430 },
-	{ itemName = "dangerous proto matter", clientId = 23515, sell = 300 },
 	{ itemName = "energy ball", clientId = 23523, sell = 300 },
 	{ itemName = "energy vein", clientId = 23508, sell = 270 },
 	{ itemName = "frozen lightning", clientId = 23519, sell = 270 },
@@ -79,7 +78,6 @@ npcConfig.shop = {
 	{ itemName = "sparkion stings", clientId = 23505, sell = 280 },
 	{ itemName = "sparkion tail", clientId = 23503, sell = 300 },
 	{ itemName = "strange proto matter", clientId = 23513, sell = 300 },
-	{ itemName = "volatile proto matter", clientId = 23514, sell = 300 }
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)

@@ -87,7 +87,7 @@ monster.loot = {
 	{id = 7642, chance = 11700}, -- great spirit potion
 	{id = 23507, chance = 11500}, -- crystallized anger
 	{id = 23511, chance = 10600}, -- curious matter
-	{id = 23514, chance = 9600}, -- volatile proto matter
+	{id = 23516, chance = 9600}, -- instable proto matter
 	{id = 23506, chance = 9600}, -- plasma pearls
 	{id = 16124, chance = 7400, maxCount = 2}, -- blue crystal splinter
 	{id = 16125, chance = 6500}, -- cyan crystal fragment

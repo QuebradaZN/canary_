@@ -470,6 +470,11 @@ function Player.getFinalBaseRateExperience(self)
 	if SCHEDULE_EXP_RATE ~= 100 then
 		baseRate = math.max(0, (baseRate * SCHEDULE_EXP_RATE) / 100)
 	end
+	-- Voucher
+	if self:activeVoucher('experience') then
+		exp = exp * 2
+	end
+
 	return baseRate
 end
 
