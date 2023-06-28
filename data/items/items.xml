@@ -35798,9 +35798,8 @@
 		<attribute key="showCount" value="0"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="stopduration" value="1"/>
-		<attribute key="decayTo" value="12228"/>
 		<attribute key="stacksize" value="1"/>
-		<!-- <attribute key="moveable" value="0"/> -->
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="23515" article="an" name="experience voucher">
 	 	<attribute key="description" value="You use this to enable/disable your double experience voucher."/>
@@ -35809,8 +35808,8 @@
 		<attribute key="stopduration" value="1"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showCount" value="0"/>
-		<attribute key="decayTo" value="12226"/>
 		<attribute key="stacksize" value="1"/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="23516" name="instable proto matter" plural="instable proto matter">
 		<attribute key="showCount" value="0"/>
@@ -51739,6 +51738,20 @@
 	<item id="35495" article="a" name="lace-trimmed handkerchief">
 		<attribute key="description" value="It is embroidered with the letter E"/>
 		<attribute key="weight" value="50"/>
+	</item>
+	<item id="35496" article="a" name="teleport box">
+		<attribute key="description" value="They say it's bigger on the inside."/>
+		<attribute key="type" value="teleport"/>
+		<attribute key="effect" value="teleport"/>
+		<attribute key="wrapableto" value="23398"/>
+		<attribute key="moveable" value="1"/>
+	</item>
+	<item id="35501" article="a" name="teleport mirror">
+		<attribute key="description" value="You see an infinite amount of possibilities."/>
+		<attribute key="type" value="teleport"/>
+		<attribute key="effect" value="teleport"/>
+		<attribute key="wrapableto" value="23398"/>
+		<attribute key="moveable" value="1"/>
 	</item>
 	<item id="35502" article="a" name="magic portal">
 		<attribute key="type" value="teleport"/>

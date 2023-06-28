@@ -187,6 +187,22 @@ GameStore.Categories = {
 		state = GameStore.States.STATE_NONE,
 		offers = {
 			{
+				name = "Teleport Box",
+				price = 150,
+				itemtype = 35496,
+				count = 1,
+				description = "<i>Teleport to activated wayponts from your house!</i>\n\n{info} requires character to have unlocked waypoints\n\n{house}\n{box}\n{storeinbox}\n{usablebyall}\n{useicon} walk into it to teleport to your waypoints\n{backtoinbox}",
+				type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
+			},
+			{
+				name = "Teleport Mirror",
+				price = 150,
+				itemtype = 35501,
+				count = 1,
+				description = "<i>Teleport to activated wayponts from your house!</i>\n\n{info} requires character to have unlocked waypoints\n\n{house}\n{box}\n{storeinbox}\n{usablebyall}\n{useicon} walk into it to teleport to your waypoints\n{backtoinbox}",
+				type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
+			},
+			{
 				name = "Portable Imbuing Shring",
 				price = 150,
 				itemtype = 25061,
