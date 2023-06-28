@@ -5,8 +5,13 @@ combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_ETHEREALSPEAR)
 combat:setParameter(COMBAT_PARAM_BLOCKARMOR, 1)
 
 function onGetFormulaValues(player, skill, attack, factor)
-	local levelTotal = player:getLevel() / 5
-	return -(((2 * skill + attack / 2500) * 2.30) + (levelTotal) + 7), -(((2 * skill + attack / 1875) * 3.30) + (levelTotal) + 13)
+	local level = player:getLevel() / 5
+	local distSkill = player:getEffectiveSkillLevel(SKILL_DISTANCE)
+
+	local min = (level / 1.5) + (distSkill * 4.605) / 1.4 + 28
+	local max = (level / 1.5) + (distSkill * 7.395) / 1.4 + 46
+
+	return min, max
 end
 
 combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")
