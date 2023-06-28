@@ -71,11 +71,11 @@ local questTable = {
 	{storage = Storage.CultsOfTibia.MotA.Perguntaid, storageValue = 1},
 	{storage = Storage.CultsOfTibia.Barkless.Mission, storageValue = 1},
 	{storage = Storage.CultsOfTibia.Barkless.sulphur, storageValue = 4},
-	{storage = Storage.CultsOfTibia.Barkless.tar, storageValue = 3},
-	{storage = Storage.CultsOfTibia.Barkless.ice, storageValue = 3},
+	{storage = Storage.CultsOfTibia.Barkless.Tar, storageValue = 3},
+	{storage = Storage.CultsOfTibia.Barkless.Ice, storageValue = 3},
 	{storage = Storage.CultsOfTibia.Barkless.Objects, storageValue = 1},
 	{storage = Storage.CultsOfTibia.Barkless.Temp, storageValue = 1},
-	{storage = Storage.CultsOfTibia.Barkless.bossTimer, storageValue = 1},
+	{storage = Storage.CultsOfTibia.Barkless.BossTimer, storageValue = 1},
 	{storage = Storage.CultsOfTibia.Orcs.Mission, storageValue = 1},
 	{storage = Storage.CultsOfTibia.Orcs.lookType, storageValue = 1},
 	{storage = Storage.CultsOfTibia.Orcs.bossTimer, storageValue = 1},
@@ -361,6 +361,7 @@ local function playerFreeQuestStart(playerId, index)
 	for i = 1, 5 do
 		index = index + 1
 		if not questTable[index] then
+			player:sendTextMessage(MESSAGE_INFO_DESCR, "Adding free quests completed.")
 			player:setStorageValue(Storage.FreeQuests, stage)
 			return
 		end
@@ -381,6 +382,7 @@ function freeQuests.onLogin(player)
 		return true
 	end
 
+	player:sendTextMessage(MESSAGE_INFO_DESCR, "Adding free acccess quests to your character.")
 	addEvent(playerFreeQuestStart, 500, player:getId(), 0)
 	return true
 end
