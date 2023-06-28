@@ -1515,9 +1515,9 @@
 		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="flasharrow"/>
-		<attribute key="elementenergy" value="14"/>
-		<attribute key="maxhitchance" value="91"/>
-		<attribute key="attack" value="14"/>
+		<attribute key="elementenergy" value="8"/>
+		<attribute key="maxhitchance" value="100"/>
+		<attribute key="attack" value="8"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="762" article="a" name="shiver arrow">
@@ -1525,9 +1525,9 @@
 		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="shiverarrow"/>
-		<attribute key="elementice" value="14"/>
+		<attribute key="elementice" value="8"/>
 		<attribute key="maxhitchance" value="91"/>
-		<attribute key="attack" value="14"/>
+		<attribute key="attack" value="8"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="763" article="a" name="flaming arrow">
@@ -1535,9 +1535,9 @@
 		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="flammingarrow"/>
-		<attribute key="elementfire" value="14"/>
-		<attribute key="maxhitchance" value="91"/>
-		<attribute key="attack" value="14"/>
+		<attribute key="elementfire" value="8"/>
+		<attribute key="maxhitchance" value="100"/>
+		<attribute key="attack" value="8"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="764" article="a" name="straw mat">
@@ -1597,9 +1597,9 @@
 		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="eartharrow"/>
-		<attribute key="elementearth" value="14"/>
-		<attribute key="maxhitchance" value="91"/>
-		<attribute key="attack" value="14"/>
+		<attribute key="elementearth" value="8"/>
+		<attribute key="maxhitchance" value="100"/>
+		<attribute key="attack" value="8"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="775" article="a" name="mystic flame">
@@ -7429,8 +7429,8 @@
 		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="arrow"/>
-		<attribute key="maxhitchance" value="91"/>
-		<attribute key="attack" value="25"/>
+		<attribute key="maxhitchance" value="100"/>
+		<attribute key="attack" value="14"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="3448" article="a" name="poison arrow">
@@ -14544,7 +14544,7 @@
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="sniperarrow"/>
 		<attribute key="maxhitchance" value="100"/>
-		<attribute key="attack" value="28"/>
+		<attribute key="attack" value="16"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="7365" article="an" name="onyx arrow">
@@ -14552,8 +14552,8 @@
 		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="onyxarrow"/>
-		<attribute key="maxhitchance" value="94"/>
-		<attribute key="attack" value="38"/>
+		<attribute key="maxhitchance" value="100"/>
+		<attribute key="attack" value="25"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="7366" article="a" name="viper star">
@@ -24763,8 +24763,8 @@
 		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="tarsalarrow"/>
-		<attribute key="maxhitchance" value="94"/>
-		<attribute key="attack" value="33"/>
+		<attribute key="maxhitchance" value="100"/>
+		<attribute key="attack" value="17"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="14252" article="a" name="vortex bolt">
@@ -25337,8 +25337,8 @@
 		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="crystallinearrow"/>
-		<attribute key="maxhitchance" value="95"/>
-		<attribute key="attack" value="65"/>
+		<attribute key="maxhitchance" value="100"/>
+		<attribute key="attack" value="36"/>
 		<attribute key="weight" value="75"/>
 	</item>
 	<item id="15794" article="a" name="fresh mushroom beer">
@@ -26006,9 +26006,9 @@
 		<attribute key="stacksize" value="200"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="envenomedarrow"/>
-		<attribute key="elementearth" value="27"/>
-		<attribute key="maxhitchance" value="93"/>
-		<attribute key="attack" value="27"/>
+		<attribute key="elementearth" value="15"/>
+		<attribute key="maxhitchance" value="100"/>
+		<attribute key="attack" value="15"/>
 		<attribute key="weight" value="70"/>
 	</item>
 	<item id="16144" article="a" name="dead dragonling">
@@ -37764,7 +37764,7 @@
 	<item id="25756" article="an" name="energized tile"/>
 	<item id="25757" article="a" name="diamond arrow">
 		<attribute key="ammotype" value="arrow"/>
-		<attribute key="attack" value="37"/>
+		<attribute key="attack" value="40"/>
 		<attribute key="decayTo" value="0"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="maxhitchance" value="100"/>
@@ -52392,7 +52392,7 @@
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="shootType" value="diamondarrow"/>
 		<attribute key="maxhitchance" value="100"/>
-		<attribute key="attack" value="37"/>
+		<attribute key="attack" value="40"/>
 		<attribute key="weight" value="80"/>
 	</item>
 	<item id="35902" article="a" name="spectral bolt">

@@ -2776,14 +2776,14 @@ local weapons = {
 		level = 62,
 		unproperly = true
 	},
-	{
-		-- envenomed arrow
-		itemid = 16143,
-		type = WEAPON_AMMO,
-		level = 70,
-		unproperly = true,
-		action = "removecount"
-	},
+	-- {
+	-- 	-- envenomed arrow
+	-- 	itemid = 16143,
+	-- 	type = WEAPON_AMMO,
+	-- 	level = 70,
+	-- 	unproperly = true,
+	-- 	action = "removecount"
+	-- },
 	{
 		-- drill bolt
 		itemid = 16142,
@@ -2852,14 +2852,14 @@ local weapons = {
 			{"Master Sorcerer"}
 		}
 	},
-	{
-		-- crystalline arrow
-		itemid = 15793,
-		type = WEAPON_AMMO,
-		level = 90,
-		unproperly = true,
-		action = "removecount"
-	},
+	-- {
+	-- 	-- crystalline arrow
+	-- 	itemid = 15793,
+	-- 	type = WEAPON_AMMO,
+	-- 	level = 90,
+	-- 	unproperly = true,
+	-- 	action = "removecount"
+	-- },
 	{
 		-- crystal bolt
 		itemid = 15792,
@@ -2885,14 +2885,14 @@ local weapons = {
 		unproperly = true,
 		action = "removecount"
 	},
-	{
-		-- tarsal arrow
-		itemid = 14251,
-		type = WEAPON_AMMO,
-		level = 30,
-		unproperly = true,
-		action = "removecount"
-	},
+	-- {
+	-- 	-- tarsal arrow
+	-- 	itemid = 14251,
+	-- 	type = WEAPON_AMMO,
+	-- 	level = 30,
+	-- 	unproperly = true,
+	-- 	action = "removecount"
+	-- },
 	{
 		-- deepling squelcher
 		itemid = 14250,
@@ -3711,38 +3711,38 @@ local weapons = {
 		type = WEAPON_SWORD,
 		action = "removecharge"
 	},
-	{
-		-- earth arrow
-		itemid = 774,
-		type = WEAPON_AMMO,
-		level = 20,
-		unproperly = true,
-		action = "removecount"
-	},
-	{
-		-- flaming arrow
-		itemid = 763,
-		type = WEAPON_AMMO,
-		level = 20,
-		unproperly = true,
-		action = "removecount"
-	},
-	{
-		-- shiver arrow
-		itemid = 762,
-		type = WEAPON_AMMO,
-		level = 20,
-		unproperly = true,
-		action = "removecount"
-	},
-	{
-		-- flash arrow
-		itemid = 761,
-		type = WEAPON_AMMO,
-		level = 20,
-		unproperly = true,
-		action = "removecount"
-	},
+	-- {
+	-- 	-- earth arrow
+	-- 	itemid = 774,
+	-- 	type = WEAPON_AMMO,
+	-- 	level = 20,
+	-- 	unproperly = true,
+	-- 	action = "removecount"
+	-- },
+	-- {
+	-- 	-- flaming arrow
+	-- 	itemid = 763,
+	-- 	type = WEAPON_AMMO,
+	-- 	level = 20,
+	-- 	unproperly = true,
+	-- 	action = "removecount"
+	-- },
+	-- {
+	-- 	-- shiver arrow
+	-- 	itemid = 762,
+	-- 	type = WEAPON_AMMO,
+	-- 	level = 20,
+	-- 	unproperly = true,
+	-- 	action = "removecount"
+	-- },
+	-- {
+	-- 	-- flash arrow
+	-- 	itemid = 761,
+	-- 	type = WEAPON_AMMO,
+	-- 	level = 20,
+	-- 	unproperly = true,
+	-- 	action = "removecount"
+	-- },
 	{
 		-- icy war hammer
 		itemid = 693,
@@ -4530,22 +4530,22 @@ local weapons = {
 		unproperly = true,
 		breakchance = 1
 	},
-	{
-		-- onyx arrow
-		itemid = 7365,
-		type = WEAPON_AMMO,
-		level = 40,
-		unproperly = true,
-		action = "removecount"
-	},
-	{
-		-- sniper arrow
-		itemid = 7364,
-		type = WEAPON_AMMO,
-		level = 20,
-		unproperly = true,
-		action = "removecount"
-	},
+	-- {
+	-- 	-- onyx arrow
+	-- 	itemid = 7365,
+	-- 	type = WEAPON_AMMO,
+	-- 	level = 40,
+	-- 	unproperly = true,
+	-- 	action = "removecount"
+	-- },
+	-- {
+	-- 	-- sniper arrow
+	-- 	itemid = 7364,
+	-- 	type = WEAPON_AMMO,
+	-- 	level = 20,
+	-- 	unproperly = true,
+	-- 	action = "removecount"
+	-- },
 	{
 		-- piercing bolt
 		itemid = 7363,
@@ -4650,12 +4650,12 @@ local weapons = {
 		unproperly = true,
 		action = "removecount"
 	},
-	{
-		-- arrow
-		itemid = 3447,
-		type = WEAPON_AMMO,
-		-- action = "removecount"
-	},
+	-- {
+	-- 	-- -- arrow
+	-- 	-- itemid = 3447,
+	-- 	-- type = WEAPON_AMMO,
+	-- 	-- -- action = "removecount"
+	-- },
 	{
 		-- bolt
 		itemid = 3446,
