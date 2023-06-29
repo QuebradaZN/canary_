@@ -472,7 +472,7 @@ function Player.getFinalBaseRateExperience(self)
 	end
 	-- Voucher
 	if self:activeVoucher('experience') then
-		exp = exp * 2
+		baseRate = baseRate * 2
 	end
 
 	return baseRate
