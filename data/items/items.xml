@@ -22308,12 +22308,14 @@
 	<item fromid="12214" toid="12225" article="a" name="dark sand"/>
 	<item id="12226" article="an" name="expired experience voucher">
 		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="12227" name="strange yellow powder">
 		<attribute key="weight" value="50"/>
 	</item>
 	<item id="12228" article="an" name="expired skill voucher">
 		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="12229" name="screaming cherry">
 		<attribute key="description" value="This fruit was gathered from the Screaming Cherry Tree"/>
@@ -22875,8 +22877,8 @@
 		<attribute key="decayTo" value="12530"/>
 		<attribute key="containersize" value="22"/>
 	</item>
-	<item id="12540" article="a" name="armageddon plans">
-		<attribute key="weight" value="400"/>
+	<item id="12540" article="a" name="waypoint unlocker">
+		<attribute key="description" value="Use this to chose a waypoint or bundle to unlock."/>
 	</item>
 	<item id="12541" article="a" name="demonic finger">
 		<attribute key="weight" value="300"/>
@@ -35791,8 +35793,8 @@
 		<attribute key="showCount" value="0"/>
 		<attribute key="weight" value="600"/>
 	</item>
-	<item id="23514" name="skill voucher">
-	 	<attribute key="description" value="You use this to enable/disable your double skill voucher."/>
+	<item id="23514" article="an" name="inactive skill voucher">
+	 	<attribute key="description" value="You can use this to enable your double skill voucher."/>
 		<!-- 12 hours -->
 		<attribute key="duration" value="43200"/>
 		<attribute key="showCount" value="0"/>
@@ -35801,8 +35803,8 @@
 		<attribute key="stacksize" value="1"/>
 		<attribute key="moveable" value="0"/>
 	</item>
-	<item id="23515" article="an" name="experience voucher">
-	 	<attribute key="description" value="You use this to enable/disable your double experience voucher."/>
+	<item id="23515" article="an" name="inactive experience voucher">
+	 	<attribute key="description" value="You can use this to enable your double experience voucher."/>
 		<!-- 3 hours -->
 		<attribute key="duration" value="10800"/>
 		<attribute key="stopduration" value="1"/>
@@ -36891,6 +36893,8 @@
 	</item>
 	<item id="24963" article="a" name="wasted time">
 		<attribute key="weight" value="10"/>
+		<attribute key="showduration" value="1"/>
+		<attribute key="duration" value="120"/>
 	</item>
 	<item id="24964" article="an" name="imbuing crystal">
 		<attribute key="description" value="This is a Shaper crystal used by their ancient imbuing shrines. It has been separated from its shrine. Without a crystal, it cannot focus any energy"/>
@@ -43411,12 +43415,13 @@
 		<attribute key="containersize" value="20"/>
 	</item>
 	<item id="30082" article="an" name="active skill voucher">
-	 	<attribute key="description" value="You use this to enable/disable your double skill voucher."/>
+	 	<attribute key="description" value="You can use this to temporarily disable your double skill voucher."/>
 		<!-- 12 hours -->
 		<attribute key="duration" value="43200"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="stopduration" value="1"/>
 		<attribute key="decayTo" value="12228"/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="30083" article="a" name="green ectoplasm">
 		<attribute key="description" value="The stuff nightmares are made of - literally"/>
@@ -43426,11 +43431,12 @@
 		<attribute key="weight" value="100"/>
 	</item>
 	<item id="30084" article="an" name="active experience voucher">
-	 	<attribute key="description" value="You use this to enable/disable your double experience voucher."/>
+	 	<attribute key="description" value="You can use this to temporarily disable your double experience voucher."/>
 		<!-- 3 hours -->
 		<attribute key="duration" value="10800"/>
 		<attribute key="stopduration" value="1"/>
 		<attribute key="decayTo" value="12226"/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="30085" article="a" name="blue ectoplasmic residue">
 		<attribute key="description" value="It seems a ghost was here"/>

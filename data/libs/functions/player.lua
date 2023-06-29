@@ -323,7 +323,7 @@ function Player.isMage(self)
 end
 
 local ACCOUNT_STORAGES = {}
-function Player.getAccountStorage(self, accountId, key, forceUpdate)
+function Player.getAccountStorage(self, key, forceUpdate)
 	local accountId = self:getAccountId()
 	if ACCOUNT_STORAGES[accountId] and not forceUpdate then
 		return ACCOUNT_STORAGES[accountId]
@@ -337,6 +337,12 @@ function Player.getAccountStorage(self, accountId, key, forceUpdate)
 		return value
 	end
 	return false
+end
+
+function Player:getUpdatedAccountStorage(bucket)
+	local fromMemory = self:getStorageValue(bucket) > 0 and self:getStorageValue(bucket) or 0
+	local fromDB = self:getAccountStorage(bucket, true) and self:getAccountStorage(bucket, true) or 0
+	return bit.bor(fromDB, fromMemory)
 end
 
 function Player.getMarriageDescription(thing)
@@ -519,6 +525,17 @@ end
 
 function Player.getSubjectVerb(self, past)
 	return Pronouns.getPlayerSubjectVerb(self:getPronoun(), past)
+end
+
+function Player.findItemInInbox(self, itemId)
+	local inbox = self:getSlotItem(CONST_SLOT_STORE_INBOX)
+	local items = inbox:getItems()
+	for _, item in pairs(items) do
+		if item:getId() == itemId then
+			return item
+		end
+	end
+	return nil
 end
 
 function Player.updateHazard(self)

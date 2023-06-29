@@ -90,12 +90,20 @@ GameStore.Categories = {
 			},
 		},
 	},
-	-- Premium ~ Coin Packages
+	-- Custom Stuff
 	{
 		icons = { "Category_Coins.png" },
-		name = "Tradable Coins",
+		name = "Exclusives",
 		rookgaard = true,
 		state = GameStore.States.STATE_NONE,
+		subclasses = { "Tradeable Coins", "House Teleports", "Tools" },
+	},
+	{
+		icons = { "Category_Coins.png" },
+		name = "Tradeable Coins",
+		rookgaard = true,
+		state = GameStore.States.STATE_NONE,
+		parent = "Exclusives",
 		offers = {
 			{
 				icons = { "Tibia_Coins.gif" },
@@ -179,13 +187,21 @@ GameStore.Categories = {
 			},
 		},
 	},
-	-- Exclusives
 	{
-		icons = { "Category_Tournament.png" },
-		name = "Exclusives",
+		icons = { "Category_HouseTools.png" },
+		name = "House Teleports",
+		parent = "Exclusives",
 		rookgaard = true,
 		state = GameStore.States.STATE_NONE,
 		offers = {
+			{
+				name = "Waypoint Unlock",
+				price = 50,
+				itemtype = 12540,
+				count = 1,
+				description = "<i>Unlock a waypoint to use with the house teleports!</i>\n\n{info} waypoints are unlocked account-wide\n{useicon} use item to pick a waypoint to unlock",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+			},
 			{
 				name = "Teleport Box",
 				price = 150,
@@ -202,8 +218,25 @@ GameStore.Categories = {
 				description = "<i>Teleport to activated wayponts from your house!</i>\n\n{info} requires character to have unlocked waypoints\n\n{house}\n{box}\n{storeinbox}\n{usablebyall}\n{useicon} walk into it to teleport to your waypoints\n{backtoinbox}",
 				type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 			},
+		},
+	},
+	{
+		icons = { "Category_Tournament.png" },
+		name = "Tools",
+		parent = "Exclusives",
+		rookgaard = true,
+		state = GameStore.States.STATE_NONE,
+		offers = {
 			{
-				name = "Portable Imbuing Shring",
+				name = "Teleport Cube",
+				price = 300,
+				itemtype = 31633,
+				count = 1,
+				description = "<i>Teleport to any town in the game, or any houses you're a sub-owner of!</i>\n\n{useicon} use item to pick a destination",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+			},
+			{
+				name = "Portable Imbuing Shrine",
 				price = 150,
 				itemtype = 25061,
 				count = 1,
@@ -5523,6 +5556,15 @@ GameStore.Categories = {
 				count = 10,
 				description = "<i>Use Prey Wildcards to reroll the bonus of an active prey, to lock your active prey or to select a prey of your choice.</i>\n\n{character}\n{info} added directly to Prey dialog\n{info} maximum amount that can be owned by character: 50",
 				type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS,
+				coinType = GameStore.CoinType.Online
+			},
+			{
+				name = "Waypoint Unlock",
+				price = 2500,
+				itemtype = 12540,
+				count = 1,
+				description = "<i>Unlock a waypoint to use with the house teleports!</i>\n\n{info} waypoints are unlocked account-wide\n{useicon} use item to pick a waypoint to unlock",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
 				coinType = GameStore.CoinType.Online
 			},
 		}
