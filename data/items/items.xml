@@ -4701,9 +4701,7 @@
 		<attribute key="weight" value="820"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -6718,9 +6716,7 @@
 		<attribute key="weight" value="3200"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -6752,9 +6748,7 @@
 		<attribute key="weight" value="6800"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -6851,9 +6845,7 @@
 		<attribute key="weight" value="2950"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -6877,9 +6869,7 @@
 		<attribute key="weight" value="2950"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -6910,9 +6900,7 @@
 		<attribute key="weight" value="5200"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -6923,9 +6911,7 @@
 		<attribute key="weight" value="4800"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -6935,9 +6921,7 @@
 		<attribute key="weight" value="2950"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -6966,9 +6950,7 @@
 		<attribute key="weight" value="4200"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -7052,9 +7034,7 @@
 		<attribute key="weight" value="4600"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -7803,9 +7783,7 @@
 		<attribute key="weight" value="750"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -11361,9 +11339,7 @@
 		<attribute key="weight" value="4200"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -15403,9 +15379,7 @@
 		<attribute key="weight" value="1800"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -15435,9 +15409,7 @@
 		<attribute key="weight" value="5100"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 		</attribute>
 	</item>
@@ -18866,9 +18838,7 @@
 		<attribute key="weight" value="700"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -18952,9 +18922,7 @@
 		<attribute key="weight" value="1250"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -18965,9 +18933,7 @@
 		<attribute key="weight" value="1100"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -20382,9 +20348,7 @@
 		<attribute key="weight" value="6600"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -21878,9 +21842,7 @@
 		<attribute key="weight" value="4300"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -27309,9 +27271,7 @@
 		<attribute key="weight" value="3500"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -34271,9 +34231,7 @@
 		<attribute key="weight" value="3100"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -34845,9 +34803,7 @@
 		<attribute key="weight" value="3800"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -41709,9 +41665,7 @@
 		<attribute key="weight" value="2800"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 			<attribute key="skillboost magic level" value="2"/>
@@ -42981,9 +42935,7 @@
 		<attribute key="weight" value="3400"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -44440,9 +44392,7 @@
 		<attribute key="weight" value="2700"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -45840,9 +45790,7 @@
 		<attribute key="weight" value="3100"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -50705,9 +50653,7 @@
 		<attribute key="weight" value="3000"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 			<attribute key="skillboost magic level" value="2"/>
@@ -53202,9 +53148,7 @@
 		<attribute key="weight" value="2600"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -53216,9 +53160,7 @@
 		<attribute key="weight" value="2700"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -53271,9 +53213,7 @@
 		<!--attribute key="healingmagiclevelpoints" value="2"/-->
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -53291,9 +53231,7 @@
 		<!--attribute key="healingmagiclevelpoints" value="2"/-->
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -55713,9 +55651,7 @@
 		<attribute key="weight" value="2950"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -56327,9 +56263,7 @@
 		<attribute key="weight" value="4400"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -56347,9 +56281,7 @@
 		<attribute key="weight" value="3900"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 			<attribute key="skillboost magic level" value="2"/>
@@ -58372,9 +58304,7 @@
 		<attribute key="weight" value="2200"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 			<attribute key="skillboost magic level" value="2"/>
