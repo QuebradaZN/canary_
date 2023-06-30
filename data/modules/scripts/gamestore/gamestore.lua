@@ -5521,7 +5521,7 @@ GameStore.Categories = {
 		icons = { "Category_OnlinePoints.png" },
 		name = "Online Points",
 		rookgaard = true,
-		subclasses = { "Basic Exercise Weapons", "Tools", "Boosts & Others" },
+		subclasses = { "Basic Exercise Weapons", "Tools ", "Boosts & Others" },
 	},
 	{
 		icons = { "Category_Boosts.png" },
@@ -5571,11 +5571,61 @@ GameStore.Categories = {
 	},
 	{
 		icons = { "Category_Extras.png" },
-		name = "Tools",
+		name = "Tools ",
 		rookgaard = true,
 		parent = "Online Points",
 		state = GameStore.States.STATE_NONE,
 		offers = {
+			{
+				name = "Moon Mirror",
+				price = 2500,
+				itemtype = 25975,
+				count = 1,
+				description = "<i>+5% death protection</i>",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+				moveable = true,
+				coinType = GameStore.CoinType.Online
+			},
+			{
+				name = "Starlight Vial",
+				price = 2500,
+				itemtype = 25976,
+				count = 1,
+				description = "<i>+5% mana drain protection</i>",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+				moveable = true,
+				coinType = GameStore.CoinType.Online
+			},
+			{
+				name = "Sun Catcher",
+				price = 2500,
+				itemtype = 25977,
+				count = 1,
+				description = "<i>+5% fire protection</i>",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+				moveable = true,
+				coinType = GameStore.CoinType.Online
+			},
+			{
+				name = "Bone Fiddle",
+				price = 2500,
+				itemtype = 28493,
+				count = 1,
+				description = "<i>+5% life drain protection</i>",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+				moveable = true,
+				coinType = GameStore.CoinType.Online
+			},
+			{
+				name = "Lit Torch",
+				price = 2500,
+				itemtype = 34016,
+				count = 1,
+				description = "<i>+2% holy protection</i>",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+				moveable = true,
+				coinType = GameStore.CoinType.Online
+			},
 			{
 				name = "Whacking Driller of Fate",
 				price = 2500,
