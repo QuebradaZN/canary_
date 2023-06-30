@@ -745,8 +745,9 @@ int32_t WeaponDistance::getWeaponDamage(const Player* player, const Creature* ta
 	int32_t attackSkill = player->getSkillLevel(SKILL_DISTANCE);
 	float attackFactor = player->getAttackFactor();
 
-	int32_t minValue = player->getLevel() / 5;
-	int32_t maxValue = std::round((0.09f * attackFactor) * attackSkill * attackValue + minValue);
+	int32_t maxValue = std::round((0.09f * attackFactor) * attackSkill * attackValue + (player->getLevel() / 1.5f));
+	int32_t minValue = maxValue / 1.5f;
+
 	if (maxDamage) {
 		return -maxValue;
 	}
