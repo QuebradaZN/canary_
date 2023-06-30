@@ -120,6 +120,7 @@ function ExerciseEvent(playerId, tilePosition, weaponId, dummyId)
 		player:addSkillTries(ExerciseWeaponsTable[weaponId].skill, 7 * bonusDummy * multiplier)
 	end
 	player:addSkillTries(SKILL_DEFENSE, 6 * bonusDummy * multiplier)
+	player:addSkillTries(SKILL_DEXTERITY, 3 * bonusDummy * multiplier)
 
 	if weapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then
 		weapon:setAttribute(ITEM_ATTRIBUTE_CHARGES, (weaponCharges - 1))

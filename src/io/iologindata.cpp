@@ -985,8 +985,8 @@ bool IOLoginData::savePlayerGuard(Player* player) {
 	query << "`skill_fist_tries` = " << player->skills[SKILL_LUCK].tries << ',';
 	query << "`skill_club` = " << player->skills[SKILL_MELEE].level << ',';
 	query << "`skill_club_tries` = " << player->skills[SKILL_MELEE].tries << ',';
-	query << "`skill_sword` = " << player->skills[SKILL_COOKING].level << ',';
-	query << "`skill_sword_tries` = " << player->skills[SKILL_COOKING].tries << ',';
+	query << "`skill_sword` = " << player->skills[SKILL_DEXTERITY].level << ',';
+	query << "`skill_sword_tries` = " << player->skills[SKILL_DEXTERITY].tries << ',';
 	query << "`skill_axe` = " << player->skills[SKILL_RUNIC].level << ',';
 	query << "`skill_axe_tries` = " << player->skills[SKILL_RUNIC].tries << ',';
 	query << "`skill_dist` = " << player->skills[SKILL_DISTANCE].level << ',';

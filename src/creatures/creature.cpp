@@ -932,6 +932,9 @@ BlockType_t Creature::blockHit(Creature* attacker, CombatType_t combatType, int3
 
 	mitigateDamage(combatType, blockType, damage);
 
+	if (damage != 0) {
+		onTakeDamage(attacker, damage);
+	}
 	onAttacked();
 	return blockType;
 }

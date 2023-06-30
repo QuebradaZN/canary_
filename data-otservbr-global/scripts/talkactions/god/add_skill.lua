@@ -11,8 +11,8 @@ local function getSkillId(skillName)
 		return SKILL_RUNIC
 	elseif skillName:sub(1, 4) == "luck" then
 		return SKILL_LUCK
-	elseif skillName:sub(1, 4) == "cook" then
-		return SKILL_COOKING
+	elseif skillName:sub(1, 3) == "dex" then
+		return SKILL_DEXTERITY
 	else
 		return nil
 	end

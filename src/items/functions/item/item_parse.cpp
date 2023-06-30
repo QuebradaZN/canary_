@@ -434,8 +434,8 @@ void ItemParse::parseHealthAndMana(const std::string &tmpStrValue, pugi::xml_att
 
 void ItemParse::parseSkills(const std::string &tmpStrValue, pugi::xml_attribute valueAttribute, ItemType &itemType) {
 	std::string stringValue = tmpStrValue;
-	if (stringValue == "skillcooking") {
-		itemType.getAbilities().skills[SKILL_COOKING] = pugi::cast<int32_t>(valueAttribute.value());
+	if (stringValue == "skilldexterity") {
+		itemType.getAbilities().skills[SKILL_DEXTERITY] = pugi::cast<int32_t>(valueAttribute.value());
 	} else if (stringValue == "skillrunic") {
 		itemType.getAbilities().skills[SKILL_RUNIC] = pugi::cast<int32_t>(valueAttribute.value());
 	} else if (stringValue == "skillmelee") {

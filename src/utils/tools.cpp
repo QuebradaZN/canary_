@@ -854,8 +854,8 @@ std::string getSkillName(uint8_t skillid) {
 		case SKILL_MELEE:
 			return "melee fighting";
 
-		case SKILL_COOKING:
-			return "cooking";
+		case SKILL_DEXTERITY:
+			return "dexterity";
 
 		case SKILL_RUNIC:
 			return "runic fighting";
@@ -1351,8 +1351,8 @@ const char* getReturnMessage(ReturnValue value) {
 		case RETURNVALUE_NOTENOUGHMELEELEVEL:
 			return "You do not have enough melee level";
 
-		case RETURNVALUE_NOTENOUGHCOOKINGLEVEL:
-			return "You do not have enough cooking level";
+		case RETURNVALUE_NOTENOUGHDEXTERITYLEVEL:
+			return "You do not have enough dexterity level";
 
 		case RETURNVALUE_NOTENOUGHRUNICLEVEL:
 			return "You do not have enough runic level";

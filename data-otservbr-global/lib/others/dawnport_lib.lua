@@ -34,7 +34,7 @@ function Player.changeVocation(self, newVocationId)
 	local skills = {
 		{id = SKILL_LUCK},
 		{id = SKILL_MELEE},
-		{id = SKILL_COOKING},
+		{id = SKILL_DEXTERITY},
 		{id = SKILL_RUNIC},
 		{id = SKILL_DISTANCE},
 		{id = SKILL_DEFENSE}

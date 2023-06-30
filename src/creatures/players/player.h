@@ -897,6 +897,7 @@ class Player final : public Creature, public Cylinder {
 		void onGainSharedExperience(uint64_t gainExp, Creature* target);
 		void onAttackedCreatureBlockHit(BlockType_t blockType) override;
 		void onBlockHit() override;
+		void onTakeDamage(Creature* attacker, int32_t damage) override;
 		void onChangeZone(ZoneType_t zone) override;
 		void onAttackedCreatureChangeZone(ZoneType_t zone) override;
 		void onIdleStatus() override;
@@ -2802,7 +2803,7 @@ class Player final : public Creature, public Cylinder {
 			}
 			if (onFistAttackSpeed) {
 				uint32_t baseAttackSpeed = vocation->getAttackSpeed();
-				uint32_t skillLevel = getSkillLevel(SKILL_COOKING);
+				uint32_t skillLevel = getSkillLevel(SKILL_DEXTERITY);
 				uint32_t attackSpeed = baseAttackSpeed - (skillLevel * g_configManager().getNumber(MULTIPLIER_ATTACKONFIST));
 
 				if (attackSpeed < MAX_ATTACK_SPEED) {

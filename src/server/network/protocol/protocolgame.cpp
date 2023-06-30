@@ -2076,7 +2076,7 @@ void ProtocolGame::sendHighscores(const std::vector<HighscoreCharacter> &charact
 		{ "Experience Points", HIGHSCORE_CATEGORY_EXPERIENCE },
 		{ "Luck", HIGHSCORE_CATEGORY_LUCK },
 		{ "Melee fighting", HIGHSCORE_CATEGORY_MELEE_FIGHTING },
-		{ "Cooking", HIGHSCORE_CATEGORY_COOKING },
+		{ "Cooking", HIGHSCORE_CATEGORY_DEXTERITY },
 		{ "Runic Fighting", HIGHSCORE_CATEGORY_RUNIC_FIGHTING },
 		{ "Distance Fighting", HIGHSCORE_CATEGORY_DISTANCE_FIGHTING },
 		{ "Defense", HIGHSCORE_CATEGORY_DEFENSE },

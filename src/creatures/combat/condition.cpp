@@ -779,12 +779,12 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value) {
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_COOKING: {
+		case CONDITION_PARAM_SKILL_DEXTERITY: {
 			skills[SKILL_MELEE] = value;
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_COOKINGPERCENT: {
+		case CONDITION_PARAM_SKILL_DEXTERITYPERCENT: {
 			skillsPercent[SKILL_MELEE] = value;
 			return true;
 		}

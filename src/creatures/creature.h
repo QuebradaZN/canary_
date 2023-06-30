@@ -399,6 +399,7 @@ class Creature : virtual public Thing {
 		virtual void onGainExperience(uint64_t gainExp, Creature* target);
 		virtual void onAttackedCreatureBlockHit(BlockType_t) { }
 		virtual void onBlockHit() { }
+		virtual void onTakeDamage(Creature*, int32_t) { }
 		virtual void onChangeZone(ZoneType_t zone);
 		virtual void onAttackedCreatureChangeZone(ZoneType_t zone);
 		virtual void onIdleStatus();

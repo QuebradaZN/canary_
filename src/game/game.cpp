@@ -5737,6 +5737,15 @@ bool Game::combatBlockHit(CombatDamage &damage, Creature* attacker, Creature* ta
 				return true;
 			}
 		}
+
+		int32_t skill = targetPlayer->getSkillLevel(SKILL_DEXTERITY);
+		double_t chance = sqrt(skill - 10) / 2.2;
+		double_t randomChance = uniform_random(0, 10000) / 100;
+		if (chance > 0 && randomChance < chance) {
+			InternalGame::sendBlockEffect(BLOCK_DODGE, damage.primary.type, target->getPosition(), attacker);
+			targetPlayer->sendTextMessage(MESSAGE_ATTENTION, "You dodged an attack. (dexterity)");
+			return true;
+		}
 	}
 
 	bool canHeal = false;
@@ -7767,7 +7776,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 		case HIGHSCORE_CATEGORY_MELEE_FIGHTING:
 			categoryName = "skill_club";
 			break;
-		case HIGHSCORE_CATEGORY_COOKING:
+		case HIGHSCORE_CATEGORY_DEXTERITY:
 			categoryName = "skill_sword";
 			break;
 		case HIGHSCORE_CATEGORY_RUNIC_FIGHTING:
