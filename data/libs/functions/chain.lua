@@ -1,7 +1,7 @@
 Chain = {}
 
 
-function Chain.combat(player, target, combat, maxCreatures, maxDistance, animation, firstAnimation)
+function Chain.combat(player, initialTarget, combat, maxCreatures, maxDistance, animation, firstAnimation)
 	local range = math.max(6, maxDistance * (maxCreatures + 1))
 	local creatures = Game.getSpectators(player:getPosition(), false, false, range, range, range, range)
 	local monsters = {}
@@ -10,7 +10,7 @@ function Chain.combat(player, target, combat, maxCreatures, maxDistance, animati
 			table.insert(monsters, creature)
 		end
 	end
-	local visited = { [target:getId()] = true }
+	local visited = { [initialTarget:getId()] = true }
 
 	local function recursiveChain(target, previousTarget)
 		if maxCreatures <= 0 then
@@ -54,5 +54,5 @@ function Chain.combat(player, target, combat, maxCreatures, maxDistance, animati
 		return maxCreatures
 	end
 
-	return recursiveChain(target, firstAnimation and player or nil) ~= nil
+	return recursiveChain(initialTarget, firstAnimation and player or nil) ~= nil
 end

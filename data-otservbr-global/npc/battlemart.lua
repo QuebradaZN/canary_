@@ -145,6 +145,11 @@ npcConfig.shop = {
 	{ itemName = "masterful exercise sword", clientId = 35285, buy = 20000000, count = 7200 },
 	{ itemName = "masterful exercise rod", clientId = 35289, buy = 20000000, count = 7200 },
 	{ itemName = "masterful exercise wand", clientId = 35290, buy = 20000000, count = 7200 },
+	{ itemName = "enchanted spear", clientId = 7367, buy = 30 },
+	{ itemName = "spear", clientId = 3277, buy = 5 },
+	{ itemName = "assassin star", clientId = 7368, buy = 100 },
+	{ itemName = "royal star", clientId = 25759, buy = 110 },
+	{ itemName = "hunting spear", clientId = 3347, buy = 25 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)

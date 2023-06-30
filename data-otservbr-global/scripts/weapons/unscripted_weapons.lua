@@ -1762,14 +1762,14 @@ local weapons = {
 			{"Master Sorcerer"}
 		}
 	},
-	{
-		-- royal star
-		itemid = 25759,
-		type = WEAPON_MISSILE,
-		level = 120,
-		unproperly = true,
-		breakchance = 30
-	},
+	-- {
+	-- 	-- royal star
+	-- 	itemid = 25759,
+	-- 	type = WEAPON_MISSILE,
+	-- 	level = 120,
+	-- 	unproperly = true,
+	-- 	breakchance = 30
+	-- },
 	{
 		-- spectral bolt
 		itemid = 25758,
@@ -1778,14 +1778,14 @@ local weapons = {
 		unproperly = true,
 		action = "removecount"
 	},
-	{
-		-- leaf star
-		itemid = 25735,
-		type = WEAPON_MISSILE,
-		level = 60,
-		unproperly = true,
-		breakchance = 40
-	},
+	-- {
+	-- 	-- leaf star
+	-- 	itemid = 25735,
+	-- 	type = WEAPON_MISSILE,
+	-- 	level = 60,
+	-- 	unproperly = true,
+	-- 	breakchance = 40
+	-- },
 	{
 		-- dream blossom staff
 		itemid = 25700,
@@ -2370,14 +2370,14 @@ local weapons = {
 		level = 55,
 		unproperly = true
 	},
-	{
-		-- glooth spear
-		itemid = 21158,
-		type = WEAPON_MISSILE,
-		level = 60,
-		unproperly = true,
-		breakchance = 2
-	},
+	-- {
+	-- 	-- glooth spear
+	-- 	itemid = 21158,
+	-- 	type = WEAPON_MISSILE,
+	-- 	level = 60,
+	-- 	unproperly = true,
+	-- 	breakchance = 2
+	-- },
 	{
 		-- umbral master crossbow
 		itemid = 20087,
@@ -2708,15 +2708,15 @@ local weapons = {
 			{"None", true}
 		}
 	},
-	{
-		-- mean paladin spear
-		itemid = 17110,
-		type = WEAPON_MISSILE,
-		breakchance = 3,
-		vocation = {
-			{"None", true}
-		}
-	},
+	-- {
+	-- 	-- mean paladin spear
+	-- 	itemid = 17110,
+	-- 	type = WEAPON_MISSILE,
+	-- 	breakchance = 3,
+	-- 	vocation = {
+	-- 		{"None", true}
+	-- 	}
+	-- },
 	{
 		-- mean knight sword
 		itemid = 17109,
@@ -4506,30 +4506,30 @@ local weapons = {
 		level = 25,
 		unproperly = true
 	},
-	{
-		-- royal spear
-		itemid = 7378,
-		type = WEAPON_MISSILE,
-		level = 25,
-		unproperly = true,
-		breakchance = 3
-	},
-	{
-		-- assassin star
-		itemid = 7368,
-		type = WEAPON_MISSILE,
-		level = 80,
-		unproperly = true,
-		breakchance = 33
-	},
-	{
-		-- enchanted spear
-		itemid = 7367,
-		type = WEAPON_MISSILE,
-		level = 42,
-		unproperly = true,
-		breakchance = 1
-	},
+	-- {
+	-- 	-- royal spear
+	-- 	itemid = 7378,
+	-- 	type = WEAPON_MISSILE,
+	-- 	level = 25,
+	-- 	unproperly = true,
+	-- 	breakchance = 3
+	-- },
+	-- {
+	-- 	-- assassin star
+	-- 	itemid = 7368,
+	-- 	type = WEAPON_MISSILE,
+	-- 	level = 80,
+	-- 	unproperly = true,
+	-- 	breakchance = 33
+	-- },
+	-- {
+	-- 	-- enchanted spear
+	-- 	itemid = 7367,
+	-- 	type = WEAPON_MISSILE,
+	-- 	level = 42,
+	-- 	unproperly = true,
+	-- 	breakchance = 1
+	-- },
 	-- {
 	-- 	-- onyx arrow
 	-- 	itemid = 7365,
@@ -4605,14 +4605,14 @@ local weapons = {
 		itemid = 3348,
 		type = WEAPON_CLUB
 	},
-	{
-		-- hunting spear
-		itemid = 3347,
-		type = WEAPON_MISSILE,
-		level = 20,
-		unproperly = true,
-		breakchance = 6
-	},
+	-- {
+	-- 	-- hunting spear
+	-- 	itemid = 3347,
+	-- 	type = WEAPON_MISSILE,
+	-- 	level = 20,
+	-- 	unproperly = true,
+	-- 	breakchance = 6
+	-- },
 	{
 		-- ripper lance
 		itemid = 3346,
@@ -4968,12 +4968,12 @@ local weapons = {
 		itemid = 3299,
 		type = WEAPON_SWORD
 	},
-	{
-		-- throwing knife
-		itemid = 3298,
-		type = WEAPON_MISSILE,
-		breakchance = 7
-	},
+	-- {
+	-- 	-- throwing knife
+	-- 	itemid = 3298,
+	-- 	type = WEAPON_MISSILE,
+	-- 	breakchance = 7
+	-- },
 	{
 		-- serpent sword
 		itemid = 3297,
@@ -5032,12 +5032,12 @@ local weapons = {
 		level = 80,
 		unproperly = true
 	},
-	{
-		-- throwing star
-		itemid = 3287,
-		type = WEAPON_MISSILE,
-		breakchance = 10
-	},
+	-- {
+	-- 	-- throwing star
+	-- 	itemid = 3287,
+	-- 	type = WEAPON_MISSILE,
+	-- 	breakchance = 10
+	-- },
 	{
 		-- mace
 		itemid = 3286,
@@ -5104,12 +5104,12 @@ local weapons = {
 			{"Elite Knight"}
 		}
 	},
-	{
-		-- spear
-		itemid = 3277,
-		type = WEAPON_MISSILE,
-		-- breakchance = 3
-	},
+	-- {
+	-- 	-- spear
+	-- 	itemid = 3277,
+	-- 	type = WEAPON_MISSILE,
+	-- 	-- breakchance = 3
+	-- },
 	{
 		-- hatchet
 		itemid = 3276,
@@ -5329,18 +5329,18 @@ local weapons = {
 			{"Elder Druid"}
 		}
 	},
-	{
-		-- snowball
-		itemid = 2992,
-		type = WEAPON_MISSILE,
-		action = "removecount"
-	},
-	{
-		-- small stone
-		itemid = 1781,
-		type = WEAPON_MISSILE,
-		breakchance = 3
-	}
+	-- {
+	-- 	-- snowball
+	-- 	itemid = 2992,
+	-- 	type = WEAPON_MISSILE,
+	-- 	action = "removecount"
+	-- },
+	-- {
+	-- 	-- small stone
+	-- 	itemid = 1781,
+	-- 	type = WEAPON_MISSILE,
+	-- 	breakchance = 3
+	-- }
 }
 
 local axeCombat = Combat()
