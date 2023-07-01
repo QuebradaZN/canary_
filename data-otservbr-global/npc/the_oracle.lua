@@ -80,6 +80,7 @@ local config = {
 				3557, -- Plate Legs
 				3428, -- Dwarven Shield
 				7408, -- Wyvern Fang
+				3572, -- Scarf
 			}
 		},
 		[VOCATION.ID.PALADIN] = {
@@ -91,6 +92,10 @@ local config = {
 				7438, -- Elvish Bow
 				3447, -- Arrow
 				35562, -- Quiver
+				3349, -- Crossbow
+				3446, -- Bolt
+				3428, -- Dwarven Shield
+				3572, -- Scarf
 			}
 		},
 		[VOCATION.ID.DRUID] = {
@@ -101,6 +106,7 @@ local config = {
 				9014, -- Leaf Legs
 				8072, -- Spellbook of Enlightenment
 				3066, -- Snakebite Rod
+				3572, -- Scarf
 			}
 		},
 		[VOCATION.ID.SORCERER] = {
@@ -111,6 +117,7 @@ local config = {
 				24404, -- Tatty Dragon Scale Legs
 				8072, -- Spellbook of Enlightenment
 				3074, -- Wand of Vortex
+				3572, -- Scarf
 			}
 		},
 	}
@@ -182,7 +189,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				for i = 1, #items do
 					backpack:addItem(items[i], 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
 				end
-				backpack:addItem(3725, 200, INDEX_WHEREVER, FLAG_NOLIMIT)	-- Brown Mushrooms
+				backpack:addItem(3725, 100, INDEX_WHEREVER, FLAG_NOLIMIT)	-- Brown Mushrooms
 				backpack:addItem(16277, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)	-- Adventurer's stone
 			end
 			player:setVocation(Vocation(vocation[playerId]))

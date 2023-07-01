@@ -14,7 +14,7 @@ local reward = {
 	container = 2854,
 	commonItems = {
 		{id = 16277, amount = 1},	-- Adventurer's stone
-		{id = 3725, amount = 200}, 	-- Brown Mushrooms
+		{id = 3725, amount = 100}, 	-- Brown Mushrooms
 	},
 	vocationItems = {
 		-- Sorcerer
@@ -25,6 +25,7 @@ local reward = {
 			{id = 8072, amount = 1},	-- Spellbook of enlightenment
 			{id = 3074, amount = 1},  	-- Wand of vortex
 			{id = 3552, amount = 1},	-- Leather boots
+			{id = 3572, amount = 1},	-- Scarf
 		},
 		-- Druid
 		[14026] = {
@@ -34,6 +35,7 @@ local reward = {
 			{id = 3066, amount = 1},	-- Snakebite Rod
 			{id = 8072, amount = 1},  	-- Spellbook of enlightenment
 			{id = 3552, amount = 1},	-- Leather boots
+			{id = 3572, amount = 1},	-- Scarf
 		},
 		-- Paladin
 		[14027] = {
@@ -44,7 +46,11 @@ local reward = {
 			{id = 3277, amount = 1},	-- Spear
 			{id = 35562, amount = 1},	-- Quiver
 			{id = 3447, amount = 1},	-- Arrows
+			{id = 3349, amount = 1},	-- Crossbow
+			{id = 3446, amount = 1},	-- Bolt
+			{id = 3428, amount = 1},	-- Dwarven shield
 			{id = 3552, amount = 1},	-- Leather boots
+			{id = 3572, amount = 1},	-- Scarf
 		},
 		-- Knight
 		[14028] = {
@@ -53,7 +59,8 @@ local reward = {
 			{id = 3557, amount = 1},	-- Plate legs
 			{id = 3552, amount = 1},	-- Leather boots
 			{id = 7408, amount = 1},	-- Wyvern fang
-			{id = 3428, amount = 1}		-- Dwarven Shield
+			{id = 3428, amount = 1},	-- Dwarven Shield
+			{id = 3572, amount = 1},	-- Scarf
 		}
 	}
 }
