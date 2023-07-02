@@ -5739,7 +5739,7 @@ bool Game::combatBlockHit(CombatDamage &damage, Creature* attacker, Creature* ta
 		}
 
 		int32_t skill = targetPlayer->getSkillLevel(SKILL_DEXTERITY);
-		double_t chance = sqrt(skill - 10) / 2.2;
+		double_t chance = sqrt(skill - 10) / 3;
 		double_t randomChance = uniform_random(0, 10000) / 100;
 		if (chance > 0 && randomChance < chance) {
 			InternalGame::sendBlockEffect(BLOCK_DODGE, damage.primary.type, target->getPosition(), attacker);
