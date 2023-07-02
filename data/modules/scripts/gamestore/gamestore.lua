@@ -236,12 +236,12 @@ GameStore.Categories = {
 				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
 			},
 			{
-				name = "Portable Imbuing Shrine",
+				name = "Portable Imbuing Crystal",
 				price = 150,
-				itemtype = 25061,
+				itemtype = 24964,
 				count = 1,
 				description = "<i>Allows you to imbue your items on the go! No more needing to rush to the temple when your imbuements run ut.</i>\n\n{character}\n{storeinbox}\n{useicon} use it on an imbuable item to open the imbument window",
-				type = GameStore.OfferTypes.OFFER_TYPE_SHRINE,
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
 			},
 			{
 				icons = { "Gold_Pouch.png" },

@@ -525,7 +525,6 @@ npcConfig.shop = {
 	{ itemName = "solid rage", clientId = 23517, sell = 310 },
 	{ itemName = "some grimeleech wings", clientId = 22730, sell = 1200 },
 	{ itemName = "soul stone", clientId = 5809, sell = 6000 },
-	{ itemName = "spark sphere", clientId = 23518, sell = 350 },
 	{ itemName = "sparkion claw", clientId = 23502, sell = 290 },
 	{ itemName = "sparkion legs", clientId = 23504, sell = 310 },
 	{ itemName = "sparkion stings", clientId = 23505, sell = 280 },

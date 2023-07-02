@@ -86,7 +86,7 @@ monster.loot = {
 	{id = 7643, chance = 19500, maxCount = 3}, -- ultimate health potion
 	{id = 16121, chance = 9660, maxCount = 5}, -- green crystal shard
 	{id = 7459, chance = 9660}, -- pair of earmuffs
-	{id = 23518, chance = 9660}, -- spark sphere
+	{id = 23516, chance = 9660}, -- instable proto matter
 	{id = 3333, chance = 9660}, -- crystal mace
 	{id = 16160, chance = 9660}, -- crystalline sword
 	{id = 16175, chance = 200}, -- shiny blade

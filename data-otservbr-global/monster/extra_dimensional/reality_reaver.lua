@@ -87,7 +87,7 @@ monster.loot = {
 	{id = 238, chance = 10300, maxCount = 2}, -- great mana potion
 	{id = 239, chance = 9700, maxCount = 2}, -- great health potion
 	{id = 23506, chance = 9700}, -- plasma pearls
-	{id = 23516, chance = 9600}, -- instable proto matter
+	{id = 23515, chance = 9600}, -- dangerous proto matter
 	{id = 16124, chance = 7900}, -- blue crystal splinter
 	{id = 16126, chance = 6000}, -- red crystal fragment
 	{id = 16120, chance = 4400}, -- violet crystal shard

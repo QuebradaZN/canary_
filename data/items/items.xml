@@ -8482,9 +8482,19 @@
 	</item>
 	<item id="4059" article="a" name="wooden horse"/>
 	<item id="4060" article="a" name="statue"/>
-	<item id="4061" article="a" name="stone of wisdom">
+	<!-- <item id="4061" article="a" name="stone of wisdom">
 		<attribute key="description" value="This rare artefact is a mere relic nowadays"/>
 		<attribute key="weight" value="999"/>
+	</item> -->
+	<item id="4061" article="an" name="inactive experience voucher">
+	 	<attribute key="description" value="You can use this to enable your double experience voucher."/>
+		<!-- 3 hours -->
+		<attribute key="duration" value="10800"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="showduration" value="1"/>
+		<attribute key="showCount" value="0"/>
+		<attribute key="stacksize" value="1"/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="4062" article="a" name="dead dragon">
 		<attribute key="fluidsource" value="blood"/>
@@ -22257,27 +22267,33 @@
 	<item id="12208" name="strange blue powder">
 		<attribute key="weight" value="50"/>
 	</item>
-	<item id="12209" name="strange green powder">
+	<!-- <item id="12209" name="strange green powder">
 		<attribute key="weight" value="50"/>
+	</item> -->
+	<item id="12209" article="an" name="expired skill voucher">
+		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
+		<attribute key="moveable" value="0"/>
 	</item>
-	<item id="12210" name="strange violet powder">
+	<!-- <item id="12210" name="strange violet powder">
 		<attribute key="weight" value="50"/>
+	</item> -->
+	<item id="12210" article="an" name="expired experience voucher">
+		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="12211" name="strange orange powder">
 		<attribute key="weight" value="50"/>
 	</item>
 	<item fromid="12212" toid="12213" article="a" name="stone"/>
 	<item fromid="12214" toid="12225" article="a" name="dark sand"/>
-	<item id="12226" article="an" name="expired experience voucher">
-		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
-		<attribute key="moveable" value="0"/>
+	<item id="12226" name="strange blue powder">
+		<attribute key="weight" value="50"/>
 	</item>
 	<item id="12227" name="strange yellow powder">
 		<attribute key="weight" value="50"/>
 	</item>
-	<item id="12228" article="an" name="expired skill voucher">
-		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
-		<attribute key="moveable" value="0"/>
+	<item id="12228" name="strange red powder">
+		<attribute key="weight" value="50"/>
 	</item>
 	<item id="12229" name="screaming cherry">
 		<attribute key="description" value="This fruit was gathered from the Screaming Cherry Tree"/>
@@ -32354,8 +32370,18 @@
 		<attribute key="description" value="It feels cool and oily"/>
 		<attribute key="weight" value="400"/>
 	</item>
-	<item id="21217" name="green light">
+	<!-- <item id="21217" name="green light">
 		<attribute key="weight" value="20"/>
+	</item> -->
+	<item id="21217" article="an" name="inactive skill voucher">
+	 	<attribute key="description" value="You can use this to enable your double skill voucher."/>
+		<!-- 12 hours -->
+		<attribute key="duration" value="43200"/>
+		<attribute key="showCount" value="0"/>
+		<attribute key="showduration" value="1"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="stacksize" value="1"/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="21218" article="a" name="Lisa's doll">
 		<attribute key="weight" value="650"/>
@@ -35749,25 +35775,13 @@
 		<attribute key="showCount" value="0"/>
 		<attribute key="weight" value="600"/>
 	</item>
-	<item id="23514" article="an" name="inactive skill voucher">
-	 	<attribute key="description" value="You can use this to enable your double skill voucher."/>
-		<!-- 12 hours -->
-		<attribute key="duration" value="43200"/>
+	<item id="23514" name="volatile proto matter" plural="volatile proto matter">
 		<attribute key="showCount" value="0"/>
-		<attribute key="showduration" value="1"/>
-		<attribute key="stopduration" value="1"/>
-		<attribute key="stacksize" value="1"/>
-		<attribute key="moveable" value="0"/>
+		<attribute key="weight" value="600"/>
 	</item>
-	<item id="23515" article="an" name="inactive experience voucher">
-	 	<attribute key="description" value="You can use this to enable your double experience voucher."/>
-		<!-- 3 hours -->
-		<attribute key="duration" value="10800"/>
-		<attribute key="stopduration" value="1"/>
-		<attribute key="showduration" value="1"/>
+	<item id="23515" name="dangerous proto matter" plural="dangerous proto matter">
 		<attribute key="showCount" value="0"/>
-		<attribute key="stacksize" value="1"/>
-		<attribute key="moveable" value="0"/>
+		<attribute key="weight" value="600"/>
 	</item>
 	<item id="23516" name="instable proto matter" plural="instable proto matter">
 		<attribute key="showCount" value="0"/>
@@ -35777,8 +35791,16 @@
 		<attribute key="showCount" value="0"/>
 		<attribute key="weight" value="300"/>
 	</item>
-	<item id="23518" article="a" name="spark sphere" plural="spark sphere">
+	<!-- <item id="23518" article="a" name="spark sphere" plural="spark sphere">
 		<attribute key="weight" value="500"/>
+	</item> -->
+	<item id="23518" article="an" name="active experience voucher">
+	 	<attribute key="description" value="You can use this to temporarily disable your double experience voucher."/>
+		<!-- 3 hours -->
+		<attribute key="duration" value="10800"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="decayTo" value="12226"/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="23519" name="frozen lightning" plural="frozen lightning">
 		<attribute key="showCount" value="0"/>
@@ -36847,14 +36869,23 @@
 	<item id="24962" article="a" name="prismatic quartz">
 		<attribute key="weight" value="120"/>
 	</item>
-	<item id="24963" article="a" name="wasted time">
+	<!-- <item id="24963" article="a" name="wasted time">
 		<attribute key="weight" value="10"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="duration" value="120"/>
+	</item> -->
+	<item id="24963" article="an" name="active skill voucher">
+	 	<attribute key="description" value="You can use this to temporarily disable your double skill voucher."/>
+		<!-- 12 hours -->
+		<attribute key="duration" value="43200"/>
+		<attribute key="showduration" value="1"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="decayTo" value="12228"/>
+		<attribute key="moveable" value="0"/>
 	</item>
-	<item id="24964" article="an" name="imbuing crystal">
-		<attribute key="description" value="This is a Shaper crystal used by their ancient imbuing shrines. It has been separated from its shrine. Without a crystal, it cannot focus any energy"/>
-		<attribute key="weight" value="250"/>
+	<item id="24964" article="an" name="portable imbuing crystal">
+		<attribute key="description" value="You can use this to imbue items with elemental powers from anywhere."/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="24965" article="a" name="thorn seed">
 		<attribute key="weight" value="650"/>
@@ -36956,9 +36987,7 @@
 		<attribute key="description" value="The rune has become inert and will need some hours to regain full strength"/>
 		<attribute key="weight" value="850"/>
 	</item>
-	<item fromid="25060" toid="25061" article="an" name="imbuing shrine">
-		<attribute key="pickupable" value="1"/>
-	</item>
+	<item fromid="25060" toid="25061" article="an" name="imbuing shrine"/>
 	<item id="25062" article="a" name="Pinata Dragon">
 		<attribute key="weight" value="3800"/>
 	</item>
@@ -43366,14 +43395,12 @@
 		<attribute key="decayTo" value="30080"/>
 		<attribute key="containersize" value="20"/>
 	</item>
-	<item id="30082" article="an" name="active skill voucher">
-	 	<attribute key="description" value="You can use this to temporarily disable your double skill voucher."/>
-		<!-- 12 hours -->
-		<attribute key="duration" value="43200"/>
+	<item id="30082" article="a" name="blue ectoplasm">
+		<attribute key="description" value="The stuff nightmares are made of - literally"/>
 		<attribute key="showduration" value="1"/>
-		<attribute key="stopduration" value="1"/>
-		<attribute key="decayTo" value="12228"/>
-		<attribute key="moveable" value="0"/>
+		<attribute key="duration" value="600"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="weight" value="100"/>
 	</item>
 	<item id="30083" article="a" name="green ectoplasm">
 		<attribute key="description" value="The stuff nightmares are made of - literally"/>
@@ -43382,13 +43409,12 @@
 		<attribute key="decayTo" value="0"/>
 		<attribute key="weight" value="100"/>
 	</item>
-	<item id="30084" article="an" name="active experience voucher">
-	 	<attribute key="description" value="You can use this to temporarily disable your double experience voucher."/>
-		<!-- 3 hours -->
-		<attribute key="duration" value="10800"/>
-		<attribute key="stopduration" value="1"/>
-		<attribute key="decayTo" value="12226"/>
-		<attribute key="moveable" value="0"/>
+	<item id="30084" article="a" name="red ectoplasm">
+		<attribute key="description" value="The stuff nightmares are made of - literally"/>
+		<attribute key="showduration" value="1"/>
+		<attribute key="duration" value="600"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="weight" value="100"/>
 	</item>
 	<item id="30085" article="a" name="blue ectoplasmic residue">
 		<attribute key="description" value="It seems a ghost was here"/>
@@ -46036,9 +46062,9 @@
 		<attribute key="description" value="It's black and it's missing"/>
 		<attribute key="weight" value="100"/>
 	</item>
-	<item id="31633" article="the" name="supreme cube">
+	<item id="31633" article="the" name="teleport cube">
 		<attribute key="description" value="It's black and it's supreme"/>
-		<attribute key="weight" value="1000"/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="31634" article="a" name="box with waterproof balm">
 		<attribute key="weight" value="240"/>

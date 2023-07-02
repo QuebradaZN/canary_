@@ -3,9 +3,9 @@ local playerLogin = CreatureEvent("VouchersLogin")
 local config = {
 	{
 		type = 'skills',
-		activeItem = 30082,
-		inactiveItem = 23514,
-		expiredItem = 12228,
+		activeItem = 24963,
+		inactiveItem = 21217,
+		expiredItem = 12209,
 
 		weekday = 4, -- Thursday
 
@@ -14,9 +14,9 @@ local config = {
 	},
 	{
 		type = 'experience',
-		activeItem = 30084,
-		inactiveItem = 23515,
-		expiredItem = 12226,
+		activeItem = 23518,
+		inactiveItem = 4061,
+		expiredItem = 12210,
 
 		weekday = 5, -- Friday
 
