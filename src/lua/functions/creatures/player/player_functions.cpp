@@ -1088,6 +1088,22 @@ int PlayerFunctions::luaPlayerAddSkillTries(lua_State* L) {
 	return 1;
 }
 
+int PlayerFunctions::luaPlayerSetLevel(lua_State* L) {
+	// player:setLevel(level)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		uint16_t level = getNumber<uint16_t>(L, 2);
+		player->level = level;
+		player->experience = Player::getExpForLevel(level);
+		player->sendStats();
+		player->sendSkills();
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int PlayerFunctions::luaPlayerSetMagicLevel(lua_State* L) {
 	// player:setMagicLevel(level[, manaSpent])
 	Player* player = getUserdata<Player>(L, 1);

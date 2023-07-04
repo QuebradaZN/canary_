@@ -25,6 +25,7 @@ class VocationFunctions final : LuaScriptInterface {
 			registerMethod(L, "Vocation", "getDescription", VocationFunctions::luaVocationGetDescription);
 
 			registerMethod(L, "Vocation", "getRequiredSkillTries", VocationFunctions::luaVocationGetRequiredSkillTries);
+			registerMethod(L, "Vocation", "getRequiredSkillTries", VocationFunctions::luaVocationGetRequiredSkillTries);
 			registerMethod(L, "Vocation", "getRequiredManaSpent", VocationFunctions::luaVocationGetRequiredManaSpent);
 
 			registerMethod(L, "Vocation", "getCapacityGain", VocationFunctions::luaVocationGetCapacityGain);

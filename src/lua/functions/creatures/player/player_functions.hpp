@@ -112,6 +112,7 @@ class PlayerFunctions final : LuaScriptInterface {
 			registerMethod(L, "Player", "getSkillTries", PlayerFunctions::luaPlayerGetSkillTries);
 			registerMethod(L, "Player", "addSkillTries", PlayerFunctions::luaPlayerAddSkillTries);
 
+			registerMethod(L, "Player", "setLevel", PlayerFunctions::luaPlayerSetLevel);
 			registerMethod(L, "Player", "setMagicLevel", PlayerFunctions::luaPlayerSetMagicLevel);
 			registerMethod(L, "Player", "setSkillLevel", PlayerFunctions::luaPlayerSetSkillLevel);
 
@@ -440,6 +441,7 @@ class PlayerFunctions final : LuaScriptInterface {
 		static int luaPlayerGetSkillTries(lua_State* L);
 		static int luaPlayerAddSkillTries(lua_State* L);
 
+		static int luaPlayerSetLevel(lua_State* L);
 		static int luaPlayerSetMagicLevel(lua_State* L);
 		static int luaPlayerSetSkillLevel(lua_State* L);
 
