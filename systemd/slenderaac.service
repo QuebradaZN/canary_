@@ -1,5 +1,5 @@
 [Unit]
-Description=Canary Server
+Description=Elysiera Web
 After=mysql.service
 StartLimitIntervalSec=1
 [Service]
