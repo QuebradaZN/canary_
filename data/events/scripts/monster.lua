@@ -20,6 +20,10 @@ local function checkItemType(itemId)
 end
 
 function calculateLuckExp(chance, experience)
+	-- 3% chance means no luck exp
+	if chance > 3000 then
+		return 0
+	end
 	local exp =  math.floor(250 * 0.985 ^ chance + 0.5)
 	local multiplier = experience / 2500
 	return exp * multiplier
@@ -96,15 +100,10 @@ function Monster:onDropLoot(corpse)
 			if item then
 				luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
 			end
-
 			if self:getName():lower() == Game.getBoostedCreature():lower() then
 				local itemBoosted = corpse:createLootItem(monsterLoot[i], charmBonus, modifier)
 				if itemBoosted and #itemBoosted > 0 then
 					luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
-				end
-
-				if not itemBoosted then
-					Spdlog.warn(string.format("[1][Monster:onDropLoot] - Could not add loot item to boosted monster: %s, from corpse id: %d.", self:getName(), corpse:getId()))
 				end
 			end
 			if self:hazard() and player then
@@ -113,10 +112,6 @@ function Monster:onDropLoot(corpse)
 					local podItem = corpse:createLootItem(monsterLoot[i], charmBonus, preyChanceBoost)
 					if podItem and #podItem > 0 then
 						luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
-					end
-					if not podItem then
-						Spdlog.warn(string.format("[Monster:onDropLoot] - Could not add loot item to hazard monster: %s, from corpse id: %d.", self:getName(), corpse:getId()))
-					else
 						hazardMsg = true
 					end
 				end
