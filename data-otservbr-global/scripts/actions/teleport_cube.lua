@@ -34,6 +34,7 @@ function townsModal(player)
 		})
 		::continue::
 	end
+	table.sort(towns, function(a, b) return a.name < b.name end)
 
 	local window = ModalWindow {
 		title = "Teleport Cube",
