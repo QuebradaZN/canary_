@@ -79,7 +79,7 @@ monster.loot = {
 	{name = "crystal coin", chance = 100000, maxCount = 7},
 	{name = "green crystal shard", chance = 100000, maxCount = 3},
 	{name = "violet crystal shard", chance = 100000, maxCount = 3},
-	{name = "spark sphere", chance = 100000},
+	{id = 23516, chance = 100000}, -- instable proto matter
 	{name = "plasmatic lightning", chance = 100000},
 	{name = "emerald bangle", chance = 100000},
 	{name = "royal star", chance = 66666, maxCount = 100},
