@@ -1,14 +1,15 @@
 Chain = {}
 
-
-function Chain.combat(player, initialTarget, combat, maxCreatures, maxDistance, animation, firstAnimation)
+function Chain.combat(player, initialTarget, combat, maxCreatures, maxDistance, animation, firstAnimation, hitSummons)
 	local range = math.max(6, maxDistance * (maxCreatures + 1))
 	local creatures = Game.getSpectators(player:getPosition(), false, false, range, range, range, range)
 	local monsters = {}
 	for _, creature in pairs(creatures) do
+		if not hitSummons and creature:getMaster() ~= nil then goto continue end
 		if creature:isMonster() then
 			table.insert(monsters, creature)
 		end
+		::continue::
 	end
 	local visited = { [initialTarget:getId()] = true }
 
