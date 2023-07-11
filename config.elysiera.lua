@@ -335,6 +335,11 @@ rateMonsterHealth = 1.5
 rateMonsterAttack = 1.2
 rateMonsterDefense = 1.0
 
+-- Boss rates
+rateBossHealth = 1.0
+rateBossAttack = 1.2
+rateBossDefense = 1.0
+
 -- Monsters
 deSpawnRange = 2
 deSpawnRadius = 50
@@ -362,6 +367,27 @@ location = "North America"
 -- The URL layout is https://discord.com/api/webhooks/:id/:token
 -- Leave empty if you wish to disable.
 discordWebhookURL = ""
+
+-- Loyalty system
+loyaltyEnabled = true
+loyaltyPointsPerCreationDay = 3
+loyaltyPointsPerPremiumDaySpent = 3
+loyaltyPointsPerPremiumDayPurchased = 6
+loyaltyBonusPercentageMultiplier = 4.0
+
+-- VIP System
+-- NOTE: set vipSystemEnabled to true to enable the vip system functionalities (this overrides premium checks)
+-- NOTE: vipBonusExp = 0 is deactivated, active changing value between 1 and 100 (percent xp bonus to gain. ex: 3 = 3%, 30 = 30%)
+-- NOTE: vipBonusLoot = 0 is deactivated, active changing value between 1 and 100 (percent loot bonus to gain. ex: 3 = 3%, 30 = 30%)
+-- NOTE: vipBonusSkill = 0 is deactivated, active changing value between 1 and 100 (percent skill bonus to gain. ex: 3 = 3%, 30 = 30%)
+-- NOTE: vipStayOnline = when this config is activated, players vip will be kicked after 'kickIdlePlayerAfterMinutes' config minutes too
+-- NOTE: vipAutoLootVipOnly = activates only vip to get automatic loot, config 'autoLoot' need to be enabled, for this config works
+vipSystemEnabled = true
+vipBonusExp = 20
+vipBonusLoot = 20
+vipBonusSkill = 20
+vipAutoLootVipOnly = false
+vipStayOnline = true
 
 -- Runic
 runicMultiplier = 1/500
