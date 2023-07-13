@@ -31,7 +31,7 @@ local reward = {
 		[14026] = {
 			{id = 3210, amount = 1},	-- Hat of the mad
 			{id = 8042, amount = 1},	-- Spirit cloak
-			{id = 9013, amount = 1},	-- Leaf legs
+			{id = 9014, amount = 1},	-- Leaf legs
 			{id = 3066, amount = 1},	-- Snakebite Rod
 			{id = 8072, amount = 1},  	-- Spellbook of enlightenment
 			{id = 3552, amount = 1},	-- Leather boots
