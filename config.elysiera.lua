@@ -343,6 +343,9 @@ rateBossDefense = 1.0
 -- Monsters
 deSpawnRange = 2
 deSpawnRadius = 50
+minElementalResistance = -200
+maxElementalResistance = 30
+maxDamageReflection = 10
 
 -- Stamina
 staminaSystem = true
