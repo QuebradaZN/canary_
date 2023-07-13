@@ -136,6 +136,9 @@ void ConfigFunctions::init(lua_State* L) {
 	registerEnumIn(L, "configKeys", RATE_BOSS_DEFENSE);
 	registerEnumIn(L, "configKeys", BOSS_DEFAULT_TIME_TO_FIGHT_AGAIN);
 	registerEnumIn(L, "configKeys", BOSS_DEFAULT_TIME_TO_DEFEAT);
+	registerEnumIn(L, "configKeys", MIN_ELEMENTAL_RESISTANCE);
+	registerEnumIn(L, "configKeys", MAX_ELEMENTAL_RESISTANCE);
+	registerEnumIn(L, "configKeys", MAX_DAMAGE_REFLECTION);
 	registerEnumIn(L, "configKeys", RATE_NPC_HEALTH);
 	registerEnumIn(L, "configKeys", RATE_NPC_ATTACK);
 	registerEnumIn(L, "configKeys", RATE_NPC_DEFENSE);

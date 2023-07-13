@@ -293,6 +293,10 @@ bool ConfigManager::load() {
 	integer[BOSS_DEFAULT_TIME_TO_FIGHT_AGAIN] = getGlobalNumber(L, "bossDefaultTimeToFightAgain", 20 * 60 * 60);
 	integer[BOSS_DEFAULT_TIME_TO_DEFEAT] = getGlobalNumber(L, "bossDefaultTimeToDefeat", 20 * 60);
 
+	integer[MIN_ELEMENTAL_RESISTANCE] = getGlobalNumber(L, "minElementalResistance", -200);
+	integer[MAX_ELEMENTAL_RESISTANCE] = getGlobalNumber(L, "maxElementalResistance", 200);
+	integer[MAX_DAMAGE_REFLECTION] = getGlobalNumber(L, "maxDamageReflection", 200);
+
 	floating[RATE_NPC_HEALTH] = getGlobalFloat(L, "rateNpcHealth", 1.0);
 	floating[RATE_NPC_ATTACK] = getGlobalFloat(L, "rateNpcAttack", 1.0);
 	floating[RATE_NPC_DEFENSE] = getGlobalFloat(L, "rateNpcDefense", 1.0);

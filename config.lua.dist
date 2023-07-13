@@ -393,6 +393,9 @@ bossDefaultTimeToDefeat = 20 * 60 -- 20 minutes
 -- Monsters
 deSpawnRange = 2
 deSpawnRadius = 50
+minElementalResistance = -200
+maxElementalResistance = 200
+maxDamageReflection = 200
 
 -- Stamina
 staminaSystem = true
