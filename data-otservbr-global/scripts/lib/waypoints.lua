@@ -2,6 +2,7 @@ Waypoints = {}
 
 local waypoints = {
 	-- { name="Brain Head", position = Position(31973, 32325, 10) },
+	{ name="Asura Palace", position = Position(32949, 32692, 7) },
 	{ name="Black Vixen", position = Position(33442, 32052, 9), bundle = "Werecreatures mini-bosses" },
 	{ name="Bloodback", position = Position(33167, 31978, 8), bundle = "Werecreatures mini-bosses" },
 	{ name="Count Vlarkorth", position = Position(33456, 31408, 13) },
@@ -41,6 +42,7 @@ local waypoints = {
 	{ name="Sharpclaw", position = Position(33128, 31972, 9), bundle = "Werecreatures mini-bosses" },
 	{ name="Sir Baeloc-Nictros", position = Position(33426, 31408, 13) },
 	{ name="Soul Hub", position = Position(33621, 31427, 10) },
+	{ name="Summer Courts", position = Position(33672, 32229, 7), bundle = "Elven Courts" },
 	{ name="The Primal Menace", position = Position(33553, 32752, 14), storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.ThePrimalMenaceKilled },
 	{ name="Thorn Knight", position = Position(32657, 32882, 14), bundle = "Forgotten Knowledge" },
 	{ name="Time Guardian", position = Position(33010, 31665, 14), bundle = "Forgotten Knowledge" },
@@ -49,6 +51,7 @@ local waypoints = {
 	{ name="Unwelcome", position = Position(33741, 31537, 14), storage = Storage.Quest.U12_30.FeasterOfSouls.UnwelcomeKilled },
 	{ name="Urmahlullu", position = Position(33920, 31623, 8) },
 	{ name="Vok the Freakish", position = Position(33509, 31452, 9), bundle = "Feaster of Souls mini-bossses" },
+	{ name="Winter Courts", position = Position(32354, 31249, 3), bundle = "Elven Courts" },
 }
 
 local maxBit = 32
