@@ -143,7 +143,7 @@ hazardSpawnPlunderMultiplier = 25
 
 -- Tibiadrome concoctions
 partyShareLootBoosts = true
-tibiadromeConcoctionCooldown = 24 * 60 * 60 -- 24 hours
+tibiadromeConcoctionCooldown = 10 * 60 * 60 -- 24 hours
 tibiadromeConcoctionDuration = 60 * 60 -- 1 hour
 tibiadromeConcoctionTickType = "experience" -- "online" | "experience"
 
