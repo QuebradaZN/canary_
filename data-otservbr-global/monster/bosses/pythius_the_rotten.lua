@@ -47,14 +47,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -70,12 +70,23 @@ monster.voices = {
 	{text = "YOU'LL NEVER GET MY TREASURE!", yell = true},
 	{text = "MINIONS, MEET YOUR NEW BROTHER!", yell = true},
 	{text = "YOU WILL REGRET THAT YOU ARE BORN!", yell = true},
-	{text = "YOU MADE A HUGE WASTE!", yell = true}
+	{text = "YOU MADE A HUGE WASTE!", yell = true},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -475},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -165, maxDamage = -200, range = ?, effect = <>, target = ?}, --[[Blood Ball]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -55, maxDamage = -155, range = ?, effect = <>, target = ?}, --Poison Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -333, maxDamage = -413, range = ?, effect = <>, target = ?}, --Poison Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -85, maxDamage = -110, range = ?, effect = <>, target = ?}, --Mana Drain Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Summons up to 2 [[Undead Gladiator]]s, maxDamage = -Summons up to 2 [[Undead Gladiator]]s, range = ?, effect = <>, target = ?}, --Death Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -+20% death damage per turn; last 34~ turns; around 2700 total damage, maxDamage = -+20% death damage per turn; last 34~ turns; around 2700 total damage, range = ?, effect = <>, target = ?}, --Cursing Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Paralyze]]s you, maxDamage = -[[Paralyze]]s you, range = ?, effect = <>, target = ?}, --Icicle
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -475},
 	{name ="combat", interval = 2000, chance = 16, type = COMBAT_PHYSICALDAMAGE, minDamage = -165, maxDamage = -200, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, target = true},
@@ -90,6 +101,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 45,
 	armor = 40
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -101,8 +113,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

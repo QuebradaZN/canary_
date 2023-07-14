@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Scarlett Etzel")
 local monster = {}
 
-monster.description = "a scarlett etzel"
+monster.description = "Scarlett Etzel"
 monster.experience = 20000
 monster.outfit = {
 	lookType = 1201,
@@ -11,6 +11,12 @@ monster.outfit = {
 	lookFeet = 0,
 	lookAddons = 0,
 	lookMount = 0
+}
+
+monster.bosstiary = {
+	bossRaceId = 1804,
+	bossRace = RARITY_ARCHFOE,
+	storageCooldown = Storage.GraveDanger.CobraBastion.ScarlettTimer,
 }
 
 monster.health = 30000
@@ -23,12 +29,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 4000,
 	chance = 10
-}
-
-monster.bosstiary = {
-	bossRaceId = 1801, -- or 1804 need test
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = Storage.GraveDanger.CobraBastion.ScarlettTimer
 }
 
 monster.strategiesTarget = {
@@ -55,17 +55,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "Galthen... is that you? ", yell = false},
+	{text = " Where... have you been all that time? ", yell = false},
+	{text = " What...? How dare you? Give me that back! ", yell = false},
+	{text = " Aaaaaaah!!!", yell = false},
 }
 
 monster.loot = {
@@ -105,6 +109,15 @@ monster.loot = {
 	{name = "cobra amulet", chance = 350}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1150},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -300, maxDamage = -600, range = ?, effect = <>, target = ?}, --Holy Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -500, maxDamage = -800, range = ?, effect = <>, target = ?}, --Death Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -434, maxDamage = -800+, range = ?, effect = <>, target = ?}, --Large Dust Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown, maxDamage = -unknown, range = ?, effect = <>, target = ?}, --Flame Dance
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -7500, maxDamage = -7500, range = ?, effect = <>, target = ?}, --Poison Ultimate Explosion when damaged in the locked state
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600},
 	{name ="sudden death rune", interval = 2000, chance = 16, minDamage = -400, maxDamage = -600, target = true},
@@ -115,6 +128,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 88,
 	armor = 88
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -126,8 +140,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

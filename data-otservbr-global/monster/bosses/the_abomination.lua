@@ -1,8 +1,8 @@
 local mType = Game.createMonsterType("The Abomination")
 local monster = {}
 
-monster.description = "the Abomination"
-monster.experience = 25000
+monster.description = "The Abomination"
+monster.experience = 1500000
 monster.outfit = {
 	lookType = 1393,
 	lookHead = 0,
@@ -13,8 +13,13 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 38050
-monster.maxHealth = 38050
+monster.bosstiary = {
+	bossRaceId = 373,
+	bossRace = RARITY_NEMESIS,
+}
+
+monster.health = 750000
+monster.maxHealth = 750000
 monster.race = "venom"
 monster.corpse = 36612
 monster.speed = 170
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 5000,
 	chance = 8
-}
-
-monster.bosstiary = {
-	bossRaceId = 373,
-	bossRace = RARITY_NEMESIS
 }
 
 monster.strategiesTarget = {
@@ -52,20 +52,35 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Blubb", yell = false}
+	{text = "ANIHILATION!", yell = true},
+	{text = "DEATH IS INEVITABLE!", yell = true},
+	{text = "DESTRUCTION!", yell = true},
+	{text = "I AM THE ESSENCE OF DEATH!", yell = true},
+	{text = "YOU CAN NOT ESCAPE ME!", yell = true},
+	{text = "DRUIDS! ... LIKE ... DRUID FLAVOUR!", yell = true},
+	{text = "WILL EAT DRUIDS!", yell = true},
+	{text = "KNIGHTS! ... DELICIOUS KNIGHTS!", yell = true},
+	{text = "WILL EAT KNIGHTS!", yell = true},
+	{text = "PALADINS!... TASTY!", yell = true},
+	{text = "WILL EAT PALADINS!", yell = true},
+	{text = "SORCERERS! ... MUST EAT SORCERERS!", yell = true},
+	{text = "WILL EAT SORCERERS!", yell = true},
+	{text = "HUNGER ... SO ... GREAT! YOU ALL .. WILL .... DIE!!!", yell = true},
+	{text = "PAIN!", yell = true},
+	{text = "DIIIIEEEEE!", yell = true},
 }
 
 monster.loot = {
@@ -75,6 +90,27 @@ monster.loot = {
 	{id = 5944, chance = 2500} -- soul orb
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -6000?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -11910~, maxDamage = -11910~, range = ?, effect = <>, target = ?}, --All Die Room Plus?
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -8sqm+, maxDamage = -8sqm+, range = ?, effect = <>, target = ?}, --Blood Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -875, maxDamage = -1434+, range = ?, effect = <>, target = ?}, --Earth Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1100, maxDamage = -1538, range = ?, effect = <>, target = ?}, --Physical Poison Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -1303, maxDamage = -1475+, range = ?, effect = <>, target = ?}, --Poison Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Reduces 1200+ speed points, maxDamage = -Reduces 1200+ speed points, range = ?, effect = <>, target = ?}, --Poison Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -2300~ final hit?, maxDamage = -2300~ final hit?, range = ?, effect = <>, target = ?}, --Cursing Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Rooting Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -1127, maxDamage = -1705+, range = ?, effect = <>, target = ?}, --Death Plus Large
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -3429, maxDamage = -5342+, range = ?, effect = <>, target = ?}, --Death Chain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -1632, rare, maxDamage = -1632, rare, range = ?, effect = <>, target = ?}, --Fire Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Vocation Die Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Death Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -4seconds~ rare, maxDamage = -4seconds~ rare, range = ?, effect = <>, target = ?}, --Feared
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 480, maxDamage = 947 },
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 3098, maxDamage = 6226 },
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 32000, maxDamage = 56000 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 120},
 	{name ="speed", interval = 1000, chance = 12, speedChange = -800, radius = 6, effect = CONST_ME_POISONAREA, target = false, duration = 10000},
@@ -86,24 +122,25 @@ monster.attacks = {
 monster.defenses = {
 	defense = 25,
 	armor = 25,
+--	mitigation = ???,
 	{name ="combat", interval = 1000, chance = 75, type = COMBAT_HEALING, minDamage = 505, maxDamage = 605, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 100},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
+	{type = COMBAT_ENERGYDAMAGE, percent = 50},
+	{type = COMBAT_EARTHDAMAGE, percent = 50},
+	{type = COMBAT_FIREDAMAGE, percent = 50},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_ICEDAMAGE, percent = 50},
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

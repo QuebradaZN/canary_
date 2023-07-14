@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Ghulosh")
 local monster = {}
 
 monster.description = "Ghulosh"
-monster.experience = 100000
+monster.experience = 45000
 monster.outfit = {
 	lookType = 1062,
 	lookHead = 78,
@@ -11,6 +11,11 @@ monster.outfit = {
 	lookFeet = 18,
 	lookAddons = 3,
 	lookMount = 0
+}
+
+monster.bosstiary = {
+	bossRaceId = 1608,
+	bossRace = RARITY_ARCHFOE,
 }
 
 monster.health = 300000
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 2000,
 	chance = 4
-}
-
-monster.bosstiary = {
-	bossRaceId = 1608,
-	bossRace = RARITY_ARCHFOE
 }
 
 monster.strategiesTarget = {
@@ -49,14 +49,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -99,6 +99,13 @@ monster.loot = {
 	{name = "unliving demonbone", chance = 500}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1000},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -500, maxDamage = -600, range = ?, effect = <>, target = ?}, --Death Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -800, range = ?, effect = <>, target = ?}, --Death Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -450, range = ?, effect = <>, target = ?}, --Poison Explosion on itself
+--}
 monster.attacks = {
 	{name ="melee", interval = 1000, chance = 100, skill = 150, attack = 280},
 	{name ="combat", interval = 2000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -900, maxDamage = -1500, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
@@ -111,19 +118,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 40,
 	armor = 40
+--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 1},
-	{type = COMBAT_ENERGYDAMAGE, percent = 10},
-	{type = COMBAT_EARTHDAMAGE, percent = 20},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 5},
+	{type = COMBAT_EARTHDAMAGE, percent = -5},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_ICEDAMAGE, percent = 20},
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

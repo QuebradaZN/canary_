@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Bullwark")
 local monster = {}
 
 monster.description = "Bullwark"
-monster.experience = 16725
+monster.experience = 22000
 monster.outfit = {
 	lookType = 607,
 	lookHead = 0,
@@ -13,8 +13,13 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 65000
-monster.maxHealth = 65000
+monster.bosstiary = {
+	bossRaceId = 1060,
+	bossRace = RARITY_BANE,
+}
+
+monster.health = 72000
+monster.maxHealth = 72000
 monster.race = "blood"
 monster.corpse = 20996
 monster.speed = 150
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 2000,
 	chance = 3
-}
-
-monster.bosstiary = {
-	bossRaceId = 1060,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -54,12 +54,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -88,6 +88,15 @@ monster.loot = {
 	{name = "one hit wonder", chance = 350}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1000},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -?, range = ?, effect = <>, target = ?}, --[[Berserk]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Stone Shower]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -5400, range = ?, effect = <>, target = ?}, --[[Stone (Medium)|Distance Boulder]] 21 fields
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 2000, maxDamage = 5000},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -unknown effect, maxDamage = -unknown effect, range = ?, effect = <>, target = ?}, --[[Ice Bomb]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 180, attack = 200},
 	{name ="combat", interval = 2000, chance = 19, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -400, radius = 6, effect = CONST_ME_MAGIC_RED, target = false},
@@ -101,6 +110,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 66,
 	armor = 48,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 1, type = COMBAT_HEALING, minDamage = 4000, maxDamage = 6000, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 11, speedChange = 660, effect = CONST_ME_HITAREA, target = false, duration = 7000},
 	{name ="bullwark summon", interval = 2000, chance = 9, target = false}
@@ -108,15 +118,15 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 15},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 5},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_ICEDAMAGE, percent = 15},
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

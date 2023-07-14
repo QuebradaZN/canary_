@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Diseased Dan")
 local monster = {}
 
-monster.description = "a diseased Dan"
+monster.description = "Diseased Dan"
 monster.experience = 300
 monster.outfit = {
 	lookType = 299,
@@ -11,6 +11,11 @@ monster.outfit = {
 	lookFeet = 0,
 	lookAddons = 0,
 	lookMount = 0
+}
+
+monster.bosstiary = {
+	bossRaceId = 486,
+	bossRace = RARITY_BANE,
 }
 
 monster.health = 800
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 60000,
 	chance = 0
-}
-
-monster.bosstiary = {
-	bossRaceId = 486,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -52,28 +52,37 @@ monster.flags = {
 	runHealth = 1,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
-	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 30,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Where... Where am I?", yell = false},
+	{text = "Can't think ... must kill!", yell = false},
+	{text = "Where ... where am I?", yell = false},
 	{text = "Is that you, Tom?", yell = false},
-	{text = "Phew, what an awful smell ... oh, that's me.", yell = false}
+	{text = "Phew, what an awful smell ... oh, that's me.", yell = false},
 }
 
 monster.loot = {
 	{name = "gold coin", chance = 28000, maxCount = 21}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -103+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -poisons you up to 31 [[hp]]/turn, maxDamage = -poisons you up to 31 [[hp]]/turn, range = ?, effect = <>, target = ?}, --[[Poison Storm]] on you
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -247+, range = ?, effect = <>, target = ?}, --[[Life Drain|Poison Exori]] life drain damage
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Paralyze]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -207, condition = {type = CONDITION_POISON, totalDamage = 4, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 100, type = COMBAT_LIFEDRAIN, minDamage = -90, maxDamage = -140, effect = CONST_ME_MAGIC_RED, target = true},
@@ -84,21 +93,22 @@ monster.attacks = {
 monster.defenses = {
 	defense = 15,
 	armor = 10,
+--	mitigation = ???,
 	{name ="speed", interval = 10000, chance = 40, speedChange = 310, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 20000},
 	{name ="combat", interval = 5000, chance = 60, type = COMBAT_HEALING, minDamage = 50, maxDamage = 80, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
 	{type = COMBAT_EARTHDAMAGE, percent = 20},
-	{type = COMBAT_FIREDAMAGE, percent = 85},
+	{type = COMBAT_FIREDAMAGE, percent = 35},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 5},
 }
 
 monster.immunities = {

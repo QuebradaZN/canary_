@@ -13,6 +13,11 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 1406,
+	bossRace = RARITY_ARCHFOE,
+}
+
 monster.health = 250000
 monster.maxHealth = 250000
 monster.race = "undead"
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 5000,
 	chance = 50
-}
-
-monster.bosstiary = {
-	bossRaceId = 1406,
-	bossRace = RARITY_ARCHFOE
 }
 
 monster.strategiesTarget = {
@@ -45,7 +45,7 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = true,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 95,
 	targetDistance = 1,
@@ -54,18 +54,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "CHHRRR!", yell = false}
 }
 
 monster.loot = {
@@ -101,6 +100,12 @@ monster.loot = {
 	{name = "terra hood", chance = 16892}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Death Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -450?, range = ?, effect = <>, target = ?}, --Energy Chain Attack
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -400, length = 7, spread = 5, effect = CONST_ME_SMALLCLOUDS, target = false},
@@ -110,19 +115,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 50,
 	armor = 50
+--	mitigation = ???,
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = -300},
-	{type = COMBAT_ENERGYDAMAGE, percent = -300},
-	{type = COMBAT_EARTHDAMAGE, percent = -300},
-	{type = COMBAT_FIREDAMAGE, percent = -300},
+	{type = COMBAT_ENERGYDAMAGE, percent = -255},
+	{type = COMBAT_EARTHDAMAGE, percent = -255},
+	{type = COMBAT_FIREDAMAGE, percent = -255},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -300},
-	{type = COMBAT_HOLYDAMAGE , percent = -300},
-	{type = COMBAT_DEATHDAMAGE , percent = -300}
+	{type = COMBAT_HOLYDAMAGE, percent = -300},
+	{type = COMBAT_DEATHDAMAGE, percent = -300},
 }
 
 monster.immunities = {

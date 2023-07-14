@@ -1,8 +1,8 @@
-local mType = Game.createMonsterType("The Scourge Of Oblivion")
+local mType = Game.createMonsterType("The Scourge of Oblivion")
 local monster = {}
 
 monster.description = "The Scourge Of Oblivion"
-monster.experience = 50000
+monster.experience = 75000
 monster.outfit = {
 	lookType = 875,
 	lookHead = 79,
@@ -11,6 +11,11 @@ monster.outfit = {
 	lookFeet = 2,
 	lookAddons = 3,
 	lookMount = 0
+}
+
+monster.bosstiary = {
+	bossRaceId = 1642,
+	bossRace = RARITY_ARCHFOE,
 }
 
 monster.health = 800000
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 2000,
 	chance = 25
-}
-
-monster.bosstiary = {
-	bossRaceId = 1642,
-	bossRace = RARITY_ARCHFOE
 }
 
 monster.strategiesTarget = {
@@ -49,14 +49,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -70,7 +70,8 @@ monster.summon = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "I AM DEVOURER!", yell = true}
+	{text = "The Scourge Of Oblivion prepares a devestating attack!", yell = false},
+	{text = "The Scourge Of Oblivion activates its reflective shields!", yell = false},
 }
 
 monster.loot = {
@@ -138,6 +139,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 160,
 	armor = 160,
+--	mitigation = ???,
 	{name ="combat", interval = 6000, chance = 25, type = COMBAT_HEALING, minDamage = 2000, maxDamage = 5000, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 1000, chance = 8, speedChange = 1901, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
 	{name ="invisible", interval = 1000, chance = 4, effect = CONST_ME_MAGIC_BLUE},
@@ -162,12 +164,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

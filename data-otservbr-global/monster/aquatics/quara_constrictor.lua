@@ -31,7 +31,7 @@ monster.maxHealth = 450
 monster.race = "blood"
 monster.corpse = 6065
 monster.speed = 190
-monster.manaCost = 670
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -59,21 +59,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 2,
+	color = 35,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Gaaahhh!", yell = false},
-	{text = "Gluh! Gluh!", yell = false},
+	{text = "Boohaa!", yell = false},
 	{text = "Tssss!", yell = false},
-	{text = "Boohaa!", yell = false}
+	{text = "Gluh! Gluh!", yell = false},
+	{text = "Gaaahhh!", yell = false},
 }
 
 monster.loot = {
@@ -86,6 +86,14 @@ monster.loot = {
 	{name = "fish fin", chance = 490}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -150},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -50, maxDamage = -90, range = ?, effect = <>, target = ?}, --Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -freezing status, 8hp for 10 turns, maxDamage = -freezing status, 8hp for 10 turns, range = ?, effect = <>, target = ?}, --Poison Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -40, maxDamage = -70, range = ?, effect = <>, target = ?}, --Ice Ball (around itself)
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -25 hp for 3 turns, maxDamage = -25 hp for 3 turns, range = ?, effect = <>, target = ?}, --Close Range Electrify
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 20, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -90, radius = 3, effect = CONST_ME_HITAREA, target = false},
@@ -96,7 +104,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 14
+	armor = 14,
+	mitigation = 0.94,
 }
 
 monster.elements = {
@@ -108,8 +117,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

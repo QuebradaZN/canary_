@@ -17,16 +17,16 @@ monster.raceId = 697
 monster.Bestiary = {
 	class = "Aquatic",
 	race = BESTY_RACE_AQUATIC,
-	toKill = 5,
-	FirstUnlock = 2,
-	SecondUnlock = 3,
-	CharmsPoints = 50,
-	Stars = 2,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
 	Occurrence = 3,
 	Locations = "Calassa, Treasure Island , Seacrest Grounds. \z
 		In the Seacrest Grounds the spawns are Varying Monster Spawns in which the common creature is an Abyssal Calamary. \z
 		The chance to spawn a Crustacea Gigantica seems to be around 1%-2%."
-	}
+}
 
 monster.health = 1600
 monster.maxHealth = 1600
@@ -59,23 +59,23 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Chrchrchr", yell = true},
-	{text = "Klonklonk", yell = true},
-	{text = "Chrrrrr", yell = true},
-	{text = "Crunch crunch", yell = true}
+	{text = "Chrchrchr", yell = false},
+	{text = "Klonklonk", yell = false},
+	{text = "Chrrrrr", yell = false},
+	{text = "Crunch crunch", yell = false},
 }
 
 monster.loot = {
@@ -88,13 +88,22 @@ monster.loot = {
 	{name = "great mana potion", chance = 1220},
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -160},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -200, range = ?, effect = <>, target = ?}, --Ice Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -160, range = ?, effect = <>, target = ?}, --Ice Strike
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 75, maxDamage = 245},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -makes you drowning, maxDamage = -makes you drowning, range = ?, effect = <>, target = ?}, --Splash Bomb
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {
 	defense = 45,
-	armor = 40
+	armor = 40,
+	mitigation = 0.91,
 }
 
 monster.elements = {
@@ -106,8 +115,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

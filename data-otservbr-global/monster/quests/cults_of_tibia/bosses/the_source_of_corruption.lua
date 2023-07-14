@@ -1,4 +1,4 @@
-local mType = Game.createMonsterType("The Source Of Corruption")
+local mType = Game.createMonsterType("The Source of Corruption")
 local monster = {}
 
 monster.description = "The Source Of Corruption"
@@ -13,6 +13,12 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 1500,
+	bossRace = RARITY_ARCHFOE,
+	storageCooldown = Storage.CultsOfTibia.FinalBoss.BossTimer,
+}
+
 monster.health = 500000
 monster.maxHealth = 500000
 monster.race = "undead"
@@ -23,12 +29,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 5000,
 	chance = 20
-}
-
-monster.bosstiary = {
-	bossRaceId = 1500,
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = Storage.CultsOfTibia.FinalBoss.BossTimer
 }
 
 monster.strategiesTarget = {
@@ -55,12 +55,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -71,6 +71,12 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -500+, range = ?, effect = <>, target = ?}, --Energy Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -~15%, maxDamage = -~15%, range = ?, effect = <>, target = ?}, --[[Damage Reflection]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1500},
 	{name ="source of corruption wave", interval = 2000, chance = 15, target = false}
@@ -79,6 +85,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 30
+--	mitigation = ???,
 }
 
 monster.reflects = {
@@ -103,8 +110,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

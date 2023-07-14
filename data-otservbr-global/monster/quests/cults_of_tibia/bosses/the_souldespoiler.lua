@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Souldespoiler")
 local monster = {}
 
 monster.description = "The Souldespoiler"
-monster.experience = 0
+monster.experience = 50000
 monster.outfit = {
 	lookType = 875,
 	lookHead = 0,
@@ -13,8 +13,13 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 50000
-monster.maxHealth = 50000
+monster.bosstiary = {
+	bossRaceId = 1422,
+	bossRace = RARITY_ARCHFOE,
+}
+
+monster.health = 290000
+monster.maxHealth = 290000
 monster.race = "blood"
 monster.corpse = 23564
 monster.speed = 125
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 6000,
 	chance = 30
-}
-
-monster.bosstiary = {
-	bossRaceId = 1422,
-	bossRace = RARITY_ARCHFOE
 }
 
 monster.strategiesTarget = {
@@ -52,14 +52,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -72,8 +72,9 @@ monster.summon = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Urrg! I will not lose this soul!", yell = false},
-	{text = "All souls shall be mine alone!", yell = false}
+	{text = "Stop freeing the souls! They are mine alone!", yell = false},
+	{text = "The souls shall not escape me! ", yell = false},
+	{text = " You will be mine!", yell = false},
 }
 
 monster.loot = {
@@ -115,6 +116,12 @@ monster.loot = {
 	{name = "spiked squelcher", chance = 16892, maxCount = 2}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -600+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -500?, range = ?, effect = <>, target = ?}, --[[Physical Damage|Death Bomb]] on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -500?, range = ?, effect = <>, target = ?}, --[[Death Damage|Death Strike]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -783},
 	{name ="combat", interval = 2000, chance = 60, type = COMBAT_DEATHDAMAGE, minDamage = -30, maxDamage = -181, range = 7, radius = 3, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
@@ -125,20 +132,21 @@ monster.attacks = {
 monster.defenses = {
 	defense = 40,
 	armor = 40,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 100, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 7000, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 10},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

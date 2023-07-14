@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Gaffir")
 local monster = {}
 
-monster.description = "a gaffir"
+monster.description = "Gaffir"
 monster.experience = 25000
 monster.outfit = {
 	lookType = 1217,
@@ -13,8 +13,13 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 54500
-monster.maxHealth = 54500
+monster.bosstiary = {
+	bossRaceId = 1778,
+	bossRace = RARITY_BANE,
+}
+
+monster.health = 48500
+monster.maxHealth = 48500
 monster.race = "blood"
 monster.corpse = 31307
 monster.speed = 95
@@ -27,11 +32,6 @@ monster.events = {
 monster.changeTarget = {
 	interval = 4000,
 	chance = 10
-}
-
-monster.bosstiary = {
-	bossRaceId = 1778,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -58,12 +58,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -105,6 +105,12 @@ monster.loot = {
 	{name = "cobra crest", chance = 400}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -600?, range = ?, effect = <>, target = ?}, --[[Fire Damage|Fire Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -600?, range = ?, effect = <>, target = ?}, --[[Earth Damage|Earth Beam]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
 	{name ="combat", interval = 2000, chance = 8, type = COMBAT_PHYSICALDAMAGE, minDamage = -450, maxDamage = -650, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
@@ -117,19 +123,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 83,
 	armor = 83
+--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 20},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 30},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
