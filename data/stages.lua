@@ -91,6 +91,52 @@ skillsStages = {
 	}
 }
 
+luckStages = {
+	{
+		minlevel = 10,
+		maxlevel = 60,
+		multiplier = 10
+	}, {
+		minlevel = 61,
+		maxlevel = 80,
+		multiplier = 8
+	}, {
+		minlevel = 81,
+		maxlevel = 110,
+		multiplier = 7
+	}, {
+		minlevel = 111,
+		maxlevel = 125,
+		multiplier = 6
+	}, {
+		minlevel = 126,
+		multiplier = 5
+	}
+}
+
+runicStages = {
+	{
+		minlevel = 10,
+		maxlevel = 60,
+		multiplier = 10
+	}, {
+		minlevel = 61,
+		maxlevel = 80,
+		multiplier = 8
+	}, {
+		minlevel = 81,
+		maxlevel = 110,
+		multiplier = 7
+	}, {
+		minlevel = 111,
+		maxlevel = 125,
+		multiplier = 6
+	}, {
+		minlevel = 126,
+		multiplier = 5
+	}
+}
+
 magicLevelStages = {
 	{
 		minlevel = 0,

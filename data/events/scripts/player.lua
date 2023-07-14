@@ -602,6 +602,26 @@ function Player:onGainSkillTries(skill, tries)
 		RATE_DEFAULT = configManager.getNumber(configKeys.RATE_MAGIC)
 	end
 
+	if(skill == SKILL_LUCK) then -- luck
+		if configManager.getBoolean(configKeys.RATE_USE_STAGES) then
+			STAGES_DEFAULT = luckStages
+		else
+			STAGES_DEFAULT = nil
+		end
+		SKILL_DEFAULT = self:getSkillLevel(skill)
+		RATE_DEFAULT = configManager.getNumber(configKeys.RATE_SKILL)
+	end
+
+	if(skill == SKILL_RUNIC) then -- runic
+		if configManager.getBoolean(configKeys.RATE_USE_STAGES) then
+			STAGES_DEFAULT = runicStages
+		else
+			STAGES_DEFAULT = nil
+		end
+		SKILL_DEFAULT = self:getSkillLevel(skill)
+		RATE_DEFAULT = configManager.getNumber(configKeys.RATE_SKILL)
+	end
+
 	skillOrMagicRate = getRateFromTable(STAGES_DEFAULT, SKILL_DEFAULT, RATE_DEFAULT)
 
 	if SCHEDULE_SKILL_RATE ~= 100 then
