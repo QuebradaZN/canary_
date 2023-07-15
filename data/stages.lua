@@ -5,42 +5,42 @@ experienceStages = {
 	{
 		minlevel = 1,
 		maxlevel = 9,
-		multiplier = 20
+		multiplier = 10
 	},
 	{
 		minlevel = 10,
 		maxlevel = 29,
-		multiplier = 50
+		multiplier = 25
 	},
 	{
 		minlevel = 30,
 		maxlevel = 59,
-		multiplier = 150
+		multiplier = 50
 	},
 	{
 		minlevel = 60,
 		maxlevel = 99,
-		multiplier = 120
+		multiplier = 45
 	},
 	{
 		minlevel = 100,
 		maxlevel = 149,
-		multiplier = 100
+		multiplier = 40
 	},
 	{
 		minlevel = 150,
 		maxlevel = 199,
-		multiplier = 80
+		multiplier = 35
 	},
 	{
 		minlevel = 200,
 		maxlevel = 249,
-		multiplier = 60
+		multiplier = 30
 	},
 	{
 		minlevel = 250,
 		maxlevel = 299,
-		multiplier = 40
+		multiplier = 25
 	},
 	{
 		minlevel = 300,
@@ -72,7 +72,7 @@ skillsStages = {
 	{
 		minlevel = 10,
 		maxlevel = 60,
-		multiplier = 40
+		multiplier = 30
 	}, {
 		minlevel = 61,
 		maxlevel = 80,
