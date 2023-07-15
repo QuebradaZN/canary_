@@ -376,7 +376,7 @@ loyaltyEnabled = true
 loyaltyPointsPerCreationDay = 3
 loyaltyPointsPerPremiumDaySpent = 3
 loyaltyPointsPerPremiumDayPurchased = 6
-loyaltyBonusPercentageMultiplier = 4.0
+loyaltyBonusPercentageMultiplier = 2.0
 
 -- VIP System
 -- NOTE: set vipSystemEnabled to true to enable the vip system functionalities (this overrides premium checks)
