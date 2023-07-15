@@ -55,10 +55,10 @@ function oreWagons.onUse(player, item, fromPosition, target, toPosition, isHotke
 		return true
 	end
 
-	if item.actionid < 50245 and player:getStorageValue(Storage.WagonTicket) < os.time() then
-		player:say("Purchase a weekly ticket from Gewen, Lokur in the post office, The Lukosch brothers or from Brodrosch on the steamboat.", TALKTYPE_MONSTER_SAY)
-		return true
-	end
+	-- if item.actionid < 50245 and player:getStorageValue(Storage.WagonTicket) < os.time() then
+	-- 	player:say("Purchase a weekly ticket from Gewen, Lokur in the post office, The Lukosch brothers or from Brodrosch on the steamboat.", TALKTYPE_MONSTER_SAY)
+	-- 	return true
+	-- end
 
 	player:addAchievementProgress('Rollercoaster', 100)
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
