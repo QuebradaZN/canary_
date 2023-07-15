@@ -6201,9 +6201,9 @@ function generateExerciseOffers()
 		Wand = {28557, 35284, 35290},
 	 }
 	local tiers = {
-		{ name = "Basic", offers = { { price = 45, charges = 1800 }, { price = 165, charges = 7200 }, { price = 625, charges = 1800, coinType = GameStore.CoinType.Online} } },
-		{ name = "Enhanced", offers = { { price = 100, charges = 3800 }, { price = 360, charges = 15200 } } },
-		{ name = "Masterful", offers = { { price = 200, charges = 7200 }, { price = 720, charges = 28800 } } },
+		{ name = "Basic", offers = { { price = 27, charges = 1800 }, { price = 165, charges = 7200 }, { price = 375, charges = 1800, coinType = GameStore.CoinType.Online} } },
+		{ name = "Enhanced", offers = { { price = 60, charges = 3800 }, { price = 220, charges = 15200 } } },
+		{ name = "Masterful", offers = { { price = 120, charges = 7200 }, { price = 440, charges = 28800 } } },
 	}
 	local onlinePointsCategory = {
 		icons = { "Category_ExerciseWeapons.png" },
