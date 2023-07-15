@@ -324,6 +324,7 @@ local questTable = {
 	{storage = Storage.TheSecretLibrary.FalconBastionAccess, storageValue = 1},
 	{storage = Storage.TheSecretLibrary.LowerBastionAccess, storageValue = 1},
 	{storage = Storage.TheSecretLibrary.UndergroundBastionAccess, storageValue = 1},
+	{storage = Storage.TheSecretLibrary.ShortcutToBastion, storageValue = 1},
 	{storage = Storage.TheSecretLibrary.OberonAccess, storageValue = 1},
 	{storage = Storage.TheSecretLibrary.MotaDoor, storageValue = 1},
 	{storage = Storage.TheSecretLibrary.BasinDoor, storageValue = 1},
@@ -352,6 +353,8 @@ local questTable = {
 	{storage = Storage.Quest.U8_4.BloodBrothers.VengothAccess, storageValue = 1},
 }
 
+-- from Position: (33201, 31762, 1)
+-- to Position: (33356, 31309, 4)
 local function playerFreeQuestStart(playerId, index)
 	local player = Player(playerId)
 	if not player then
