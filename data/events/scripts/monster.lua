@@ -24,7 +24,7 @@ function calculateLuckExp(chance, experience)
 	if chance > 3000 then
 		return 0
 	end
-	local exp =  math.floor(250 * 0.985 ^ chance + 0.5)
+	local exp =  math.floor(250 * 0.9947 ^ chance + 0.5)
 	local multiplier = experience / 2500
 	return exp * multiplier
 end
@@ -102,7 +102,7 @@ function Monster:onDropLoot(corpse)
 			end
 			if self:getName():lower() == Game.getBoostedCreature():lower() then
 				local itemBoosted = corpse:createLootItem(monsterLoot[i], charmBonus, modifier)
-				if itemBoosted and #itemBoosted > 0 then
+				if itemBoosted then
 					luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
 				end
 			end
@@ -119,7 +119,7 @@ function Monster:onDropLoot(corpse)
 		end
 
 		local preyActivators = {}
-		if #participants > 0 and player then
+		if ##participants > 0  and player then
 			local preyLootPercent = 0
 			for i = 1, #participants do
 				local participant = participants[i]
@@ -167,7 +167,7 @@ function Monster:onDropLoot(corpse)
 
 			local contentDescription = corpse:getContentDescription(player:getClient().version < 1200)
 
-			local text = {}
+			local text = ""
 			if self:getName():lower() == (Game.getBoostedCreature()):lower() then
 				text = ("Loot of %s: %s (boosted loot)"):format(mType:getNameDescription(), contentDescription)
 			elseif boostedMessage then
@@ -197,6 +197,7 @@ function Monster:onDropLoot(corpse)
 				text = text .. (" (VIP bonus: %d%%)"):format(math.floor(vipBoost * 100 + 0.5))
 			end
 
+			Spdlog.info(string.format("[3][Monster:onDropLoot] - %d", luckExp))
 			for _, member in ipairs(participants) do
 				member:addSkillTries(SKILL_LUCK, luckExp)
 			end
