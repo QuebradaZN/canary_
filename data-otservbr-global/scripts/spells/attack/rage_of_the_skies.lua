@@ -8,24 +8,25 @@ combat:setArea(createCombatArea(AREA_CIRCLE6X6))
 function onGetFormulaValues(player, level, maglevel)
 	local min = (level / 5) + (maglevel * 7)
 	local max = (level / 5) + (maglevel * 14)
+	Spdlog.info("min: " .. min .. " max: " .. max)
 	return -min, -max
 end
 
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 
-function spell.onCastSpell(creature, var)
+function spell.onCastSpell(creature, variant)
 	local condition = Condition(CONDITION_ENERGY)
-	condition:setParameter(CONDITION_PARAM_DELAYED)
+	condition:setParameter(CONDITION_PARAM_DELAYED, 1)
 
 	local player = creature:getPlayer()
 
 	if creature and player then
 		local dotDmg = -1 * ((player:getLevel() / 5) + (player:getMagicLevel() * 11)) / 10
-		condition:addDamage(3, 1000, dotDmg/3)
+		condition:addDamage(3, 1000, dotDmg / 3)
 		combat:addCondition(condition)
 	end
 
-	return combat:execute(creature, var)
+	return combat:execute(creature, variant)
 end
 
 spell:group("attack")
