@@ -118,22 +118,22 @@ runicStages = {
 	{
 		minlevel = 10,
 		maxlevel = 60,
-		multiplier = 10
+		multiplier = 5
 	}, {
 		minlevel = 61,
 		maxlevel = 80,
-		multiplier = 8
+		multiplier = 5
 	}, {
 		minlevel = 81,
 		maxlevel = 110,
-		multiplier = 7
+		multiplier = 4
 	}, {
 		minlevel = 111,
 		maxlevel = 125,
-		multiplier = 6
+		multiplier = 3
 	}, {
 		minlevel = 126,
-		multiplier = 5
+		multiplier = 3
 	}
 }
 
