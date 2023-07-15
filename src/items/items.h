@@ -269,7 +269,7 @@ class ItemType {
 		uint16_t speed = 0;
 		uint16_t wareId = 0;
 		uint16_t bedPartOf = 0;
-		uint8_t stackSize = 100;
+		uint8_t stackSize = 250;
 
 		MagicEffectClasses magicEffect = CONST_ME_NONE;
 		Direction bedPartnerDir = DIRECTION_NONE;
