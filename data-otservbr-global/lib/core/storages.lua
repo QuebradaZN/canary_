@@ -3002,20 +3002,20 @@ Storage = {
 	},
 
 	Custom = {
-		LevelReward = 15000,
-		ReceivedInitialBoosts = 15003,
+		LevelReward = 150000,
+		ReceivedInitialBoosts = 150003,
 	},
 
 	Waypoints = {
 		-- Bitwise ints, lua allows us to do that with 32-bit numbers, so we split
 		-- them in multiple storages here for the bit array
-		Owned = { From = 15007, To = 15012 },
+		Owned = { From = 150007, To = 150012 },
 	},
 
 	Voucher = {
-		LastActivation = 15004,
-		Experience = { Received = 15005 },
-		Skill = { Received = 15006 },
+		LastActivation = 150004,
+		Experience = { Received = 150005 },
+		Skill = { Received = 150006 },
 	},
 }
 
