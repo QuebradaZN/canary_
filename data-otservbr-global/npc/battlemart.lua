@@ -93,6 +93,7 @@ npcConfig.shop = {
 	{ itemName = "explosion rune", clientId = 3200, buy = 31 },
 	{ itemName = "fire bomb rune", clientId = 3192, buy = 147 },
 	{ itemName = "fire field rune", clientId = 3188, buy = 28 },
+	{ itemName = "fire mushroom", clientId = 3731, buy = 300 },
 	{ itemName = "fire wall rune", clientId = 3190, buy = 61 },
 	{ itemName = "fireball rune", clientId = 3189, buy = 30 },
 	{ itemName = "fishing rod", clientId = 3483, buy = 150 },
