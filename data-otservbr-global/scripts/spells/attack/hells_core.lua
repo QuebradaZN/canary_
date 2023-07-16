@@ -14,16 +14,16 @@ end
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 
 function spell.onCastSpell(creature, variant)
-    local condition = Condition(CONDITION_FIRE)
-    condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+    -- local condition = Condition(CONDITION_FIRE)
+    -- condition:setParameter(CONDITION_PARAM_DELAYED, 1)
 
-    local player = creature:getPlayer()
+    -- local player = creature:getPlayer()
 
-    if creature and player then
-        local dotDmg = -1 * ((player:getLevel() / 5) + (player:getMagicLevel() * 12)) / 10
-        condition:addDamage(3, 1000, dotDmg/3)
-        combat:addCondition(condition)
-    end
+    -- if creature and player then
+    --     local dotDmg = -1 * ((player:getLevel() / 5) + (player:getMagicLevel() * 12)) / 10
+    --     condition:addDamage(3, 1000, dotDmg/3)
+    --     combat:addCondition(condition)
+    -- end
 
     return combat:execute(creature, variant)
 end

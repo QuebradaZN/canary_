@@ -8,26 +8,26 @@ combat:setParameter(COMBAT_PARAM_USECHARGES, 1)
 combat:setArea(createCombatArea(AREA_CIRCLE3X3))
 
 function onGetFormulaValues(player, skill, attack, factor)
-	local level = player:getLevel()	
-	local min = (level / 5) + (skill + 2 * attack) * 1.0
-	local max = (level / 5) + (skill + 2 * attack) * 2.5
+	local level = player:getLevel()
+	local min = (level / 5) + (skill + 3 * attack) * 1.0
+	local max = (level / 5) + (skill + 3 * attack) * 2.5
 	return -min, -max
 end
 
 combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")
 
 function spell.onCastSpell(creature, var)
-	local condition = Condition(CONDITION_BLEEDING)
-	condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+	-- local condition = Condition(CONDITION_BLEEDING)
+	-- condition:setParameter(CONDITION_PARAM_DELAYED, 1)
 
-	local player = creature:getPlayer()
-	local weaponAttack = ItemType(player:getSlotItem(CONST_SLOT_LEFT)):getAttack()
+	-- local player = creature:getPlayer()
+	-- local weaponAttack = ItemType(player:getSlotItem(CONST_SLOT_LEFT)):getAttack()
 
-	if creature and player and weaponAttack then
-		local dotDmg = -1 * ((player:getLevel() / 5) + ((player:getSkillLevel() + 2 * weaponAttack) * 1.8))/ 10
-		condition:addDamage(3, 1000, dotDmg/3)
-		combat:addCondition(condition)
-	end
+	-- if creature and player and weaponAttack then
+	-- 	local dotDmg = -1 * ((player:getLevel() / 5) + ((player:getSkillLevel() + 2 * weaponAttack) * 1.8))/ 10
+	-- 	condition:addDamage(3, 1000, dotDmg/3)
+	-- 	combat:addCondition(condition)
+	-- end
 
 	return combat:execute(creature, var)
 end
