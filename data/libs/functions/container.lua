@@ -67,5 +67,5 @@ function Container.createLootItem(self, item, charm, modifier)
 			tmpItem:setText(item.text)
 		end
 	end
-	return itemCount > 0
+	return true
 end

@@ -203,7 +203,6 @@ function Monster:onDropLoot(corpse)
 				text = text .. (" (VIP bonus: %d%%)"):format(math.floor(vipBoost * 100 + 0.5))
 			end
 
-			Spdlog.info(string.format("[3][Monster:onDropLoot] - %d", luckExp))
 			for _, member in ipairs(participants) do
 				member:addSkillTries(SKILL_LUCK, luckExp)
 			end

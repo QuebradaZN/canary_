@@ -8,7 +8,6 @@ combat:setArea(createCombatArea(AREA_CIRCLE6X6))
 function onGetFormulaValues(player, level, maglevel)
 	local min = (level / 5) + (maglevel * 7)
 	local max = (level / 5) + (maglevel * 14)
-	Spdlog.info("min: " .. min .. " max: " .. max)
 	return -min, -max
 end
 
