@@ -19,42 +19,20 @@ local waypoints = {
 	-- Grave Danger
 	{
 		id = 2,
-		name = "King Zelos",
-		position = Position(33489, 31546, 13),
-		requirements = { bosstiary = { stars = 1 } }
+		name = "King Zelos & mini-bosses",
+		bundle = true,
+		requirements = { bosstiary = { name = "King Zelos", stars = 1 } },
+		waypoints = {
+			{ name = "King Zelos",      position = Position(33489, 31546, 13) },
+			{ name = "Count Vlarkorth", position = Position(33456, 31408, 13), },
+			{ name = "Duke Krule",      position = Position(33456, 31497, 13), },
+			{ name = "Earl Osam",       position = Position(33517, 31440, 13), },
+			{ name = "Lord Azaram",     position = Position(33423, 31497, 13), },
+			{ name = "Sir Baeloc",      position = Position(33426, 31408, 13), },
+		}
 	},
 	{
 		id = 3,
-		name = "Count Vlarkorth",
-		position = Position(33456, 31408, 13),
-		requirements = { bosstiary = { stars = 1 } }
-	},
-	{
-		id = 4,
-		name = "Duke Krule",
-		position = Position(33456, 31497, 13),
-		requirements = { bosstiary = { stars = 1 } }
-	},
-	{
-		id = 5,
-		name = "Earl Osam",
-		position = Position(33517, 31440, 13),
-		requirements = { bosstiary = { stars = 1 } }
-	},
-	{
-		id = 6,
-		name = "Lord Azaram",
-		position = Position(33423, 31497, 13),
-		requirements = { bosstiary = { stars = 1 } }
-	},
-	{
-		id = 7,
-		name = "Sir Baeloc",
-		position = Position(33426, 31408, 13),
-		requirements = { bosstiary = { stars = 1 } }
-	},
-	{
-		id = 8,
 		name = "Scarlett Etzel",
 		bundle = true,
 		requirements = { bosstiary = { stars = 1 } },
@@ -65,6 +43,8 @@ local waypoints = {
 			{ name = "Scarlett Etzel",      position = Position(33395, 32662, 6) },
 		}
 	},
+
+	-- ids 4 - 8 available
 
 	-- Feaster Of Souls
 	{
@@ -77,7 +57,8 @@ local waypoints = {
 		id = 10,
 		name = "Pale Worm",
 		position = Position(33776, 31504, 14),
-		requirements = { bosstiary = { name = "The Pale Worm", kills = 1 } } },
+		requirements = { bosstiary = { name = "The Pale Worm", kills = 1 } }
+	},
 	{
 		id = 11,
 		name = "Unwelcome",
@@ -369,11 +350,13 @@ function Player:addWaypointModal(onAdd)
 							local name = requirements.bosstiary.name or waypoint.name
 							local kills = requirements.bosstiary.kills == 1 and "one" or requirements.bosstiary.kills
 							if requirements.bosstiary.kills then
-								player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You must kill at least " .. kills .. " " .. (requirements.bosstiary.name or name) .. ".")
+								player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+									"You must kill at least " .. kills .. " " .. (requirements.bosstiary.name or name) .. ".")
 							elseif requirements.bosstiary.stars then
 								local stars = requirements.bosstiary.stars == 1 and "one" or requirements.bosstiary.stars
 								local plural = requirements.bosstiary.stars == 1 and "" or "s"
-								player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You must earn at least " .. stars .. " star" .. plural .. " in the " .. waypoint.name .. " bosstiary.")
+								player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+									"You must earn at least " .. stars .. " star" .. plural .. " in the " .. (requirements.bosstiary.name or name) .. " bosstiary.")
 							end
 						end
 						player:addWaypointModal(onAdd)
