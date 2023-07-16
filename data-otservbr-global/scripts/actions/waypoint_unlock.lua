@@ -5,6 +5,7 @@ function waypointUnlock.onUse(player, item, fromPosition, target, toPosition, is
 	player:addWaypointModal(function()
 		item:remove()
 	end)
+	return true
 end
 
 waypointUnlock:id(12540)
