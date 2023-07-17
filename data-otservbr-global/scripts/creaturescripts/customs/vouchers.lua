@@ -9,7 +9,7 @@ local config = {
 
 		weekday = 4, -- Thursday
 
-		fullDuration = 12 * 60 * 60 * 1000, -- 12 hours
+		fullDuration = 12 * 1000, -- 12 hours
 		storage = Storage.Voucher.Skill.Received
 	},
 	{
@@ -141,7 +141,7 @@ local function refreshVouchers(playerId)
 			item = Game.createItem(conf.inactiveItem)
 			item:setDuration(conf.fullDuration)
 			item:stopDecay()
-			inbox:addItemEx(item, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+			inbox:addItemEx(item, INDEX_WHEREEVER, FLAG_NOLIMIT)
 		end
 
 		if canReceiveVoucher(player, conf) then

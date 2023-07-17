@@ -35799,7 +35799,7 @@
 		<!-- 3 hours -->
 		<attribute key="duration" value="10800"/>
 		<attribute key="stopduration" value="1"/>
-		<attribute key="decayTo" value="12226"/>
+		<attribute key="decayTo" value="12210"/>
 		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="23519" name="frozen lightning" plural="frozen lightning">
@@ -36880,7 +36880,7 @@
 		<attribute key="duration" value="43200"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="stopduration" value="1"/>
-		<attribute key="decayTo" value="12228"/>
+		<attribute key="decayTo" value="12209"/>
 		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="24964" article="an" name="portable imbuing crystal">
