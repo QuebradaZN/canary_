@@ -133,7 +133,7 @@ local waypoints = {
 		id = 21,
 		name = "Magma Bubble",
 		position = Position(33669, 32931, 15),
-		requirements = { bosstiary = { level = 1 } }
+		requirements = { bosstiary = { stars = 1 } }
 	},
 	{
 		id = 22,
@@ -221,7 +221,7 @@ local waypoints = {
 
 table.sort(waypoints, function(a, b) return a.name < b.name end)
 
-local maxBit = 32
+local maxBit = 31
 
 function Waypoints.getByName(name)
 	for _, waypoint in ipairs(waypoints) do
@@ -283,7 +283,13 @@ function Player:getWaypoints()
 	local ownedWaypoints = {}
 	for _, waypoint in ipairs(waypoints) do
 		if self:hasWaypointById(waypoint.id) then
-			table.insert(ownedWaypoints, waypoint)
+			if waypoint.bundle then
+				for _, subWaypoint in ipairs(waypoint.waypoints) do
+					table.insert(ownedWaypoints, subWaypoint)
+				end
+			else
+				table.insert(ownedWaypoints, waypoint)
+			end
 		end
 	end
 	table.sort(ownedWaypoints, function(a, b) return a.name < b.name end)
