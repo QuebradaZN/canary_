@@ -19,8 +19,8 @@ local reward = {
 	vocationItems = {
 		-- Sorcerer
 		[14025] = {
-			{id = 3210, amount = 1},	-- Hat of the mad
-			{id = 8042, amount = 1},	-- Spirit cloak
+			{id = 7992, amount = 1},	-- Mage Hat
+			{id = 7991, amount = 1},	-- Magician's Robe
 			{id = 24404, amount = 1},	-- Tatty dragon scale legs
 			{id = 8072, amount = 1},	-- Spellbook of enlightenment
 			{id = 3074, amount = 1},  	-- Wand of vortex
@@ -29,8 +29,8 @@ local reward = {
 		},
 		-- Druid
 		[14026] = {
-			{id = 3210, amount = 1},	-- Hat of the mad
-			{id = 8042, amount = 1},	-- Spirit cloak
+			{id = 7992, amount = 1},	-- Mage Hat
+			{id = 7991, amount = 1},	-- Magician's Robe
 			{id = 9014, amount = 1},	-- Leaf legs
 			{id = 3066, amount = 1},	-- Snakebite Rod
 			{id = 8072, amount = 1},  	-- Spellbook of enlightenment
@@ -39,7 +39,7 @@ local reward = {
 		},
 		-- Paladin
 		[14027] = {
-			{id = 3575, amount = 1},	-- Wood cape
+			{id = 3351, amount = 1},	-- Steel Helmet
 			{id = 3571, amount = 1},	-- Ranger's cloak
 			{id = 8095, amount = 1},	-- Ranger legs
 			{id = 7438, amount = 1},	-- Elvish Bow

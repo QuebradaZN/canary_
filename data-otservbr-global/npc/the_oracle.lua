@@ -86,7 +86,7 @@ local config = {
 		[VOCATION.ID.PALADIN] = {
 			backpack = 2866,
 			items = {
-				3575, -- Wood Cape
+				3351, -- Steel Helmet
 				3571, -- Ranger's Cloak
 				8095, -- Ranger Legs
 				7438, -- Elvish Bow
@@ -101,8 +101,8 @@ local config = {
 		[VOCATION.ID.DRUID] = {
 			backpack = 2865,
 			items = {
-				3210, -- Hat of the Mad
-				8042, -- Spirit Cloak
+				7992, -- Mage Hat
+				7991, -- Magician's Robe
 				9014, -- Leaf Legs
 				8072, -- Spellbook of Enlightenment
 				3066, -- Snakebite Rod
@@ -112,8 +112,8 @@ local config = {
 		[VOCATION.ID.SORCERER] = {
 			backpack = 2867,
 			items = {
-				3210, -- Hat of the Mad
-				8042, -- Spirit Cloak
+				7992, -- Mage Hat
+				7991, -- Magician's Robe
 				24404, -- Tatty Dragon Scale Legs
 				8072, -- Spellbook of Enlightenment
 				3074, -- Wand of Vortex
