@@ -18,6 +18,57 @@ function levelReward.onAdvance(player, skill, oldLevel, newLevel)
 		return true
 	end
 
+	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
+	local inboxItem
+
+	if newLevel >= 50 and newLevel < 100 then
+		local inboxItem = player:findItemInInbox(22722)
+		
+		if inboxItem then
+			inboxItem:removeAttribute(ITEM_ATTRIBUTE_STORE)
+		end
+
+		inboxItem = inbox:addItem(22722, 5, INDEX_WHEREEVER, FLAG_NOLIMIT)
+		inboxItem = player:findItemInInbox(22722)
+		inboxItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
+	end
+
+	if newLevel >= 100 and newLevel < 150 then
+		local inboxItem = player:findItemInInbox(22720)
+		
+		if inboxItem then
+			inboxItem:removeAttribute(ITEM_ATTRIBUTE_STORE)
+		end
+
+		inboxItem = inbox:addItem(22720, 5, INDEX_WHEREEVER, FLAG_NOLIMIT)
+		inboxItem = player:findItemInInbox(22720)
+		inboxItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
+	end
+
+	if newLevel >= 150 and newLevel < 200 then
+		local inboxItem = player:findItemInInbox(22723)
+		
+		if inboxItem then
+			inboxItem:removeAttribute(ITEM_ATTRIBUTE_STORE)
+		end
+
+		inboxItem = inbox:addItem(22723, 5, INDEX_WHEREEVER, FLAG_NOLIMIT)
+		inboxItem = player:findItemInInbox(22723)
+		inboxItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
+	end
+
+	if newLevel >= 200 then
+		local inboxItem = player:findItemInInbox(22724)
+		
+		if inboxItem then
+			inboxItem:removeAttribute(ITEM_ATTRIBUTE_STORE)
+		end
+
+		inboxItem = inbox:addItem(22724, 5, INDEX_WHEREEVER, FLAG_NOLIMIT)
+		inboxItem = player:findItemInInbox(22724)
+		inboxItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
+	end
+
 	if newLevel >= 20 and player:getStorageValue(STORAGEVALUE_PROMOTION) ~= 1 then
 		if player:getVocation():getPromotion() ~= nil then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Congratulations on reaching level 20. You have been automatically promoted to " .. player:getVocation():getPromotion():getName() .. ".")

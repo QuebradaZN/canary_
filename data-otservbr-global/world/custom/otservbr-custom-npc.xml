@@ -126,4 +126,13 @@
 	<npc centerx="33225" centery="32460" centerz="8" radius="1">
 		<npc name="Battlemart" x="0" y="0" z="8" spawntime="60" direction="3" />
 	</npc>
+	<npc centerx="32364" centery="32227" centerz="7" radius="1">
+		<npc name="Copper Quartermaster" x="0" y="0" z="7" spawntime="60" direction="1" />
+	</npc>
+	<npc centerx="32373" centery="32227" centerz="7" radius="1">
+		<npc name="Iron Quartermaster" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="32364" centery="32221" centerz="7" radius="1">
+		<npc name="Platinum Quartermaster" x="0" y="0" z="7" spawntime="60" direction="1" />
+	</npc>
 </npcs>

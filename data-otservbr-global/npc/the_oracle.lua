@@ -189,7 +189,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				for i = 1, #items do
 					backpack:addItem(items[i], 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
 				end
-				backpack:addItem(3725, 100, INDEX_WHEREVER, FLAG_NOLIMIT)	-- Brown Mushrooms
+				backpack:addItem(3725, 100, INDEX_WHEREEVER, FLAG_NOLIMIT)	-- Brown Mushrooms
 				backpack:addItem(16277, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)	-- Adventurer's stone
 			end
 			player:setVocation(Vocation(vocation[playerId]))

@@ -34706,19 +34706,23 @@
 	<item fromid="22714" toid="22715" name="RESERVED SPRITE"/>
 	<item fromid="22716" toid="22719" article="a" name="stone tile"/>
 	<item id="22720" article="an" name="iron token" plural="iron tokens">
-		<attribute key="weight" value="20"/>
+		<attribute key="description" value="Currency for the quartermaster in Thais."/>
+		<attribute key="weight" value="0"/>
 	</item>
 	<item id="22721" article="a" name="gold token" plural="gold tokens">
 		<attribute key="weight" value="1"/>
 	</item>
 	<item id="22722" article="a" name="copper token" plural="copper tokens">
-		<attribute key="weight" value="20"/>
+		<attribute key="description" value="Currency for the quartermaster in Thais."/>
+		<attribute key="weight" value="0"/>
 	</item>
 	<item id="22723" article="a" name="platinum token" plural="platinum tokens">
-		<attribute key="weight" value="20"/>
+		<attribute key="description" value="Currency for the quartermaster in Thais."/>
+		<attribute key="weight" value="0"/>
 	</item>
 	<item id="22724" article="a" name="titanium token" plural="titanium tokens">
-		<attribute key="weight" value="20"/>
+		<attribute key="description" value="Currency for the quartermaster in Thais."/>
+		<attribute key="weight" value="0"/>
 	</item>
 	<item id="22725" article="a" name="rift lamp">
 		<attribute key="weight" value="800"/>
