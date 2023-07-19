@@ -403,3 +403,6 @@ wheelSystemEnabled = true
 wheelPointsPerLevel = 1
 
 bossCooldownTime = 10 * 60 * 60 -- 10 hours
+bossDefaultTimeToFightAgain = 10 * 60 * 60 -- 20 hours
+bossDefaultTimeToDefeat = 20 * 60 -- 20 minutes
+
