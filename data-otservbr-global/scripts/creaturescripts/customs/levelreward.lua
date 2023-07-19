@@ -55,29 +55,31 @@ function levelReward.onAdvance(player, skill, oldLevel, newLevel)
 
 	local levelsGained = newLevel - math.max(previousLevel, oldLevel)
 	if newLevel >= 50 and newLevel < 100 then addToken(player, tokens.copper, 5 * levelsGained)
-	elseif newLevel >= 100 and newLevel < 150 then addToken(player, tokens.iron, 5 * levelsGained)
-	elseif newLevel >= 150 and newLevel < 200 then addToken(player, tokens.platinum, 5 * levelsGained)
-	elseif newLevel >= 200 then addToken(player, tokens.titanium, 5 * levelsGained) end
+		elseif newLevel >= 100 and newLevel < 150 then addToken(player, tokens.iron, 5 * levelsGained)
+		elseif newLevel >= 150 and newLevel < 200 then addToken(player, tokens.platinum, 5 * levelsGained)
+		elseif newLevel >= 200 then addToken(player, tokens.titanium, 5 * levelsGained) end
 
-	for level, _ in pairs(table) do
-		if newLevel >= level then
-			if table[level].type == "item" then
-				player:addItem(table[level].id[1], table[level].id[2])
-			elseif table[level].type == "bank" then
-				player:setBankBalance(player:getBankBalance() + table[level].id[1])
-			elseif table[level].type == "addon" then
-				player:addOutfitAddon(table[level].id[1], 3)
-				player:addOutfitAddon(table[level].id[2], 3)
-			elseif table[level].type == "mount" then
-				player:addMount(table[level].id[1])
-			else
-				return false
-			end
+		for level, _ in pairs(table) do
+			if newLevel >= level then
+				if newLevel >= level and player:getStorageValue(storage) < level then
+				if table[level].type == "item" then
+					player:addItem(table[level].id[1], table[level].id[2])
+				elseif table[level].type == "bank" then
+					player:setBankBalance(player:getBankBalance() + table[level].id[1])
+				elseif table[level].type == "addon" then
+					player:addOutfitAddon(table[level].id[1], 3)
+					player:addOutfitAddon(table[level].id[2], 3)
+				elseif table[level].type == "mount" then
+					player:addMount(table[level].id[1])
+				else
+					return false
+				end
 
-			if table[level].msg then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, table[level].msg)
+				if table[level].msg then
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, table[level].msg)
+				end
+				player:setStorageValue(storage, level)
 			end
-			player:setStorageValue(storage, level)
 		end
 	end
 
