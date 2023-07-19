@@ -139,14 +139,14 @@ local function refreshVouchers(playerId)
 		local item = findItemInInbox(player, conf.inactiveItem) or findItemInInbox(player, conf.expiredItem)
 		if not item then
 			item = Game.createItem(conf.inactiveItem)
-			item:setDuration(conf.fullDuration)
+			item:setDurationAttr(conf.fullDuration)
 			item:stopDecay()
 			inbox:addItemEx(item, INDEX_WHEREEVER, FLAG_NOLIMIT)
 		end
 
 		if canReceiveVoucher(player, conf) then
 			item:transform(conf.inactiveItem, 1)
-			item:setDuration(conf.fullDuration)
+			item:setDurationAttr(conf.fullDuration)
 			item:stopDecay()
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your " .. item:getName() .. " was recharged.")
 			player:setStorageValue(conf.storage, os.time())

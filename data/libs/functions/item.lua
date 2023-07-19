@@ -66,7 +66,7 @@ function Item.getDuration(self)
 	return self:getAttribute(ITEM_ATTRIBUTE_DURATION)
 end
 
-function Item.setDuration(self, duration)
+function Item.setDurationAttr(self, duration)
 	return self:setAttribute(ITEM_ATTRIBUTE_DURATION, duration)
 end
 
