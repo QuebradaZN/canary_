@@ -461,6 +461,16 @@ class Monster final : public Creature {
 		void doRandomStep(Direction &nextDirection, bool &result);
 
 		void onConditionStatusChange(const ConditionType_t &type);
+
+		float getAttackMultiplier() const {
+			float multiplier = mType->getAttackMultiplier();
+			return multiplier * std::pow(1.03f, getForgeStack());
+		}
+
+		float getDefenseMultiplier() const {
+			float multiplier = mType->getAttackMultiplier();
+			return multiplier * std::pow(1.01f, getForgeStack());
+		}
 };
 
 #endif // SRC_CREATURES_MONSTERS_MONSTER_H_
