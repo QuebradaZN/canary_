@@ -44285,7 +44285,7 @@
 		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentenergy" value="18"/>
 		<attribute key="skilldist" value="3"/>
-		<attribute key="duration" value="7200"/>
+		<attribute key="duration" value="72000"/>
 		<attribute key="decayTo" value="29429"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="weight" value="650"/>
