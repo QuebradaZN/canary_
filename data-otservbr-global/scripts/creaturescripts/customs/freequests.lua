@@ -260,6 +260,7 @@ local questTable = {
 	{storage = Storage.WrathoftheEmperor.Mission10, storageValue = 1},
 	{storage = Storage.TheApeCity.Started, storageValue = 1},
 	{storage = Storage.TheApeCity.Questline, storageValue = 18},
+	{storage = Storage.BanutaSecretTunnel.DeeperBanutaShortcut, storageValue = 1},
 	{storage = Storage.Oramond.QuestLine, storageValue = 1},
 	{storage = Storage.Oramond.MissionToTakeRoots, storageValue = 3000},
 	{storage = Storage.DangerousDepths.Questline, storageValue = 1},
