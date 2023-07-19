@@ -52,7 +52,7 @@ npcConfig.shop = {
 	{ name = "blue robe", clientId = 3567, buy = 50 },
 	{ name = "wood cape", clientId = 3575, buy = 50 },
 	{ name = "boots of haste", clientId = 3079, buy = 25 },
-	{ name = "steel boots", clientId = 3554, buy = 25 },
+	{ name = "badger boots", clientId = 22086, buy = 25 },
 	{ name = "platinum amulet", clientId = 3055, buy = 25 },
 	{ name = "spellbook of mind control", clientId = 8074, buy = 25 },
 	{ name = "dragon shield", clientId = 3416, buy = 25 },

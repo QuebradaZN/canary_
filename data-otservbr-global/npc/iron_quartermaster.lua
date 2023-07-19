@@ -32,8 +32,7 @@ npcConfig.voices = {
 npcConfig.currency = 22720
 
 npcConfig.shop = {
-	{ name = "calamity", clientId = 8104, buy = 100 },
-	{ name = "hellforged axe", clientId = 8096, buy = 100 },
+	{ name = "avenger", clientId = 6527, buy = 100 },
 	{ name = "arbalest", clientId = 5803, buy = 100 },
 	{ name = "warsinger bow", clientId = 8026, buy = 100 },
 	{ name = "stonecutter axe", clientId = 3319, buy = 75 },
@@ -47,7 +46,6 @@ npcConfig.shop = {
 	{ name = "grasshopper legs", clientId = 14087, buy = 50 },
 	{ name = "rubber cap", clientId = 21165, buy = 50 },
 	{ name = "oriental shoes", clientId = 21981, buy = 25 },
-	{ name = "guardian boots", clientId = 10323, buy = 25 },
 	{ name = "draken boots", clientId = 4033, buy = 25 },
 	{ name = "snake god's wristguard", clientId = 11691, buy = 25 },
 	{ name = "mastermind shield", clientId = 3414, buy = 25 },
