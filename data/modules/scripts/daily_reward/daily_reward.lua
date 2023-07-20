@@ -6,12 +6,12 @@ DailyRewardSystem = {
 }
 
 local ServerPackets = {
-	ShowDialog = 0xED, -- universal
+	ShowDialog = 0xED,                -- universal
 	DailyRewardCollectionState = 0xDE, -- undone
-	OpenRewardWall = 0xE2, -- Done
-	CloseRewardWall = 0xE3, -- is it necessary?
-	DailyRewardBasic = 0xE4, -- Done
-	DailyRewardHistory = 0xE5, -- Done
+	OpenRewardWall = 0xE2,            -- Done
+	CloseRewardWall = 0xE3,           -- is it necessary?
+	DailyRewardBasic = 0xE4,          -- Done
+	DailyRewardHistory = 0xE5,        -- Done
 	-- RestingAreaState = 0xA9 -- Moved to cpp
 }
 
@@ -27,12 +27,14 @@ local ClientPackets = {
 Please do not edit any of the next constants:
 	]]
 
---[[ Overall ]]--
+--[[ Overall ]]
+--
 local DAILY_REWARD_COUNT = 7
 local REWARD_FROM_SHRINE = 0
 local REWARD_FROM_PANEL = 1
 
---[[ Bonuses ]] --
+--[[ Bonuses ]]
+--
 local DAILY_REWARD_NONE = 1
 local DAILY_REWARD_HP_REGENERATION = 2
 local DAILY_REWARD_MP_REGENERATION = 3
@@ -41,7 +43,8 @@ local DAILY_REWARD_DOUBLE_HP_REGENERATION = 5
 local DAILY_REWARD_DOUBLE_MP_REGENERATION = 6
 local DAILY_REWARD_SOUL_REGENERATION = 7
 
---[[ Reward Types ]] --
+--[[ Reward Types ]]
+--
 
 -- Server Types
 local DAILY_REWARD_TYPE_ITEM = 1
@@ -57,20 +60,13 @@ local DAILY_REWARD_SYSTEM_TYPE_OTHER = 1
 local DAILY_REWARD_SYSTEM_TYPE_PREY_REROLL = 2
 local DAILY_REWARD_SYSTEM_TYPE_XP_BOOST = 3
 
---[[ Account Status ]] --
+--[[ Account Status ]]
+--
 local DAILY_REWARD_STATUS_FREE = 0
 local DAILY_REWARD_STATUS_PREMIUM = 1
 
-local DailyRewardItems = {
-	[0] = {266, 268}, -- God/no vocation character
-	[VOCATION.BASE_ID.PALADIN] = {266, 236, 268, 237, 7642, 23374, 3203, 3161, 3178, 3153, 3197, 3149, 3164, 3200, 3192, 3188, 3190, 3189, 3191, 3158, 3152, 3180, 3173, 3176, 3195, 3175, 3155, 3202},
-	[VOCATION.BASE_ID.DRUID] = {266, 268, 237, 238, 23373, 3203, 3161, 3178, 3153, 3197, 3149, 3164, 3200, 3192, 3188, 3190, 3189, 3156, 3191, 3158, 3152, 3180, 3173, 3176, 3195, 3175, 3155, 3202},
-	[VOCATION.BASE_ID.SORCERER] = {266, 268, 237, 238, 23373, 3203, 3161, 3178, 3153, 3197, 3149, 3164, 3200, 3192, 3188, 3190, 3189, 3191, 3158, 3152, 3180, 3173, 3176, 3195, 3175, 3155, 3202},
-	[VOCATION.BASE_ID.KNIGHT] = {266, 236, 239, 7643, 23375, 268, 3203, 3161, 3178, 3153, 3197, 3149, 3164, 3200, 3192, 3188, 3190, 3189, 3191, 3158, 3152, 3180, 3173, 3176, 3195, 3175, 3155, 3202},
-}
-
 DailyReward = {
-	testMode = false,
+	testMode = true,
 	serverTimeThreshold = (25 * 60 * 60), -- Counting down 24hours from last server save
 
 	storages = {
@@ -90,13 +86,13 @@ DailyReward = {
 
 	strikeBonuses = {
 		-- day
-		[1] = {text = "No bonus"},
-		[2] = {text = "Double Hit Point Regeneration"},
-		[3] = {text = "Double Mana Regeneration"},
-		[4] = {text = "No bonus"},
-		[5] = {text = "Triple Hit Point Regeneration"},
-		[6] = {text = "Triple Mana Regeneration"},
-		[7] = {text = "Soul Points Regeneration"}
+		[1] = { text = "No bonus" },
+		[2] = { text = "Double Hit Point Regeneration" },
+		[3] = { text = "Double Mana Regeneration" },
+		[4] = { text = "No bonus" },
+		[5] = { text = "Triple Hit Point Regeneration" },
+		[6] = { text = "Triple Mana Regeneration" },
+		[7] = { text = "Soul Points Regeneration" }
 	},
 
 	rewards = {
@@ -104,14 +100,22 @@ DailyReward = {
 		[1] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			freeAccount = 5,
-			premiumAccount = 99
+			items = {
+				Concoction.Ids.WealthDuplex,
+				Concoction.Ids.BestiaryBetterment,
+				--  Concoction.Ids.CharmUpgrade,
+			},
+			freeAccount = 2,
+			premiumAccount = 2
 		},
 		[2] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			freeAccount = 5,
-			premiumAccount = 99
+			items = { Concoction.Ids.EarthResilience, Concoction.Ids.EnergyResilience, Concoction.Ids.HolyResilience,
+				Concoction.Ids.DeathResilience, Concoction.Ids.PhysicalResilience, Concoction.Ids.FireResilience,
+				Concoction.Ids.IceResilience },
+			freeAccount = 3,
+			premiumAccount = 3
 		},
 		[3] = {
 			type = DAILY_REWARD_TYPE_PREY_REROLL,
@@ -122,8 +126,11 @@ DailyReward = {
 		[4] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			freeAccount = 10,
-			premiumAccount = 99
+			items = { Concoction.Ids.EarthAmplification, Concoction.Ids.EnergyAmplification, Concoction.Ids.HolyAmplification,
+				Concoction.Ids.DeathAmplification, Concoction.Ids.PhysicalAmplification, Concoction.Ids.FireAmplification,
+				Concoction.Ids.IceAmplification },
+			freeAccount = 3,
+			premiumAccount = 3
 		},
 		[5] = {
 			type = DAILY_REWARD_TYPE_PREY_REROLL,
@@ -134,10 +141,9 @@ DailyReward = {
 		[6] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			items = {28552, 28553, 28554, 28555, 28556, 28557},
-			freeAccount = 1,
-			premiumAccount = 1,
-			itemCharges = 1800
+			items = { Concoction.Ids.KooldownAid, Concoction.Ids.StaminaExtension },
+			freeAccount = 2,
+			premiumAccount = 2
 		},
 		[7] = {
 			type = DAILY_REWARD_TYPE_XP_BOOST,
@@ -201,7 +207,6 @@ function onRecvbyte(player, msg, byte)
 	end
 end
 
-
 -- Core functions
 DailyReward.insertHistory = function(playerId, dayStreak, description)
 	return db.query(string.format("INSERT INTO `daily_reward_history`(`player_id`, `daystreak`, `timestamp`, \z
@@ -209,7 +214,6 @@ DailyReward.insertHistory = function(playerId, dayStreak, description)
 end
 
 DailyReward.retrieveHistoryEntries = function(playerId)
-
 	local player = Player(playerId)
 	if not player then
 		return false
@@ -247,7 +251,8 @@ DailyReward.loadDailyReward = function(playerId, target)
 	player:sendCollectionResource(ClientPackets.CollectionResource, player:getCollectionTokens())
 	player:sendDailyReward()
 	player:sendOpenRewardWall(target)
-	player:sendDailyRewardCollectionState(DailyReward.isRewardTaken(player:getId()) and DAILY_REWARD_COLLECTED or DAILY_REWARD_NOTCOLLECTED)
+	player:sendDailyRewardCollectionState(DailyReward.isRewardTaken(player:getId()) and DAILY_REWARD_COLLECTED or
+		DAILY_REWARD_NOTCOLLECTED)
 	return true
 end
 
@@ -281,21 +286,6 @@ DailyReward.isShrine = function(target)
 	end
 end
 
-function Player.iterateTest(self)
-	local dailyTable = DailyReward.rewards[5]
-	local reward = DailyRewardItems[self:getVocation():getBaseId()]
-
-	if not(reward) then
-		reward = {}
-	end
-
-	for i = 1, #reward.things do
-		for j = 1, #reward.things[i].storages do
-			self:setStorageValue(reward.things[i].storages[j].storageId, reward.things[i].storages[j].value)
-		end
-	end
-end
-
 DailyReward.isRewardTaken = function(playerId)
 	local player = Player(playerId)
 	if not player then
@@ -324,7 +314,7 @@ DailyReward.init = function(playerId)
 	if player:getNextRewardTime() < GetDailyRewardLastServerSave() then
 		if player:getStorageValue(DailyReward.storages.notifyReset) ~= GetDailyRewardLastServerSave() then
 			player:setStorageValue(DailyReward.storages.notifyReset, GetDailyRewardLastServerSave())
-			timeMath = math.ceil(timeMath/(DailyReward.serverTimeThreshold))
+			timeMath = math.ceil(timeMath / (DailyReward.serverTimeThreshold))
 			if player:getJokerTokens() >= timeMath then
 				player:setJokerTokens(player:getJokerTokens() - timeMath)
 				player:sendTextMessage(MESSAGE_LOGIN, "You lost " .. timeMath .. " joker tokens to prevent loosing your streak.")
@@ -366,14 +356,14 @@ function Player.sendOpenRewardWall(self, shrine)
 
 	local msg = NetworkMessage()
 	msg:addByte(ServerPackets.OpenRewardWall) -- initial packet
-	msg:addByte(shrine) -- isPlayer taking bonus from reward shrine (1) - taking it from a instant bonus reward (0)
-	if DailyReward.testMode or not(DailyReward.isRewardTaken(self:getId())) then
+	msg:addByte(shrine)                      -- isPlayer taking bonus from reward shrine (1) - taking it from a instant bonus reward (0)
+	if DailyReward.testMode or not (DailyReward.isRewardTaken(self:getId())) then
 		msg:addU32(0)
 	else
 		msg:addU32(GetDailyRewardLastServerSave() + DailyReward.serverTimeThreshold)
 	end
-	msg:addByte(self:getDayStreak()) -- current reward? day = 0, day 1, ... this should be resetted to 0 every week imo
-	if DailyReward.isRewardTaken(self:getId()) then -- state (player already took reward? but just make sure noone wpe)
+	msg:addByte(self:getDayStreak())                                                                  -- current reward? day = 0, day 1, ... this should be resetted to 0 every week imo
+	if DailyReward.isRewardTaken(self:getId()) then                                                   -- state (player already took reward? but just make sure noone wpe)
 		msg:addByte(1)
 		msg:addString("Sorry, you have already taken your daily reward or you are unable to collect it.") -- Unknown message
 		if self:getJokerTokens() > 0 then
@@ -430,11 +420,10 @@ function Player.selectDailyReward(self, msg)
 
 	-- Items as reward
 	if (dailyTable.type == DAILY_REWARD_TYPE_ITEM) then
-
 		local items = {}
-		local possibleItems = DailyRewardItems[self:getVocation():getBaseId()];
+		local possibleItems = {}
 		if dailyTable.items then
-			possibleItems = dailyTable.items;
+			possibleItems = dailyTable.items
 		end
 
 		-- Creating items table
@@ -447,7 +436,7 @@ function Player.selectDailyReward(self, msg)
 			orderedCounter = orderedCounter + count;
 			for index, val in ipairs(possibleItems) do
 				if val == itemId then
-					items[i] = {itemId = itemId, count = count}
+					items[i] = { itemId = itemId, count = count }
 					totalCounter = totalCounter + count;
 					break;
 				end
@@ -469,21 +458,21 @@ function Player.selectDailyReward(self, msg)
 			return false
 		end
 
-		-- Adding items to store inbox
-		local inbox = self:getSlotItem(CONST_SLOT_STORE_INBOX)
-		if inbox and inbox:getEmptySlots() < columnsPicked then
-			self:sendError("You do not have enough space in your store inbox.")
-			return false
-		end
+		-- -- Adding items to store inbox
+		-- local inbox = self:getSlotItem(CONST_SLOT_STORE_INBOX)
+		-- if inbox and inbox:getEmptySlots() < columnsPicked then
+		-- 	self:sendError("You do not have enough space in your store inbox.")
+		-- 	return false
+		-- end
 
 		local description = ""
 		for k, v in ipairs(items) do
 			if dailyTable.itemCharges then
 				for i = 1, v.count do
-					inbox:addItem(v.itemId, dailyTable.itemCharges) -- adding charges for each item
+					self:addItemStoreInbox(v.itemId, dailyTable.itemCharges)
 				end
 			else
-				inbox:addItem(v.itemId, v.count) -- adding single item w/o charges
+				self:addItemStoreInbox(v.itemId, v.count)
 			end
 			if k ~= columnsPicked then
 				description = description .. "" .. v.count .. "x " .. ItemType(v.itemId):getName() .. ", "
@@ -506,20 +495,20 @@ function Player.selectDailyReward(self, msg)
 	end
 
 	-- if (dailyTable.type == DAILY_REWARD_TYPE_STORAGE) then
-		-- local description = ""
-		-- for i = 1, #reward.things do
-			-- for j = 1, #reward.things[i].storages do
-				-- self:setStorageValue(reward.things[i].storages[j].storageId, reward.things[i].storages[j].value)
-			-- end
-			-- if i ~= #reward.things then
-				-- description = description .. reward.things[i].name .. ", "
-			-- else
-				-- description = description .. reward.things[i].name .. "."
-			-- end
-		-- end
-		-- DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
-			-- " .. self:getDayStreak() + 1 .. ". Picked reward: " .. description)
-		-- DailyReward.processReward(playerId, target)
+	-- local description = ""
+	-- for i = 1, #reward.things do
+	-- for j = 1, #reward.things[i].storages do
+	-- self:setStorageValue(reward.things[i].storages[j].storageId, reward.things[i].storages[j].value)
+	-- end
+	-- if i ~= #reward.things then
+	-- description = description .. reward.things[i].name .. ", "
+	-- else
+	-- description = description .. reward.things[i].name .. "."
+	-- end
+	-- end
+	-- DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
+	-- " .. self:getDayStreak() + 1 .. ". Picked reward: " .. description)
+	-- DailyReward.processReward(playerId, target)
 	-- end
 
 	if (dailyTable.type == DAILY_REWARD_TYPE_XP_BOOST) then
@@ -586,35 +575,12 @@ end
 function Player.readDailyReward(self, msg, currentDay, state)
 	local dailyTable = DailyReward.rewards[currentDay]
 	local type, systemType = dailyTable.type, dailyTable.systemType
-	local rewards = nil
 	local itemsToPick = 0
-	if currentDay == 3 or (currentDay >= 5 and currentDay <= 7) then
-		rewards = dailyTable.items
-		if (state == DAILY_REWARD_STATUS_FREE) then
-			itemsToPick = dailyTable.freeAccount
-		else
-			itemsToPick = dailyTable.premiumAccount
-		end
+	local rewards = dailyTable.items
+	if (state == DAILY_REWARD_STATUS_FREE) then
+		itemsToPick = dailyTable.freeAccount
 	else
-		if systemType == 1 then
-			if (state == DAILY_REWARD_STATUS_FREE) then
-				rewards = DailyRewardItems[self:getVocation():getBaseId()]
-				itemsToPick = dailyTable.freeAccount
-			else
-				rewards = DailyRewardItems[self:getVocation():getBaseId()]
-				itemsToPick = dailyTable.premiumAccount
-			end
-
-			if not(rewards) then
-				rewards = {}
-			end
-		else
-			if (state == DAILY_REWARD_STATUS_FREE) then
-				rewards = dailyTable.freeAccount
-			else
-				rewards = dailyTable.premiumAccount
-			end
-		end
+		itemsToPick = dailyTable.premiumAccount
 	end
 	msg:addByte(systemType)
 	if (systemType == 1) then
@@ -635,10 +601,10 @@ function Player.readDailyReward(self, msg, currentDay, state)
 		if (type == DAILY_REWARD_TYPE_STORAGE) then
 			-- msg:addByte(#rewards.things)
 			-- for i = 1, #rewards.things do
-				-- msg:addByte(DAILY_REWARD_SYSTEM_TYPE_OTHER) -- type
-				-- msg:addU16(rewards.things[i].id * 100)
-				-- msg:addString(rewards.things[i].name)
-				-- msg:addByte(rewards.things[i].quantity)
+			-- msg:addByte(DAILY_REWARD_SYSTEM_TYPE_OTHER) -- type
+			-- msg:addU16(rewards.things[i].id * 100)
+			-- msg:addString(rewards.things[i].name)
+			-- msg:addByte(rewards.things[i].quantity)
 			-- end
 		elseif (type == DAILY_REWARD_TYPE_PREY_REROLL) then
 			msg:addByte(DAILY_REWARD_SYSTEM_SKIP)
@@ -661,7 +627,7 @@ function Player.sendDailyReward(self)
 	msg:addByte(ServerPackets.DailyRewardBasic)
 	msg:addByte(DAILY_REWARD_COUNT)
 	for currentDay = 1, DAILY_REWARD_COUNT do
-		self:readDailyReward(msg, currentDay, DAILY_REWARD_STATUS_FREE) -- Free rewards
+		self:readDailyReward(msg, currentDay, DAILY_REWARD_STATUS_FREE)  -- Free rewards
 		self:readDailyReward(msg, currentDay, DAILY_REWARD_STATUS_PREMIUM) -- Premium rewards
 	end
 	-- Resting area bonuses

@@ -19,23 +19,6 @@ local tokens = {
 	titanium = 22724,
 }
 
-local function addToken(player, token, amount)
-	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-	for _, item in pairs(inbox:getItems()) do
-		if item:getId() == token then
-			item:removeAttribute(ITEM_ATTRIBUTE_STORE)
-		end
-	end
-
-	inbox:addItem(token, amount, INDEX_WHEREEVER, FLAG_NOLIMIT)
-
-	for _, item in pairs(inbox:getItems()) do
-		if item:getId() == token then
-			item:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
-		end
-	end
-end
-
 local levelReward = CreatureEvent("Level Reward")
 function levelReward.onAdvance(player, skill, oldLevel, newLevel)
 	local previousLevel = player:getStorageValue(storage)
@@ -54,10 +37,10 @@ function levelReward.onAdvance(player, skill, oldLevel, newLevel)
 	end
 
 	local levelsGained = newLevel - math.max(previousLevel, oldLevel)
-	if newLevel >= 50 and newLevel < 100 then addToken(player, tokens.copper, 5 * levelsGained)
-		elseif newLevel >= 100 and newLevel < 150 then addToken(player, tokens.iron, 5 * levelsGained)
-		elseif newLevel >= 150 and newLevel < 200 then addToken(player, tokens.platinum, 5 * levelsGained)
-		elseif newLevel >= 200 then addToken(player, tokens.titanium, 5 * levelsGained) end
+	if newLevel >= 50 and newLevel < 100 then player:addItemStoreInbox(tokens.copper, 5 * levelsGained)
+		elseif newLevel >= 100 and newLevel < 150 then player:addItemStoreInbox(tokens.iron, 5 * levelsGained)
+		elseif newLevel >= 150 and newLevel < 200 then player:addItemStoreInbox(tokens.platinum, 5 * levelsGained)
+		elseif newLevel >= 200 then player:addItemStoreInbox(tokens.titanium, 5 * levelsGained) end
 
 		for level, _ in pairs(table) do
 			if newLevel >= level then
