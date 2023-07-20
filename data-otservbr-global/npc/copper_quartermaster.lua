@@ -56,9 +56,9 @@ npcConfig.shop = {
 	{ name = "platinum amulet", clientId = 3055, buy = 25 },
 	{ name = "spellbook of mind control", clientId = 8074, buy = 25 },
 	{ name = "dragon shield", clientId = 3416, buy = 25 },
-	{ itemName = "(x500) basic exercise sword", clientId = 28552, buy = 10 },
-	{ itemName = "(x500) basic exercise wand", clientId = 28557, buy = 10 },
-	{ itemName = "(x500) basic exercise bow", clientId = 28555, buy = 10 },
+	-- { itemName = "(x500) basic exercise sword", clientId = 28552, buy = 10 },
+	-- { itemName = "(x500) basic exercise wand", clientId = 28557, buy = 10 },
+	-- { itemName = "(x500) basic exercise bow", clientId = 28555, buy = 10 },
 	--prey reroll
 }
 -- On buy npc shop message

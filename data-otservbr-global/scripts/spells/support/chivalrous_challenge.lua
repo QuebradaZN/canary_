@@ -1,19 +1,18 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_CHIVALRIOUS_CHALLENGE)
-
 function canChain(creature, target)
 	if target:isMonster() then
-		local monster = creature:getMonster()
-		if creature:getType():isRewardBoss() then
+		local monster = target:getMonster()
+		if monster:getType():isRewardBoss() then
 			return -false
 		end
-		if creature:getMaster() ~= nil then return false end
+		if monster ~= nil then return false end
 
-		if creature:getType():getTargetDistance() > 1 then
+		if monster:getType():getTargetDistance() > 1 then
 			return true
 		elseif not monster:isChallenged() then
 			return true
-		elseif creature:getTarget():getId() ~= player:getId() then
+		elseif monster:getTarget():getId() ~= player:getId() then
 			return true
 		end
 	end

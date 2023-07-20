@@ -19,14 +19,14 @@ end
 function canChain(creature, target)
 	if target:isMonster() then
 		local player = creature:getPlayer()
-		local monster = creature:getMonster()
-		if creature:getType():isRewardBoss() then
+		local monster = target:getMonster()
+		if monster:getType():isRewardBoss() then
 			return -1
 		end
-		if creature:getMaster() ~= nil then return false end
+		if monster ~= nil then return false end
 		if (not synergies(player).knight) and monster:isChallenged() then return false end
 
-		local type = creature:getType()
+		local type = monster:getType()
 		if type:getTargetDistance() > 1 or type:getRunHealth() > 0 or synergies(player).druid then
 			return true
 		end

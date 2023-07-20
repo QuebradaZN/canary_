@@ -51,9 +51,9 @@ npcConfig.shop = {
 	{ name = "mastermind shield", clientId = 3414, buy = 25 },
 	{ name = "gearwheel chain", clientId = 21170, buy = 25 },
 	{ name = "butterfly ring", clientId = 25698, buy = 25 },
-	{ itemName = "(x1000) basic exercise sword", clientId = 28552, buy = 10 },
-	{ itemName = "(x1000) basic exercise wand", clientId = 28557, buy = 10 },
-	{ itemName = "(x1000) basic exercise bow", clientId = 28555, buy = 10 },
+	-- { itemName = "(x1000) basic exercise sword", clientId = 28552, buy = 10 },
+	-- { itemName = "(x1000) basic exercise wand", clientId = 28557, buy = 10 },
+	-- { itemName = "(x1000) basic exercise bow", clientId = 28555, buy = 10 },
 	--prey reroll x2
 }
 

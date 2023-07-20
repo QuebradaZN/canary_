@@ -55,9 +55,9 @@ npcConfig.shop = {
 	{ name = "spellbook of vigilance", clientId = 16107, buy = 25 },
 	{ name = "prismatic shield", clientId = 16116, buy = 25 },
 	{ name = "foxtail amulet", clientId = 27565, buy = 25 },
-	{ itemName = "(x3800) enhanced exercise sword", clientId = 35279, buy = 10 },
-	{ itemName = "(x3800) enhanced exercise wand", clientId = 35284, buy = 10 },
-	{ itemName = "(x3800) enhanced exercise bow", clientId = 35282, buy = 10 },
+	-- { itemName = "(x3800) enhanced exercise sword", clientId = 35279, buy = 10 },
+	-- { itemName = "(x3800) enhanced exercise wand", clientId = 35284, buy = 10 },
+	-- { itemName = "(x3800) enhanced exercise bow", clientId = 35282, buy = 10 },
 	--prey reroll x2
 }
 -- On buy npc shop message
