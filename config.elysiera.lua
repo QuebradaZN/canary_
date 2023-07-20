@@ -309,7 +309,7 @@ sortLootByChance = true
 rateUseStages = true
 rateExp = 1
 rateSkill = 1
-rateLoot = 3
+rateLoot = 2
 rateMagic = 1
 rateSpawn = 2
 
@@ -387,7 +387,7 @@ loyaltyBonusPercentageMultiplier = 2.0
 -- NOTE: vipAutoLootVipOnly = activates only vip to get automatic loot, config 'autoLoot' need to be enabled, for this config works
 vipSystemEnabled = true
 vipBonusExp = 20
-vipBonusLoot = 20
+vipBonusLoot = 0
 vipBonusSkill = 20
 vipAutoLootVipOnly = false
 vipStayOnline = true

@@ -135,10 +135,51 @@
 	<npc centerx="32364" centery="32221" centerz="7" radius="1">
 		<npc name="Platinum Quartermaster" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</npc>
+	
+	<!-- gnomeprona blockade -->
 	<npc centerx="33517" centery="32863" centerz="14" radius="1">
 		<npc name="Elysieran Sentry" x="0" y="0" z="7" spawntime="60" direction="0" />
 	</npc>
 	<npc centerx="33516" centery="32863" centerz="14" radius="1">
 		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="0" />
+	</npc>
+	
+	<!-- poi blockade -->
+	<npc centerx="32830" centery="32333" centerz="11" radius="1">
+		<npc name="Elysieran Sentry" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="32830" centery="32334" centerz="11" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="32830" centery="32332" centerz="11" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="32830" centery="32331" centerz="11" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	
+	<!-- inquisition blockade -->
+	<npc centerx="33192" centery="31689" centerz="14" radius="1">
+		<npc name="Elysieran Sentry" x="0" y="0" z="7" spawntime="60" direction="0" />
+	</npc>
+	<npc centerx="33191" centery="31689" centerz="14" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="0" />
+	</npc>
+	<npc centerx="33193" centery="31689" centerz="14" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="0" />
+	</npc>
+	<npc centerx="33194" centery="31689" centerz="14" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="0" />
+	</npc>
+
+	<!-- annihilator blockade -->
+	<npc centerx="33213" centery="31671" centerz="13" radius="1">
+		<npc name="Elysieran Sentry" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="33213" centery="31670" centerz="13" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="33213" centery="31672" centerz="13" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
 	</npc>
 </npcs>
