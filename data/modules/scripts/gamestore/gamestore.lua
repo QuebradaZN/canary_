@@ -233,7 +233,7 @@ GameStore.Categories = {
 				itemtype = 31633,
 				count = 1,
 				description = "<i>Teleport to any town in the game, or any houses you're a sub-owner of!</i>\n\n{useicon} use item to pick a destination",
-				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM_UNIQUE,
 			},
 			{
 				name = "Portable Imbuing Crystal",
@@ -241,7 +241,7 @@ GameStore.Categories = {
 				itemtype = 24964,
 				count = 1,
 				description = "<i>Allows you to imbue your items on the go! No more needing to rush to the temple when your imbuements run ut.</i>\n\n{character}\n{storeinbox}\n{useicon} use it on an imbuable item to open the imbument window",
-				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM_UNIQUE,
 			},
 			{
 				icons = { "Gold_Pouch.png" },
@@ -250,7 +250,7 @@ GameStore.Categories = {
 				itemtype = 23721,
 				count = 1,
 				description = "<i>Carries as much loot as your capacity allows.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open it\n{info} always placed on the first position of your Store inbox",
-				type = GameStore.OfferTypes.OFFER_TYPE_POUCH,
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM_UNIQUE,
 			},
 			{
 				name = "Backpack of Elysium",
