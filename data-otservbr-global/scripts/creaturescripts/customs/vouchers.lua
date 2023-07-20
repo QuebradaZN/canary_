@@ -9,7 +9,7 @@ local config = {
 
 		weekday = 4, -- Thursday
 
-		fullDuration = 12 * 1000, -- 12 hours
+		fullDuration = 12 * 60 * 60 * 1000, -- 12 hours
 		storage = Storage.Voucher.Skill.Received
 	},
 	{
