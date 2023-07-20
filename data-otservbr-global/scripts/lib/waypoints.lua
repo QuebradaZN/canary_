@@ -1,10 +1,11 @@
 Waypoints = {}
 
 -- { name="Brain Head", position = Position(31973, 32325, 10) },
+-- DO NOT CHANGE WAYPOINT IDS, THEY ARE USED IN PLAYER STORAGE
 local waypoints = {
 	-- Bosses
 	{
-		id = 1,
+		id = 0,
 		name = "Werecreatures mini-bosses",
 		bundle = true,
 		waypoints = {
@@ -18,7 +19,7 @@ local waypoints = {
 
 	-- Grave Danger
 	{
-		id = 2,
+		id = 1,
 		name = "King Zelos & mini-bosses",
 		bundle = true,
 		requirements = { bosstiary = { name = "King Zelos", stars = 1 } },
@@ -32,7 +33,7 @@ local waypoints = {
 		}
 	},
 	{
-		id = 3,
+		id = 2,
 		name = "Scarlett Etzel",
 		bundle = true,
 		requirements = { bosstiary = { stars = 1 } },
@@ -44,35 +45,33 @@ local waypoints = {
 		}
 	},
 
-	-- ids 4 - 8 available
-
 	-- Feaster Of Souls
 	{
-		id = 9,
+		id = 3,
 		name = "Fear Feaster",
 		position = Position(33739, 31471, 14),
 		requirements = { bosstiary = { name = "The Fear Feaster", kills = 1 } }
 	},
 	{
-		id = 10,
+		id = 4,
 		name = "Pale Worm",
 		position = Position(33776, 31504, 14),
 		requirements = { bosstiary = { name = "The Pale Worm", kills = 1 } }
 	},
 	{
-		id = 11,
+		id = 5,
 		name = "Unwelcome",
 		position = Position(33741, 31537, 14),
 		requirements = { bosstiary = { name = "The Unwelcome", kills = 1 } }
 	},
 	{
-		id = 12,
+		id = 6,
 		name = "Dread Maiden",
 		position = Position(33744, 31506, 14),
 		requirements = { bosstiary = { name = "The Dread Maiden", kills = 1 } }
 	},
 	{
-		id = 13,
+		id = 7,
 		name = "Feaster of Souls mini-bosses",
 		bundle = true,
 		waypoints = {
@@ -84,7 +83,7 @@ local waypoints = {
 
 	-- Secret Library
 	{
-		id = 14,
+		id = 8,
 		name = "Grand Master Oberon",
 		position = Position(33363, 31342, 9),
 		requirements = { bosstiary = { stars = 1 } }
@@ -92,37 +91,37 @@ local waypoints = {
 
 	-- Soul Wars
 	{
-		id = 15,
+		id = 9,
 		name = "Goshnar's Cruelty",
 		position = Position(33859, 31854, 6),
 		requirements = { bosstiary = { kills = 1 } }
 	},
 	{
-		id = 16,
+		id = 10,
 		name = "Goshnar's Greed",
 		position = Position(33781, 31665, 14),
 		requirements = { bosstiary = { kills = 1 } }
 	},
 	{
-		id = 17,
+		id = 11,
 		name = "Goshnar's Hatred",
 		position = Position(33778, 31601, 14),
 		requirements = { bosstiary = { kills = 1 } }
 	},
 	{
-		id = 18,
+		id = 12,
 		name = "Goshnar's Malice",
 		position = Position(33684, 31599, 14),
 		requirements = { bosstiary = { kills = 1 } }
 	},
 	{
-		id = 19,
+		id = 13,
 		name = "Goshnar's Spite",
 		position = Position(33779, 31634, 14),
 		requirements = { bosstiary = { kills = 1 } }
 	},
 	{
-		id = 20,
+		id = 14,
 		name = "Goshnar's Megalomania",
 		position = Position(33681, 31634, 14),
 		requirements = { bosstiary = { kills = 1 } }
@@ -130,75 +129,76 @@ local waypoints = {
 
 	-- The Prime Ordeal
 	{
-		id = 21,
+		id = 15,
 		name = "Magma Bubble",
 		position = Position(33669, 32931, 15),
 		requirements = { bosstiary = { stars = 1 } }
 	},
 	{
-		id = 22,
+		id = 16,
 		name = "The Primal Menace",
 		position = Position(33553, 32752, 14),
 		requirements = { storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.ThePrimalMenaceKilled }
 	},
 
-	{
-		id = 23,
-		name = "Forgotten Knowledge",
-		bundle = true,
-		waypoints = {
-			{ name = "Thorn Knight",        position = Position(32657, 32882, 14) },
-			{ name = "Time Guardian",       position = Position(33010, 31665, 14) },
-			{ name = "Dragonking Zyrtarch", position = Position(33391, 31183, 10) },
-			{ name = "Last Lore Keeper",    position = Position(32019, 32849, 14) },
-			{ name = "Lloyd",               position = Position(32759, 32873, 14) },
-			{ name = "Frozen Horror",       position = Position(32302, 31093, 14) },
-			{ name = "Lady Tenebris",       position = Position(32902, 31628, 14) },
-		}
-	},
+	-- TODO: fix these bosses
+	-- {
+	-- 	id = 17,
+	-- 	name = "Forgotten Knowledge",
+	-- 	bundle = true,
+	-- 	waypoints = {
+	-- 		{ name = "Thorn Knight",        position = Position(32657, 32882, 14) },
+	-- 		{ name = "Time Guardian",       position = Position(33010, 31665, 14) },
+	-- 		{ name = "Dragonking Zyrtarch", position = Position(33391, 31183, 10) },
+	-- 		{ name = "Last Lore Keeper",    position = Position(32019, 32849, 14) },
+	-- 		{ name = "Lloyd",               position = Position(32759, 32873, 14) },
+	-- 		{ name = "Frozen Horror",       position = Position(32302, 31093, 14) },
+	-- 		{ name = "Lady Tenebris",       position = Position(32902, 31628, 14) },
+	-- 	}
+	-- },
 
 	{
-		id = 24,
+		id = 18,
 		name = "Nightmare Beast / Dream Courts",
 		position = Position(32208, 32094, 13),
 		requirements = { bosstiary = { name = "The Nightmare Beast", kills = 1 } }
 	},
 
 	{
-		id = 25,
+		id = 19,
 		name = "Timira",
 		position = Position(33804, 32702, 8),
 		requirements = { bosstiary = { name = "Timira the Many-Headed", stars = 1 } }
 	},
 	{
-		id = 26,
+		id = 20,
 		name = "Urmahlullu",
 		position = Position(33920, 31623, 8),
 		requirements = { bosstiary = { name = "Urmahlullu the Weakened", stars = 1 } }
 	},
 	{
-		id = 27,
+		id = 21,
 		name = "Ratmiral Blackwhiskers",
 		position = Position(33894, 31391, 15),
 		requirements = { bosstiary = { stars = 1 } }
 	},
 	{
-		id = 28,
+		id = 22,
 		name = "Drume",
 		position = Position(32458, 32507, 6),
 		requirements = { bosstiary = { stars = 1 } }
 	},
 	{
-		id = 29,
+		id = 23,
 		name = "Faceless Bane",
 		position = Position(33618, 32522, 15),
 		requirements = { bosstiary = { stars = 1 } }
 	},
 
 	-- General Waypoints
-	{ id = 30, name = "Asura Palace", position = Position(32949, 32692, 7) },
+	{ id = 24, name = "Asura Palace", position = Position(32949, 32692, 7) },
 	{
-		id = 31,
+		id = 25,
 		name = "Ingol",
 		bundle = true,
 		waypoints = {
@@ -206,10 +206,10 @@ local waypoints = {
 			{ name = "Ingol Deep", position = Position(33798, 32573, 8) },
 		}
 	},
-	{ id = 32, name = "Soul Hub",     position = Position(33621, 31427, 10) },
-	{ id = 33, name = "Lion Sanctum", position = Position(33123, 32236, 12) },
+	{ id = 26, name = "Soul Hub",     position = Position(33621, 31427, 10) },
+	{ id = 27, name = "Lion Sanctum", position = Position(33123, 32236, 12) },
 	{
-		id = 34,
+		id = 28,
 		name = "Elven Courts",
 		bundle = true,
 		waypoints = {
@@ -220,8 +220,6 @@ local waypoints = {
 }
 
 table.sort(waypoints, function(a, b) return a.name < b.name end)
-
-local maxBit = 31
 
 function Waypoints.getByName(name)
 	for _, waypoint in ipairs(waypoints) do
@@ -240,14 +238,12 @@ function Waypoints.getByName(name)
 end
 
 function Player:addWaypointById(id)
-	local zid = tonumber(id) - 1
-	local storageBucket = Storage.Waypoints.Owned.From + math.floor(zid / maxBit)
-	if storageBucket > Storage.Waypoints.Owned.To then
-		Spdlog.error("Player:addWaypointById: storageBucket > Storage.Waypoints.Owned.To")
+	local storage = Storage.Waypoints.Owned.From + id
+	if storage > Storage.Waypoints.Owned.To then
+		Spdlog.error("Player:addWaypointById: storage > Storage.Waypoints.Owned.To")
 		return false
 	end
-	local newValue = bit.bor(self:getUpdatedAccountStorage(storageBucket), bit.lshift(1, zid % maxBit))
-	self:setStorageValue(storageBucket, newValue)
+	self:setStorageValue(storage, 1)
 	return true
 end
 
@@ -260,15 +256,13 @@ function Player:addWaypoint(name)
 end
 
 function Player:hasWaypointById(id)
-	local zid = tonumber(id) - 1
-	local storageBucket = Storage.Waypoints.Owned.From + math.floor(zid / maxBit)
-	if storageBucket > Storage.Waypoints.Owned.To then
-		Spdlog.error("Player:addWaypointById: storageBucket > Storage.Waypoints.Owned.To")
+	local storage = Storage.Waypoints.Owned.From + id
+	if storage > Storage.Waypoints.Owned.To then
+		Spdlog.error("Player:addWaypointById: storage > Storage.Waypoints.Owned.To")
 		return false
 	end
-	local storageValue = self:getUpdatedAccountStorage(storageBucket)
-	local desiredValue = bit.lshift(1, zid % maxBit)
-	return bit.band(storageValue, desiredValue) == desiredValue
+	local storageValue = self:getUpdatedAccountStorage(storage)
+	return storageValue >= 1
 end
 
 function Player:hasWaypoint(name)
