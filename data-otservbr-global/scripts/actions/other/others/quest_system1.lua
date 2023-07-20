@@ -88,8 +88,9 @@ function questSystem1.onUse(player, item, fromPosition, target, toPosition, isHo
 			local originalItem = container:getItem(i)
 			local newItem = Game.createItem(originalItem.itemid, originalItem.type)
 			if not newItem then
-				Spdlog.error("[questSystem1.onUse] failed to create new item")
-				return false
+				Spdlog.error("[questSystem1.onUse] failed to create new item " .. originalItem.itemid .. " - " .. originalItem.type)
+				goto continue
+				-- return false
 			end
 			local newActionId = originalItem:getActionId()
 			if newActionId then
@@ -104,6 +105,7 @@ function questSystem1.onUse(player, item, fromPosition, target, toPosition, isHo
 				copyContainerItem(Container(originalItem.uid), Container(newItem.uid))
 			end
 			items[#items + 1] = newItem
+			::continue::
 		end
 
 		if size == 1 then

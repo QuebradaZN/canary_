@@ -317,7 +317,7 @@ local questTable = {
 	{storage = Storage.WrathoftheEmperor.TeleportAccess.BossRoom, storageValue = 1},
 	{storage = Storage.WrathoftheEmperor.TeleportAccess.InnerSanctum, storageValue = 1},
 	{storage = Storage.WrathoftheEmperor.TeleportAccess.Rebel, storageValue = 1},
-	{storage = Storage.WrathoftheEmperor.TeleportAccess.SleepingDragon, storageValue = 1},
+	{storage = Storage.WrathoftheEmperor.TeleportAccess.SleepingDragon, storageValue = 2},
 	{storage = Storage.WrathoftheEmperor.TeleportAccess.Wote10, storageValue = 1},
 	{storage = Storage.WrathoftheEmperor.TeleportAccess.Zizzle, storageValue = 1},
 	{storage = Storage.WrathoftheEmperor.TeleportAccess.Zlak, storageValue = 1},
