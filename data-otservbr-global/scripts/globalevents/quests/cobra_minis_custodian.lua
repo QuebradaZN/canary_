@@ -30,5 +30,5 @@ function miniBoss.onThink(interval, lastExecution)
     return true
 end
 
-miniBoss:interval(900000)
+miniBoss:interval(15 * 60 * 1000)
 miniBoss:register()
