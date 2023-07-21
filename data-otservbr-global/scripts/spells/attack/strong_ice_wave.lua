@@ -8,13 +8,22 @@ synergicCombat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ICEDAMAGE)
 synergicCombat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ICEAREA)
 synergicCombat:setArea(createCombatArea(AREA_SQUAREWAVE5, AREADIAGONAL_SQUAREWAVE5))
 
-function onGetFormulaValues(player, level, maglevel)
+local function formulaFunction(player, level, maglevel)
 	local min = (level / 5) + (maglevel * 4.5) + 20
 	local max = (level / 5) + (maglevel * 7.6) + 48
 	return -min, -max
 end
 
+function onGetFormulaValues(player, level, maglevel)
+	return formulaFunction(player, level, maglevel)
+end
+
+function onGetFormulaValuesSynergy(player, level, maglevel)
+	return formulaFunction(player, level, maglevel)
+end
+
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
+synergicCombat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValuesSynergy")
 
 local spell = Spell("instant")
 
@@ -25,11 +34,11 @@ function spell.onCastSpell(creature, var)
 		hasSynergy = party:hasSorcerer()
 	end
 
-	if hasSynergy then
+	-- if hasSynergy then
 		return synergicCombat:execute(creature, var)
-	end
+	-- end
 
-	return combat:execute(creature, var)
+	-- return combat:execute(creature, var)
 end
 
 spell:group("attack")
