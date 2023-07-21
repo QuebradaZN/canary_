@@ -41,7 +41,7 @@ npcConfig.shop = {
 	{ name = "dream blossom staff", clientId = 25700, buy = 75 },
 	{ name = "zaoan helmet", clientId = 10385, buy = 50 },
 	{ name = "zaoan legs", clientId = 10387, buy = 50 },
-	{ name = "paladin armor", clientId = 14086, buy = 50 },
+	{ name = "paladin armor", clientId = 8063, buy = 50 },
 	{ name = "calopteryx cape", clientId = 3391, buy = 50 },
 	{ name = "grasshopper legs", clientId = 14087, buy = 50 },
 	{ name = "rubber cap", clientId = 21165, buy = 50 },
