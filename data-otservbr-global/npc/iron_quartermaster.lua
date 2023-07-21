@@ -51,24 +51,23 @@ npcConfig.shop = {
 	{ name = "mastermind shield", clientId = 3414, buy = 25 },
 	{ name = "gearwheel chain", clientId = 21170, buy = 25 },
 	{ name = "butterfly ring", clientId = 25698, buy = 25 },
-	-- { itemName = "(x1000) basic exercise sword", clientId = 28552, buy = 10 },
-	-- { itemName = "(x1000) basic exercise wand", clientId = 28557, buy = 10 },
-	-- { itemName = "(x1000) basic exercise bow", clientId = 28555, buy = 10 },
-	--prey reroll x2
+	{ itemName = "(x1000) basic exercise sword", clientId = 28552, buy = 10 },
+	{ itemName = "(x1000) basic exercise wand", clientId = 28557, buy = 10 },
+	{ itemName = "(x1000) basic exercise bow", clientId = 28555, buy = 10 },
+	{ itemName = "2x prey wildcard", clientId = 5779, buy = 5 },
 }
 
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
-	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-
 	if itemId == 28552 or itemId == 28557 or itemId == 28555 then
-		for i = 1, amount do
-			npc:sellItem(player, itemId, amount, 42069, 0, ignore, inBackpacks)
-			local item = player:getItemById(itemId, true, 42069)
-			item:remove()
-
-			local inboxItem = inbox:addItem(itemId, 1000)
-			inboxItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
+		if player:removeItem(npcConfig.currency, totalCost) then
+			local item = player:addItemStoreInbox(itemId, 1000 * amount)
+			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, item:getDescription(), totalCost, ItemType(npcConfig.currency):getPluralName()))
+		end
+	elseif itemId == 5779 then
+		if player:removeItem(npcConfig.currency, totalCost) then
+			player:addPreyCards(amount * 2)
+			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix prey wildcards for %i %s.", amount, totalCost, ItemType(npcConfig.currency):getPluralName()))
 		end
 	else
 		npc:sellItem(player, itemId, amount, subType, 0, ignore, inBackpacks)

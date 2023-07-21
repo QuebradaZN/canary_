@@ -55,23 +55,22 @@ npcConfig.shop = {
 	{ name = "spellbook of vigilance", clientId = 16107, buy = 25 },
 	{ name = "prismatic shield", clientId = 16116, buy = 25 },
 	{ name = "foxtail amulet", clientId = 27565, buy = 25 },
-	-- { itemName = "(x3800) enhanced exercise sword", clientId = 35279, buy = 10 },
-	-- { itemName = "(x3800) enhanced exercise wand", clientId = 35284, buy = 10 },
-	-- { itemName = "(x3800) enhanced exercise bow", clientId = 35282, buy = 10 },
-	--prey reroll x2
+	{ itemName = "(x3800) enhanced exercise sword", clientId = 35279, buy = 10 },
+	{ itemName = "(x3800) enhanced exercise wand", clientId = 35284, buy = 10 },
+	{ itemName = "(x3800) enhanced exercise bow", clientId = 35282, buy = 10 },
+	{ itemName = "3x prey wildcard", clientId = 5779, buy = 5 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
-	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-
 	if itemId == 35279 or itemId == 35284 or itemId == 35282 then
-		for i = 1, amount do
-			npc:sellItem(player, itemId, amount, 42069, 0, ignore, inBackpacks)
-			local item = player:getItemById(itemId, true, 42069)
-			item:remove()
-
-			local inboxItem = inbox:addItem(itemId, 1000)
-			inboxItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
+		if player:removeItem(npcConfig.currency, totalCost) then
+			local item = player:addItemStoreInbox(itemId, 3800 * amount)
+			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, item:getDescription(), totalCost, ItemType(npcConfig.currency):getPluralName()))
+		end
+	elseif itemId == 5779 then
+		if player:removeItem(npcConfig.currency, totalCost) then
+			player:addPreyCards(amount * 3)
+			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix prey wildcards for %i %s.", amount, totalCost, ItemType(npcConfig.currency):getPluralName()))
 		end
 	else
 		npc:sellItem(player, itemId, amount, subType, 0, ignore, inBackpacks)
