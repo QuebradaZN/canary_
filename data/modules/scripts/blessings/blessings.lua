@@ -188,12 +188,12 @@ Blessings.sendBlessDialog = function(player)
 end
 
 Blessings.getBlessingsCost = function(level)
-	if level <= 30 then
-		return 2000
-	elseif level >= 120 then
+	if level <= 100 then
+		return 1000
+	elseif level >= 400 then
 		return 20000
 	else
-		return (level - 20) * 200
+		return (level - 100) * 60 + 1000
 	end
 end
 
