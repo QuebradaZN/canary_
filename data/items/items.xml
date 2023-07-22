@@ -33388,7 +33388,7 @@
 	<item id="21945" article="a" name="large amphora"/>
 	<item id="21946" article="a" name="remains of amphora"/>
 	<item fromid="21947" toid="21948" article="a" name="midnight panther doll">
-		<attribute key="description" value="It is said to be a symbol of perseverance and luck.&#xA;Awarded by TibiaMagazine.com.ve"/>
+		<attribute key="description" value="It is said to be a symbol of perseverance and luck.&#xA;Awarded to a valued beta test participant."/>
 		<attribute key="weight" value="1700"/>
 	</item>
 	<item id="21949" name="RESERVED SPRITE"/>
@@ -52719,11 +52719,11 @@
 	<item fromid="36000" toid="36011" article="a" name="white marble floor"/>
 	<item fromid="36012" toid="36018" name="column"/>
 	<item id="36019" article="a" name="white lion doll">
-		<attribute key="description" value="Its serene presence encourages bravery. Awarded by ElPodcastibiano.com"/>
+		<attribute key="description" value="Its serene presence encourages bravery. &#xA;Awarded to a valued beta test participant."/>
 		<attribute key="weight" value="1700"/>
 	</item>
 	<item id="36020" article="a" name="white lion doll">
-		<attribute key="description" value="Its serene presence encourages bravery. Awarded by ElPodcastibiano.com"/>
+		<attribute key="description" value="Its serene presence encourages bravery. &#xA;Awarded to a valued beta test participant."/>
 		<attribute key="weight" value="1700"/>
 		<attribute key="duration" value="2"/>
 		<attribute key="decayTo" value="36019"/>
@@ -54281,21 +54281,21 @@
 		<attribute key="wrapableto" value="23398"/>
 	</item>
 	<item id="36996" article="a" name="Luna">
-		<attribute key="description" value="Gently shrouded in clouds, her dreams are about to come true. As she awakens something magical is about to happen.&#xA;Granted by TibiaGoals.com"/>
+		<attribute key="description" value="Gently shrouded in clouds, her dreams are about to come true. As she awakens something magical is about to happen.&#xA;Awarded to a valued beta test participant."/>
 		<attribute key="weight" value="200"/>
 	</item>
 	<item id="36997" article="a" name="Luna">
-		<attribute key="description" value="Gently shrouded in clouds, her dreams are about to come true. As she awakens something magical is about to happen.&#xA;Granted by TibiaGoals.com"/>
+		<attribute key="description" value="Gently shrouded in clouds, her dreams are about to come true. As she awakens something magical is about to happen.&#xA;Awarded to a valued beta test participant."/>
 		<attribute key="weight" value="200"/>
 		<attribute key="duration" value="4"/>
 		<attribute key="decayto" value="36998"/>
 	</item>
 	<item id="36998" article="a" name="Luna">
-		<attribute key="description" value="Gently shrouded in clouds, her dreams are about to come true. As she awakens something magical is about to happen.&#xA;Granted by TibiaGoals.com"/>
+		<attribute key="description" value="Gently shrouded in clouds, her dreams are about to come true. As she awakens something magical is about to happen.&#xA;Awarded to a valued beta test participant."/>
 		<attribute key="weight" value="200"/>
 	</item>
 	<item id="36999" article="a" name="Luna">
-		<attribute key="description" value="Gently shrouded in clouds, her dreams are about to come true. As she awakens something magical is about to happen.&#xA;Granted by TibiaGoals.com"/>
+		<attribute key="description" value="Gently shrouded in clouds, her dreams are about to come true. As she awakens something magical is about to happen.&#xA;Awarded to a valued beta test participant."/>
 		<attribute key="weight" value="200"/>
 		<attribute key="duration" value="1"/>
 		<attribute key="decayto" value="36996"/>

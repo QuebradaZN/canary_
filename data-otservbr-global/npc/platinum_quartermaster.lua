@@ -140,7 +140,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npc:openShopWindow(creature)
 		npcHandler:say("If you have any iron tokens with you, let's have a look! These are my offers.", npc, creature)
 	elseif MsgContains(message, "tasks") then
-		npcHandler:say("For hunting tasks, please visit the Taskmaster in the Adventurer's Guild.", npc, creature)
+		npcHandler:say("You may also complete hunting tasks to earn iron tokens. Type \"!task\", to see the list of available tasks.", npc, creature)
 	else
 		npcHandler:say("Would you like to {trade}, or are you looking for {information}.", npc, creature)
 	end
