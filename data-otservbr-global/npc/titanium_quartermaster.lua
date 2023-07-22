@@ -32,10 +32,10 @@ npcConfig.voices = {
 npcConfig.currency = 22724
 
 npcConfig.shop = {
-	{ itemName = "(x7600) enhanced exercise sword", clientId = 35279, buy = 10 },
-	{ itemName = "(x7600) enhanced exercise wand", clientId = 35284, buy = 10 },
-	{ itemName = "(x7600) enhanced exercise bow", clientId = 35282, buy = 10 },
-	{ itemName = "5x prey wildcard", clientId = 5779, buy = 5 },
+	{ itemName = "(x7600) enhanced exercise sword", clientId = 35279, buy = 100 },
+	{ itemName = "(x7600) enhanced exercise wand", clientId = 35284, buy = 100 },
+	{ itemName = "(x7600) enhanced exercise bow", clientId = 35282, buy = 100 },
+	{ itemName = "5x prey wildcard", clientId = 5779, buy = 50 },
 	
 }
 -- On buy npc shop message
@@ -110,7 +110,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	if MsgContains(message, "information") then
 		npcHandler:say({"{Titanium Tokens} are pieces of currency. You can use them to buy advanced level (level 200) equipment from token traders like me.",
-						"You can gain titanium tokens from gaining levels. For each level gained from level 200 onward, you will earn 5 {titanium tokens}.", "You can also earn titanium tokens by completing tier 4 {hunting tasks}."}, npc, creature)
+						"You can gain titanium tokens from gaining levels. For each level gained in the range of 200 to 500, you will earn 5 {titanium tokens}.", "You can also earn titanium tokens by completing tier 4 {hunting tasks}."}, npc, creature)
 	elseif MsgContains(message, "tokens") then
 		npc:openShopWindow(creature)
 		npcHandler:say("If you have any titanium tokens with you, let's have a look! These are my offers.", npc, creature)

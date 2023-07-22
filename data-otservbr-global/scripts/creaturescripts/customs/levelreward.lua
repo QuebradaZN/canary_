@@ -40,7 +40,7 @@ function levelReward.onAdvance(player, skill, oldLevel, newLevel)
 	if newLevel >= 50 and newLevel < 100 then player:addItemStoreInbox(tokens.copper, 5 * levelsGained)
 		elseif newLevel >= 100 and newLevel < 150 then player:addItemStoreInbox(tokens.iron, 5 * levelsGained)
 		elseif newLevel >= 150 and newLevel < 200 then player:addItemStoreInbox(tokens.platinum, 5 * levelsGained)
-		elseif newLevel >= 200 then player:addItemStoreInbox(tokens.titanium, 5 * levelsGained) end
+		elseif newLevel >= 200 and newLevel < 500 then player:addItemStoreInbox(tokens.titanium, 5 * levelsGained) end
 
 		for level, _ in pairs(table) do
 			if newLevel >= level then
