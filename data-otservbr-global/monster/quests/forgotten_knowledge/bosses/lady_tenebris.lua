@@ -82,7 +82,7 @@ monster.loot = {
 	{id = 9057, chance = 10000, maxCount = 10}, -- small topaz
 	{id = 238, chance = 10000, maxCount = 100}, -- great mana potion
 	{id = 7642, chance = 10000, maxCount = 100}, -- great spirit potion
-	{id = 20062, chance = 2000, maxCount = 2}, -- cluster of solace
+	{id = 20062, chance = 12000, maxCount = 2}, -- cluster of solace
 	{id = 16119, chance = 2000, maxCount = 3}, -- blue crystal shard
 	{id = 16121, chance = 5000, maxCount = 5}, -- green crystal shard
 	{id = 20062, chance = 2000, maxCount = 2}, -- cluster of solace

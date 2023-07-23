@@ -88,7 +88,7 @@ monster.loot = {
 	{name = "yellow gem", chance = 29460},
 	{name = "magic sulphur", chance = 18920},
 	{id = 7440, chance = 2000}, -- mastermind potion
-	{id = 20062, chance = 2000, maxCount = 2}, -- cluster of solace
+	{id = 20062, chance = 12000, maxCount = 2}, -- cluster of solace
 	{name = "hailstorm rod", chance = 3470},
 	{id = 3036, chance = 1000}, -- violet gem
 	{id = 3098, chance = 20000}, -- ring of healing

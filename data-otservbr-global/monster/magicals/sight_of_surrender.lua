@@ -102,7 +102,7 @@ monster.loot = {
 	{name = "green crystal splinter", chance = 30000, maxCount = 5},
 	{name = "brown crystal splinter", chance = 30410, maxCount = 5},
 	{name = "blue crystal splinter", chance = 40000, maxCount = 5},
-	{name = "cluster of solace", chance = 1800},
+	{name = "cluster of solace", chance = 11800},
 	{name = "sight of surrender's eye", chance = 100000},
 	{name = "broken visor", chance = 100000},
 	{id = 20208, chance = 460} -- string of mending

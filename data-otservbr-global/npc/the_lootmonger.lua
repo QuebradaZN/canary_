@@ -227,7 +227,7 @@ npcConfig.shop = {
 	{ itemName = "closed trap", clientId = 3481, sell = 75 },
 	{ itemName = "club ring", clientId = 3093, sell = 100 },
 	{ itemName = "club", clientId = 3270, sell = 1 },
-	{ itemName = "cluster of solace", clientId = 20062, sell = 4000 },
+	{ itemName = "cluster of solace", clientId = 20062, sell = 500 },
 	{ itemName = "coal", clientId = 12600, sell = 20 },
 	{ itemName = "coat", clientId = 3562, sell = 1 },
 	{ itemName = "cobra crest", clientId = 31678, sell = 650 },
