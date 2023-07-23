@@ -46008,7 +46008,7 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentfire" value="6"/>
-		<attribute key="duration" value="3600"/>
+		<attribute key="duration" value="7200"/>
 		<attribute key="transformdeequipto" value="31557"/>
 		<attribute key="decayTo" value="31621"/>
 		<attribute key="weight" value="90"/>
