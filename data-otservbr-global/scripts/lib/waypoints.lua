@@ -216,6 +216,18 @@ local waypoints = {
 			{ name = "Winter Courts", position = Position(32354, 31249, 3) },
 			{ name = "Summer Courts", position = Position(33672, 32229, 7) },
 		}
+	},
+
+	-- Deepling bosses
+	{
+		id = 29,
+		name = "Deepling Bosses",
+		requirements = { bosstiary = { name = "Jaul", kills = 1 } },
+		waypoints = {
+			{ name = "Jaul", position = Position(33558, 31284, 11) },
+			{ name = "Tanjis", position = Position(33646, 31263, 11) },
+			{ name = "Obujos", position = Position(33438, 31250, 11) },
+		},
 	}
 }
 
