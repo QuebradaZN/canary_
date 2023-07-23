@@ -27,10 +27,10 @@ local crystals = {
 }
 
 local crystalsChance = {
-	[27503] = 1, -- Large Crystal
-	[27505] = 5, -- Medium Crystal
-	[14831] = 5, -- Medium Crystal
-	[28705] = 7, -- Small Crystal
+	[27503] = 0, -- Large Crystal
+	[27505] = 0, -- Medium Crystal
+	[14831] = 0, -- Medium Crystal
+	[28705] = 0, -- Small Crystal
 }
 
 local function createCrystal(crystalId, player)
