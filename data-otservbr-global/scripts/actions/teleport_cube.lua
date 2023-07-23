@@ -34,6 +34,19 @@ function townsModal(player)
 		})
 		::continue::
 	end
+	local extraTowns = {
+		{
+			name = "Cormaya",
+			position = Position(33302, 31969, 7),
+		},
+		{
+			name = "Fibula",
+			position = Position(32177, 32437, 7),
+		}
+	}
+	for i, info in pairs(extraTowns) do
+		table.insert(towns, info)
+	end
 	table.sort(towns, function(a, b) return a.name < b.name end)
 
 	local window = ModalWindow {
