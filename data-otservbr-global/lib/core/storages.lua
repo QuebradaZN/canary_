@@ -2990,6 +2990,11 @@ Storage = {
 		},
 	},
 
+	Marapur = {
+		-- Timira
+		Timira = 100800
+	},
+
 	VipSystem = {
 		IsVip = 150001,
 		OnlineCoinsGain = 150002,
