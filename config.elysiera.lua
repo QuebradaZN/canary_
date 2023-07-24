@@ -199,9 +199,9 @@ maxAllowedOnADummy = 12
 -- NOTE: toggleSaveIntervalCleanMap: true = enable the clean map, false = disable the clean map
 -- NOTE: saveIntervalTime: time based on what was set in "saveIntervalType"
 toggleSaveInterval = true
-saveIntervalType = "hour"
+saveIntervalType = "minute"
 toggleSaveIntervalCleanMap = false
-saveIntervalTime = 1
+saveIntervalTime = 5
 
 -- Imbuement
 toggleImbuementShrineStorage = false
