@@ -67,14 +67,14 @@ monster.voices = {
 
 monster.loot = {
 	{name = "platinum coin", chance = 10000, maxCount = 5},
-	{name = "ivory comb", chance = 83330},
-	{name = "skull coin", chance = 66666},
-	{name = "moonstone", chance = 33333, maxCount = 2},
-	{name = "diamond", chance = 8300},
-	{name = "machete", chance = 8300},
-	{name = "pair of nightmare boots", chance = 8300},
-	{name = "skull staff", chance = 8300},
-	{name = "warrior's axe", chance = 8300},
+	{name = "ivory comb", chance = 1000},
+	{name = "skull coin", chance = 1000},
+	{name = "moonstone", chance = 1000, maxCount = 2},
+	{name = "diamond", chance = 100},
+	{name = "machete", chance = 400},
+	{name = "pair of nightmare boots", chance = 200},
+	{name = "skull staff", chance = 400},
+	{name = "warrior's axe", chance = 400},
 	{name = "death toll", chance = 150},
 	{name = "silver hand mirror", chance = 150},
 	{id= 3039, chance = 150, maxCount = 2} -- red gem
