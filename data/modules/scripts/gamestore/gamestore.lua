@@ -6061,25 +6061,26 @@ GameStore.Categories = {
 		state = GameStore.States.STATE_NONE,
 		offers = {
 			{
+				id = 66010,
 				icons = { "XP_Boost.png" },
 				name = "XP Boost",
 				price = 1000,
-				id = 65010,
 				description = "<i>Purchase a boost that increases the experience points your character gains from hunting by 50%!</i>\n\n{character}\n{info} lasts for 1 hour hunting time\n{info} paused if stamina falls under 14 hours\n{info} can be purchased up to 5 times between 2 server saves\n{info} cannot be purchased if an XP boost is already active",
 				type = GameStore.OfferTypes.OFFER_TYPE_EXPBOOST,
 				coinType = GameStore.CoinType.Online,
 			},
 			{
+				id = 66011,
 				icons = { "Prey_Bonus_Reroll.png" },
 				name = "Prey Wildcard",
 				price = 500,
-				id = GameStore.SubActions.PREY_WILDCARD,
 				count = 5,
 				description = "<i>Use Prey Wildcards to reroll the bonus of an active prey, to lock your active prey or to select a prey of your choice.</i>\n\n{character}\n{info} added directly to Prey dialog\n{info} maximum amount that can be owned by character: 50",
 				type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS,
 				coinType = GameStore.CoinType.Online
 			},
 			{
+				id = 66012,
 				icons = { "Prey_Bonus_Reroll.png" },
 				name = "Prey Wildcard",
 				price = 1000,
@@ -6089,6 +6090,7 @@ GameStore.Categories = {
 				coinType = GameStore.CoinType.Online
 			},
 			{
+				id = 66013,
 				name = "Waypoint Unlock",
 				price = 2500,
 				itemtype = 12540,
