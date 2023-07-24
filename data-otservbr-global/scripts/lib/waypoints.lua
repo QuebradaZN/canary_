@@ -222,6 +222,7 @@ local waypoints = {
 	{
 		id = 29,
 		name = "Deepling Bosses",
+		bundle = true,
 		requirements = { bosstiary = { name = "Jaul", kills = 1 } },
 		waypoints = {
 			{ name = "Jaul", position = Position(33558, 31284, 11) },
