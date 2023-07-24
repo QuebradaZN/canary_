@@ -938,7 +938,7 @@ npcConfig.shop = {
 	{ itemName = "rotten feather", clientId = 40527, sell = 120 },
 	{ itemName = "rotten heart", clientId = 31589, sell = 74000 },
 	{ itemName = "rotten piece of cloth", clientId = 10291, sell = 30 },
-	{ itemName = "royal almandine", clientId = 16126, sell = 39038 },
+	{ itemName = "royal almandine", clientId = 39038, sell = 460000 },
 	{ itemName = "royal axe", clientId = 7434, sell = 40000 },
 	{ itemName = "royal helmet", clientId = 3392, sell = 30000 },
 	{ itemName = "rubber cap", clientId = 21165, sell = 11000 },
