@@ -345,7 +345,7 @@ deSpawnRange = 2
 deSpawnRadius = 50
 minElementalResistance = -200
 maxElementalResistance = 30
-maxDamageReflection = 10
+maxDamageReflection = 0
 
 -- Stamina
 staminaSystem = true
