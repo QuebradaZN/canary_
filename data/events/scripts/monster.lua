@@ -125,7 +125,7 @@ function Monster:onDropLoot(corpse)
 		end
 
 		local preyActivators = {}
-		if ##participants > 0  and player then
+		if #participants > 0  and player then
 			local preyLootPercent = 0
 			for i = 1, #participants do
 				local participant = participants[i]
