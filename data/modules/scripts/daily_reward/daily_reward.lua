@@ -103,7 +103,7 @@ DailyReward = {
 			items = {
 				Concoction.Ids.WealthDuplex,
 				Concoction.Ids.BestiaryBetterment,
-				--  Concoction.Ids.CharmUpgrade,
+				 Concoction.Ids.CharmUpgrade,
 			},
 			freeAccount = 2,
 			premiumAccount = 2
@@ -114,8 +114,8 @@ DailyReward = {
 			items = { Concoction.Ids.EarthResilience, Concoction.Ids.EnergyResilience, Concoction.Ids.HolyResilience,
 				Concoction.Ids.DeathResilience, Concoction.Ids.PhysicalResilience, Concoction.Ids.FireResilience,
 				Concoction.Ids.IceResilience },
-			freeAccount = 3,
-			premiumAccount = 3
+			freeAccount = 2,
+			premiumAccount = 2
 		},
 		[3] = {
 			type = DAILY_REWARD_TYPE_PREY_REROLL,
@@ -129,8 +129,8 @@ DailyReward = {
 			items = { Concoction.Ids.EarthAmplification, Concoction.Ids.EnergyAmplification, Concoction.Ids.HolyAmplification,
 				Concoction.Ids.DeathAmplification, Concoction.Ids.PhysicalAmplification, Concoction.Ids.FireAmplification,
 				Concoction.Ids.IceAmplification },
-			freeAccount = 3,
-			premiumAccount = 3
+			freeAccount = 2,
+			premiumAccount = 2
 		},
 		[5] = {
 			type = DAILY_REWARD_TYPE_PREY_REROLL,
