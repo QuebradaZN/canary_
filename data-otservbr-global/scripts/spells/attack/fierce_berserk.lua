@@ -10,6 +10,7 @@ function onGetFormulaValues(player, skill, attack, factor)
 
 	local min = (level / 5) + (skill + 2 * attack) * 1.1
 	local max = (level / 5) + (skill + 2 * attack) * 3
+	Spdlog.info("Fierce Berserk: Level: " .. level .. " Skill: " .. skill .. " Attack: " .. attack .. " Factor: " .. factor .. " Min: " .. min .. " Max: " .. max)
 
 	return -min * 1.1, -max * 1.1 -- TODO : Use New Real Formula instead of an %
 end

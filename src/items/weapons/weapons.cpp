@@ -467,7 +467,7 @@ int32_t WeaponMelee::getElementDamage(const Player* player, const Creature*, con
 
 	int32_t maxValue = Weapons::getMaxWeaponDamage(level, attackSkill, attackValue, attackFactor, true);
 	int32_t base = level / 5;
-	int32_t minValue = base + std::max(maxValue - base, 0) * attackFactor / 3;
+	int32_t minValue = base + (base <= maxValue ? maxValue - base : 0) * attackFactor / 3.0f;
 
 	return -normal_random(minValue, static_cast<int32_t>(maxValue * player->getVocation()->meleeDamageMultiplier));
 }
@@ -486,7 +486,7 @@ int32_t WeaponMelee::getWeaponDamage(const Player* player, const Creature*, cons
 	int32_t maxValue = static_cast<int32_t>(Weapons::getMaxWeaponDamage(level, attackSkill, attackValue, attackFactor, true) * player->getVocation()->meleeDamageMultiplier);
 
 	int32_t base = level / 5;
-	int32_t minValue = base + std::max(maxValue - base, 0) * attackFactor / 3;
+	int32_t minValue = base + (base <= maxValue ? maxValue - base : 0) * attackFactor / 3.0f;
 
 	if (maxDamage) {
 		return -maxValue;
