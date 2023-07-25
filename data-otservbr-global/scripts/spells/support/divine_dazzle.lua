@@ -23,7 +23,6 @@ function canChain(creature, target)
 		if monster:getType():isRewardBoss() then
 			return -1
 		end
-		if monster ~= nil then return false end
 		if (not synergies(player).knight) and monster:isChallenged() then return false end
 
 		local type = monster:getType()
@@ -56,7 +55,7 @@ function onChain(creature, target)
 		duration = duration + (player:getWheelSpellAdditionalDuration("Divine Dazzle") * 1000)
 	end
 	if target and target:isMonster() then
-		local monster = creature:getMonster()
+		local monster = target:getMonster()
 		if synergies(player).knight then
 			local monsterHaste = createConditionObject(CONDITION_HASTE)
 			setConditionParam(monsterHaste, CONDITION_PARAM_TICKS, duration)
@@ -65,7 +64,7 @@ function onChain(creature, target)
 		end
 		if not monster:isChallenged() then
 			monster:changeTargetDistance(1, duration)
-			if synergies.druid then
+			if synergies(player).druid then
 				doChallengeCreature(player, monster, 6000)
 			end
 		end

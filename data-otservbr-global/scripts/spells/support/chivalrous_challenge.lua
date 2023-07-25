@@ -6,13 +6,12 @@ function canChain(creature, target)
 		if monster:getType():isRewardBoss() then
 			return -false
 		end
-		if monster ~= nil then return false end
 
 		if monster:getType():getTargetDistance() > 1 then
 			return true
 		elseif not monster:isChallenged() then
 			return true
-		elseif monster:getTarget():getId() ~= player:getId() then
+		elseif monster:getTarget():getId() ~= creature:getId() then
 			return true
 		end
 	end
@@ -44,14 +43,13 @@ function onChain(creature, target)
 	if hasSynergy then
 		challengeDuration = challengeDuration + 2000
 	end
-	doChallengeCreature(player, closestMonster, 6000)
 
 	local player = creature:getPlayer()
 	if creature and player then
 		duration = duration + (player:getWheelSpellAdditionalDuration("Chivalrous Challenge") * 1000)
 	end
 	if target and target:isMonster() then
-		doChallengeCreature(player, target:getMonster(), 12000, challengeDuration)
+		doChallengeCreature(player, target, challengeDuration)
 		target:changeTargetDistance(1, duration)
 	end
 	return true
