@@ -72,12 +72,6 @@
 	<npc centerx="32929" centery="32078" centerz="7" radius="1">
 		<npc name="Battlemart" x="0" y="0" z="7" spawntime="60" />
 	</npc>
-	<npc centerx="32341" centery="32218" centerz="7" radius="1">
-		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" direction="2" />
-	</npc>
-	<npc centerx="32350" centery="32230" centerz="7" radius="1">
-		<npc name="Battlemart" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</npc>
 	<npc centerx="32194" centery="32305" centerz="7" radius="1">
 		<npc name="The Lootmonger" x="0" y="0" z="7" spawntime="60" direction="1" />
 	</npc>
@@ -126,60 +120,39 @@
 	<npc centerx="33225" centery="32460" centerz="8" radius="1">
 		<npc name="Battlemart" x="0" y="0" z="8" spawntime="60" direction="3" />
 	</npc>
-	<npc centerx="32364" centery="32227" centerz="7" radius="1">
-		<npc name="Copper Quartermaster" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</npc>
-	<npc centerx="32373" centery="32227" centerz="7" radius="1">
-		<npc name="Iron Quartermaster" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</npc>
-	<npc centerx="32364" centery="32221" centerz="7" radius="1">
-		<npc name="Platinum Quartermaster" x="0" y="0" z="7" spawntime="60" direction="1" />
-	</npc>
-	
-	<!-- gnomeprona blockade -->
-	<npc centerx="33517" centery="32863" centerz="14" radius="1">
-		<npc name="Elysieran Sentry" x="0" y="0" z="7" spawntime="60" direction="0" />
-	</npc>
-	<npc centerx="33516" centery="32863" centerz="14" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="0" />
-	</npc>
-	
-	<!-- poi blockade -->
-	<npc centerx="32830" centery="32333" centerz="11" radius="1">
-		<npc name="Elysieran Sentry" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</npc>
-	<npc centerx="32830" centery="32334" centerz="11" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
+	<npc centerx="32830" centery="32331" centerz="11" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="11" spawntime="60" direction="3" />
+		<npc name="Elysieran Soldier" x="0" y="1" z="11" spawntime="60" direction="3" />
 	</npc>
 	<npc centerx="32830" centery="32332" centerz="11" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
+		<npc name="Elysieran Sentry" x="0" y="1" z="11" spawntime="60" direction="3" />
 	</npc>
-	<npc centerx="32830" centery="32331" centerz="11" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
+	<npc centerx="32830" centery="32333" centerz="11" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="1" z="11" spawntime="60" direction="3" />
 	</npc>
-	
-	<!-- inquisition blockade -->
-	<npc centerx="33192" centery="31689" centerz="14" radius="1">
-		<npc name="Elysieran Sentry" x="0" y="0" z="7" spawntime="60" direction="0" />
+	<npc centerx="32830" centery="32334" centerz="11" radius="1" />
+	<npc centerx="33213" centery="31670" centerz="13" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="13" spawntime="60" direction="3" />
+		<npc name="Elysieran Sentry" x="0" y="1" z="13" spawntime="60" direction="3" />
 	</npc>
+	<npc centerx="33213" centery="31671" centerz="13" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="1" z="13" spawntime="60" direction="3" />
+	</npc>
+	<npc centerx="33213" centery="31672" centerz="13" radius="1" />
 	<npc centerx="33191" centery="31689" centerz="14" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="0" />
+		<npc name="Elysieran Soldier" x="0" y="0" z="14" spawntime="60" />
+		<npc name="Elysieran Sentry" x="1" y="0" z="14" spawntime="60" />
+	</npc>
+	<npc centerx="33192" centery="31689" centerz="14" radius="1">
+		<npc name="Elysieran Soldier" x="1" y="0" z="14" spawntime="60" />
 	</npc>
 	<npc centerx="33193" centery="31689" centerz="14" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="0" />
+		<npc name="Elysieran Soldier" x="1" y="0" z="14" spawntime="60" />
 	</npc>
-	<npc centerx="33194" centery="31689" centerz="14" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="0" />
+	<npc centerx="33194" centery="31689" centerz="14" radius="1" />
+	<npc centerx="33516" centery="32863" centerz="14" radius="1">
+		<npc name="Elysieran Soldier" x="0" y="0" z="14" spawntime="60" />
+		<npc name="Elysieran Sentry" x="1" y="0" z="14" spawntime="60" />
 	</npc>
-
-	<!-- annihilator blockade -->
-	<npc centerx="33213" centery="31671" centerz="13" radius="1">
-		<npc name="Elysieran Sentry" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</npc>
-	<npc centerx="33213" centery="31670" centerz="13" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</npc>
-	<npc centerx="33213" centery="31672" centerz="13" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="7" spawntime="60" direction="3" />
-	</npc>
+	<npc centerx="33517" centery="32863" centerz="14" radius="1" />
 </npcs>
