@@ -2959,6 +2959,8 @@ void Game::playerStopAutoWalk(uint32_t playerId) {
 	player->stopWalk();
 }
 
+const std::set<uint16_t> dummies = { 28558, 28565, 28559, 28560, 28561, 28562, 28563, 28564 };
+
 void Game::playerUseItemEx(uint32_t playerId, const Position &fromPos, uint8_t fromStackPos, uint16_t fromItemId, const Position &toPos, uint8_t toStackPos, uint16_t toItemId) {
 	Player* player = getPlayerByID(playerId);
 	if (!player) {
@@ -2982,7 +2984,7 @@ void Game::playerUseItemEx(uint32_t playerId, const Position &fromPos, uint8_t f
 		return;
 	}
 
-	if (g_configManager().getBoolean(ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
+	if (g_configManager().getBoolean(ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS) && !dummies.contains(toItemId)) {
 		if (HouseTile* houseTile = dynamic_cast<HouseTile*>(item->getTile())) {
 			House* house = houseTile->getHouse();
 			if (house && item->getRealParent() && item->getRealParent() != player && (!house->isInvited(player) || house->getHouseAccessLevel(player) == HOUSE_GUEST)) {
