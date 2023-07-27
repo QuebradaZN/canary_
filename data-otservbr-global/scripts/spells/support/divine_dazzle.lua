@@ -17,13 +17,16 @@ local function synergies(player)
 end
 
 function canChain(creature, target)
+	if not creature or not target then
+		return false
+	end
 	if target:isMonster() then
 		local player = creature:getPlayer()
 		local monster = target:getMonster()
 		if monster:getType():isRewardBoss() then
-			return -1
+			return false
 		end
-		if (not synergies(player).knight) and monster:isChallenged() then return false end
+		if synergies(player).knight and monster:isChallenged() then return false end
 
 		local type = monster:getType()
 		if type:getTargetDistance() > 1 or type:getRunHealth() > 0 or synergies(player).druid then
