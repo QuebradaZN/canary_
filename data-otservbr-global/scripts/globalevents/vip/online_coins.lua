@@ -8,12 +8,12 @@ local config = {
 	-- per hour | system will calculate how many coins will be given and when
 	-- put 0 in coinsPerHour.free to disable free from receiving coins
 	coinsPerHour = {
-		free = 1,
-		vip = 5,
+		free = 50,
+		vip = 100,
 	},
 
 	-- system will distribute when the player accumulate x coins
-	awardOn = 5,
+	awardOn = 50,
 }
 
 local onlineCoinsEvent = GlobalEvent("GainCoinInterval")
@@ -44,7 +44,7 @@ function onlineCoinsEvent.onThink(interval)
 			if coins >= config.awardOn then
 				local coinsMath = math.floor(coins)
 				player:addTibiaCoins(coinsMath, true)
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, string.format("Congratulations %s!\z You have received %d %s for being online.", player:getName(), coinsMath, "tibia coins"))
+				player:sendTextMessage(MESSAGE_STATUS_SMALL, string.format("Congratulations %s!\z You have received %d %s for being online.", player:getName(), coinsMath, "online points"))
 				player:setStorageValue(config.storage, (coins - coinsMath) * 10000000)
 			end
 		end
