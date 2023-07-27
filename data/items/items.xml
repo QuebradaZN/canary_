@@ -59181,7 +59181,7 @@
 		<attribute key="elementfire" value="46"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="32"/>
-		<attribute key="skillsword" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="6100"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="life leech" value="6"/>
@@ -59195,7 +59195,7 @@
 		<attribute key="elementfire" value="46"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="32"/>
-		<attribute key="skillsword" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="6000"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="life leech" value="6"/>
@@ -59209,7 +59209,7 @@
 		<attribute key="elementdeath" value="46"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="32"/>
-		<attribute key="skillclub" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="6900"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="life leech" value="6"/>
@@ -59223,7 +59223,7 @@
 		<attribute key="elementdeath" value="46"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="32"/>
-		<attribute key="skillclub" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="6800"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="life leech" value="6"/>
@@ -59237,7 +59237,7 @@
 		<attribute key="elementfire" value="46"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="32"/>
-		<attribute key="skillaxe" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="7200"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="life leech" value="6"/>
@@ -59251,7 +59251,7 @@
 		<attribute key="elementfire" value="46"/>
 		<attribute key="extradef" value="3"/>
 		<attribute key="defense" value="32"/>
-		<attribute key="skillaxe" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="7200"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="life leech" value="6"/>
@@ -59267,7 +59267,7 @@
 		<attribute key="criticalhitchance" value="10"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
-		<attribute key="skillsword" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="8100"/>
 		<attribute key="imbuementslot" value="3">
 			<attribute key="skillboost sword" value="5"/>
@@ -59281,7 +59281,7 @@
 		<attribute key="criticalhitchance" value="10"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
-		<attribute key="skillsword" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="7900"/>
 		<attribute key="imbuementslot" value="3">
 			<attribute key="skillboost sword" value="5"/>
@@ -59295,7 +59295,7 @@
 		<attribute key="criticalhitchance" value="10"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
-		<attribute key="skillclub" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="9300"/>
 		<attribute key="imbuementslot" value="3">
 			<attribute key="skillboost club" value="5"/>
@@ -59309,7 +59309,7 @@
 		<attribute key="criticalhitchance" value="10"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
-		<attribute key="skillclub" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="9100"/>
 		<attribute key="imbuementslot" value="3">
 			<attribute key="skillboost club" value="5"/>
@@ -59323,7 +59323,7 @@
 		<attribute key="criticalhitchance" value="10"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
-		<attribute key="skillaxe" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="8500"/>
 		<attribute key="imbuementslot" value="3">
 			<attribute key="skillboost axe" value="5"/>
@@ -59337,7 +59337,7 @@
 		<attribute key="criticalhitchance" value="10"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
-		<attribute key="skillaxe" value="5"/>
+		<attribute key="skillmelee" value="5"/>
 		<attribute key="weight" value="8300"/>
 		<attribute key="imbuementslot" value="3">
 			<attribute key="skillboost axe" value="5"/>
@@ -59346,9 +59346,9 @@
 	<item id="43876" article="a" name="sanguine legs">
 		<attribute key="absorbpercentphysical" value="9"/>
 		<attribute key="absorbpercentdeath" value="6"/>
-		<attribute key="skillaxe" value="4"/>
-		<attribute key="skillclub" value="4"/>
-		<attribute key="skillsword" value="4"/>
+		<attribute key="skillmelee" value="4"/>
+		<attribute key="skillmelee" value="4"/>
+		<attribute key="skillmelee" value="4"/>
 		<attribute key="armor" value="12"/>
 		<attribute key="weight" value="3800"/>
 	</item>
