@@ -349,6 +349,7 @@ local questTable = {
 	{storage = Storage.Quest.U13_10.CradleOfMonsters.Access.MutatedAbomination, storageValue = 1},
 	{storage = Storage.Quest.U8_54.TheNewFrontier.SnakeHeadTeleport, storageValue = 1},
 	{storage = Storage.LiquidBlackQuest.Visitor, storageValue = 5},
+	{storage = Storage.Quest.U8_4.BloodBrothers.VengothAccess, storageValue = 1},
 }
 
 local function playerFreeQuestStart(playerId, index)
