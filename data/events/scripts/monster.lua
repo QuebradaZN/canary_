@@ -71,35 +71,44 @@ function Monster:onDropLoot(corpse)
 		end
 
 		local wealthDuplex = Concoction.find(Concoction.Ids.WealthDuplex)
+		local wealthDuplexBonus = 0
+		local wealthActivators = 0
 		if wealthDuplex then
 			for i = 1, #participants do
 				local participant = participants[i]
 				if participant and wealthDuplex:active(player) then
-					modifier = modifier * wealthDuplex.config.multiplier
-					wealthDuplexMsg = true
-					break
+					wealthDuplexBonus = wealthDuplexBonus + wealthDuplex.config.multiplier
+					wealthActivators = wealthActivators + 1
 				end
 			end
 		else
 			Spdlog.warn("[Monster:onDropLoot] - Could not find WealthDuplex concoction.")
 		end
+		if wealthActivators > 0 then
+			wealthDuplexBonus = wealthDuplexBonus / (wealthActivators ^ 0.8)
+			modifier = modifier * (1 + wealthDuplexBonus)
+		end
 
+		local vipActivators = 0
 		for i = 1, #participants do
 			local participant = participants[i]
 			if participant:isVip() then
 				local boost = configManager.getNumber(configKeys.VIP_BONUS_LOOT)
 				boost = ((boost > 100 and 100) or boost) / 100
 				vipBoost = vipBoost + boost
+				vipActivators	= vipActivators + 1
 			end
 		end
-		vipBoost = vipBoost / ((#participants) ^ 0.5)
-		modifier = modifier * (1 + vipBoost)
+		if vipActivators > 0 then
+			vipBoost = vipBoost / (vipActivators ^ 0.7)
+			modifier = modifier * (1 + vipBoost)
+		end
 
 		for i = 1, #participants do
 			local participant = participants[i]
 			luckBoost = luckBoost + participant:getLuckLootBoost()
 		end
-		luckBoost = luckBoost / ((#participants) ^ 0.5)
+		luckBoost = luckBoost / ((#participants) ^ 0.7)
 		modifier = modifier * (1 + luckBoost)
 
 		for i = 1, #monsterLoot do
@@ -178,30 +187,27 @@ function Monster:onDropLoot(corpse)
 			if self:getName():lower() == (Game.getBoostedCreature()):lower() then
 				text = ("Loot of %s: %s (boosted loot)"):format(mType:getNameDescription(), contentDescription)
 			elseif boostedMessage then
-				text = ("Loot of %s: %s (Boss bonus)"):format(mType:getNameDescription(), contentDescription)
+				text = ("Loot of %s: %s (boss bonus)"):format(mType:getNameDescription(), contentDescription)
 			else
 				text = ("Loot of %s: %s"):format(mType:getNameDescription(), contentDescription)
 			end
 			if preyLootPercent > 0 then
 				text = text .. " (active prey bonus for " .. table.concat(preyActivators, ", ") .. ")"
 			end
-			if (vipBoost > 0) then
-				text = text .. " (vip loot bonus " .. (vipBoost * 100) .. "%)"
-			end
 			if charmBonus then
 				text = text .. " (active charm bonus)"
 			end
 			if hazardMsg then
-				text = text .. " (Hazard system)"
+				text = text .. " (hazard system)"
 			end
-			if wealthDuplexMsg then
-				text = text .. " (active wealth duplex)"
+			if wealthDuplexBonus > 0  then
+				text = text .. (" (active wealth duplex: %d%%)"):format((wealthDuplexBonus - 1) * 100)
 			end
 			if luckBoost > 0 then
-				text = text .. (" (Luck bonus: %d%%)"):format(math.floor(luckBoost * 100 + 0.5))
+				text = text .. (" (luck bonus: %d%%)"):format(math.floor(luckBoost * 100 + 0.5))
 			end
 			if vipBoost > 0 then
-				text = text .. (" (VIP bonus: %d%%)"):format(math.floor(vipBoost * 100 + 0.5))
+				text = text .. (" (vip bonus: %d%%)"):format(math.floor(vipBoost * 100 + 0.5))
 			end
 
 			for _, member in ipairs(participants) do
