@@ -632,10 +632,10 @@ function Player:onGainSkillTries(skill, tries)
 	skillOrMagicRate = skillOrMagicRate + (skillOrMagicRate * (vipBoost / 100))
 
 	if self:activeVoucher('skills') then
-		rate = rate * 2
+		skillOrMagicRate = skillOrMagicRate * 2
 	end
 
-	return tries / 100 * (rate * 100)
+	return tries / 100 * (skillOrMagicRate * 100)
 end
 
 function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDamage, secondaryType)
