@@ -45,7 +45,6 @@ function Monster:onDropLoot(corpse)
 		local monsterLoot = mType:getLoot()
 		local charmBonus = false
 		local hazardMsg = false
-		local wealthDuplexMsg = false
 		if player and mType and mType:raceId() > 0 then
 			local charm = player:getCharmMonsterType(CHARM_GUT)
 			if charm and charm:raceId() == mType:raceId() then
@@ -125,8 +124,8 @@ function Monster:onDropLoot(corpse)
 			if self:hazard() and player then
 				local chanceTo = math.random(1, 100)
 				if chanceTo <= (2 * player:getHazardSystemPoints() * configManager.getNumber(configKeys.HAZARDSYSTEM_LOOT_BONUS_MULTIPLIER)) then
-					local podItem = corpse:createLootItem(monsterLoot[i], charmBonus, preyChanceBoost)
-					if podItem and #podItem > 0 then
+					local podItem = corpse:createLootItem(monsterLoot[i], charmBonus, modifier)
+					if podItem then
 						luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
 						hazardMsg = true
 					end
@@ -201,7 +200,7 @@ function Monster:onDropLoot(corpse)
 				text = text .. " (hazard system)"
 			end
 			if wealthDuplexBonus > 0  then
-				text = text .. (" (active wealth duplex: %d%%)"):format((wealthDuplexBonus - 1) * 100)
+				text = text .. (" (active wealth duplex: %d%%)"):format(math.floor(wealthDuplexBonus * 100 + 0.5))
 			end
 			if luckBoost > 0 then
 				text = text .. (" (luck bonus: %d%%)"):format(math.floor(luckBoost * 100 + 0.5))
