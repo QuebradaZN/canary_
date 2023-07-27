@@ -100,9 +100,10 @@ function Monster:onDropLoot(corpse)
 			luckBoost = luckBoost + participant:getLuckLootBoost()
 		end
 		luckBoost = luckBoost / ((#participants) ^ 0.5)
+		modifier = modifier * (1 + luckBoost)
 
 		for i = 1, #monsterLoot do
-			local item = corpse:createLootItem(monsterLoot[i], charmBonus, 1 + vipBoost + luckBoost)
+			local item = corpse:createLootItem(monsterLoot[i], charmBonus, modifier)
 			if item then
 				luckExp = luckExp + calculateLuckExp(monsterLoot[i].chance, mType:experience())
 			end
