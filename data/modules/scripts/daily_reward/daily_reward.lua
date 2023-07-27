@@ -114,8 +114,8 @@ DailyReward = {
 			items = { Concoction.Ids.EarthResilience, Concoction.Ids.EnergyResilience, Concoction.Ids.HolyResilience,
 				Concoction.Ids.DeathResilience, Concoction.Ids.PhysicalResilience, Concoction.Ids.FireResilience,
 				Concoction.Ids.IceResilience },
-			freeAccount = 2,
-			premiumAccount = 2
+			freeAccount = 1,
+			premiumAccount = 1
 		},
 		[3] = {
 			type = DAILY_REWARD_TYPE_PREY_REROLL,
@@ -129,8 +129,8 @@ DailyReward = {
 			items = { Concoction.Ids.EarthAmplification, Concoction.Ids.EnergyAmplification, Concoction.Ids.HolyAmplification,
 				Concoction.Ids.DeathAmplification, Concoction.Ids.PhysicalAmplification, Concoction.Ids.FireAmplification,
 				Concoction.Ids.IceAmplification },
-			freeAccount = 2,
-			premiumAccount = 2
+			freeAccount = 1,
+			premiumAccount = 1
 		},
 		[5] = {
 			type = DAILY_REWARD_TYPE_PREY_REROLL,
@@ -142,8 +142,8 @@ DailyReward = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
 			items = { Concoction.Ids.KooldownAid, Concoction.Ids.StaminaExtension },
-			freeAccount = 2,
-			premiumAccount = 2
+			freeAccount = 1,
+			premiumAccount = 1
 		},
 		[7] = {
 			type = DAILY_REWARD_TYPE_XP_BOOST,
