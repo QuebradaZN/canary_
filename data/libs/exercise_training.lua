@@ -1,6 +1,6 @@
 ExerciseSpeedMultipliers = {
 	Training = 1.0,
-	Basic = 1.10,
+	Basic = 1.00,
 	Enhanced = 1.20,
 	Masterful = 1.30
 }
