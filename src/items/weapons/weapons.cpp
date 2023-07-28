@@ -487,7 +487,6 @@ int32_t WeaponMelee::getWeaponDamage(const Player* player, const Creature*, cons
 
 	int32_t base = level / 5;
 	int32_t minValue = base + (base <= maxValue ? maxValue - base : 0) * attackFactor / 3.0f;
-	spdlog::info("maxValue: {}, minValue: {}, base: {}", maxValue, minValue, base);
 
 	if (maxDamage) {
 		return -maxValue;
