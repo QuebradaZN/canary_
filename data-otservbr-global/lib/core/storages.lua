@@ -3003,7 +3003,6 @@ Storage = {
 
 	Custom = {
 		LevelReward = 150000,
-		ReceivedInitialBoosts = 150003,
 	},
 
 	Voucher = {
