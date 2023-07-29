@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Feyrist (daytime)."
-	}
+}
 
 monster.health = 900
 monster.maxHealth = 900
 monster.race = "blood"
 monster.corpse = 25815
 monster.speed = 105
-monster.manaCost = 450
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -43,11 +43,6 @@ monster.strategiesTarget = {
 	health = 10,
 	damage = 10,
 	random = 10,
-}
-
-monster.respawnType = {
-	period = RESPAWNPERIOD_DAY,
-	underground = false
 }
 
 monster.flags = {
@@ -67,20 +62,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Are you posing a threat to this realm? I suppose so.", yell = false},
 	{text = "In vino veritas! Hahaha!", yell = false},
-	{text = "Wine, women and song!", yell = false}
+	{text = "Wine, women and song!", yell = false},
+	{text = "Are you posing a threat to this realm? I suppose so.", yell = false},
 }
 
 monster.loot = {
@@ -105,6 +100,14 @@ monster.loot = {
 	{name = "mandrake", chance = 50}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -360},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -60, maxDamage = -80, range = ?, effect = <>, target = ?}, --Earth Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -100, range = ?, effect = <>, target = ?}, --throws [[Leaf Star]]s
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -causes [[drunkenness]] for 5 seconds, maxDamage = -causes [[drunkenness]] for 5 seconds, range = ?, effect = <>, target = ?}, --Purple Notes Wave
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 80, maxDamage = 90},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -370},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -60, maxDamage = -115, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
@@ -115,6 +118,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 45,
 	armor = 45,
+	mitigation = 1.10,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 75, maxDamage = 90, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -127,8 +131,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 30},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {

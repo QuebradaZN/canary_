@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Zao Palace, Razzachai, and Zzaion."
-	}
+	Locations = "Zao Palace, Razachai, and Zzaion."
+}
 
 monster.health = 5000
 monster.maxHealth = 5000
@@ -59,20 +59,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Kazzzzzzuuum!", yell = false},
+	{text = "Zzzzzooom!", yell = false},
 	{text = "Fissziss!", yell = false},
-	{text = "Zzzzzooom!", yell = false}
+	{text = "Kazzzzzzuuum!", yell = false},
 }
 
 monster.loot = {
@@ -96,6 +96,13 @@ monster.loot = {
 	{name = "bamboo leaves", chance = 180}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350 },
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -605, range = ?, effect = <>, target = ?}, --invisible [[Flame Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -around self or target, maxDamage = -around self or target, range = ?, effect = <>, target = ?}, --[[Fire Bomb]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -on itself; it burns you (10 [[hp]]/17 turns for 170 damage total), maxDamage = -on itself; it burns you (10 [[hp]]/17 turns for 170 damage total), range = ?, effect = <>, target = ?}, --[[Soulfire|Ultimate Soulfire Spark Bomb]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -252},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -240, maxDamage = -480, length = 4, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
@@ -110,6 +117,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 25,
 	armor = 25,
+	mitigation = 1.35,
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_RED},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 270, maxDamage = 530, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
@@ -123,8 +131,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 80}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 80},
 }
 
 monster.immunities = {

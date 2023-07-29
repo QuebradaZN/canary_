@@ -13,6 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1070
+
 monster.health = 90
 monster.maxHealth = 90
 monster.race = "venom"
@@ -37,7 +39,7 @@ monster.flags = {
 	pushable = true,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
@@ -46,12 +48,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -70,6 +72,11 @@ monster.loot = {
 	{id = 3448, chance = 14500, maxCount = 8} -- poison arrow
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -20?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -4?, maxDamage = -8?, range = ?, effect = <>, target = ?}, --earth missile
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 10, attack = 16, condition = {type = CONDITION_POISON, totalDamage = 8, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 9, type = COMBAT_EARTHDAMAGE, minDamage = -4, maxDamage = -8, range = 7, shootEffect = CONST_ANI_POISONARROW, target = false}
@@ -77,7 +84,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 2,
-	armor = 1,
+	armor = 3,
+	mitigation = 0.25,
 	{name ="speed", interval = 2000, chance = 11, speedChange = 238, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
@@ -90,8 +98,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

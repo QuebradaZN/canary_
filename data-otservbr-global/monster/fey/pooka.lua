@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Feyrist (daytime)."
-	}
+}
 
 monster.health = 500
 monster.maxHealth = 500
 monster.race = "blood"
 monster.corpse = 25823
 monster.speed = 115
-monster.manaCost = 450
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -43,11 +43,6 @@ monster.strategiesTarget = {
 	health = 10,
 	damage = 10,
 	random = 10,
-}
-
-monster.respawnType = {
-	period = RESPAWNPERIOD_DAY,
-	underground = false
 }
 
 monster.flags = {
@@ -67,20 +62,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "This was the initial trick, but the second follows quick!", yell = false},
 	{text = "Hoppel-di-hopp!", yell = false},
 	{text = "Jinx!", yell = false},
-	{text = "This was the initial trick, but the second follows quick!", yell = false}
 }
 
 monster.loot = {
@@ -99,6 +94,13 @@ monster.loot = {
 	{name = "small enchanted ruby", chance = 3400, maxCount = 2}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -120},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -100, range = ?, effect = <>, target = ?}, --throws [[Small Stone]]s
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Star Wave
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 40, maxDamage = 60},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -50, range = 4, shootEffect = CONST_ANI_SMALLSTONE, effect = CONST_ME_STONES, target = true},
@@ -108,6 +110,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 38,
 	armor = 38,
+	mitigation = 0.99,
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 40, maxDamage = 60, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
@@ -120,8 +123,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

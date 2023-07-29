@@ -23,9 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Ghastly Dragon Lair, Corruption Hole, Razachai including the Inner Sanctum, \z
-		Zao Palace, Deeper Banuta, Chyllfroest."
-	}
+	Locations = "Ghastly Dragon Lair, Corruption Hole, Razachai including the Inner Sanctum, Zao Palace, Deeper Banuta single spawn, Chyllfroest."
+}
 
 monster.health = 7800
 monster.maxHealth = 7800
@@ -63,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 119,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "EMBRACE MY GIFTS!", yell = true},
-	{text = "I WILL FEAST ON YOUR SOUL!", yell = true}
+	{text = "I WILL FEAST ON YOUR SOUL!", yell = true},
 }
 
 monster.loot = {
@@ -108,6 +107,16 @@ monster.loot = {
 	{name = "jade hat", chance = 810}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -120, maxDamage = -250, range = ?, effect = <>, target = ?}, --Death Water Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -reduces speed by over 90%, maxDamage = -reduces speed by over 90%, range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -starting up from 46, maxDamage = -63 hp per turn, range = ?, effect = <>, target = ?}, --Envenom
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -80, maxDamage = -228, range = ?, effect = <>, target = ?}, --Life Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -110, maxDamage = -180?, range = ?, effect = <>, target = ?}, --Death Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -40-500; +20% each turn, 5-7 turns, maxDamage = -40-500; +20% each turn, 5-7 turns, range = ?, effect = <>, target = ?}, --Cursed
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -603},
 	{name ="ghastly dragon curse", interval = 2000, chance = 5, range = 5, target = false},
@@ -121,7 +130,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 35,
-	armor = 30
+	armor = 30,
+	mitigation = 1.24,
 }
 
 monster.elements = {
@@ -133,8 +143,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = -15},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -15},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

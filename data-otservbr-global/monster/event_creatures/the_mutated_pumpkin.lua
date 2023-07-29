@@ -13,6 +13,11 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 466,
+	bossRace = RARITY_NEMESIS,
+}
+
 monster.health = 500000
 monster.maxHealth = 500000
 monster.race = "undead"
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 5000,
 	chance = 8
-}
-
-monster.bosstiary = {
-	bossRaceId = 466,
-	bossRace = RARITY_NEMESIS
 }
 
 monster.strategiesTarget = {
@@ -52,14 +52,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 6,
+	color = 198,
 }
 
 monster.voices = {
@@ -73,7 +73,8 @@ monster.voices = {
 	{text = "Muahahahaha!", yell = false},
 	{text = "I've come to avenge all those mutilated pumpkins!", yell = false},
 	{text = "Wait until I get you!", yell = false},
-	{text = "Fear the spirit of Halloween!", yell = false}
+	{text = "Fear the spirit of Halloween!", yell = false},
+	{text = "You, my little mouse, are doomed.", yell = false},
 }
 
 monster.loot = {
@@ -91,6 +92,20 @@ monster.loot = {
 	{id = 2977, chance = 1000} -- pumpkinhead
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -288+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -8, maxDamage = -12, range = ?, effect = <>, target = ?}, --Mana Drain Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -makes you heavily [[Drunkenness|drunk]], maxDamage = -makes you heavily [[Drunkenness|drunk]], range = ?, effect = <>, target = ?}, --Giant Star Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -turns you into a [[pumpkin]], maxDamage = -turns you into a [[pumpkin]], range = ?, effect = <>, target = ?}, --Linear Terra Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -gives you [[haste]], maxDamage = -gives you [[haste]], range = ?, effect = <>, target = ?}, --Confetti Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -13, maxDamage = -15, range = ?, effect = <>, target = ?}, --Poison Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Music Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -125+, range = ?, effect = <>, target = ?}, --Mana Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Invisible
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown effect, maxDamage = -unknown effect, range = ?, effect = <>, target = ?}, --Taunt
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 2000, maxDamage = 2900},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 105, attack = 85},
 	{name ="combat", interval = 3000, chance = 18, type = COMBAT_MANADRAIN, minDamage = -100, maxDamage = -300, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
@@ -105,6 +120,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 60,
 	armor = 60,
+	mitigation = 1.00,
 	{name ="combat", interval = 4000, chance = 15, type = COMBAT_HEALING, minDamage = 2000, maxDamage = 2900, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -117,8 +133,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

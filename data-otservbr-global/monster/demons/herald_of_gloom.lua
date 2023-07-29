@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 3,
 	Occurrence = 3,
-	Locations = "Edron."
-	}
+	Locations = "Edron Hero Cave around the Lightbringers basin."
+}
 
 monster.health = 340
 monster.maxHealth = 340
@@ -62,26 +62,32 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "The powers of light are waning.", yell = true},
-	{text = "You will join us in eternal night!", yell = true},
-	{text = "The shadows will engulf the world.", yell = true}
+	{text = "The powers of light are waning.", yell = false},
+	{text = "You will join us in eternal night!", yell = false},
+	{text = "The shadows will engulf the world.", yell = false},
 }
 
 monster.loot = {
 	{name = "midnight shard", chance = 1886}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -40+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -130+, range = ?, effect = <>, target = ?}, --Death Hit
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -94?, range = ?, effect = <>, target = ?}, --Mana Drain Hit
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90},
 	{name ="speed", interval = 3000, chance = 10, speedChange = -600, range = 7, effect = CONST_ME_MAGIC_RED, target = true, duration = 30000},
@@ -90,7 +96,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 55,
-	armor = 50,
+	armor = 25,
+	mitigation = 1.32,
 	{name ="speed", interval = 1000, chance = 15, speedChange = 200, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000},
 	{name ="invisible", interval = 5000, chance = 20, effect = CONST_ME_MAGIC_RED},
 	{name ="outfit", interval = 1500, chance = 20, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "nightstalker"},
@@ -110,8 +117,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

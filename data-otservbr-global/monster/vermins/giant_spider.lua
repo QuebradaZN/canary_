@@ -24,16 +24,13 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Plains of Havoc, Point of no Return in Outlaw Camp, Ghostlands, Hellgate, \z
-		Mintwallin Secret Laboratory, Mad Mage Room deep below Ancient Temple, \z
-		Mount Sternum Undead Cave, Green Claw Swamp, Maze of Lost Souls, \z
-		Crusader Helmet Quest in the Dwarf Mines, Mushroom Gardens, \z
-		west drillworm cave, Edron Hero Cave, Edron Orc Cave, \z
-		on a hill near Drefia, on a hill north-west of Ankrahmun (inaccessible), \z
-		Forbidden Lands, Deeper Banuta, Malada, Ramoa, Arena and Zoo Quarter, \z
-		second floor up of Cemetery Quarter, beneath Fenrock, Vengoth Castle, \z
-		Vandura Mountain, in a cave in Robson Isle, Chyllfroest, Spider Caves, \z
-		Second floor of Krailos Spider Lair , Caverna Exanima."
-	}
+	Mintwallin Secret Laboratory, Mad Mage Room deep below Ancient Temple, Mount Sternum Undead Cave, \z
+	Green Claw Swamp, Maze of Lost Souls, Crusader Helmet Quest in the Dwarf Mines, Mushroom Gardens, \z
+	west Drillworm Caves, Edron Hero Cave, Edron Orc Cave, on a hill near Drefia, \z
+	on a hill north-west of Ankrahmun (inaccessible), Forbidden Lands, Deeper Banuta, Malada, Ramoa, \z
+	 Arena and Zoo Quarter, second floor up of Cemetery Quarter, beneath Fenrock, Vengoth Castle, \z
+	 Vandura Mountain, in a cave in Robson Isle, Chyllfroest, Spider Caves, second floor of Krailos Spider Lair, Caverna Exanima."
+}
 
 monster.health = 1300
 monster.maxHealth = 1300
@@ -70,12 +67,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -106,6 +103,12 @@ monster.loot = {
 	{name = "lightning headband", chance = 270}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -40, maxDamage = -70, range = ?, effect = <>, target = ?}, --Earth Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Poison Field on target
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, condition = {type = CONDITION_POISON, totalDamage = 160, interval = 4000}},
 	{name ="poisonfield", interval = 2000, chance = 10, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, target = true},
@@ -115,6 +118,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 30,
+	mitigation = 1.04,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 390, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
@@ -127,8 +131,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

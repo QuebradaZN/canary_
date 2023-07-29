@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Brachiodemon")
 local monster = {}
 
 monster.description = "a brachiodemon"
-monster.experience = 22880
+monster.experience = 15770
 monster.outfit = {
 	lookType = 1299,
 	lookHead = 0,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Demon",
 	race = BESTY_RACE_DEMON,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Claustrophobic Inferno."
-	}
+}
 
 monster.health = 25000
 monster.maxHealth = 25000
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Feel the heat!", yell = false},
 	{text = "Hand over your life.", yell = false},
-	{text = "I can give you a hand... or two.", yell = false}
+	{text = "I can give you a hand... or two.", yell = false},
 }
 
 monster.loot = {
@@ -114,7 +114,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 90,
-	armor = 105
+	armor = 100,
+	mitigation = 2.75,
 }
 
 monster.elements = {
@@ -126,8 +127,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -25},
-	{type = COMBAT_HOLYDAMAGE , percent = -35},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = -35},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {

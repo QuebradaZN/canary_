@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Branchy Crawler")
 local monster = {}
 
 monster.description = "a branchy crawler"
-monster.experience = 23400
+monster.experience = 17860
 monster.outfit = {
 	lookType = 1297,
 	lookHead = 0,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Plant",
 	race = BESTY_RACE_PLANT,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Rotten Wasteland."
-	}
+}
 
 monster.health = 27000
 monster.maxHealth = 27000
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Bones are just sticks. They break easily.", yell = false},
 	{text = "Decay!", yell = false},
-	{text = "I'll make you crawl, too!", yell = false}
+	{text = "I'll make you crawl, too!", yell = false},
 }
 
 monster.loot = {
@@ -96,6 +96,16 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -600},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -1200, range = ?, effect = <>, target = ?}, --Poison Bolt
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1100, maxDamage = -1200, range = ?, effect = <>, target = ?}, --Roots Ball on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1100, maxDamage = -1300, range = ?, effect = <>, target = ?}, --Holy Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -1200, range = ?, effect = <>, target = ?}, --Holy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Blood Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Roots you in place
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -900},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -450, maxDamage = -900, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYAREA, target = true},
@@ -108,7 +118,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 90,
-	armor = 105
+	armor = 100,
+	mitigation = 2.75,
 }
 
 monster.elements = {
@@ -120,8 +131,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 40},
-	{type = COMBAT_DEATHDAMAGE , percent = -15}
+	{type = COMBAT_HOLYDAMAGE, percent = 40},
+	{type = COMBAT_DEATHDAMAGE, percent = -15},
 }
 
 monster.immunities = {

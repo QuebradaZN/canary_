@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Unchained Fire")
 local monster = {}
 
-monster.description = "a unchained fire"
+monster.description = "an unchained fire"
 monster.experience = 0
 monster.outfit = {
 	lookType = 242,
@@ -47,12 +47,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 5,
-	color = 0
+	color = 206,
 }
 
 monster.voices = {
@@ -60,6 +60,12 @@ monster.voices = {
 	chance = 10,
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1031},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1127, maxDamage = -1178, range = ?, effect = <>, target = ?}, --Fire Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1363, maxDamage = -1363, range = ?, effect = <>, target = ?}, --Flame Beam
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1031},
 	{name ="firefield", interval = 2000, chance = 10, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, target = false},
@@ -71,7 +77,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 30,
-	armor = 30
+	armor = 30,
+	mitigation = 1.60,
 }
 
 monster.elements = {
@@ -83,8 +90,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

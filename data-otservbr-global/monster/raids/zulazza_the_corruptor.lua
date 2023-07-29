@@ -1,7 +1,7 @@
-local mType = Game.createMonsterType("Zulazza The Corruptor")
+local mType = Game.createMonsterType("Zulazza the Corruptor")
 local monster = {}
 
-monster.description = "Zulazza The Corruptor"
+monster.description = "Zulazza the Corruptor"
 monster.experience = 10000
 monster.outfit = {
 	lookType = 334,
@@ -11,6 +11,11 @@ monster.outfit = {
 	lookFeet = 0,
 	lookAddons = 0,
 	lookMount = 0
+}
+
+monster.bosstiary = {
+	bossRaceId = 628,
+	bossRace = RARITY_NEMESIS,
 }
 
 monster.health = 46500
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 2000,
 	chance = 10
-}
-
-monster.bosstiary = {
-	bossRaceId = 628,
-	bossRace = RARITY_NEMESIS
 }
 
 monster.strategiesTarget = {
@@ -52,23 +52,23 @@ monster.flags = {
 	runHealth = 1500,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "I'm Zulazza, and you won't forget me that fazzt.", yell = false},
+	{text = "Oh, HE will take revenge on zzizz azzault when you zztep in front of HIZZ fazze!", yell = false},
 	{text = "Zzaion is our last zztand! I will not leave wizzout a fight!", yell = false},
 	{text = "Behind zze Great Gate liezz your doom!", yell = false},
-	{text = "Oh, HE will take revenge on zzizz azzault when you zztep in front of HIZZ fazze!", yell = false}
 }
 
 monster.loot = {
@@ -97,6 +97,17 @@ monster.loot = {
 	{id = 3415, chance = 5500} -- guardian shield
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -2078+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -250, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Poison Bomb]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -900, range = ?, effect = <>, target = ?}, --Cursing Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -50, maxDamage = -250, range = ?, effect = <>, target = ?}, --Mana Drain Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -on target, maxDamage = -on target, range = ?, effect = <>, target = ?}, --[[Paralysis|Paralyze Bomb]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -poisons from 20 up to 40hp/turn, maxDamage = -poisons from 20 up to 40hp/turn, range = ?, effect = <>, target = ?}, --Poisoning Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -250, range = ?, effect = <>, target = ?}, --Groundshaker Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -225, maxDamage = -270, range = ?, effect = <>, target = ?}, --Frequent [[Self-Healing]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 200, attack = 200},
 	{name ="combat", interval = 2000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = -500, maxDamage = -800, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
@@ -108,6 +119,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 119,
 	armor = 96,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 2000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -120,8 +132,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = 30}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = 30},
 }
 
 monster.immunities = {

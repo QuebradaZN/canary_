@@ -23,11 +23,11 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Hero Cave, Ferumbras' Citadel, Goroma, Ghostlands (Warlock area; unreachable), \z
-		Liberty Bay (hidden underground passage; unreachable), Razzachai, deep in Pits of Inferno \z
-		(found in every throneroom except Verminor's), deep Formorgar Mines, Demon Forge, \z
-		Alchemist Quarter, Magician Quarter, Chyllfroest, Oramond Dungeon, Abandoned Sewers."
-	}
+	Locations = "Hero Cave, Ferumbras' Citadel, Goroma, Ghostlands Warlock area unreachable, \z
+	Liberty Bay hidden underground passage unreachable, Razachai, deep in Pits of Inferno (found in every throneroom except Verminor's), \z
+	deep Formorgar Mines, Demon Forge, Alchemist Quarter, Magician Quarter, Chyllfroest, Oramond Dungeon, \z
+	Abandoned Sewers, Hell Hub and Halls of Ascension."
+}
 
 monster.health = 8200
 monster.maxHealth = 8200
@@ -65,12 +65,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -84,10 +84,10 @@ monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Your soul will be mine!", yell = false},
-	{text = "MUHAHAHAHA!", yell = false},
-	{text = "CHAMEK ATH UTHUL ARAK!", yell = false},
-	{text = "I SMELL FEEEEAAAAAR!", yell = false},
-	{text = "Your resistance is futile!", yell = false}
+	{text = "CHAMEK ATH UTHUL ARAK!", yell = true},
+	{text = "I SMELL FEEEEAAAAAR!", yell = true},
+	{text = "Your resistance is futile!", yell = false},
+	{text = "MUHAHAHAHA!", yell = true},
 }
 
 monster.loot = {
@@ -127,6 +127,17 @@ monster.loot = {
 	{name = "great spirit potion", chance = 18510, maxCount = 3}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -250, range = ?, effect = <>, target = ?}, --Great Fireball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -480, range = ?, effect = <>, target = ?}, --Energy Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -210, maxDamage = -300, range = ?, effect = <>, target = ?}, --Close-range Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -30, maxDamage = -120, range = ?, effect = <>, target = ?}, --Mana Drain
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 80, maxDamage = 250},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Shoots Fire Field
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Distance Paralyze
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -520},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -120, range = 7, target = false},
@@ -139,7 +150,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 55,
-	armor = 55,
+	armor = 44,
+	mitigation = 1.74,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 180, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 320, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
@@ -153,8 +165,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = -12},
-	{type = COMBAT_HOLYDAMAGE , percent = -12},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = -12},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {

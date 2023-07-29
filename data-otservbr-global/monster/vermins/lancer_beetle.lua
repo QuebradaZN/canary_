@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zao Wailing Widow Cave, Muggy Plains (during raid), Razzachai, \z
 		Northern Zao Plantations, Northern Brimstone Bug Cave, Chyllfroest."
-	}
+}
 
 monster.health = 400
 monster.maxHealth = 400
@@ -60,18 +60,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Crump!", yell = true}
+	{text = "Crump!", yell = false},
 }
 
 monster.loot = {
@@ -84,6 +84,15 @@ monster.loot = {
 	{name = "beetle necklace", chance = 1123}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -117},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3 seconds, maxDamage = -3 seconds, range = ?, effect = <>, target = ?}, --Invisibility
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -damage rises up to 57, maxDamage = -damage rises up to 57, range = ?, effect = <>, target = ?}, --Curse Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -around itself, maxDamage = -around itself, range = ?, effect = <>, target = ?}, --Poison Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -0, maxDamage = -115, range = ?, effect = <>, target = ?}, --Life Drain Poison Beam
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -115},
 	{name ="poisonfield", interval = 2000, chance = 10, radius = 4, effect = CONST_ME_POISONAREA, target = false},
@@ -95,7 +104,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 35,
+	mitigation = 0.70,
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_GROUNDSHAKER}
 }
 
@@ -108,8 +118,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {

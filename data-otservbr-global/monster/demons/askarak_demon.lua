@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Demonwar Crypt (teleporter before vampire shield quest)."
-	}
+	Locations = "Demonwar Crypt teleporter before vampire shield quest."
+}
 
 monster.health = 1500
 monster.maxHealth = 1500
@@ -62,22 +62,22 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "DEATH TO THE SHABURAK!", yell = false},
-	{text = "GREEN WILL RULE!", yell = false},
-	{text = "ONLY WE ARE TRUE DEMONS!", yell = false},
-	{text = "RED IS MAD!", yell = false},
-	{text = "WE RULE!", yell = false}
+	{text = "DEATH TO THE SHABURAK!", yell = true},
+	{text = "GREEN WILL RULE!", yell = true},
+	{text = "ONLY WE ARE TRUE DEMONS!", yell = true},
+	{text = "RED IS MAD!", yell = true},
+	{text = "WE RULE!", yell = true},
 }
 
 monster.loot = {
@@ -97,6 +97,14 @@ monster.loot = {
 	{name = "springsprout rod", chance = 512}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -20, maxDamage = -140},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -25, maxDamage = -60, range = ?, effect = <>, target = ?}, --Poison Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -130, maxDamage = -170, range = ?, effect = <>, target = ?}, --Poison Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -75, maxDamage = -140, range = ?, effect = <>, target = ?}, --Poison Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyze
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -143},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -20, maxDamage = -60, range = 7, radius = 6, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = false},
@@ -107,7 +115,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 35,
+	mitigation = 1.04,
 }
 
 monster.elements = {
@@ -119,8 +128,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 60},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {

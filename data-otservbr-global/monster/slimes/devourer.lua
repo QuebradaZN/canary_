@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Rathleton Sewers, Lower Rathleton, Oramond/Western Plains, \z
 		Underground Glooth Factory, Jaccus Maxxen's Dungeon."
-	}
+}
 
 monster.health = 1900
 monster.maxHealth = 1900
@@ -63,12 +63,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 139,
 }
 
 monster.voices = {
@@ -76,7 +76,7 @@ monster.voices = {
 	chance = 10,
 	{text = "*gulp*", yell = false},
 	{text = "*Bruaarrr!*", yell = false},
-	{text = "*omnnommm nomm*", yell = false}
+	{text = "*omnnommm nomm*", yell = false},
 }
 
 monster.loot = {
@@ -102,6 +102,15 @@ monster.loot = {
 	{id = 3065, chance = 260} -- terra rod
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -260},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -150, range = ?, effect = <>, target = ?}, --Earth Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -150, range = ?, effect = <>, target = ?}, --Earth Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -200, range = ?, effect = <>, target = ?}, --Poison Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -slowed, maxDamage = -slowed, range = ?, effect = <>, target = ?}, --Poison Berserk
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 136+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 62, attack = 50, condition = {type = CONDITION_POISON, totalDamage = 360, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -40, maxDamage = -125, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_MAGIC_RED, target = true},
@@ -114,7 +123,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 15,
+	armor = 45,
+	mitigation = 1.46,
 	{name ="combat", interval = 2000, chance = 6, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
@@ -123,12 +133,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = -5},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

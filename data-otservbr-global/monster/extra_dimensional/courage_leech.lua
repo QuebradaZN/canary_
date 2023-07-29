@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Courage Leech")
 local monster = {}
 
 monster.description = "a courage leech"
-monster.experience = 23920
+monster.experience = 18900
 monster.outfit = {
 	lookType = 1315,
 	lookHead = 0,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Extra Dimensional",
 	race = BESTY_RACE_EXTRA_DIMENSIONAL,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
-	Locations = "Furious Crater."
-	}
+	Locations = "Furious Crater"
+}
 
 monster.health = 27000
 monster.maxHealth = 27000
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Hiss.", yell = false},
-	{text = "Zap! Zap!", yell = false}
+	{text = "Zap! Zap!", yell = false},
 }
 
 monster.loot = {
@@ -96,6 +96,14 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -700},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -1100, maxDamage = -1400, range = ?, effect = <>, target = ?}, --Spark Ball on itself
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -1100, maxDamage = -1300, range = ?, effect = <>, target = ?}, --Energy Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -900, maxDamage = -1000; chains through nearby characters, range = ?, effect = <>, target = ?}, --Energy Chain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -1100, maxDamage = -1300, range = ?, effect = <>, target = ?}, --Divine Missile
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1000},
 	{name ="combat", interval = 2000, chance = 17, type = COMBAT_ENERGYDAMAGE, minDamage = -700, maxDamage = -1100, radius = 4, shootEffect = CONST_ANI_ETHEREALSPEAR, effect = CONST_ME_ENERGYAREA, target = true},
@@ -106,7 +114,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 90,
-	armor = 100
+	armor = 100,
+	mitigation = 3.04,
 }
 
 monster.elements = {
@@ -118,8 +127,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = -25}
+	{type = COMBAT_HOLYDAMAGE, percent = 30},
+	{type = COMBAT_DEATHDAMAGE, percent = -25},
 }
 
 monster.immunities = {

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Warzone 1, Rathleton Sewers, unreachable location in Tiquanda Laboratory."
-	}
+}
 
 monster.health = 3400
 monster.maxHealth = 3400
@@ -60,20 +60,20 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Munch munch munch!", yell = false}
+	{text = "Munch munch munch!", yell = false},
 }
 
 monster.loot = {
@@ -101,6 +101,14 @@ monster.loot = {
 	{name = "mycological bow", chance = 140}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -330},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -350, range = ?, effect = <>, target = ?}, --[[Stalagmite]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Poison Bomb]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 225, maxDamage = 320+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -frequent, maxDamage = -frequent, range = ?, effect = <>, target = ?}, --[[Invisibility]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -330},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -180, maxDamage = -350, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_SMALLPLANTS, target = false},
@@ -115,6 +123,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 70,
+	mitigation = 2.02,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 225, maxDamage = 380, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_BLUE}
 }
@@ -128,8 +137,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE , percent = 5},
-	{type = COMBAT_DEATHDAMAGE , percent = 35}
+	{type = COMBAT_HOLYDAMAGE, percent = 5},
+	{type = COMBAT_DEATHDAMAGE, percent = 35},
 }
 
 monster.immunities = {

@@ -23,15 +23,15 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Feyrist."
-	}
+	Locations = "Feyrist"
+}
 
 monster.health = 900
 monster.maxHealth = 900
 monster.race = "blood"
 monster.corpse = 25807
 monster.speed = 114
-monster.manaCost = 450
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -62,21 +62,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Looking at a nymph can blind you. Be careful, mortal being!", yell = false},
-	{text = "Come here, sweetheart! I won't hurt you! *giggle*", yell = false},
 	{text = "Are you one of those evil nightmare creatures? Leave this realm alone!", yell = false},
-	{text = "I'm just protecting nature's beauty!", yell = false}
+	{text = "Come here, sweetheart! I won't hurt you! *giggle*", yell = false},
+	{text = "I'm just protecting nature's beauty!", yell = false},
 }
 
 monster.loot = {
@@ -99,6 +99,14 @@ monster.loot = {
 	{id = 237, chance = 1000} -- strong mana potion
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -180},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -85, maxDamage = -135, range = ?, effect = <>, target = ?}, --[[Heavy Magic Missile]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Hearts Effect|Hearts Strike]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 75, maxDamage = 105},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Green Notes Effect|unknown Green Notes Effect]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -205},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -85, maxDamage = -135, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
@@ -109,6 +117,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 60,
 	armor = 60,
+	mitigation = 1.26,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 75, maxDamage = 90, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -121,12 +130,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 40},
-	{type = COMBAT_DEATHDAMAGE , percent = 40}
+	{type = COMBAT_HOLYDAMAGE, percent = 40},
+	{type = COMBAT_DEATHDAMAGE, percent = 40},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

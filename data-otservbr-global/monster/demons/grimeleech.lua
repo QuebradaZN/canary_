@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "The Dungeons of The Ruthless Seven."
-	}
+	Locations = "Grounds of Damnation, Grounds of Deceit, Grounds of Despair, Grounds of Fire, Grounds of Plague, Halls of Ascension and Hell Hub."
+}
 
 monster.health = 9500
 monster.maxHealth = 9500
@@ -62,18 +62,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Death... Taste!", yell = true}
+	{text = "Death... Taste!", yell = false},
 }
 
 monster.loot = {
@@ -110,6 +110,16 @@ monster.loot = {
 	{name = "magic plate armor", chance = 60}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -450},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -550, maxDamage = -950, range = ?, effect = <>, target = ?}, --Green Lifedrain Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -350, maxDamage = -400, range = ?, effect = <>, target = ?}, --Death Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -50, maxDamage = -200, range = ?, effect = <>, target = ?}, --Throws [[Viper Star]]s
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Throws [[Glooth Spear]] bombs
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -250, range = ?, effect = <>, target = ?}, --Mana Drain Wave
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 200, maxDamage = 300},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 80},
 	{name ="melee", interval = 2000, chance = 2, skill = 153, attack = 100},
@@ -121,7 +131,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 30,
-	armor = 30,
+	armor = 65,
+	mitigation = 1.74,
 	{name ="combat", interval = 2000, chance = 16, type = COMBAT_HEALING, minDamage = 130, maxDamage = 205, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="effect", interval = 2000, chance = 9, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="effect", interval = 2000, chance = 10, target = false},
@@ -135,10 +146,10 @@ monster.elements = {
 	{type = COMBAT_FIREDAMAGE, percent = 20},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 60}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 60},
 }
 
 monster.immunities = {

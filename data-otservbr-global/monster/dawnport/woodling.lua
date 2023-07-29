@@ -13,6 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1068
+
 monster.health = 80
 monster.maxHealth = 80
 monster.race = "blood"
@@ -44,14 +46,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -70,6 +72,12 @@ monster.loot = {
 	{id = 3723, chance = 18200, maxCount = 4} -- white mushroom
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -15?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -8?, range = ?, effect = <>, target = ?}, --Distance Poison attack
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -reduces 4, maxDamage = -14 [[speed]] levels, range = ?, effect = <>, target = ?}, --Short water wave
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 10, attack = 14},
 	{name ="woodling paralyze", interval = 2000, chance = 10, target = false},
@@ -78,7 +86,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 2,
-	armor = 1
+	armor = 2,
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -90,8 +99,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Water Elemental Cave in Port Hope, Water Elemental Dungeon, Deeper Banuta, Malada, Ramoa, \z
 		Talahu, Folda (7 spawn on the 3rd floor), Water Elemental Cave in Outlaw Camp (only during the Down the \z
 		Drain Mini World Change), Krailos Steppe underwater cave."
-	}
+}
 
 monster.health = 550
 monster.maxHealth = 550
@@ -64,18 +64,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 3,
+	color = 143,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Splish splash", yell = false}
+	{text = "Splish splash", yell = false},
 }
 
 monster.loot = {
@@ -92,6 +92,15 @@ monster.loot = {
 	{name = "strong mana potion", chance = 10000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -165},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -125, maxDamage = -235, range = ?, effect = <>, target = ?}, --Water Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -88, maxDamage = -150, range = ?, effect = <>, target = ?}, --Icicle
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -up to 13 [[hitpoints]] per turn, maxDamage = -up to 13 [[hitpoints]] per turn, range = ?, effect = <>, target = ?}, --Poisoning Ball
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 25, maxDamage = 40 },
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyze
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -160, condition = {type = CONDITION_POISON, totalDamage = 60, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DROWNDAMAGE, minDamage = -125, maxDamage = -235, range = 7, radius = 2, effect = CONST_ME_LOSEENERGY, target = true},
@@ -103,6 +112,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 20,
 	armor = 37,
+	mitigation = 0.88,
 	{name ="combat", interval = 2000, chance = 5, type = COMBAT_HEALING, minDamage = 50, maxDamage = 80, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
@@ -116,8 +126,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {

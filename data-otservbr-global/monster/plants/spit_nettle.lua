@@ -25,13 +25,13 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Tiquanda, Trapwood, the outskirts of Chor and Forbidden Lands, Alchemist Quarter in Yalahar, \z
 		Tiquanda Laboratory."
-	}
+}
 
 monster.health = 150
 monster.maxHealth = 150
 monster.race = "venom"
 monster.corpse = 6062
-monster.speed = 0
+monster.speed = 39
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -60,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -81,6 +81,12 @@ monster.loot = {
 	{name = "nettle blossom", chance = 970}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -17, maxDamage = -37, range = ?, effect = <>, target = ?}, --Earth Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -up to 2 hp/turn, maxDamage = -up to 2 hp/turn, range = ?, effect = <>, target = ?}, --Poisoning Strike
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 8, maxDamage = 16 },
+--}
 monster.attacks = {
 	{name ="combat", interval = 1000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -15, maxDamage = -40, range = 7, shootEffect = CONST_ANI_POISON, target = true},
 	-- poison
@@ -90,6 +96,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 12,
+	mitigation = 0.86,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 8, maxDamage = 16, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -102,8 +109,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

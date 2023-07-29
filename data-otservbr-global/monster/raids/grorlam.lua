@@ -13,6 +13,11 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 205,
+	bossRace = RARITY_NEMESIS,
+}
+
 monster.health = 3000
 monster.maxHealth = 3000
 monster.race = "blood"
@@ -25,11 +30,6 @@ monster.changeTarget = {
 	chance = 3
 }
 
-monster.bosstiary = {
-	bossRaceId = 205,
-	bossRace = RARITY_NEMESIS
-}
-
 monster.strategiesTarget = {
 	nearest = 100,
 }
@@ -40,7 +40,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -51,12 +51,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -71,6 +71,12 @@ monster.loot = {
 	{id = 3283, chance = 2500} -- carlin sword
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -200+, range = ?, effect = <>, target = ?}, --Throws [[Stone (Medium)|boulder]]s
+--	{name ="healing", interval = 2000, chance = 20, minDamage = very often, maxDamage = very often},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 75, attack = 60},
 	{name ="combat", interval = 1000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -200, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = false}
@@ -79,6 +85,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 25,
 	armor = 15,
+	mitigation = 1.60,
 	{name ="combat", interval = 1000, chance = 25, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 1000, chance = 6, speedChange = 270, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
 }
@@ -92,8 +99,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -1},
 }
 
 monster.immunities = {

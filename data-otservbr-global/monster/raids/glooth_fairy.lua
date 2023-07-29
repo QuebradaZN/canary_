@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Glooth Fairy")
 local monster = {}
 
-monster.description = "a glooth fairy"
+monster.description = "Glooth Fairy"
 monster.experience = 19000
 monster.outfit = {
 	lookType = 600,
@@ -13,21 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 1058,
+	bossRace = RARITY_BANE,
+}
+
 monster.health = 59000
 monster.maxHealth = 59000
 monster.race = "blood"
 monster.corpse = 20992
 monster.speed = 300
-monster.manaCost = 490
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
 	chance = 80
-}
-
-monster.bosstiary = {
-	bossRaceId = 1058,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -43,7 +43,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -52,14 +52,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -90,6 +90,14 @@ monster.loot = {
 	{id = 21144, chance = 280} -- bowl of glooth soup
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1900},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -400, range = ?, effect = <>, target = ?}, --[[Blue Electricity Effect|Blue Energy Ultimate Explosion]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -paralyses you, maxDamage = -paralyses you, range = ?, effect = <>, target = ?}, --[[Poison Effect 2|Poison Ultimate Explosion]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 200, maxDamage = 250},
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 7500, maxDamage = 8000},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 210, attack = 260},
 	-- fire
@@ -105,6 +113,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 150,
 	armor = 165,
+--	mitigation = ???,
 	{name ="combat", interval = 1000, chance = 15, type = COMBAT_HEALING, minDamage = 500, maxDamage = 1000, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="combat", interval = 1000, chance = 25, type = COMBAT_HEALING, minDamage = 200, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 1000, chance = 10, speedChange = 1800, effect = CONST_ME_MAGIC_RED, target = false, duration = 3000}
@@ -112,15 +121,15 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 25},
-	{type = COMBAT_EARTHDAMAGE, percent = -10},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 5},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = -5},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 15},
+	{type = COMBAT_DEATHDAMAGE, percent = 30},
 }
 
 monster.immunities = {

@@ -18,11 +18,11 @@ monster.Bestiary = {
 	class = "Plant",
 	race = BESTY_RACE_PLANT,
 	toKill = 5000,
-	FirstUnlock = 50,
-	SecondUnlock = 500,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
-	Occurrence = 1,
+	Occurrence = 0,
 	Locations = "Monster Graveyard"
 }
 
@@ -32,7 +32,6 @@ monster.race = "blood"
 monster.corpse = 39307
 monster.speed = 190
 monster.manaCost = 0
-monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -60,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -88,6 +87,12 @@ monster.loot = {
 	{name = "Muck Rod", chance = 1310},
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -1012, maxDamage = -1049, range = ?, effect = <>, target = ?}, --Fire Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -654, maxDamage = -1030, range = ?, effect = <>, target = ?}, --Blast Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -766, maxDamage = -766, range = ?, effect = <>, target = ?}, --Earth Chain
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -400, effect = CONST_ME_CARNIPHILA},
 	{name ="combat", interval = 2500, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 1012, maxDamage = -1049, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = true},
@@ -98,6 +103,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 110,
 	armor = 76,
+	mitigation = 2.11,
 }
 
 monster.elements = {
@@ -109,8 +115,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

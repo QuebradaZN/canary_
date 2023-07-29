@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Rathleton Sewers, Underground Glooth Factory, Jaccus Maxxen's Dungeon."
-	}
+}
 
 monster.health = 2400
 monster.maxHealth = 2400
@@ -60,20 +60,20 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "*shglib*", yell = false}
+	{text = "*shglib*", yell = false},
 }
 
 monster.loot = {
@@ -97,6 +97,13 @@ monster.loot = {
 	{id = 21158, chance = 370} -- glooth spear
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -150+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -177+, range = ?, effect = <>, target = ?}, --Throws [[Glooth Spear|glooth spears]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -185, range = ?, effect = <>, target = ?}, --Distance Life Drain
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 82+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 60, attack = 50},
 	{name ="combat", interval = 2000, chance = 9, type = COMBAT_EARTHDAMAGE, minDamage = -100, maxDamage = -200, range = 7, radius = 4, shootEffect = CONST_ANI_GLOOTHSPEAR, effect = CONST_ME_HITBYPOISON, target = true},
@@ -106,7 +113,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 15,
+	armor = 42,
+	mitigation = 1.02,
 	{name ="combat", interval = 2000, chance = 9, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="glooth anemone summon", interval = 2000, chance = 14, target = false}
 }
@@ -116,12 +124,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = 10},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = -5},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 35}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 35},
 }
 
 monster.immunities = {

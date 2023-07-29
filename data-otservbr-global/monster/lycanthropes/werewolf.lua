@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Vengoth Castle, Vengoth Werewolf Cave, Grimvale, were-beasts cave south-west of Edron."
-	}
+}
 
 monster.health = 1955
 monster.maxHealth = 1955
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -78,7 +78,7 @@ monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "GRRR", yell = true},
-	{text = "GRROARR", yell = true}
+	{text = "GRROARR", yell = true},
 }
 
 monster.loot = {
@@ -103,6 +103,15 @@ monster.loot = {
 	{name = "werewolf fur", chance = 10650}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -0, maxDamage = -165+, range = ?, effect = <>, target = ?}, --Life Drain Berserk looks like musical notes
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Summon]]s 2 [[War Wolf|War Wolves]] at once , maxDamage = -[[Summon]]s 2 [[War Wolf|War Wolves]] at once , range = ?, effect = <>, target = ?}, --White Notes
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Turns you into a Werewolf, maxDamage = -Turns you into a Werewolf, range = ?, effect = <>, target = ?}, --Blue Notes
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 10, maxDamage = 125},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Haste]], maxDamage = -[[Haste]], range = ?, effect = <>, target = ?}, --Purple Notes
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350},
 	{name ="outfit", interval = 2000, chance = 1, radius = 1, effect = CONST_ME_SOUND_BLUE, target = true, duration = 2000, outfitMonster = "werewolf"},
@@ -115,6 +124,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 40,
 	armor = 36,
+	mitigation = 0.83,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 120, maxDamage = 225, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 400, range = 7, effect = CONST_ME_SOUND_PURPLE, target = false, duration = 5000}
 }
@@ -128,8 +138,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 55}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 55},
 }
 
 monster.immunities = {

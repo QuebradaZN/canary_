@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Shaburak Prince")
 local monster = {}
 
-monster.description = "a shaburak Prince"
+monster.description = "a shaburak prince"
 monster.experience = 1700
 monster.outfit = {
 	lookType = 418,
@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 2,
-	Locations = "Demonwar Crypt."
-	}
+	Locations = "Demonwar Crypt"
+}
 
 monster.health = 2600
 monster.maxHealth = 2600
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -76,8 +76,8 @@ monster.voices = {
 	{text = "GREEN IS MEAN!", yell = true},
 	{text = "WE RULE!", yell = true},
 	{text = "POWER TO THE SHABURAK!", yell = true},
-	{text = "DEATH TO THE ASKARAK!", yell = false},
-	{text = "ONLY WE ARE TRUE DEMONS!", yell = false}
+	{text = "DEATH TO THE ASKARAK!", yell = true},
+	{text = "ONLY WE ARE TRUE DEMONS!", yell = true},
 }
 
 monster.loot = {
@@ -98,6 +98,15 @@ monster.loot = {
 	{name = "demonic finger", chance = 178}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -320},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -40, maxDamage = -90, range = ?, effect = <>, target = ?}, --Fire Explosion around itself
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -200, range = ?, effect = <>, target = ?}, --Fire Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -250, range = ?, effect = <>, target = ?}, --Fire Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Paralysis|Paralyze]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 100, maxDamage = 150},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -319},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -40, maxDamage = -90, range = 7, radius = 6, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = false},
@@ -108,7 +117,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 30,
-	armor = 30,
+	armor = 45,
+	mitigation = 1.32,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -121,14 +131,14 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 70},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

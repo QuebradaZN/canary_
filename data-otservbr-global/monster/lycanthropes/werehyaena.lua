@@ -23,11 +23,11 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "This monster you can find in Hyaena Lairs."
-	}
+	Locations = "Darashia Wyrm Hills only during night, Hyaena Lairs."
+}
 
 monster.health = 2700
-monster.maxHealth = monster.health
+monster.maxHealth = 2700
 monster.race = "blood"
 monster.corpse = 33821
 monster.speed = 120
@@ -59,17 +59,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
-	interval = 0,
-	chance = 0
+	interval = 5000,
+	chance = 10,
+	{text = "Snarl!", yell = false},
 }
 
 monster.loot = {
@@ -92,6 +93,13 @@ monster.loot = {
     {name = "werehyaena trophy", chance = 190}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -225, maxDamage = -275, range = ?, effect = <>, target = ?}, --[[Death Damage|Death Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -330, maxDamage = -370, range = ?, effect = <>, target = ?}, --[[Physical Damage]] [[Sudden Death]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -250, range = ?, effect = <>, target = ?}, --[[Earth Damage|Poison Berserk]]
+--}
 monster.attacks = {
 	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2*1000, minDamage = 0, maxDamage = -300},
     {name = "combat", type = COMBAT_EARTHDAMAGE, interval = 2*1000, chance = 17, minDamage = -175, maxDamage = -255, radius = 3, effect = CONST_ME_HITBYPOISON},
@@ -102,7 +110,8 @@ monster.attacks = {
 monster.defenses = {
 	{name = "speed", chance = 15, interval = 2*1000, speed = 200, duration = 5*1000, effect = CONST_ME_MAGIC_BLUE},
 	defense = 0,
-	armor = 38
+	armor = 36,
+	mitigation = 0.88,
 }
 
 monster.elements = {
@@ -114,8 +123,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

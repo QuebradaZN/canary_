@@ -1,8 +1,8 @@
-local mType = Game.createMonsterType("Cloak Of Terror")
+local mType = Game.createMonsterType("Cloak of Terror")
 local monster = {}
 
 monster.description = "a cloak of terror"
-monster.experience = 24960
+monster.experience = 19700
 monster.outfit = {
 	lookType = 1295,
 	lookHead = 0,
@@ -18,19 +18,19 @@ monster.Bestiary = {
 	class = "Plant",
 	race = BESTY_RACE_PLANT,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Furious Crater."
-	}
+}
 
 monster.health = 28000
 monster.maxHealth = 28000
 monster.race = "undead"
 monster.corpse = 33801
-monster.speed = 125
+monster.speed = 250
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Power up!", yell = false},
 	{text = "Shocked to meet you.", yell = false},
-	{text = "You should be more positive!", yell = false}
+	{text = "You should be more positive!", yell = false},
 }
 
 monster.loot = {
@@ -95,6 +95,15 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -650},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1100, maxDamage = -1400, range = ?, effect = <>, target = ?}, --Spark Ball on itself
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1500, maxDamage = -1700, range = ?, effect = <>, target = ?}, --Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -destroys [[Magic Wall (Object)|Magic Walls]] and [[Wild Growth (Object)|Wild Growths]], maxDamage = -destroys [[Magic Wall (Object)|Magic Walls]] and [[Wild Growth (Object)|Wild Growths]], range = ?, effect = <>, target = ?}, --Energy Ball on itself
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -1300, range = ?, effect = <>, target = ?}, --Shoots [[Spectral Bolt|spectral bolts]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -900, maxDamage = -1100, range = ?, effect = <>, target = ?}, --Small Holy Ball
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800},
 	{name ="combat", interval = 4000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -800, maxDamage = -1300, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
@@ -105,7 +114,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 90,
-	armor = 107
+	armor = 107,
+	mitigation = 3.19,
 }
 
 monster.elements = {
@@ -117,8 +127,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 40},
-	{type = COMBAT_DEATHDAMAGE , percent = -20}
+	{type = COMBAT_HOLYDAMAGE, percent = 40},
+	{type = COMBAT_DEATHDAMAGE, percent = -20},
 }
 
 monster.immunities = {

@@ -13,6 +13,11 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 967,
+	bossRace = RARITY_NEMESIS,
+}
+
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "undead"
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 2000,
 	chance = 5
-}
-
-monster.bosstiary = {
-	bossRaceId = 967,
-	bossRace = RARITY_NEMESIS
 }
 
 monster.strategiesTarget = {
@@ -52,14 +52,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -67,7 +67,8 @@ monster.voices = {
 	chance = 10,
 	{text = "Srk.", yell = false},
 	{text = "Krss!", yell = false},
-	{text = "Chrrk! Krk!", yell = false}
+	{text = "Chrrk! Krk!", yell = false},
+	{text = "snirr!", yell = false},
 }
 
 monster.loot = {
@@ -89,6 +90,14 @@ monster.loot = {
 	{id = 3035, chance = 20000} -- platinum coin
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -75, maxDamage = -150?, range = ?, effect = <>, target = ?}, --throws [[Snowball]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -paralysis, maxDamage = -paralysis, range = ?, effect = <>, target = ?}, --Ice Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -35, maxDamage = -65?, range = ?, effect = <>, target = ?}, --Sparks Bomb On himself
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000 hp; once when in low health, maxDamage = -1000 hp; once when in low health, range = ?, effect = <>, target = ?}, --[[Self-Healing]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 140, attack = 40},
 	{name ="hirintror freeze", interval = 2000, chance = 15, target = false},
@@ -100,11 +109,12 @@ monster.attacks = {
 monster.defenses = {
 	defense = 26,
 	armor = 25,
+	mitigation = 1.18,
 	{name ="hirintror summon", interval = 2000, chance = 18, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 30},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -20},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
@@ -112,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

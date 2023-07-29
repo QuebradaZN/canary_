@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 3,
 	Locations = "Zao, north east of Dragonblaze Peaks during raid. There are up to 10 draptors per raid, \z
 		while 6 of them may also appear in mission 8 of Wrath of the Emperor Quest."
-	}
+}
 
 monster.health = 3000
 monster.maxHealth = 3000
@@ -61,22 +61,22 @@ monster.flags = {
 	runHealth = 350,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "EEHEEHEEHEEH", yell = false},
-	{text = "SCREEEEECH", yell = false},
-	{text = "GRRR", yell = false}
+	{text = "EEHEEHEEHEEH", yell = true},
+	{text = "SCREEEEECH", yell = true},
+	{text = "GRRR", yell = true},
 }
 
 monster.loot = {
@@ -88,6 +88,15 @@ monster.loot = {
 	{name = "draptor scales", chance = 6650}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -230},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -197, maxDamage = -300?, range = ?, effect = <>, target = ?}, --[[Energy Damage|Energy Hit]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -130, maxDamage = -210+, range = ?, effect = <>, target = ?}, --[[Berserk|Yellow Energy Berserk]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -98, maxDamage = -120?, range = ?, effect = <>, target = ?}, --Infrequent [[Fire Wave]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 200, maxDamage = 250},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -red music?, maxDamage = -red music?, range = ?, effect = <>, target = ?}, --[[Haste]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150},
 	{name ="combat", interval = 3000, chance = 30, type = COMBAT_ENERGYDAMAGE, minDamage = -130, maxDamage = -310, radius = 3, effect = CONST_ME_YELLOWENERGY, target = false},
@@ -97,22 +106,23 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 37,
-	armor = 23,
+	armor = 40,
+	mitigation = 0.91,
 	{name ="combat", interval = 1000, chance = 25, type = COMBAT_HEALING, minDamage = 57, maxDamage = 93, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 12, speedChange = 457, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = -20},
 	{type = COMBAT_ENERGYDAMAGE, percent = 100},
-	{type = COMBAT_EARTHDAMAGE, percent = -10},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = -20},
+	{type = COMBAT_FIREDAMAGE, percent = 50},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
