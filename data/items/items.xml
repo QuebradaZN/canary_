@@ -8487,7 +8487,7 @@
 		<attribute key="weight" value="999"/>
 	</item> -->
 	<item id="4061" article="an" name="inactive experience voucher">
-	 	<attribute key="description" value="You can use this to enable your double experience voucher. You can only have a maxium of 12 hours worth of skill vouchers accumulated at once. These do not stack!"/>
+	 	<attribute key="description" value="You can use this to enable your double experience voucher. You can only have a maxium of 4 hours worth of experience vouchers accumulated at once. These do not stack!"/>
 		<!-- 3 hours -->
 		<attribute key="duration" value="10800"/>
 		<attribute key="stopduration" value="1"/>
