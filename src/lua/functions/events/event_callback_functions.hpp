@@ -69,6 +69,7 @@ class EventCallbackFunctions : public LuaScriptInterface {
 		static int luaEventCallbackPlayerOnInventoryUpdate(lua_State* luaState);
 		// Monster
 		static int luaEventCallbackMonsterOnDropLoot(lua_State* luaState);
+		static int luaEventCallbackMonsterPostDropLoot(lua_State* luaState);
 		static int luaEventCallbackMonsterOnSpawn(lua_State* luaState);
 		// Npc
 		static int luaEventCallbackNpcOnSpawn(lua_State* luaState);

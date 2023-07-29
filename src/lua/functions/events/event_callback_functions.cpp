@@ -67,6 +67,7 @@ void EventCallbackFunctions::init(lua_State* luaState) {
 	registerMethod(luaState, "EventCallback", "playerOnCombat", EventCallbackFunctions::luaEventCallbackPlayerOnCombat);
 	registerMethod(luaState, "EventCallback", "playerOnInventoryUpdate", EventCallbackFunctions::luaEventCallbackPlayerOnInventoryUpdate);
 	registerMethod(luaState, "EventCallback", "monsterOnDropLoot", EventCallbackFunctions::luaEventCallbackMonsterOnDropLoot);
+	registerMethod(luaState, "EventCallback", "monsterPostDropLoot", EventCallbackFunctions::luaEventCallbackMonsterPostDropLoot);
 	registerMethod(luaState, "EventCallback", "monsterOnSpawn", EventCallbackFunctions::luaEventCallbackMonsterOnSpawn);
 	registerMethod(luaState, "EventCallback", "npcOnSpawn", EventCallbackFunctions::luaEventCallbackNpcOnSpawn);
 }
@@ -700,6 +701,23 @@ int EventCallbackFunctions::luaEventCallbackPlayerOnInventoryUpdate(lua_State* l
 
 // Monster
 int EventCallbackFunctions::luaEventCallbackMonsterOnDropLoot(lua_State* luaState) {
+	auto callback = getUserdata<EventCallback>(luaState, 1);
+	if (!callback) {
+		reportErrorFunc("EventCallback is nil");
+		return 1;
+	}
+
+	if (!callback->loadCallback()) {
+		reportErrorFunc("Cannot load callback");
+		return 1;
+	}
+
+	callback->setLoadedCallback(true);
+	pushBoolean(luaState, true);
+	return 1;
+}
+
+int EventCallbackFunctions::luaEventCallbackMonsterPostDropLoot(lua_State* luaState) {
 	auto callback = getUserdata<EventCallback>(luaState, 1);
 	if (!callback) {
 		reportErrorFunc("EventCallback is nil");

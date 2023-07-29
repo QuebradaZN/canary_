@@ -50,6 +50,7 @@ enum class EventCallback_t : int16_t {
 	PlayerOnInventoryUpdate,
 	// Monster
 	MonsterOnDropLoot,
+	MonsterPostDropLoot,
 	MonsterOnSpawn,
 	// Npc
 	NpcOnSpawn,

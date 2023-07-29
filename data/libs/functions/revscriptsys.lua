@@ -136,6 +136,7 @@ do
 			playerOnCombat = self.playerOnCombat,
 			playerOnInventoryUpdate = self.playerOnInventoryUpdate,
 			monsterOnDropLoot = self.monsterOnDropLoot,
+			monsterPostDropLoot = self.monsterPostDropLoot,
 			monsterOnSpawn = self.monsterOnSpawn,
 			npcOnSpawn = self.npcOnSpawn,
 		}

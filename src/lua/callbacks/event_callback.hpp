@@ -88,6 +88,7 @@ class EventCallback : public Script {
 		void playerOnInventoryUpdate(Player* player, Item* item, Slots_t slot, bool equip) const;
 
 		// Monster
+		void monsterPostDropLoot(Monster* monster, Container* corpse) const;
 		void monsterOnDropLoot(Monster* monster, Container* corpse) const;
 		void monsterOnSpawn(Monster* monster, const Position &position) const;
 
