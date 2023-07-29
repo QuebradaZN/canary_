@@ -168,7 +168,7 @@ function activate.onUse(player, item, fromPosition, target, toPosition, isHotkey
 		if item:getId() == conf.inactiveItem then
 			if player:getStorageValue(Storage.Voucher.LastActivation) + cooldown > os.time() then
 				local timeLeft = player:getStorageValue(Storage.Voucher.LastActivation) + cooldown - os.time()
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "You must wait " .. durationString(timeLeft) .. " before activating another voucher.")
+				player:sendTextMessage(MESSAGE_STATUS_SMALL, "You must wait " .. getTimeInWords(timeLeft) .. " before activating another voucher.")
 				return true
 			end
 
