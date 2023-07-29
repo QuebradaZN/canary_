@@ -59,6 +59,15 @@ function othersFireBug.onUse(player, item, fromPosition, target, toPosition, isH
 		addEvent(revertAshes, 5 * 60 * 1000) -- 5 minutes
 		createTeleport:setDestination(Position(32857, 32234, 11))
 		return true
+	elseif target.uid == 2273 then
+		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission2) == 1 and player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 15 then
+			player:setStorageValue(Storage.TheShatteredIsles.RaysMission2, 2)
+			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 16)
+			toPosition:sendMagicEffect(CONST_ME_HITBYFIRE)
+			return true
+		else
+			return false
+		end
 	elseif target.actionid == 50119 then
 		target:transform(7813)
 		return true
