@@ -27,8 +27,6 @@ monster.changeTarget = {
 	chance = 20
 }
 
-}
-
 monster.flags = {
 	summonable = false,
 	attackable = true,
