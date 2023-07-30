@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Drefia Grim Reaper Dungeons, deep in Drefia Wyrm Lair (after the Medusa Shield Quest), \z
 		Edron (Hero Cave), Yalahar (Cemetery Quarter), Oramond Dungeon, \z
 		  Abandoned Sewers and optionally in the Demon Oak Quest."
-	}
+}
 
 monster.health = 3900
 monster.maxHealth = 3900
@@ -63,12 +63,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -76,7 +76,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Death!", yell = false},
 	{text = "Come a little closer!", yell = false},
-	{text = "The end is near!", yell = false}
+	{text = "The end is near!", yell = false},
 }
 
 monster.loot = {
@@ -99,6 +99,16 @@ monster.loot = {
 	{name = "mystical hourglass", chance = 5300}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0-320 and with [[Blood Rage]] 0-815, maxDamage = -0-320 and with [[Blood Rage]] 0-815},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -225, maxDamage = -275, range = ?, effect = <>, target = ?}, --Blood Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -350, maxDamage = -720, range = ?, effect = <>, target = ?}, --Death Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -300, range = ?, effect = <>, target = ?}, --Explosion Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -165, range = ?, effect = <>, target = ?}, --Physical Sudden Death
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -boosts melee 255%, maxDamage = -boosts melee 255%, range = ?, effect = <>, target = ?}, --[[Blood Rage]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 130, maxDamage = 205 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -320},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -165, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false},
@@ -109,7 +119,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 35,
-	armor = 35,
+	armor = 30,
+	mitigation = 0.64,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 130, maxDamage = 205, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 450, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
@@ -123,8 +134,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 65},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 80}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 80},
 }
 
 monster.immunities = {

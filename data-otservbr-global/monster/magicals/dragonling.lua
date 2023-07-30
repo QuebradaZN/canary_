@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 1,
 	Locations = "Fury Dungeon and Goroma volcano (surface floor, inner volcano) only during the \z
 		Fire from the Earth Mini World Change."
-	}
+}
 
 monster.health = 2600
 monster.maxHealth = 2600
@@ -63,21 +63,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "FCHHHHH", yell = false},
-	{text = "SQUAWK!", yell = false},
-	{text = "FIYAH", yell = false},
-	{text = "FI?", yell = false}
+	{text = "FI?", yell = true},
+	{text = "FCHHHHH", yell = true},
+	{text = "SQUAWK!", yell = true},
+	{text = "FIYAH", yell = true},
 }
 
 monster.loot = {
@@ -89,6 +89,13 @@ monster.loot = {
 	{name = "blazing bone", chance = 12410}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -200?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -200+?, range = ?, effect = <>, target = ?}, --[[Fire Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -causes [[Paralysis]], maxDamage = -causes [[Paralysis]], range = ?, effect = <>, target = ?}, --Dizzy Hits
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 200?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -210},
 	{name ="dragonling wave", interval = 2000, chance = 10, minDamage = -120, maxDamage = -250, target = false},
@@ -99,21 +106,22 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25,
+	armor = 58,
+	mitigation = 1.46,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
 	{type = COMBAT_ENERGYDAMAGE, percent = 5},
-	{type = COMBAT_EARTHDAMAGE, percent = -20},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

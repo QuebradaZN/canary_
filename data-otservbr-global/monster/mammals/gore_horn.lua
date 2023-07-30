@@ -18,11 +18,11 @@ monster.Bestiary = {
 	class = "Mammal",
 	race = BESTY_RACE_MAMMAL,
 	toKill = 5000,
-	FirstUnlock = 50,
-	SecondUnlock = 500,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
-	Occurrence = 1,
+	Occurrence = 0,
 	Locations = "Sparkling Pools"
 }
 
@@ -32,7 +32,6 @@ monster.race = "blood"
 monster.corpse = 39283
 monster.speed = 191
 monster.manaCost = 0
-monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -60,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -86,6 +85,11 @@ monster.loot = {
 	{name = "Hammer of Wrath", chance = 1070},
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -314},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Can cause [[Rooted|rooted]] status
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -400},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -400, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, target = true}
@@ -95,6 +99,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 78,
 	armor = 78,
+	mitigation = 2.28,
 }
 
 monster.elements = {
@@ -106,12 +111,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

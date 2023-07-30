@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Dark Cathedral, Vandura (Cult Cave), Foreigner Quarter."
-	}
+}
 
 monster.health = 190
 monster.maxHealth = 190
@@ -61,20 +61,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "You are no match to us!", yell = false},
+	{text = "Your end has come!", yell = false},
 	{text = "This is where your path will end!", yell = false},
-	{text = "Your end has come!", yell = false}
 }
 
 monster.loot = {
@@ -94,6 +94,12 @@ monster.loot = {
 	{name = "safety pin", chance = 990}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -50, range = ?, effect = <>, target = ?}, --Life Drain
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -20, maxDamage = -50, range = 1, effect = CONST_ME_MAGIC_RED, target = false}
@@ -101,7 +107,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25,
+	armor = 22,
+	mitigation = 1.13,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 25, maxDamage = 49, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
 }
@@ -115,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 40}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 40},
 }
 
 monster.immunities = {

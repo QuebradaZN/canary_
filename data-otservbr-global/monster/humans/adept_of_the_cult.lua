@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Goroma, Liberty Bay's deeper cult dungeon, Formorgar Mines, Magician Quarter, Forbidden Temple."
-	}
+}
 
 monster.health = 430
 monster.maxHealth = 430
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -82,7 +82,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Feel the power of the cult!", yell = false},
 	{text = "Praise the voodoo!", yell = false},
-	{text = "Power to the cult!", yell = false}
+	{text = "Power to the cult!", yell = false},
 }
 
 monster.loot = {
@@ -104,6 +104,14 @@ monster.loot = {
 	{name = "broken key ring", chance = 120}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -90},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -70, maxDamage = -150, range = ?, effect = <>, target = ?}, --Distance Life Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -2 seconds, maxDamage = -2 seconds, range = ?, effect = <>, target = ?}, --Invisible
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -2 seconds, maxDamage = -2 seconds, range = ?, effect = <>, target = ?}, --Drunkenness
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 50 , maxDamage = 50 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90, condition = {type = CONDITION_POISON, totalDamage = 2, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -70, maxDamage = -150, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
@@ -112,7 +120,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 33,
+	mitigation = 1.13,
 	{name ="combat", interval = 3000, chance = 20, type = COMBAT_HEALING, minDamage = 45, maxDamage = 60, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_YELLOW_RINGS}
 }
@@ -126,8 +135,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 30},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {

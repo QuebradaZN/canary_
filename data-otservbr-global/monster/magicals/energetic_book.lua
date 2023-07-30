@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Secret Library."
-	}
+	Locations = "Secret Library (energy section)."
+}
 
 monster.health = 18500
 monster.maxHealth = 18500
@@ -59,17 +59,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "Flood the room with curious energy!", yell = false},
+	{text = "zup zup zup zuuuuup!", yell = false},
 }
 
 monster.loot = {
@@ -90,6 +92,13 @@ monster.loot = {
 	{name = "lightning legs", chance = 350}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -600, maxDamage = -750, range = ?, effect = <>, target = ?}, --Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -800, maxDamage = -1000, range = ?, effect = <>, target = ?}, --Energy Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -650, maxDamage = -800, range = ?, effect = <>, target = ?}, --Stars Beam
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
 	{name ="combat", interval = 2000, chance = 14, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -680, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
@@ -99,7 +108,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 82
+	armor = 82,
+	mitigation = 2.16,
 }
 
 monster.elements = {
@@ -111,12 +121,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

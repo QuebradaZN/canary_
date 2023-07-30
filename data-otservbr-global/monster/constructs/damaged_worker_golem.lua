@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Factory Quarter."
-	}
+}
 
 monster.health = 260
 monster.maxHealth = 260
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 3,
+	color = 35,
 }
 
 monster.voices = {
@@ -77,7 +77,7 @@ monster.voices = {
 	{text = "Rrrtttarrrttarrrtta", yell = false},
 	{text = "Danger will...chrrr! Danger!", yell = false},
 	{text = "Self-diagnosis failed.", yell = false},
-	{text = "Aw... chhhrrr orders.", yell = false}
+	{text = "Aw... chhhrrr orders.", yell = false},
 }
 
 monster.loot = {
@@ -89,6 +89,12 @@ monster.loot = {
 	{name = "gear crystal", chance = 200}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -45},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -45, range = ?, effect = <>, target = ?}, --Throws [[Small Stone]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 5, maxDamage = 11},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -45},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -45, range = 7, shootEffect = CONST_ANI_SMALLSTONE, target = false}
@@ -96,7 +102,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25,
+	armor = 16,
+	mitigation = 0.33,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 5, maxDamage = 11, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -109,8 +116,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

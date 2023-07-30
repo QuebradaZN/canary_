@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "In Hero Cave in Edron, it has many rooms with many kinds of monsters and different amounts of Heroes. \z
 		Also in Magician Quarter, accompanied by other monsters. Old Fortress."
-	}
+}
 
 monster.health = 1400
 monster.maxHealth = 1400
@@ -62,21 +62,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Let's have a fight!", yell = false},
-	{text = "Welcome to my battleground!", yell = false},
+	{text = "I will sing a tune at your grave.", yell = false},
 	{text = "Have you seen princess Lumelia?", yell = false},
-	{text = "I will sing a tune at your grave.", yell = false}
+	{text = "Welcome to my battleground!", yell = false},
 }
 
 monster.loot = {
@@ -108,6 +108,12 @@ monster.loot = {
 	{name = "scroll of heroic deeds", chance = 5000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -240},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -120, range = ?, effect = <>, target = ?}, --Shoots [[arrow]]s
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 200, maxDamage = 250},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -120, range = 7, shootEffect = CONST_ANI_ARROW, target = false}
@@ -115,7 +121,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 40,
+	armor = 35,
+	mitigation = 1.32,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -128,8 +135,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = -20}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = -20},
 }
 
 monster.immunities = {

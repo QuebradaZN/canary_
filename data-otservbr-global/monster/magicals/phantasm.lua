@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Phantasm")
 local monster = {}
 
-monster.description = "a phantasm"
+monster.description = "a Phantasm"
 monster.experience = 4400
 monster.outfit = {
 	lookType = 241,
@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Pits of Inferno, The Inquisition Quest, Deeper Banuta."
-	}
+}
 
 monster.health = 3950
 monster.maxHealth = 3950
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = false,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 3,
+	color = 203,
 }
 
 monster.summon = {
@@ -81,7 +81,7 @@ monster.voices = {
 	{text = "Weeheeheeheehee!", yell = false},
 	{text = "Its nothing but a dream.", yell = false},
 	{text = "Dream a little dream with me!", yell = false},
-	{text = "Give in.", yell = false}
+	{text = "Give in.", yell = false},
 }
 
 monster.loot = {
@@ -105,6 +105,16 @@ monster.loot = {
 	{name = "small topaz", chance = 12810, maxCount = 3}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -470},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -248, maxDamage = -510, range = ?, effect = <>, target = ?}, --[[Death Hit]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Drown Damage|Drowning Wave]] makes you drown
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Invisible]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Drunkenness]] Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -5, maxDamage = -80, range = ?, effect = <>, target = ?}, --[[Mana Drain]] Exori
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 228, maxDamage = 449},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -475},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -250, maxDamage = -610, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
@@ -115,7 +125,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 0,
-	armor = 0,
+	armor = 80,
+	mitigation = 1.10,
 	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 228, maxDamage = 449, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 10, speedChange = 500, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000},
 	{name ="invisible", interval = 2000, chance = 25, effect = CONST_ME_MAGIC_BLUE}
@@ -130,8 +141,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Old Beregar mines. In group with Furious Trolls almost all the time."
-	}
+}
 
 monster.health = 210
 monster.maxHealth = 210
@@ -57,21 +57,21 @@ monster.flags = {
 	runHealth = 30,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Attack!", yell = false},
-	{text = "Graaaaar!", yell = false}
+	{text = "Graaaaar!", yell = false},
 }
 
 monster.loot = {
@@ -81,6 +81,13 @@ monster.loot = {
 	{name = "frosty ear of a troll", chance = 5120}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -40},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -130, range = ?, effect = <>, target = ?}, --[[Throwing Star]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Invisibility
+--	{name ="healing", interval = 2000, chance = 20, minDamage = ?, maxDamage = ?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -35},
 	{name ="combat", interval = 2000, chance = 18, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -130, range = 6, shootEffect = CONST_ANI_THROWINGSTAR, target = true}
@@ -88,7 +95,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 9,
-	armor = 7,
+	armor = 12,
+	mitigation = 0.64,
 	{name ="invisible", interval = 2000, chance = 18, effect = CONST_ME_MAGIC_BLUE},
 	{name ="combat", interval = 2000, chance = 28, type = COMBAT_HEALING, minDamage = 17, maxDamage = 25, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
@@ -102,12 +110,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

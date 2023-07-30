@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Cursed Prospector")
 local monster = {}
 
-monster.description = "Cursed Prospector"
+monster.description = "a cursed prospector"
 monster.experience = 5250
 monster.outfit = {
 	lookType = 1268,
@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Barren Drift."
-	}
+}
 
 monster.health = 3900
 monster.maxHealth = 3900
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -87,6 +87,15 @@ monster.loot = {
 	{name = "shockwave amulet", chance = 500}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -400, range = ?, effect = <>, target = ?}, --[[Life Drain]] on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -400, range = ?, effect = <>, target = ?}, --[[Energy Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --[[Holy Damage|Holy Berserk]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -500; 1125 or 1687; depending on the distance from the center of the attack, maxDamage = -500; 1125 or 1687; depending on the distance from the center of the attack, range = ?, effect = <>, target = ?}, --[[Energy Damage|Energy Ball]] on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -500-600; also chains to multiple players if they are within ~4 sqm on its target whenever Prospector receives any [[Parry]]-like damage ;around 50% chance to trigger, maxDamage = -500-600; also chains to multiple players if they are within ~4 sqm on its target whenever Prospector receives any [[Parry]]-like damage ;around 50% chance to trigger, range = ?, effect = <>, target = ?}, --[[Holy Missile]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
 	{name ="combat", interval = 1700, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -550, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
@@ -98,7 +107,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 85
+	armor = 85,
+	mitigation = 2.40,
 }
 
 monster.elements = {
@@ -110,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

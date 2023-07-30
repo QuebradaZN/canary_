@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \z
 		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike."
-	}
+}
 
 monster.health = 250
 monster.maxHealth = 250
 monster.race = "blood"
 monster.corpse = 17445
 monster.speed = 95
-monster.manaCost = 0
+monster.manaCost = 490
 
 monster.changeTarget = {
 	interval = 5000,
@@ -63,19 +63,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Mehehe!", yell = false},
-	{text = "Beware! Me hexing you!", yell = false}
+	{text = "Beware! Me hexing you!", yell = false},
 }
 
 monster.loot = {
@@ -99,7 +99,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 10,
-	armor = 10
+	armor = 17,
+	mitigation = 0.62,
 }
 
 monster.elements = {
@@ -111,8 +112,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 15},
 }
 
 monster.immunities = {

@@ -21,10 +21,10 @@ monster.Bestiary = {
 	FirstUnlock = 100,
 	SecondUnlock = 1000,
 	CharmsPoints = 50,
-	Stars = 5,
+	Stars = 4,
 	Occurrence = 0,
-	Locations = "Court of Winter, Dream Labyrinth."
-	}
+	Locations = "Court of Summer, Dream Labyrinth."
+}
 
 monster.health = 5300
 monster.maxHealth = 5300
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Is this real life?", yell = false},
-	{text = "Weeeuuu weeeuuu!!!", yell = false}
+	{text = "Weeeuuu weeeuuu!!!", yell = false},
 }
 
 monster.loot = {
@@ -97,6 +97,13 @@ monster.loot = {
 	{name = "crystal crossbow", chance = 500}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -450},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -300, range = ?, effect = <>, target = ?}, --Fire Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -300, range = ?, effect = <>, target = ?}, --Fireball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100%, maxDamage = -100%, range = ?, effect = <>, target = ?}, --Reflects Fire Damage
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -210, maxDamage = -530},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -270, maxDamage = -710, length = 3, spread = 0, effect = CONST_ME_FIREAREA, target = false},
@@ -107,7 +114,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 70
+	armor = 76,
+	mitigation = 2.11,
 }
 
 monster.reflects = {
@@ -119,12 +127,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 40},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 100},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -25},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

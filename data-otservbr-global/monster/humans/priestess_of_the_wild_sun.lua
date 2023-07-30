@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Fafnar will burn you!", yell = false},
 	{text = "Fear the Wild Sun!", yell = false},
-	{text = "There is only one true sun!", yell = false}
+	{text = "There is only one true sun!", yell = false},
 }
 
 monster.loot = {
@@ -94,6 +94,15 @@ monster.loot = {
 	{name = "war axe", chance = 1777}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Fire Damage|Fire Cross]] on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Fire Damage|Fire X]] on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -400, range = ?, effect = <>, target = ?}, --[[Fire Damage|Fire Ring]] on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -400, range = ?, effect = <>, target = ?}, --[[Energy Damage|Energy Berserk]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -350, range = ?, effect = <>, target = ?}, --[[Energy Damage|Energy Wave]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350},
 	{name ="targetfirering", interval = 2000, chance = 8, minDamage = -300, maxDamage = -500, target = true},
@@ -104,7 +113,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 82,
-	armor = 82
+	armor = 82,
+	mitigation = 2.25,
 }
 
 monster.elements = {
@@ -116,12 +126,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -25},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
+	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Temple of Equilibrium (Zao) Hidden stairs, Fire Dragon Dojo, Corruption Hole, Razzachai."
-	}
+}
 
 monster.health = 3050
 monster.maxHealth = 3050
@@ -59,20 +59,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Grzzzzzzz!", yell = false},
+	{text = "Kzzzzzzz!", yell = false},
 	{text = "Garrrblarrrrzzzz!", yell = false},
-	{text = "Kzzzzzzz!", yell = false}
 }
 
 monster.loot = {
@@ -95,6 +95,14 @@ monster.loot = {
 	{name = "scale of corruption", chance = 2870}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -360},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -190, maxDamage = -340, range = ?, effect = <>, target = ?}, --[[Berserk|Poison Exori]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -180, range = ?, effect = <>, target = ?}, --[[Poison Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -poisons you starting at 12hp per turn, maxDamage = -poisons you starting at 12hp per turn, range = ?, effect = <>, target = ?}, --[[Poison Wave]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 100, maxDamage = 100},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -360},
 	-- poison
@@ -106,6 +114,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 45,
 	armor = 28,
+	mitigation = 0.94,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 75, maxDamage = 125, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
@@ -118,8 +127,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

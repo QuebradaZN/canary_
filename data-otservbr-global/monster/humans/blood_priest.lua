@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Drefia and Old Fortress."
-	}
+}
 
 monster.health = 820
 monster.maxHealth = 820
@@ -59,19 +59,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "The Blood God is thirsty!", yell = false},
-	{text = "Give your blood to the Dark God!", yell = false}
+	{text = "Give your blood to the Dark God!", yell = false},
 }
 
 monster.loot = {
@@ -96,6 +96,14 @@ monster.loot = {
 	{name = "pieces of magic chalk", chance = 7770}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -80?},
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -60, maxDamage = -100?, range = ?, effect = <>, target = ?}, --[[Sudden Death]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -80, maxDamage = -130?, range = ?, effect = <>, target = ?}, --[[Mana Drain]] Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -40, maxDamage = -60?, range = ?, effect = <>, target = ?}, --[[Life Drain]] Ball on self
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -80, condition = {type = CONDITION_POISON, totalDamage = 100, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -60, maxDamage = -100, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
@@ -107,7 +115,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 30,
-	armor = 30,
+	armor = 55,
+	mitigation = 1.18,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 80, maxDamage = 120, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -120,8 +129,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE , percent = -8},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = -8},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {

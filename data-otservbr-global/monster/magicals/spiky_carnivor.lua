@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Carnivora's Rocks."
-	}
+}
 
 monster.health = 2800
 monster.maxHealth = 2800
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 32,
 }
 
 monster.voices = {
@@ -96,6 +96,11 @@ monster.loot = {
 	{name = "doublet", chance = 250}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -? %, maxDamage = -? %, range = ?, effect = <>, target = ?}, --[[Damage Reflection]] of [[Physical Damage]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -400},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -230, maxDamage = -380, radius = 4, effect = CONST_ME_GROUNDSHAKER, target = false}
@@ -104,6 +109,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 20,
 	armor = 71,
+	mitigation = 1.94,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -120,8 +126,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -29,7 +29,7 @@ monster.Bestiary = {
 		Green Claw Swamp, north of the Venore Amazon Camp, Below Point of No Return in Outlaw Camp, Vandura Bonelord Cave, \z
 		Triangle Tower, Hidden cave north of Port Hope, Deeper Banuta, Dark Cathedral, Shadow Tomb, Ancient Ruins Tomb, \z
 		Tarpit Tomb, Mountain Tomb, Peninsula Tomb, Oasis Tomb and beneath Fenrock."
-	}
+}
 
 monster.health = 260
 monster.maxHealth = 260
@@ -67,12 +67,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -85,11 +85,11 @@ monster.summon = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Eye for eye!", yell = false},
-	{text = "Here's looking at you!", yell = false},
-	{text = "Let me take a look at you.", yell = false},
 	{text = "You've got the look!", yell = false},
-	{text = "I've got to look!", yell = false}
+	{text = "Let me take a look at you.", yell = false},
+	{text = "Eye for eye!", yell = false},
+	{text = "I've got to look!", yell = false},
+	{text = "Here's looking at you!", yell = false},
 }
 
 monster.loot = {
@@ -106,6 +106,16 @@ monster.loot = {
 	{name = "small flask of eyedrops", chance = 5060}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -28},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -25, maxDamage = -45, range = ?, effect = <>, target = ?}, --Fire Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -15, maxDamage = -45, range = ?, effect = <>, target = ?}, --Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -5, maxDamage = -45, range = ?, effect = <>, target = ?}, --Earth Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -30, maxDamage = -50, range = ?, effect = <>, target = ?}, --Death Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -35, maxDamage = -45, range = ?, effect = <>, target = ?}, --Life Drain Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -5, maxDamage = -25, range = ?, effect = <>, target = ?}, --Mana Drain Strike
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5},
 	{name ="combat", interval = 2000, chance = 5, type = COMBAT_ENERGYDAMAGE, minDamage = -15, maxDamage = -45, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
@@ -119,7 +129,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 5,
-	armor = 5
+	armor = 5,
+	mitigation = 0.51,
 }
 
 monster.elements = {
@@ -127,12 +138,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = -10},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

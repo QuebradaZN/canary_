@@ -21,10 +21,10 @@ monster.Bestiary = {
 	FirstUnlock = 100,
 	SecondUnlock = 1000,
 	CharmsPoints = 50,
-	Stars = 5,
+	Stars = 4,
 	Occurrence = 0,
 	Locations = "Vandura Mountain (single spawn), Talahu (Medusa Cave), Deeper Banuta, Medusa Tower."
-	}
+}
 
 monster.health = 4500
 monster.maxHealth = 4500
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,8 +75,8 @@ monster.voices = {
 	chance = 10,
 	{text = "You will make sssuch a fine ssstatue!", yell = false},
 	{text = "There isss no chhhanccce of essscape", yell = false},
+	{text = "Are you tired or why are you moving thhat ssslow <chuckle>", yell = false},
 	{text = "Jussst look at me!", yell = false},
-	{text = "Are you tired or why are you moving thhat ssslow <chuckle>", yell = false}
 }
 
 monster.loot = {
@@ -96,6 +96,15 @@ monster.loot = {
 	{name = "strand of medusa hair", chance = 9900}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -250},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -75, maxDamage = -150, range = ?, effect = <>, target = ?}, --1 to 5 [[Life Drain]] [[Terra Strike]]s simultaneously
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -250, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Terra Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Paralysis]], maxDamage = -[[Paralysis]], range = ?, effect = <>, target = ?}, --Great Smoke Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -300, range = ?, effect = <>, target = ?}, --Frequent [[Self-Healing]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -changes your appearance into a stone statue, maxDamage = -changes your appearance into a stone statue, range = ?, effect = <>, target = ?}, --Medusa's Gaze
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, condition = {type = CONDITION_POISON, totalDamage = 840, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -21, maxDamage = -350, range = 7, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_CARNIPHILA, target = true},
@@ -107,6 +116,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 45,
+	mitigation = 1.74,
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 150, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -119,8 +129,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

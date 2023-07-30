@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Yalahar Foreigner Quarter, Demona, Shadowthorn, northwest of Ab'Dendriel, Maze of Lost Souls, \z
 		Cyclopolis, Elvenbane, near Mount Sternum."
-	}
+}
 
 monster.health = 220
 monster.maxHealth = 220
@@ -60,22 +60,22 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Feel my wrath!", yell = false},
-	{text = "For the Daughter of the Stars!", yell = false},
 	{text = "I'll bring balance upon you!", yell = false},
-	{text = "Tha'shi Cenath", yell = false},
-	{text = "Vihil Ealuel", yell = false}
+	{text = "Vihil Ealuel!", yell = false},
+	{text = "For the Daughter of the Stars!", yell = false},
+	{text = "Tha'shi Cenath!", yell = false},
+	{text = "Feel my wrath!", yell = false},
 }
 
 monster.loot = {
@@ -102,6 +102,14 @@ monster.loot = {
 	{name = "elven astral observer", chance = 7710}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -35},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -15, maxDamage = -45, range = ?, effect = <>, target = ?}, --Shoots [[Arrow]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -30, maxDamage = -50, range = ?, effect = <>, target = ?}, --Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -80, range = ?, effect = <>, target = ?}, --Death Strike
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 42, maxDamage = 68},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -35},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -70, range = 7, shootEffect = CONST_ANI_ARROW, target = false},
@@ -112,6 +120,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 15,
 	armor = 15,
+	mitigation = 0.51,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 40, maxDamage = 60, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -124,8 +133,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Falcon Bastion."
-	}
+}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -59,18 +59,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Uuunngh!", yell = false}
+	{text = "Uuunngh!", yell = false},
 }
 
 monster.loot = {
@@ -93,6 +93,14 @@ monster.loot = {
 	{name = "mastermind shield", chance = 310}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -250},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -550, range = ?, effect = <>, target = ?}, --[[Royal Spear]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Bolt]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -350, maxDamage = -530, range = ?, effect = <>, target = ?}, --Energy Burst Power Bolt
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -350, range = ?, effect = <>, target = ?}, --Energy Beam
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
 	{name ="combat", interval = 2000, chance = 50, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -550, range = 5, shootEffect = CONST_ANI_ROYALSPEAR, target = true},
@@ -103,7 +111,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 50,
-	armor = 82
+	armor = 82,
+	mitigation = 2.31,
 }
 
 monster.elements = {
@@ -115,8 +124,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {

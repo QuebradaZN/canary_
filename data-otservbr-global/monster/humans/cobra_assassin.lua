@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Cobra Assassin")
 local monster = {}
 
 monster.description = "a cobra assassin"
-monster.experience = 8316
+monster.experience = 6980
 monster.outfit = {
 	lookType = 1217,
 	lookHead = 2,
@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Cobra Bastion."
-	}
+}
 
 monster.health = 8200
 monster.maxHealth = 8200
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -72,7 +72,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Hey, maybe you want to strike a deal... no?", yell = false},
 	{text = "Stand and deliver! Your money... AND your life actually!", yell = false},
-	{text = "You will not leave this place breathing!", yell = false}
+	{text = "You will not leave this place breathing!", yell = false},
 }
 
 monster.loot = {
@@ -88,6 +88,13 @@ monster.loot = {
 	{id = 23533, chance = 1690} -- ring of red plasma
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -510, range = ?, effect = <>, target = ?}, --[[Physical Damage|Groundshaker]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -360, range = ?, effect = <>, target = ?}, --[[Earth Damage|Earth Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Physical Damage|Beam]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
 	{name ="wave t", interval = 2000, chance = 10, minDamage = -300, maxDamage = -380, target = false},
@@ -97,7 +104,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 81,
-	armor = 81
+	armor = 81,
+	mitigation = 2.22,
 }
 
 monster.elements = {
@@ -109,8 +117,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

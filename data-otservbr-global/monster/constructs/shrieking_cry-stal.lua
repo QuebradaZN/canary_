@@ -18,12 +18,12 @@ monster.Bestiary = {
 	class = "Construct",
 	race = BESTY_RACE_CONSTRUCT,
 	toKill = 5000,
-	FirstUnlock = 50,
-	SecondUnlock = 500,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
-	Occurrence = 1,
-	Locations = "Crystal Enigma."
+	Occurrence = 0,
+	Locations = "Crystal Enigma"
 }
 
 monster.health = 20650
@@ -32,7 +32,6 @@ monster.race = "blood"
 monster.corpse = 39331
 monster.speed = 207
 monster.manaCost = 0
-monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -60,19 +59,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "La-la-la..AAAHHHH!!!", yell = false},
-	{text = "SCREEECH...", yell = false},
+	{text = "SCREEECH...", yell = true},
 }
 
 monster.loot = {
@@ -90,6 +89,12 @@ monster.loot = {
 	{name = "Ring of the Sky", chance = 210},
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[feared|Fears]] target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -749, maxDamage = -1356, range = ?, effect = <>, target = ?}, --Energy Chain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -1037, maxDamage = -1037, range = ?, effect = <>, target = ?}, --Shrieking Wave
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -801},
 	{name ="combat", interval = 1000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -800, length = 7, spread = 0, effect = CONST_ME_PINK_ENERGY_SPARK, target = false},
@@ -98,7 +103,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 110,
-	armor = 120,
+	armor = 95,
+	mitigation = 2.45,
 }
 
 monster.elements = {
@@ -110,8 +116,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

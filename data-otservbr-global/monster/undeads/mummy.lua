@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Drefia, Darama's Dark Pyramid, Draconia, Mount Sternum Undead Cave, Green Claw Swamp, \z
 		Venore Amazon Camp underground, Helheim, Upper Spike, all Tombs, Dark Cathedral, Lion's Rock."
-	}
+}
 
 monster.health = 240
 monster.maxHealth = 240
@@ -60,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -76,7 +76,7 @@ monster.voices = {
 	{text = "Flesssh to dussst!", yell = false},
 	{text = "I will tassste life again!", yell = false},
 	{text = "Ahkahra exura belil mort!", yell = false},
-	{text = "Yohag Sssetham!", yell = false}
+	{text = "Yohag Sssetham!", yell = false},
 }
 
 monster.loot = {
@@ -96,6 +96,12 @@ monster.loot = {
 	{name = "flask of embalming fluid", chance = 11690}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -85},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -38, maxDamage = -85, range = ?, effect = <>, target = ?}, --Death Hit
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -160, maxDamage = -240 speed points for 10 seconds, range = ?, effect = <>, target = ?}, --Ranged Paralysis
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -85, condition = {type = CONDITION_POISON, totalDamage = 4, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -30, maxDamage = -40, range = 1, effect = CONST_ME_SMALLCLOUDS, target = true},
@@ -104,7 +110,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 14,
+	mitigation = 0.59,
 }
 
 monster.elements = {
@@ -116,8 +123,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

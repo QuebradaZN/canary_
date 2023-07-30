@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Mount Sternum Undead Cave, Dwarf Mines, Circle Room in Kazordoon, Triangle Tower, \z
 		Tiquanda Dwarf Cave, Cormaya Dwarven Cave, Beregar Mines."
-	}
+}
 
 monster.health = 380
 monster.maxHealth = 380
@@ -59,13 +59,13 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -73,7 +73,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Hail Durin!", yell = false},
 	{text = "Earth is the strongest element.", yell = false},
-	{text = "Dust to dust.", yell = false}
+	{text = "Dust to dust.", yell = false},
 }
 
 monster.loot = {
@@ -92,6 +92,13 @@ monster.loot = {
 	{name = "geomancer's staff", chance = 7000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -25, maxDamage = -80, range = ?, effect = <>, target = ?}, --[[Mana Drain]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -50, maxDamage = -110, range = ?, effect = <>, target = ?}, --[[Stalagmite]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--}
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -50, maxDamage = -110, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_GREEN_RINGS, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -50, maxDamage = -80, range = 7, target = false}
@@ -100,6 +107,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 15,
 	armor = 15,
+	mitigation = 0.91,
 	{name ="combat", interval = 2000, chance = 40, type = COMBAT_HEALING, minDamage = 75, maxDamage = 125, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -112,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

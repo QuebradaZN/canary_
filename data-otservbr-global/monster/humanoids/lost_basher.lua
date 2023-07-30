@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Caves of the Lost, Lower Spike and in the Lost Dwarf version of the Forsaken Mine."
-	}
+}
 
 monster.health = 2600
 monster.maxHealth = 2600
@@ -62,18 +62,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Yhouuuu!", yell = false}
+	{text = "Yhouuuu!", yell = false},
 }
 
 monster.loot = {
@@ -104,6 +104,14 @@ monster.loot = {
 	{name = "basalt figurine", chance = 9470}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -80, maxDamage = -220+, range = ?, effect = <>, target = ?}, --3x3 physical bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -red sparkles, maxDamage = -red sparkles, range = ?, effect = <>, target = ?}, --[[Drunkenness]] bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -on itself; does haste, maxDamage = -on itself; does haste, range = ?, effect = <>, target = ?}, --energy explosion
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 250, maxDamage = 500},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -351},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -220, range = 7, radius = 3, shootEffect = CONST_ANI_WHIRLWINDAXE, effect = CONST_ME_EXPLOSIONAREA, target = true},
@@ -113,7 +121,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 30,
-	armor = 30,
+	armor = 57,
+	mitigation = 1.62,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 250, maxDamage = 500, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -126,8 +135,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 15},
 }
 
 monster.immunities = {

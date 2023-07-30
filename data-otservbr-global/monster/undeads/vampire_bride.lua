@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Drefia and Vampire Castle on Vengoth, Edron Vampire Crypt."
-	}
+}
 
 monster.health = 1200
 monster.maxHealth = 1200
@@ -61,12 +61,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -77,7 +77,7 @@ monster.voices = {
 	{text = "Come, let me kiss you, darling. Oh wait, I meant kill.", yell = false},
 	{text = "Enjoy the pain - I know you love it.", yell = false},
 	{text = "Are you suffering nicely enough?", yell = false},
-	{text = "You won't regret you came to me, sweetheart.", yell = false}
+	{text = "You won't regret you came to me, sweetheart.", yell = false},
 }
 
 monster.loot = {
@@ -99,6 +99,14 @@ monster.loot = {
 	{name = "leather whip", chance = 20}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -190},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -130, range = ?, effect = <>, target = ?}, --Life Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -150, range = ?, effect = <>, target = ?}, --Sudden death (sometimes with hearts)
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -150, range = ?, effect = <>, target = ?}, --Energy Missile
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 40, maxDamage = 80},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -190},
 	{name ="combat", interval = 3000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -60, maxDamage = -130, range = 1, effect = CONST_ME_MAGIC_RED, target = true},
@@ -109,7 +117,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 55,
+	mitigation = 1.18,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 40, maxDamage = 80, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -122,8 +131,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 10},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

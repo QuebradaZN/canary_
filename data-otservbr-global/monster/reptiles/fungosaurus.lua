@@ -19,7 +19,6 @@ monster.race = "blood"
 monster.corpse = 39311
 monster.speed = 182
 monster.manaCost = 0
-monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -28,18 +27,6 @@ monster.changeTarget = {
 
 monster.strategiesTarget = {
 	nearest = 100,
-}
-
-monster.light = {
-	level = 0,
-	color = 0
-}
-
-monster.voices = {
-	interval = 5000,
-	chance = 10,
-	{text = "Rraaaaa!", yell = false},
-	{text = "CHEHEHE!!!", yell = false},
 }
 
 monster.flags = {
@@ -59,9 +46,27 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
+monster.light = {
+	level = 0,
+	color = 0,
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "Rraaaaa!", yell = false},
+	{text = "CHEHEHE!!!", yell = true},
+}
+
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Can cause [[feared|feared]] status
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --can cause [[Rooted|rooted]] status
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Can destroy [[Fire Bomb Rune]], [[Energy Bomb Rune]] and [[Poison Bomb Rune]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -801},
 	{name ="combat", interval = 3000, chance = 47, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1500, effect = CONST_ME_YELLOWSMOKE, target = true},
@@ -70,7 +75,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 110,
-	armor = 120,
+	armor = 0,
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -82,8 +88,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

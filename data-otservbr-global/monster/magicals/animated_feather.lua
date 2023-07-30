@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "The Secret Library."
-	}
+	Locations = "The Secret Library (ice section)."
+}
 
 monster.health = 13000
 monster.maxHealth = 13000
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 179,
 }
 
 monster.voices = {
@@ -90,6 +90,14 @@ monster.loot = {
 	{name = "small diamond", chance = 500, maxCount = 5}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -400},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -800, range = ?, effect = <>, target = ?}, --Ice Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -900, range = ?, effect = <>, target = ?}, --Ice Tornado
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -800, maxDamage = -1200, range = ?, effect = <>, target = ?}, --Ice Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -800, range = ?, effect = <>, target = ?}, --Icicles
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
 	{name ="combat", interval = 1000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -200, range = 7, shootEffect = CONST_ANI_ICE, target = false},
@@ -100,7 +108,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 79
+	armor = 79,
+	mitigation = 2.02,
 }
 
 monster.elements = {
@@ -112,8 +121,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

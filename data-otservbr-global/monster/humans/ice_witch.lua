@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Ice Witch Temple, tower in Krimhorn, caves around Hrodmir ('camps' area), \z
 		Formorgar Glacier deepest mines, Magician Quarter in Yalahar (Level 60 Requirement Door)."
-	}
+}
 
 monster.health = 650
 monster.maxHealth = 650
@@ -60,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -73,7 +73,7 @@ monster.voices = {
 	chance = 10,
 	{text = "So you think you are cool?", yell = false},
 	{text = "I hope it is not too cold for you! HeHeHe.", yell = false},
-	{text = "Freeze!", yell = false}
+	{text = "Freeze!", yell = false},
 }
 
 monster.loot = {
@@ -90,6 +90,14 @@ monster.loot = {
 	{name = "glacier shoes", chance = 280}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -60},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -50, maxDamage = -124, range = ?, effect = <>, target = ?}, --Ice Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -51, maxDamage = -99, range = ?, effect = <>, target = ?}, --Ice Missile
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -5secs~, maxDamage = -5secs~, range = ?, effect = <>, target = ?}, --Paralyze
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -60},
 	{name ="outfit", interval = 2000, chance = 1, range = 7, shootEffect = CONST_ANI_SNOWBALL, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 4000, outfitItem = 7172},
@@ -100,7 +108,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 70,
+	mitigation = 0.91,
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 90, maxDamage = 120, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -113,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 30},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

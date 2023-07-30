@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Demona, Ghostland (Banshee Quest area), Temple of Xayepocax, Oasis Tomb, Kharos, Magician Quarter, \z
 		beneath Fenrock, The Arcanum."
-	}
+}
 
 monster.health = 3500
 monster.maxHealth = 3500
@@ -60,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -78,9 +78,9 @@ monster.summon = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Learn the secret of our magic! YOUR death!", yell = false},
 	{text = "Even a rat is a better mage than you!", yell = false},
-	{text = "We don't like intruders!", yell = false}
+	{text = "Learn the secret of our magic! YOUR death!", yell = false},
+	{text = "We don't like intruders!", yell = false},
 }
 
 monster.loot = {
@@ -111,6 +111,18 @@ monster.loot = {
 	{name = "luminous orb", chance = 510}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -130},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -180, range = ?, effect = <>, target = ?}, --[[Burst Arrow]]s
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Creates Fire Fields
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -180, range = ?, effect = <>, target = ?}, --Energy Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -230, range = ?, effect = <>, target = ?}, --Great Cloud-Energy Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -120, range = ?, effect = <>, target = ?}, --Mana Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Paralysis
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -20 seconds, often, maxDamage = -20 seconds, often, range = ?, effect = <>, target = ?}, --Invisible
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 100, maxDamage = 225},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -130},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -90, maxDamage = -180, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
@@ -124,7 +136,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 33,
+	mitigation = 1.32,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 225, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE}
 }
@@ -138,8 +151,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = -8},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -8},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

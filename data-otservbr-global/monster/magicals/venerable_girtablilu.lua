@@ -22,7 +22,7 @@ monster.Bestiary = {
 	SecondUnlock = 1000,
 	CharmsPoints = 50,
 	Stars = 4,
-	Occurrence = 1,
+	Occurrence = 0,
 	Locations = "Ruins of Nuur"
 }
 
@@ -31,6 +31,7 @@ monster.maxHealth = 8500
 monster.race = "blood"
 monster.corpse = 36963
 monster.speed = 180
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -58,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -99,6 +100,12 @@ monster.loot = {
 	{name = "wand of decay", chance = 1040}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -?, range = ?, effect = <>, target = ?}, --Death Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -?, range = ?, effect = <>, target = ?}, --Poison Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Poison Berserk
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2750, chance = 30, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -500, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
@@ -110,6 +117,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 80,
 	armor = 80,
+	mitigation = 2.16,
 	{name ="speed", interval = 1000, chance = 10, speedChange = 160, effect = CONST_ME_POFF, target = false, duration = 4000}
 }
 
@@ -122,8 +130,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -20},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -20},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
@@ -132,6 +140,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
 
 mType:register(monster)

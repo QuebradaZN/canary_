@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 1,
 	Locations = "Warzone 1."
-	}
+}
 
 monster.health = 4200
 monster.maxHealth = 4200
@@ -60,20 +60,20 @@ monster.flags = {
 	runHealth = 1,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Rumble!", yell = false}
+	{text = "Rumble!", yell = false},
 }
 
 monster.loot = {
@@ -101,6 +101,14 @@ monster.loot = {
 	{name = "crystalline spikes", chance = 16320}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -991+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -?, maxDamage = -460, range = ?, effect = <>, target = ?}, --Earth Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -650, range = ?, effect = <>, target = ?}, --Throws Boulder
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -1000+, range = ?, effect = <>, target = ?}, --Life Drain Stone Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Big [[Groundshaker]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -990},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -230, maxDamage = -460, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_STONES, target = true},
@@ -110,7 +118,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 35,
-	armor = 35
+	armor = 75,
+	mitigation = 2.31,
 }
 
 monster.elements = {
@@ -122,8 +131,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = 30}
+	{type = COMBAT_HOLYDAMAGE, percent = 30},
+	{type = COMBAT_DEATHDAMAGE, percent = 30},
 }
 
 monster.immunities = {

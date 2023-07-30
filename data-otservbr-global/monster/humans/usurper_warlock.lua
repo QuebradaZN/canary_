@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Usurper Warlock")
 local monster = {}
 
-monster.description = "a usurper warlock"
+monster.description = "an usurper warlock"
 monster.experience = 7000
 monster.outfit = {
 	lookType = 1316,
@@ -24,13 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Bounac, the Order of the Lion settlement."
-	}
+}
 
 monster.health = 7500
 monster.maxHealth = 7500
 monster.race = "blood"
 monster.corpse = 34184
 monster.speed = 165
+monster.manaCost = 0
 
 monster.faction = FACTION_LIONUSURPERS
 monster.enemyFactions = {FACTION_LION, FACTION_PLAYER}
@@ -61,25 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "This town is ours now!", yell = false},
-	{text = "You don't deserv Bounac!", yell = false},
-	{text = "My power is fueled by a just cause!", yell = false},
-	{text = "This will be the last thing you witness!", yell = false},
-	{text = "Change of guard! High time ...!", yell = false},
-	{text = "Do you really think you can stand?", yell = false},
-	{text = "'Holding breath'", yell = false},
-	{text = "Die in the flames of true righteousness.", yell = false}
+	{text = "What, are you afraid? So you should be!", yell = false},
+	{text = "Die in the flames of true righteousness!", yell = false},
 }
 
 monster.loot = {
@@ -101,6 +96,13 @@ monster.loot = {
 	{name = "wand of starstorm", chance = 667}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -450, range = ?, effect = <>, target = ?}, --[[Ice Damage|Avalanche]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -530, range = ?, effect = <>, target = ?}, --[[Death Damage|Chain Attack]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250, effect = CONST_ME_DRAWBLOOD},
 	{name ="singledeathchain", interval = 6000, chance = 15, minDamage = -250, maxDamage = -530, range = 5, effect = CONST_ME_MORTAREA, target = true},
@@ -110,7 +112,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 50,
-	armor = 82
+	armor = 80,
+	mitigation = 2.25,
 }
 
 monster.elements = {
@@ -122,8 +125,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = 32},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 32},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

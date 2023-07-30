@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Edron."
-	}
+}
 
 monster.health = 550
 monster.maxHealth = 550
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Error. LOAD 'PROGRAM',8,1", yell = false},
-	{text = "Remain. Obedient.", yell = false}
+	{text = "Remain. Obedient.", yell = false},
 }
 
 monster.loot = {
@@ -93,6 +93,13 @@ monster.loot = {
 	{name = "golden can of oil", chance = 40}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -75+ (as big as the screen), range = ?, effect = <>, target = ?}, --[[Energy Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -25+?, range = ?, effect = <>, target = ?}, --[[Energy Bomb]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -80, range = ?, effect = <>, target = ?}, --[[Thunderstorm]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -60, maxDamage = -100, radius = 4, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_YELLOWENERGY, target = true},
@@ -102,7 +109,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20
+	armor = 29,
+	mitigation = 0.88,
 }
 
 monster.elements = {
@@ -114,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

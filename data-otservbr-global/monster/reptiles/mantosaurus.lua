@@ -18,10 +18,10 @@ monster.Bestiary = {
 	class = "Reptile",
 	race = BESTY_RACE_REPTILE,
 	toKill = 5000,
-	FirstUnlock = 50,
-	SecondUnlock = 500,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
-	Stars = 3,
+	Stars = 5,
 	Occurrence = 0,
 	Locations = "Crystal Enigma"
 }
@@ -32,7 +32,6 @@ monster.race = "blood"
 monster.corpse = 39315
 monster.speed = 205
 monster.manaCost = 0
-monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -60,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -88,6 +87,9 @@ monster.loot = {
 	{name = "Amulet of Loss", chance = 170},
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -801},
 	{name ="combat", interval = 2500, chance = 47, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1500, effect = CONST_ME_YELLOWSMOKE, target = true},
@@ -98,6 +100,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 110,
 	armor = 65,
+	mitigation = 1.79,
 }
 
 monster.elements = {
@@ -109,8 +112,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -15},
-	{type = COMBAT_HOLYDAMAGE , percent = -15},
-	{type = COMBAT_DEATHDAMAGE , percent = 5}
+	{type = COMBAT_HOLYDAMAGE, percent = -15},
+	{type = COMBAT_DEATHDAMAGE, percent = 5},
 }
 
 monster.immunities = {

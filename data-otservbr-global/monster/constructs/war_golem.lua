@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Factory Quarter."
-	}
+}
 
 monster.health = 4300
 monster.maxHealth = 4300
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 3,
+	color = 180,
 }
 
 monster.voices = {
@@ -82,7 +82,7 @@ monster.voices = {
 	{text = "The battle is joined!", yell = false},
 	{text = "Termination initialized!", yell = false},
 	{text = "Rrrtttarrrttarrrtta", yell = false},
-	{text = "Eliminated", yell = false}
+	{text = "Eliminated", yell = false},
 }
 
 monster.loot = {
@@ -112,6 +112,14 @@ monster.loot = {
 	{id = 12305, chance = 100} -- tin key
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -478+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -increases melee hit to about 550, maxDamage = -increases melee hit to about 550, range = ?, effect = <>, target = ?}, --[[Blood Rage]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -165, maxDamage = -220, range = ?, effect = <>, target = ?}, --Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -8 turns of 25 damage, maxDamage = -8 turns of 25 damage, range = ?, effect = <>, target = ?}, --Electrifies you
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 200, maxDamage = 250},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -165, maxDamage = -220, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
@@ -122,7 +130,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 40,
+	armor = 35,
+	mitigation = 1.18,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
@@ -136,8 +145,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {

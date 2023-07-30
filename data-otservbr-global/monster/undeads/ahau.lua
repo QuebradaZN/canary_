@@ -13,13 +13,17 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 2346,
+	bossRace = RARITY_ARCHFOE,
+}
+
 monster.health = 9000
 monster.maxHealth = 9000
 monster.race = "blood"
 monster.corpse = 42069
 monster.speed = 350
 monster.manaCost = 0
-monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 5000,
@@ -54,17 +58,20 @@ monster.flags = {
 	pet = false
 }
 
-monster.events = {
-}
-
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "WAAAHNGH!!!", yell = true},
+	{text = "Awrrrgh!", yell = false},
+	{text = "IKSPUTUTU!!", yell = true},
+	{text = "Hwaaarrrh!!!", yell = false},
+	{text = "Wraaahgh?!", yell = false},
+	{text = "AAAAAH!!", yell = true},
 }
 
 monster.loot = {
@@ -85,6 +92,15 @@ monster.loot = {
 
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -456},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -354, maxDamage = -422, range = ?, effect = <>, target = ?}, --Earth Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -411, maxDamage = -511, range = ?, effect = <>, target = ?}, --Fire Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -230, maxDamage = -275, range = ?, effect = <>, target = ?}, --Chain Fire
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -419, maxDamage = -570, range = ?, effect = <>, target = ?}, --Boulder Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -468, maxDamage = -493, range = ?, effect = <>, target = ?}, --Boulder Ring
+--}
 monster.attacks = {
 		{name ="melee", interval = 1700, chance = 100, minDamage = 0, maxDamage = -456, effect = 244},
 		{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -350, maxDamage = -422, range = 1, radius = 0, effect = CONST_ME_GREENSMOKE, target = true},
@@ -93,23 +109,23 @@ monster.attacks = {
 		{name ="boulder ring", interval = 2000, chance = 20, minDamage = -460, maxDamage = -500},
 }
 
-
 monster.defenses = {
 	defense = 64,
-	armor = 52,
+	armor = 0,
+--	mitigation = ???,
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 5},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 5},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Merikh the Slaughterer")
 local monster = {}
 
-monster.description = "a merikh the slaughterer"
+monster.description = "Merikh the Slaughterer"
 monster.experience = 1500
 monster.outfit = {
 	lookType = 103,
@@ -35,7 +35,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
@@ -44,14 +44,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -64,7 +64,7 @@ monster.summon = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Your death will be slow and painful.", yell = false}
+	{text = "Your death will be slow and painful.", yell = false},
 }
 
 monster.loot = {
@@ -85,6 +85,16 @@ monster.loot = {
 	{name = "pear", chance = 100, maxCount = 8}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -304+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -110, maxDamage = -230, range = ?, effect = <>, target = ?}, --[[Fireball]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -84, maxDamage = -220, range = ?, effect = <>, target = ?}, --[[Heavy Magic Missile]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -103+, range = ?, effect = <>, target = ?}, --[[Sudden Death]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Energy Berserk]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -25 hp/3 turns; 75 damage total, maxDamage = -25 hp/3 turns; 75 damage total, range = ?, effect = <>, target = ?}, --[[Electrified|Electrifies]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 50, maxDamage = 100},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -304}
 	--fireball
@@ -97,6 +107,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 0,
+	mitigation = 1.29,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -104,13 +115,13 @@ monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = -1},
+	{type = COMBAT_FIREDAMAGE, percent = 1},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 1},
-	{type = COMBAT_HOLYDAMAGE , percent = 1},
-	{type = COMBAT_DEATHDAMAGE , percent = -1}
+	{type = COMBAT_ICEDAMAGE, percent = -1},
+	{type = COMBAT_HOLYDAMAGE, percent = -1},
+	{type = COMBAT_DEATHDAMAGE, percent = 1},
 }
 
 monster.immunities = {

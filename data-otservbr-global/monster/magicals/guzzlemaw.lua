@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Guzzlemaw Valley, and a single spawn in a tower in Upper Roshamuul \z
 		(south of the Depot and west of the entrance to Roshamuul Prison)."
-	}
+}
 
 monster.health = 6400
 monster.maxHealth = 6400
@@ -63,12 +63,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -107,6 +107,15 @@ monster.loot = {
 	{name = "frazzle skin", chance = 14000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -550+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -starting from up to 35 hp per turn, maxDamage = -starting from up to 35 hp per turn, range = ?, effect = <>, target = ?}, --Bleeding Stone Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Paralyze]]s you, maxDamage = -[[Paralyze]]s you, range = ?, effect = <>, target = ?}, --Large Red Shimmer Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -650, maxDamage = -800+, range = ?, effect = <>, target = ?}, --Explosion Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -500+, range = ?, effect = <>, target = ?}, --Blood Berserk
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 400+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -499},
 	-- bleed
@@ -119,7 +128,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 50,
-	armor = 50,
+	armor = 74,
+	mitigation = 2.31,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 250, maxDamage = 425, effect = CONST_ME_HITBYPOISON, target = false}
 }
 
@@ -132,8 +142,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

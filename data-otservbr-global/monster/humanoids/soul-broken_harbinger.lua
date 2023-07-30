@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Court of Winter."
-	}
+}
 
 monster.health = 6300
 monster.maxHealth = 6300
@@ -60,14 +60,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
+	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -92,6 +92,15 @@ monster.loot = {
 	{id = 23543, chance = 680} -- collar of green plasma
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -400},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -400, range = ?, effect = <>, target = ?}, --Snowball from distance
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -300, range = ?, effect = <>, target = ?}, --Ice Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -300, range = ?, effect = <>, target = ?}, --Ice Berserk on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -300, range = ?, effect = <>, target = ?}, --Ice Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -100%, maxDamage = -100%, range = ?, effect = <>, target = ?}, --Reflects Ice Damage
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -120, range = 7, shootEffect = CONST_ANI_ARROW, target = false}
@@ -99,7 +108,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 40,
+	armor = 76,
+	mitigation = 2.08,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -116,8 +126,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 55},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {

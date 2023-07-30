@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Dark Cathedral, Tiquanda, Drefia, Mount Sternum, Folda, Ghostlands, Kazordoon, \z
 		Femor Hills, Thais Bat Dungeon, Thais Bandit Cave and in many other caves."
-	}
+}
 
 monster.health = 30
 monster.maxHealth = 30
@@ -60,18 +60,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Flap!Flap!", yell = false}
+	{text = "Flap! Flap!", yell = false},
 }
 
 monster.loot = {
@@ -84,7 +84,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 5,
-	armor = 5
+	armor = 1,
+	mitigation = 0.15,
 }
 
 monster.elements = {
@@ -96,8 +97,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

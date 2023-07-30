@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Magician Quarter, Hero Cave, Demona, Fury Dungeon."
-	}
+}
 
 monster.health = 3650
 monster.maxHealth = 3650
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -80,7 +80,7 @@ monster.voices = {
 	{text = "Nothing will remain but your scorched bones!", yell = false},
 	{text = "Some like it hot!", yell = false},
 	{text = "It's cooking time!", yell = false},
-	{text = "Feel the heat of battle!", yell = false}
+	{text = "Feel the heat of battle!", yell = false},
 }
 
 monster.loot = {
@@ -104,6 +104,18 @@ monster.loot = {
 	{name = "crystal of power", chance = 220}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -63, maxDamage = -180, range = ?, effect = <>, target = ?}, --Flame Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -180, range = ?, effect = <>, target = ?}, --[[Burst Arrow]]s
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --[[Explosion]] on himself
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Fire Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -250, range = ?, effect = <>, target = ?}, --Fire Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -53, maxDamage = -120, range = ?, effect = <>, target = ?}, --Mana Drain Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Invisible
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
 	{name ="combat", interval = 2000, chance = 40, type = COMBAT_FIREDAMAGE, minDamage = -65, maxDamage = -180, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = true},
@@ -116,7 +128,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15,
+	armor = 33,
+	mitigation = 1.15,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 60, maxDamage = 230, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_BLUE}
 }
@@ -130,8 +143,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

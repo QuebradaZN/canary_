@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Darashia, Krailos Steppe, Liberty Bay, Pirat Mines, Port Hope, Thais, The Wreckoning."
-	}
+	Locations = "Pirat Mine, The Wreckoning"
+}
 
 monster.health = 2200
 monster.maxHealth = 2200
@@ -59,17 +59,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
-	chance = 0
+	chance = 10,
 }
 
 monster.loot = {
@@ -83,6 +83,14 @@ monster.loot = {
 	{name = "wand of voodoo", chance = 1450}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350? at most 2 hits},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -110, maxDamage = -160?, range = ?, effect = <>, target = ?}, --Energy Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -130?, range = ?, effect = <>, target = ?}, --Energy Bomb on Target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -90, maxDamage = -110?, range = ?, effect = <>, target = ?}, --Energy Exori
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Energy Beam
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -110, maxDamage = -180, range = 7, radius = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
@@ -92,7 +100,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 60
+	armor = 60,
+	mitigation = 1.74,
 }
 
 monster.elements = {
@@ -104,12 +113,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
+	{type = "paralyze", condition = false},
 	{type = "outfit", condition = true},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

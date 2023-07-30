@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Naga Warrior")
 local monster = {}
 
 monster.description = "a naga warrior"
-monster.experience = 6330
+monster.experience = 5890
 monster.outfit = {
 	lookType = 1539,
 	lookHead = 85,
@@ -22,19 +22,16 @@ monster.Bestiary = {
 	SecondUnlock = 1000,
 	CharmsPoints = 50,
 	Stars = 4,
-	Occurrence = 1,
+	Occurrence = 0,
 	Locations = "Temple of the Moon Goddess."
 }
 
-
-monster.health = 5290
-monster.maxHealth = 5290
+monster.health = 5530
+monster.maxHealth = 5530
 monster.race = "blood"
 monster.corpse = 39225
 monster.speed = 180
 monster.manaCost = 0
-monster.maxSummons = 0
-
 
 monster.changeTarget = {
 	interval = 4000,
@@ -62,18 +59,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "The Moon Goddess is ashamed of you!", yell = false},
+	{text = "Fear the wrath of the wronged!", yell = false},
 }
 
 monster.loot = {
@@ -90,6 +87,14 @@ monster.loot = {
 	{name = "relic sword", chance = 430},
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -330},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -330, maxDamage = -330, range = ?, effect = <>, target = ?}, --Blood bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -250~, maxDamage = -250~, range = ?, effect = <>, target = ?}, --Sudden death
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -260~, maxDamage = -260~, range = ?, effect = <>, target = ?}, --Fireball strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown maybe buff, maxDamage = -unknown maybe buff, range = ?, effect = <>, target = ?}, --Sparkles
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -801},
 	{name ="combat", interval = 3000, chance = 47, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1500, effect = CONST_ME_YELLOWSMOKE, target = true},
@@ -98,7 +103,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 110,
-	armor = 120,
+	armor = 78,
+	mitigation = 2.19,
 }
 
 monster.elements = {
@@ -110,12 +116,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -20},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = -20},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

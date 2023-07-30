@@ -28,7 +28,7 @@ monster.Bestiary = {
 		Green Djinn Tower, Mushroom Fields,Paradox Tower, Plains of Havoc, Plague Spike, \z
 		Poachers' Camp (Ferngrims Gate), Stonehome, Tiquanda, Truffels Garden, \z
 		Vandura Mountain, Vega, Venore, Wyvern Cave (Ferngrims Gate), Wyvern Hill and Wyvern Ulderek's Rock Cave."
-	}
+}
 
 monster.health = 795
 monster.maxHealth = 795
@@ -63,18 +63,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Shriiiek", yell = true}
+	{text = "Shriiiek", yell = false},
 }
 
 monster.loot = {
@@ -89,6 +89,13 @@ monster.loot = {
 	{name = "wyvern talisman", chance = 12300}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -120},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -starts from up to 13hp per turn, maxDamage = -starts from up to 13hp per turn, range = ?, effect = <>, target = ?}, --Poison Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Drunkenness]] for up to 25 seconds, maxDamage = -[[Drunkenness]] for up to 25 seconds, range = ?, effect = <>, target = ?}, --Screech
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 45, maxDamage = 65},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120, condition = {type = CONDITION_POISON, totalDamage = 480, interval = 4000}},
 	-- poison
@@ -98,7 +105,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25,
+	armor = 19,
+	mitigation = 1.21,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 45, maxDamage = 65, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 5000}
 }
@@ -112,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

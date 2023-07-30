@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Hellgate, near the Hellgate Library, Deeper Banuta, behind piano in Cult Cave to the \z
 		northeast of Liberty Bay, Vandura Bonelord Cave, Goroma, Helheim, \z
 		underground of Fenrock (on the way to Beregar), Vengoth."
-	}
+}
 
 monster.health = 500
 monster.maxHealth = 500
@@ -64,12 +64,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -83,10 +83,10 @@ monster.summon = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Let me take a look at you!", yell = false},
 	{text = "Inferior creatures, bow before my power!", yell = false},
+	{text = "Let me take a look at you!", yell = false},
 	{text = "659978 54764!", yell = false},
-	{text = "653768764!", yell = false}
+	{text = "653768764!", yell = false},
 }
 
 monster.loot = {
@@ -103,6 +103,17 @@ monster.loot = {
 	{name = "bonelord helmet", chance = 90}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -50},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -75, maxDamage = -85, range = ?, effect = <>, target = ?}, --Distance Life Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -20, maxDamage = -40, range = ?, effect = <>, target = ?}, --Distance Mana Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -80, range = ?, effect = <>, target = ?}, --Fire Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -45, maxDamage = -75, range = ?, effect = <>, target = ?}, --Energy Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -30, maxDamage = -70, range = ?, effect = <>, target = ?}, --Earth Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -70, maxDamage = -90, range = ?, effect = <>, target = ?}, --Death Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -190, maxDamage = -230 points for 20 seconds, range = ?, effect = <>, target = ?}, --paralyze
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -55},
 	{name ="combat", interval = 2000, chance = 5, type = COMBAT_ENERGYDAMAGE, minDamage = -45, maxDamage = -60, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
@@ -116,7 +127,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 13,
-	armor = 13
+	armor = 13,
+	mitigation = 0.67,
 }
 
 monster.elements = {
@@ -124,12 +136,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = 20},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = -10},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 30}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 30},
 }
 
 monster.immunities = {

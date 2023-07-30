@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Stampor Cave on the Muggy Plains, Chyllfroest."
-	}
+}
 
 monster.health = 1200
 monster.maxHealth = 1200
@@ -59,18 +59,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "KRRRRRNG", yell = true}
+	{text = "KRRRRRNG", yell = true},
 }
 
 monster.loot = {
@@ -87,6 +87,13 @@ monster.loot = {
 	{name = "hollow stampor hoof", chance = 3020}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -130},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -280, range = ?, effect = <>, target = ?}, --[[Berserk]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -75, maxDamage = -100, range = ?, effect = <>, target = ?}, --Throws life draining [[Small Stone]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 90, maxDamage = 120},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -130},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -280, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
@@ -97,6 +104,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 60,
+	mitigation = 0.91,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 90, maxDamage = 120, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -109,8 +117,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

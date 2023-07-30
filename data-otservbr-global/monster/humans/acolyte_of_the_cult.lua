@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Goroma, Deeper Cult Cave, Formorgar Mines, Magician Quarter, Forbidden Temple."
-	}
+}
 
 monster.health = 390
 monster.maxHealth = 390
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -82,7 +82,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Praise the voodoo!", yell = false},
 	{text = "Power to the cult!", yell = false},
-	{text = "Feel the power of the cult!", yell = false}
+	{text = "Feel the power of the cult!", yell = false},
 }
 
 monster.loot = {
@@ -101,6 +101,13 @@ monster.loot = {
 	{name = "broken key ring", chance = 60}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -60, maxDamage = -120, range = ?, effect = <>, target = ?}, --Distance Life Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3 seconds, maxDamage = -3 seconds, range = ?, effect = <>, target = ?}, --Weak Drunkenness
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 50 , maxDamage = 50 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, condition = {type = CONDITION_POISON, totalDamage = 2, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -60, maxDamage = -120, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, effect = CONST_ME_MAGIC_RED, target = true},
@@ -109,7 +116,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15,
+	armor = 30,
+	mitigation = 1.13,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 40, maxDamage = 60, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -122,8 +130,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {

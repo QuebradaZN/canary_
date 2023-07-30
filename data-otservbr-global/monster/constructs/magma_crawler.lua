@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Warzone 2."
-	}
+}
 
 monster.health = 4800
 monster.maxHealth = 4800
@@ -60,18 +60,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 5,
+	color = 200,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Crrroak!", yell = false}
+	{text = "Crrroak!", yell = false},
 }
 
 monster.loot = {
@@ -104,6 +104,17 @@ monster.loot = {
 	{name = "blazing bone", chance = 12220}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -700, range = ?, effect = <>, target = ?}, --Fire Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -700?, range = ?, effect = <>, target = ?}, --Great Death Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -850?, range = ?, effect = <>, target = ?}, --Flame Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Burning Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Burning Fireball on itself
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown Effect, probably Paralysis same as [[Infected Weeper]], maxDamage = -Unknown Effect, probably Paralysis same as [[Infected Weeper]], range = ?, effect = <>, target = ?}, --Spark wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown Effect, maxDamage = -Unknown Effect, range = ?, effect = <>, target = ?}, --Red Sparkles Explosion on itself
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -203},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -1100, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
@@ -116,7 +127,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 45,
+	armor = 84,
+	mitigation = 2.51,
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE}
 }
 
@@ -129,8 +141,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 25}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 25},
 }
 
 monster.immunities = {

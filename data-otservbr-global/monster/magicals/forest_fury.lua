@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Forest Fury Camp and in the Forest Fury version of the Forsaken Mine."
-	}
+}
 
 monster.health = 480
 monster.maxHealth = 480
@@ -60,14 +60,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
-	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	chance = 10,
 	{text = "To arms, sisters!", yell = false},
 	{text = "Feel the wrath of mother forest!", yell = false},
-	{text = "By the power of Greenskull!", yell = false}
+	{text = "By the power of Greenskull!", yell = false},
 }
 
 monster.loot = {
@@ -90,6 +90,11 @@ monster.loot = {
 	{name = "venison", chance = 13210}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -50?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -100?, range = ?, effect = <>, target = ?}, --[[Distance Fighting|Spears]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -125},
 	{name ="combat", interval = 1500, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -100, range = 7, radius = 4, shootEffect = CONST_ANI_HUNTINGSPEAR, effect = CONST_ME_MAGIC_GREEN, target = true},
@@ -98,7 +103,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20
+	armor = 19,
+	mitigation = 0.80,
 }
 
 monster.elements = {
@@ -110,8 +116,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = 40}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = 40},
 }
 
 monster.immunities = {

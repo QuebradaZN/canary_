@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Iksupan"
-	}
+}
 
 monster.health = 1240
 monster.maxHealth = 1240
@@ -49,7 +49,7 @@ monster.flags = {
 	convinceable = false,
 	pushable = false,
 	rewardBoss = false,
-	illusionable = true,
+	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
@@ -59,20 +59,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Pucataaaan!", yell = false},
+	{text = "Pucataaan!", yell = false},
 	{text = "Mahrrrca!", yell = false},
-	{text = "Puccataaaan!", yell = false}
+	{text = "Puccahtaaan!", yell = false},
 }
 
 monster.loot = {
@@ -89,6 +89,13 @@ monster.loot = {
 	{name = "broken iks headpiece", chance = 50}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -100~, maxDamage = -100~},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -101, maxDamage = -117, range = ?, effect = <>, target = ?}, --Spear
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Explosion Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -106, maxDamage = -111, range = ?, effect = <>, target = ?}, --Death Strike
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -175},
 	{name ="combat", interval = 2000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -130, range = 4, shootEffect = CONST_ANI_ENCHANTEDSPEAR, target = true},
@@ -100,6 +107,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 29,
+	mitigation = 0.99,
 
 }
 
@@ -112,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 15},
 }
 
 monster.immunities = {

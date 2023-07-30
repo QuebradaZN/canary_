@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Usurper Archer")
 local monster = {}
 
-monster.description = "a usurper archer"
+monster.description = "an usurper archer"
 monster.experience = 6800
 monster.outfit = {
 	lookType = 1316,
@@ -24,13 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Bounac, the Order of the Lion settlement."
-	}
+}
 
 monster.health = 7300
 monster.maxHealth = 7300
 monster.race = "blood"
 monster.corpse = 33981
 monster.speed = 125
+monster.manaCost = 0
 
 monster.faction = FACTION_LIONUSURPERS
 monster.enemyFactions = {FACTION_LION, FACTION_PLAYER}
@@ -61,25 +62,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "This town is ours now!", yell = false},
-	{text = "You don't deserv Bounac!", yell = false},
-	{text = "My power is fueled by a just cause!", yell = false},
-	{text = "This will be the last thing you witness!", yell = false},
-	{text = "Change of guard! High time ...!", yell = false},
-	{text = "Do you really think you can stand?", yell = false},
-	{text = "'Holding breath'", yell = false},
-	{text = "Die in the flames of true righteousness.", yell = false}
 }
 
 monster.loot = {
@@ -107,6 +100,13 @@ monster.loot = {
 	{name = "elvish bow", chance = 270}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -430},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -425, range = ?, effect = <>, target = ?}, --Ice Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -485, range = ?, effect = <>, target = ?}, --[[Death Damage|Death Arrow]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -545, range = ?, effect = <>, target = ?}, --[[Death Damage|Sudden Death]]
+--}
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -430, range = 7, shootEffect = CONST_ANI_BURSTARROW, target = true},
 	{name ="combat", interval = 6000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -160, maxDamage = -485, range = 7, shootEffect = CONST_ANI_SMALLHOLY, target = true},
@@ -116,7 +116,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 50,
-	armor = 82
+	armor = 82,
+	mitigation = 2.31,
 }
 
 monster.elements = {
@@ -128,8 +129,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -20}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -20},
 }
 
 monster.immunities = {

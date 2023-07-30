@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Rotten Golem")
 local monster = {}
 
 monster.description = "a rotten golem"
-monster.experience = 23400
+monster.experience = 17860
 monster.outfit = {
 	lookType = 1312,
 	lookHead = 0,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Construct",
 	race = BESTY_RACE_CONSTRUCT,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Rotten Wasteland."
-	}
+}
 
 monster.health = 28000
 monster.maxHealth = 28000
@@ -62,17 +62,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
-	chance = 10
+	chance = 10,
 }
 
 monster.loot = {
@@ -95,6 +95,14 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -700},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -1100, maxDamage = -1300, range = ?, effect = <>, target = ?}, --Smaller Earth Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -1000, maxDamage = -1200, range = ?, effect = <>, target = ?}, --Energy Chain (Through nearby characters)
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -1200, maxDamage = -1400, range = ?, effect = <>, target = ?}, --Holy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Rooted|Roots]] you on place, maxDamage = -[[Rooted|Roots]] you on place, range = ?, effect = <>, target = ?}, --Shoots [[Leaf Star]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -950},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -650, maxDamage = -900, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYAREA, target = true},
@@ -105,7 +113,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 110,
-	armor = 120
+	armor = 108,
+	mitigation = 3.04,
 }
 
 monster.elements = {
@@ -117,8 +126,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = -20}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = -20},
 }
 
 monster.immunities = {

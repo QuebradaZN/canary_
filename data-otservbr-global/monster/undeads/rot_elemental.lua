@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Rathleton Sewers, Glooth Factory, Lower Rathleton, Oramond/Western Plains, Jaccus Maxxen's Dungeon."
-	}
+}
 
 monster.health = 850
 monster.maxHealth = 850
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 3,
+	color = 143,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "*splib*", yell = false},
 	{text = "*glibb*", yell = false},
-	{text = "*splib*", yell = false}
 }
 
 monster.loot = {
@@ -93,6 +93,17 @@ monster.loot = {
 	{id = 21158, chance = 460} -- glooth spear
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -120},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -230, range = ?, effect = <>, target = ?}, --Poison Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -200, range = ?, effect = <>, target = ?}, --Poison Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Musical Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown maybe buff, maxDamage = -unknown maybe buff, range = ?, effect = <>, target = ?}, --Puff Up
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -up to 28hp/turn, maxDamage = -up to 28hp/turn, range = ?, effect = <>, target = ?}, --Poison Spit
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 58+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 58, attack = 50, condition = {type = CONDITION_POISON, totalDamage = 280, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 13, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -250, range = 7, radius = 3, shootEffect = CONST_ANI_GLOOTHSPEAR, effect = CONST_ME_POISONAREA, target = true},
@@ -104,7 +115,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 10,
+	armor = 41,
+	mitigation = 1.07,
 	{name ="combat", interval = 2000, chance = 7, type = COMBAT_HEALING, minDamage = 40, maxDamage = 60, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 9, speedChange = 470, effect = CONST_ME_SMOKE, target = false, duration = 7000}
 }
@@ -114,12 +126,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = -5},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {

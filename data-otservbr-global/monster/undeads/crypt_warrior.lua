@@ -13,12 +13,24 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.Bestiary = {
+	class = "Undead",
+
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Bounac."
+}
+
 monster.health = 7800
 monster.maxHealth = 7800
 monster.race = "undead"
 monster.corpse = 5972
 monster.speed = 155
-monster.manaCost = 350
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -46,12 +58,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -70,6 +82,12 @@ monster.loot = {
 	{name = "ruthless axe", chance = 150}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Distance Life Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Death Missile
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -700},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -480, range = 1, effect = CONST_ME_MAGIC_RED, target = false},
@@ -78,7 +96,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 75
+	armor = 70,
+	mitigation = 2.02,
 }
 
 monster.elements = {
@@ -90,14 +109,14 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {
 	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Magician Quarter, Trade Quarter, Factory Quarter,Isle of Evil, Tiquanda Laboratory."
-	}
+}
 
 monster.health = 325
 monster.maxHealth = 325
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -73,7 +73,7 @@ monster.voices = {
 	{text = "Die in the name of Science!", yell = false},
 	{text = "You will regret interrupting my studies!", yell = false},
 	{text = "Let me test this!", yell = false},
-	{text = "I will study your corpse!", yell = false}
+	{text = "I will study your corpse!", yell = false},
 }
 
 monster.loot = {
@@ -89,6 +89,14 @@ monster.loot = {
 	{name = "small enchanted amethyst", chance = 470}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -35},
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -20, maxDamage = -56, range = ?, effect = <>, target = ?}, --3x3 shaped [[Drown Damage|Smoke Bomb]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -20, maxDamage = -36, range = ?, effect = <>, target = ?}, --[[Light Magic Missile]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Paralyze]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -35},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -20, maxDamage = -56, range = 7, radius = 3, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_POFF, target = true},
@@ -99,6 +107,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 15,
 	armor = 15,
+	mitigation = 0.64,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 10, maxDamage = 30, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -111,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {

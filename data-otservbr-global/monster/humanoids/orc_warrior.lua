@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Ancient Temple in Thais, Orc Fort, below Point of No Return in Outlaw Camp and inside a \z
 		mountain north of it, Orc Peninsula, Folda, Edron Orc cave, Maze of Lost Souls, Elvenbane Castle, \z
 		Foreigner Quarter, Zao Orc Land."
-	}
+}
 
 monster.health = 125
 monster.maxHealth = 125
@@ -61,20 +61,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Grow truk grrrr.", yell = false},
+	{text = "Alk!", yell = false},
 	{text = "Trak grrrr brik.", yell = false},
-	{text = "Alk!", yell = false}
+	{text = "Grow truk grrrr.", yell = false},
 }
 
 monster.loot = {
@@ -96,7 +96,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 8,
+	mitigation = 0.36,
 }
 
 monster.elements = {
@@ -108,8 +109,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Horestis Tomb."
-	}
+}
 
 monster.health = 400
 monster.maxHealth = 400
 monster.race = "blood"
 monster.corpse = 6026
 monster.speed = 102
-monster.manaCost = 275
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 5000,
@@ -50,7 +50,7 @@ monster.flags = {
 	pushable = true,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
@@ -59,19 +59,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Grawrrr!!", yell = false},
-	{text = "Hoouu!", yell = false}
+	{text = "Hoouu!", yell = false},
 }
 
 monster.loot = {
@@ -82,15 +82,21 @@ monster.loot = {
 	{name = "health potion", chance = 19840}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -115 + [[Poisoned|Poisons]] 1 [[hp]] for 5 turns},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Poisoned|Poison]] starts at 3 hp/turn, maxDamage = -[[Poisoned|Poison]] starts at 3 hp/turn, range = ?, effect = <>, target = ?}, --Small Poisoning Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -lasts for 2 seconds, maxDamage = -lasts for 2 seconds, range = ?, effect = <>, target = ?}, --[[Charge]]
+--}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -112, condition = {type = CONDITION_POISON, totalDamage = 10, interval = 4000}},
-	-- poison
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -112, condition = {type = CONDITION_POISON, totalDamage = 10, interval = 4000}}, -- poison
 	{name ="ghoulish hyaena wave", interval = 2000, chance = 15, target = false}
 }
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 21,
+	mitigation = 0.80,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 3000, target = false, duration = 2000}
 }
 
@@ -103,12 +109,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

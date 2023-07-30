@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Cobra Scout")
 local monster = {}
 
 monster.description = "a cobra scout"
-monster.experience = 8712
+monster.experience = 7310
 monster.outfit = {
 	lookType = 1217,
 	lookHead = 1,
@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Cobra Bastion."
-	}
+}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -72,7 +72,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Think I can't see you? Think again...", yell = false},
 	{text = "You don't stand a chance!", yell = false},
-	{text = "What are you looking for?", yell = false}
+	{text = "What are you looking for?", yell = false},
 }
 
 monster.loot = {
@@ -93,6 +93,11 @@ monster.loot = {
 	{id = 23533, chance = 740} -- ring of red plasma
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -430, range = ?, effect = <>, target = ?}, --[[Earth Damage|Earth Arrow]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
 	{name ="combat", interval = 2000, chance = 22, type = COMBAT_EARTHDAMAGE, minDamage = -350, maxDamage = -450, shootEffect = CONST_ANI_SNIPERARROW, target = true},
@@ -102,7 +107,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 81,
-	armor = 81
+	armor = 81,
+	mitigation = 2.16,
 }
 
 monster.elements = {
@@ -114,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Isle of Evil."
-	}
+}
 
 monster.health = 505
 monster.maxHealth = 505
 monster.race = "blood"
 monster.corpse = 5971
 monster.speed = 75
-monster.manaCost = 220
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 2000,
@@ -58,13 +58,13 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -72,13 +72,19 @@ monster.voices = {
 	chance = 10,
 	{text = "Wuff Wuff", yell = false},
 	{text = "Grrr Wuff", yell = false},
-	{text = "Show me how good you are without some rolled newspaper!", yell = false}
+	{text = "Show me how good you are without some rolled newspaper!", yell = false},
 }
 
 monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 75}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -55},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -30, maxDamage = -60, range = ?, effect = <>, target = ?}, --Fire Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Burns for 5 turns, maxDamage = -Burns for 5 turns, range = ?, effect = <>, target = ?}, --Cross Soulfire
+--}
 monster.attacks = {
 	{name ="melee", interval = 1200, chance = 100, minDamage = 0, maxDamage = -55},
 	{name ="hot dog wave", interval = 2000, chance = 30, minDamage = -30, maxDamage = -60, target = false},
@@ -87,7 +93,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 2,
-	armor = 1
+	armor = 24,
+	mitigation = 0.72,
 }
 
 monster.elements = {
@@ -99,12 +106,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

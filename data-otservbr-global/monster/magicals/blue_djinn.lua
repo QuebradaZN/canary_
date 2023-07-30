@@ -62,21 +62,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Simsalabim", yell = false},
+	{text = "Wishes can come true.", yell = false},
 	{text = "Feel the power of my magic, tiny mortal!", yell = false},
 	{text = "Be careful what you wish for.", yell = false},
-	{text = "Wishes can come true", yell = false}
 }
 
 monster.loot = {
@@ -94,6 +94,15 @@ monster.loot = {
 	{name = "dirty turban", chance = 1890}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -45, maxDamage = -75, range = ?, effect = <>, target = ?}, --Fire strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -50, maxDamage = -90, range = ?, effect = <>, target = ?}, --Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -55, maxDamage = -105, range = ?, effect = <>, target = ?}, --life drain strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -30 seconds, maxDamage = -30 seconds, range = ?, effect = <>, target = ?}, --Drunkenness
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --[[Cancel Invisibility|Cancels invisibility]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -110},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -45, maxDamage = -80, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
@@ -106,7 +115,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 20,
+	mitigation = 0.78,
 }
 
 monster.elements = {
@@ -118,8 +128,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -13}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -13},
 }
 
 monster.immunities = {

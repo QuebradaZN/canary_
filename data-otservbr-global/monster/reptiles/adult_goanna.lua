@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh Central Steppe, Kilmaresh Southern Steppe, Green Belt."
-	}
+}
 
 monster.health = 8300
 monster.maxHealth = 8300
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -91,6 +91,13 @@ monster.loot = {
 	{name = "small tortoise", chance = 1800}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -326?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0-560+; from 2-3 squares distance, maxDamage = -0-560+; from 2-3 squares distance, range = ?, effect = <>, target = ?}, --Earth Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Earth Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Earth Bomb
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350, condition = {type = CONDITION_POISON, totalDamage = 19, interval = 4000}},
 	{name ="wave t", interval = 2000, chance = 10, minDamage = -250, maxDamage = -380, target = false},
@@ -101,6 +108,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 84,
 	armor = 84,
+	mitigation = 2.60,
 	{name ="speed", interval = 2000, chance = 5, speedChange = 500, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
@@ -113,8 +121,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

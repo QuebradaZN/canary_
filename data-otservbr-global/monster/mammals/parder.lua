@@ -32,7 +32,6 @@ monster.race = "blood"
 monster.corpse = 39204
 monster.speed = 115
 monster.manaCost = 0
-monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -58,21 +57,21 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
-	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Grrroaaar!", yell = false},
-	{text = "FCHHH!", yell = false},
+	{text = "FCHHH!", yell = true},
 }
 
 monster.loot = {
@@ -86,6 +85,15 @@ monster.loot = {
 	{id = 7385, chance = 1510}, -- Crimson Sword
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -256},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -126, maxDamage = -262, range = ?, effect = <>, target = ?}, --Scratch
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -258, maxDamage = -292, range = ?, effect = <>, target = ?}, --Physical Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -120, maxDamage = -132, range = ?, effect = <>, target = ?}, --Life drain strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -83, maxDamage = -108, range = ?, effect = <>, target = ?}, --Life drain bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown maybe buff, maxDamage = -unknown maybe buff, range = ?, effect = <>, target = ?}, --Sparkles
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -801},
 	{name ="combat", interval = 2000, chance = 47, type = COMBAT_PHYSICALDAMAGE, minDamage = -126, maxDamage = -262, effect = CONST_ME_BIG_SCRATCH, target = true},
@@ -95,6 +103,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 90,
 	armor = 33,
+	mitigation = 1.15,
 }
 
 monster.elements = {
@@ -106,8 +115,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

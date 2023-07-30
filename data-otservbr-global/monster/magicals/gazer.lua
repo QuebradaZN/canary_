@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Hellgate bonelord cave, Vandura Bonelord Cave, also anywhere Elder Bonelords exist, as summons."
-	}
+}
 
 monster.health = 120
 monster.maxHealth = 120
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -72,7 +72,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Mommy!?", yell = false},
 	{text = "Buuuuhaaaahhaaaaa!", yell = false},
-	{text = "Me need mana!", yell = false}
+	{text = "Me need mana!", yell = false},
 }
 
 monster.loot = {
@@ -80,6 +80,12 @@ monster.loot = {
 	{name = "small flask of eyedrops", chance = 3200}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -15+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -25, maxDamage = -35, range = ?, effect = <>, target = ?}, --[[Life Drain]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -10, maxDamage = -35, range = ?, effect = <>, target = ?}, --[[Mana Drain]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -15},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -25, maxDamage = -35, range = 7, effect = CONST_ME_MAGIC_RED, target = false},
@@ -88,7 +94,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 4,
-	armor = 4
+	armor = 4,
+	mitigation = 0.38,
 }
 
 monster.elements = {
@@ -100,8 +107,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

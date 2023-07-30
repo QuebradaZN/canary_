@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Old Fortress, Ankrahmun Tombs, Helheim, Ramoa, Lich Hell, beneath Fenrock, Deeper Banuta, \z
 		Vengoth Castle, Vandura Mountain, Robson's Isle, Middle Spike, Lion's Rock, Mother of Scarabs Lair, Caverna Exanima."
-	}
+}
 
 monster.health = 515
 monster.maxHealth = 515
@@ -60,19 +60,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "Knooorrrrr!", yell = false},
 	{text = "Cccchhhhhhhhh!", yell = false},
-	{text = "Knooorrrrr!", yell = false}
 }
 
 monster.loot = {
@@ -89,6 +89,16 @@ monster.loot = {
 	{name = "bony tail", chance = 9780}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -200},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -25, maxDamage = -47+, range = ?, effect = <>, target = ?}, --Life Drain Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -50, maxDamage = -90, range = ?, effect = <>, target = ?}, --Envenom
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3 hp/turn, maxDamage = -3 hp/turn, range = ?, effect = <>, target = ?}, --Poison Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -4 hp/turn, maxDamage = -4 hp/turn, range = ?, effect = <>, target = ?}, --Poison Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 30, maxDamage = 60 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, condition = {type = CONDITION_POISON, totalDamage = 100, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -50, maxDamage = -90, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
@@ -103,6 +113,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 40,
+	mitigation = 1.15,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 50, maxDamage = 60, effect = CONST_ME_HITBYPOISON, target = false}
 }
 
@@ -115,8 +126,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

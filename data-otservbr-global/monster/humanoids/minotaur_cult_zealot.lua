@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Minotaurs Cult Cave."
-	}
+	Locations = "Minotaurs Cult Cave"
+}
 
 monster.health = 1800
 monster.maxHealth = 1800
@@ -62,19 +62,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Kirll Karrrl!", yell = false},
-	{text = "Kaplar!", yell = false}
 }
 
 monster.loot = {
@@ -98,6 +96,12 @@ monster.loot = {
 	{name = "minotaur horn", chance = 2320, maxCount = 2}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -250},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -350, range = ?, effect = <>, target = ?}, --Axe Throw
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -250+, range = ?, effect = <>, target = ?}, --Smoke Beam
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -340},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -320, range = 7, shootEffect = CONST_ANI_WHIRLWINDAXE, target = true}
@@ -105,7 +109,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 30,
-	armor = 30
+	armor = 35,
+	mitigation = 1.37,
 }
 
 monster.elements = {
@@ -117,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

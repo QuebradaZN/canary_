@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Razzachai, Northern Zao Plantations, Souleater Mountains, Deeper Banuta."
-	}
+}
 
 monster.health = 1100
 monster.maxHealth = 1100
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 3,
+	color = 137,
 }
 
 monster.voices = {
@@ -74,7 +74,7 @@ monster.voices = {
 	{text = "I will devour your soul.", yell = false},
 	{text = "Souuuls!", yell = false},
 	{text = "I will feed on you.", yell = false},
-	{text = "Aaaahh", yell = false}
+	{text = "Aaaahh", yell = false},
 }
 
 monster.loot = {
@@ -92,6 +92,16 @@ monster.loot = {
 	{name = "ectoplasmic sushi", chance = 2000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -209},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -0, maxDamage = -60, range = ?, effect = <>, target = ?}, --Sparkle Life Drain Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -30~ turns, maxDamage = -30~ turns, range = ?, effect = <>, target = ?}, --Drowning Death Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -50, maxDamage = -130, range = ?, effect = <>, target = ?}, --Ice Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -200+, range = ?, effect = <>, target = ?}, --Musical Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -around 3 seconds, maxDamage = -around 3 seconds, range = ?, effect = <>, target = ?}, --[[Invisible]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 75, maxDamage = 202 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -210},
 	{name ="combat", interval = 2000, chance = 100, type = COMBAT_ICEDAMAGE, minDamage = -50, maxDamage = -100, range = 7, shootEffect = CONST_ANI_SMALLICE, target = true},
@@ -103,6 +113,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 30,
+	mitigation = 0.51,
 	{name ="invisible", interval = 2000, chance = 5, effect = CONST_ME_MAGIC_BLUE},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 120, maxDamage = 125, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
@@ -116,8 +127,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

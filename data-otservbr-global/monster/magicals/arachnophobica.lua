@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Buried Cathedral, Haunted Cellar, Court of Summer, Court of Winter, Dream Labyrinth."
-	}
+}
 
 monster.health = 5000
 monster.maxHealth = 5000
@@ -62,18 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Tip tap tip tap!", yell = false}
+	{text = "Tip tap tip tap!", yell = false},
+	{text = "Zip zip zip!!!", yell = false},
 }
 
 monster.loot = {
@@ -108,6 +109,16 @@ monster.loot = {
 	{name = "necklace of the deep", chance = 1800}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -400},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -250, maxDamage = -350, range = ?, effect = <>, target = ?}, --[[Death Damage|Death Bomb on target]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -300, range = ?, effect = <>, target = ?}, --[[Death Damage|Sudden Death]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -300, range = ?, effect = <>, target = ?}, --[[Death Damage|Die Effect Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -300, range = ?, effect = <>, target = ?}, --[[Death Damage|Death]] [[Berserk]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -350, range = ?, effect = <>, target = ?}, --[[Energy Damage|Energy Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -300, range = ?, effect = <>, target = ?}, --[[Energy Damage|Yellow Sparks bomb on itself]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350},
 	{name ="arachnophobicawavedice", interval = 2000, chance = 20, minDamage = -250, maxDamage = -350, target = false},
@@ -119,6 +130,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 70,
+	mitigation = 1.94,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -131,8 +143,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -40},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = -40},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {

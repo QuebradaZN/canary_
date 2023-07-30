@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Naga Archer")
 local monster = {}
 
 monster.description = "a naga archer"
-monster.experience = 5520
+monster.experience = 5150
 monster.outfit = {
 	lookType = 1537,
 	lookHead = 55,
@@ -22,18 +22,16 @@ monster.Bestiary = {
 	SecondUnlock = 1000,
 	CharmsPoints = 50,
 	Stars = 4,
-	Occurrence = 1,
+	Occurrence = 0,
 	Locations = "Temple of the Moon Goddess."
 }
 
-
-monster.health = 4460
-monster.maxHealth = 4460
+monster.health = 4640
+monster.maxHealth = 4640
 monster.race = "blood"
 monster.corpse = 39225
 monster.speed = 182
 monster.manaCost = 0
-
 
 monster.changeTarget = {
 	interval = 4000,
@@ -61,18 +59,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "The Moon Goddess is ashamed of you!", yell = false},
+	{text = "Intruder! Don't violate this sanctuary!", yell = false},
 }
 
 monster.loot = {
@@ -93,6 +91,14 @@ monster.loot = {
 	{name = "emerald bangle", chance = 430},
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -171, maxDamage = -171, range = ?, effect = <>, target = ?}, --Explosion Rock
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -250, maxDamage = -250, range = ?, effect = <>, target = ?}, --Death Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -70, maxDamage = -70, range = ?, effect = <>, target = ?}, --Death Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -447, maxDamage = -447, range = ?, effect = <>, target = ?}, --Death Chain
+--}
 monster.attacks = {
     {name ="combat", interval = 2000, chance = 100, minDamage = -300, maxDamage = -600, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_PURPLEENERGY, target = true},
     {name ="nagadeath", interval = 6000, chance = 39, target = false, minDamage = -1000, maxDamage = -2200},
@@ -101,24 +107,25 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 110,
-	armor = 120,
+	armor = 63,
+	mitigation = 1.74,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 10},
-	{type = COMBAT_EARTHDAMAGE, percent = 15},
-	{type = COMBAT_FIREDAMAGE, percent = -20},
+	{type = COMBAT_PHYSICALDAMAGE, percent = -10},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = -15},
+	{type = COMBAT_FIREDAMAGE, percent = 20},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_ICEDAMAGE, percent = 20},
+	{type = COMBAT_HOLYDAMAGE, percent = -20},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

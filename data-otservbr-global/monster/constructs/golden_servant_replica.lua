@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 2,
-	Locations = "Replica Dungeon."
-	}
+	Locations = "Replica Dungeon"
+}
 
 monster.health = 2000
 monster.maxHealth = 2000
@@ -57,14 +57,14 @@ monster.flags = {
 	runHealth = 80,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -87,6 +87,12 @@ monster.loot = {
 	{id = 3063, chance = 8} -- gold ring
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -?, range = ?, effect = <>, target = ?}, --[[Energy Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -?, range = ?, effect = <>, target = ?}, --[[Thunderstorm]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 40, attack = 40},
 	{name ="combat", interval = 2000, chance = 11, type = COMBAT_FIREDAMAGE, minDamage = -80, maxDamage = -110, length = 5, spread = 1, effect = CONST_ME_YELLOWENERGY, target = false},
@@ -95,7 +101,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 40,
+	armor = 29,
+	mitigation = 0.88,
 	{name ="combat", interval = 2000, chance = 13, type = COMBAT_HEALING, minDamage = 40, maxDamage = 70, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -108,8 +115,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

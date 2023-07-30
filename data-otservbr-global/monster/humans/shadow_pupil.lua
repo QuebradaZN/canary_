@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Drefia."
-	}
+}
 
 monster.health = 450
 monster.maxHealth = 450
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -79,9 +79,9 @@ monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "When I'm finished with you, you'll be a shadow of your former self.", yell = false},
-	{text = "The shadows will swallow you...", yell = false},
+	{text = "Come forth from the shadows, my minions...", yell = false},
 	{text = "The shadows follow your every step...", yell = false},
-	{text = "Come forth from the shadows, my minions...", yell = false}
+	{text = "The shadows will swallow you...", yell = false},
 }
 
 monster.loot = {
@@ -98,6 +98,12 @@ monster.loot = {
 	{name = "pieces of magic chalk", chance = 4300}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -70?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -60, maxDamage = -80, range = ?, effect = <>, target = ?}, --[[Sudden Death]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -30, maxDamage = -60, range = ?, effect = <>, target = ?}, --Sudden Death Bomb
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -70, condition = {type = CONDITION_POISON, totalDamage = 90, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -60, maxDamage = -80, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
@@ -106,7 +112,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25
+	armor = 32,
+	mitigation = 1.04,
 }
 
 monster.elements = {
@@ -118,8 +125,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {

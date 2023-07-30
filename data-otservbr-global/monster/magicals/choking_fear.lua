@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "All over the surface of Upper Roshamuul and Nightmare Isles."
-	}
+}
 
 monster.health = 5800
 monster.maxHealth = 5800
@@ -61,13 +61,13 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -76,7 +76,7 @@ monster.voices = {
 	{text = "Ah, sweet air... don't you miss it?", yell = false},
 	{text = "Murr tat muuza!", yell = false},
 	{text = "kchh", yell = false},
-	{text = "hsssss", yell = false}
+	{text = "hsssss", yell = false},
 }
 
 monster.loot = {
@@ -104,6 +104,17 @@ monster.loot = {
 	{name = "hemp rope", chance = 14180}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -250, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Sudden Death]] bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Poisons you starting from up to 45 hp per turn, maxDamage = -Poisons you starting from up to 45 hp per turn, range = ?, effect = <>, target = ?}, --Poison wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -25, maxDamage = -100, range = ?, effect = <>, target = ?}, --[[Mana Drain]] sleeping bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -400, maxDamage = -500, range = ?, effect = <>, target = ?}, --life drain sleeping strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Drowning|drowns]] you for 50+ turns, maxDamage = -[[Drowning|drowns]] you for 50+ turns, range = ?, effect = <>, target = ?}, --large bubble explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Paralyze]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -80, maxDamage = -150, range = ?, effect = <>, target = ?}, --very slow [[Self-Healing]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -499, condition = {type = CONDITION_POISON, totalDamage = 600, interval = 4000}},
 	-- poison
@@ -117,7 +128,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 35,
-	armor = 35,
+	armor = 65,
+	mitigation = 1.94,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 80, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -130,8 +142,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 55}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 55},
 }
 
 monster.immunities = {

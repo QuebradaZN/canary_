@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Emerald Tortoise")
 local monster = {}
 
-monster.description = "a emerald tortoise"
+monster.description = "an emerald tortoise"
 monster.experience = 12129
 monster.outfit = {
 	lookType = 1550,
@@ -13,26 +13,25 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 2268
+monster.Bestiary = {
+	class = "Reptile",
+	race = BESTY_RACE_REPTILE,
+	toKill = 5000,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
+	CharmsPoints = 100,
+	Stars = 5,
+	Occurrence = 0,
+	Locations = "Sparkling Pools"
+}
+
 monster.health = 22300
 monster.maxHealth = 22300
 monster.race = "blood"
 monster.corpse = 39291
 monster.speed = 179
 monster.manaCost = 0
-monster.maxSummons = 0
-
-monster.raceId = 2268
-monster.Bestiary = {
-	class = "Reptile",
-	race = BESTY_RACE_REPTILE,
-	toKill = 5000,
-	FirstUnlock = 50,
-	SecondUnlock = 500,
-	CharmsPoints = 100,
-	Stars = 5,
-	Occurrence = 1,
-	Locations = "Sparkling Pools"
-}
 
 monster.changeTarget = {
 	interval = 4000,
@@ -60,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -92,6 +91,11 @@ monster.loot = {
 	{name = "Black Pearl", chance = 2160, minCount = 1, maxCount = 2},
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -0},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -650, maxDamage = -650, range = ?, effect = <>, target = ?}, --Spark Ring
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 450, maxDamage = -500},
 	{name ="combat", interval = 2000, chance = 40, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -500, range = 5, shootEffect = CONST_ANI_ENERGY, target = true},
@@ -101,6 +105,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 110,
 	armor = 97,
+	mitigation = 2.57,
 }
 
 monster.elements = {
@@ -112,8 +117,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

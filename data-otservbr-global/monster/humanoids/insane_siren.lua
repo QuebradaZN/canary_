@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Court of Summer."
-	}
+}
 
 monster.health = 6500
 monster.maxHealth = 6500
@@ -62,18 +62,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Dream or nightmare?", yell = false}
+	{text = "Dream or nightmare?", yell = false},
 }
 
 monster.loot = {
@@ -93,6 +93,17 @@ monster.loot = {
 	{name = "magma monocle", chance = 260}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -450},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -200, range = ?, effect = <>, target = ?}, --Fire Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -350, range = ?, effect = <>, target = ?}, --Fire Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -300, range = ?, effect = <>, target = ?}, --Fire Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -300, range = ?, effect = <>, target = ?}, --Small Fire Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -300, range = ?, effect = <>, target = ?}, --Fire Ball on self
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -250; chains through nearby players, range = ?, effect = <>, target = ?}, --Red Sparks
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100%, maxDamage = -100%, range = ?, effect = <>, target = ?}, --Reflects Fire Damage
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -530},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -270, maxDamage = -710, length = 3, spread = 0, effect = CONST_ME_FIREAREA, target = false},
@@ -103,7 +114,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 70
+	armor = 76,
+	mitigation = 2.11,
 }
 
 monster.elements = {
@@ -115,8 +127,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE , percent = 25},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 25},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

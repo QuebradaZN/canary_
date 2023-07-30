@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Inukaya, Chyllfroest, Chakoya Iceberg, Nibelor (during a quest)."
-	}
+}
 
 monster.health = 68
 monster.maxHealth = 68
@@ -50,21 +50,21 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = true,
+	canPushItems = false,
 	canPushCreatures = false,
 	staticAttackChance = 80,
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
-	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -73,7 +73,7 @@ monster.voices = {
 	{text = "Quisavu tukavi!", yell = false},
 	{text = "Si siyoqua jamjam!", yell = false},
 	{text = "Achuq! jinuma!", yell = false},
-	{text = "Si ji jusipa!", yell = false}
+	{text = "Si ji jusipa!", yell = false},
 }
 
 monster.loot = {
@@ -94,7 +94,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 10,
-	armor = 10
+	armor = 9,
+	mitigation = 0.33,
 }
 
 monster.elements = {
@@ -106,8 +107,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {

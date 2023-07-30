@@ -24,8 +24,8 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Pits of Inferno, Formorgar Mines, Cemetery Quarter, Edron \z
-		(In multiple places during The Inquisition Quest), Alchemist Quarter, Vengoth Castle, Deeper Banuta, Krailos Ruins."
-	}
+		(In multiple places during The Inquisition Quest), Alchemist Quarter, Vengoth Castle, Deeper Banuta, Krailos Ruins, Grounds of Deceit."
+}
 
 monster.health = 2700
 monster.maxHealth = 2700
@@ -63,12 +63,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -79,7 +79,7 @@ monster.voices = {
 	{text = "Pffffrrrrrrrrrrrr.", yell = false},
 	{text = "I will make you scream.", yell = false},
 	{text = "Take a ride with me.", yell = false},
-	{text = "Weeeheeheeeheee!", yell = false}
+	{text = "Weeeheeheeeheee!", yell = false},
 }
 
 monster.loot = {
@@ -102,6 +102,14 @@ monster.loot = {
 	{name = "scythe leg", chance = 9090}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -150},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -120, maxDamage = -170, range = ?, effect = <>, target = ?}, --Death Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -500, range = ?, effect = <>, target = ?}, --Poison Ball
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 60, maxDamage = 100 },
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyze
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -120, maxDamage = -170, range = 7, radius = 1, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
@@ -111,6 +119,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 25,
 	armor = 25,
+	mitigation = 0.70,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 60, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 420, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
@@ -124,8 +133,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

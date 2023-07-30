@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Feyrist."
-	}
+}
 
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "blood"
 monster.corpse = 20233
 monster.speed = 150
-monster.manaCost = 450
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -62,21 +62,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Mwaaaahnducate youuuuuu *gurgle*, mwaaah!", yell = false},
 	{text = "Mwaaahgod! Overmwaaaaah! *gurgle*", yell = false},
-	{text = "MMMWAHMWAHMWAHMWAAAAH!", yell = false},
-	{text = "Mmmwhamwhamwhah, mwaaah!", yell = false}
+	{text = "Mwaaaahnducate youuuuuu *gurgle*, mwaaah!", yell = false},
+	{text = "MMMWAHMWAHMWAHMWAAAAH!", yell = true},
+	{text = "Mmmwhamwhamwhah, mwaaah!", yell = false},
 }
 
 monster.loot = {
@@ -100,6 +100,16 @@ monster.loot = {
 	{name = "fairy wings", chance = 15000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -400+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Bleeding Stone Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Paralyze Red Shimmer Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -500, range = ?, effect = <>, target = ?}, --Explosion Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -300, range = ?, effect = <>, target = ?}, --Blood Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown maybe buff, maxDamage = -unknown maybe buff, range = ?, effect = <>, target = ?}, --Frazzle Burp
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 50+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 80},
 	-- bleed
@@ -112,7 +122,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 30,
-	armor = 30,
+	armor = 45,
+	mitigation = 1.37,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 80, maxDamage = 225, effect = CONST_ME_HITBYPOISON, target = false}
 }
 
@@ -125,8 +136,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

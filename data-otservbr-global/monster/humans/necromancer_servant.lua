@@ -13,6 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 988
+
 monster.health = 600
 monster.maxHealth = 600
 monster.race = "blood"
@@ -46,12 +48,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -62,6 +64,12 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -105?, range = ?, effect = <>, target = ?}, --Stalagmite
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 70?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -45},
 	{name ="combat", interval = 1000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -5, maxDamage = -40, range = 7, shootEffect = CONST_ANI_THROWINGKNIFE, target = false}
@@ -69,26 +77,27 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 11,
-	armor = 11
+	armor = 11,
+	mitigation = 0.94,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -8},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
+	{type = COMBAT_ENERGYDAMAGE, percent = 20},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = -5},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -7}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

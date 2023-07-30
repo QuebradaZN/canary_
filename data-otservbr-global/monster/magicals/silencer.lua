@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "All over the Roshamuul surface and Nightmare Isles."
-	}
+}
 
 monster.health = 5400
 monster.maxHealth = 5400
@@ -62,21 +62,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Prrrroooaaaah!!! PRROAAAH!!", yell = false},
-	{text = "PRRRROOOOOAAAAAHHHH!!!", yell = false},
-	{text = "HUUUSSSSSSSSH!!", yell = false},
-	{text = "Hussssssh!!", yell = false}
+	{text = "PRRRROOOOOAAAAAHHHH!!!", yell = true},
+	{text = "HUUUSSSSSSSSH!!", yell = true},
+	{text = "Hussssssh!!", yell = false},
 }
 
 monster.loot = {
@@ -98,6 +98,12 @@ monster.loot = {
 	{name = "silencer resonating chamber", chance = 8410}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -0, maxDamage = -110+, range = ?, effect = <>, target = ?}, --[[Mana Drain]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -315, condition = {type = CONDITION_POISON, totalDamage = 600, interval = 4000}},
 	{name ="silencer skill reducer", interval = 2000, chance = 10, range = 3, target = false},
@@ -106,7 +112,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 71,
+	mitigation = 1.82,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 450, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 220, maxDamage = 425, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
@@ -120,12 +127,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 65}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 65},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
+	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

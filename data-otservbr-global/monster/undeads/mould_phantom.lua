@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Mould Phantom")
 local monster = {}
 
 monster.description = "a mould phantom"
-monster.experience = 23920
+monster.experience = 18330
 monster.outfit = {
 	lookType = 1298,
 	lookHead = 106,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Undead",
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Rotten Wasteland."
-	}
+}
 
 monster.health = 28000
 monster.maxHealth = 28000
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Everything decomposes.", yell = false},
 	{text = "I love the smell of rotten flesh.", yell = false},
-	{text = "The earth will take you back.", yell = false}
+	{text = "The earth will take you back.", yell = false},
 }
 
 monster.loot = {
@@ -95,6 +95,15 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -1250, range = ?, effect = <>, target = ?}, --Holy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1200, maxDamage = -1300, range = ?, effect = <>, target = ?}, --Holy Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Poison Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -900, maxDamage = -1050, range = ?, effect = <>, target = ?}, --Earth Chain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -900, range = ?, effect = <>, target = ?}, --Holy Chain
+--}
 monster.attacks = {
 	{name ="combat", interval = 3000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -650, maxDamage = -1000, radius = 4, effect = CONST_ME_GREEN_RINGS, target = false},
 	{name ="combat", interval = 3000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -650, maxDamage = -1000, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_SMALLPLANTS, target = true},
@@ -104,7 +113,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 75,
-	armor = 100
+	armor = 100,
+	mitigation = 2.45,
 }
 
 monster.elements = {
@@ -116,8 +126,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Pits of Inferno, The Crystal Caves and The Soul Well in The Inquisition Quest, \z
 		Drefia Grim Reaper Dungeons, as well in Vengoth."
-	}
+}
 
 monster.health = 1350
 monster.maxHealth = 1350
@@ -60,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -74,7 +74,7 @@ monster.voices = {
 	{text = "Revenge ... is so ... sweet.", yell = false},
 	{text = "Life...force! Feed me your... lifeforce", yell = false},
 	{text = "Mor... tals!", yell = false},
-	{text = "Buuuuuh", yell = false}
+	{text = "Buuuuuh", yell = false},
 }
 
 monster.loot = {
@@ -98,6 +98,16 @@ monster.loot = {
 	{name = "shiny stone", chance = 1000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -305},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Great drunk bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -400, range = ?, effect = <>, target = ?}, --Invisible Distance Mana Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -170, maxDamage = -260+, range = ?, effect = <>, target = ?}, --Distance Life Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -20 [[hp]] / 20 turns, maxDamage = -20 [[hp]] / 20 turns, range = ?, effect = <>, target = ?}, --Sparkle Drowning Berserk
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 100, maxDamage = 250},
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 350, maxDamage = 700},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -308, condition = {type = CONDITION_POISON, totalDamage = 300, interval = 4000}},
 	{name ="drunk", interval = 2000, chance = 15, radius = 4, effect = CONST_ME_SOUND_PURPLE, target = false, duration = 6000},
@@ -108,7 +118,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 35,
-	armor = 35,
+	armor = 40,
+	mitigation = 1.04,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 700, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 290, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
@@ -122,8 +133,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 1},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

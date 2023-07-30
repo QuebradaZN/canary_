@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "South of Port Hope around Trapwood. There is also a group of 3 voodoomasters \z
 		and 2 crypt shamblers on the shore east of Trapwood."
-	}
+}
 
 monster.health = 80
 monster.maxHealth = 80
@@ -51,7 +51,7 @@ monster.flags = {
 	pushable = true,
 	rewardBoss = false,
 	illusionable = true,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 80,
 	targetDistance = 4,
@@ -60,20 +60,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Brak brrretz!", yell = false},
 	{text = "Grow truk grrrrr.", yell = false},
-	{text = "Prek tars, dekklep zurk.", yell = false}
+	{text = "Brak brrretz!", yell = false},
+	{text = "Prek tars, dekklep zurk.", yell = false},
 }
 
 monster.loot = {
@@ -90,6 +90,16 @@ monster.loot = {
 	{name = "health potion", chance = 600}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -21},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1, maxDamage = -39, range = ?, effect = <>, target = ?}, --Life Drain Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -6, maxDamage = -18, range = ?, effect = <>, target = ?}, --Poison Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -6 seconds, maxDamage = -6 seconds, range = ?, effect = <>, target = ?}, --Drunkenness
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Creates Poison Fields
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -190, maxDamage = -230 points for 5 seconds , range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 3, maxDamage = 9 },
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3 seconds, rarely, maxDamage = -3 seconds, rarely, range = ?, effect = <>, target = ?}, --invisible --}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -20},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = 0, maxDamage = -40, range = 1, effect = CONST_ME_MAGIC_RED, target = false},
@@ -102,7 +112,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 10,
-	armor = 10,
+	armor = 3,
+	mitigation = 0.20,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 3, maxDamage = 9, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 200, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000},
 	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_BLUE}
@@ -117,8 +128,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 35},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 35},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

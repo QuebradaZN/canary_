@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "Tainted Caves, Poacher Caves/Gloomy."
-	}
+}
 
 monster.health = 200
 monster.maxHealth = 200
@@ -47,10 +47,10 @@ monster.flags = {
 	attackable = true,
 	hostile = true,
 	convinceable = false,
-	pushable = true,
+	pushable = false,
 	rewardBoss = false,
 	illusionable = true,
-	canPushItems = false,
+	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -81,13 +81,19 @@ monster.loot = {
 	{id = 22007, chance = 8000} --gloom wolf fur
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -92+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Bleeding|Bleeds]] you, maxDamage = -[[Bleeding|Bleeds]] you, range = ?, effect = <>, target = ?}, --plus-shaped [[Berserk]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -92}
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 5
+	armor = 10,
+	mitigation = 0.51,
 }
 
 monster.elements = {
@@ -99,8 +105,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

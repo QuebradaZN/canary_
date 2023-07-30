@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 1,
 	Locations = "Warzone 3."
-	}
+}
 
 monster.health = 7200
 monster.maxHealth = 7200
@@ -60,18 +60,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "CLONK!", yell = false}
+	{text = "CLONK!", yell = true},
 }
 
 monster.loot = {
@@ -106,6 +106,17 @@ monster.loot = {
 	{name = "crystal crossbow", chance = 300}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -300+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -1500, range = ?, effect = <>, target = ?}, --Groundshaker Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -400?, range = ?, effect = <>, target = ?}, --Life Drain Spark Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -400?, range = ?, effect = <>, target = ?}, --Death Mana Drain Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -causes [[Poison]] at 54hp/turn, maxDamage = -causes [[Poison]] at 54hp/turn, range = ?, effect = <>, target = ?}, --[[Viper Star]] Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Musical Drunk Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown effect, maybe [[Paralysis|paralyzes]] you, maxDamage = -Unknown effect, maybe [[Paralysis|paralyzes]] you, range = ?, effect = <>, target = ?}, --Spark wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Unknown effect, maxDamage = -Unknown effect, range = ?, effect = <>, target = ?}, --Red Sparkles Explosion on self
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300},
 	{name ="orewalker wave", interval = 2000, chance = 15, minDamage = -296, maxDamage = -700, target = false},
@@ -118,7 +129,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 45
+	armor = 79,
+	mitigation = 2.31,
 }
 
 monster.elements = {
@@ -130,8 +142,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 25}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 25},
 }
 
 monster.immunities = {

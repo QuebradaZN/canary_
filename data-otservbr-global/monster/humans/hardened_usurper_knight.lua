@@ -18,6 +18,7 @@ monster.maxHealth = 8200
 monster.race = "blood"
 monster.corpse = 0
 monster.speed = 130
+monster.manaCost = 0
 
 monster.faction = FACTION_LIONUSURPERS
 monster.enemyFactions = {FACTION_LION, FACTION_PLAYER}
@@ -48,22 +49,25 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
-	chance = 0
+	chance = 10,
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 6000, chance = 9, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -300, radius = 3, effect = CONST_ME_MORTAREA, target = false},
@@ -73,21 +77,22 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 86,
-	armor = 83,
+	armor = 0,
+--	mitigation = ???,
 	{name ="combat", interval = 4000, chance = 40, type = COMBAT_HEALING, minDamage = 200, maxDamage = 550, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 35},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 10},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 15},
-	{type = COMBAT_DEATHDAMAGE , percent = -15}
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Zao Orc Land (single spawn in fort), \z
 		Corruption Hole, Razachai, Temple of Equilibrium, Northern Zao Plantations."
-	}
+}
 
 monster.health = 1800
 monster.maxHealth = 1800
@@ -60,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -73,7 +73,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Hizzzzzzz!", yell = false},
 	{text = "To armzzzz!", yell = false},
-	{text = "Engage zze aggrezzor!", yell = false}
+	{text = "Engage zze aggrezzor!", yell = false},
 }
 
 monster.loot = {
@@ -97,13 +97,20 @@ monster.loot = {
 	{name = "high guard shoulderplates", chance = 8150}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -261},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -60, maxDamage = -120, range = ?, effect = <>, target = ?}, --[[Life Drain|2 sqm distance Life Drain]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -25, maxDamage = -75, range = ?, effect = <>, target = ?}, --Slow [[Self-Healing]] [green star animation]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -306}
 }
 
 monster.defenses = {
 	defense = 35,
-	armor = 35,
+	armor = 40,
+	mitigation = 1.18,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 25, maxDamage = 75, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
@@ -116,8 +123,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

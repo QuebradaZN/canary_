@@ -1,8 +1,8 @@
 local mType = Game.createMonsterType("Evil Prospector")
 local monster = {}
 
-monster.description = "Evil Prospector"
-monster.experience = 7500
+monster.description = "an evil prospector"
+monster.experience = 9000
 monster.outfit = {
 	lookType = 1268,
 	lookHead = 0,
@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Barren Drift."
-	}
+	Locations = "Barren Drift"
+}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -83,6 +83,14 @@ monster.loot = {
 	{name = "lightning headband", chance = 1320}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -400, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Life Drain]] on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -455+, maxDamage = -455+, range = ?, effect = <>, target = ?}, --[[Energy Damage|Thunderstorm]] on itself
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -400, maxDamage = -500, range = ?, effect = <>, target = ?}, --[[Holy Missile]] on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Reflects [[Fire Damage|Fire]],[[Energy Damage|Energy]] and [[Earth Damage]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
 	{name ="combat", interval = 1700, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -250, maxDamage = -550, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
@@ -94,7 +102,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 100
+	armor = 100,
+	mitigation = 2.81,
 }
 
 monster.elements = {
@@ -106,8 +115,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 35},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 35},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

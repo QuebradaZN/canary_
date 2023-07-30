@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Banshee Quest area in Ghostlands (also accesible by Isle of the Kings), Demon Quest Room, Drefia, \z
 		Ancient Ruins Tomb, Desert Dungeon (unreachable), Pits of Inferno in Tafariel's Throne room, \z
 		Cemetery Quarter in Yalahar, Vengoth Castle, one in Robson Isle."
-	}
+}
 
 monster.health = 1000
 monster.maxHealth = 1000
@@ -64,12 +64,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -81,7 +81,7 @@ monster.voices = {
 	{text = "Are you ready to rock?", yell = false},
 	{text = "Feel my gentle kiss of death.", yell = false},
 	{text = "That's what I call easy listening!", yell = false},
-	{text = "IIIIEEEeeeeeehhhHHHH!", yell = true}
+	{text = "IIIIEEEeeeeeehhhHHHH!", yell = false},
 }
 
 monster.loot = {
@@ -109,6 +109,14 @@ monster.loot = {
 	{name = "sweet smelling bait", chance = 40}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -100},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -200, range = ?, effect = <>, target = ?}, --Great Musical Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -55, maxDamage = -350, range = ?, effect = <>, target = ?}, --Death Melee
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 120, maxDamage = 190 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, condition = {type = CONDITION_POISON, totalDamage = 3, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -100, maxDamage = -200, radius = 4, effect = CONST_ME_SOUND_RED, target = false},
@@ -119,6 +127,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 25,
 	armor = 25,
+	mitigation = 1.74,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 120, maxDamage = 190, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -131,8 +140,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

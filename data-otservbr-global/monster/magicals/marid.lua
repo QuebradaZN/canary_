@@ -23,7 +23,7 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Kha'zeel, Magician Quarter."
+	Locations = "Kha'zeel, Magician Quarter, Djinn battle island through the Haunted Tomb."
 }
 
 monster.health = 550
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -80,11 +80,10 @@ monster.summon = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Simsalabim", yell = false},
+	{text = "Wishes can come true.", yell = false},
 	{text = "Feel the power of my magic, tiny mortal!", yell = false},
-	{text = "Wishes can come true", yell = false},
-	{text = "Be careful what you wish.", yell = false},
-	{text = "Djinns will soon again be the greatest!", yell = false}
+	{text = "Simsalabim", yell = false},
+	{text = "Be careful what you wish for.", yell = false},
 }
 
 monster.loot = {
@@ -108,6 +107,17 @@ monster.loot = {
 	{name = "noble turban", chance = 530}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -114},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -120, range = ?, effect = <>, target = ?}, --Life drain Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -40, maxDamage = -110, range = ?, effect = <>, target = ?}, --Fire Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -65, maxDamage = -115, range = ?, effect = <>, target = ?}, --Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60 seconds, maxDamage = -60 seconds, range = ?, effect = <>, target = ?}, --Drunkenness
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -25 hp/3 turns, maxDamage = -25 hp/3 turns, range = ?, effect = <>, target = ?}, --Electrifies
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -reduces 170, maxDamage = -220 speed points for 15 seconds, range = ?, effect = <>, target = ?}, --paralyze
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 50, maxDamage = 80 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -250, range = 7, shootEffect = CONST_ANI_ENERGYBALL, target = false},
@@ -121,7 +131,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 24,
+	mitigation = 0.91,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 50, maxDamage = 80, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -134,8 +145,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -8}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -8},
 }
 
 monster.immunities = {

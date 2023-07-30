@@ -31,7 +31,7 @@ monster.Bestiary = {
 		Ankrahmun tombs, Isle of the Kings, Treasure Island, Nargor Undead Cave, Helheim, Lion's Rock, \z
 		The Witches' Cliff (only accessible during a quest) and a cave northeast of Ab'Dendriel. \z
 		Also found behind a wall in both Rookgaard and Paradox Tower, although they cannot be reached."
-	}
+}
 
 monster.health = 100
 monster.maxHealth = 100
@@ -66,12 +66,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -94,6 +94,12 @@ monster.loot = {
 	{id = 23986, chance = 1000} -- heavy old tome
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -70},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -15, maxDamage = -27, range = ?, effect = <>, target = ?}, --Life Drain
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 9, maxDamage = 15 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -70},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -15, maxDamage = -27, range = 1, radius = 1, effect = CONST_ME_SMALLCLOUDS, target = true}
@@ -101,7 +107,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15,
+	armor = 8,
+	mitigation = 0.43,
 	{name ="combat", interval = 2000, chance = 5, type = COMBAT_HEALING, minDamage = 9, maxDamage = 15, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -114,8 +121,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

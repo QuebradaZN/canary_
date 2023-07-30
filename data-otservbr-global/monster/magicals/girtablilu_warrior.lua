@@ -22,8 +22,8 @@ monster.Bestiary = {
 	SecondUnlock = 1000,
 	CharmsPoints = 50,
 	Stars = 4,
-	Occurrence = 1,
-	Locations = "Ruins of Nuur"
+	Occurrence = 0,
+	Locations = "Ruins of Nuur."
 }
 
 monster.health = 8500
@@ -62,18 +62,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Tip tap tip tap!", yell = false}
 }
 
 monster.loot = {
@@ -107,6 +106,13 @@ monster.loot = {
 	{name = "glacier robe", chance = 650}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -400, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -500, maxDamage = -?, range = ?, effect = <>, target = ?}, --Death Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -?, range = ?, effect = <>, target = ?}, --Poison Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Poison Strike
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -450},
 	{name ="combat", interval = 2000, chance = 40, type = COMBAT_DEATHDAMAGE, minDamage = -500, maxDamage = -650, radius = 4, effect = CONST_ME_MORTAREA, target = false},
@@ -117,6 +123,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 76,
 	armor = 76,
+	mitigation = 2.22,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 550, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -129,8 +136,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 15},
 }
 
 monster.immunities = {

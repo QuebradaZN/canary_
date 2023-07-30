@@ -1,8 +1,8 @@
 local mType = Game.createMonsterType("Infernal Phantom")
 local monster = {}
 
-monster.description = "a infernal phantom"
-monster.experience = 22880
+monster.description = "an infernal phantom"
+monster.experience = 15770
 monster.outfit = {
 	lookType = 1298,
 	lookHead = 114,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Undead",
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Claustrophobic Inferno."
-	}
+}
 
 monster.health = 26000
 monster.maxHealth = 26000
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Ashes to ashes.", yell = false},
-	{text = "Burn, baby! Burn!", yell = false}
+	{text = "Burn, baby! Burn!", yell = false},
 }
 
 monster.loot = {
@@ -97,6 +97,9 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="combat", interval = 3000, chance = 24, type = COMBAT_DEATHDAMAGE, minDamage = -550, maxDamage = -1000, range = 7, radius = 3, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -650, maxDamage = -1000, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
@@ -106,7 +109,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 75,
-	armor = 100
+	armor = 100,
+	mitigation = 2.45,
 }
 
 monster.elements = {
@@ -118,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE , percent = -20},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -20},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

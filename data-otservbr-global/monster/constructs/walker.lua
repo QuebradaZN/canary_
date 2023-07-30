@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "A few spawns in the Underground Glooth Factory, Glooth Factory, and Rathleton Sewers."
-	}
+}
 
 monster.health = 3000
 monster.maxHealth = 3000
@@ -61,18 +61,20 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "*clop clop*", yell = false},
+	{text = "*slosh*", yell = false},
 }
 
 monster.loot = {
@@ -89,6 +91,11 @@ monster.loot = {
 	{id = 3554, chance = 450} -- steel boots
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -175+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -129, maxDamage = -200+, range = ?, effect = <>, target = ?}, --Fire Beam
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 50},
 	{name ="walker skill reducer", interval = 2000, chance = 21, target = false},
@@ -97,7 +104,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 40
+	armor = 47,
+	mitigation = 1.62,
 }
 
 monster.elements = {
@@ -105,12 +113,12 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 50},
 	{type = COMBAT_FIREDAMAGE, percent = 35},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = 40},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_HOLYDAMAGE, percent = 40},
+	{type = COMBAT_DEATHDAMAGE, percent = 15},
 }
 
 monster.immunities = {

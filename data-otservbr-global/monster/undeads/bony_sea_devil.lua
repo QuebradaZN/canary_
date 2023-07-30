@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Bony Sea Devil")
 local monster = {}
 
 monster.description = "a bony sea devil"
-monster.experience = 32500
+monster.experience = 19470
 monster.outfit = {
 	lookType = 1294,
 	lookHead = 0,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Undead",
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Ebb and Flow."
-	}
+}
 
 monster.health = 24000
 monster.maxHealth = 24000
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 143,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Bling.", yell = false},
-	{text = "Clank.", yell = false}
+	{text = "Clank.", yell = false},
 }
 
 monster.loot = {
@@ -98,20 +98,24 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -550, maxDamage = -1100, length = 5, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -1000, radius = 7, effect = CONST_ME_BIGCLOUDS, target = false},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -550, maxDamage = -1000, range = 7, shootEffect = CONST_ANI_SNOWBALL, effect = CONST_ME_ICEATTACK, target = true},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ICEDAMAGE, minDamage = -300, maxDamage = -700, range = 7, radius = 5, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true}
-	-- Fear 
+	-- Fear
 	-- Chain: const_me-> CONST_ME_ICEATTACK, combat_t->COMBAT_ICEDAMAGE
 
 }
 
 monster.defenses = {
 	defense = 80,
-	armor = 100
+	armor = 100,
+	mitigation = 3.34,
 }
 
 monster.elements = {
@@ -123,8 +127,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 60},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 5}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 5},
 }
 
 monster.immunities = {

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Deeper Banuta, Forbidden Islands: Talahu (Medusa Cave) and Kharos (at level -1), Razzachai, \z
 		Deep below the Crystal Lakes in Foreigner Quarter, Cult's cave in the Magician Quarter, Medusa Tower."
-	}
+}
 
 monster.health = 3000
 monster.maxHealth = 3000
@@ -61,21 +61,21 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Sssssouls for the one", yell = false},
 	{text = "HISSSS", yell = true},
+	{text = "I bring you deathhhh, mortalssss", yell = false},
+	{text = "Sssssouls for the one", yell = false},
 	{text = "Tsssse one will risssse again", yell = false},
-	{text = "I bring you deathhhh, mortalssss", yell = false}
 }
 
 monster.loot = {
@@ -104,6 +104,15 @@ monster.loot = {
 	{name = "winged tail", chance = 960}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -286},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -50, maxDamage = -500, range = ?, effect = <>, target = ?}, --Earth Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -300, range = ?, effect = <>, target = ?}, --Poison Hit
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -400, range = ?, effect = <>, target = ?}, --Life drain beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -175, maxDamage = -195 points for 120 seconds, range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 300, maxDamage = 400},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -252},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -80, maxDamage = -300, range = 7, shootEffect = CONST_ANI_POISON, target = false},
@@ -116,6 +125,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 35,
 	armor = 35,
+	mitigation = 1.04,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 250, maxDamage = 500, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 340, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
@@ -129,8 +139,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

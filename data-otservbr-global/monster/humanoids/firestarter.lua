@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 2,
 	Locations = "Shadowthorn, during the Thornfire World Change."
-	}
+}
 
 monster.health = 180
 monster.maxHealth = 180
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -72,11 +72,11 @@ monster.voices = {
 	chance = 10,
 	{text = "FIRE!", yell = true},
 	{text = "BURN!", yell = true},
-	{text = "Hey, what's that burnt stench... isn't that... YOU?", yell = true},
-	{text = "Set everything on fire!!", yell = true},
-	{text = "DEATH to the FALSE GOD!!", yell = true},
+	{text = "DEATH to the FALSE GOD!!", yell = false},
 	{text = "You shall burn in the thornfires!!", yell = false},
-	{text = "DOWN with the followers of the bog!!", yell = false}
+	{text = "DOWN with the followers of the bog!!", yell = false},
+	{text = "Hey, what's that burnt stench... isn't that... YOU?", yell = false},
+	{text = "Set everything on fire!!", yell = false},
 }
 
 monster.loot = {
@@ -92,6 +92,14 @@ monster.loot = {
 	{name = "flintstone", chance = 340}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -5, range = ?, effect = <>, target = ?}, --Arrow
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -21, range = ?, effect = <>, target = ?}, --[[Fireball]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Shoots Fire Field
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Soulfire]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -15},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -21, radius = 1, shootEffect = CONST_ANI_BURSTARROW, effect = CONST_ME_EXPLOSIONHIT, target = true},
@@ -100,7 +108,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 15,
+	mitigation = 0.51,
 }
 
 monster.elements = {
@@ -112,8 +121,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {

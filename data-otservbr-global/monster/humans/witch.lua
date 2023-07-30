@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Triangle Tower, Temple of Xayepocax, Green Claw Swamp and Amazon Camp (Venore), \z
 		Dark Cathedral (2 levels underground), Goroma Volcano (underground), west from Necromant House, \z
 		Mammoth Shearing Factory, Trade Quarter in Yalahar, The Witches' Cliff (only accessible during a quest)."
-	}
+}
 
 monster.health = 300
 monster.maxHealth = 300
@@ -62,20 +62,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Horax Pokti!", yell = false},
 	{text = "Herba budinia ex!", yell = false},
-	{text = "Hihihihi!", yell = false}
+	{text = "Horax Pokti!", yell = false},
+	{text = "Hihihihi!", yell = false},
 }
 
 monster.loot = {
@@ -96,6 +96,12 @@ monster.loot = {
 	{name = "bag of apple slices", chance = 920}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -26},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -25, maxDamage = -55, range = ?, effect = <>, target = ?}, --Fire Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Creates Fire Fields
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -20},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -30, maxDamage = -75, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = false},
@@ -105,7 +111,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 8,
+	mitigation = 0.30,
 }
 
 monster.elements = {
@@ -117,8 +124,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {

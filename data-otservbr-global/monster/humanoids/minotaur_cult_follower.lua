@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Minotaur Cult Follower")
 local monster = {}
 
 monster.description = "a minotaur cult follower"
-monster.experience = 960
+monster.experience = 950
 monster.outfit = {
 	lookType = 25,
 	lookHead = 0,
@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Minotaurs Cult Cave."
-	}
+	Locations = "Minotaurs Cult Cave"
+}
 
 monster.health = 1600
 monster.maxHealth = 1600
@@ -62,19 +62,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Kaplar!", yell = false},
-	{text = "Hurr!", yell = false}
+	{text = "We will rule!", yell = false},
 }
 
 monster.loot = {
@@ -103,6 +102,13 @@ monster.loot = {
 	{name = "minotaur horn", chance = 14550, maxCount = 2}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -250},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -300, range = ?, effect = <>, target = ?}, --Smoke Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown maybe buff, maxDamage = -unknown maybe buff, range = ?, effect = <>, target = ?}, --Green Sparkles
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 105, maxDamage = 196},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -110, maxDamage = -210, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false}
@@ -110,7 +116,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25,
+	armor = 32,
+	mitigation = 1.24,
 	{name ="combat", interval = 1000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -123,8 +130,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

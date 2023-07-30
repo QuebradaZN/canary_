@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Freakish Lost Soul")
 local monster = {}
 
-monster.description = "Freakish Lost Soul"
+monster.description = "a freakish lost soul"
 monster.experience = 7020
 monster.outfit = {
 	lookType = 1268,
@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Brain Grounds, Netherworld, Zarganash."
-	}
+}
 
 monster.health = 7000
 monster.maxHealth = 7000
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -85,6 +85,10 @@ monster.loot = {
 	{name = "crystal crossbow", chance = 270}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
 	{name ="combat", interval = 1700, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -550, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
@@ -95,7 +99,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 82
+	armor = 85,
+	mitigation = 2.60,
 }
 
 monster.elements = {
@@ -107,8 +112,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -40},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -40},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

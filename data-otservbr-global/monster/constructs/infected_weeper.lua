@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 1,
 	Locations = "Warzone 2."
-	}
+}
 
 monster.health = 3000
 monster.maxHealth = 3000
@@ -51,7 +51,7 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = true,
+	canPushItems = false,
 	canPushCreatures = true,
 	staticAttackChance = 80,
 	targetDistance = 1,
@@ -60,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 5,
+	color = 157,
 }
 
 monster.summon = {
@@ -78,7 +78,7 @@ monster.summon = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Moooaaan", yell = false}
+	{text = "Moooaaan", yell = false},
 }
 
 monster.loot = {
@@ -87,6 +87,14 @@ monster.loot = {
 	{id = 12600, chance = 1460} -- coal
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -500},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -800, range = ?, effect = <>, target = ?}, --Fire Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -300?, range = ?, effect = <>, target = ?}, --Life Drain Bomb on target
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Spark wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -summons [[Parasite]] inside the radius, maxDamage = -summons [[Parasite]] inside the radius, range = ?, effect = <>, target = ?}, --Blood Ball
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -280},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -250, maxDamage = -700, length = 5, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
@@ -96,7 +104,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 45,
+	armor = 76,
+	mitigation = 2.19,
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE}
 }
 
@@ -109,8 +118,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 30}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 30},
 }
 
 monster.immunities = {

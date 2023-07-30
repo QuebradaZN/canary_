@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Pits of Inferno, Edron (In the Vats during The Inquisition Quest), Roshamuul Prison."
-	}
+	Locations = "Pits of Inferno, Edron (In the Vats during The Inquisition Quest), Roshamuul Prison, Grounds of Undeath."
+}
 
 monster.health = 8900
 monster.maxHealth = 8900
@@ -61,12 +61,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -74,7 +74,7 @@ monster.voices = {
 	chance = 10,
 	{text = "I can see you decaying!", yell = false},
 	{text = "Let me taste your mortality!", yell = false},
-	{text = "Your lifeforce is waning!", yell = false}
+	{text = "Your lifeforce is waning!", yell = false},
 }
 
 monster.loot = {
@@ -104,6 +104,15 @@ monster.loot = {
 	{name = "bundle of cursed straw", chance = 15000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -490},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -220, maxDamage = -405, range = ?, effect = <>, target = ?}, --Poison Hit
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Poison Drunk Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -65, maxDamage = -135, range = ?, effect = <>, target = ?}, --Green Sparkles Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Curses you, maxDamage = -Curses you, range = ?, effect = <>, target = ?}, --Cursing Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Poison Paralyze Hit
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -490},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -220, maxDamage = -405, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, target = true},
@@ -115,7 +124,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 50,
-	armor = 50
+	armor = 63,
+	mitigation = 1.18,
 }
 
 monster.elements = {
@@ -127,8 +137,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = -30},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -30},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

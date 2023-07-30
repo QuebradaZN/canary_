@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Sea Serpent Area and Seacrest Grounds."
-	}
+}
 
 monster.health = 1950
 monster.maxHealth = 1950
 monster.race = "blood"
 monster.corpse = 949
 monster.speed = 240
-monster.manaCost = 390
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -59,19 +59,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "CHHHRRRR", yell = false},
-	{text = "HISSSS", yell = false}
+	{text = "CHHHRRRR", yell = true},
+	{text = "HISSSS", yell = true},
 }
 
 monster.loot = {
@@ -97,6 +97,14 @@ monster.loot = {
 	{name = "sea serpent scale", chance = 10200}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -250},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -60, maxDamage = -300, range = ?, effect = <>, target = ?}, --[[Terra Wave|Earth Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -101, maxDamage = -300, range = ?, effect = <>, target = ?}, --[[Ice Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -20 [[hp]]/6 turns, maxDamage = -20 [[hp]]/6 turns, range = ?, effect = <>, target = ?}, --[[Drowning|Drowning Bomb]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -70, maxDamage = -273+, range = ?, effect = <>, target = ?}, --[[Self Healing|Frequent Self-Healing]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -60, maxDamage = -300, length = 7, spread = 2, effect = CONST_ME_SMALLPLANTS, target = false},
@@ -106,7 +114,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 45,
+	armor = 25,
+	mitigation = 1.04,
 	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 70, maxDamage = 273, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 400, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
@@ -120,8 +129,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

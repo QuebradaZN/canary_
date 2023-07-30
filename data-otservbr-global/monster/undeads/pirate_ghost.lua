@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Drefia, Goroma, Nargor Undead Cave, hidden caves under Treasure Island, \z
 		single spawn at Liberty Bay ruins, Chyllfroest (unreachable)."
-	}
+}
 
 monster.health = 275
 monster.maxHealth = 275
@@ -48,7 +48,7 @@ monster.flags = {
 	attackable = true,
 	hostile = true,
 	convinceable = false,
-	pushable = true,
+	pushable = false,
 	rewardBoss = false,
 	illusionable = true,
 	canPushItems = true,
@@ -60,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	{text = "Hell is waiting for You!", yell = false},
 	{text = "It's alive!", yell = false},
 	{text = "The curse! Aww the curse!", yell = false},
-	{text = "You will not get my treasure!", yell = false}
+	{text = "You will not get my treasure.", yell = false},
 }
 
 monster.loot = {
@@ -87,6 +87,13 @@ monster.loot = {
 	{name = "tattered piece of robe", chance = 4300}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -95},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -30, maxDamage = -80, range = ?, effect = <>, target = ?}, --[[Life Drain]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -65 on itself, range = ?, effect = <>, target = ?}, --[[Creature Spells#Musical Explosion|Musical Explosion]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, condition = {type = CONDITION_POISON, totalDamage = 40, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -40, maxDamage = -80, radius = 1, effect = CONST_ME_MAGIC_RED, target = false},
@@ -95,7 +102,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 0,
-	armor = 0,
+	armor = 30,
+	mitigation = 0.78,
 	{name ="combat", interval = 2000, chance = 5, type = COMBAT_HEALING, minDamage = 40, maxDamage = 70, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -108,8 +116,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

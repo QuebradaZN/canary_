@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Caves of the Lost, Lower Spike and in the Lost Dwarf version of the Forsaken Mine."
-	}
+}
 
 monster.health = 1600
 monster.maxHealth = 1600
@@ -62,18 +62,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Arr far zwar!", yell = false}
+	{text = "Arr far zwar!", yell = false},
 }
 
 monster.loot = {
@@ -101,6 +101,18 @@ monster.loot = {
 	{name = "basalt figurine", chance = 8560}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -250+, range = ?, effect = <>, target = ?}, --Earth explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -350, range = ?, effect = <>, target = ?}, --Death tar beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -on itself; 150, maxDamage = -200+, range = ?, effect = <>, target = ?}, --Death tar ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -on itself; 150, maxDamage = -250, range = ?, effect = <>, target = ?}, --tar ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -200, range = ?, effect = <>, target = ?}, --Death Strike
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 75, maxDamage = 92+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -often, maxDamage = -often, range = ?, effect = <>, target = ?}, --[[Invisibility]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -red musical notes, maxDamage = -red musical notes, range = ?, effect = <>, target = ?}, --[[Drunkenness]] bomb
+--}
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -300, length = 6, spread = 3, effect = CONST_ME_BLACKSMOKE, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -150, maxDamage = -250, radius = 5, effect = CONST_ME_BLACKSMOKE, target = false},
@@ -111,7 +123,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25,
+	armor = 55,
+	mitigation = 1.35,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 75, maxDamage = 92, effect = CONST_ME_YELLOWENERGY, target = false},
 	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_TELEPORT}
 }
@@ -125,8 +138,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {

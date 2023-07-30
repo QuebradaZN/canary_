@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Oramond/Southern Plains, Minotaur Hills, \z
 		Oramond Dungeon (depending on Magistrate votes), Underground Glooth Factory."
-	}
+}
 
 monster.health = 1400
 monster.maxHealth = 1400
@@ -60,12 +60,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -74,8 +74,8 @@ monster.voices = {
 	{text = "You are marked for death!", yell = false},
 	{text = "This time the prey is you!", yell = false},
 	{text = "You are hunted!", yell = false},
+	{text = "You'll make a fine trophy!", yell = false},
 	{text = "Bullseye!", yell = false},
-	{text = "You'll make a fine trophy!", yell = false}
 }
 
 monster.loot = {
@@ -102,6 +102,14 @@ monster.loot = {
 	{id = 21166, chance = 170} -- mooh'tah plate
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -200, range = ?, effect = <>, target = ?}, --[[Royal Spear]] Throw (causes [[Bleeding]])
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -200, range = ?, effect = <>, target = ?}, --[[Explosion]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -43+, range = ?, effect = <>, target = ?}, --[[Groundshaker]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -134+, range = ?, effect = <>, target = ?}, --[[Throwing Knife]] 3x3 area attack
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 250+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 50},
 	{name ="combat", interval = 2000, chance = 22, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -150, range = 7, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_EXPLOSIONAREA, target = false},
@@ -113,7 +121,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 30,
-	armor = 30,
+	armor = 36,
+	mitigation = 1.71,
 	{name ="combat", interval = 2000, chance = 7, type = COMBAT_HEALING, minDamage = 95, maxDamage = 180, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 10, speedChange = 520, effect = CONST_ME_POFF, target = false, duration = 5000}
 }
@@ -127,8 +136,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

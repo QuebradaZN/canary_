@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 2,
-	Locations = "Seacrest Grounds."
-	}
+	Locations = "Seacrest Grounds when Quara Renegades are not spawning."
+}
 
 monster.health = 3000
 monster.maxHealth = 3000
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 3,
+	color = 212,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "LEAVE THESE GROUNDS...", yell = false},
-	{text = "THE DARK TIDE WILL SWALLOW YOU...", yell = false}
+	{text = "LEAVE THESE GROUNDS...", yell = true},
+	{text = "THE DARK TIDE WILL SWALLOW YOU...", yell = true},
 }
 
 monster.loot = {
@@ -100,6 +100,15 @@ monster.loot = {
 	{id = 8093, chance = 670} -- wand of draconia
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -530+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -260+, range = ?, effect = <>, target = ?}, --[[Sudden Death]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -284+, range = ?, effect = <>, target = ?}, --Water Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -150, maxDamage = -250, range = ?, effect = <>, target = ?}, --[[Life Drain|Blue Sparkles Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -300, range = ?, effect = <>, target = ?}, --[[Physical Damage|Red Sparkles Berserk]]
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 200+},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 120, attack = 82},
 	{name ="combat", interval = 2000, chance = 7, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -260, range = 7, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_SOUND_RED, target = true},
@@ -110,7 +119,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 31,
-	armor = 22,
+	armor = 51,
+	mitigation = 1.21,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 145, maxDamage = 200, effect = CONST_ME_SOUND_BLUE, target = false},
 	{name ="melee", interval = 2000, chance = 10, minDamage = 0, maxDamage = 0}
 }
@@ -124,8 +134,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {

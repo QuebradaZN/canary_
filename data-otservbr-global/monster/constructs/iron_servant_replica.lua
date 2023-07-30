@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Replica Dungeon."
-	}
+	Locations = "Replica Dungeon"
+}
 
 monster.health = 1000
 monster.maxHealth = 1000
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -80,6 +80,12 @@ monster.loot = {
 	{id = 12601, chance = 310} -- slime mould
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -154+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -162+, range = ?, effect = <>, target = ?}, --[[Explosion]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1 second [[Drunkenness]], maxDamage = -1 second [[Drunkenness]], range = ?, effect = <>, target = ?}, --Shoots [[Dazzled]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 20, attack = 30},
 	{name ="combat", interval = 2000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -60, range = 7, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_EXPLOSIONAREA, target = false},
@@ -88,7 +94,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 40
+	armor = 17,
+	mitigation = 0.62,
 }
 
 monster.elements = {
@@ -100,8 +107,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Alchemist Quarter and Factory Quarter (Yalahar), Robson's Isle, Tiquanda Laboratory."
-	}
+}
 
 monster.health = 240
 monster.maxHealth = 240
@@ -59,12 +59,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	{text = "You will be the next infected one... CRAAAHHH!", yell = false},
 	{text = "Science... is a curse.", yell = false},
 	{text = "Run as fast as you can.", yell = false},
-	{text = "Oh by the gods! What is this... aaaaaargh!", yell = false}
+	{text = "Oh by the gods! What is this... aaaaaargh!", yell = false},
 }
 
 monster.loot = {
@@ -94,6 +94,13 @@ monster.loot = {
 	{name = "mutated flesh", chance = 19940}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -90},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -up to 14hp per turn, maxDamage = -up to 14hp per turn, range = ?, effect = <>, target = ?}, --Poisoning Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -50, maxDamage = -60, range = ?, effect = <>, target = ?}, --Death Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyze
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90, condition = {type = CONDITION_POISON, totalDamage = 60, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -50, maxDamage = -60, length = 3, spread = 1, effect = CONST_ME_POISONAREA, target = false},
@@ -104,7 +111,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15,
+	armor = 14,
+	mitigation = 0.59,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 220, effect = CONST_ME_GREEN_RINGS, target = false, duration = 5000}
 }
 
@@ -117,8 +125,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Haunted Temple, Buried Cathedral."
-	}
+	Locations = "Haunted Temple, Buried Cathedral"
+}
 
 monster.health = 4500
 monster.maxHealth = 4500
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Deathhh... is... a.... doooor!!", yell = false},
-	{text = "Tiiimeee... is... a... windowww!", yell = false}
+	{text = "Tiiimeee... is... a... windowww!", yell = false},
 }
 
 monster.loot = {
@@ -97,6 +97,12 @@ monster.loot = {
 	{name = "hexagonal ruby", chance = 500}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -400, range = ?, effect = <>, target = ?}, --[[Life Drain|Life Drain Missile]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, range = ?, effect = <>, target = ?}, --Fire Ball
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
@@ -106,7 +112,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 78,
-	armor = 78,
+	armor = 68,
+	mitigation = 2.02,
 	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -123,8 +130,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -30},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

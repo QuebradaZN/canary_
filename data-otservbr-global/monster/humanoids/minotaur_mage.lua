@@ -17,7 +17,7 @@ monster.raceId = 23
 monster.Bestiary = {
 	class = "Humanoid",
 	race = BESTY_RACE_HUMANOID,
-	toKill = 250,
+	toKill = 500,
 	FirstUnlock = 25,
 	SecondUnlock = 250,
 	CharmsPoints = 15,
@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Kazordoon (The Horned Fox's hideout), the Plains of Havoc, Point of No Return south of Outlaw Camp, \z
 		Elvenbane, the depths of Fibula Dungeon (level 50+), cave east from Dwarf Bridge, Foreigner Quarter, \z
 		Rookgaard Minotaur Hell (not reachable)."
-	}
+}
 
 monster.health = 155
 monster.maxHealth = 155
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Learrn tha secrret uf deathhh!", yell = false},
-	{text = "Kaplar!", yell = false}
+	{text = "Kaplar!", yell = false},
 }
 
 monster.loot = {
@@ -91,6 +91,13 @@ monster.loot = {
 	{name = "purple robe", chance = 6430, maxCount = 2}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -21},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -15, maxDamage = -45, range = ?, effect = <>, target = ?}, --Energy Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -35, maxDamage = -95, range = ?, effect = <>, target = ?}, --Fire Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Creates Energy Fields
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -20},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -20, maxDamage = -59, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = false},
@@ -100,7 +107,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 18,
+	mitigation = 1.04,
 }
 
 monster.elements = {
@@ -112,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -5},
 }
 
 monster.immunities = {

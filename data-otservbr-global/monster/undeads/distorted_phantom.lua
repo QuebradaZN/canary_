@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Distorted Phantom")
 local monster = {}
 
 monster.description = "a distorted phantom"
-monster.experience = 28600
+monster.experience = 18870
 monster.outfit = {
 	lookType = 1298,
 	lookHead = 113,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Undead",
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Mirrored Nightmare."
-	}
+}
 
 monster.health = 26000
 monster.maxHealth = 26000
@@ -62,12 +62,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -75,7 +75,7 @@ monster.voices = {
 	chance = 10,
 	{text = "I'm not here. I am there.", yell = false},
 	{text = "The night is coming for you.", yell = false},
-	{text = "Too late... No turning back now.", yell = false}
+	{text = "Too late... No turning back now.", yell = false},
 }
 
 monster.loot = {
@@ -96,6 +96,9 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--}
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 17, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_FLASHARROW, effect = CONST_ME_GROUNDSHAKER, target = true},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -700, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
@@ -106,7 +109,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 75,
-	armor = 100
+	armor = 100,
+	mitigation = 2.45,
 }
 
 monster.elements = {
@@ -118,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

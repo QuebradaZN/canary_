@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Vibrant Phantom")
 local monster = {}
 
 monster.description = "a vibrant phantom"
-monster.experience = 24960
+monster.experience = 19700
 monster.outfit = {
 	lookType = 1298,
 	lookHead = 85,
@@ -18,13 +18,13 @@ monster.Bestiary = {
 	class = "Undead",
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Furious Crater."
-	}
+}
 
 monster.health = 27000
 monster.maxHealth = 27000
@@ -62,19 +62,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "All this beautiful lightning.", yell = false},
-	{text = "Feel the vibration!", yell = false}
+	{text = "Feel the vibration!", yell = false},
 }
 
 monster.loot = {
@@ -97,6 +97,13 @@ monster.loot = {
 	{id = 34109, chance = 50} -- bag you desire
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -900, maxDamage = -1200, range = ?, effect = <>, target = ?}, --[[Energy Damage|Spark Ball]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -950, maxDamage = -1300, range = ?, effect = <>, target = ?}, --[[Holy Damage|Holy Chain]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -1200, maxDamage = -1400, range = ?, effect = <>, target = ?}, --[[Holy Damage|Divine Missile]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --[[Energy Damage|Small Spark Ball]] on itself
+--}
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HOLYDAMAGE, minDamage = -700, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
 	{name ="combat", interval = 3000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -650, maxDamage = -1100, range = 7, radius = 4, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = true},
@@ -106,7 +113,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 75,
-	armor = 100
+	armor = 100,
+	mitigation = 2.45,
 }
 
 monster.elements = {
@@ -118,8 +126,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -10},
 }
 
 monster.immunities = {

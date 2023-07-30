@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Underneath Malada and Talahu, Edron Bog Raider Cave in Stonehome, \z
 		Edron Earth Elemental Cave, Alchemist Quarter, Vengoth Castle, Robson Isle. Oramond Hydra/Bog Raider Cave."
-	}
+}
 
 monster.health = 1300
 monster.maxHealth = 1300
@@ -63,19 +63,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 30,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Tchhh!", yell = false},
-	{text = "Slurp!", yell = false}
+	{text = "Slurp!", yell = false},
 }
 
 monster.loot = {
@@ -90,6 +90,15 @@ monster.loot = {
 	{name = "boggy dreads", chance = 9870}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -180},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -140, range = ?, effect = <>, target = ?}, --Distance Life Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -175, range = ?, effect = <>, target = ?}, --Bubble Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -96, maxDamage = -110, range = ?, effect = <>, target = ?}, --Stalagmite
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Distance Paralyze
+--	{name ="healing", interval = 2000, chance = 20, minDamage = around 100, maxDamage = around 100},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -183, condition = {type = CONDITION_POISON, totalDamage = 80, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -90, maxDamage = -140, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
@@ -101,6 +110,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 20,
+	mitigation = 0.78,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 65, maxDamage = 95, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -113,8 +123,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 5}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 5},
 }
 
 monster.immunities = {
