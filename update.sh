@@ -2,6 +2,7 @@
 
 main() {
   git pull
+	git lfs pull
 
 	source ~/.profile
 
