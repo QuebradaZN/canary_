@@ -144,7 +144,7 @@ npcConfig.shop = {
 	{ itemName = "quiver", clientId = 35562, buy = 400 },
 	{ itemName = "red quiver", clientId = 35849, buy = 400 },
 	{ itemName = "ring of blue plasma", clientId = 23529, buy = 80000 },
-	{ itemName = "ring of green plasma", clientId = 23531, buy = 800000 },
+	{ itemName = "ring of green plasma", clientId = 23531, buy = 80000 },
 	{ itemName = "ring of healing", clientId = 3098, buy = 2000 },
 	{ itemName = "ring of red plasma", clientId = 23533, buy = 80000 },
 	{ itemName = "royal star", clientId = 25759, buy = 110 },
