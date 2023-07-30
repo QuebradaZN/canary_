@@ -44,7 +44,6 @@ function callback.monsterPostDropLoot(monster, corpse)
 
 	for _, participant in ipairs(participants) do
 		if participant then
-			Spdlog.info("adding luck exp: " .. luckExp .. " to " .. participant:getName())
 			participant:addSkillTries(SKILL_LUCK, luckExp)
 		end
 	end
