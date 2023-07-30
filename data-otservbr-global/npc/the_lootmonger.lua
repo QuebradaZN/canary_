@@ -594,6 +594,7 @@ npcConfig.shop = {
 	{ itemName = "heaven blossom", clientId = 5921, sell = 50 },
 	{ itemName = "heavy mace", clientId = 3340, sell = 50000 },
 	{ itemName = "heavy machete", clientId = 3330, sell = 90 },
+	{ itemName = "heavy old tome", clientId = 23986, sell = 30 },
 	{ itemName = "heavy trident", clientId = 12683, sell = 2000 },
 	{ itemName = "hellhound slobber", clientId = 9637, sell = 500 },
 	{ itemName = "hellspawn tail", clientId = 10304, sell = 475 },
