@@ -1,12 +1,12 @@
 local area = createCombatArea({
-     {0, 0, 0, 1, 0, 0, 0},
-     {0, 1, 1, 1, 1, 1, 0},
-     {0, 1, 1, 1, 1, 1, 0},
-     {1, 1, 1, 3, 1, 1, 1},
-     {0, 1, 1, 1, 1, 1, 0},
-     {0, 1, 1, 1, 1, 1, 0},
-     {0, 0, 0, 1, 0, 0, 0},
- })
+	{ 0, 0, 0, 1, 0, 0, 0 },
+	{ 0, 1, 1, 1, 1, 1, 0 },
+	{ 0, 1, 1, 1, 1, 1, 0 },
+	{ 1, 1, 1, 3, 1, 1, 1 },
+	{ 0, 1, 1, 1, 1, 1, 0 },
+	{ 0, 1, 1, 1, 1, 1, 0 },
+	{ 0, 0, 0, 1, 0, 0, 0 },
+})
 
 local combat = Combat()
 
@@ -18,10 +18,10 @@ combat:setParameter(COMBAT_PARAM_CASTSOUND, SOUND_EFFECT_TYPE_DIST_ATK_BOW)
 combat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
 
 function onGetFormulaValues(player, skill, attack, factor)
-    local distanceSkill = player:getEffectiveSkillLevel(SKILL_DISTANCE)
-    local min = (0.09 * factor) * distanceSkill * 10 + (player:getLevel() / 5)
-    local max = (0.09 * factor) * distanceSkill * attack + (player:getLevel() / 5)
-    return -min, -max
+	local distanceSkill = player:getEffectiveSkillLevel(SKILL_DISTANCE)
+	local min = (0.09 * factor) * distanceSkill * 10 + (player:getLevel() / 5)
+	local max = (0.09 * factor) * distanceSkill * attack + (player:getLevel() / 5)
+	return -min, -max
 end
 
 earthCallback = onGetFormulaValues
@@ -77,60 +77,63 @@ iceCombat:setCallback(CALLBACK_PARAM_SKILLVALUE, "iceCallback")
 iceCombat:setArea(area)
 
 function onUseWeaponEarth(player, variant)
-    return earthCombat:execute(player, variant)
+	return earthCombat:execute(player, variant)
 end
 
 function onUseWeaponEnergy(player, variant)
-    return energyCombat:execute(player, variant)
+	return energyCombat:execute(player, variant)
 end
 
 function onUseWeaponFire(player, variant)
-    return fireCombat:execute(player, variant)
+	return fireCombat:execute(player, variant)
 end
 
 function onUseWeaponIce(player, variant)
-    return iceCombat:execute(player, variant)
+	return iceCombat:execute(player, variant)
 end
 
 function onUseWeapon(player, variant)
-    return combat:execute(player, variant)
+	return combat:execute(player, variant)
 end
 
 local arrowIds = {
-    {3447, "physical"}, -- arrow
-    {774, "earth"}, -- earth arrow
-    {763, "fire"}, -- flaming arrow
-    {761, "energy"}, -- flash arrow
-    {762, "ice"},   -- shiver arrow
-    {7364, "physical"}, -- sniper arrow
-    {14251, "physical"}, -- tarsal arrow
-    {7365, "physical"}, -- onyx arrow
-    {16143, "earth"}, -- envenomed arrow
-    {15793, "physical"}, -- crystalline arrow
-    {35901, "physical"}, -- diamond arrow
+	{ id = 3447, element = "physical" }, -- arrow
+	{ id = 774, element = "earth", level = 20 }, -- earth arrow
+	{ id = 763, element = "fire", level = 20 }, -- flaming arrow
+	{ id = 761, element = "energy", level = 20 }, -- flash arrow
+	{ id = 762, element = "ice", level = 20 }, -- shiver arrow
+	{ id = 7364, element = "physical", level = 20 }, -- sniper arrow
+	{ id = 14251, element = "physical", level = 30 }, -- tarsal arrow
+	{ id = 7365, element = "physical", level = 40 }, -- onyx arrow
+	{ id = 16143, element = "earth", level = 70 }, -- envenomed arrow
+	{ id = 15793, element = "physical", level = 90 }, -- crystalline arrow
+	{ id = 35901, element = "physical", level = 150 }, -- diamond arrow
 }
 
 for i = 1, #arrowIds do
-    local arrow = Weapon(WEAPON_AMMO)
-    arrow:id(arrowIds[i][1])
+	local arrow = Weapon(WEAPON_AMMO)
+	arrow:id(arrowIds[i].id)
 
-    if i > 1 then
-        arrow:action("removecount")
-    end
+	if i > 1 then
+		arrow:action("removecount")
+	end
 
-    if arrowIds[i][2] == "earth" then
-       arrow.onUseWeapon = onUseWeaponEarth
-    elseif arrowIds[i][2] == "energy" then
-        arrow.onUseWeapon = onUseWeaponEnergy
-    elseif arrowIds[i][2] == "fire" then
-        arrow.onUseWeapon = onUseWeaponFire
-    elseif arrowIds[i][2] == "ice" then
-        arrow.onUseWeapon = onUseWeaponIce
-    else
-       arrow.onUseWeapon = onUseWeapon
-    end
+	if arrowIds[i].element == "earth" then
+		arrow.onUseWeapon = onUseWeaponEarth
+	elseif arrowIds[i].element == "energy" then
+		arrow.onUseWeapon = onUseWeaponEnergy
+	elseif arrowIds[i].element == "fire" then
+		arrow.onUseWeapon = onUseWeaponFire
+	elseif arrowIds[i].element == "ice" then
+		arrow.onUseWeapon = onUseWeaponIce
+	else
+		arrow.onUseWeapon = onUseWeapon
+	end
 
-    arrow:ammoType("arrow")
-    arrow:maxHitChance(100)
-    arrow:register()
+	arrow:ammoType("arrow")
+	arrow:maxHitChance(100)
+	if arrowIds[i].level then
+		arrow:level(arrowIds[i].level)
+	end
+	arrow:register()
 end
