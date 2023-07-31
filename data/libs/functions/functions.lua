@@ -970,7 +970,6 @@ function SetInfluenced(monsterType, monster, player, influencedLevel)
 	monster:setForgeStack(influencedLevel)
 end
 
-
 function getHours(seconds)
 	return math.floor((seconds / 60) / 60)
 end
@@ -1005,9 +1004,9 @@ function getTimeInWords(secs)
 	local timeStr = ''
 
 	if hours > 1 then
-		timeStr = timeStr .. ' hours '
+		timeStr = hours .. ' hours '
 	elseif hours > 0 then
-		timeStr = timeStr .. ' hour '
+		timeStr = hours .. ' hour '
 	end
 
 	timeStr = timeStr .. minutes .. ' minutes and ' .. seconds .. ' seconds.'
