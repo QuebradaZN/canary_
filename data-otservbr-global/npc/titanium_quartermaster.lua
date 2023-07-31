@@ -32,25 +32,48 @@ npcConfig.voices = {
 npcConfig.currency = 22724
 
 npcConfig.shop = {
-	{ itemName = "(x7600) enhanced exercise sword", clientId = 35279, buy = 100 },
-	{ itemName = "(x7600) enhanced exercise wand", clientId = 35284, buy = 100 },
-	{ itemName = "(x7600) enhanced exercise bow", clientId = 35282, buy = 100 },
+	{ itemName = "(x500) basic exercise sword", clientId = 28552, buy = 10 },
+	{ itemName = "(x500) basic exercise wand", clientId = 28557, buy = 10 },
+	{ itemName = "(x500) basic exercise bow", clientId = 28555, buy = 10 },
+	{ itemName = "(x500) enhanced exercise sword", clientId = 35279, buy = 15 },
+	{ itemName = "(x500) enhanced exercise wand", clientId = 35284, buy = 15 },
+	{ itemName = "(x500) enhanced exercise bow", clientId = 35282, buy = 15 },
+	{ itemName = "(x500) masterful exercise sword", clientId = 35285, buy = 20 },
+	{ itemName = "(x500) masterful exercise wand", clientId = 35290, buy = 20 },
+	{ itemName = "(x500) masterful exercise bow", clientId = 35288, buy = 20 },
 	{ itemName = "5x prey wildcard", clientId = 5779, buy = 50 },
-	
+	{ itemName = "bestiary betterment", clientId = 36728, buy = 100},
+	{ itemName = "fire amplification", clientId = 36736, buy = 100},
+	{ itemName = "ice amplification", clientId = 36737, buy = 100},
+	{ itemName = "earth amplification", clientId = 36738, buy = 100},
+	{ itemName = "energy amplification", clientId = 36739, buy = 100},
+	{ itemName = "holy amplification", clientId = 36740, buy = 100},
+	{ itemName = "death amplification", clientId = 36741, buy = 100},
+	{ itemName = "physical amplification", clientId = 36742, buy = 100},
+	{ itemName = "charm upgrade", clientId = 36726, buy = 100},	
+	{ itemName = "strike enhancement", clientId = 36724, buy = 100},
+	{ itemName = "copper token", clientId = 22722, buy = 1},
+	{ itemName = "iron token", clientId = 22720, buy = 1},
+	{ itemName = "platinum token", clientId = 22723, buy = 1},	
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
-	if itemId == 35279 or itemId == 35284 or itemId == 35282 then
+	if itemId == 35285 or itemId == 35290 or itemId == 35288 or itemId == 35279 or itemId == 35284 or itemId == 35282 or itemId == 28552 or itemId == 28557 or itemId == 28555 then
 		if player:removeItem(npcConfig.currency, totalCost) then
-			local item = player:addItemStoreInbox(itemId, 7600 * amount)
+			local item = player:addItemStoreInbox(itemId, 500 * amount)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, item:getDescription(), totalCost, ItemType(npcConfig.currency):getPluralName()))
 		end
 	elseif itemId == 5779 then
 		if player:removeItem(npcConfig.currency, totalCost) then
-			player:addPreyCards(amount * 3)
+			player:addPreyCards(amount * 5)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix prey wildcards for %i %s.", amount, totalCost, ItemType(npcConfig.currency):getPluralName()))
 		end
-	else
+	elseif itemId >= 36724 and itemId <= 36742 then
+		if player:removeItem(npcConfig.currency, totalCost) then
+			local item = player:addItemStoreInbox(itemId, amount)
+			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, item:getDescription(), totalCost, ItemType(npcConfig.currency):getPluralName()))
+		end
+	else	
 		npc:sellItem(player, itemId, amount, subType, 0, ignore, inBackpacks)
 	end
 end

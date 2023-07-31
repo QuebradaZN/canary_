@@ -56,10 +56,17 @@ npcConfig.shop = {
 	{ name = "platinum amulet", clientId = 3055, buy = 25 },
 	{ name = "spellbook of mind control", clientId = 8074, buy = 25 },
 	{ name = "dragon shield", clientId = 3416, buy = 25 },
-	{ itemName = "(x500) basic exercise sword", clientId = 28552, buy = 10 },
-	{ itemName = "(x500) basic exercise wand", clientId = 28557, buy = 10 },
-	{ itemName = "(x500) basic exercise bow", clientId = 28555, buy = 10 },
-	{ itemName = "1x prey wildcard", clientId = 5779, buy = 5 },
+	-- { itemName = "250x mana potion", clientId = 268, buy = 5 },
+	-- { itemName = "250x strong mana potion", clientId = 237, buy = 5 },
+	-- { itemName = "250x great mana potion", clientId = 238, buy = 5 },
+	-- { itemName = "250x ultimate mana potion", clientId = 23373, buy = 5 },
+	-- { itemName = "250x health potion", clientId = 266, buy = 5 },
+	-- { itemName = "250x strong health potion", clientId = 236, buy = 5 },
+	-- { itemName = "250x great health potion", clientId = 239, buy = 5 },
+	-- { itemName = "250x ultimate health potion", clientId = 7643, buy = 5 },
+	-- { itemName = "250x supreme health potion", clientId = 23375, buy = 5 },
+	-- { itemName = "250x great spirit potion", clientId = 7642, buy = 5 },
+	-- { itemName = "250x ultimate spirit potion", clientId = 23374, buy = 5 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
@@ -72,6 +79,13 @@ npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBac
 		if player:removeItem(npcConfig.currency, totalCost) then
 			player:addPreyCards(amount)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix prey wildcards for %i %s.", amount, totalCost, ItemType(npcConfig.currency):getPluralName()))
+		end
+	elseif itemId == 268 or itemId == 237 or itemId == 238 or itemId == 23373 or itemId == 266 or itemId == 236 or itemId == 239 or itemId == 7643 or itemId == 23375 or itemId == 7642 or itemId == 23374 then
+		if player:removeItem(npcConfig.currency, totalCost) then
+			for i = 1, amount do
+				local potions = player:addItemStoreInbox(itemId, 250 * amount)
+				potions:removeAttribute(ITEM_ATTRIBUTE_STORE)
+			end
 		end
 	else
 		npc:sellItem(player, itemId, amount, subType, 0, ignore, inBackpacks)
