@@ -27,23 +27,19 @@ function canChain(creature, target)
 			return false
 		end
 		if synergies(player).knight and monster:isChallenged() then return false end
-
-		local type = monster:getType()
-		if type:getTargetDistance() > 1 or type:getRunHealth() > 0 or synergies(player).druid then
-			return true
-		end
+		return true
 	end
 	return false
 end
 combat:setCallback(CALLBACK_PARAM_CHAINPICKER, "canChain")
 
 function getChainValue(creature)
-	local targets = 5
+	local targets = 6
 	local player = creature:getPlayer()
 	if creature and player then
 		targets = targets + player:getWheelSpellAdditionalTarget("Divine Dazzle")
 	end
-	return targets, 6, false
+	return targets, 8, false
 end
 combat:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValue")
 
@@ -59,12 +55,14 @@ function onChain(creature, target)
 	end
 	if target and target:isMonster() then
 		local monster = target:getMonster()
+		local speedBoost = 20
 		if synergies(player).knight then
-			local monsterHaste = createConditionObject(CONDITION_HASTE)
-			setConditionParam(monsterHaste, CONDITION_PARAM_TICKS, duration)
-			setConditionParam(monsterHaste, CONDITION_PARAM_SPEED, monster:getBaseSpeed() + 20)
-			monster:addCondition(monsterHaste)
+			speedBoost = speedBoost + 20
 		end
+		local monsterHaste = createConditionObject(CONDITION_HASTE)
+		setConditionParam(monsterHaste, CONDITION_PARAM_TICKS, duration)
+		setConditionParam(monsterHaste, CONDITION_PARAM_SPEED, monster:getBaseSpeed() + 20)
+		monster:addCondition(monsterHaste)
 		if not monster:isChallenged() then
 			monster:changeTargetDistance(1, duration)
 			if synergies(player).druid then
