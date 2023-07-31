@@ -6197,6 +6197,7 @@ GameStore.Categories = {
 		}
 	},
 	{
+		-- Online Points Shop --
 		icons = { "Category_Extras.png" },
 		name = "Tools ",
 		rookgaard = true,
@@ -6279,6 +6280,26 @@ GameStore.Categories = {
 				itemtype = 9596,
 				count = 1,
 				description = "<i>Flexible tool to replace your rope, shovel and more!</i>\n\n{info} this item does not jam!",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+				moveable = true,
+				coinType = GameStore.CoinType.Online
+			},
+			{
+				name = "Blessed Wooden Stake",
+				price = 2500,
+				itemtype = 5942,
+				count = 1,
+				description = "<i>Many mighty priests of Tibia have blessed this stake</i>\n\n{info}25% skinning probability",
+				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+				moveable = true,
+				coinType = GameStore.CoinType.Online
+			},
+			{
+				name = "Obsidian Knife",
+				price = 2500,
+				itemtype = 5908,
+				count = 1,
+				description = "<i>Sharp and light, this is a useful tool for tanners, doctors and assassins</i>\n\n{info}25% skinning probability",
 				type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
 				moveable = true,
 				coinType = GameStore.CoinType.Online
