@@ -72,36 +72,64 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "ultimate spirit potion", chance = 50000, maxCount = 6},
-	{name = "crystal coin", chance = 50000},
-	{name = "ultimate mana potion", chance = 50000, maxCount = 14},
-	{name = "supreme health potion", chance = 50000, maxCount = 6},
-	{name = "gold token", chance = 50000, maxCount = 2},
-	{name = "silver token", chance = 100000, maxCount = 2},
-	{id = 281, chance = 100000}, -- giant shimmering pearl (green)
-	{name = "green gem", chance = 100000},
-	{id= 3039, chance = 50000}, -- red gem
-	{name = "blue gem", chance = 100000},
-	{id = 23529, chance = 50000}, -- ring of blue plasma
-	{name = "platinum coin", chance = 50000, maxCount = 5},
-	{name = "bullseye potion", chance = 50000, maxCount = 10},
+	{name = "platinum coin", chance = 100000, maxCount = 8},
+	{name = "silver token", chance = 100000, maxCount = 3},
 	{name = "piggy bank", chance = 100000},
 	{name = "mysterious remains", chance = 100000},
 	{name = "energy bar", chance = 100000},
-	{id = 23543, chance = 50000}, -- collar of green plasma
-	{name = "ring of the sky", chance = 100000},
-	{name = "crunor idol", chance = 100000},
-	{name = "resizer", chance = 100000},
-	{name = "shoulder plate", chance = 100000},
-	{name = "malofur's lunchbox", chance = 100000},
-	{name = "pomegranate", chance = 50000}
+	{name = "supreme health potion", chance = 80000, maxCount = 29},
+	{name = "ultimate spirit potion", chance = 80000, maxCount = 13},
+	{name = "gold token", chance = 60000, maxCount = 3},
+	{name = "red gem", chance = 40000, maxCount = 2},
+	{name = "giant shimmering pearl", chance = 40000},
+	{name = "ring of red plasma", chance = 40000},
+	{name = "huge chunk of crude iron", chance = 40000},
+	{name = "bullseye potion", chance = 20000},
+	{name = "royal star", chance = 20000},
+	{name = "berserk potion", chance = 20000},
+	{name = "ultimate mana potion", chance = 20000},
+	{name = "skull staff", chance = 20000},
+	{name = "blue gem", chance = 20000},
+	{name = "magic sulphur", chance = 20000},
+	{name = "platinum coin", chance = 97220},
+	{name = "piggy bank", chance = 97220},
+	{name = "silver token", chance = 91670, maxCount = 3},
+	{name = "energy bar", chance = 88890},
+	{name = "mysterious remains", chance = 88890},
+	{name = "ultimate spirit potion", chance = 66670, maxCount = 20},
+	{name = "gold token", chance = 58330},
+	{name = "ultimate mana potion", chance = 55560, maxCount = 20},
+	{name = "supreme health potion", chance = 55560, maxCount = 14},
+	{name = "royal star", chance = 52780},
+	{name = "red gem", chance = 47220},
+	{name = "yellow gem", chance = 44440, maxCount = 2},
+	{name = "berserk potion", chance = 30560},
+	{name = "crystal coin", chance = 25000, maxCount = 2},
+	{name = "mastermind potion", chance = 22220},
+	{name = "bullseye potion", chance = 22220},
+	{name = "collar of red plasma", chance = 22220},
+	{name = "gold ingot", chance = 22220},
+	{name = "blue gem", chance = 22220},
+	{name = "huge chunk of crude iron", chance = 19440},
+	{name = "collar of green plasma", chance = 16670},
+	{name = "pomegranate", chance = 16670},
+	{name = "ring of blue plasma", chance = 13890},
+	{name = "green gem", chance = 11110},
+	{name = "collar of blue plasma", chance = 8330},
+	{name = "soul stone", chance = 8330},
+	{name = "ring of green plasma", chance = 8330},
+	{name = "skull staff", chance = 8330},
+	{name = "chaos mace", chance = 8330},
+	{name = "violet gem", chance = 8330},
+	{name = "giant shimmering pearl", chance = 8330},
+	{name = "ring of red plasma", chance = 5560},
+	{name = "magic sulphur", chance = 5560},
+	{name = "ring of the sky", chance = 2780},
+	{name = "resizer", chance = 2780},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -250, maxDamage = -3200}
+	{name = "combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -5500, target = true},	-- -_groundshaker
 }
 
 monster.defenses = {
