@@ -7,7 +7,7 @@ local table = {
 	[50] = { type = "bank", id = { 20000, 0 }, msg = "You received 20,000 gold for reaching level 50." },
 	[100] = { type = "bank", id = { 50000, 0 }, msg = "You received 50,000 gold for reaching level 100." },
 	[150] = { type = "bank", id = { 100000, 0 }, msg = "You received 100,000 gold for reaching level 150." },
-	[200] = { type = "bank", id = { 200000, 0 }, msg = "You received 100,000 gold for reaching level 200." },
+	[200] = { type = "bank", id = { 200000, 0 }, msg = "You received 200,000 gold for reaching level 200." },
 }
 
 local storage = Storage.Custom.LevelReward
