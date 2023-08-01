@@ -609,14 +609,14 @@ function Player:calculateLootFactor(monster)
 		luckBoost = luckBoost + participant:getLuckLootBoost()
 	end
 	if vipActivators > 0 then
-		vipBoost = vipBoost / (vipActivators ^ configManager.getNumber(configKeys.PARTY_SHARE_LOOT_BOOSTS_DIMINISHING_FACTOR))
+		vipBoost = vipBoost / (vipActivators ^ configManager.getFloat(configKeys.PARTY_SHARE_LOOT_BOOSTS_DIMINISHING_FACTOR))
 		factor = factor * (1 + vipBoost)
 	end
 	if vipBoost > 0 then
 		suffix = suffix .. (" (vip bonus: %d%%)"):format(math.floor(vipBoost * 100 + 0.5))
 	end
 
-	luckBoost = luckBoost / ((#participants) ^ configManager.getNumber(configKeys.PARTY_SHARE_LOOT_BOOSTS_DIMINISHING_FACTOR))
+	luckBoost = luckBoost / ((#participants) ^ configManager.getFloat(configKeys.PARTY_SHARE_LOOT_BOOSTS_DIMINISHING_FACTOR))
 	if luckBoost > 0 then
 		suffix = suffix .. (" (luck bonus: %d%%)"):format(math.floor(luckBoost * 100 + 0.5))
 		factor = factor * (1 + luckBoost)
