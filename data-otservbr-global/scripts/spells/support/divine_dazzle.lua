@@ -27,7 +27,15 @@ function canChain(creature, target)
 			return false
 		end
 		if synergies(player).knight and monster:isChallenged() then return false end
-		return true
+
+		if synergies(player).druid and not monster:isChallenged() then
+			return true
+		elseif synergies(player).druid and monster:getTarget() and monster:getTarget():getId() ~= creature:getId() then
+			return true
+		elseif monster:getPosition():getDistance(player:getPosition()) > 1 and monster:getType():getTargetDistance() > 1 then
+			return true
+		end
+		return false
 	end
 	return false
 end
@@ -44,10 +52,10 @@ end
 combat:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValue")
 
 function onChain(creature, target)
-	local duration = 12000
+	local duration = 20000
 	local player = creature:getPlayer()
 	if synergies(player).knight then
-		duration = duration + 2000
+		duration = duration + 10000
 	end
 
 	if player then

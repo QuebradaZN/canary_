@@ -10,7 +10,7 @@ function canChain(creature, target)
 			return false
 		end
 
-		if monster:getType():getTargetDistance() > 1 then
+		if monster:getPosition():getDistance(player:getPosition()) > 1 and monster:getType():getTargetDistance() > 1 then
 			return true
 		elseif not monster:isChallenged() then
 			return true
@@ -38,9 +38,9 @@ function onChain(creature, target)
 	if party and party:isSharedExperienceEnabled() then
 		hasSynergy = party:hasPaladin()
 	end
-	local duration = 12000
+	local duration = 20000
 	if hasSynergy then
-		duration = duration + 2000
+		duration = duration + 10000
 	end
 	local challengeDuration = 6000
 	if hasSynergy then
