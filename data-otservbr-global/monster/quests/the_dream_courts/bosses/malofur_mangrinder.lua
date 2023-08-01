@@ -72,64 +72,46 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 8},
-	{name = "silver token", chance = 100000, maxCount = 3},
-	{name = "piggy bank", chance = 100000},
-	{name = "mysterious remains", chance = 100000},
-	{name = "energy bar", chance = 100000},
-	{name = "supreme health potion", chance = 80000, maxCount = 29},
-	{name = "ultimate spirit potion", chance = 80000, maxCount = 13},
-	{name = "gold token", chance = 60000, maxCount = 3},
-	{name = "red gem", chance = 40000, maxCount = 2},
-	{name = "giant shimmering pearl", chance = 40000},
-	{name = "ring of red plasma", chance = 40000},
-	{name = "huge chunk of crude iron", chance = 40000},
-	{name = "bullseye potion", chance = 20000},
-	{name = "royal star", chance = 20000},
+	{id = 23528, chance = 22220}, -- collar of red plasma
+	{id = 23529, chance = 13890}, --  ring of blue plasma
+	{id = 23531, chance = 8330}, -- ring of green plasma
+	{id = 23542, chance = 8330}, -- collar of blue plasma
+	{id = 23543, chance = 16670}, -- collar of green plasma
+	{id = 3039, chance = 47220}, -- red gem
 	{name = "berserk potion", chance = 20000},
-	{name = "ultimate mana potion", chance = 20000},
-	{name = "skull staff", chance = 20000},
 	{name = "blue gem", chance = 20000},
-	{name = "magic sulphur", chance = 20000},
-	{name = "platinum coin", chance = 97220},
-	{name = "piggy bank", chance = 97220},
-	{name = "silver token", chance = 91670, maxCount = 3},
-	{name = "energy bar", chance = 88890},
-	{name = "mysterious remains", chance = 88890},
-	{name = "ultimate spirit potion", chance = 66670, maxCount = 20},
-	{name = "gold token", chance = 58330},
-	{name = "ultimate mana potion", chance = 55560, maxCount = 20},
-	{name = "supreme health potion", chance = 55560, maxCount = 14},
-	{name = "royal star", chance = 52780},
-	{name = "red gem", chance = 47220},
-	{name = "yellow gem", chance = 44440, maxCount = 2},
-	{name = "berserk potion", chance = 30560},
-	{name = "crystal coin", chance = 25000, maxCount = 2},
-	{name = "mastermind potion", chance = 22220},
-	{name = "bullseye potion", chance = 22220},
-	{name = "collar of red plasma", chance = 22220},
-	{name = "gold ingot", chance = 22220},
-	{name = "blue gem", chance = 22220},
-	{name = "huge chunk of crude iron", chance = 19440},
-	{name = "collar of green plasma", chance = 16670},
-	{name = "pomegranate", chance = 16670},
-	{name = "ring of blue plasma", chance = 13890},
-	{name = "green gem", chance = 11110},
-	{name = "collar of blue plasma", chance = 8330},
-	{name = "soul stone", chance = 8330},
-	{name = "ring of green plasma", chance = 8330},
-	{name = "skull staff", chance = 8330},
+	{name = "bullseye potion", chance = 20000},
 	{name = "chaos mace", chance = 8330},
-	{name = "violet gem", chance = 8330},
-	{name = "giant shimmering pearl", chance = 8330},
-	{name = "ring of red plasma", chance = 5560},
+	{name = "crystal coin", chance = 25000, maxCount = 2},
+	{name = "energy bar", chance = 88890},
+	{id = 282, chance = 8330}, -- giant shimmering pearl
+	{name = "gold ingot", chance = 22220},
+	{name = "gold token", chance = 60000, maxCount = 3},
+	{name = "green gem", chance = 11110},
+	{name = "huge chunk of crude iron", chance = 40000},
 	{name = "magic sulphur", chance = 5560},
-	{name = "ring of the sky", chance = 2780},
+	{name = "mastermind potion", chance = 22220},
+	{name = "mysterious remains", chance = 88890},
+	{name = "piggy bank", chance = 97220},
+	{name = "platinum coin", chance = 100000, maxCount = 8},
+	{name = "pomegranate", chance = 16670},
 	{name = "resizer", chance = 2780},
+	{id = 23533, chance = 5560}, -- ring of red plasma
+	{name = "ring of the sky", chance = 2780},
+	{name = "royal star", chance = 52780},
+	{name = "silver token", chance = 91670, maxCount = 3},
+	{name = "skull staff", chance = 8330},
+	{name = "soul stone", chance = 8330},
+	{name = "supreme health potion", chance = 80000, maxCount = 29},
+	{name = "ultimate mana potion", chance = 55560, maxCount = 20},
+	{name = "ultimate spirit potion", chance = 80000, maxCount = 13},
+	{name = "violet gem", chance = 8330},
+	{name = "yellow gem", chance = 44440, maxCount = 2},
 }
 
 monster.attacks = {
-	{name = "combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -5500, target = true},	-- -_groundshaker
+	{name = "combat", interval = 2000, chance = 100, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -2500, target = true},	-- basic attack
+	{name = "combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -5500, effect = CONST_ME_GROUNDSHAKER, radius = 4, target = false},	-- groundshaker
 }
 
 monster.defenses = {

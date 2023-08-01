@@ -78,7 +78,7 @@ monster.loot = {
 	{name = "ultimate mana potion", chance = 80000, maxCount = 22},
 	{name = "supreme health potion", chance = 60000, maxCount = 13},
 	{name = "gold token", chance = 60000, maxCount = 3},
-	{name = "red gem", chance = 60000},
+	{id = 3039, chance = 60000}, -- red gem
 	{name = "mastermind potion", chance = 40000, maxCount = 13},
 	{name = "crunor idol", chance = 40000},
 	{name = "bullseye potion", chance = 20000},
@@ -88,7 +88,7 @@ monster.loot = {
 	{name = "violet gem", chance = 20000},
 	{name = "pomegranate", chance = 20000},
 	{name = "blue gem", chance = 20000},
-	{name = "giant shimmering pearl", chance = 20000},
+	{id = 282, chance = 20000}, -- giant shimmering pearl
 	{name = "plagueroot offshoot", chance = 20000},
 	{name = "skull staff", chance = 20000},
 	{name = "platinum coin", chance = 100000},
@@ -103,24 +103,22 @@ monster.loot = {
 	{name = "supreme health potion", chance = 46940, maxCount = 20},
 	{name = "yellow gem", chance = 40820, maxCount = 2},
 	{name = "huge chunk of crude iron", chance = 38780},
-	{name = "red gem", chance = 36730, maxCount = 2},
 	{name = "crystal coin", chance = 26530, maxCount = 3},
 	{name = "mastermind potion", chance = 22450},
 	{name = "gold ingot", chance = 22450},
-	{name = "giant shimmering pearl", chance = 22450},
 	{name = "bullseye potion", chance = 20410},
 	{name = "berserk potion", chance = 16329},
 	{name = "skull staff", chance = 16329},
 	{name = "pomegranate", chance = 16329},
-	{name = "collar of blue plasma", chance = 14290},
+	{id = 23542, chance = 14290}, -- collar of blue plasma
 	{name = "blue gem", chance = 12240},
 	{name = "green gem", chance = 12240},
-	{name = "ring of blue plasma", chance = 10200},
+	{id = 23529, chance = 10200}, -- ring of blue plasma
 	{name = "violet gem", chance = 8160, maxCount = 2},
-	{name = "collar of green plasma", chance = 8160},
-	{name = "collar of red plasma", chance = 8160},
-	{name = "ring of green plasma", chance = 8160},
-	{name = "ring of red plasma", chance = 6120},
+	{id = 23543, chance = 8160}, -- collar of green plasma
+	{id = 23544, chance = 8160}, -- collar of red plasma
+	{id = 23531, chance = 8160}, -- ring of green plasma
+	{id = 23533, chance = 6120}, -- ring of red plasma
 	{name = "chaos mace", chance = 6120},
 	{name = "plagueroot offshoot", chance = 6120},
 	{name = "magic sulphur", chance = 6120},
@@ -131,7 +129,7 @@ monster.loot = {
 	{name = "turquoise tendril lantern", chance = 2040},
 	{name = "ring of the sky", chance = 2040},
 	{name = "abyss hammer", chance = 2040},
-	{name = "arcane staff", chance = 2040},
+	{id = 3341, chance = 3130}, -- arcane staff
 }
 
 -- TODO: monster-abilities
