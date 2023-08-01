@@ -8,23 +8,23 @@ ExerciseWeaponsTable = {
 	-- MELE
 	-- Training
 	[28540] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
-	[28541] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE  , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
-	[28542] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
+	[28541] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
+	[28542] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
 
 	-- Exercise
 	[28552] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
-	[28553] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE  , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
-	[28554] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+	[28553] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+	[28554] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
 
 	-- Enhanced
 	[35279] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
-	[35280] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE  , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
-	[35281] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	[35280] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	[35281] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
 
 	-- Supreme
 	[35285] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
-	[35286] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE  , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
-	[35287] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB , allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
+	[35286] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
+	[35287] = { skill = SKILL_MELEE, effect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
 
 	-- ROD
 	[28544] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true },
@@ -43,9 +43,9 @@ ExerciseWeaponsTable = {
 	[35290] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful }
 }
 
-FreeDummies = {28558, 28565}
+FreeDummies = { 28558, 28565 }
 MaxAllowedOnADummy = configManager.getNumber(configKeys.MAX_ALLOWED_ON_A_DUMMY)
-HouseDummies = {28559, 28560, 28561, 28562, 28563, 28564}
+HouseDummies = { 28559, 28560, 28561, 28562, 28563, 28564 }
 
 local magicLevelRate = configManager.getNumber(configKeys.RATE_MAGIC)
 local skillLevelRate = configManager.getNumber(configKeys.RATE_SKILL)
@@ -101,10 +101,13 @@ function ExerciseEvent(playerId, tilePosition, weaponId, dummyId)
 
 	local weaponCharges = weapon:getAttribute(ITEM_ATTRIBUTE_CHARGES)
 	if weapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES) and weaponCharges <= 0 then
-		weapon:remove(1) -- ??
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training weapon has disappeared.")
-		LeaveTraining(playerId)
-		return false
+		weapon:remove(1)
+		local weapon = player:getItemById(weaponId, true)
+		if not weapon or (not weapon:isItem() or not weapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES)) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training weapon has disappeared.")
+			LeaveTraining(playerId)
+			return false
+		end
 	end
 
 	local isMagic = ExerciseWeaponsTable[weaponId].skill == SKILL_MAGLEVEL
