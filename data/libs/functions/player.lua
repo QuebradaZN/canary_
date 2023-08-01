@@ -605,8 +605,8 @@ function Player:calculateLootFactor(monster)
 			boost = ((boost > 100 and 100) or boost) / 100
 			vipBoost = vipBoost + boost
 			vipActivators = vipActivators + 1
-			luckBoost = luckBoost + participant:getLuckLootBoost()
 		end
+		luckBoost = luckBoost + participant:getLuckLootBoost()
 	end
 	if vipActivators > 0 then
 		vipBoost = vipBoost / (vipActivators ^ configManager.getNumber(configKeys.PARTY_SHARE_LOOT_BOOSTS_DIMINISHING_FACTOR))
