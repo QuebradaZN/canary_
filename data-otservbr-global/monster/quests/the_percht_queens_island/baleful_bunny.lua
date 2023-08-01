@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Baleful Bunny")
 local monster = {}
 
-monster.description = "an baleful bunny"
+monster.description = "a baleful bunny"
 monster.experience = 450
 monster.outfit = {
 	lookType = 1157,
@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 2,
-	Locations = "Percht Island."
-	}
+	Locations = "Percht Island"
+}
 
 monster.health = 500
 monster.maxHealth = 500
@@ -59,18 +59,18 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Borborygmus... borborygmus...", yell = false}
+	{text = "Borborygmus... borborygmus...", yell = false},
 }
 
 monster.loot = {
@@ -84,6 +84,12 @@ monster.loot = {
 	{name = "yetislippers", chance = 450}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -58+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -125+, range = ?, effect = <>, target = ?}, --Smoke Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -150?, range = ?, effect = <>, target = ?}, --Blood Ball
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
 	{name ="combat", interval = 2000, chance = 1, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -150, radius = 4, effect = CONST_ME_POFF, target = true},
@@ -93,7 +99,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 35,
-	armor = 35
+	armor = 35,
+	mitigation = 0.78,
 }
 
 monster.elements = {
@@ -105,12 +112,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

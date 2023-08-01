@@ -49,12 +49,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -67,12 +67,23 @@ monster.summon = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "I hope you like my voice!", yell = false}
+	{text = "I hope you like my voice!", yell = false},
+	{text = "Let us dance the dance of death.", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -43+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -71, maxDamage = -110, range = ?, effect = <>, target = ?}, --Mana Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -50, maxDamage = -93, range = ?, effect = <>, target = ?}, --Death Missile
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Summons]] 1-3 [[Ghoul]]s
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Paralyze]]s
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 11, maxDamage = 54 },
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3~ seconds, maxDamage = -3~ seconds, range = ?, effect = <>, target = ?}, --[[Invisible]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -45, condition = {type = CONDITION_POISON, totalDamage = 220, interval = 4000}},
 	{name ="combat", interval = 3000, chance = 70, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -95, range = 5, radius = 1, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
@@ -84,6 +95,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 12,
 	armor = 11,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 45, type = COMBAT_HEALING, minDamage = 75, maxDamage = 135, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 3000, chance = 50, effect = CONST_ME_MAGIC_BLUE}
 }
@@ -97,12 +109,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 1}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 1},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = true},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

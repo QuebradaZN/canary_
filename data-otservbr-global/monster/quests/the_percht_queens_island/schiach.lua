@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Schiach")
 local monster = {}
 
-monster.description = "an schiach"
+monster.description = "a schiach"
 monster.experience = 580
 monster.outfit = {
 	lookType = 1162,
@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 2,
-	Locations = "Percht Island."
-	}
+	Locations = "Percht Island"
+}
 
 monster.health = 600
 monster.maxHealth = 600
@@ -59,19 +59,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Krik Krik!", yell = false},
-	{text = "Psh psh psh!!", yell = false}
+	{text = "Psh psh psh!!", yell = false},
 }
 
 monster.loot = {
@@ -83,6 +83,14 @@ monster.loot = {
 	{name = "glacier robe", chance = 630}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -34+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -70+, range = ?, effect = <>, target = ?}, --Throws Snowball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -124+, range = ?, effect = <>, target = ?}, --Ice Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -60+, range = ?, effect = <>, target = ?}, --Small Avalanche around itself
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -120+, range = ?, effect = <>, target = ?}, --Small Ice Tornado on target
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
 	{name ="combat", interval = 2000, chance = 70, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -125, range = 7, shootEffect = CONST_ANI_SNOWBALL, target = false},
@@ -94,7 +102,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 43,
-	armor = 43
+	armor = 43,
+	mitigation = 0.78,
 }
 
 monster.elements = {
@@ -106,12 +115,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -20},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = -20},
+	{type = COMBAT_DEATHDAMAGE, percent = 10},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

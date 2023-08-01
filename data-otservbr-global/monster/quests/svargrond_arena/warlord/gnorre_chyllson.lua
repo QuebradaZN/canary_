@@ -48,13 +48,13 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -62,12 +62,24 @@ monster.voices = {
 	chance = 10,
 	{text = "I am like the merciless northwind.", yell = false},
 	{text = "Snow will be your death shroud.", yell = false},
-	{text = "Feel the wrath of father chyll!", yell = false}
+	{text = "Feel the wrath of father chyll!", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -450+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -121, maxDamage = -257, range = ?, effect = <>, target = ?}, --Musical Notes Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -65, maxDamage = -191, range = ?, effect = <>, target = ?}, --Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -? turns, maxDamage = -? turns, range = ?, effect = <>, target = ?}, --Smoke Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -? turns, maxDamage = -? turns, range = ?, effect = <>, target = ?}, --Hot Water Storm
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -16, range = ?, effect = <>, target = ?}, --Death Snowball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 97, maxDamage = 124 },
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Snowball
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -455},
 	{name ="melee", interval = 3000, chance = 50, minDamage = -500, maxDamage = -800},
@@ -77,6 +89,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 52,
 	armor = 51
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -88,8 +101,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 1},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 1},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

@@ -1,7 +1,7 @@
-local mType = Game.createMonsterType("Fury Of The Emperor")
+local mType = Game.createMonsterType("Fury of the Emperor")
 local monster = {}
 
-monster.description = "a fury of the emperor"
+monster.description = "Fury of the Emperor"
 monster.experience = 550
 monster.outfit = {
 	lookType = 351,
@@ -38,7 +38,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -47,14 +47,14 @@ monster.flags = {
 	runHealth = 366,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -72,6 +72,13 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -600?},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -700?, range = ?, effect = <>, target = ?}, --[[Energy Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -700?, range = ?, effect = <>, target = ?}, --[[Soulfire Beam]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -0, maxDamage = -350?, range = ?, effect = <>, target = ?}, --Mana Drain Ball
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 85, attack = 145},
 	{name ="combat", interval = 3000, chance = 17, type = COMBAT_PHYSICALDAMAGE, minDamage = -250, maxDamage = -450, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
@@ -83,6 +90,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 55,
 	armor = 65
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -93,15 +101,15 @@ monster.elements = {
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = -15},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE, percent = -15},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

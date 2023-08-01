@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Percht")
 local monster = {}
 
-monster.description = "an percht"
+monster.description = "a percht"
 monster.experience = 600
 monster.outfit = {
 	lookType = 1161,
@@ -23,8 +23,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 2,
-	Locations = "Percht Island."
-	}
+	Locations = "Percht Island"
+}
 
 monster.health = 620
 monster.maxHealth = 620
@@ -59,19 +59,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Krikik krikik!", yell = false},
-	{text = "Shzzzp shzzzp shzzp!", yell = false}
+	{text = "Shzzzp shzzzp shzzp!", yell = false},
 }
 
 monster.loot = {
@@ -86,6 +86,13 @@ monster.loot = {
 	{name = "magma legs", chance = 510}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -69+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -90+, range = ?, effect = <>, target = ?}, --Fire Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -130+, range = ?, effect = <>, target = ?}, --Explosive ball around itself
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -193+, range = ?, effect = <>, target = ?}, --Fireball on target
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
 	{name ="combat", interval = 2000, chance = 70, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -125, range = 7, shootEffect = CONST_ANI_SNOWBALL, target = false},
@@ -97,7 +104,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 40,
-	armor = 40
+	armor = 40,
+	mitigation = 0.83,
 }
 
 monster.elements = {
@@ -109,12 +117,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

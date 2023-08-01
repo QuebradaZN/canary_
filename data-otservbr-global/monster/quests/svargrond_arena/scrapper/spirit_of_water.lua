@@ -48,24 +48,32 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 143,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Blubb", yell = false}
+	{text = "Blubb", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -200},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -151, maxDamage = -192, range = ?, effect = <>, target = ?}, --Water Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -up to 11 hp/turn, maxDamage = -up to 11 hp/turn, range = ?, effect = <>, target = ?}, --Poisoning Storm
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -up to 9 hp/turn, maxDamage = -up to 9 hp/turn, range = ?, effect = <>, target = ?}, --Poisoning Missile
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 111, maxDamage = 121?  },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
 	{name ="poisonfield", interval = 1000, chance = 50, shootEffect = CONST_ANI_POISON, target = false},
@@ -75,6 +83,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 0
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -86,12 +95,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

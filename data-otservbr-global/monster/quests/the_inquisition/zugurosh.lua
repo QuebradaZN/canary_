@@ -13,6 +13,11 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 434,
+	bossRace = RARITY_BANE,
+}
+
 monster.health = 90500
 monster.maxHealth = 90500
 monster.race = "fire"
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 5000,
 	chance = 15
-}
-
-monster.bosstiary = {
-	bossRaceId = 434,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -43,7 +43,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -52,24 +52,24 @@ monster.flags = {
 	runHealth = 4500,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "You will run out of resources soon enough!", yell = true},
+	{text = "You will run out of resources soon enough!", yell = false},
 	{text = "One little mistake and you're all are mine!", yell = false},
 	{text = "I sense your strength fading!", yell = false},
 	{text = "I know you will show a weakness!", yell = false},
-	{text = "Your fear will make you prone to mistakes!", yell = false}
+	{text = "Your fear will make you prone to mistakes!", yell = false},
 }
 
 monster.loot = {
@@ -100,6 +100,19 @@ monster.loot = {
 	{id = 3555, chance = 1500} -- golden boots
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -800},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -500, range = ?, effect = <>, target = ?}, --Life Drain
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -500, range = ?, effect = <>, target = ?}, --Death Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -100, range = ?, effect = <>, target = ?}, --Death Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -burns you, 10 hp/turn, maxDamage = -burns you, 10 hp/turn, range = ?, effect = <>, target = ?}, --Burning Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -200, range = ?, effect = <>, target = ?}, --Mana Draining Splash Ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -reduces speed by 770 points, maxDamage = -reduces speed by 770 points, range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Invisible
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 40-60 or 400-600, maxDamage = 40-60 or 400-600},
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 400, maxDamage = 600},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = 0, maxDamage = -500, range = 4, effect = CONST_ME_MAGIC_RED, target = true},
@@ -113,6 +126,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 55,
 	armor = 45,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 50, type = COMBAT_HEALING, minDamage = 40, maxDamage = 60, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="combat", interval = 2000, chance = 50, type = COMBAT_HEALING, minDamage = 400, maxDamage = 600, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="invisible", interval = 1000, chance = 5, effect = CONST_ME_MAGIC_BLUE}
@@ -120,15 +134,15 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
-	{type = COMBAT_ENERGYDAMAGE, percent = 20},
-	{type = COMBAT_EARTHDAMAGE, percent = 40},
+	{type = COMBAT_ENERGYDAMAGE, percent = 30},
+	{type = COMBAT_EARTHDAMAGE, percent = 30},
 	{type = COMBAT_FIREDAMAGE, percent = 30},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 25},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_ICEDAMAGE, percent = 30},
+	{type = COMBAT_HOLYDAMAGE, percent = 30},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {

@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Ice Overlord")
 local monster = {}
 
-monster.description = "an ice overlord"
+monster.description = "Ice Overlord"
 monster.experience = 2800
 monster.outfit = {
 	lookType = 11,
@@ -38,7 +38,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
@@ -48,13 +48,13 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 4,
+	color = 143,
 }
 
 monster.voices = {
@@ -68,6 +68,15 @@ monster.loot = {
 	{name = "flawless ice crystal", chance = 100000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -400+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -400, maxDamage = -1000, range = ?, effect = <>, target = ?}, --Ice Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -8 [[hp]]/90 turns for a total of 720[[hp]], maxDamage = -8 [[hp]]/90 turns for a total of 720[[hp]], range = ?, effect = <>, target = ?}, --Freezing Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Reduces 530, maxDamage = -710 speed points, range = ?, effect = <>, target = ?}, --Paralyzing Windstorm
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Reduces 710, maxDamage = -850 speed points for 10s, range = ?, effect = <>, target = ?}, --Paralyzing Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown effect, maxDamage = -unknown effect, range = ?, effect = <>, target = ?}, --Ice Wind on himself
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
 	{name ="speed", interval = 2000, chance = 18, speedChange = -800, radius = 6, effect = CONST_ME_ICETORNADO, target = false, duration = 5000},
@@ -77,6 +86,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 30,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 90, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -89,12 +99,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

@@ -47,14 +47,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -65,6 +65,12 @@ monster.voices = {
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -200, range = ?, effect = <>, target = ?}, --Exori
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -709, range = ?, effect = <>, target = ?}, --Great Ice Beam
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -91},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 100, attack = 40},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ICEDAMAGE, minDamage = 0, maxDamage = -710, length = 8, spread = 3, effect = CONST_ME_ICEAREA, target = false}
@@ -73,6 +79,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 26,
 	armor = 25
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -84,8 +91,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

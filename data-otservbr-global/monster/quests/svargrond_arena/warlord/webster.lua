@@ -48,25 +48,38 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "You are lost!", yell = false},
-	{text = "Come my little morsel.", yell = false}
+	{text = "You are lost.", yell = false},
+	{text = "Come my little morsel.", yell = false},
+	{text = "So tasty!", yell = false},
+	{text = "I'll get you!", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -265},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -49, maxDamage = -116, range = ?, effect = <>, target = ?}, --Physical Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -105, maxDamage = -163, range = ?, effect = <>, target = ?}, --Physical Spit
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyzing Strike
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyzing Smoke Bomb
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -[[Poisoned|poisons]] you for up to 6 [[hp]]/turn, maxDamage = -[[Poisoned|poisons]] you for up to 6 [[hp]]/turn, range = ?, effect = <>, target = ?}, --Envenom
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 135, maxDamage = 159 },
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown, maxDamage = -unknown, range = ?, effect = <>, target = ?}, --Sparkles
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
 	{name ="speed", interval = 3500, chance = 65, speedChange = -500, range = 1, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 40},
@@ -76,24 +89,25 @@ monster.attacks = {
 monster.defenses = {
 	defense = 34,
 	armor = 29,
+--	mitigation = ???,
 	{name ="speed", interval = 5000, chance = 100, speedChange = 500, effect = CONST_ME_MAGIC_RED, target = false, duration = 2500}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = -20},
+	{type = COMBAT_ENERGYDAMAGE, percent = -1},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = true},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

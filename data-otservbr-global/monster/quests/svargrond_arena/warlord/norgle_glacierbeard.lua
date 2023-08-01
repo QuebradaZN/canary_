@@ -48,28 +48,37 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "I'll extinguish you warmbloods.", yell = false},
-	{text = "REVENGE!", yell = false},
+	{text = "REVENGE!", yell = true},
 	{text = "Far too hot.", yell = false},
-	{text = "DISGUSTING WARMBLOODS!", yell = false},
-	{text = "Revenge is sweetest when served cold.", yell = false}
+	{text = "DISGUSTING WARMBLOODS!", yell = true},
+	{text = "Revenge is sweetest when served cold.", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -279},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Dizzy Hits
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -93, maxDamage = -121, range = ?, effect = <>, target = ?}, --Smoke Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Paralyze
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -119, maxDamage = -159, range = ?, effect = <>, target = ?}, --Snowball Bomb
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 66, maxDamage = 90 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -225}
 }
@@ -77,6 +86,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 27,
 	armor = 25
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -88,12 +98,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -1}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = -1},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

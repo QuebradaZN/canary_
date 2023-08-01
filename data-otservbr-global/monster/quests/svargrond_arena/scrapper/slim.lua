@@ -49,23 +49,33 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Zhroozzzzs.", yell = false}
+	{text = "Zhroozzzzs.", yell = false},
+	{text = "Knooorrrrr!", yell = false},
+	{text = "Cccchhhhhhhhh!", yell = false},
 }
 
 monster.loot = {
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -150+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -0, maxDamage = -54+, range = ?, effect = <>, target = ?}, --Life Drain Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3 hp/turn, maxDamage = -3 hp/turn, range = ?, effect = <>, target = ?}, --Poisoning Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -59, maxDamage = -62, range = ?, effect = <>, target = ?}, --Poison Missile
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 33, maxDamage = 55 },
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150},
 	{name ="poisonfield", interval = 1000, chance = 50, shootEffect = CONST_ANI_POISON, target = false},
@@ -75,6 +85,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 38,
 	armor = 36
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -86,12 +97,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -1},
+	{type = COMBAT_DEATHDAMAGE, percent = 100},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = true},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Fire Overlord")
 local monster = {}
 
-monster.description = "a fire overlord"
+monster.description = "Fire Overlord"
 monster.experience = 2800
 monster.outfit = {
 	lookType = 243,
@@ -38,7 +38,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -47,14 +47,14 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 5,
+	color = 212,
 }
 
 monster.voices = {
@@ -70,6 +70,13 @@ monster.loot = {
 	{name = "fiery heart", chance = 100000}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -450},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -ultimate explosion size, maxDamage = -ultimate explosion size, range = ?, effect = <>, target = ?}, --[[Paralyze]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -sets you on fire, maxDamage = -sets you on fire, range = ?, effect = <>, target = ?}, --[[Soulfire|Fire Missile]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -400, maxDamage = -1100, range = ?, effect = <>, target = ?}, --invisible [[Flame Beam]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, condition = {type = CONDITION_FIRE, totalDamage = 650, interval = 9000}},
 	{name ="firefield", interval = 2000, chance = 15, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, target = true},
@@ -80,6 +87,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 25,
 	armor = 25
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -91,14 +99,14 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -25},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 20},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

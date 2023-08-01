@@ -13,11 +13,18 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 80000
-monster.maxHealth = 80000
+monster.bosstiary = {
+	bossRaceId = 1957,
+	bossRace = RARITY_ARCHFOE,
+	storageCooldown = Storage.TheOrderOfTheLion.Drume.Timer,
+}
+
+monster.health = 35000
+monster.maxHealth = 35000
 monster.race = "blood"
 monster.corpse = 33973
 monster.speed = 130
+monster.manaCost = 0
 
 monster.faction = FACTION_LIONUSURPERS
 monster.enemyFactions = {FACTION_LION, FACTION_PLAYER}
@@ -34,12 +41,6 @@ monster.summon = {
 monster.changeTarget = {
 	interval = 4000,
 	chance = 25
-}
-
-monster.bosstiary = {
-	bossRaceId = 1957,
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = Storage.TheOrderOfTheLion.Drume.Timer
 }
 
 monster.strategiesTarget = {
@@ -66,17 +67,20 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
+	{text = "I've studied the Cobras - I wield the secrets of the snake!", yell = false},
+	{text = "I am a true knight of the lion, you will never defeat the true order!", yell = false},
+	{text = "The Falcons will come to my aid in need!", yell = false},
 }
 
 monster.loot = {
@@ -122,6 +126,14 @@ monster.loot = {
 	{name = "lion rod", chance = 300}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -600+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -670, maxDamage = -700, range = ?, effect = <>, target = ?}, --Throwing Knife 3sqm ball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --6sqm twave groundshaker
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -1000, maxDamage = -1000, range = ?, effect = <>, target = ?}, --poison arrow death hit
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --assassin star
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1100, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HOLYDAMAGE, minDamage = -850, maxDamage = -1150, length = 8, spread = 3, effect = CONST_ME_HOLYAREA, target = false},
@@ -134,11 +146,12 @@ monster.attacks = {
 monster.defenses = {
 	defense = 60,
 	armor = 82,
+--	mitigation = ???,
 	{name ="combat", interval = 4000, chance = 40, type = COMBAT_HEALING, minDamage = 300, maxDamage = 800, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 35},
 	{type = COMBAT_ENERGYDAMAGE, percent = -20},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
@@ -146,8 +159,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = -20},
+	{type = COMBAT_DEATHDAMAGE, percent = 50},
 }
 
 monster.immunities = {
