@@ -251,6 +251,9 @@ ReturnValue Combat::canDoCombat(Creature* caster, Tile* tile, bool aggressive) {
 	if (tile->hasProperty(CONST_PROP_BLOCKPROJECTILE)) {
 		return RETURNVALUE_NOTENOUGHROOM;
 	}
+	if (aggressive && tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
+		return RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE;
+	}
 
 	if (tile->hasFlag(TILESTATE_FLOORCHANGE)) {
 		return RETURNVALUE_NOTENOUGHROOM;
@@ -274,11 +277,6 @@ ReturnValue Combat::canDoCombat(Creature* caster, Tile* tile, bool aggressive) {
 				return RETURNVALUE_NOERROR;
 			}
 		}
-	}
-
-	// pz-zone
-	if (aggressive && tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
-		return RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE;
 	}
 
 	return g_events().eventCreatureOnAreaCombat(caster, tile, aggressive);
@@ -306,6 +304,16 @@ bool Combat::isProtected(const Player* attacker, const Player* target) {
 }
 
 ReturnValue Combat::canDoCombat(Creature* attacker, Creature* target) {
+	if (target) {
+		const Tile* tile = target->getTile();
+		if (tile->hasProperty(CONST_PROP_BLOCKPROJECTILE)) {
+			return RETURNVALUE_NOTENOUGHROOM;
+		}
+		if (tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
+			return RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE;
+		}
+	}
+
 	if (attacker) {
 		const Creature* attackerMaster = attacker->getMaster();
 		if (const Player* targetPlayer = target->getPlayer()) {
@@ -359,7 +367,6 @@ ReturnValue Combat::canDoCombat(Creature* attacker, Creature* target) {
 				}
 			}
 		} else if (target && target->getMonster()) {
-
 			if (attacker->getFaction() != FACTION_DEFAULT && attacker->getFaction() != FACTION_PLAYER && attacker->getMonster() && !attacker->getMonster()->isEnemyFaction(target->getFaction())) {
 				return RETURNVALUE_YOUMAYNOTATTACKTHISCREATURE;
 			}
@@ -1409,7 +1416,8 @@ void Combat::pickChainTargets(Creature* caster, std::vector<Creature*> &targets,
 			}
 			bool canCombat = canDoCombat(caster, creature) == RETURNVALUE_NOERROR;
 			bool pick = params.chainPickerCallback ? params.chainPickerCallback->onChainCombat(caster, creature) : true;
-			if (!canCombat || !pick) {
+			bool hasSight = g_game().isSightClear(currentTarget->getPosition(), creature->getPosition(), true);
+			if (!canCombat || !pick || !hasSight) {
 				visited.insert(creature->getID());
 				continue;
 			}
