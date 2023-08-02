@@ -19,8 +19,8 @@ monster.bosstiary = {
 	storageCooldown = Storage.TheOrderOfTheLion.Drume.Timer,
 }
 
-monster.health = 35000
-monster.maxHealth = 35000
+monster.health = 80000
+monster.maxHealth = 80000
 monster.race = "blood"
 monster.corpse = 33973
 monster.speed = 130
