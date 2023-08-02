@@ -25,6 +25,11 @@ monster.corpse = 31654
 monster.speed = 92
 monster.manaCost = 0
 
+monster.events = {
+	"UglyMonsterSpawn",
+	"UglyMonsterCleanup",
+}
+
 monster.changeTarget = {
 	interval = 4000,
 	chance = 10
