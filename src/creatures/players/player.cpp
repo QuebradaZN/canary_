@@ -1177,40 +1177,37 @@ std::vector<Item*> Player::getRewardsFromContainer(const Container* container) c
 	return rewardItemsVector;
 }
 
-ReturnValue Player::rewardChestCollect(uint32_t maxMoveItems /* = 0*/) {
-	return RETURNVALUE_NOERROR;
-	// std::vector<Item*> rewardItemsVector;
-	// if (!rewardChest || rewardChest->empty()) {
-	// 	return RETURNVALUE_REWARDCHESTISEMPTY;
-	// }
-	// rewardItemsVector = getRewardsFromContainer(rewardChest->getContainer());
+ReturnValue Player::rewardChestCollect(std::vector<Item*> items, uint32_t maxMoveItems /* = 0*/) {
+	if (!rewardChest || rewardChest->empty()) {
+		return RETURNVALUE_REWARDCHESTISEMPTY;
+	}
 
-	// auto rewardCount = rewardItemsVector.size();
-	// uint32_t movedRewardItems = 0;
-	// for (auto item : rewardItemsVector) {
-	// 	// Stop if player not have free capacity
-	// 	if (item && getCapacity() < item->getWeight()) {
-	// 		break;
-	// 	}
+	auto rewardCount = items.size();
+	uint32_t movedRewardItems = 0;
+	for (auto item : items) {
+		// Stop if player not have free capacity
+		if (item && getCapacity() < item->getWeight()) {
+			break;
+		}
 
-	// 	// Limit the collect count if the "maxMoveItems" is not "0"
-	// 	auto limitMove = maxMoveItems != 0 && movedRewardItems == maxMoveItems;
-	// 	if (limitMove) {
-	// 		sendCancelMessage(fmt::format("You can only collect {} items at a time.", maxMoveItems));
-	// 		return RETURNVALUE_NOTPOSSIBLE;
-	// 	}
+		// Limit the collect count if the "maxMoveItems" is not "0"
+		auto limitMove = maxMoveItems != 0 && movedRewardItems == maxMoveItems;
+		if (limitMove) {
+			sendCancelMessage(fmt::format("You can only collect {} items at a time.", maxMoveItems));
+			return RETURNVALUE_NOTPOSSIBLE;
+		}
 
-	// 	ObjectCategory_t category = g_game().getObjectCategory(item);
-	// 	if (g_game().internalQuickLootItem(this, item, category) == RETURNVALUE_NOERROR) {
-	// 		movedRewardItems++;
-	// 	}
-	// }
+		ObjectCategory_t category = g_game().getObjectCategory(item);
+		if (g_game().internalQuickLootItem(this, item, category) == RETURNVALUE_NOERROR) {
+			movedRewardItems++;
+		}
+	}
 
-	// auto lootedMessage = fmt::format("{} of {} objects were picked up.", movedRewardItems, rewardCount);
-	// sendTextMessage(MESSAGE_EVENT_ADVANCE, lootedMessage);
+	auto lootedMessage = fmt::format("{} of {} objects were picked up.", movedRewardItems, rewardCount);
+	sendTextMessage(MESSAGE_EVENT_ADVANCE, lootedMessage);
 
-	// auto finalReturn = movedRewardItems == 0 ? RETURNVALUE_NOTENOUGHROOM : RETURNVALUE_NOERROR;
-	// return finalReturn;
+	auto finalReturn = movedRewardItems == 0 ? RETURNVALUE_NOTENOUGHROOM : RETURNVALUE_NOERROR;
+	return finalReturn;
 }
 
 void Player::sendCancelMessage(ReturnValue message) const {
