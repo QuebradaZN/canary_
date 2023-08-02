@@ -10,7 +10,7 @@ function canChain(creature, target)
 			return false
 		end
 
-		if monster:getPosition():getDistance(player:getPosition()) > 1 and monster:getType():getTargetDistance() > 1 then
+		if monster:getPosition():getDistance(creature:getPosition()) > 1 and monster:getType():getTargetDistance() > 1 then
 			return true
 		elseif not monster:isChallenged() then
 			return true
