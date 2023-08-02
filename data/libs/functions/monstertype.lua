@@ -27,7 +27,7 @@ function MonsterType:generateLootRoll(config, resultTable)
 		local randValue = getLootRandom(factor)
 		if randValue >= chance then goto continue end
 
-		local count
+		local count = 0
 		if iType:isStackable() then
 			local maxc, minc = item.maxCount or 1, item.minCount or 1
 			count = math.max(0, randValue % (maxc - minc + 1)) + minc

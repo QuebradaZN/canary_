@@ -57,7 +57,7 @@ function getTime(seconds)
 	return hours..":"..minutes.. "h"
 end
 
-function getTimeinWords(secs)
+function getTimeInWords(secs)
 	local hours, minutes, seconds = getHours(secs), getMinutes(secs), getSeconds(secs)
 	if (minutes > 59) then
 		minutes = minutes-hours*60
@@ -65,8 +65,10 @@ function getTimeinWords(secs)
 
 	local timeStr = ''
 
-	if hours > 0 then
-		timeStr = timeStr .. ' hours '
+	if hours > 1 then
+		timeStr = hours .. ' hours '
+	elseif hours == 1 then
+		timeStr = hours .. ' hour '
 	end
 
 	timeStr = timeStr .. minutes .. ' minutes and '.. seconds .. ' seconds.'
@@ -195,7 +197,7 @@ end
 function getPlayerSpouse(id)
 	local resultQuery = db.storeQuery("SELECT `marriage_spouse` FROM `players` WHERE `id` = " .. db.escapeString(id))
 	if resultQuery ~= false then
-		local ret = Result.getDataInt(resultQuery, "marriage_spouse")
+		local ret = Result.getNumber(resultQuery, "marriage_spouse")
 		Result.free(resultQuery)
 		return ret
 	end
@@ -205,7 +207,7 @@ end
 function getPlayerMarriageStatus(id)
 	local resultQuery = db.storeQuery("SELECT `marriage_status` FROM `players` WHERE `id` = " .. db.escapeString(id))
 	if resultQuery ~= false then
-		local ret = Result.getDataInt(resultQuery, "marriage_status")
+		local ret = Result.getNumber(resultQuery, "marriage_status")
 		Result.free(resultQuery)
 		return ret
 	end
@@ -214,7 +216,7 @@ end
 
 function getPlayerNameById(id)
 	local resultName = db.storeQuery("SELECT `name` FROM `players` WHERE `id` = " .. db.escapeString(id))
-	local name = Result.getDataString(resultName, "name")
+	local name = Result.getString(resultName, "name")
 	if resultName ~= false then
 		Result.free(resultName)
 		return name
