@@ -1,7 +1,7 @@
 local config = {
-    monsterName = 'Mawhawk',
-    bossPosition = Position(33703, 32461, 7),
-    centerPosition = Position(33703, 32461, 7),
+    monsterName = 'Tyrn',
+    bossPosition = Position(33094, 32404, 13),
+    centerPosition = Position(33094, 32404, 13),
     rangeX = 50,
     rangeY = 50
 }
@@ -19,16 +19,16 @@ local function checkBoss(centerPosition, rangeX, rangeY, bossName)
     return false
 end
 
-local mawhawk = GlobalEvent("mawhawk")
-function mawhawk.onThink(interval, lastExecution)
+local tyrn = GlobalEvent("tyrn")
+function tyrn.onThink(interval, lastExecution)
     if checkBoss(config.centerPosition, config.rangeX, config.rangeY, config.monsterName) then
         return true
     end
-    addEvent(Game.broadcastMessage, 150, 'Beware! Mawhawk!', MESSAGE_EVENT_ADVANCE)
+    addEvent(Game.broadcastMessage, 150, 'Beware of Tyrn!', MESSAGE_EVENT_ADVANCE)
     local boss = Game.createMonster(config.monsterName, config.bossPosition, true, true)
     boss:setReward(true)
     return true
 end
 
-mawhawk:interval(10 * 60 * 60 * 1000) -- spawns every 10 hours
-mawhawk:register()
+tyrn:interval(9 * 60 * 60 * 1000) -- spawns every 9 hours
+tyrn:register()
