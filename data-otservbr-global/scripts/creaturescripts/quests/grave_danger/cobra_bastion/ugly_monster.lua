@@ -22,7 +22,7 @@ function uglyMonsterSpawn.onHealthChange(creature, attacker, primaryDamage, prim
 	if creatureToSpawn[creature:getId()] then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
-	local chance = math.random(1, 10000)
+	local chance = math.random(1, 1000000)
 	if chance < (primaryDamage + secondaryDamage) and Game.getStorageValue(GlobalStorage.UglyMonster) ~= 1 then
 		uglyMonster = Game.createMonster("Ugly Monster", creature:getPosition())
 		creatureToSpawn[creature:getId()] = true
@@ -31,7 +31,7 @@ function uglyMonsterSpawn.onHealthChange(creature, attacker, primaryDamage, prim
 				uglyMonster:remove()
 				Game.setStorageValue(GlobalStorage.UglyMonster, 0)
 			end
-		end, 60 * 1000)
+		end, 30 * 1000)
 		Game.setStorageValue(GlobalStorage.UglyMonster, 1)
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType

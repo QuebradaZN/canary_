@@ -17,7 +17,7 @@ monster.health = 13000
 monster.maxHealth = 13000
 monster.race = "blood"
 monster.corpse = 31551
-monster.speed = 140
+monster.speed = 340
 monster.manaCost = 0
 
 monster.events = {
@@ -65,14 +65,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "cobra crossbow", chance = 670},
-	{name = "cobra hood", chance = 670},
-	{name = "cobra axe", chance = 670},
-	{name = "cobra boots", chance = 670},
-	{name = "cobra sword", chance = 670},
-	{name = "cobra wand", chance = 670},
-	{name = "cobra rod", chance = 670},
-	{name = "cobra club", chance = 670}
+	{name = "cobra crossbow", chance = 300},
+	{name = "cobra hood", chance = 300},
+	{name = "cobra axe", chance = 300},
+	{name = "cobra boots", chance = 300},
+	{name = "cobra sword", chance = 300},
+	{name = "cobra wand", chance = 300},
+	{name = "cobra rod", chance = 300},
+	{name = "cobra club", chance = 300}
 }
 
 monster.attacks = {
