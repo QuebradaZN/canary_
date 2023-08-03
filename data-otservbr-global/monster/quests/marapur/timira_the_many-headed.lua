@@ -96,7 +96,6 @@ monster.loot = {
 	{name="ultimate health potion",chance = 30612, maxCount = 14},
 	{name= "bullseye potion",chance = 24490, maxCount = 5},
 	{name= "berserk potion",chance = 22449, maxCount = 5},
-	{id = 39233, chance = 5000},
 	{name = "mastermind potion",chance = 18367, maxCount = 5},
 	{name = "naga basin", chance = 12245},
 	{name = "piece of timira's sensors", chance = 10204},
@@ -108,14 +107,15 @@ monster.loot = {
 	{name = "giant topaz", chance = 2041},
 	{name = "dawnfire sherwani", chance = 200},
 	{name = "frostflower boots", chance = 200},
-	{name = "Midnight Tunic", chance = 200},
-	{name = "Midnight Sarong", chance = 200},
-	{name = "Naga Sword", chance = 200},
-	{name = "Naga Axe", chance = 200},
-	{name = "Naga Club", chance = 200},
-	{name = "Naga Wand", chance = 200},
-	{name = "Naga Rod", chance = 200},
-	{name = "Naga Crossbow", chance = 200}
+	{id = 39233, chance = 200}, -- enchanted turtle amulet
+	{name = "midnight tunic", chance = 200},
+	{name = "midnight sarong", chance = 200},
+	{name = "naga sword", chance = 200},
+	{name = "naga axe", chance = 200},
+	{name = "naga club", chance = 200},
+	{name = "naga wand", chance = 200},
+	{name = "naga rod", chance = 200},
+	{name = "naga crossbow", chance = 200}
 }
 
 mType.onAppear = function(monster, creature)
