@@ -563,6 +563,9 @@ class Player final : public Creature, public Cylinder {
 		bool isAccessPlayer() const {
 			return group->access;
 		}
+		bool isNormalPlayer() const {
+			return group->id <= account::GROUP_TYPE_SENIORTUTOR;
+		}
 		bool isPremium() const;
 		void setPremiumDays(int32_t v);
 
@@ -735,9 +738,7 @@ class Player final : public Creature, public Cylinder {
 		void getRewardList(std::vector<uint64_t> &rewards) const;
 		RewardChest* getRewardChest();
 
-		ReturnValue recurseMoveItemToContainer(Item* item, Container* container);
 		std::vector<Item*> getRewardsFromContainer(const Container* container) const;
-		ReturnValue rewardChestCollect(std::vector<Item*> items, uint32_t maxMoveItems = 0);
 
 		DepotChest* getDepotChest(uint32_t depotId, bool autoCreate);
 		DepotLocker* getDepotLocker(uint32_t depotId);
@@ -2477,6 +2478,8 @@ class Player final : public Creature, public Cylinder {
 		const std::unique_ptr<PlayerWheel> &wheel() const;
 
 		void sendLootMessage(const std::string &message) const;
+
+		Container* getLootPouch() const;
 
 	private:
 		static uint32_t playerFirstID;

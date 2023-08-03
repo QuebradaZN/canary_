@@ -43,6 +43,8 @@
 #include "server/network/webhook/webhook.h"
 #include "protobuf/appearances.pb.h"
 
+using defer = std::shared_ptr<void>;
+
 namespace InternalGame {
 	void sendBlockEffect(BlockType_t blockType, CombatType_t combatType, const Position &targetPos, Creature* source) {
 		if (blockType == BLOCK_DEFENSE) {
@@ -2346,7 +2348,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse) {
 		uint16_t baseCount = item->getItemCount();
 		ObjectCategory_t category = getObjectCategory(item);
 
-		ReturnValue ret = internalQuickLootItem(player, item, category);
+		ReturnValue ret = internalCollectLootItems(player, item, category);
 		if (ret == RETURNVALUE_NOTENOUGHCAPACITY) {
 			shouldNotifyCapacity = true;
 		} else if (ret == RETURNVALUE_CONTAINERNOTENOUGHROOM) {
@@ -2453,103 +2455,197 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse) {
 	player->lastQuickLootNotification = OTSYS_TIME();
 }
 
-ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCategory_t category /* = OBJECTCATEGORY_DEFAULT*/) {
+Container* Game::findLootContainer(Player* player, bool &fallbackConsumed, ObjectCategory_t category) {
+	Container* lootContainer = player->getLootContainer(category);
+	if (!lootContainer && player->quickLootFallbackToMainContainer && !fallbackConsumed) {
+		Item* fallbackItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
+		Container* mainBackpack = fallbackItem ? fallbackItem->getContainer() : nullptr;
+
+		if (mainBackpack) {
+			player->setLootContainer(OBJECTCATEGORY_DEFAULT, mainBackpack);
+			player->sendInventoryItem(CONST_SLOT_BACKPACK, player->getInventoryItem(CONST_SLOT_BACKPACK));
+			lootContainer = mainBackpack;
+			fallbackConsumed = true;
+		}
+	}
+
+	return lootContainer;
+}
+
+Container* Game::findNextAvailableContainer(ContainerIterator &containerIterator, Container*&lootContainer, Container*&lastSubContainer) {
+	while (containerIterator.hasNext()) {
+		Item* cur = *containerIterator;
+		Container* subContainer = cur ? cur->getContainer() : nullptr;
+		containerIterator.advance();
+
+		if (subContainer) {
+			lastSubContainer = subContainer;
+			lootContainer = subContainer;
+			return lootContainer;
+		}
+	}
+
+	// Fix last empty sub-container
+	if (lastSubContainer && lastSubContainer->size() > 0) {
+		Item* cur = lastSubContainer->getItemByIndex(lastSubContainer->size() - 1);
+		lootContainer = cur ? cur->getContainer() : nullptr;
+		lastSubContainer = nullptr;
+		return lootContainer;
+	}
+
+	return nullptr;
+}
+
+bool Game::handleFallbackLogic(Player* player, Container*&lootContainer, ContainerIterator &containerIterator, bool &fallbackConsumed) {
+	if (fallbackConsumed || !player->quickLootFallbackToMainContainer) {
+		return false;
+	}
+
+	Item* fallbackItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
+	if (!fallbackItem || !fallbackItem->getContainer())
+		return false;
+
+	lootContainer = fallbackItem->getContainer();
+	containerIterator = lootContainer->iterator();
+
+	return true;
+}
+
+ReturnValue Game::processMoveOrAddItemToLootContainer(Item* item, Container* lootContainer, uint32_t &remainderCount, Player* player) {
+	Item* moveItem = nullptr;
+	ReturnValue ret;
+	if (item->getParent()) {
+		ret = internalMoveItem(item->getParent(), lootContainer, INDEX_WHEREEVER, item, item->getItemCount(), &moveItem, 0, player);
+	} else {
+		ret = internalAddItem(lootContainer, item, INDEX_WHEREEVER);
+	}
+	if (moveItem) {
+		remainderCount -= moveItem->getItemCount();
+	}
+	return ret;
+}
+
+ReturnValue Game::processLootItems(Player* player, Container* lootContainer, Item* item, bool &fallbackConsumed) {
+	Container* lastSubContainer = nullptr;
+	uint32_t remainderCount = item->getItemCount();
+	ContainerIterator containerIterator = lootContainer->iterator();
+
+	do {
+		ReturnValue ret = processMoveOrAddItemToLootContainer(item, lootContainer, remainderCount, player);
+		if (ret != RETURNVALUE_CONTAINERNOTENOUGHROOM) {
+			return ret;
+		}
+
+		Container* nextContainer = findNextAvailableContainer(containerIterator, lastSubContainer, lootContainer);
+		if (!nextContainer && !handleFallbackLogic(player, lootContainer, containerIterator, fallbackConsumed)) {
+			break;
+		}
+		fallbackConsumed = (nextContainer == nullptr);
+	} while (remainderCount != 0);
+
+	return RETURNVALUE_NOERROR;
+}
+
+ReturnValue Game::internalCollectLootItems(Player* player, Item* item, ObjectCategory_t category /* = OBJECTCATEGORY_DEFAULT*/) {
 	if (!player || !item) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
-	bool fallbackConsumed = false;
-	Container* lootContainer = player->getLootContainer(category);
-	if (!lootContainer) {
-		if (player->quickLootFallbackToMainContainer) {
-			Item* fallbackItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
-
-			if (fallbackItem) {
-				Container* mainBackpack = fallbackItem->getContainer();
-				if (mainBackpack && !fallbackConsumed) {
-					player->setLootContainer(OBJECTCATEGORY_DEFAULT, mainBackpack);
-					player->sendInventoryItem(CONST_SLOT_BACKPACK, player->getInventoryItem(CONST_SLOT_BACKPACK));
-				}
+	// Send money to the bank
+	if (g_configManager().getBoolean(AUTOBANK)) {
+		if (item->getID() == ITEM_GOLD_COIN || item->getID() == ITEM_PLATINUM_COIN || item->getID() == ITEM_CRYSTAL_COIN) {
+			uint64_t money = 0;
+			if (item->getID() == ITEM_PLATINUM_COIN) {
+				money = item->getItemCount() * 100;
+			} else if (item->getID() == ITEM_CRYSTAL_COIN) {
+				money = item->getItemCount() * 10000;
+			} else {
+				money = item->getItemCount();
 			}
-
-			lootContainer = fallbackItem ? fallbackItem->getContainer() : nullptr;
-			fallbackConsumed = true;
-		} else {
-			return RETURNVALUE_NOTPOSSIBLE;
+			internalRemoveItem(item, item->getItemCount());
+			player->setBankBalance(player->getBankBalance() + money);
+			return RETURNVALUE_NOERROR;
 		}
 	}
 
+	bool fallbackConsumed = false;
+	Container* lootContainer = findLootContainer(player, fallbackConsumed, category);
 	if (!lootContainer) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
-	Container* lastSubContainer = nullptr;
-	uint32_t remainderCount = item->getItemCount();
-	ContainerIterator it = lootContainer->iterator();
+	return processLootItems(player, lootContainer, item, fallbackConsumed);
+}
 
-	ReturnValue ret;
-	do {
-		Item* moveItem = nullptr;
-		if (item->getParent()) { // Stash retrive dont have parent cylinder.
-			ret = internalMoveItem(item->getParent(), lootContainer, INDEX_WHEREEVER, item, item->getItemCount(), &moveItem, 0, player);
-		} else {
-			ret = internalAddItem(lootContainer, item, INDEX_WHEREEVER);
-		}
-		if (moveItem) {
-			remainderCount -= moveItem->getItemCount();
-		}
+void Game::collectItemsAsync(uint32_t playerId, const std::vector<Item*> &items, uint32_t maxMoveItems /* = 0 */) {
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+	for (auto item : items) {
+		item->incrementReferenceCounter();
+	}
+	try {
+		std::future<void> future = std::async(std::launch::async, &Game::collectItems, this, playerId, items, 0);
+		futures.push_back(std::move(future));
+	} catch (std::system_error &e) {
+		collectItems(playerId, items, 200);
+		SPDLOG_WARN("Failed to create a new thread for asynchronous reward collect, running synchronously: {}", e.what());
+		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "An error occurred while collecting rewards. Please report it to the administrador.");
+	} catch (std::future_error &e) {
+		collectItems(playerId, items, 200);
+		SPDLOG_ERROR("Failed to run asynchronous reward collect: {}", e.what());
+		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "An error occurred while collecting rewards. Please report it to the administrador.");
+	}
+}
 
-		if (ret != RETURNVALUE_CONTAINERNOTENOUGHROOM) {
+void Game::collectItems(uint32_t playerId, const std::vector<Item*> &items, uint32_t maxMoveItems /* = 0 */) {
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+	// Ensure that we decrement the reference counter of the items after the function returns
+	auto decrementReferenceCounter = [&items]() {
+		for (auto item : items) {
+			item->decrementReferenceCounter();
+		}
+	};
+
+	defer _(nullptr, [&](...) { decrementReferenceCounter(); });
+
+	auto rewardCount = items.size();
+	uint32_t movedItems = 0;
+	std::string lootedItemsMessage;
+	for (auto item : items) {
+		// Stop if player not have free capacity
+		if (item && player->getCapacity() < item->getWeight()) {
+			player->sendCancelMessage(RETURNVALUE_NOTENOUGHCAPACITY);
 			break;
 		}
 
-		// search for a sub container
-		bool obtainedNewContainer = false;
-		while (it.hasNext()) {
-			Item* cur = *it;
-			Container* subContainer = cur ? cur->getContainer() : nullptr;
-			it.advance();
-
-			if (subContainer) {
-				lastSubContainer = subContainer;
-				lootContainer = subContainer;
-				obtainedNewContainer = true;
-				break;
-			}
+		// Limit the collect count if the "maxMoveItems" is not "0"
+		auto limitMove = maxMoveItems != 0 && movedItems == maxMoveItems;
+		if (limitMove) {
+			lootedItemsMessage = fmt::format("You can only collect {} items at a time. {} of {} objects were picked up.", maxMoveItems, movedItems, rewardCount);
+			player->sendTextMessage(MESSAGE_EVENT_ADVANCE, lootedItemsMessage);
+			return;
 		}
 
-		// a hack to fix last empty sub-container
-		if (!obtainedNewContainer && lastSubContainer && lastSubContainer->size() > 0) {
-			Item* cur = lastSubContainer->getItemByIndex(lastSubContainer->size() - 1);
-			Container* subContainer = cur ? cur->getContainer() : nullptr;
-
-			if (subContainer) {
-				lootContainer = subContainer;
-				obtainedNewContainer = true;
-			}
-
-			lastSubContainer = nullptr;
+		ObjectCategory_t category = getObjectCategory(item);
+		if (internalCollectLootItems(player, item, category) == RETURNVALUE_NOERROR) {
+			movedItems++;
 		}
+	}
 
-		// consumed all sub-container & there is simply no more containers to iterate over.
-		// check if fallback should be used and if not, then break
-		bool quickFallback = (player->quickLootFallbackToMainContainer);
-		bool noFallback = fallbackConsumed || !quickFallback;
-		if (noFallback && (!lootContainer || !obtainedNewContainer)) {
-			break;
-		} else if (!lootContainer || !obtainedNewContainer) {
-			Item* fallbackItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
-			if (!fallbackItem || !fallbackItem->getContainer()) {
-				break;
-			}
+	lootedItemsMessage = fmt::format("{} of {} objects were picked up.", movedItems, rewardCount);
+	player->sendTextMessage(MESSAGE_EVENT_ADVANCE, lootedItemsMessage);
 
-			lootContainer = fallbackItem->getContainer();
-			it = lootContainer->iterator();
+	if (movedItems == 0) {
+		player->sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
+		return;
+	}
 
-			fallbackConsumed = true;
-		}
-	} while (remainderCount != 0);
-	return ret;
+	return;
 }
 
 ObjectCategory_t Game::getObjectCategory(const Item* item) {
@@ -4652,7 +4748,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position &pos, uint16_t item
 	if (pos.x == 0xffff && !browseField && !corpse->isRewardCorpse()) {
 		uint32_t worth = item->getWorth();
 		ObjectCategory_t category = getObjectCategory(item);
-		ReturnValue ret = internalQuickLootItem(player, item, category);
+		ReturnValue ret = internalCollectLootItems(player, item, category);
 
 		std::stringstream ss;
 		if (ret == RETURNVALUE_NOTENOUGHCAPACITY) {
@@ -9589,14 +9685,13 @@ void Game::playerStartRewardChestCollect(uint32_t playerId, const Position &pos,
 		return;
 	}
 
-	Item* item = nullptr;
 	Thing* thing = internalGetThing(player, pos, stackPos, itemId, STACKPOS_FIND_THING);
 	if (!thing) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
 
-	item = thing->getItem();
+	auto item = thing->getItem();
 	if (!item || item->getID() != ITEM_REWARD_CHEST || !item->getContainer()) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
@@ -9610,43 +9705,7 @@ void Game::playerStartRewardChestCollect(uint32_t playerId, const Position &pos,
 		return;
 	}
 	auto items = player->getRewardsFromContainer(player->rewardChest->getContainer());
-	playerCollectItemsAsync(player->getID(), std::move(items));
-}
-
-void Game::playerCollectItemsAsync(uint32_t playerId, const std::vector<Item*> &items, uint32_t maxMoveItems /* = 0*/) {
-	Player* player = getPlayerByID(playerId);
-	if (!player) {
-		return;
-	}
-	for (auto item : items) {
-		item->incrementReferenceCounter();
-	}
-	try {
-		std::future<void> future = std::async(std::launch::async, &Game::playerCollectItems, this, playerId, items, 0);
-		futures.push_back(std::move(future));
-	} catch (std::system_error &e) {
-		playerCollectItems(playerId, items, 200);
-		SPDLOG_WARN("Failed to create a new thread for asynchronous reward collect, running synchronously: {}", e.what());
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "An error occurred while collecting rewards. Please report it to the administrador.");
-	} catch (std::future_error &e) {
-		playerCollectItems(playerId, items, 200);
-		SPDLOG_ERROR("Failed to run asynchronous reward collect: {}", e.what());
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "An error occurred while collecting rewards. Please report it to the administrador.");
-	}
-}
-
-void Game::playerCollectItems(uint32_t playerId, const std::vector<Item*> &items, uint32_t maxMoveItems /* = 0*/) {
-	Player* player = getPlayerByID(playerId);
-	if (!player) {
-		return;
-	}
-	ReturnValue returnValue = player->rewardChestCollect(items, maxMoveItems);
-	if (returnValue != RETURNVALUE_NOERROR) {
-		player->sendCancelMessage(returnValue);
-	}
-	for (auto item : items) {
-		item->decrementReferenceCounter();
-	}
+	collectItemsAsync(player->getID(), std::move(items));
 }
 
 bool Game::createHazardArea(const Position &positionFrom, const Position &positionTo) {
@@ -9661,6 +9720,10 @@ bool Game::createHazardArea(const Position &positionFrom, const Position &positi
 		}
 	}
 	return true;
+}
+
+bool Game::canRetrieveStashItems(Player* player, Item* item) {
+	return internalCollectLootItems(player, item, OBJECTCATEGORY_STASHRETRIEVE) == RETURNVALUE_NOERROR;
 }
 
 std::unique_ptr<IOWheel> &Game::getIOWheel() {

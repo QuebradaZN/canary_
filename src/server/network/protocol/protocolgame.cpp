@@ -1267,7 +1267,7 @@ void ProtocolGame::parsePacketFromDispatcher(NetworkMessage msg, uint8_t recvbyt
 			parseModalWindowAnswer(msg);
 			break;
 		case 0xFF:
-			parseRewardContainerCollect(msg);
+			parseRewardChestCollect(msg);
 			break;
 			// case 0xFA: parseStoreOpen(msg); break;
 			// case 0xFB: parseStoreRequestOffers(msg); break;
@@ -2997,7 +2997,7 @@ void ProtocolGame::parseModalWindowAnswer(NetworkMessage &msg) {
 	addGameTask(&Game::playerAnswerModalWindow, player->getID(), id, button, choice);
 }
 
-void ProtocolGame::parseRewardContainerCollect(NetworkMessage &msg) {
+void ProtocolGame::parseRewardChestCollect(NetworkMessage &msg) {
 	const auto position = msg.getPosition();
 	auto itemId = msg.get<uint16_t>();
 	auto stackPosition = msg.getByte();
