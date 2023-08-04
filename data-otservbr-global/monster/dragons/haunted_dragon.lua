@@ -89,7 +89,6 @@ monster.loot = {
 	{name = "demonic essence", chance = 13130},
 	{name = "mind stone", chance = 7630},
 	{name = "dragon necklace", chance = 6780},
-	{name = "red gem", chance = 5330},
 	{name = "dark armor", chance = 4690},
 	{name = "dragonbone staff", chance = 3370},
 	{name = "dark shield", chance = 3160},
@@ -97,7 +96,7 @@ monster.loot = {
 	{id = 6299, chance = 2130}, -- death ring
 	{name = "life crystal", chance = 1320},
 	{name = "dragon slayer", chance = 1020},
-	{name = "spellweavers robe", chance = 810},
+	{name = "spellweaver's robe", chance = 810},
 	{name = "skullcracker armor", chance = 380},
 }
 

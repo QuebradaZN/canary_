@@ -80,7 +80,7 @@ monster.loot = {
 	{name = "meat", chance = 30390},
 	{name = "bone shoulderplate", chance = 12840},
 	{name = "zaoan halberd", chance = 8930},
-	{name = "warmasters wristguards", chance = 7020},
+	{name = "warmaster's wristguards", chance = 7020},
 	{name = "great health potion", chance = 3710, maxCount = 3},
 	{name = "ultimate health potion", chance = 3410},
 	{name = "zaoan shoes", chance = 2610},

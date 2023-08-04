@@ -95,7 +95,7 @@ monster.loot = {
 	{name = "zaoan helmet", chance = 220},
 	{name = "elite draken mail", chance = 110},
 	{name = "blade of corruption", chance = 60},
-	{name = "snake gods wristguard", chance = 40},
+	{name = "snake god's wristguard", chance = 40},
 	{name = "cobra crown", chance = 0},
 }
 

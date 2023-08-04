@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "gold coin", chance = 95300, maxCount = 237},
 	{name = "dragon ham", chance = 79790, maxCount = 2},
 	{name = "green mushroom", chance = 12030},
-	{name = "book gemmed", chance = 9590},
+	{id = 2842, chance = 9590}, -- gemmed book
 	{name = "royal spear", chance = 9380, maxCount = 3},
 	{name = "power bolt", chance = 5920, maxCount = 7},
 	{name = "small sapphire", chance = 5590},
