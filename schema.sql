@@ -611,6 +611,8 @@ CREATE TABLE IF NOT EXISTS `player_items` (
     CONSTRAINT `player_items_players_fk`
         FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
         ON DELETE CASCADE
+    CONSTRAINT `player_items_pk`
+        PRIMARY KEY (`player_id`, `pid`, `sid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Table structure `player_wheeldata`
@@ -669,6 +671,7 @@ CREATE TABLE IF NOT EXISTS `player_prey` (
     `bonus_time` varchar(250) NOT NULL,
     `free_reroll` bigint(20) NOT NULL,
     `monster_list` BLOB NULL
+    CONSTRAINT `player_prey_pk` PRIMARY KEY (`player_id`, `slot`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Table structure `player_taskhunt`
@@ -683,6 +686,7 @@ CREATE TABLE IF NOT EXISTS `player_taskhunt` (
     `disabled_time` bigint(20) NOT NULL,
     `free_reroll` bigint(20) NOT NULL,
     `monster_list` BLOB NULL
+    CONSTRAINT `player_prey_pk` PRIMARY KEY (`player_id`, `slot`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Table structure `player_bosstiary`
@@ -715,6 +719,7 @@ CREATE TABLE IF NOT EXISTS `player_spells` (
     CONSTRAINT `player_spells_players_fk`
         FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
         ON DELETE CASCADE
+    CONSTRAINT `player_spells_pk` PRIMARY KEY (`player_id`, `name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Table structure `player_stash`
@@ -722,6 +727,7 @@ CREATE TABLE IF NOT EXISTS `player_stash` (
     `player_id` INT(16) NOT NULL,
     `item_id` INT(16) NOT NULL,
     `item_count` INT(32) NOT NULL
+    CONSTRAINT `player_stash_pk` PRIMARY KEY (`player_id`, `item_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Table structure `player_storage`
