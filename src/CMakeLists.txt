@@ -199,7 +199,6 @@ PRIVATE
 	game/scheduling/scheduler.cpp
 	game/scheduling/events_scheduler.cpp
 	game/scheduling/tasks.cpp
-	game/scheduling/save_manager.cpp
 	io/fileloader.cpp
 	io/io_wheel.cpp
 	io/iobestiary.cpp
@@ -212,6 +211,7 @@ PRIVATE
 	io/iomapserialize.cpp
 	io/iomarket.cpp
 	io/ioprey.cpp
+	io/save/save.cpp
 	protobuf/appearances.pb.cc
 	items/bed.cpp
 	items/containers/container.cpp

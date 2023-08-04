@@ -18,6 +18,7 @@
 #include "io/io_bosstiary.hpp"
 #include "io/iologindata.h"
 #include "io/iomarket.h"
+#include "io/save/save.hpp"
 #include "lua/modules/modules.h"
 #include "creatures/monsters/monster.h"
 #include "creatures/monsters/monsters.h"
@@ -403,6 +404,11 @@ void ProtocolGame::AddItem(NetworkMessage &msg, const Item* item) {
 void ProtocolGame::release() {
 	// dispatcher thread
 	if (player && player->client == shared_from_this()) {
+		if (Save::checkIfPlayerInList(player)) {
+			// g_dispatcher().addTask(createTask(std::bind(&ProtocolGame::release, getThis())));
+			g_scheduler().addEvent(createSchedulerTask(100, std::bind(&ProtocolGame::release, getThis())));
+			return;
+		}
 		player->client.reset();
 		player->decrementReferenceCounter();
 		player = nullptr;
@@ -613,6 +619,11 @@ void ProtocolGame::logout(bool displayEffect, bool forced) {
 		}
 	}
 
+	if (Save::checkIfPlayerInList(player) && removePlayer) {
+		player->sendCancelMessage(RETURNVALUE_RESCUEINRUNNINGPLEASEWAIT);
+		return;
+	}
+
 	if (removePlayer && !g_creatureEvents().playerLogout(player)) {
 		return;
 	}
@@ -733,6 +744,11 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg) {
 
 	if (g_game().getGameState() == GAME_STATE_MAINTAIN) {
 		disconnectClient("Gameworld is under maintenance. Please re-connect in a while.");
+		return;
+	}
+
+	if (Save::checkIfPlayerInList(player)) {
+		disconnectClient("You are currently on the save list. Please wait a moment.");
 		return;
 	}
 

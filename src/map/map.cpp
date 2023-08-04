@@ -138,7 +138,7 @@ void Map::loadHouseInfo() {
 bool Map::save() {
 	bool saved = false;
 	for (uint32_t tries = 0; tries < 6; tries++) {
-		if (IOMapSerialize::saveHouseInfo()) {
+		if (!saved && IOMapSerialize::saveHouseInfo()) {
 			saved = true;
 		}
 		if (saved && IOMapSerialize::saveHouseItems()) {

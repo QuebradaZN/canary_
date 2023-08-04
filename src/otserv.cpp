@@ -17,7 +17,6 @@
 #include "game/game.h"
 #include "game/scheduling/scheduler.h"
 #include "game/scheduling/events_scheduler.hpp"
-#include "game/scheduling/save_manager.h"
 #include "io/iomarket.h"
 #include "lua/creature/events.h"
 #include "lua/modules/modules.h"
@@ -79,7 +78,6 @@ void startupErrorMessage() {
 	exit(-1);
 #else
 	g_scheduler().shutdown();
-	g_saveManager().shutdown();
 	exit(-1);
 #endif
 }
@@ -98,7 +96,6 @@ void badAllocationHandler() {
 	exit(-1);
 #else
 	g_scheduler().shutdown();
-	g_saveManager().shutdown();
 	exit(-1);
 #endif
 }
@@ -218,7 +215,6 @@ int main(int argc, char* argv[]) {
 
 	g_dispatcher().start();
 	g_scheduler().start();
-	g_saveManager().start();
 
 	g_dispatcher().addTask(createTask(std::bind(mainLoader, argc, argv, &serviceManager)));
 
@@ -236,14 +232,12 @@ int main(int argc, char* argv[]) {
 		SPDLOG_ERROR("No services running. The server is NOT online!");
 		g_databaseTasks().shutdown();
 		g_dispatcher().shutdown();
-		g_saveManager().shutdown();
 		exit(-1);
 	}
 
 	g_scheduler().join();
 	g_databaseTasks().join();
 	g_dispatcher().join();
-	g_saveManager().join();
 	return 0;
 }
 #endif

@@ -872,6 +872,8 @@ class Game {
 
 		// Variable members (m_)
 		std::unique_ptr<IOWheel> m_IOWheel;
+
+		friend class Save;
 };
 
 constexpr auto g_game = &Game::getInstance;
