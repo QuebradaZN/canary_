@@ -2861,7 +2861,6 @@ class Player final : public Creature, public Cylinder {
 		friend class PlayerWheel;
 
 		std::unique_ptr<PlayerWheel> m_wheelPlayer;
-		friend class Save;
 
 		account::Account* account_;
 

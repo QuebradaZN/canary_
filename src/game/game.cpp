@@ -28,6 +28,7 @@
 #include "creatures/monsters/monster.h"
 #include "lua/creature/movement.h"
 #include "game/scheduling/scheduler.h"
+#include "game/scheduling/save_manager.h"
 #include "server/server.h"
 #include "creatures/combat/spells.h"
 #include "lua/creature/talkaction.h"
@@ -41,7 +42,6 @@
 #include "creatures/npcs/npcs.h"
 #include "server/network/webhook/webhook.h"
 #include "protobuf/appearances.pb.h"
-#include "io/save/save.hpp"
 
 using defer = std::shared_ptr<void>;
 
@@ -312,16 +312,28 @@ void Game::setGameState(GameState_t newState) {
 }
 
 void Game::saveGameState() {
+	if (gameState == GAME_STATE_NORMAL) {
+		setGameState(GAME_STATE_MAINTAIN);
+	}
+
 	SPDLOG_INFO("Saving server...");
 
 	for (const auto &it : players) {
 		it.second->loginPosition = it.second->getPosition();
-		Save::savePlayerAsync(it.second);
+		IOLoginData::savePlayer(it.second, true);
 	}
 
-	Save::saveHouseAsync(true);
+	for (const auto &it : guilds) {
+		IOGuild::saveGuild(it.second);
+	}
+
+	Map::save();
 
 	g_databaseTasks().flush();
+
+	if (gameState == GAME_STATE_MAINTAIN) {
+		setGameState(GAME_STATE_NORMAL);
+	}
 }
 
 bool Game::loadItemsPrice() {
@@ -7287,6 +7299,7 @@ void Game::shutdown() {
 	g_scheduler().shutdown();
 	g_databaseTasks().shutdown();
 	g_dispatcher().shutdown();
+	g_saveManager().shutdown();
 	map.spawnsMonster.clear();
 	map.spawnsNpc.clear();
 	raids.clear();
@@ -8338,7 +8351,7 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t ite
 
 	// Exhausted for create offert in the market
 	player->updateUIExhausted();
-	Save::savePlayerAsync(player);
+	IOLoginData::savePlayer(player);
 }
 
 void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16_t counter) {
@@ -8422,7 +8435,7 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 	player->sendMarketEnter(player->getLastDepotId());
 	// Exhausted for cancel offer in the market
 	player->updateUIExhausted();
-	Save::savePlayerAsync(player);
+	IOLoginData::savePlayer(player);
 }
 
 void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16_t counter, uint16_t amount) {
@@ -8565,7 +8578,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		}
 
 		if (buyerPlayer->isOffline()) {
-			Save::savePlayerAsync(buyerPlayer);
+			IOLoginData::savePlayer(buyerPlayer);
 			delete buyerPlayer;
 		}
 	} else if (offer.type == MARKETACTION_SELL) {
@@ -8665,7 +8678,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		}
 
 		if (sellerPlayer->isOffline()) {
-			Save::savePlayerAsync(sellerPlayer);
+			IOLoginData::savePlayer(sellerPlayer);
 			delete sellerPlayer;
 		}
 	}
@@ -8697,7 +8710,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 	player->sendMarketAcceptOffer(offer);
 	// Exhausted for accept offer in the market
 	player->updateUIExhausted();
-	Save::savePlayerAsync(player);
+	IOLoginData::savePlayer(player);
 }
 
 void Game::parsePlayerExtendedOpcode(uint32_t playerId, uint8_t opcode, const std::string &buffer) {

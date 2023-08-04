@@ -14,7 +14,6 @@
 #include "io/iologindata.h"
 #include "game/game.h"
 #include "items/bed.h"
-#include "io/save/save.hpp"
 
 House::House(uint32_t houseId) :
 	id(houseId) { }
@@ -225,7 +224,7 @@ bool House::transferToDepot() const {
 		}
 
 		transferToDepot(&tmpPlayer);
-		Save::savePlayerAsync(&tmpPlayer);
+		IOLoginData::savePlayer(&tmpPlayer);
 	}
 	return true;
 }
@@ -733,6 +732,6 @@ void Houses::payHouses(RentPeriod_t rentPeriod) const {
 			}
 		}
 
-		Save::savePlayerAsync(&player);
+		IOLoginData::savePlayer(&player);
 	}
 }
