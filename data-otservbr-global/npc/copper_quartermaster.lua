@@ -168,6 +168,7 @@ npcHandler:setCallback(CALLBACK_REMOVE_INTERACTION, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, false)
+npcHandler:setTalkRange(2)
 
 -- npcType registering the npcConfig table
 npcType:register(npcConfig)

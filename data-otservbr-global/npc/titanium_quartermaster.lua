@@ -50,11 +50,11 @@ npcConfig.shop = {
 	{ itemName = "holy amplification", clientId = 36740, buy = 100},
 	{ itemName = "death amplification", clientId = 36741, buy = 100},
 	{ itemName = "physical amplification", clientId = 36742, buy = 100},
-	{ itemName = "charm upgrade", clientId = 36726, buy = 100},	
+	{ itemName = "charm upgrade", clientId = 36726, buy = 100},
 	{ itemName = "strike enhancement", clientId = 36724, buy = 100},
 	{ itemName = "copper token", clientId = 22722, buy = 1},
 	{ itemName = "iron token", clientId = 22720, buy = 1},
-	{ itemName = "platinum token", clientId = 22723, buy = 1},	
+	{ itemName = "platinum token", clientId = 22723, buy = 1},
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
@@ -73,7 +73,7 @@ npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBac
 			local item = player:addItemStoreInbox(itemId, amount)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, item:getDescription(), totalCost, ItemType(npcConfig.currency):getPluralName()))
 		end
-	else	
+	else
 		npc:sellItem(player, itemId, amount, subType, 0, ignore, inBackpacks)
 	end
 end
@@ -154,6 +154,7 @@ npcHandler:setCallback(CALLBACK_REMOVE_INTERACTION, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, false)
+npcHandler:setTalkRange(2)
 
 -- npcType registering the npcConfig table
 npcType:register(npcConfig)
