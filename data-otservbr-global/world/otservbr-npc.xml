@@ -2509,7 +2509,6 @@
 		<npc name="Doctor Gnomedix" x="0" y="0" z="10" spawntime="60" />
 		<npc name="Gnomenursey" x="1" y="0" z="10" spawntime="60" />
 	</npc>
-	<npc centerx="32770" centery="31771" centerz="10" radius="1" />
 	<npc centerx="32787" centery="31776" centerz="10" radius="1">
 		<npc name="Gnomejam" x="0" y="0" z="10" spawntime="60" />
 	</npc>
@@ -2634,7 +2633,6 @@
 	<npc centerx="32830" centery="32333" centerz="11" radius="1">
 		<npc name="Elysieran Soldier" x="0" y="1" z="11" spawntime="60" direction="3" />
 	</npc>
-	<npc centerx="32830" centery="32334" centerz="11" radius="1" />
 	<npc centerx="33012" centery="32359" centerz="11" radius="1">
 		<npc name="Elyen Ravenlock" x="0" y="0" z="11" spawntime="60" />
 	</npc>
@@ -2768,7 +2766,6 @@
 	<npc centerx="33213" centery="31671" centerz="13" radius="1">
 		<npc name="Elysieran Soldier" x="0" y="1" z="13" spawntime="60" direction="3" />
 	</npc>
-	<npc centerx="33213" centery="31672" centerz="13" radius="1" />
 	<npc centerx="32788" centery="31690" centerz="13" radius="1">
 		<npc name="A Wrinkled Bonelord" x="0" y="0" z="13" spawntime="60" />
 	</npc>
@@ -2857,7 +2854,6 @@
 	<npc centerx="33193" centery="31689" centerz="14" radius="1">
 		<npc name="Elysieran Soldier" x="1" y="0" z="14" spawntime="60" />
 	</npc>
-	<npc centerx="33194" centery="31689" centerz="14" radius="1" />
 	<npc centerx="32260" centery="31866" centerz="14" radius="1">
 		<npc name="The Queen Of The Banshees" x="0" y="0" z="14" spawntime="60" />
 	</npc>
@@ -2931,7 +2927,6 @@
 		<npc name="Elysieran Soldier" x="0" y="0" z="14" spawntime="60" />
 		<npc name="Elysieran Sentry" x="1" y="0" z="14" spawntime="60" />
 	</npc>
-	<npc centerx="33517" centery="32862" centerz="14" radius="1" />
 	<npc centerx="33527" centery="32865" centerz="14" radius="1">
 		<npc name="Gnomadness" x="0" y="0" z="14" spawntime="60" />
 	</npc>
