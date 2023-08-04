@@ -78,38 +78,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small diamond", chance = 4000, maxCount = 5},
-	{name = "gold coin", chance = 100000, maxCount = 174},
-	{name = "platinum coin", chance = 25150, maxCount = 3},
-	{name = "crossbow", chance = 9690},
-	{name = "dragon ham", chance = 32420, maxCount = 2},
-	{name = "soul orb", chance = 5980},
-	{name = "dragonbone staff", chance = 100},
-	{name = "shadow sceptre", chance = 310},
-	{name = "strong health potion", chance = 17710},
-	{name = "strong mana potion", chance = 20930},
-	{name = "lightning pendant", chance = 520},
-	{name = "lightning boots", chance = 310},
-	{name = "lightning legs", chance = 930},
-	{name = "lightning robe", chance = 310},
-	{name = "composite hornbow", chance = 310},
-	{name = "focus cape", chance = 100},
-	{name = "wand of starstorm", chance = 410},
-	{name = "wand of draconia", chance = 2000},
-	{name = "shockwave amulet", chance = 100},
-	{name = "wyrm scale", chance = 15980}
+	{name = "gold coin", chance = 100000, maxCount = 161},
+	{name = "platinum coin", chance = 52380, maxCount = 3},
+	{name = "wyrm scale", chance = 33330},
+	{name = "dragon ham", chance = 23810, maxCount = 2},
+	{name = "strong health potion", chance = 23810},
+	{name = "strong mana potion", chance = 19050},
+	{name = "crossbow", chance = 14290},
+	{name = "small diamond", chance = 4760},
+	{name = "soul orb", chance = 4760},
+	{name = "wand of draconia", chance = 1510},
+	{name = "power bolt", chance = 1030, maxCount = 10},
+	{name = "wand of starstorm", chance = 830},
+	{name = "lightning pendant", chance = 750},
+	{name = "lightning legs", chance = 600},
+	{name = "lightning robe", chance = 290},
+	{name = "dragonbone staff", chance = 240},
+	{name = "composite hornbow", chance = 220},
+	{name = "shadow sceptre", chance = 170},
+	{name = "lightning boots", chance = 150},
+	{name = "shockwave amulet", chance = 120},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
---	{name ="healing", interval = 2000, chance = 20, minDamage = 100, maxDamage = 150},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -120, range = ?, effect = <>, target = ?}, --long [[Energy Wave]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -140, maxDamage = -200, range = ?, effect = <>, target = ?}, --[[Energy Damage|Energy Bomb on Self]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -130, range = ?, effect = <>, target = ?}, --[[Heavy Magic Missile]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -250, maxDamage = -300, range = ?, effect = <>, target = ?}, --[[Death Damage|Death Bubble Wave]] does Life Drain
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -150, range = ?, effect = <>, target = ?}, --Strike Beam
---}
+
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -360},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -90, maxDamage = -150, radius = 4, effect = CONST_ME_TELEPORT, target = true},

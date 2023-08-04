@@ -81,39 +81,25 @@ monster.voices = {
 }
 
 monster.loot = {
+	{name = "gold coin", chance = 99110, maxCount = 207},
+	{name = "dragon ham", chance = 83040, maxCount = 2},
+	{name = "green mushroom", chance = 10710},
+	{id = 7441, chance = 6250}, -- ice cube
 	{id = 2842, chance = 8500}, -- book
-	{name = "golden mug", chance = 3000},
-	{name = "small sapphire", chance = 5200},
-	{name = "gold coin", chance = 33000, maxCount = 100},
-	{name = "gold coin", chance = 33000, maxCount = 100},
-	{name = "gold coin", chance = 33000, maxCount = 42},
-	{id = 3051, chance = 5000}, -- energy ring
-	{name = "life crystal", chance = 520},
-	{name = "ice rapier", chance = 350},
-	{name = "strange helmet", chance = 450},
-	{name = "dragon scale mail", chance = 80},
-	{name = "royal helmet", chance = 210},
-	{name = "tower shield", chance = 340},
-	{name = "power bolt", chance = 6000, maxCount = 6},
-	{name = "dragon ham", chance = 80370, maxCount = 5},
-	{name = "green mushroom", chance = 12000},
-	{name = "shard", chance = 550},
-	{name = "dragon slayer", chance = 120},
-	{id = 7441, chance = 4000} -- ice cube
+	{name = "power bolt", chance = 5360, maxCount = 6},
+	{name = "golden mug", chance = 5360},
+	{id = 3051, chance = 2680}, -- energy ring
+	{name = "small sapphire", chance = 1790},
+	{name = "strange helmet", chance = 890},
+	{name = "life crystal", chance = 890},
+	{name = "shard", chance = 520},
+	{name = "ice rapier", chance = 310},
+	{name = "tower shield", chance = 290},
+	{name = "royal helmet", chance = 230},
+	{name = "dragon scale mail", chance = 100},
+	{name = "dragon slayer", chance = 100},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -220},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -200, range = ?, effect = <>, target = ?}, --Smoke Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -238, maxDamage = -380, range = ?, effect = <>, target = ?}, --Smoke Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Reduces 405, maxDamage = -435 speed points, range = ?, effect = <>, target = ?}, --Ice Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -128, maxDamage = -240, range = ?, effect = <>, target = ?}, --Ice Ball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Reduces 265, maxDamage = -230 speed points, range = ?, effect = <>, target = ?}, --Paralyze Ball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -53, maxDamage = -120, range = ?, effect = <>, target = ?}, --Ice Berserk
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Reduces 190~ speed points, maxDamage = -Reduces 190~ speed points, range = ?, effect = <>, target = ?}, --Smoke Berserk
---	{name ="healing", interval = 2000, chance = 20, minDamage = 190, maxDamage = 200~},
---}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -225},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -175, maxDamage = -380, length = 8, spread = 3, effect = CONST_ME_POFF, target = false},

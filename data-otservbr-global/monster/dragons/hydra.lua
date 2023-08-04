@@ -80,33 +80,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small sapphire", chance = 5000},
-	{name = "gold coin", chance = 87500, maxCount = 246},
-	{name = "platinum coin", chance = 48000, maxCount = 3},
-	{name = "life crystal", chance = 570},
-	{name = "boots of haste", chance = 130},
-	{name = "stone skin amulet", chance = 900},
-	{id = 3098, chance = 1190}, -- ring of healing
-	{name = "warrior helmet", chance = 890},
-	{name = "knight armor", chance = 1000},
-	{name = "royal helmet", chance = 210},
-	{name = "medusa shield", chance = 270},
-	{name = "ham", chance = 60000, maxCount = 4},
-	{name = "hydra egg", chance = 930},
-	{name = "strong mana potion", chance = 380},
-	{name = "cucumber", chance = 4780},
-	{name = "hydra head", chance = 10120}
+	{name = "gold coin", chance = 87970, maxCount = 212},
+	{name = "ham", chance = 59510, maxCount = 3},
+	{name = "platinum coin", chance = 49910, maxCount = 3},
+	{name = "hydra head", chance = 10820},
+	{name = "cucumber", chance = 6900},
+	{name = "small sapphire", chance = 3920},
+	{name = "warrior helmet", chance = 1310},
+	{name = "knight armor", chance = 1120},
+	{name = "life crystal", chance = 930},
+	{id = 3098, chance = 840}, -- ring of healing
+	{name = "hydra egg", chance = 840},
+	{name = "strong mana potion", chance = 840},
+	{name = "stone skin amulet", chance = 750},
+	{name = "boots of haste", chance = 190},
+	{name = "medusa shield", chance = 190},
+	{name = "royal helmet", chance = 90},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -270},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -320, range = ?, effect = <>, target = ?}, --Earth Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -250, range = ?, effect = <>, target = ?}, --Hot Water Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -160, maxDamage = -240 points for 15 seconds, range = ?, effect = <>, target = ?}, --Paralyze Bomb
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -70, maxDamage = -155, range = ?, effect = <>, target = ?}, --Ice Missile
---	{name ="healing", interval = 2000, chance = 20, minDamage = 200, maxDamage = 400},
---}
+
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -270},
 	{name ="speed", interval = 2000, chance = 25, speedChange = -700, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = true, duration = 15000},

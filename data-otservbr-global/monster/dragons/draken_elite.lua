@@ -75,41 +75,31 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small diamond", chance = 2440, maxCount = 4},
-	{name = "gold coin", chance = 50000, maxCount = 100},
-	{name = "gold coin", chance = 47000, maxCount = 100},
-	{name = "platinum coin", chance = 50360, maxCount = 8},
-	{name = "meat", chance = 30175},
-	{name = "magic sulphur", chance = 2100},
-	{name = "assassin dagger", chance = 980},
-	{name = "great mana potion", chance = 9340, maxCount = 3},
-	{name = "ultimate health potion", chance = 9250, maxCount = 3},
-	{name = "zaoan armor", chance = 490},
-	{name = "zaoan helmet", chance = 150},
-	{name = "zaoan legs", chance = 770},
-	{name = "zaoan sword", chance = 490},
+	{name = "gold coin", chance = 97220, maxCount = 187},
+	{name = "platinum coin", chance = 49070, maxCount = 8},
+	{name = "meat", chance = 34260, maxCount = 4},
+	{name = "broken draken mail", chance = 25000},
+	{name = "broken slicer", chance = 25000},
+	{name = "ultimate health potion", chance = 12040, maxCount = 3},
+	{name = "great mana potion", chance = 9260, maxCount = 3},
+	{name = "draken sulphur", chance = 6480},
+	{name = "draken wristbands", chance = 6480},
+	{name = "small diamond", chance = 1850, maxCount = 2},
+	{name = "zaoan legs", chance = 1850},
+	{name = "magic sulphur", chance = 1850},
+	{name = "draken boots", chance = 930},
+	{name = "assassin dagger", chance = 930},
+	{name = "twiceslicer", chance = 930},
+	{name = "zaoan armor", chance = 650},
+	{name = "zaoan sword", chance = 550},
+	{name = "zaoan helmet", chance = 220},
 	{name = "elite draken mail", chance = 110},
-	{name = "twiceslicer", chance = 910},
-	{name = "draken sulphur", chance = 7600},
-	{name = "draken wristbands", chance = 14030},
-	{name = "broken draken mail", chance = 16930},
-	{name = "broken slicer", chance = 24670},
-	{name = "cobra crown", chance = 10},
-	{name = "draken boots", chance = 600},
-	{name = "snake god's wristguard", chance = 80},
-	{name = "blade of corruption", chance = 20}
+	{name = "blade of corruption", chance = 60},
+	{name = "snake gods wristguard", chance = 40},
+	{name = "cobra crown", chance = 0},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --[[Soulfire]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -240, maxDamage = -550, range = ?, effect = <>, target = ?}, --[[Fire Wave]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -300, range = ?, effect = <>, target = ?}, --[[Fireball]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --[[Envenom]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -170, maxDamage = -370, range = ?, effect = <>, target = ?}, --[[Earth Damage|Smoke Bomb]].
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1, maxDamage = -200, range = ?, effect = <>, target = ?}, --Very frequent [[Self-Healing]]
---}
+
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -354},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -240, maxDamage = -550, length = 4, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},

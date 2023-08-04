@@ -23,7 +23,7 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Ankrahmun Dragon Lairs, Banshee Quest final room (level 60+ to open the door), \z 
+	Locations = "Ankrahmun Dragon Lairs, Banshee Quest final room (level 60+ to open the door), \z
 	Deeper Cyclopolis past the Dragon Spawn (level 30+ to open the door), Draconia, Edron Dragon Lair, \z
 	Fibula Dungeon (level 50+ to open the door), Maze of Lost Souls (level 30+ to open the door), \z
 	Pits of Inferno Dragon Lair, Dragon Lord hole in Plains of Havoc, Carlin Dragon Lair, \z
@@ -84,38 +84,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2842, chance = 9000}, -- book
-	{name = "golden mug", chance = 3190},
-	{name = "small sapphire", chance = 5300},
-	{name = "gold coin", chance = 33750, maxCount = 100},
-	{name = "gold coin", chance = 33750, maxCount = 100},
-	{name = "gold coin", chance = 33750, maxCount = 45},
-	{id = 3051, chance = 5250}, -- energy ring
-	{name = "life crystal", chance = 680},
-	{name = "fire sword", chance = 290},
-	{name = "strange helmet", chance = 360},
-	{name = "dragon scale mail", chance = 170},
-	{name = "royal helmet", chance = 280},
-	{name = "tower shield", chance = 250},
-	{name = "power bolt", chance = 6700, maxCount = 7},
-	{name = "dragon ham", chance = 80000, maxCount = 5},
-	{name = "green mushroom", chance = 12000},
-	{name = "red dragon scale", chance = 1920},
-	{name = "red dragon leather", chance = 1040},
-	{name = "royal spear", chance = 8800, maxCount = 3},
-	{name = "dragon lord trophy", chance = 80},
-	{name = "dragon slayer", chance = 100},
-	{name = "strong health potion", chance = 970}
+	{name = "gold coin", chance = 95300, maxCount = 237},
+	{name = "dragon ham", chance = 79790, maxCount = 2},
+	{name = "green mushroom", chance = 12030},
+	{name = "book gemmed", chance = 9590},
+	{name = "royal spear", chance = 9380, maxCount = 3},
+	{name = "power bolt", chance = 5920, maxCount = 7},
+	{name = "small sapphire", chance = 5590},
+	{id = 3051, chance = 4550}, -- energy ring
+	{name = "golden mug", chance = 3310},
+	{name = "red dragon scale", chance = 1940},
+	{name = "red dragon leather", chance = 1150},
+	{name = "strong health potion", chance = 800},
+	{name = "life crystal", chance = 650},
+	{name = "strange helmet", chance = 520},
+	{name = "tower shield", chance = 410},
+	{name = "fire sword", chance = 350},
+	{name = "royal helmet", chance = 260},
+	{name = "dragon slayer", chance = 220},
+	{name = "dragon lord trophy", chance = 130},
+	{name = "dragon scale mail", chance = 90},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -230},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -200, range = ?, effect = <>, target = ?}, --Great Fireball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --Creates Fire Fields
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -230, range = ?, effect = <>, target = ?}, --Fire Wave
---	{name ="healing", interval = 2000, chance = 20, minDamage = 57, maxDamage = 93},
---}
+
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -230},
 	{name ="combat", interval = 2000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -220, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},

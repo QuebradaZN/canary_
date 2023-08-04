@@ -79,19 +79,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 67500, maxCount = 55},
-	{name = "dragon ham", chance = 61000},
-	{name = "health potion", chance = 400},
-	{name = "dragon's tail", chance = 4300}
+	{name = "gold coin", chance = 95540, maxCount = 50},
+	{name = "dragon ham", chance = 83040},
+	{name = "dragon tail", chance = 3570},
+	{name = "health potion", chance = 470},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -55},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -90, range = ?, effect = <>, target = ?}, --Fire Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -30, maxDamage = -55, range = ?, effect = <>, target = ?}, --Fire Ball
---	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
---}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -55},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -60, maxDamage = -90, length = 5, spread = 2, effect = CONST_ME_FIREAREA, target = false},

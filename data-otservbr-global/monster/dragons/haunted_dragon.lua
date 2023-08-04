@@ -76,24 +76,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "black pearl", chance = 22780, maxCount = 2},
-	{name = "small sapphire", chance = 28370, maxCount = 2},
-	{name = "gold coin", chance = 35500, maxCount = 100},
-	{name = "gold coin", chance = 55500, maxCount = 98},
-	{name = "platinum coin", chance = 52000, maxCount = 5},
-	{name = "life crystal", chance = 2500},
-	{name = "hardened bone", chance = 14180},
-	{id = 6299, chance = 1150}, -- death ring
-	{name = "demonic essence", chance = 12460},
-	{name = "assassin star", chance = 26650, maxCount = 5},
-	{name = "dragon slayer", chance = 860},
-	{name = "dragonbone staff", chance = 4000},
-	{name = "great mana potion", chance = 21490},
-	{name = "great health potion", chance = 21200},
-	{name = "skullcracker armor", chance = 290},
-	{name = "gold ingot", chance = 570},
-	{name = "unholy bone", chance = 33380},
-	{name = "spellweaver's robe", chance = 860}
+	{name = "gold coin", chance = 100000, maxCount = 189},
+	{name = "platinum coin", chance = 34880, maxCount = 2},
+	{name = "unholy bone", chance = 32670},
+	{name = "ancient coin", chance = 29470, maxCount = 2},
+	{name = "small sapphire", chance = 25330, maxCount = 2},
+	{name = "assassin star", chance = 24650, maxCount = 5},
+	{name = "black pearl", chance = 24090, maxCount = 2},
+	{name = "great health potion", chance = 23920, maxCount = 2},
+	{name = "great mana potion", chance = 19960, maxCount = 2},
+	{name = "hardened bone", chance = 14930},
+	{name = "demonic essence", chance = 13130},
+	{name = "mind stone", chance = 7630},
+	{name = "dragon necklace", chance = 6780},
+	{name = "red gem", chance = 5330},
+	{name = "dark armor", chance = 4690},
+	{name = "dragonbone staff", chance = 3370},
+	{name = "dark shield", chance = 3160},
+	{name = "gold ingot", chance = 2900},
+	{id = 6299, chance = 2130}, -- death ring
+	{name = "life crystal", chance = 1320},
+	{name = "dragon slayer", chance = 1020},
+	{name = "spellweavers robe", chance = 810},
+	{name = "skullcracker armor", chance = 380},
 }
 
 monster.attacks = {

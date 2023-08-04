@@ -76,33 +76,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "ring of the sky", chance = 370},
-	{name = "small ruby", chance = 6910, maxCount = 5},
-	{name = "gold coin", chance = 100000, maxCount = 200},
-	{name = "platinum coin", chance = 25510, maxCount = 5},
-	{name = "green gem", chance = 970},
-	{name = "wand of inferno", chance = 1660},
-	{name = "meat", chance = 30400},
-	{name = "great mana potion", chance = 4970},
-	{name = "focus cape", chance = 1450},
-	{name = "zaoan shoes", chance = 1980},
-	{name = "weaver's wandtip", chance = 19790},
-	{name = "draken trophy", chance = 10},
-	{name = "spellweaver's robe", chance = 620},
-	{name = "zaoan robe", chance = 770},
-	{name = "luminous orb", chance = 1980},
-	{name = "draken sulphur", chance = 3930},
+	{name = "gold coin", chance = 100000, maxCount = 195},
+	{name = "meat", chance = 26940},
+	{name = "platinum coin", chance = 23800, maxCount = 5},
+	{name = "weavers wandtip", chance = 18450},
+	{name = "small ruby", chance = 6640, maxCount = 5},
+	{name = "great mana potion", chance = 5350},
+	{name = "draken sulphur", chance = 4610},
+	{name = "luminous orb", chance = 2580},
+	{name = "green gem", chance = 1290},
+	{name = "zaoan shoes", chance = 1290},
+	{name = "wand of inferno", chance = 1110},
+	{name = "focus cape", chance = 740},
+	{name = "spellweavers robe", chance = 740},
+	{name = "zaoan legs", chance = 550},
+	{name = "zaoan robe", chance = 370},
+	{name = "ring of the sky", chance = 180},
+	{name = "bamboo leaves", chance = 180},
 	{name = "harness", chance = 30},
-	{name = "bamboo leaves", chance = 180}
+	{name = "draken trophy", chance = 10},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350 },
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -605, range = ?, effect = <>, target = ?}, --invisible [[Flame Beam]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -around self or target, maxDamage = -around self or target, range = ?, effect = <>, target = ?}, --[[Fire Bomb]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -on itself; it burns you (10 [[hp]]/17 turns for 170 damage total), maxDamage = -on itself; it burns you (10 [[hp]]/17 turns for 170 damage total), range = ?, effect = <>, target = ?}, --[[Soulfire|Ultimate Soulfire Spark Bomb]]
---}
+
+
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -252},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -240, maxDamage = -480, length = 4, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},

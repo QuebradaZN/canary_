@@ -78,21 +78,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 86750, maxCount = 55},
-	{name = "dragon ham", chance = 79600},
-	{name = "health potion", chance = 560},
-	{name = "spellbook of enlightenment", chance = 400},
-	{name = "frosty heart", chance = 5000}
+	{name = "gold coin", chance = 91430, maxCount = 47},
+	{name = "dragon ham", chance = 82860},
+	{name = "frosty heart", chance = 8570},
+	{name = "health potion", chance = 510},
+	{name = "spellbook of enlightenment", chance = 430},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -160},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -60, maxDamage = -110, range = ?, effect = <>, target = ?}, --Ice Ball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -60, maxDamage = -110, range = ?, effect = <>, target = ?}, --Ice Wave
---	{name ="healing", interval = 2000, chance = 20, minDamage = 40, maxDamage = 50~},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Paralyze|Distance Paralyze]]
---}
+
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -160},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -60, maxDamage = -110, length = 5, spread = 2, effect = CONST_ME_ICEATTACK, target = false},

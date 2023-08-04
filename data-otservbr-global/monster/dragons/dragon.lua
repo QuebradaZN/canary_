@@ -83,37 +83,30 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small diamond", chance = 380},
-	{name = "gold coin", chance = 47500, maxCount = 70},
-	{name = "gold coin", chance = 37500, maxCount = 45},
-	{name = "life crystal", chance = 120},
-	{name = "wand of inferno", chance = 1005},
-	{name = "double axe", chance = 960},
-	{name = "longsword", chance = 4000},
-	{name = "serpent sword", chance = 420},
-	{name = "broadsword", chance = 1950},
-	{name = "dragon hammer", chance = 560},
-	{name = "crossbow", chance = 10000},
-	{name = "steel helmet", chance = 3000},
-	{name = "steel shield", chance = 15000},
-	{name = "dragon shield", chance = 320},
+	{name = "gold coin", chance = 89920, maxCount = 102},
+	{name = "dragon ham", chance = 66270, maxCount = 2},
+	{name = "steel shield", chance = 15650},
+	{name = "dragon tail", chance = 9680},
+	{name = "crossbow", chance = 9120},
 	{id = 3449, chance = 8060, maxCount = 10}, -- burst arrow
-	{name = "plate legs", chance = 2000},
-	{name = "dragon ham", chance = 65500, maxCount = 3},
-	{name = "green dragon leather", chance = 1005},
-	{name = "green dragon scale", chance = 1000},
-	{name = "dragonbone staff", chance = 110},
-	{name = "strong health potion", chance = 1000},
-	{name = "dragon's tail", chance = 9740}
+	{name = "longsword", chance = 3830},
+	{name = "steel helmet", chance = 3490},
+	{name = "broadsword", chance = 2700},
+	{name = "plate legs", chance = 2029},
+	{name = "double axe", chance = 1580},
+	{name = "strong health potion", chance = 1130},
+	{name = "green dragon leather", chance = 1070},
+	{name = "green dragon scale", chance = 1010},
+	{name = "wand of inferno", chance = 560},
+	{name = "small diamond", chance = 450},
+	{name = "serpent sword", chance = 230},
+	{name = "dragon hammer", chance = 230},
+	{name = "dragonbone staff", chance = 170},
+	{name = "life crystal", chance = 170},
+	{name = "dragon shield", chance = 110},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -120},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -170, range = ?, effect = <>, target = ?}, --Fire Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -140, range = ?, effect = <>, target = ?}, --Great Fireball
---	{name ="healing", interval = 2000, chance = 20, minDamage = 40, maxDamage = 70},
---}
+
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -60, maxDamage = -140, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
