@@ -120,6 +120,9 @@ local function activateVoucher(player, conf, item)
 end
 
 local function canReceiveVoucher(player, conf)
+	if (os.time() - player:getStorageValue(conf.storage)) > 7 * 24 * 60 * 60 then
+		return true
+	end
 	if dayOfTheWeek() ~= conf.weekday then
 		return false
 	end
