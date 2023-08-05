@@ -107,18 +107,18 @@ monster.loot = {
 --monster.attacks = {
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -2000},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_DEATHDAMAGE, minDamage = -350, maxDamage = -1000, range = 7, radius = 5, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_GROUNDSHAKER, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -1200, length = 8, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="singlecloudchain", interval = 6000, chance = 40, minDamage = -700, maxDamage = -1500, range = 6, effect = CONST_ME_ENERGYHIT, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5000},
+	{name ="combat", interval = 2000, chance = 30, type = COMBAT_DEATHDAMAGE, minDamage = -1350, maxDamage = -1700, range = 7, radius = 5, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_GROUNDSHAKER, target = true},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -1400, maxDamage = -2200, length = 8, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
+	{name ="singlecloudchain", interval = 6000, chance = 40, minDamage = -1700, maxDamage = -2500, range = 6, effect = CONST_ME_ENERGYHIT, target = true}
 }
 
 monster.defenses = {
 	defense = 160,
 	armor = 160,
---	mitigation = ???,
-	{name ="speed", interval = 1000, chance = 20, speedChange = 100, effect = CONST_ME_MAGIC_RED, target = false, duration = 30000},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 350, maxDamage = 1250, effect = CONST_ME_MAGIC_BLUE, target = false},
+	mitigation = 5.40,
+	{name ="speed", interval = 1000, chance = 20, speedChange = 500, effect = CONST_ME_MAGIC_RED, target = false, duration = 10000},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 1250, maxDamage = 3250, effect = CONST_ME_MAGIC_BLUE, target = false},
 }
 
 monster.elements = {
