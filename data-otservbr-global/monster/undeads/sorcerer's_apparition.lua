@@ -18,8 +18,8 @@ monster.Bestiary = {
 	class = "Undead",
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -92,6 +92,7 @@ monster.loot = {
 	{name = "wand of starstorm", chance = 1310},
 	{name = "stone skin amulet", chance = 1310},
 	{name = "alloy legs", chance = 440},
+	{id = 34109, chance = 20}, -- bag you desire
 }
 
 monster.attacks = {

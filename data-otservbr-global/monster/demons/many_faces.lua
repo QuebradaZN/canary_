@@ -79,39 +79,35 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "crystal coin", chance = 70540},
-	{name = "platinum coin", chance = 90540, maxCount = 32},
-	{name = "ultimate health potion", chance = 32220, maxCount = 7},
-	{name = "violet gem", chance = 74560},
-	{name = "green gem", chance = 64560},
-	{name = "blue gem", chance = 54560},
-	{name = "northwind rod", chance = 11920},
-	{name = "sacred tree amulet", chance = 21920},
-	{id = 33933, chance = 10920}, -- apron
-	{name = "glacier shoes", chance = 12920},
-	{name = "glacier robe", chance = 22920},
-	{name = "stone skin amulet", chance = 8920},
-	{id = 23533, chance = 28920}, -- ring of red plasma
-	{id = 33932, chance = 5920}, -- head
-	{name = "glacial rod", chance = 3920},
-	{id = 34024, chance = 450}, -- gruesome fan
-	{id = 34109, chance = 50} -- bag you desire
+	{name = "crystal coin", chance = 76710},
+	{name = "ultimate health potion", chance = 14920, maxCount = 7},
+	{name = "apron", chance = 7990},
+	{name = "hailstorm rod", chance = 7610},
+	{name = "stone skin amulet", chance = 5780},
+	{name = "green gem", chance = 5710},
+	{name = "northwind rod", chance = 5630},
+	{name = "sacred tree amulet", chance = 5560},
+	{name = "violet gem", chance = 5100},
+	{name = "blue gem", chance = 5020},
+	{id = 23534, chance = 4870}, -- ring of red plasma
+	{id = 33932, chance = 3500}, -- head many faces
+	{name = "glacier shoes", chance = 2510},
+	{name = "glacier robe", chance = 2130},
+	{name = "gruesome fan", chance = 610},
+	{name = "glacial rod", chance = 610},
+	{id = 34109, chance = 20}, -- bag you desire
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -550, maxDamage = -800, range = 7, shootEffect = CONST_ANI_SNOWBALL, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_ICEDAMAGE, minDamage = -500, maxDamage = -900, range = 7, radius = 5, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 17, type = COMBAT_HOLYDAMAGE, minDamage = -500, maxDamage = -900, radius = 3, effect = CONST_ME_HOLYAREA, target = false},
-	{name ="combat", interval = 3000, chance = 25, type = COMBAT_HOLYDAMAGE, minDamage = -500, maxDamage = -800, radius = 4, effect = CONST_ME_HOLYDAMAGE, target = false},
-	{name ="combat", interval = 2000, chance = 18, type = COMBAT_HOLYDAMAGE, minDamage = -500, maxDamage = -900, radius = 4, effect = CONST_ME_HOLYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -600, maxDamage = -1100, radius = 7, effect = CONST_ME_BIGCLOUDS, target = false}
-	-- Chain: const_me-> CONST_ME_YELLOW_ENERGY_SPARK, combat_t->COMBAT_HOLYDAMAGE
-
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1300},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -1220, maxDamage = -1400, range = 7, shootEffect = CONST_ANI_SNOWBALL, effect = CONST_ME_ICEATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_ICEDAMAGE, minDamage = -1000, maxDamage = -1450, range = 7, radius = 5, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
+	{name ="combat", interval = 2001, chance = 17, type = COMBAT_HOLYDAMAGE, minDamage = -1050, maxDamage = -1300, radius = 4, effect = CONST_ME_HOLYAREA, target = false},
+	{name ="extended holy chain", interval = 2000, chance = 15, minDamage = -1150, maxDamage = -1300, range = 7},
 }
 
 monster.defenses = {
-	defense = 90,
+	defense = 105,
 	armor = 105,
 	mitigation = 3.34,
 }

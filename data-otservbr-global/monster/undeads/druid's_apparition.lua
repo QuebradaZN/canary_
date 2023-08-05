@@ -17,9 +17,8 @@ monster.raceId = 1946
 monster.Bestiary = {
 	class = "Undead",
 	race = BESTY_RACE_UNDEAD,
-	toKill = 5000,
-	FirstUnlock = 25,
-	SecondUnlock = 3394,
+	FirstUnlock = 200,
+	SecondUnlock = 2000,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -91,6 +90,7 @@ monster.loot = {
 	{name = "platinum amulet", chance = 1750},
 	{name = "glacier robe", chance = 880},
 	{id = 23544, chance = 440}, -- collar of red plasma
+	{id = 34109, chance = 20}, -- bag you desire
 }
 
 monster.attacks = {

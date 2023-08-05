@@ -79,47 +79,37 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "crystal coin", chance = 70540},
-	{name = "ultimate health potion", chance = 32220, maxCount = 9},
-	{name = "gold ingot", chance = 65560},
-	{name = "terra legs", chance = 25560},
-	{name = "violet gem", chance = 60000},
-	{id = 33982, chance = 35560}, -- crawler's essence
-	{name = "green gem", chance = 70000},
-	{name = "blue gem", chance = 55000},
-	{name = "hammer of wrath", chance = 13500},
-	{name = "ruthless axe", chance = 17500},
-	{name = "nightmare blade", chance = 9500},
-	{name = "twiceslicer", chance = 7500},
-	{name = "crystal crossbow", chance = 6500},
-	{name = "crystalline sword", chance = 7500},
-	{id = 34109, chance = 50} -- bag you desire
+	{name = "crystal coin", chance = 55480},
+	{name = "gold ingot", chance = 9090},
+	{name = "ultimate health potion", chance = 8810, maxCount = 8},
+	{name = "roots", chance = 6000},
+	{name = "blue gem", chance = 1900},
+	{name = "crawler's essence", chance = 1450},
+	{name = "terra legs", chance = 970},
+	{name = "green gem", chance = 800},
+	{name = "hammer of wrath", chance = 760},
+	{name = "violet gem", chance = 650},
+	{name = "crystal crossbow", chance = 630},
+	{name = "nightmare blade", chance = 540},
+	{name = "twiceslicer", chance = 420},
+	{name = "crystalline sword", chance = 390},
+	{name = "ruthless axe", chance = 330},
+	{id = 34109, chance = 20}, -- bag you desire
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -600},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -1200, range = ?, effect = <>, target = ?}, --Poison Bolt
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1100, maxDamage = -1200, range = ?, effect = <>, target = ?}, --Roots Ball on target
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1100, maxDamage = -1300, range = ?, effect = <>, target = ?}, --Holy Ball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -1200, range = ?, effect = <>, target = ?}, --Holy Strike
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Blood Ball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Roots you in place
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -900},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -450, maxDamage = -900, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 22, type = COMBAT_EARTHDAMAGE, minDamage = -450, maxDamage = -900, radius = 4, effect = CONST_ME_SMALLPLANTS, target = true},
-	{name ="combat", interval = 2000, chance = 22, type = COMBAT_PHYSICALDAMAGE, minDamage = -450, maxDamage = -1000, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 22, type = COMBAT_HOLYDAMAGE, minDamage = -450, maxDamage = -1000, radius = 4, effect = CONST_ME_HOLYDAMAGE, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -600, range = 7, shootEffect = CONST_ANI_PIERCINGBOLT, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="root", interval = 2000, chance = 10, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -950},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -1100, maxDamage = -1300, range = 7, shootEffect = CONST_ANI_PIERCINGBOLT, effect = CONST_ME_GREEN_RINGS, target = true},
+	{name ="combat", interval = 2000, chance = 22, type = COMBAT_EARTHDAMAGE, minDamage = -1000, maxDamage = -1280, radius = 4, effect = CONST_ME_SMALLPLANTS, target = true},
+	{name ="combat", interval = 2000, chance = 22, type = COMBAT_HOLYDAMAGE, minDamage = -1100, maxDamage = -1250, radius = 4, effect = CONST_ME_HOLYDAMAGE, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -1100, maxDamage = -1400, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYAREA, target = true},
+	{name ="root", interval = 2000, chance = 1, target = true}
 }
 
 monster.defenses = {
-	defense = 90,
+	defense = 100,
 	armor = 100,
-	mitigation = 2.75,
+	mitigation = 3.04,
 }
 
 monster.elements = {

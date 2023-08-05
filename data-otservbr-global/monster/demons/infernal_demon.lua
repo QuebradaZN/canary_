@@ -78,46 +78,37 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "crystal coin", chance = 70540},
-	{name = "platinum coin", chance = 90540, maxCount = 50},
-	{name = "ultimate health potion", chance = 32220, maxCount = 7},
-	{name = "small diamond", chance = 65560, maxCount = 7},
-	{name = "gold ingot", chance = 25560},
-	{name = "blue crystal splinter", chance = 25560},
-	{name = "cyan crystal fragment", chance = 25560},
-	{name = "red crystal fragment", chance = 25560},
-	{name = "magma boots", chance = 35500},
-	{name = "blue gem", chance = 65560},
-	{name = "giant sword", chance = 13500},
-	{name = "war axe", chance = 9500},
-	{name = "mercenary sword", chance = 11500},
-	{name = "green crystal fragment", chance = 9500},
-	{name = "onyx chip", chance = 7500},
-	{id = 34109, chance = 50} -- bag you desire
+	{name = "crystal coin", chance = 64000},
+	{name = "ultimate health potion", chance = 22860, maxCount = 5},
+	{name = "gold ingot", chance = 18860},
+	{name = "cyan crystal fragment", chance = 7430},
+	{name = "red crystal fragment", chance = 7430},
+	{name = "blue crystal shard", chance = 5710},
+	{name = "small diamond", chance = 4570},
+	{name = "blue gem", chance = 4570},
+	{name = "green crystal fragment", chance = 3430},
+	{name = "magma amulet", chance = 3430},
+	{name = "mercenary sword", chance = 2860},
+	{name = "onyx chip", chance = 2860},
+	{name = "war axe", chance = 2860},
+	{name = "giant sword", chance = 2860},
+	{name = "magma boots", chance = 2290},
+	{name = "stone skin amulet", chance = 570},
+	{id = 34109, chance = 20}, -- bag you desire
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -2000},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -800, range = ?, effect = <>, target = ?}, --Poison Beam
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -700, maxDamage = -1500, range = ?, effect = <>, target = ?}, --Fire Strike
---	{name ="healing", interval = 2000, chance = 20, minDamage = 500, maxDamage = 800},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1300, range = ?, effect = <>, target = ?}, --Death Ball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -1500, range = ?, effect = <>, target = ?}, --Diagonal Death Beam
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1050},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -750, maxDamage = -1000, radius = 4, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -550, maxDamage = -900, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -800, maxDamage = -1250, length = 8, effect = CONST_ME_EXPLOSIONHIT, target = false}
-	-- Chain: const_me-> CONST_ME_WHITE_ENERGY_SPARK, combat_t->COMBAT_DEATHDAMAGE
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1450},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -1150, maxDamage = -1400, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -800, maxDamage = -1250, length = 8, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -1000, maxDamage = -1350, radius = 4, effect = CONST_ME_MORTAREA, target = false},
+	{name ="death chain", interval = 2000, chance = 20, minDamage = -1100, maxDamage = -1380, target = true},
 }
 
 monster.defenses = {
-	defense = 110,
+	defense = 120,
 	armor = 120,
-	mitigation = 3.34,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 650, maxDamage = 1200, effect = CONST_ME_MAGIC_RED, target = false}
+	mitigation = 3.33,
 }
 
 monster.elements = {

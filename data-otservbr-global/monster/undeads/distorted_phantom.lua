@@ -79,36 +79,34 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "crystal coin", chance = 70540},
-	{name = "platinum coin", chance = 81920, maxCount = 33},
-	{name = "great spirit potion", chance = 51920, maxCount = 8},
-	{name = "violet gem", chance = 74560},
-	{name = "spellbook of warding", chance = 41920},
-	{name = "underworld rod", chance = 31920},
-	{name = "springsprout rod", chance = 28920},
-	{name = "gold ingot", chance = 54560},
-	{name = "glacial rod", chance = 44560},
-	{id = 23529, chance = 28920}, -- ring of blue plasma
-	{id = 23531, chance = 28920}, -- ring of green plasma
-	{id = 23533, chance = 28920}, -- ring of red plasma
-	{id = 34142, chance = 18920}, -- distorted heart
-	{id = 34149, chance = 11920}, -- distorted robe
-	{id = 34109, chance = 50} -- bag you desire
+	{name = "crystal coin", chance = 74920},
+	{name = "great spirit potion", chance = 27010, maxCount = 5},
+	{name = "distorted heart", chance = 6750},
+	{id = 23530, chance = 4820}, -- ring of blue plasma
+	{name = "underworld rod", chance = 4820},
+	{name = "distorted robe", chance = 4500},
+	{name = "violet gem", chance = 4180},
+	{name = "springsprout rod", chance = 3860},
+	{id = 23534, chance = 3540}, -- ring of red plasma
+	{name = "gold ingot", chance = 2890},
+	{name = "spellbook of warding", chance = 2890},
+	{id = 23532, chance = 1930}, -- ring of green plasma
+	{name = "glacial rod", chance = 1290},
+	{id = 34109, chance = 20}, -- bag you desire
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---}
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 17, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_FLASHARROW, effect = CONST_ME_GROUNDSHAKER, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -700, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -650, maxDamage = -900, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -1000, range = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICETORNADO, target = true}
-	-- Chain: const_me-> CONST_ME_BLUE_ENERGY_SPARK, combat_t->COMBAT_ICEDAMAGE
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -750},
+	{name ="combat", interval = 3000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -1000, maxDamage = -1250, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ICEDAMAGE, minDamage = -1050, maxDamage = -1300, range = 7, radius = 4, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICETORNADO, target = true},
+	{name ="ice chain", interval = 2000, chance = 15, minDamage = -1100, maxDamage = -1300, range = 7},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -1050, maxDamage = -1250, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -900, maxDamage = -1100, range = 7, radius = 4, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
+	{name ="extended holy chain", interval = 2000, chance = 15, minDamage = -400, maxDamage = -700, range = 7},
 }
 
 monster.defenses = {
-	defense = 75,
+	defense = 100,
 	armor = 100,
 	mitigation = 2.45,
 }
