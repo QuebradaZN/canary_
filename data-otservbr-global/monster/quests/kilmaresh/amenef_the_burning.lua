@@ -13,6 +13,12 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 2103,
+	bossRace = RARITY_ARCHFOE,
+	storageCooldown = Storage.Kilmaresh.AmenefTimer,
+}
+
 monster.health = 26000
 monster.maxHealth = 26000
 monster.race = "blood"
@@ -25,12 +31,6 @@ monster.changeTarget = {
 	chance = 10
 }
 
-monster.bosstiary = {
-	bossRaceId = 2103,
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = Storage.Kilmaresh.AmenefTimer
-}
-
 monster.strategiesTarget = {
 	nearest = 100,
 }
@@ -41,7 +41,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -52,12 +52,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -97,6 +97,10 @@ monster.loot = {
 	{name = "mercenary sword", chance = 63}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -600?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -510},
 	{name ="firering", interval = 2000, chance = 10, minDamage = -300, maxDamage = -600, target = false},
@@ -108,6 +112,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 60,
 	armor = 82,
+--	mitigation = ???,
 }
 
 monster.elements = {
@@ -119,8 +124,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

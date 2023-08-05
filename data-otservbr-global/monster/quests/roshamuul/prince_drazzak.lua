@@ -47,31 +47,28 @@ monster.flags = {
 	runHealth = 2000,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "EVEN WITH ALL THAT TIME IN THE PRISON THAT WEAKENED ME, YOU ARE NO MATCH TO ME!", yell = true},
 	{text = "DIE!", yell = true},
-	{text = "SORCERERS MUST DIE!", yell = true},
-	{text = "DRUIDS MUST DIE!", yell = true},
-	{text = "PALADINS MUST DIE!", yell = true},
-	{text = "KNIGHTS MUST DIE!", yell = true},
+	{text = "All VOCATIONS must DIE!", yell = false},
 	{text = "GET OVER HERE!", yell = true},
 	{text = "CRUSH THEM ALL!", yell = true},
 	{text = "VARIPHOR WILL RULE!", yell = true},
-	{text = "THEY WILL ALL PAY!", yell = true},
+	{text = "They used you fools to escape and they left ME behind!!??", yell = false},
 	{text = "NOT EVEN AEONS OF IMPRISONMENT WILL STOP ME!", yell = true},
-	{text = "They used you fools to escape and they left ME behind!!??", yell = false}
+	{text = "EVEN WITH ALL THAT TIME IN THE PRISON THAT WEAKENED ME, YOU ARE NO MATCH TO ME!", yell = true},
+	{text = "THEY WILL ALL PAY!", yell = true},
 }
 
 monster.loot = {
@@ -97,6 +94,18 @@ monster.loot = {
 	{id = 282, chance = 5000} -- giant shimmering pearl (brown)
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1500+},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -900, maxDamage = -3000?, range = ?, effect = <>, target = ?}, --Death Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -3000?, range = ?, effect = <>, target = ?}, --Death Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3000, maxDamage = -14000, only affects druids, range = ?, effect = <>, target = ?}, --Ultimate Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3000, maxDamage = -14000, only affects sorcerers, range = ?, effect = <>, target = ?}, --Ultimate Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3000, maxDamage = -5000, only affects paladins, range = ?, effect = <>, target = ?}, --Ultimate Explosion
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -3000, maxDamage = -6000, only affects knights, range = ?, effect = <>, target = ?}, --Ultimate Explosion (smaller area)
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 4000, maxDamage = 4500},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Teleports everyone in the room to him
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 190, attack = 100},
 	{name ="combat", interval = 2000, chance = 18, type = COMBAT_DEATHDAMAGE, minDamage = -1000, maxDamage = -3000, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false}
@@ -105,20 +114,21 @@ monster.attacks = {
 monster.defenses = {
 	defense = 65,
 	armor = 55,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 1500, maxDamage = 3000, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 30},
-	{type = COMBAT_ENERGYDAMAGE, percent = 30},
-	{type = COMBAT_EARTHDAMAGE, percent = 30},
-	{type = COMBAT_FIREDAMAGE, percent = 30},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 35},
+	{type = COMBAT_ENERGYDAMAGE, percent = 35},
+	{type = COMBAT_EARTHDAMAGE, percent = 35},
+	{type = COMBAT_FIREDAMAGE, percent = 35},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = 30}
+	{type = COMBAT_ICEDAMAGE, percent = 35},
+	{type = COMBAT_HOLYDAMAGE, percent = 35},
+	{type = COMBAT_DEATHDAMAGE, percent = 35},
 }
 
 monster.immunities = {

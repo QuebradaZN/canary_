@@ -3,7 +3,9 @@
   "cmake.debugConfig": {
     "cwd": "${workspaceFolder}"
   },
-  "Lua.diagnostics.disable": ["lowercase-global", "undefined-global"],
+  "Lua.diagnostics.disable": [
+    "undefined-global"
+  ],
   "remote.SSH.defaultForwardedPorts": [
     {
       "localPort": 3306,

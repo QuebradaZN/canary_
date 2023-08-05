@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Jaul")
 local monster = {}
 
 monster.description = "Jaul"
-monster.experience = 35000
+monster.experience = 30000
 monster.outfit = {
 	lookType = 444,
 	lookHead = 0,
@@ -13,8 +13,13 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 95000
-monster.maxHealth = 95000
+monster.bosstiary = {
+	bossRaceId = 773,
+	bossRace = RARITY_BANE,
+}
+
+monster.health = 90000
+monster.maxHealth = 90000
 monster.race = "blood"
 monster.corpse = 13787
 monster.speed = 220
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 2000,
 	chance = 50
-}
-
-monster.bosstiary = {
-	bossRaceId = 773,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -54,19 +54,19 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "QJELL AFAR GOU JEY!!", yell = false},
-	{text = "DIE!! KENH!!", yell = false}
+	{text = "DIE!! KENH!!", yell = true},
+	{text = "QJELL AFAR GOU JEY!!", yell = true},
 }
 
 monster.loot = {
@@ -80,6 +80,20 @@ monster.loot = {
 	{name = "ornate shield", chance = 1400}
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -2000},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Paralyze]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -0, maxDamage = -1000, range = ?, effect = <>, target = ?}, --Huge Fireball
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -800, range = ?, effect = <>, target = ?}, --Death Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -500, maxDamage = -1000, range = ?, effect = <>, target = ?}, --Life Drain Drowning Wave
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -1000, range = ?, effect = <>, target = ?}, --Fire Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -1000, maxDamage = -2000, range = ?, effect = <>, target = ?}, --Ice Beam
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -200, maxDamage = -800, range = ?, effect = <>, target = ?}, --Armageddon
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -0, maxDamage = -600, range = ?, effect = <>, target = ?}, --Earth Damage Explosion Exori
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -2000+, range = ?, effect = <>, target = ?}, --Very Frequent [[Self-Healing]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -14000, maxDamage = -20000+, range = ?, effect = <>, target = ?}, --Frequent [[Self-Healing]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -2000, condition = {type = CONDITION_POISON, totalDamage = 870, interval = 4000}},
 	{name ="combat", interval = 2200, chance = 19, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -1000, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
@@ -95,6 +109,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 40,
 	armor = 40,
+--	mitigation = ???,
 	{name ="combat", interval = 5000, chance = 7, type = COMBAT_HEALING, minDamage = 12000, maxDamage = 19000, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -107,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 15},
 }
 
 monster.immunities = {
