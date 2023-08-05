@@ -41040,32 +41040,32 @@
 	<item fromid="28546" toid="28551" name="RESERVED SPRITE"/>
 	<item id="28552" article="an" name="exercise sword">
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="500"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="28553" article="an" name="exercise axe">
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="500"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="28554" article="an" name="exercise club">
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="500"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="28555" article="an" name="exercise bow">
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="500"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="28556" article="an" name="exercise rod">
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="500"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="28557" article="an" name="exercise wand">
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="500"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="28558" article="an" name="exercise dummy">
@@ -51605,73 +51605,73 @@
 	<item id="35279" article="an" name="enhanced exercise sword">
 		<attribute key="description" value="This exercise weapon is 20% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="1800"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35280" article="an" name="enhanced exercise axe">
 		<attribute key="description" value="This exercise weapon is 20% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="1800"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35281" article="an" name="enhanced exercise club">
 		<attribute key="description" value="This exercise weapon is 20% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="1800"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35282" article="an" name="enhanced exercise bow">
 		<attribute key="description" value="This exercise weapon is 20% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="1800"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35283" article="an" name="enhanced exercise rod">
 		<attribute key="description" value="This exercise weapon is 20% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="1800"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35284" article="an" name="enhanced exercise wand">
 		<attribute key="description" value="This exercise weapon is 20% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="1800"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35285" article="an" name="masterful exercise sword">
 		<attribute key="description" value="This exercise weapon is 30% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="14400"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35286" article="an" name="masterful exercise axe">
 		<attribute key="description" value="This exercise weapon is 30% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="14400"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35287" article="an" name="masterful exercise club">
 		<attribute key="description" value="This exercise weapon is 30% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="14400"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35288" article="an" name="masterful exercise bow">
 		<attribute key="description" value="This exercise weapon is 30% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="14400"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35289" article="an" name="masterful exercise rod">
 		<attribute key="description" value="This exercise weapon is 30% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="14400"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35290" article="an" name="masterful exercise wand">
 		<attribute key="description" value="This exercise weapon is 30% MORE effective than basic ones."/>
 		<attribute key="showCharges" value="1"/>
-		<attribute key="charges" value="14400"/>
+		<attribute key="charges" value="3600"/>
 		<attribute key="weight" value="1000"/>
 	</item>
 	<item id="35291" name="Rita's letter">
