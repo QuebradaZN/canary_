@@ -173,7 +173,8 @@ npcConfig.shop = {
 	{ itemName = "yellow footboard", clientId = 32485, buy = 40 },
 	{ itemName = "yellow headboard", clientId = 32476, buy = 40 },
 	{ itemName = "yellow pillow", clientId = 900, buy = 25 },
-	{ itemName = "yellow tapestry", clientId = 2650, buy = 25 }
+	{ itemName = "yellow tapestry", clientId = 2650, buy = 25 },
+	{ itemName = "blood herb", clientId = 3734, buy = 5000 }
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
