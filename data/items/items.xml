@@ -42271,7 +42271,7 @@
 		<attribute key="absorbpercentholy" value="8"/>
 		<attribute key="magiclevelpoints" value="2"/>
 		<attribute key="criticalhitdamage" value="25"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="range" value="5"/>
 		<attribute key="weight" value="3300"/>
 		<attribute key="imbuementslot" value="2">
@@ -44471,7 +44471,7 @@
 		<attribute key="shootType" value="energy"/>
 		<attribute key="magiclevelpoints" value="2"/>
 		<attribute key="criticalhitdamage" value="35"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="1900"/>
 		<attribute key="imbuementslot" value="2">
@@ -50178,7 +50178,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementice" value="47"/>
 		<attribute key="criticalhitdamage" value="10"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="skillmelee" value="5"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="defense" value="35"/>
@@ -50214,7 +50214,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementice" value="47"/>
 		<attribute key="criticalhitdamage" value="10"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="skillmelee" value="5"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="defense" value="34"/>
@@ -50250,7 +50250,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementenergy" value="47"/>
 		<attribute key="criticalhitdamage" value="10"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="skillmelee" value="5"/>
 		<attribute key="attack" value="10"/>
 		<attribute key="defense" value="35"/>
@@ -50268,7 +50268,7 @@
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="absorbpercentholy" value="7"/>
 		<attribute key="criticalhitdamage" value="10"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="skilldist" value="4"/>
 		<attribute key="hitchance" value="5"/>
 		<attribute key="range" value="6"/>
@@ -50289,7 +50289,7 @@
 		<attribute key="absorbpercentdeath" value="7"/>
 		<attribute key="skilldist" value="4"/>
 		<attribute key="criticalhitdamage" value="10"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="hitchance" value="6"/>
 		<attribute key="range" value="6"/>
 		<attribute key="attack" value="9"/>
@@ -50309,7 +50309,7 @@
 		<attribute key="absorbpercentdeath" value="12"/>
 		<attribute key="magiclevelpoints" value="5"/>
 		<attribute key="criticalhitdamage" value="10"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="range" value="6"/>
 		<attribute key="weight" value="1900"/>
 		<attribute key="imbuementslot" value="2">
@@ -50632,7 +50632,7 @@
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="magiclevelpoints" value="2"/>
 		<attribute key="criticalhitdamage" value="35"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="range" value="5"/>
 		<attribute key="weight" value="2600"/>
 		<attribute key="imbuementslot" value="2">
@@ -59290,7 +59290,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementenergy" value="50"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="skillmelee" value="5"/>
@@ -59304,7 +59304,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementenergy" value="50"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="skillmelee" value="5"/>
@@ -59318,7 +59318,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementearth" value="50"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="skillmelee" value="5"/>
@@ -59332,7 +59332,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementearth" value="50"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="skillmelee" value="5"/>
@@ -59346,7 +59346,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementdeath" value="50"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="skillmelee" value="5"/>
@@ -59360,7 +59360,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="elementdeath" value="50"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="attack" value="8"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="skillmelee" value="5"/>
@@ -59382,7 +59382,7 @@
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="absorbpercentearth" value="6"/>
 		<attribute key="skilldist" value="4"/>
@@ -59398,7 +59398,7 @@
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="absorbpercentearth" value="6"/>
 		<attribute key="skilldist" value="4"/>
@@ -59414,7 +59414,7 @@
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="absorbpercentfire" value="6"/>
 		<attribute key="skilldist" value="4"/>
@@ -59430,7 +59430,7 @@
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="absorbpercentfire" value="6"/>
 		<attribute key="skilldist" value="4"/>
@@ -59458,7 +59458,7 @@
 		<attribute key="firemagiclevelpoints" value="1"/>
 		<attribute key="energymagiclevelpoints" value="1"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="weight" value="2200"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="1"/>
@@ -59474,7 +59474,7 @@
 		<attribute key="firemagiclevelpoints" value="1"/>
 		<attribute key="energymagiclevelpoints" value="1"/>
 		<attribute key="criticalhitdamage" value="12"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="weight" value="2100"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="1"/>
@@ -59502,7 +59502,7 @@
 		<attribute key="earthmagiclevelpoints" value="1"/>
 		<attribute key="icemagiclevelpoints" value="1"/>
 		<attribute key="criticalhitdamage" value="5"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="weight" value="2500"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
@@ -59518,7 +59518,7 @@
 		<attribute key="earthmagiclevelpoints" value="1"/>
 		<attribute key="icemagiclevelpoints" value="1"/>
 		<attribute key="criticalhitdamage" value="5"/>
-		<attribute key="criticalhitchance" value="10"/>
+		<attribute key="skillluck" value="5"/>
 		<attribute key="weight" value="2400"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
