@@ -5072,9 +5072,9 @@
 	<item id="3089" article="a" name="life ring">
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="manaticks" value="6000"/>
+		<attribute key="manaticks" value="30000"/>
 		<attribute key="managain" value="8"/>
-		<attribute key="healthticks" value="6000"/>
+		<attribute key="healthticks" value="30000"/>
 		<attribute key="healthgain" value="2"/>
 		<attribute key="duration" value="1200"/>
 		<attribute key="transformdeequipto" value="3052"/>
@@ -5155,9 +5155,9 @@
 	<item id="3100" article="a" name="ring of healing">
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="manaticks" value="6000"/>
+		<attribute key="manaticks" value="30000"/>
 		<attribute key="managain" value="24"/>
-		<attribute key="healthticks" value="6000"/>
+		<attribute key="healthticks" value="30000"/>
 		<attribute key="healthgain" value="6"/>
 		<attribute key="duration" value="450"/>
 		<attribute key="transformdeequipto" value="3098"/>
@@ -7655,9 +7655,9 @@
 	<item id="3549" article="a" name="pair of soft boots">
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="manaticks" value="6000"/>
+		<attribute key="manaticks" value="30000"/>
 		<attribute key="managain" value="12"/>
-		<attribute key="healthticks" value="6000"/>
+		<attribute key="healthticks" value="30000"/>
 		<attribute key="healthgain" value="3"/>
 		<attribute key="duration" value="14400"/>
 		<attribute key="transformdeequipto" value="6529"/>
@@ -35646,9 +35646,9 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentenergy" value="8"/>
-		<attribute key="manaticks" value="6000"/>
+		<attribute key="manaticks" value="30000"/>
 		<attribute key="managain" value="8"/>
-		<attribute key="healthticks" value="6000"/>
+		<attribute key="healthticks" value="30000"/>
 		<attribute key="healthgain" value="2"/>
 		<attribute key="speed" value="20"/>
 		<attribute key="duration" value="3600"/>
@@ -35662,9 +35662,9 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="absorbpercentenergy" value="10"/>
-		<attribute key="manaticks" value="6000"/>
+		<attribute key="manaticks" value="30000"/>
 		<attribute key="managain" value="12"/>
-		<attribute key="healthticks" value="6000"/>
+		<attribute key="healthticks" value="30000"/>
 		<attribute key="healthgain" value="3"/>
 		<attribute key="speed" value="30"/>
 		<attribute key="duration" value="3600"/>
@@ -35855,9 +35855,9 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="magiclevelpoints" value="3"/>
-		<attribute key="manaticks" value="6000"/>
+		<attribute key="manaticks" value="30000"/>
 		<attribute key="managain" value="8"/>
-		<attribute key="healthticks" value="6000"/>
+		<attribute key="healthticks" value="30000"/>
 		<attribute key="healthgain" value="2"/>
 		<attribute key="duration" value="1800"/>
 		<attribute key="transformdeequipto" value="23543"/>
@@ -35902,9 +35902,9 @@
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="magiclevelpoints" value="2"/>
-		<attribute key="manaticks" value="6000"/>
+		<attribute key="manaticks" value="30000"/>
 		<attribute key="managain" value="4"/>
-		<attribute key="healthticks" value="6000"/>
+		<attribute key="healthticks" value="30000"/>
 		<attribute key="healthgain" value="1"/>
 		<attribute key="duration" value="1800"/>
 		<attribute key="transformdeequipto" value="23531"/>
