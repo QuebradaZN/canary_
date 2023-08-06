@@ -267,7 +267,7 @@ void IOWheel::initializeKnightSpells() {
 void IOWheel::initializePaladinSpells() {
 	m_wheelBonusData.spells.paladin[0].name = "Sharpshooter";
 	m_wheelBonusData.spells.paladin[0].grade[1].decrease.secondaryGroupCooldown = 8;
-	m_wheelBonusData.spells.paladin[0].grade[2].decrease.cooldown = 6;
+	m_wheelBonusData.spells.paladin[0].grade[2].decrease.cooldown = 2;
 
 	m_wheelBonusData.spells.paladin[1].name = "Strong Ethereal Spear";
 	m_wheelBonusData.spells.paladin[1].grade[1].decrease.cooldown = 2;
