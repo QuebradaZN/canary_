@@ -352,6 +352,15 @@ local questTable = {
 	{storage = Storage.Quest.U8_54.TheNewFrontier.SnakeHeadTeleport, storageValue = 1},
 	{storage = Storage.LiquidBlackQuest.Visitor, storageValue = 5},
 	{storage = Storage.Quest.U8_4.BloodBrothers.VengothAccess, storageValue = 1},
+
+	-- outfit quests
+	{storage = Storage.KillingInTheNameOf.BudrikMinos, storageValue = 0},
+
+
+	{storage = Storage.OutfitQuest.HunterMusicSheet01, storageValue = 1},
+	{storage = Storage.OutfitQuest.HunterMusicSheet02, storageValue = 1},
+	{storage = Storage.OutfitQuest.HunterMusicSheet03, storageValue = 1},
+	{storage = Storage.OutfitQuest.HunterMusicSheet04, storageValue = 1},
 }
 
 -- from Position: (33201, 31762, 1)
