@@ -11,12 +11,12 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-	lookType = 471,
-	lookHead = 79,
-	lookBody = 45,
-	lookLegs = 12,
-	lookFeet = 94,
-	lookAddons = 0
+	lookType = 575,
+	lookHead = 97,
+	lookBody = 109,
+	lookLegs = 118,
+	lookFeet = 58,
+	lookAddons = 3
 }
 
 npcConfig.flags = {
@@ -26,7 +26,7 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{text = 'Come over here if you have to resupply!'}
+	{text = 'Want to look fabulous but don\'t have the time? Come see my wares my wares.'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -59,15 +59,15 @@ npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 
 npcConfig.shop =
 {
-	{ itemName = "backpack", clientId = 2854, buy = 10 },
-	{ itemName = "bag", clientId = 2853, buy = 4 },
-	{ itemName = "fishing rod", clientId = 3483, buy = 150, sell = 30 },
-	{ itemName = "rope", clientId = 3003, buy = 50, sell = 8 },
-	{ itemName = "scroll", clientId = 2815, buy = 5 },
-	{ itemName = "scythe", clientId = 3453, buy = 12 },
-	{ itemName = "shovel", clientId = 3457, buy = 10, sell = 2 },
-	{ itemName = "torch", clientId = 2920, buy = 2 },
-	{ itemName = "worm", clientId = 3492, buy = 1 }
+	{ itemName = "piece of royal steel", clientId = 5887, buy = 18000 },
+	{ itemName = "piece of hell steel", clientId = 5888, buy = 1500 },
+	{ itemName = "piece of draconian steel", clientId = 5889, buy = 4000 },
+	{ itemName = "huge chunk of crude iron", clientId = 5892, buy = 25500 },
+	{ itemName = "flask of warrior's sweat", clientId = 5885, buy = 30000 },
+	{ itemName = "enchanted chicken wing", clientId = 5891, buy = 45000 },
+	{ itemName = "fighting spirit", clientId = 5884, buy = 90000 },
+	{ itemName = "magic sulphur", clientId = 5904, buy = 4000 },
+
 }
 
 -- On buy npc shop message
