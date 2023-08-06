@@ -13,6 +13,12 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.bosstiary = {
+	bossRaceId = 1226,
+	bossRace = RARITY_ARCHFOE,
+	storageCooldown = 14329,
+}
+
 monster.health = 290000
 monster.maxHealth = 290000
 monster.race = "venom"
@@ -23,12 +29,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 2000,
 	chance = 25
-}
-
-monster.bosstiary = {
-	bossRaceId = 1225,
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = 14329
 }
 
 monster.strategiesTarget = {
@@ -53,9 +53,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.events = {
@@ -65,7 +65,7 @@ monster.events = {
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
@@ -101,6 +101,12 @@ monster.loot = {
 	{id = 8075, chance = 3000, unique = true} -- spellbook of lost souls
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -300, maxDamage = -1800},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -?, range = ?, effect = <>, target = ?}, --[[Great Energy Wave]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -0, maxDamage = -?, range = ?, effect = <>, target = ?}, --[[Great Energy Beam]]
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -300, maxDamage = -1800},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -1000, length = 8, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
@@ -114,19 +120,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 100,
 	armor = 100
+--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 70},
-	{type = COMBAT_ENERGYDAMAGE, percent = 30},
-	{type = COMBAT_EARTHDAMAGE, percent = 30},
-	{type = COMBAT_FIREDAMAGE, percent = 30},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
+	{type = COMBAT_ENERGYDAMAGE, percent = 50},
+	{type = COMBAT_EARTHDAMAGE, percent = 50},
+	{type = COMBAT_FIREDAMAGE, percent = 50},
+	{type = COMBAT_LIFEDRAIN, percent = 50},
+	{type = COMBAT_MANADRAIN, percent = 50},
+	{type = COMBAT_DROWNDAMAGE, percent = 50},
+	{type = COMBAT_ICEDAMAGE, percent = 50},
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {

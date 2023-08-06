@@ -38,7 +38,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -48,13 +48,13 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
 }
 
 monster.light = {
-	level = 0,
-	color = 0
+	level = 2,
+	color = 35,
 }
 
 monster.voices = {
@@ -63,13 +63,22 @@ monster.voices = {
 	{text = "Tssss!", yell = false},
 	{text = "Gaaahhh!", yell = false},
 	{text = "Gluh! Gluh!", yell = false},
-	{text = "Boohaa!", yell = false}
+	{text = "Boohaa!", yell = false},
 }
 
 monster.loot = {
 	{id = 3031, chance = 12000, maxCount = 13} -- gold coin
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -156},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -87, range = ?, effect = <>, target = ?}, --Life Drain Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -8 hp/10 turns, maxDamage = -8 hp/10 turns, range = ?, effect = <>, target = ?}, --Poison Berserk
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -56, maxDamage = -87+, range = ?, effect = <>, target = ?}, --Ice Ball (around itself)
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -25 hp/3 turns, maxDamage = -25 hp/3 turns, range = ?, effect = <>, target = ?}, --Close Range Electrify
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 65, maxDamage = 85},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -156, condition = {type = CONDITION_POISON, totalDamage = 2, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = 0, maxDamage = -87, radius = 3, effect = CONST_ME_HITAREA, target = false},
@@ -80,7 +89,8 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 15,
+	mitigation = 0.94,
 }
 
 monster.elements = {
@@ -92,12 +102,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

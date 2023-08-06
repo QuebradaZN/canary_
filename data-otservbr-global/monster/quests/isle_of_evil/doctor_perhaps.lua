@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Doctor Perhaps")
 local monster = {}
 
-monster.description = "doctor perhaps"
+monster.description = "Doctor Perhaps"
 monster.experience = 325
 monster.outfit = {
 	lookType = 133,
@@ -11,6 +11,11 @@ monster.outfit = {
 	lookFeet = 114,
 	lookAddons = 1,
 	lookMount = 0
+}
+
+monster.bosstiary = {
+	bossRaceId = 564,
+	bossRace = RARITY_BANE,
 }
 
 monster.health = 475
@@ -23,11 +28,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 4000,
 	chance = 10
-}
-
-monster.bosstiary = {
-	bossRaceId = 564,
-	bossRace = RARITY_BANE
 }
 
 monster.strategiesTarget = {
@@ -43,7 +43,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -54,12 +54,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.summon = {
@@ -75,7 +75,7 @@ monster.voices = {
 	{text = "I might use some parts of you in my next creation!", yell = false},
 	{text = "You're only a testsubject to me!", yell = false},
 	{text = "My creations will kill you!", yell = false},
-	{text = "You can't beat what you can't comprehend!", yell = false}
+	{text = "You can't beat what you can't comprehend!", yell = false},
 }
 
 monster.loot = {
@@ -87,6 +87,14 @@ monster.loot = {
 	{id = 9383, chance = 1000} -- trousers of the ancients
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -43},
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -17, maxDamage = -55, range = ?, effect = <>, target = ?}, --[[Drown Damage|Drown Bomb]]
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -up to 2 [[hp]]/turn, maxDamage = -up to 2 [[hp]]/turn, range = ?, effect = <>, target = ?}, --Poisons
+--	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Exori|Earth Berserk]] summons 2 [[Zombie]]s
+--	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -43},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -17, maxDamage = -55, range = 5, radius = 3, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_LOSEENERGY, target = true},
@@ -97,6 +105,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 15,
 	armor = 15,
+	mitigation = 0.30,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 10, maxDamage = 30, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
@@ -109,12 +118,12 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
