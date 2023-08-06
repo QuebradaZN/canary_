@@ -633,6 +633,14 @@ class Creature : virtual public Thing {
 			charmChanceModifier = value;
 		}
 
+		int8_t getBuffStacks() const {
+			return buffStacks;
+		}
+
+		void setBuffStacks(int8_t stacks) {
+			buffStacks = stacks;
+		}
+
 	protected:
 		virtual bool useCacheMap() const {
 			return false;
@@ -720,6 +728,7 @@ class Creature : virtual public Thing {
 		bool canUseDefense = true;
 		bool moveLocked = false;
 		int8_t charmChanceModifier = 0;
+		int8_t buffStacks = 0;
 
 		uint8_t wheelOfDestinyDrainBodyDebuff = 0;
 

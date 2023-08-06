@@ -1,31 +1,55 @@
 local spell = Spell("instant")
-local combat = Combat()
 
+local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYAREA)
 combat:setArea(createCombatArea(AREA_CIRCLE3X3))
 
+local combatSharpshooter = Combat()
+combatSharpshooter:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
+combatSharpshooter:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYAREA)
+combatSharpshooter:setArea(createCombatArea(AREA_CIRCLE3X3))
+
 function onGetFormulaValues(player, level, maglevel)
-	local min = (level / 5) + (maglevel * 7)
-	local max = (level / 5) + (maglevel * 9)
+	local min = (level / 5) + (maglevel * 14)
+	local max = (level / 5) + (maglevel * 16)
+	return -min, -max
+end
+
+function onGetForumulaValuesSharpshooter(player, level, maglevel)
+	local min = (level / 5) + (maglevel * 14)
+	local max = (level / 5) + (maglevel * 16)
+	min = min * 1.1
+	max = max * 1.1
 	return -min, -max
 end
 
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
+combatSharpshooter:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetForumulaValuesSharpshooter")
 
 function spell.onCastSpell(creature, var)
-	-- local condition = Condition(CONDITION_DAZZLED)
-	-- condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+	if not creature then return false end
+	local player = creature:getPlayer()
+	if not player then return false end
+	if player:getBuffStacks() > 0 then
+		combatSharpshooter:execute(creature, var)
+		addEvent(castDivineCalderaSharpshooter, 150, player:getId(), var)
+		player:addCondition(createBuffStacksCondition(player:getBuffStacks() - 1))
+		if player:getBuffStacks() == 0 then
+			creature:removeCondition(CONDITION_ATTRIBUTES, CONDITIONID_COMBAT, 5)
+		end
+	else
+		return combat:execute(creature, var)
+	end
 
-	-- local player = creature:getPlayer()
+	return true
+end
 
-	-- if creature and player then
-	-- 	local dotDmg = -1 * ((player:getLevel() / 5) + (player:getMagicLevel() * 5)) / 10
-	-- 	condition:addDamage(3, 1000, dotDmg/3)
-	-- 	combat:addCondition(condition)
-	-- end
-
-	return combat:execute(creature, var)
+function castDivineCalderaSharpshooter(cid, var)
+	local creature = Creature(cid)
+	if creature and var then
+		combatSharpshooter:execute(creature, var)
+	end
 end
 
 spell:group("attack")

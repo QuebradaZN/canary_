@@ -3,6 +3,10 @@ local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYDAMAGE)
 
+local combatSharpshooter = Combat()
+combatSharpshooter:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
+combatSharpshooter:setParameter(COMBAT_PARAM_EFFECT, COMBAT_ME_HOLYDAMAGE)
+
 
 -- combat for if target does not exist
 local combat2 = Combat()
@@ -11,9 +15,15 @@ combat2:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYDAMAGE)
 combat2:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLHOLY)
 
 function onGetFormulaValues(player, level, maglevel)
-	local min = (level / 5) + (maglevel * 1.79) + 11
-	local max = (level / 5) + (maglevel * 3) + 18
+	local min = 1.7*((level / 5) + (maglevel * 1.79) + 11)
+	local max = 1.7*((level / 5) + (maglevel * 3) + 18)
 	return -min, -max
+end
+
+function onGetFormulaValuesSharpshooter(player, level, maglevel)
+	local min = 1.7*((level / 5) + (maglevel * 1.79) + 11)
+	local max = 1.7*((level / 5) + (maglevel * 3) + 18)
+	return -1.2*min, -1.2*max
 end
 
 function onGetFormulaValues2(player, level, maglevel)
@@ -24,6 +34,7 @@ end
 
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 combat2:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues2")
+combatSharpshooter:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValuesSharpshooter")
 
 local spell = Spell("instant")
 
@@ -31,8 +42,18 @@ function spell.onCastSpell(creature, var)
 	local target = Creature(var:getNumber())
 	local player = creature:getPlayer()
 	
-	if (player and target) then
-		return Chain.combat(player, target, combat, 5, 2, CONST_ANI_SMALLHOLY, CONST_ANI_SMALLHOLY)
+	if player and target then
+		if player:getBuffStacks() > 0 then
+			player:addCondition(createBuffStacksCondition(player:getBuffStacks() - 1))
+			
+			if player:getBuffStacks() == 0 then
+				creature:removeCondition(CONDITION_ATTRIBUTES, CONDITIONID_COMBAT, 5)
+			end
+
+			return Chain.combat(player, target, combatSharpshooter, 8, 2, CONST_ANI_SMALLHOLY, CONST_ANI_SMALLHOLY)
+		else
+			return Chain.combat(player, target, combat, 5, 2, CONST_ANI_SMALLHOLY, CONST_ANI_SMALLHOLY)
+		end
 	else
 		return combat2:execute(creature, var)
 	end

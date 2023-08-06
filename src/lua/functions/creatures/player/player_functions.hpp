@@ -345,6 +345,8 @@ class PlayerFunctions final : LuaScriptInterface {
 			registerMethod(L, "Player", "isVip", PlayerFunctions::luaPlayerIsVip);
 			registerMethod(L, "Player", "getVipDays", PlayerFunctions::luaPlayerGetVipDays);
 
+			registerMethod(L, "Player", "getBuffStacks", PlayerFunctions::luaPlayerGetBuffStacks);
+
 			GroupFunctions::init(L);
 			GuildFunctions::init(L);
 			MountFunctions::init(L);
@@ -683,6 +685,8 @@ class PlayerFunctions final : LuaScriptInterface {
 
 		static int luaPlayerIsVip(lua_State* L);
 		static int luaPlayerGetVipDays(lua_State* L);
+
+		static int luaPlayerGetBuffStacks(lua_State* L);
 
 		friend class CreatureFunctions;
 };

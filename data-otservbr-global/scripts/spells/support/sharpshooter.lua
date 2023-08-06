@@ -1,44 +1,29 @@
 local spellDuration = 10000
 
-local combat = Combat()
-combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_GREEN)
-combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
-
-local speed = Condition(CONDITION_PARALYZE)
-speed:setParameter(CONDITION_PARAM_TICKS, spellDuration)
-speed:setFormula(-0.7, 56, -0.7, 56)
-combat:addCondition(speed)
-
-local exhaustHealGroup = Condition(CONDITION_SPELLGROUPCOOLDOWN)
-exhaustHealGroup:setParameter(CONDITION_PARAM_SUBID, 2)
-exhaustHealGroup:setParameter(CONDITION_PARAM_TICKS, spellDuration)
-combat:addCondition(exhaustHealGroup)
+function createBuffStacksCondition(stacks)
+	local condition = Condition(CONDITION_ATTRIBUTES)
+	condition:setParameter(CONDITION_PARAM_SUBID, 5)
+	condition:setParameter(CONDITION_PARAM_TICKS, spellDuration)
+	condition:setParameter(CONDITION_PARAM_BUFF_STACKS, stacks)
+	condition:setParameter(CONDITION_PARAM_BUFF_SPELL, true)
+	return condition
+end
 
 local spell = Spell("instant")
 
-function spell.onCastSpell(creature, variant)
-	if combat:execute(creature, variant) then
-		local skill = Condition(CONDITION_ATTRIBUTES)
-		skill:setParameter(CONDITION_PARAM_SUBID, 6)
-		skill:setParameter(CONDITION_PARAM_TICKS, spellDuration)
-		local grade = creature:upgradeSpellsWOD("Sharpshooter")
-		if grade == WHEEL_GRADE_NONE then
-			local exhaustSupportGroup = Condition(CONDITION_SPELLGROUPCOOLDOWN)
-			exhaustSupportGroup:setParameter(CONDITION_PARAM_SUBID, 3)
-			exhaustSupportGroup:setParameter(CONDITION_PARAM_TICKS, spellDuration)
-			creature:addCondition(exhaustSupportGroup)
-		end
-		if grade == WHEEL_GRADE_UPGRADED then
-			skill:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, 145)
-		else
-			skill:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, 140)
-		end
-		skill:setParameter(CONDITION_PARAM_DISABLE_DEFENSE, true)
-		skill:setParameter(CONDITION_PARAM_BUFF_SPELL, true)
-		creature:addCondition(skill)
-		return true
+function spell.onCastSpell(creature, var)
+	if not creature then return false end
+	local player = creature:getPlayer()
+	if not player then return false end
+	local grade = creature:upgradeSpellsWOD("Sharpshooter")
+	local stacks = 1
+	if grade == WHEEL_GRADE_UPGRADED then
+		stacks = 2
 	end
-	return false
+	local condition = createBuffStacksCondition(stacks)
+	player:addCondition(condition)
+	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+	return true
 end
 
 spell:name("Sharpshooter")

@@ -426,6 +426,7 @@ void ConditionAttributes::addCondition(Creature* creature, const Condition* addC
 		increases = conditionAttrs.increases;
 		increasesPercent = conditionAttrs.increasesPercent;
 		charmChanceModifier = conditionAttrs.charmChanceModifier;
+		buffStacks = conditionAttrs.buffStacks;
 
 		updatePercentBuffs(creature);
 		updateBuffs(creature);
@@ -434,6 +435,7 @@ void ConditionAttributes::addCondition(Creature* creature, const Condition* addC
 		updatePercentIncreases(creature);
 		updateIncreases(creature);
 		updateCharmChanceModifier(creature);
+		updateBuffStacks(creature);
 		disableDefense = conditionAttrs.disableDefense;
 
 		if (Player* player = creature->getPlayer()) {
@@ -540,6 +542,7 @@ bool ConditionAttributes::startCondition(Creature* creature) {
 	updatePercentIncreases(creature);
 	updateIncreases(creature);
 	updateCharmChanceModifier(creature);
+	updateBuffStacks(creature);
 	if (Player* player = creature->getPlayer()) {
 		updatePercentSkills(player);
 		updateSkills(player);
@@ -664,6 +667,10 @@ void ConditionAttributes::updateCharmChanceModifier(Creature* creature) const {
 	creature->setCharmChanceModifier(creature->getCharmChanceModifier() + charmChanceModifier);
 }
 
+void ConditionAttributes::updateBuffStacks(Creature* creature) const {
+	creature->setBuffStacks(buffStacks);
+}
+
 void ConditionAttributes::updatePercentBuffs(Creature* creature) {
 	for (int32_t i = BUFF_FIRST; i <= BUFF_LAST; ++i) {
 		if (buffsPercent[i] == 0) {
@@ -712,6 +719,7 @@ void ConditionAttributes::endCondition(Creature* creature) {
 		}
 
 		player->setCharmChanceModifier(player->getCharmChanceModifier() - charmChanceModifier);
+		player->setBuffStacks(0);
 
 		if (needUpdate) {
 			player->sendStats();
@@ -1011,6 +1019,11 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value) {
 
 		case CONDITION_PARAM_CHARM_CHANCE_MODIFIER: {
 			charmChanceModifier = static_cast<int8_t>(value);
+			return true;
+		}
+
+		case CONDITION_PARAM_BUFF_STACKS: {
+			buffStacks = static_cast<int8_t>(value);
 			return true;
 		}
 
