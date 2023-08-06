@@ -1,8 +1,8 @@
 local mType = Game.createMonsterType("Mazoran")
 local monster = {}
 
-monster.description = "mazoran"
-monster.experience = 60000
+monster.description = "Mazoran"
+monster.experience = 50000
 monster.outfit = {
 	lookType = 842,
 	lookHead = 77,
@@ -13,8 +13,14 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 370000
-monster.maxHealth = 370000
+monster.bosstiary = {
+	bossRaceId = 1186,
+	bossRace = RARITY_ARCHFOE,
+	storageCooldown = Storage.FerumbrasAscension.MazoranTimer,
+}
+
+monster.health = 290000
+monster.maxHealth = 290000
 monster.race = "fire"
 monster.corpse = 22495
 monster.speed = 200
@@ -23,12 +29,6 @@ monster.manaCost = 0
 monster.changeTarget = {
 	interval = 5000,
 	chance = 8
-}
-
-monster.bosstiary = {
-	bossRaceId = 1186,
-	bossRace = RARITY_ARCHFOE,
-	storageCooldown = Storage.FerumbrasAscension.MazoranTimer
 }
 
 monster.strategiesTarget = {
@@ -55,20 +55,17 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
 }
 
 monster.light = {
 	level = 0,
-	color = 0
+	color = 0,
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "ASHES TO ASHES, TASTE MY FIRE!", yell = false},
-	{text = "BUUURN!", yell = false},
-	{text = "UNLEASH THE FIRE!", yell = false}
 }
 
 monster.loot = {
@@ -103,6 +100,10 @@ monster.loot = {
 	{id = 9058, chance = 3000} -- gold ingot
 }
 
+-- TODO: monster-abilities
+--monster.attacks = {
+--	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
+--}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -1500, maxDamage = -2500},
 	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -1000, length = 10, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
@@ -113,24 +114,25 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 25,
-	armor = 25,
+	defense = 125,
+	armor = 125,
+--	mitigation = ???,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 2090, maxDamage = 4500, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 35, speedChange = 700, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 6000},
 	{name ="mazoran fire", interval = 30000, chance = 45, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 10},
-	{type = COMBAT_EARTHDAMAGE, percent = 10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0},
 }
 
 monster.immunities = {
