@@ -2208,7 +2208,7 @@ std::string Item::parseShowAttributesDescription(const Item* item, const uint16_
 }
 
 std::string Item::getDescription(const ItemType &it, int32_t lookDistance, const Item* item /*= nullptr*/, int32_t subType /*= -1*/, bool addArticle /*= true*/) {
-	const std::string* text = nullptr;
+	std::string text = "";
 
 	std::ostringstream s;
 	s << getNameDescription(it, item, subType, addArticle);
@@ -2812,9 +2812,8 @@ std::string Item::getDescription(const ItemType &it, int32_t lookDistance, const
 
 				if (lookDistance <= 4) {
 					if (item) {
-						auto string = item->getAttribute<std::string>(ItemAttribute_t::TEXT);
-						text = &string;
-						if (!text->empty()) {
+						text = item->getAttribute<std::string>(ItemAttribute_t::TEXT);
+						if (!text.empty()) {
 							const std::string &writer = item->getAttribute<std::string>(ItemAttribute_t::WRITER);
 							if (!writer.empty()) {
 								s << writer << " wrote";
@@ -2826,7 +2825,7 @@ std::string Item::getDescription(const ItemType &it, int32_t lookDistance, const
 							} else {
 								s << "You read: ";
 							}
-							s << *text;
+							s << text;
 						} else {
 							s << "Nothing is written on it";
 						}
@@ -2866,12 +2865,11 @@ std::string Item::getDescription(const ItemType &it, int32_t lookDistance, const
 	if (!it.allowDistRead || (it.id >= 7369 && it.id <= 7371)) {
 		s << '.';
 	} else {
-		if (!text && item) {
-			auto string = item->getAttribute<std::string>(ItemAttribute_t::TEXT);
-			text = &string;
+		if (text.empty() && item) {
+			text = item->getAttribute<std::string>(ItemAttribute_t::TEXT);
 		}
 
-		if (!text || text->empty()) {
+		if (text.empty()) {
 			s << '.';
 		}
 	}
@@ -2939,14 +2937,13 @@ std::string Item::getDescription(const ItemType &it, int32_t lookDistance, const
 	}
 
 	if (it.allowDistRead && it.id >= 7369 && it.id <= 7371) {
-		if (!text && item) {
-			auto string = item->getAttribute<std::string>(ItemAttribute_t::TEXT);
-			text = &string;
+		if (text.empty() && item) {
+			text = item->getAttribute<std::string>(ItemAttribute_t::TEXT);
 		}
 
-		if (text && !text->empty()) {
+		if (!text.empty()) {
 			s << std::endl
-			  << *text;
+			  << text;
 		}
 	}
 	return s.str();
