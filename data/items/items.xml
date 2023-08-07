@@ -23019,6 +23019,9 @@
 	<item fromid="12619" toid="12623" article="a" name="branch fence"/>
 	<item fromid="12624" toid="12631" article="a" name="small shed"/>
 	<item fromid="12632" toid="12634" name="leaves"/>
+	<item id="12635" name="leaves">
+		<attribute key="wrapableto" value="23398"/>
+	</item>
 	<item fromid="12636" toid="12639" article="a" name="bench"/>
 	<item fromid="12640" toid="12641" name="shelf">
 		<attribute key="containersize" value="6"/>

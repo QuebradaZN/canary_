@@ -160,6 +160,9 @@ class ItemType {
 		bool isBed() const {
 			return (type == ITEM_TYPE_BED);
 		}
+		bool isWrappable() const {
+			return (wrapableTo > 0);
+		}
 		bool isRune() const {
 			return (type == ITEM_TYPE_RUNE);
 		}
