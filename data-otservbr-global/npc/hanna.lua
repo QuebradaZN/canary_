@@ -93,7 +93,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if MsgContains(message, 'yes') then
 			if player:getItemCount(3374) < 1 then
 				npcHandler:say('Sorry, but I can\'t see a legion helmet.', npc, creature)
-			elseif player:getItemCount(5890) < 100 then
+			elseif player:getItemCount(5890) < 50 then
 				npcHandler:say('Sorry, but you don\'t enough chicken feathers.', npc, creature)
 			elseif player:getItemCount(5902) < 50 then
 				npcHandler:say('Sorry, but you don\'t have enough honeycombs.', npc, creature)
@@ -103,7 +103,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 				player:removeItem(3374, 1)
 				player:removeItem(5902, 50)
-				player:removeItem(5890, 100)
+				player:removeItem(5890, 50)
 
 				player:addOutfitAddon(136, 2)
 				player:addOutfitAddon(128, 2)
