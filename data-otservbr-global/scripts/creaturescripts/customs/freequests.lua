@@ -159,7 +159,7 @@ local questTable = {
 	{storage = Storage.SearoutesAroundYalahar.Carlin, storageValue = 1},
 	{storage = Storage.HiddenCityOfBeregar.DefaultStart, storageValue = 1},
 	{storage = Storage.HiddenCityOfBeregar.GoingDown, storageValue = 1},
-	{storage = Storage.TheIceIslands.Questline, storageValue = 12},
+	{storage = Storage.TheIceIslands.Questline, storageValue = 40},
 	{storage = Storage.TheIceIslands.Mission01, storageValue = 3},
 	{storage = Storage.TheIceIslands.Mission02, storageValue = 5},
 	{storage = Storage.TheIceIslands.Mission03, storageValue = 3},
@@ -172,6 +172,7 @@ local questTable = {
 	{storage = Storage.TheIceIslands.Mission10, storageValue = 2},
 	{storage = Storage.TheIceIslands.Mission11, storageValue = 2},
 	{storage = Storage.TheIceIslands.Mission12, storageValue = 6},
+	{storage = Storage.TheIceIslands.yakchalDoor, storageValue = 1},
 	{storage = Storage.TheInquisition.Questline, storageValue = 25},
 	{storage = Storage.TheInquisition.Mission01, storageValue = 7},
 	{storage = Storage.TheInquisition.Mission02, storageValue = 3},
@@ -362,6 +363,10 @@ local questTable = {
 	{storage = Storage.OutfitQuest.HunterMusicSheet02, storageValue = 1},
 	{storage = Storage.OutfitQuest.HunterMusicSheet03, storageValue = 1},
 	{storage = Storage.OutfitQuest.HunterMusicSheet04, storageValue = 1},
+
+	-- Norseman
+	{storage = Storage.OutfitQuest.NorsemanAddon, storageValue = 1},
+	{storage = Storage.OutfitQuest.DefaultStart, storageValue = 1},
 }
 
 -- from Position: (33201, 31762, 1)
@@ -398,6 +403,9 @@ function freeQuests.onLogin(player)
 
 	player:sendTextMessage(MESSAGE_INFO_DESCR, "Adding free acccess quests to your character.")
 	addEvent(playerFreeQuestStart, 500, player:getId(), 0)
+	player:addOutfit(251, 0)
+	player:addOutfit(252, 0)
+
 	return true
 end
 
