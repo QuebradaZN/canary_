@@ -56,6 +56,9 @@ function attributes.onSay(player, words, param)
 		return true
 	end
 
+	-- create log
+	logCommand(player, words, param)
+
 	if param == "" then
 		player:sendCancelMessage("Command param required.")
 		return false

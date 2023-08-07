@@ -8,6 +8,9 @@ function createSummon.onSay(player, words, param)
 		db.query("INSERT IGNORE INTO `monsters` (`name`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `lookmount`, `looktypeex`, `raceid`) VALUES (" .. db.escapeString(mType:getName()) .. ", " .. mType:outfit().lookBody .. ", " .. mType:outfit().lookFeet .. ", " .. mType:outfit().lookHead .. ", " .. mType:outfit().lookLegs .. ", " .. mType:outfit().lookType .. ", " .. mType:outfit().lookAddons .. ", " .. mType:outfit().lookMount .. ", " .. mType:outfit().lookTypeEx .. ", " .. mType:raceId() .. ")")
 	end
 
+	-- create log
+	logCommand(player, words, param)
+
 	if param == "" then
 		player:sendCancelMessage("Command param required.")
 		return false
@@ -22,7 +25,7 @@ function createSummon.onSay(player, words, param)
 	end
 
 	if summon:getOutfit().lookType == 0 then
-		summon:setOutfit({lookType = player:getFamiliarLooktype()})
+		summon:setOutfit({ lookType = player:getFamiliarLooktype() })
 	end
 	position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	summon:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

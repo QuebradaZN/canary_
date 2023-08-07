@@ -265,6 +265,12 @@ function Player.reloadTalkaction(self, words, param)
 
 	local reloadType = reloadTypes[param:lower()]
 	if reloadType then
+		-- Force save server before reload
+		saveServer()
+		SaveHirelings()
+		Spdlog.info("Saved Hirelings")
+		self:sendTextMessage(MESSAGE_ADMINISTRADOR, "Server is saved.. Now will reload configs!")
+
 		Game.reload(reloadType)
 		self:sendTextMessage(MESSAGE_LOOK, string.format("Reloaded %s.", param:lower()))
 		Spdlog.info("Reloaded " .. param:lower() .. "")

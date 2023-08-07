@@ -10,7 +10,9 @@ function startRaid.onSay(player, words, param)
 		return false
 	end
 
+	-- create log
 	logCommand(player, words, param)
+
 	local returnValue = Game.startRaid(param)
 	if returnValue ~= RETURNVALUE_NOERROR then
 		player:sendTextMessage(MESSAGE_ADMINISTRADOR, Game.getReturnMessage(returnValue))

@@ -5,8 +5,13 @@ function openServer.onSay(player, words, param)
 		return true
 	end
 
+	-- create log
+	logCommand(player, words, param)
+
 	Game.setGameState(GAME_STATE_NORMAL)
 	player:sendTextMessage(MESSAGE_ADMINISTRADOR, "Server is now open.")
+	Webhook.send("Server Open", "Server was opened by: " .. player:getName(),
+		WEBHOOK_COLOR_WARNING, announcementChannels["serverAnnouncements"])
 	return false
 end
 

@@ -5,6 +5,9 @@ function houseOwner.onSay(player, words, param)
 		return true
 	end
 
+	-- create log
+	logCommand(player, words, param)
+
 	local tile = Tile(player:getPosition())
 	local house = tile and tile:getHouse()
 	if not house then

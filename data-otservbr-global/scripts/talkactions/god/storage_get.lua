@@ -1,14 +1,13 @@
-local storageGet = TalkAction("/get")
+local storageGet = TalkAction("/getstorage")
 
 function storageGet.onSay(cid, words, param)
 	local player = Player(cid)
-	if not player:getGroup():getAccess() then
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
 
-	if player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return false
-	end
+	-- create log
+	logCommand(player, words, param)
 
 	local split = param:split(",")
 	if split[2] == nil then
@@ -26,8 +25,8 @@ function storageGet.onSay(cid, words, param)
 	split[2] = split[2]:gsub("^%s*(.-)$", "%1")
 
 	local ch = split[2]
-	sto=getPlayerStorageValue(getPlayerByName(split[1]), tonumber(ch))
-	doPlayerSendTextMessage(cid, MESSAGE_EVENT_ADVANCE, "The storage with id: "..tonumber(ch).." from player "..split[1].." is: "..sto..".")
+	sto = getPlayerStorageValue(getPlayerByName(split[1]), tonumber(ch))
+	doPlayerSendTextMessage(cid, MESSAGE_EVENT_ADVANCE, "The storage with id: " .. tonumber(ch) .. " from player " .. split[1] .. " is: " .. sto .. ".")
 	return false
 end
 

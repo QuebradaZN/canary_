@@ -25,14 +25,14 @@ function serverInfo.onSay(player, words, param)
 		.. "\nSpawns rate: " .. configManager.getNumber(configKeys.RATE_SPAWN) .. "x"
 	end
 		text = text .. "\n\nMore Server Info: \n"
-		.. "\nLevel to buy house " .. configManager.getNumber(configKeys.HOUSE_BUY_LEVEL)
+		.. "\nLevel to buy house: " .. configManager.getNumber(configKeys.HOUSE_BUY_LEVEL)
 		.. "\nProtection level: " .. configManager.getNumber(configKeys.PROTECTION_LEVEL)
 		.. "\nWorldType: " .. configManager.getString(configKeys.WORLD_TYPE)
 		.. "\nKills/day to red skull: " .. configManager.getNumber(configKeys.DAY_KILLS_TO_RED)
 		.. "\nKills/week to red skull: " .. configManager.getNumber(configKeys.WEEK_KILLS_TO_RED)
 		.. "\nKills/month to red skull: " .. configManager.getNumber(configKeys.MONTH_KILLS_TO_RED)
 		.. "\nServer Save: " .. configManager.getString(configKeys.GLOBAL_SERVER_SAVE_TIME)
-		player:showTextDialog(34266, text)
+	player:showTextDialog(34266, text)
 	return false
 end
 

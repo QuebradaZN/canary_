@@ -7,6 +7,9 @@ function storage.onSay(player, words, param)
 		return true
 	end
 
+	-- create log
+	logCommand(player, words, param)
+
 	-- Sanity check for parameters
 	if param == "" then
 		player:sendCancelMessage("You need to pass at least the storage that will be set.")

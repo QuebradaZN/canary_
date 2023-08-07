@@ -16,6 +16,7 @@ function leaveHouse.onSay(player, words, param)
 		return false
 	end
 
+	-- Move hireling back to lamp
 	local tiles = house:getTiles()
 	if tiles then
 		for i, tile in pairs(tiles) do
@@ -30,7 +31,7 @@ function leaveHouse.onSay(player, words, param)
 	end
 
 	house:setOwnerGuid(0)
-	player:sendTextMessage(MESSAGE_LOOK, "You have successfully left your house.")
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have successfully left your house.")
 	playerPosition:sendMagicEffect(CONST_ME_POFF)
 	return false
 end

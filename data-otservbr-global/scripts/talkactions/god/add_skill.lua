@@ -23,13 +23,15 @@ local function getExpForLevel(level)
 	return ((50 * level * level * level) - (150 * level * level) + (400 * level)) / 3
 end
 
-
 local addSkill = TalkAction("/addskill")
 
 function addSkill.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
+
+	-- create log
+	logCommand(player, words, param)
 
 	if param == "" then
 		player:sendCancelMessage("Command param required.")

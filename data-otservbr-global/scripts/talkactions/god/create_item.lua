@@ -11,6 +11,9 @@ function createItem.onSay(player, words, param)
 
 	local split = param:split(",")
 
+	-- create log
+	logCommand(player, words, param)
+
 	local itemType = ItemType(split[1])
 	if itemType:getId() == 0 then
 		itemType = ItemType(tonumber(split[1]))
@@ -31,7 +34,7 @@ function createItem.onSay(player, words, param)
 			count = math.min(10000, math.max(1, count))
 		elseif not itemType:isFluidContainer() then
 			local min = 100;
-			if(charges > 0) then
+			if (charges > 0) then
 				min = charges;
 			end
 			count = math.min(min, math.max(1, count))

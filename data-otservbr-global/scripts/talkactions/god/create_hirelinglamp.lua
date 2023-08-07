@@ -6,6 +6,9 @@ function talk.onSay(player, words, param)
 		return true
 	end
 
+	-- create log
+	logCommand(player, words, param)
+
 	local split = param:split(",")
 	local name = split[1] ~= "" and split[1] or "Hireling " .. player:getName()
 	local sex = split[2] and tonumber(split[2]) or 1

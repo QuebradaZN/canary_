@@ -5,6 +5,9 @@ function addMoney.onSay(player, words, param)
 		return true
 	end
 
+	-- create log
+	logCommand(player, words, param)
+
 	-- Check the first param (player name) exists
 	if param == "" then
 		player:sendCancelMessage("Player name param required")

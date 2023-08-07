@@ -11,16 +11,21 @@ end
 local save = TalkAction("/save")
 
 function save.onSay(player, words, param)
-	if player:getGroup():getAccess() then
-		if isNumber(param) then
-			stopEvent(savingEvent)
-			saveLoop(tonumber(param) * 60 * 1000)
-		else
-			saveServer()
-			SaveHirelings()
-			Spdlog.info("Saved Hirelings")
-			player:sendTextMessage(MESSAGE_ADMINISTRADOR, "Server is saved ...")
-		end
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+		return true
+	end
+
+	-- create log
+	logCommand(player, words, param)
+
+	if isNumber(param) then
+		stopEvent(savingEvent)
+		saveLoop(tonumber(param) * 60 * 1000)
+	else
+		saveServer()
+		SaveHirelings()
+		Spdlog.info("Saved Hirelings")
+		player:sendTextMessage(MESSAGE_ADMINISTRADOR, "Server is saved ...")
 	end
 end
 

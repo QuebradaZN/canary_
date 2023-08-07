@@ -1,4 +1,5 @@
 local serverInfo = TalkAction("!serverinfo")
+
 function serverInfo.onSay(player, words, param)
 	local text
 	local useStages = configManager.getBoolean(configKeys.RATE_USE_STAGES)

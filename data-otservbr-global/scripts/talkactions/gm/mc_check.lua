@@ -1,9 +1,12 @@
 local mcCheck = TalkAction("/mc")
 
 function mcCheck.onSay(player, words, param)
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GAMEMASTER then
 		return true
 	end
+
+	-- create log
+	logCommand(player, words, param)
 
 	player:sendTextMessage(MESSAGE_ADMINISTRADOR, "Multiclient Check List:")
 	local ipList = {}

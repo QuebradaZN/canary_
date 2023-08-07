@@ -1,26 +1,47 @@
-local flag = TalkAction("/hasflag")
+local hasFlag = TalkAction("/hasflag")
 
-function flag.onSay(player, words, param)
+function hasFlag.onSay(player, words, param)
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+		return true
+	end
+
+	-- create log
+	logCommand(player, words, param)
+
 	return player:talkactionHasFlag(param)
 end
 
-flag:separator(" ")
-flag:register()
+hasFlag:separator(" ")
+hasFlag:register()
 
-flag = TalkAction("/setflag")
+local setFlag = TalkAction("/setflag")
 
-function flag.onSay(player, words, param)
+function setFlag.onSay(player, words, param)
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+		return true
+	end
+
+	-- create log
+	logCommand(player, words, param)
+
 	return player:talkactionSetFlag(param)
 end
 
-flag:separator(" ")
-flag:register()
+setFlag:separator(" ")
+setFlag:register()
 
-flag = TalkAction("/removeflag")
+local removeFlag = TalkAction("/removeflag")
 
-function flag.onSay(player, words, param)
+function removeFlag.onSay(player, words, param)
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+		return true
+	end
+
+	-- create log
+	logCommand(player, words, param)
+
 	return player:talkactionRemoveFlag(param)
 end
 
-flag:separator(" ")
-flag:register()
+removeFlag:separator(" ")
+removeFlag:register()

@@ -31,9 +31,12 @@ local invalidTypes = {
 local looktype = TalkAction("/looktype")
 
 function looktype.onSay(player, words, param)
-	if not player:getGroup():getAccess() then
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GAMEMASTER then
 		return true
 	end
+
+	-- create log
+	logCommand(player, words, param)
 
 	if param == "" then
 		player:sendCancelMessage("Command param required.")

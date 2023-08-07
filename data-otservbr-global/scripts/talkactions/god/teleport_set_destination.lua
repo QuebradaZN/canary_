@@ -7,6 +7,9 @@ function teleportSetDestination.onSay(player, words, param)
 		return true
 	end
 
+	-- create log
+	logCommand(player, words, param)
+
 	if param == "" then
 		player:sendCancelMessage("Teleport position required.")
 		return false

@@ -1,12 +1,15 @@
-local banDays = 7
+local banDays = 5
 
 local ban = TalkAction("/ban")
 
 function ban.onSay(player, words, param)
 
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GAMEMASTER then
 		return true
 	end
+
+	-- create log
+	logCommand(player, words, param)
 
 	if param == "" then
 		player:sendCancelMessage("Command param required.")
@@ -35,11 +38,14 @@ function ban.onSay(player, words, param)
 
 	local timeNow = os.time()
 	db.query("INSERT INTO `account_bans` (`account_id`, `reason`, `banned_at`, `expires_at`, `banned_by`) VALUES (" ..
-			accountId .. ", " .. db.escapeString(reason) .. ", " .. timeNow .. ", " .. timeNow + (banDays * 86400) .. ", " .. player:getGuid() .. ")")
+		accountId .. ", " .. db.escapeString(reason) .. ", " .. timeNow .. ", " .. timeNow + (banDays * 86400) .. ", " .. player:getGuid() .. ")")
 
 	local target = Player(name)
 	if target then
-		player:sendTextMessage(MESSAGE_ADMINISTRADOR, target:getName() .. " has been banned.")
+		local text = target:getName() .. " has been banned"
+		player:sendTextMessage(MESSAGE_ADMINISTRADOR, text)
+		Webhook.send("Player Banned", text .. " reason: " .. reason .. ". (by: " .. player:getName() .. ")",
+			WEBHOOK_COLOR_WARNING, announcementChannels["serverAnnouncements"])
 		target:remove()
 	else
 		player:sendTextMessage(MESSAGE_ADMINISTRADOR, name .. " has been banned.")

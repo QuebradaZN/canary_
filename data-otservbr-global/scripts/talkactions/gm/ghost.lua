@@ -1,9 +1,12 @@
 local ghost = TalkAction("/ghost")
 
 function ghost.onSay(player, words, param)
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GAMEMASTER then
 		return true
 	end
+
+	-- create log
+	logCommand(player, words, param)
 
 	local position = player:getPosition()
 	local isGhost = not player:isInGhostMode()

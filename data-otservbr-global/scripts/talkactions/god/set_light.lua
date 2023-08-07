@@ -10,12 +10,8 @@ purple: 375 or 845 or 667 or 155 or 917
 local set_light = TalkAction("/setlight")
 
 function set_light.onSay(player, words, param)
-	if not player:getGroup():getAccess() then
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
-	end
-
-	if player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return false
 	end
 
 	logCommand(player, words, param)
@@ -33,7 +29,7 @@ function set_light.onSay(player, words, param)
 		--player:setLight(tonumber(color) >= 0 and luz[tonumber(color)] or 0, intensity)
 		player:setLight(tonumber(color) >= 0 and tonumber(color) or 0, intensity)
 	else
-		player:sendCancelMessage("Use like this: /setlight color (0-".. 1500 .."), (1-32). The first param is color and the second is intensity.")
+		player:sendCancelMessage("Use like this: /setlight color (0-" .. 1500 .. "), (1-32). The first param is color and the second is intensity.")
 	end
 
 	return false
