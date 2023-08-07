@@ -102,20 +102,15 @@ DailyReward = {
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
 			items = {
 				Concoction.Ids.WealthDuplex,
-				Concoction.Ids.BestiaryBetterment,
-				 Concoction.Ids.CharmUpgrade,
 			},
-			freeAccount = 2,
-			premiumAccount = 2
-		},
-		[2] = {
-			type = DAILY_REWARD_TYPE_ITEM,
-			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			items = { Concoction.Ids.EarthResilience, Concoction.Ids.EnergyResilience, Concoction.Ids.HolyResilience,
-				Concoction.Ids.DeathResilience, Concoction.Ids.PhysicalResilience, Concoction.Ids.FireResilience,
-				Concoction.Ids.IceResilience },
 			freeAccount = 1,
 			premiumAccount = 1
+		},
+		[2] = {
+			type = DAILY_REWARD_TYPE_PREY_REROLL,
+			systemType = DAILY_REWARD_SYSTEM_TYPE_TWO,
+			freeAccount = 1,
+			premiumAccount = 2,
 		},
 		[3] = {
 			type = DAILY_REWARD_TYPE_PREY_REROLL,
@@ -126,9 +121,7 @@ DailyReward = {
 		[4] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			items = { Concoction.Ids.EarthAmplification, Concoction.Ids.EnergyAmplification, Concoction.Ids.HolyAmplification,
-				Concoction.Ids.DeathAmplification, Concoction.Ids.PhysicalAmplification, Concoction.Ids.FireAmplification,
-				Concoction.Ids.IceAmplification },
+			items = { Concoction.Ids.EarthResilience, Concoction.Ids.EnergyResilience, Concoction.Ids.HolyResilience, Concoction.Ids.DeathResilience, Concoction.Ids.PhysicalResilience, Concoction.Ids.FireResilience, Concoction.Ids.IceResilience, Concoction.Ids.EarthAmplification, Concoction.Ids.EnergyAmplification, Concoction.Ids.HolyAmplification, Concoction.Ids.DeathAmplification, Concoction.Ids.PhysicalAmplification, Concoction.Ids.FireAmplification, Concoction.Ids.IceAmplification },
 			freeAccount = 1,
 			premiumAccount = 1
 		},
@@ -141,7 +134,12 @@ DailyReward = {
 		[6] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			items = { Concoction.Ids.KooldownAid, Concoction.Ids.StaminaExtension },
+			items = {
+				Concoction.Ids.KooldownAid,
+				Concoction.Ids.StaminaExtension,
+				Concoction.Ids.BestiaryBetterment,
+				Concoction.Ids.CharmUpgrade,
+			},
 			freeAccount = 1,
 			premiumAccount = 1
 		},
@@ -443,7 +441,7 @@ function Player.selectDailyReward(self, msg)
 			end
 		end
 
-		if self:isPremium() then
+		if self:isVip() then
 			count = dailyTable.premiumAccount
 		else
 			count = dailyTable.freeAccount
@@ -457,13 +455,6 @@ function Player.selectDailyReward(self, msg)
 			Spdlog.error(string.format("Player with name %s is trying to get wrong daily reward", self:getName()))
 			return false
 		end
-
-		-- -- Adding items to store inbox
-		-- local inbox = self:getSlotItem(CONST_SLOT_STORE_INBOX)
-		-- if inbox and inbox:getEmptySlots() < columnsPicked then
-		-- 	self:sendError("You do not have enough space in your store inbox.")
-		-- 	return false
-		-- end
 
 		local description = ""
 		for k, v in ipairs(items) do
