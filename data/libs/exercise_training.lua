@@ -34,8 +34,8 @@ ExerciseWeaponsTable = {
 	-- RANGE
 	[28543] = { skill = SKILL_DISTANCE, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLSTONE, allowFarUse = true },
 	[28555] = { skill = SKILL_DISTANCE, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_FLASHARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
-	[35282] = { skill = SKILL_DISTANCE, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_POISONARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
-	[35288] = { skill = SKILL_DISTANCE, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_FLAMMINGARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
+	[35282] = { skill = SKILL_DISTANCE, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_EARTHARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	[35288] = { skill = SKILL_DISTANCE, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_SNIPERARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
 	-- WAND
 	[28545] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLEARTH, allowFarUse = true },
 	[28557] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
