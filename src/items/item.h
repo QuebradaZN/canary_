@@ -472,6 +472,9 @@ class Item : virtual public Thing, public ItemProperties {
 		bool isQuiver() const {
 			return items[id].isQuiver();
 		}
+		bool isAmmo() const {
+			return items[id].isAmmo();
+		}
 		bool isSpellBook() const {
 			return items[id].isSpellBook();
 		}

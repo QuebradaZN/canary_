@@ -3405,8 +3405,10 @@ Cylinder* Player::queryDestination(int32_t &index, const Thing &thing, Item** de
 		*destItem = destThing->getItem();
 	}
 
+	const Item* item = thing.getItem();
+	bool movingAmmoToQuiver = item && *destItem && (*destItem)->isQuiver() && item->isAmmo();
 	// force shield any slot right to player cylinder
-	if (index == CONST_SLOT_RIGHT && (!*destItem || !(*destItem)->isQuiver())) {
+	if (index == CONST_SLOT_RIGHT && !movingAmmoToQuiver) {
 		return this;
 	}
 

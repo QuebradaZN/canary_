@@ -175,6 +175,9 @@ class ItemType {
 		bool isQuiver() const {
 			return (type == ITEM_TYPE_QUIVER);
 		}
+		bool isAmmo() const {
+			return (type == ITEM_TYPE_AMMO);
+		}
 		bool isLadder() const {
 			return (type == ITEM_TYPE_LADDER);
 		}
