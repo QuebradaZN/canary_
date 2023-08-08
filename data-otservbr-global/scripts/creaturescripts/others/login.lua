@@ -282,16 +282,12 @@ function playerLogin.onLogin(player)
 			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurCount, 0)
 	end
 
-	if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurGuardCount) < 0 then
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurGuardCount, 0)
+	if player:getStorageValue(Storage.CustomMonsterKillCount.OramondMinotaurs) < 0 then
+			player:setStorageValue(Storage.CustomMonsterKillCount.OramondMinotaurs, 0)
 	end
 
-	if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurArcherCount) < 0 then
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurArcherCount, 0)
-	end
-
-	if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurMageCount) < 0 then
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurMageCount, 0)
+	if player:getStorageValue(Storage.CustomMonsterKillCount.CultMinotaurs) < 0 then
+			player:setStorageValue(Storage.CustomMonsterKillCount.CultMinotaurs, 0)
 	end
 
 	return true

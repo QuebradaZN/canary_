@@ -493,6 +493,8 @@ npcConfig.shop = {
 	{ itemName = "giant tentacle", clientId = 27619, sell = 10000 },
 	{ itemName = "giant topaz", clientId = 32623, sell = 80000 },
 	{ itemName = "girlish hair decoration", clientId = 11443, sell = 30 },
+	{ itemName = "girtablilu warrior carapace", clientId = 36971, sell = 520 },
+	{ itemName = "old girtablilu carapace", clientId = 36972, sell = 570 },
 	{ itemName = "glacial rod", clientId = 16118, sell = 6500 },
 	{ itemName = "glacier amulet", clientId = 815, sell = 1500 },
 	{ itemName = "glacier kilt", clientId = 823, sell = 11000 },

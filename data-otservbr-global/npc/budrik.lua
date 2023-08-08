@@ -79,7 +79,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"I want you to kill 3000 minotaurs - no matter where - for me and all the dwarfs of Kazordoon! Are you willing to do that?"}, npc, creature)
 			npcHandler:setTopic(playerId, 2)
 		elseif player:getStorageValue(Storage.KillingInTheNameOf.BudrikMinos) == 0 then
-			if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.MinotaurCount) >= 3000 then
+			if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.MinotaurCount + Storage.CustomMonsterKillCount.OramondMinotaurs + Storage.CustomMonsterKillCount.CultMinotaurs) >= 3000 then
 				npcHandler:say({
 					"By all that is holy! You are a truly great warrior! With much patience! I have just found out the location the hideout of The Horned Fox! I have marked the spot on your map so you can find it. Go there and slay him!! ...",
 					"BUT, you will have only this ONE chance to catch him! Good luck!"}, npc, creature)

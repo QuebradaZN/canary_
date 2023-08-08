@@ -26,7 +26,7 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{text = 'Want to look fabulous but don\'t have the time? Come see my wares my wares.'}
+	{text = 'Want to look fabulous but don\'t have the time? Come see my wares.'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -61,12 +61,12 @@ npcConfig.shop =
 {
 	{ itemName = "piece of royal steel", clientId = 5887, buy = 18000 },
 	{ itemName = "piece of hell steel", clientId = 5888, buy = 1500 },
-	{ itemName = "piece of draconian steel", clientId = 5889, buy = 4000 },
-	{ itemName = "huge chunk of crude iron", clientId = 5892, buy = 25500 },
+	{ itemName = "piece of draconian steel", clientId = 5889, buy = 6000 },
+	{ itemName = "huge chunk of crude iron", clientId = 5892, buy = 22500 },
 	{ itemName = "flask of warrior's sweat", clientId = 5885, buy = 30000 },
 	{ itemName = "enchanted chicken wing", clientId = 5891, buy = 45000 },
 	{ itemName = "fighting spirit", clientId = 5884, buy = 90000 },
-	{ itemName = "magic sulphur", clientId = 5904, buy = 4000 },
+	{ itemName = "magic sulphur", clientId = 5904, buy = 4500 },
 
 }
 

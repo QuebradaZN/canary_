@@ -36,7 +36,7 @@ local function killCheck(player, targetName, taskName, taskStage, taskInfo, task
 	if player:getStorageValue(taskName) == taskStage then
 		if table.contains(taskInfo, targetName) then
 			for k = 1, #taskInfo do
-				if targetName == taskInfo[k] then
+				if taskAltKillCount ~= nil and targetName == taskInfo[k] then
 					player:setStorageValue(taskAltKillCount + k - 1, player:getStorageValue(taskAltKillCount + k - 1) + 1)
 				end
 			end
@@ -97,7 +97,11 @@ function killingInTheNameOfKill.onKill(player, target)
 		end
 	end
 -- Minotaurs
-	killCheck(player, targetName, Storage.KillingInTheNameOf.BudrikMinos, 0, tasks.Budrik[1].creatures, Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurCount, Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.MinotaurCount)
+	killCheck(player, targetName, Storage.KillingInTheNameOf.BudrikMinos, 0, tasks.Budrik[1].creatures, nil, Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.MinotaurCount)
+-- Oramond Minotaurs
+	killCheck(player, targetName, Storage.KillingInTheNameOf.BudrikMinos, 0, tasks.Budrik[2].creatures, nil, Storage.CustomMonsterKillCount.OramondMinotaurs)
+-- Cult Minotaurs
+	killCheck(player, targetName, Storage.KillingInTheNameOf.BudrikMinos, 0, tasks.Budrik[3].creatures, nil, Storage.CustomMonsterKillCount.CultMinotaurs)
 -- Necromancers and Priestesses
 	killCheck(player, targetName, Storage.KillingInTheNameOf.LugriNecromancers, 0, tasks.Lugri[1].creatures, Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.NecromancerCount, Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.NecromancerCount)
 	killCheck(player, targetName, Storage.KillingInTheNameOf.LugriNecromancers, 3, tasks.Lugri[1].creatures, Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.NecromancerCount, Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.NecromancerCount)

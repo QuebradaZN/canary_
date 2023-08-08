@@ -3017,6 +3017,11 @@ Storage = {
 	Waypoints = {
 		Owned = { From = 150100, To = 150300 },
 	},
+
+	CustomMonsterKillCount = {
+		OramondMinotaurs = 150301,
+		CultMinotaurs = 150302,
+	},
 }
 
 GlobalStorage = {

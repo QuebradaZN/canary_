@@ -2103,11 +2103,10 @@ if not Quests then
 					states = {
 						[0] =
 						function(player)
-							return string.format("Budrik asked you to kill 3000 minotaurs for him. You already killed %d minotaurs, %d minotaur guards, %d minotaur mages and %d minotaur archers.",
-							player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurCount),
-							player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurGuardCount),
-							player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurMageCount),
-							player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurArcherCount))
+							return string.format("Budrik asked you to kill 3000 minotaurs for him. You already killed %d minotaurs, %d Oramond minotaurs and %d cult minotaurs.",
+							player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.MinotaurCount),
+							player:getStorageValue(Storage.CustomMonsterKillCount.OramondMinotaurs),
+							player:getStorageValue(Storage.CustomMonsterKillCount.CultMinotaurs))
 						end,
 						[1] = "Budrik found the hideout of The Horned Fox! You have a single chance of bringing him down. Go for it.",
 						[2] = "You have slain 3000 minotaurs and fought The Horned Fox for Budrik and the whole dwarven kind."

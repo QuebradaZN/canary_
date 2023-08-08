@@ -182,15 +182,42 @@ tasks =
 	Budrik =
 	{
 		[1] = {
-			killsRequired = 5000,
+			killsRequired = 3000,
 			raceName = "Minotaurs",
-			level = {1, 40}, norepeatable = true,
+			level = {1, 9999}, norepeatable = true,
 			premium = false,
 			creatures = {
 				"minotaur",
 				"minotaur guard",
 				"minotaur mage",
-				"minotaur archer"
+				"minotaur archer",
+			}
+		},
+
+		[2] = {
+			killsRequired = 3000,
+			raceName = "Oramond Minotaurs",
+			level = {1, 9999}, norepeatable = true,
+			premium = false,
+			creatures = {
+				"execowtioner",
+				"minotaur amazon",
+				"minotaur hunter",
+				"mooh'tah warrior",
+				"moohtant",
+				"worm priestess",
+			}
+		},
+
+		[3] = {
+			killsRequired = 3000,
+			raceName = "Cult Minotaurs",
+			level = {1, 9999}, norepeatable = true,
+			premium = false,
+			creatures = {
+				"minotaur cult follower",
+				"minotaur cult prophet",
+				"minotaur cult zealot"
 			}
 		}
 	},
