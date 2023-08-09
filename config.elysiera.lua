@@ -391,7 +391,7 @@ vipBonusLoot = 0
 vipBonusSkill = 20
 vipAutoLootVipOnly = false
 vipStayOnline = true
-vipFamiliarTimeCooldownReduction = 15 * 60 * 1000
+vipFamiliarTimeCooldownReduction = 15
 
 -- Runic
 runicMultiplier = 1/500
