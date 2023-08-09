@@ -31,7 +31,7 @@ function uglyMonsterSpawn.onHealthChange(creature, attacker, primaryDamage, prim
 				uglyMonster:remove()
 				Game.setStorageValue(GlobalStorage.UglyMonster, 0)
 			end
-		end, 30 * 1000)
+		end, 60 * 1000)
 		Game.setStorageValue(GlobalStorage.UglyMonster, 1)
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
