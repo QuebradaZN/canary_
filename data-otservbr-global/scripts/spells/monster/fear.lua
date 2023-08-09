@@ -19,7 +19,7 @@ function spell.onCastSpell(creature, var)
 	return true
 end
 
-spell:name("root")
+spell:name("fear")
 spell:words("###611")
 spell:blockWalls(true)
 spell:needTarget(true)
