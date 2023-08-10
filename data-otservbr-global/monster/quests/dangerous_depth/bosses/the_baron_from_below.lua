@@ -69,56 +69,46 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 10000, maxCount = 58},
-	{name = "crystal coin", chance = 10000, maxCount = 2},
-	{name = "gold ingot", chance = 10000, maxCount = 2},
-	{name = "great mana potion", chance = 10000, maxCount = 10},
-	{name = "great spirit potion", chance = 10000, maxCount = 18},
-	{name = "mastermind potion", chance = 10000, maxCount = 2},
-	{name = "small diamond", chance = 10000, maxCount = 12},
-	{name = "small emerald", chance = 10000, maxCount = 12},
-	{name = "small ruby", chance = 10000, maxCount = 12},
-	{name = "small topaz", chance = 10000, maxCount = 12},
-	{name = "ultimate health potion", chance = 10000, maxCount = 8},
-	{name = "violet crystal shard", chance = 10000, maxCount = 3},
-	{name = "badger boots", chance = 10000},
-	{name = "blue gem", chance = 10000},
-	{name = "calopteryx cape", chance = 10000},
-	{id = 27622, chance = 10000}, -- chitinous mouth
-	{name = "crystal mace", chance = 10000},
-	{name = "fire sword", chance = 10000},
-	{name = "green gem", chance = 10000},
-	{name = "huge chunk of crude iron", chance = 10000, maxCount = 2},
-	{name = "huge shell", chance = 10000},
-	{name = "longing eyes", chance = 10000},
-	{name = "luminous orb", chance = 10000},
-	{name = "magic sulphur", chance = 10000, maxCount = 2},
-	{name = "magma coat", chance = 10000},
-	{id= 3039, chance = 10000}, -- red gem
-	{id = 8906, chance = 10000}, -- heavily rusted helmet
-	{id = 8900, chance = 10000}, -- heavily rusted shield
-	{name = "slimy leg", chance = 10000},
-	{name = "stone skin amulet", chance = 10000},
-	{name = "violet gem", chance = 10000},
-	{name = "wand of inferno", chance = 10000},
-	{name = "yellow gem", chance = 10000},
-	{name = "gold token", chance = 1000},
-	{name = "silver token", chance = 1000},
-	{name = "mallet head", chance = 1000},
-	{name = "gnome shield", chance = 1000},
-	{name = "gnome sword", chance = 1000},
-	{name = "plan for a makeshift armour", chance = 500},
-	{name = "gnome armor", chance = 500}
+	{name = "platinum coin", chance = 100000, maxCount = 58},
+	{name = "mastermind potion", chance = 100000},
+	{name = "stone skin amulet", chance = 100000},
+	{id = 27713, chance = 100000}, -- heavy crystal fragment
+	{name = "wand of inferno", chance = 72920},
+	{name = "violet crystal shard", chance = 64580},
+	{name = "ultimate health potion", chance = 62500, maxCount = 18},
+	{name = "fire sword", chance = 56250},
+	{name = "great spirit potion", chance = 54170, maxCount = 18},
+	{name = "magic sulphur", chance = 45830},
+	{name = "great mana potion", chance = 43750, maxCount = 18},
+	{name = "crystal mace", chance = 37500},
+	{name = "silver token", chance = 33330},
+	{name = "small emerald", chance = 20830},
+	{name = "huge chunk of crude iron", chance = 20830},
+	{name = "slightly rusted shield", chance = 18750},
+	{name = "slightly rusted helmet", chance = 16670},
+	{id = 36706, chance = 14580}, -- red gem
+	{name = "luminous orb", chance = 14580},
+	{name = "longing eyes", chance = 14580},
+	{name = "small diamond", chance = 12500},
+	{name = "small topaz", chance = 12500},
+	{name = "small ruby", chance = 12500},
+	{name = "violet gem", chance = 12500},
+	{id =27622, chance = 12500}, -- chitinous mouth (baron)
+	{name = "calopteryx cape", chance = 10420},
+	{name = "blue gem", chance = 10420},
+	{name = "yellow gem", chance = 10420},
+	{name = "gold ingot", chance = 8330},
+	{name = "gold token", chance = 8330},
+	{name = "crystal coin", chance = 8330},
+	{name = "green gem", chance = 8330},
+	{name = "small amethyst", chance = 6250},
+	{name = "huge shell", chance = 4170},
+	{name = "magma coat", chance = 4170},
+	{name = "slimy leg", chance = 4170},
+	{name = "badger boots", chance = 4170},
+	{name = "spellbook of warding", chance = 2080},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -2000},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -500, maxDamage = -2000 , range = ?, effect = <>, target = ?}, --life drain [[Wrath of Nature]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -500, range = ?, effect = <>, target = ?}, --Large [[Poison Berserk]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -800, range = ?, effect = <>, target = ?}, --[[Death Damage|Death Beam]]
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -500, maxDamage = -1000, range = ?, effect = <>, target = ?}, --[[Life Drain Beam]]
---}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1000, radius = 8, effect = CONST_ME_HITAREA, target = false},
