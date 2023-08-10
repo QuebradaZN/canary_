@@ -40391,7 +40391,6 @@
 			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
-			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 		</attribute>
