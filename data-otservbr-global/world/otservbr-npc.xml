@@ -759,8 +759,8 @@
 	<npc centerx="32319" centery="32208" centerz="6" radius="1">
 		<npc name="Guide Luke" x="0" y="0" z="6" spawntime="60" />
 	</npc>
-	<npc centerx="32310" centery="32209" centerz="6" radius="1">
-		<npc name="Captain Bluebear" x="0" y="0" z="6" spawntime="60" />
+	<npc centerx="32310" centery="32210" centerz="6" radius="1">
+		<npc name="Captain Bluebear" x="0" y="-1" z="6" spawntime="60" />
 	</npc>
 	<npc centerx="32363" centery="32210" centerz="6" radius="1">
 		<npc name="Todd" x="0" y="0" z="6" spawntime="60" />
