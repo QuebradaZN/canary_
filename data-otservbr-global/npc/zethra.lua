@@ -66,7 +66,7 @@ npcConfig.shop =
 	{ itemName = "flask of warrior's sweat", clientId = 5885, buy = 30000 },
 	{ itemName = "enchanted chicken wing", clientId = 5891, buy = 45000 },
 	{ itemName = "fighting spirit", clientId = 5884, buy = 90000 },
-	{ itemName = "magic sulphur", clientId = 5904, buy = 4500 },
+	{ itemName = "magic sulphur", clientId = 5904, buy = 18000},
 
 }
 
