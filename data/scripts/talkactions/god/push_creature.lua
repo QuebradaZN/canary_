@@ -1,21 +1,6 @@
 local pushCreature = TalkAction("/c")
 
 function pushCreature.onSay(player, words, param)
-<<<<<<<< HEAD:data/scripts/talkactions/gm/push_creature.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GAMEMASTER then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-|||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/push_creature.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-========
->>>>>>>> upstream/main:data/scripts/talkactions/god/push_creature.lua
 	if param == "" then
 		player:sendCancelMessage("Command param required.")
 		return false

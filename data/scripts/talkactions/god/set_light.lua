@@ -10,22 +10,6 @@ purple: 375 or 845 or 667 or 155 or 917
 local set_light = TalkAction("/setlight")
 
 function set_light.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/set_light.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/set_light.lua
-	if not player:getGroup():getAccess() then
-		return true
-	end
-
-	if player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return false
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/set_light.lua
 	logCommand(player, words, param)
 
 	local split = param:split(",")
@@ -48,11 +32,5 @@ function set_light.onSay(player, words, param)
 end
 
 set_light:separator(" ")
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/set_light.lua
-set_light:register()
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/set_light.lua
-set_light:register()
-=======
 set_light:groupType("gamemaster")
 set_light:register()
->>>>>>> upstream/main:data/scripts/talkactions/god/set_light.lua

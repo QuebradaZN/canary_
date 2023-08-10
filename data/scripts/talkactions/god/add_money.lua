@@ -1,21 +1,6 @@
 local addMoney = TalkAction("/addmoney")
 
 function addMoney.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/add_money.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/add_money.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/add_money.lua
 	-- Check the first param (player name) exists
 	if param == "" then
 		player:sendCancelMessage("Player name param required")

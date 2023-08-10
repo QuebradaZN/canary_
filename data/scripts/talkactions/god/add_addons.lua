@@ -1,16 +1,5 @@
-<<<<<<<< HEAD:data/scripts/talkactions/god/add_addons.lua
--- /addaddons playername
-
-local addons = TalkAction("/addaddons")
-|||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/alladdons.lua
--- /addons playername
-
 local addons = TalkAction("/addons")
-========
-local addons = TalkAction("/addons")
->>>>>>>> upstream/main:data/scripts/talkactions/god/alladdons.lua
 local looktypes = {
-
 	-- Female Outfits
 	136, 137, 138, 139, 140, 141, 142, 147, 148, 149, 150, 155, 156, 157, 158, 252, 269, 270, 279, 288,
 	324, 329, 336, 366, 431, 433, 464, 466, 471, 513, 514, 542, 575, 578, 618, 620, 632, 635, 636, 664,
@@ -30,21 +19,6 @@ local looktypes = {
 }
 
 function addons.onSay(player, words, param)
-<<<<<<<< HEAD:data/scripts/talkactions/god/add_addons.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-|||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/alladdons.lua
-	if not player:getGroup():getAccess() then
-		return true
-	end
-
-========
->>>>>>>> upstream/main:data/scripts/talkactions/god/alladdons.lua
 	local target
 	if param == '' then
 		target = player:getTarget()
@@ -61,20 +35,6 @@ function addons.onSay(player, words, param)
 		return false
 	end
 
-<<<<<<<< HEAD:data/scripts/talkactions/god/add_addons.lua
-	if player:getAccountType() < ACCOUNT_TYPE_GOD then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Cannot perform action.')
-		return false
-	end
-
-|||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/alladdons.lua
-	if player:getAccountType() < ACCOUNT_TYPE_GOD  then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Cannot perform action.')
-		return false
-	end
-
-========
->>>>>>>> upstream/main:data/scripts/talkactions/god/alladdons.lua
 	for i = 1, #looktypes do
 		target:addOutfitAddon(looktypes[i], 3)
 	end
@@ -85,11 +45,5 @@ function addons.onSay(player, words, param)
 end
 
 addons:separator(" ")
-<<<<<<<< HEAD:data/scripts/talkactions/god/add_addons.lua
-addons:register()
-|||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/alladdons.lua
-addons:register()
-========
 addons:groupType("god")
 addons:register()
->>>>>>>> upstream/main:data/scripts/talkactions/god/alladdons.lua

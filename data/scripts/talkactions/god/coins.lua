@@ -1,9 +1,6 @@
 local tibiaCoins = TalkAction("/coins")
 
 function tibiaCoins.onSay(player, words, param)
-    if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-        return true
-    end
     local usage = "/coins PLAYER NAME, TYPE,COIN AMOUNT"
     if param == "" then
         player:sendCancelMessage("Command param required. Usage: ".. usage)
@@ -37,4 +34,5 @@ function tibiaCoins.onSay(player, words, param)
 end
 
 tibiaCoins:separator(" ")
+tibiaCoins:groupType("god")
 tibiaCoins:register()

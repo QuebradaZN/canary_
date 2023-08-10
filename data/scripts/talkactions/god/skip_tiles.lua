@@ -1,18 +1,6 @@
 local skipTiles = TalkAction("/a")
 
 function skipTiles.onSay(player, words, param)
-<<<<<<<< HEAD:data/scripts/talkactions/gm/skip_tiles.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GAMEMASTER then
-		return true
-	end
-
-|||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/skip_tiles.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-========
->>>>>>>> upstream/main:data/scripts/talkactions/god/skip_tiles.lua
 	if param == "" then
 		player:sendCancelMessage("Command param required.")
 		return false

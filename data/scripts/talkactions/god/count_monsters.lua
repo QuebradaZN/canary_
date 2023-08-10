@@ -1,32 +1,9 @@
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/count_monsters.lua
-local xml_monster_dir = DATA_DIRECTORY .. '/world/otservbr-spawn.xml' -- Diretório do arquivo onde contém os monstros.
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/count_monsters.lua
-local xml_monster_dir = DATA_DIRECTORY.. '/world/otservbr-spawn.xml' -- Diretório do arquivo onde contém os monstros.
-=======
 local xml_monster_dir = DATA_DIRECTORY.. '/world/otservbr-spawn.xml'
->>>>>>> upstream/main:data/scripts/talkactions/god/count_monsters.lua
 local new_file_name = 'monster_count.txt'
 
 local count_monsters = TalkAction("/countmonsters")
 
 function count_monsters.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/count_monsters.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/count_monsters.lua
-
-    if not player:getGroup():getAccess() then
-        return true
-    end
-
-    if player:getAccountType() < ACCOUNT_TYPE_GOD then
-        return false
-    end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/count_monsters.lua
 	logCommand(player, words, param)
 
 	local open_file = io.open(xml_monster_dir, "r")

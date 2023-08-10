@@ -3,21 +3,6 @@ local ipBanDays = 7
 local ipBan = TalkAction("/ipban")
 
 function ipBan.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/ip_ban.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/ip_ban.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/ip_ban.lua
 	if param == "" then
 		player:sendCancelMessage("Command param required.")
 		return false

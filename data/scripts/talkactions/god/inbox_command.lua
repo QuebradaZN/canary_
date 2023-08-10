@@ -1,10 +1,6 @@
 local inboxCommand = TalkAction("/inbox")
 
 function inboxCommand.onSay(player, words, param)
-    if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-        return true
-    end
-    logCommand(player, words, param)
     param = param:split(',')
     player:getPosition():sendMagicEffect(CONST_ME_TUTORIALSQUARE)
     local target = Creature(param[1])
@@ -36,4 +32,5 @@ function inboxCommand.onSay(player, words, param)
 end
 
 inboxCommand:separator(" ")
+inboxCommand:groupType("god")
 inboxCommand:register()

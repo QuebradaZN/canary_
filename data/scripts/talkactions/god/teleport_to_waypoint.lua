@@ -19,4 +19,5 @@ function teleportToWaypoint.onSay(player, words, param)
 end
 
 teleportToWaypoint:separator(" ")
+teleportToWaypoint:groupType("god")
 teleportToWaypoint:register()

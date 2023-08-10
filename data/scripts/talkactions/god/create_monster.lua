@@ -1,21 +1,6 @@
 local createMonster = TalkAction("/m")
 
 function createMonster.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/create_monster.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/create_monster.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/create_monster.lua
 	-- Usage: "/m monstername, fiendish" for create a fiendish monster (/m rat, fiendish)
 	-- Usage: "/m monstername, [1-5]" for create a influenced monster with specific level (/m rat, 2)
 	if param == "" then

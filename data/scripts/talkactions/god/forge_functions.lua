@@ -1,20 +1,5 @@
 local addDusts = TalkAction("/adddusts")
 function addDusts.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/forge_functions.lua
 	-- Check the first param (player name) exists
 	if param == "" then
 		player:sendCancelMessage("Player name param required.")
@@ -67,21 +52,6 @@ addDusts:register()
 
 local removeDusts = TalkAction("/removedusts")
 function removeDusts.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/forge_functions.lua
 	-- Check the first param (player name) exists
 	if param == "" then
 		player:sendCancelMessage("Player name param required.")
@@ -134,21 +104,6 @@ removeDusts:register()
 
 local getDusts = TalkAction("/getdusts")
 function getDusts.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/forge_functions.lua
 	-- Check the first param (player name) exists
 	if param == "" then
 		player:sendCancelMessage("Player name param required.")
@@ -183,21 +138,6 @@ getDusts:register()
 
 local setDusts = TalkAction("/setdusts")
 function setDusts.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/forge_functions.lua
 	-- Check the first param (player name) exists
 	if param == "" then
 		player:sendCancelMessage("Player name param required.")
@@ -251,21 +191,6 @@ setDusts:register()
 local gotoFiendish = TalkAction("/fiendish")
 
 function gotoFiendish.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/forge_functions.lua
 	local monster = Monster(ForgeMonster:pickFiendish())
 	if monster then
 		player:teleportTo(monster:getPosition())
@@ -282,21 +207,6 @@ gotoFiendish:register()
 local gotoInfluenced = TalkAction("/influenced")
 
 function gotoInfluenced.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/forge_functions.lua
 	local monster = Monster(ForgeMonster:pickInfluenced())
 	if monster then
 		player:teleportTo(monster:getPosition())
@@ -325,20 +235,6 @@ setFiendish:register()
 local forge = TalkAction("/openforge")
 
 function forge.onSay(player, words, param)
-<<<<<<< HEAD:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-	-- create log
-	logCommand(player, words, param)
-||||||| 83d2da85a:data-otservbr-global/scripts/talkactions/god/forge_functions.lua
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
-	end
-
-=======
->>>>>>> upstream/main:data/scripts/talkactions/god/forge_functions.lua
 	return player:openForge()
 end
 
