@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "sniper arrow", chance = 9560, maxCount = 4},
 	{name = "steel shield", chance = 5940},
 	{name = "piece of dead brain", chance = 5030},
-	{name = "bonelord eye", chance = 2990},
+	{name = "bonelord eye", chance = 2960},
 	{name = "clerical mace", chance = 1970},
 	{name = "haunted blade", chance = 1440},
 	{id = 3059, chance = 930}, -- spellbook

@@ -75,9 +75,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 45}, -- gold coin
-	{id = 5898, chance = 5000}, -- bonelord eye
-	{id = 3031, chance = 80000, maxCount = 90} -- gold coin
+	{id = 5898, chance = 100000}, -- bonelord eye
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 100000, maxCount = 29},
+	{name = "bonelord shield", chance = 13640},
+	{name = "bonelord helmet", chance = 500},
 }
 
 -- TODO: monster-abilities

@@ -100,7 +100,8 @@ monster.loot = {
 	{name = "strong mana potion", chance = 830},
 	{name = "giant eye", chance = 460},
 	{name = "bonelord shield", chance = 90},
-	{name = "bonelord helmet", chance = 90}
+	{name = "bonelord helmet", chance = 90},
+	{name = "bonelord eye", chance = 1920},
 }
 
 -- TODO: monster-abilities

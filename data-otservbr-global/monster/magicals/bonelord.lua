@@ -101,7 +101,7 @@ monster.loot = {
 	{name = "longsword", chance = 9060},
 	{name = "steel shield", chance = 3980},
 	{name = "bonelord shield", chance = 110},
-	{name = "bonelord eye", chance = 1010},
+	{name = "bonelord eye", chance = 1000},
 	{name = "mana potion", chance = 300},
 	{name = "small flask of eyedrops", chance = 5060}
 }

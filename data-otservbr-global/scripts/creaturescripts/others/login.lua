@@ -278,8 +278,8 @@ function playerLogin.onLogin(player)
 	end
 
 	-- set quest kills on storage to 0 if its negative
-	if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurCount) < 0 then
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.MinotaurCount, 0)
+	if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.MinotaurCount) < 0 then
+			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.MinotaurCount, 0)
 	end
 
 	if player:getStorageValue(Storage.CustomMonsterKillCount.OramondMinotaurs) < 0 then
