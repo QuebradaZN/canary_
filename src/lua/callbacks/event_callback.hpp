@@ -34,8 +34,8 @@ class Monster;
  */
 class EventCallback : public Script {
 	private:
-		EventCallback_t m_callbackType = EventCallback_t::None;
-		std::string m_scriptTypeName;
+		EventCallback_t m_callbackType = EventCallback_t::none; ///< The type of the event callback.
+		std::string m_scriptTypeName; ///< The name associated with the script type.
 
 	public:
 		explicit EventCallback(LuaScriptInterface* scriptInterface);
@@ -86,6 +86,7 @@ class EventCallback : public Script {
 		void playerOnStorageUpdate(Player* player, const uint32_t key, const int32_t value, int32_t oldValue, uint64_t currentTime) const;
 		void playerOnCombat(Player* player, Creature* target, Item* item, CombatDamage &damage) const;
 		void playerOnInventoryUpdate(Player* player, Item* item, Slots_t slot, bool equip) const;
+		bool playerOnRotateItem(Player* player, Item* item, const Position &position) const;
 
 		// Monster
 		void monsterPostDropLoot(Monster* monster, Container* corpse) const;

@@ -43,12 +43,7 @@ ExerciseWeaponsTable = {
 	[35290] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_ENERGY, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful }
 }
 
-FreeDummies = { 28558, 28565 }
-MaxAllowedOnADummy = configManager.getNumber(configKeys.MAX_ALLOWED_ON_A_DUMMY)
-HouseDummies = { 28559, 28560, 28561, 28562, 28563, 28564 }
-
-local magicLevelRate = configManager.getNumber(configKeys.RATE_MAGIC)
-local skillLevelRate = configManager.getNumber(configKeys.RATE_SKILL)
+local dummies = Game.getDummies()
 
 function LeaveTraining(playerId)
 	if onExerciseTraining[playerId] then
@@ -111,22 +106,13 @@ function ExerciseEvent(playerId, tilePosition, weaponId, dummyId)
 	end
 
 	local isMagic = ExerciseWeaponsTable[weaponId].skill == SKILL_MAGLEVEL
-	local bonusDummy = table.contains(HouseDummies, dummyId) or nil
-	local multiplier = 1
-
-	if bonusDummy then bonusDummy = 1.1 else bonusDummy = 1 end
-	if not weapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then multiplier = 0.2 end
+	if not dummies[dummyId] then return false end
+	local rate = dummies[dummyId] / 100
 
 	if isMagic then
-		player:addManaSpent(math.ceil(500 * bonusDummy * multiplier))
+		player:addManaSpent(500 * rate)
 	else
-		player:addSkillTries(ExerciseWeaponsTable[weaponId].skill, 7 * bonusDummy * multiplier)
-	end
-	player:addSkillTries(SKILL_DEFENSE, math.ceil(6 * bonusDummy * multiplier))
-	player:addSkillTries(SKILL_DEXTERITY, math.ceil(3 * bonusDummy * multiplier))
-
-	if weapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then
-		weapon:setAttribute(ITEM_ATTRIBUTE_CHARGES, (weaponCharges - 1))
+		player:addSkillTries(ExerciseWeaponsTable[weaponId].skill, 7 * rate)
 	end
 
 	tilePosition:sendMagicEffect(CONST_ME_HITAREA)

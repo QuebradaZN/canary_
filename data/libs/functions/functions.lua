@@ -1041,6 +1041,21 @@ function ReloadDataEvent(cid)
 	player:reloadData()
 end
 
+function HasValidTalkActionParams(player, param, usage)
+	if not param or param == "" then
+		player:sendCancelMessage("Command param required. Usage: ".. usage)
+		return false
+	end
+
+	local split = param:split(",")
+	if not split[2] then
+		player:sendCancelMessage("Insufficient parameters. Usage: ".. usage)
+		return false
+	end
+
+	return true
+end
+
 function FormatNumber(number)
   local _, _, minus, int, fraction = tostring(number):find('([-]?)(%d+)([.]?%d*)')
   int = int:reverse():gsub("(%d%d%d)", "%1,")

@@ -3005,7 +3005,6 @@ void ProtocolGame::parseRewardChestCollect(NetworkMessage &msg) {
 	if (!useCollect) {
 		return;
 	}
-
 	addGameTask(&Game::playerStartRewardChestCollect, player->getID(), position, itemId, stackPosition);
 }
 

@@ -470,6 +470,10 @@ class Player final : public Creature, public Cylinder, public Bankable {
 
 		void addStorageValue(const uint32_t key, const int32_t value, const bool isLogin = false);
 		int32_t getStorageValue(const uint32_t key) const;
+
+		int32_t getStorageValueByName(const std::string &storageName) const;
+		void addStorageValueByName(const std::string &storageName, const int32_t value, const bool isLogin = false);
+
 		void genReservedStorageRange();
 
 		void setGroup(Group* newGroup) {
@@ -745,6 +749,8 @@ class Player final : public Creature, public Cylinder, public Bankable {
 		void removeReward(uint64_t rewardId);
 		void getRewardList(std::vector<uint64_t> &rewards) const;
 		RewardChest* getRewardChest();
+
+		std::vector<Item*> getRewardsFromContainer(const Container* container) const;
 
 		DepotChest* getDepotChest(uint32_t depotId, bool autoCreate);
 		DepotLocker* getDepotLocker(uint32_t depotId);
@@ -2883,9 +2889,6 @@ class Player final : public Creature, public Cylinder, public Bankable {
 		void updateDamageReductionFromItemImbuement(std::array<double_t, COMBAT_COUNT> &combatReductionMap, Item* item, uint16_t combatTypeIndex) const;
 		void updateDamageReductionFromItemAbility(std::array<double_t, COMBAT_COUNT> &combatReductionMap, const Item* item, uint16_t combatTypeIndex) const;
 		double_t calculateDamageReduction(double_t currentTotal, int16_t resistance) const;
-
-		void removeEmptyRewards();
-		bool hasOtherRewardContainerOpen(const Container* container) const;
 };
 
 #endif // SRC_CREATURES_PLAYERS_PLAYER_H_

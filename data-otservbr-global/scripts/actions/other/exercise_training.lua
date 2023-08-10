@@ -1,5 +1,11 @@
 local exerciseTraining = Action()
 
+local maxAllowedOnADummy = configManager.getNumber(configKeys.MAX_ALLOWED_ON_A_DUMMY)
+local dummies = Game.getDummies()
+local function isDummy(id)
+	return dummies[id] and dummies[id] > 0
+end
+
 local cooldown = 2
 
 function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -9,7 +15,7 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 	local playerId = player:getId()
 	local targetId = target:getId()
 
-	if target:isItem() and (table.contains(HouseDummies, targetId) or table.contains(FreeDummies, targetId)) then
+	if target:isItem() and isDummy(targetId) then
 		if onExerciseTraining[playerId] then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This exercise dummy can only be used after a " .. cooldown .. " second cooldown.")
 			LeaveTraining(playerId)
@@ -31,7 +37,7 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 		local targetPos = target:getPosition()
 		local targetHouse = Tile(targetPos):getHouse()
 
-		if table.contains(HouseDummies, targetId) then
+		if targetHouse and isDummy(targetId) then
 			if playerHouse ~= targetHouse then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You must be inside the house to use this dummy.")
 				return true
@@ -42,7 +48,7 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 					playersOnDummy = playersOnDummy + 1
 				end
 
-				if playersOnDummy == MaxAllowedOnADummy then
+				if playersOnDummy == maxAllowedOnADummy then
 					player:sendTextMessage(MESSAGE_FAILURE, "That exercise dummy is busy.")
 					return true
 				end

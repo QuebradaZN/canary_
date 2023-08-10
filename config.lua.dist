@@ -448,6 +448,3 @@ vipFamiliarTimeCooldownReduction = 0
 -- NOTE set rewardChestMaxCollectItems max items per collect action
 rewardChestCollectEnabled = true
 rewardChestMaxCollectItems = 200
-
--- Runic
-runicMultiplier = 1/500
