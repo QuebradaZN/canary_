@@ -331,14 +331,14 @@ rateOfflineTrainingSpeed = rateAttackSpeed
 rateExerciseTrainingSpeed = rateAttackSpeed
 
 -- Monster rates
-rateMonsterHealth = 1.5
-rateMonsterAttack = 1.2
+rateMonsterHealth = 1.75
+rateMonsterAttack = 1.1
 rateMonsterDefense = 1.0
 
 -- Boss rates
 rateBossHealth = 1.0
-rateBossAttack = 1.2
-rateBossDefense = 1.0
+rateBossAttack = 1.3
+rateBossDefense = 1.3
 
 -- Monsters
 deSpawnRange = 2
