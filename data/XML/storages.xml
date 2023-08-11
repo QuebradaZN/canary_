@@ -23,6 +23,16 @@ When adding a new range or storage, make sure that the ranges do not overlap, an
 -->
 
 <storages>
+	<range start="150000" end="200000">
+		<storage name="vip.isVip" key="1" />
+		<storage name="vip.onlineCoins.gain" key="2" />
+		<storage name="vip.onlineTokens.gain" key="3" />
+		<storage name="voucher.lastActivation" key="4" />
+		<storage name="voucher.experience.received" key="5" />
+		<storage name="voucher.skill.received" key="6" />
+		<storage name="voucher.compensatory.20230812.received" key="7" />
+	</range>
+
 	<range start="1000000" end="2000000">
 		<storage name="wheel.scroll.abridged" key="1" />
 		<storage name="wheel.scroll.basic" key="2" />

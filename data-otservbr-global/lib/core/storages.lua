@@ -3008,12 +3008,6 @@ Storage = {
 		LevelReward = 150000,
 	},
 
-	Voucher = {
-		LastActivation = 150004,
-		Experience = { Received = 150005 },
-		Skill = { Received = 150006 },
-	},
-
 	Waypoints = {
 		Owned = { From = 150100, To = 150300 },
 	},

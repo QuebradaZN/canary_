@@ -22273,19 +22273,11 @@
 	<item id="12208" name="strange blue powder">
 		<attribute key="weight" value="50"/>
 	</item>
-	<!-- <item id="12209" name="strange green powder">
+	<item id="12209" name="strange green powder">
 		<attribute key="weight" value="50"/>
-	</item> -->
-	<item id="12209" article="an" name="expired skill voucher">
-		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
-		<attribute key="moveable" value="0"/>
 	</item>
-	<!-- <item id="12210" name="strange violet powder">
+	<item id="12210" name="strange violet powder">
 		<attribute key="weight" value="50"/>
-	</item> -->
-	<item id="12210" article="an" name="expired experience voucher">
-		<attribute key="description" value="It is currently expired, but will be renewed next week."/>
-		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="12211" name="strange orange powder">
 		<attribute key="weight" value="50"/>
@@ -35806,16 +35798,8 @@
 		<attribute key="showCount" value="0"/>
 		<attribute key="weight" value="300"/>
 	</item>
-	<!-- <item id="23518" article="a" name="spark sphere" plural="spark sphere">
+	<item id="23518" article="a" name="spark sphere" plural="spark sphere">
 		<attribute key="weight" value="500"/>
-	</item> -->
-	<item id="23518" article="an" name="active experience voucher">
-	 	<attribute key="description" value="You can use this to temporarily disable your double experience voucher."/>
-		<!-- 3 hours -->
-		<attribute key="duration" value="10800"/>
-		<attribute key="stopduration" value="1"/>
-		<attribute key="decayTo" value="12210"/>
-		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="23519" name="frozen lightning" plural="frozen lightning">
 		<attribute key="showCount" value="0"/>
@@ -36895,7 +36879,7 @@
 		<attribute key="duration" value="43200"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="stopduration" value="1"/>
-		<attribute key="decayTo" value="12209"/>
+		<attribute key="decayTo" value="0"/>
 		<attribute key="moveable" value="0"/>
 	</item>
 	<item id="24964" article="an" name="portable imbuing crystal">
@@ -37845,8 +37829,13 @@
 	<item id="25768" article="a" name="gong"/>
 	<item fromid="25769" toid="25772" article="a" name="cult symbol"/>
 	<item id="25773" article="a" name="fragile torch bearer"/>
-	<item id="25774" article="a" name="guilt">
-		<attribute key="weight" value="10"/>
+	<item id="25774" article="an" name="active experience voucher">
+	 	<attribute key="description" value="You can use this to temporarily disable your double experience voucher."/>
+		<!-- 4 hours -->
+		<attribute key="duration" value="14400"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="moveable" value="0"/>
 	</item>
 	<item fromid="25775" toid="25776" name="RESERVED SPRITE"/>
 	<item id="25777" name="remains of a decaying soul"/>

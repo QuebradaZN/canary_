@@ -5,27 +5,49 @@ local config = {
 		type = 'skills',
 		activeItem = 24963,
 		inactiveItem = 21217,
-		expiredItem = 12209,
+		inactiveItemName = 'inactive skill voucher',
+		activeItemName = 'active skill voucher',
+		deprecatedExpiredItem = 12209,
 
 		weekday = 4, -- Thursday
 
 		fullDuration = 12 * 60 * 60 * 1000, -- 12 hours
-		storage = Storage.Voucher.Skill.Received
+		storage = "voucher.skill.received",
 	},
 	{
 		type = 'experience',
-		activeItem = 23518,
+		activeItem = 25774,
 		inactiveItem = 4061,
-		expiredItem = 12210,
+		inactiveItemName = 'inactive experience voucher',
+		activeItemName = 'active experience voucher',
+		deprecatedExpiredItem = 12210,
 
 		weekday = 5, -- Friday
 
 		fullDuration = 4 * 60 * 60 * 1000, -- 4 hours
-		storage = Storage.Voucher.Experience.Received
+		storage = "voucher.experience.received",
+	},
+	{
+		type = 'skills',
+		activeItem = 24963,
+		inactiveItem = 21217,
+		inactiveItemName = 'inactive compensatory skill voucher',
+		activeItemName = 'active compensatory skill voucher',
+		deprecatedExpiredItem = 12209,
+
+		compensatory = true,
+		compensationDate = 20230812,
+
+		fullDuration = 12 * 60 * 60 * 1000, -- 12 hours
+		storage = "voucher.compensatory.20230812.received",
 	},
 }
 
 local cooldown = 2 * 60
+
+local function getCurrentDateForCompensation()
+	return tonumber(os.date("%Y%m%d", os.time()))
+end
 
 -- API
 function Player.activeVoucher(self, type)
@@ -47,11 +69,11 @@ function Player.activeVoucher(self, type)
 	return nil
 end
 
-local function findItemInInbox(player, itemId)
+local function findItemInInbox(player, itemId, name)
 	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
 	local items = inbox:getItems()
 	for _, item in pairs(items) do
-		if item:getId() == itemId then
+		if item:getId() == itemId and (not name or item:getName() == name) then
 			return item
 		end
 	end
@@ -81,6 +103,7 @@ local function deactivateVoucher(player, conf, item)
 	end
 
 	item:transform(conf.inactiveItem, 1)
+	item:setName(conf.inactiveItemName)
 	item:stopDecay()
 	if conf.type == 'experience' then
 		player:setBaseXpGain(100)
@@ -93,24 +116,21 @@ local function activateVoucher(player, conf, item)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You already have an active voucher.")
 		return false
 	end
-
 	if not item then
-		local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-		local items = inbox:getItems()
-		for _, inboxItem in pairs(items) do
-			if inboxItem:getId() == conf.inactiveItem then
-				item = inboxItem
-				break
-			end
-		end
+		item = findItemInInbox(player, conf.inactiveItem, conf.inactiveItemName)
 	end
-
 	if not item then
+		player:sendTextMessage(MESSAGE_STATUS_SMALL, "Could not activate your voucher, please try again.")
 		return false
 	end
-
+	local name = item:getName()
+	if name ~= conf.inactiveItemName then
+		return false
+	end
 	item:transform(conf.activeItem, 1)
-	player:setStorageValue(Storage.Voucher.LastActivation, os.time())
+	item:setName(conf.activeItemName)
+	player:setStorageValueByName("voucher.lastActivation", os.time())
+	player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your " .. conf.type .. " voucher has been activated.")
 	item:decay()
 
 	if conf.type == 'experience' then
@@ -120,45 +140,56 @@ local function activateVoucher(player, conf, item)
 end
 
 local function canReceiveVoucher(player, conf)
-	if (os.time() - player:getStorageValue(conf.storage)) > 7 * 24 * 60 * 60 then
+	local currentDate = getCurrentDateForCompensation()
+	if conf.compensatory and currentDate >= conf.compensationDate and currentDate <= conf.compensationDate + 2 then
+		Spdlog.info("Compensatory voucher for player " .. player:getName() .. " on date " .. currentDate .. ". storage value: " .. player:getStorageValueByName(conf.storage))
+		return player:getStorageValueByName(conf.storage) < 1
+	end
+	if (os.time() - player:getStorageValueByName(conf.storage)) > 7 * 24 * 60 * 60 then
 		return true
 	end
-	if dayOfTheWeek() ~= conf.weekday then
+	if not conf.weekday or dayOfTheWeek() ~= conf.weekday then
 		return false
 	end
-	if (os.time() - player:getStorageValue(conf.storage)) < 24 * 60 * 60 then
+	if (os.time() - player:getStorageValueByName(conf.storage)) < 24 * 60 * 60 then
 		return false
 	end
 	return true
 end
 
-local function refreshVouchers(playerId)
-	local player = Player(playerId)
+local function refreshVouchers(player)
 	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-	player:setStorageValue(Storage.Voucher.LastActivation, 0)
+	player:setStorageValueByName("voucher.lastActivation", 0)
 	for _, conf in pairs(config) do
 		deactivateVoucher(player, conf)
-
-		local item = findItemInInbox(player, conf.inactiveItem) or findItemInInbox(player, conf.expiredItem)
-		if not item then
-			item = Game.createItem(conf.inactiveItem)
-			item:setDurationAttr(conf.fullDuration)
-			item:stopDecay()
-			inbox:addItemEx(item, INDEX_WHEREEVER, FLAG_NOLIMIT)
+		local deprecatedExpiredItem = findItemInInbox(player, conf.deprecatedExpiredItem)
+		if deprecatedExpiredItem then
+			deprecatedExpiredItem:remove()
 		end
 
+		local item = findItemInInbox(player, conf.inactiveItem, conf.inactiveItemName)
 		if canReceiveVoucher(player, conf) then
+			if not item then
+				item = Game.createItem(conf.inactiveItem)
+				item:setDurationAttr(conf.fullDuration)
+				item:stopDecay()
+				inbox:addItemEx(item, INDEX_WHEREEVER, FLAG_NOLIMIT)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your received a brand-new " .. item:getName() .. " that will last for " .. getTimeInWords(conf.fullDuration / 1000) .. ".")
+			else
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your " .. item:getName() .. " has been refreshd to " .. getTimeInWords(conf.fullDuration / 1000) .. ".")
+			end
+
 			item:transform(conf.inactiveItem, 1)
+			item:setName(conf.inactiveItemName)
 			item:setDurationAttr(conf.fullDuration)
 			item:stopDecay()
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your " .. item:getName() .. " was recharged.")
-			player:setStorageValue(conf.storage, os.time())
+			player:setStorageValueByName(conf.storage, os.time())
 		end
 	end
 end
 
 function playerLogin.onLogin(player)
-	addEvent(refreshVouchers, 100, player:getId())
+	addPlayerEvent(refreshVouchers, 100, player:getId())
 	return true
 end
 
@@ -168,23 +199,30 @@ local activate = Action()
 
 function activate.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	for _, conf in pairs(config) do
-		if item:getId() == conf.inactiveItem then
-			if player:getStorageValue(Storage.Voucher.LastActivation) + cooldown > os.time() then
-				local timeLeft = player:getStorageValue(Storage.Voucher.LastActivation) + cooldown - os.time()
+		if item:getId() == conf.inactiveItem and item:getName() == conf.inactiveItemName then
+			local lastActivation = player:getStorageValueByName("voucher.lastActivation")
+			Spdlog.info("Last activation: " .. lastActivation)
+			if lastActivation and lastActivation > 0 and (lastActivation + cooldown) > os.time() then
+				local timeLeft = lastActivation + cooldown - os.time()
 				player:sendTextMessage(MESSAGE_STATUS_SMALL, "You must wait " .. getTimeInWords(timeLeft) .. " before activating another voucher.")
 				return true
 			end
 
-			activateVoucher(player, conf, item)
+			addPlayerEvent(activateVoucher, 100, player:getId(), conf)
 		elseif item:getId() == conf.activeItem then
-			deactivateVoucher(player, conf, item)
+			addPlayerEvent(deactivateVoucher, 100, player:getId(), conf)
 		end
 	end
 	return true
 end
 
+local ids = {}
 for _, conf in pairs(config) do
-	activate:id(conf.inactiveItem, conf.activeItem)
+	ids[conf.inactiveItem] = true
+	ids[conf.activeItem] = true
+end
+for id, _ in pairs(ids) do
+	activate:id(id)
 end
 activate:register()
 

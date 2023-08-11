@@ -84,19 +84,28 @@ end
 
 function getTimeInWords(secs)
 	local hours, minutes, seconds = getHours(secs), getMinutes(secs), getSeconds(secs)
-	if (minutes > 59) then
-		minutes = minutes-hours*60
-	end
 
 	local timeStr = ''
 
-	if hours > 1 then
-		timeStr = hours .. ' hours '
-	elseif hours == 1 then
-		timeStr = hours .. ' hour '
+	if hours > 0 then
+		timeStr = hours .. (hours > 1 and ' hours' or ' hour')
 	end
 
-	timeStr = timeStr .. minutes .. ' minutes and '.. seconds .. ' seconds.'
+	if minutes > 0 then
+		if timeStr ~= '' then
+			timeStr = timeStr .. ', '
+		end
+		timeStr = timeStr .. minutes .. (minutes > 1 and ' minutes' or ' minute')
+	end
+
+	if seconds > 0 then
+		if timeStr ~= '' then
+			timeStr = timeStr .. ' and '
+		end
+		timeStr = timeStr .. seconds .. (seconds > 1 and ' seconds' or ' second')
+	end
+
+	timeStr = timeStr .. '.'
 
 	return timeStr
 end
@@ -1011,25 +1020,6 @@ function getTime(seconds)
 	end
 
 	return hours .. ":" .. minutes .. "h"
-end
-
-function getTimeInWords(secs)
-	local hours, minutes, seconds = getHours(secs), getMinutes(secs), getSeconds(secs)
-	if (minutes > 59) then
-		minutes = minutes - hours * 60
-	end
-
-	local timeStr = ''
-
-	if hours > 1 then
-		timeStr = hours .. ' hours '
-	elseif hours > 0 then
-		timeStr = hours .. ' hour '
-	end
-
-	timeStr = timeStr .. minutes .. ' minutes and ' .. seconds .. ' seconds.'
-
-	return timeStr
 end
 
 function ReloadDataEvent(cid)
