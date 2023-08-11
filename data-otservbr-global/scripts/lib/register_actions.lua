@@ -809,6 +809,10 @@ function onUseMachete(player, item, fromPosition, target, toPosition, isHotkey)
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 		target:remove()
 		return true
+	elseif target.itemid == 30623 then -- reed
+		target:transform(30624)
+		target:decay()
+		Game.createItem(30975, 1, toPosition)
 	end
 
 	return onDestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
@@ -967,14 +971,18 @@ function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if target.itemid == 5464 then
+	if target.itemid == 5464 then -- burning sugar cane
 		target:transform(5463)
 		target:decay()
 		Game.createItem(5466, 1, toPosition)
-	elseif target.itemid == 3653 then
+	elseif target.itemid == 3653 then -- wheat
 		target:transform(3651)
 		target:decay()
 		Game.createItem(3605, 1, toPosition)
+	elseif target.itemid == 30623 then -- reed
+		target:transform(30624)
+		target:decay()
+		Game.createItem(30975, 1, toPosition)
 	-- The secret library
 	elseif toPosition == Position(32177, 31925, 7) then
 		player:teleportTo({x = 32515, y = 32535, z = 12})

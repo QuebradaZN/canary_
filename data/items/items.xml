@@ -26520,7 +26520,7 @@
 		<attribute key="decayTo" value="17152"/>
 	</item>
 	<item id="17152" name="growing venorean spice">
-		<attribute key="description" value="It's not mature yet."/>
+		<attribute key="description" value="It is not mature yet."/>
 		<attribute key="duration" value="21600"/>
 		<attribute key="decayTo" value="17153"/>
 	</item>
@@ -44567,7 +44567,12 @@
 	<item fromid="30618" toid="30619" article="a" name="statue of bastesh"/>
 	<item id="30620" article="a" name="potted palm tree"/>
 	<item fromid="30621" toid="30622" article="a" name="potted plant"/>
-	<item fromid="30623" toid="30624" article="a" name="reed"/>
+	<item id="30623" name="reed"/>
+	<item id="30624" name="reed">
+		<attribute key="description" value="It is not mature yet."/>
+		<attribute key="duration" value="240"/>
+		<attribute key="decayTo" value="30623"/>
+	</item>
 	<item id="30625" article="a" name="granite pillar"/>
 	<item fromid="30626" toid="30635" article="a" name="obelisk"/>
 	<item fromid="30636" toid="30645" article="a" name="door casing"/>
@@ -44709,10 +44714,14 @@
 	<item id="30972" name="unknown item"/>
 	<item id="30973" article="a" name="bundle of reed"/>
 	<item id="30974" article="a" name="reed"/>
-	<item id="30975" article="a" name="bunch of reed">
+	<item id="30975" article="a" name="bunch of reed" plural="bunches of reed">
 		<attribute key="weight" value="550"/>
 	</item>
-	<item id="30976" article="a" name="reed"/>
+	<item id="30976" name="reed">
+		<attribute key="description" value="It is not mature yet."/>
+		<attribute key="duration" value="240"/>
+		<attribute key="decayTo" value="30623"/>
+	</item>
 	<item fromid="30977" toid="30982" article="a" name="wall"/>
 	<item fromid="30983" toid="30988" name="unknown item"/>
 	<item id="30989" article="a" name="intricate cobra shrine">
