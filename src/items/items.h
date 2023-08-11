@@ -301,7 +301,6 @@ class ItemType {
 		uint8_t lightColor = 0;
 		uint8_t shootRange = 1;
 		uint8_t imbuementSlot = 0;
-		uint8_t stackSize = 100;
 
 		int8_t hitChance = 0;
 

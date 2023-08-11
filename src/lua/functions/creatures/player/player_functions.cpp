@@ -3445,7 +3445,7 @@ int PlayerFunctions::luaPlayerGetBosstiaryLevel(lua_State* L) {
 		player) {
 		const MonsterType* mtype = g_monsters().getMonsterType(getString(L, 2));
 		if (mtype) {
-			uint32_t bossId = mtype->info.bossRaceId;
+			uint32_t bossId = mtype->info.raceid;
 			if (bossId == 0) {
 				lua_pushnil(L);
 				return 0;
@@ -3467,7 +3467,7 @@ int PlayerFunctions::luaPlayerGetBosstiaryKills(lua_State* L) {
 		player) {
 		const MonsterType* mtype = g_monsters().getMonsterType(getString(L, 2));
 		if (mtype) {
-			uint32_t bossId = mtype->info.bossRaceId;
+			uint32_t bossId = mtype->info.raceid;
 			if (bossId == 0) {
 				lua_pushnil(L);
 				return 0;
