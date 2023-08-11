@@ -53,7 +53,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetDistance = 1,
+	targetDistance = 3,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
@@ -86,18 +86,12 @@ monster.loot = {
 	{name = "Ornate Crossbow", chance = 30},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -209, maxDamage = -343, range = ?, effect = <>, target = ?}, --Boulder throw
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Big Explosion Bomb
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Explosion Bomb
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Explosion Ring
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Fire ball
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -801},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 250, maxDamage = -360, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = true},
-	{name ="combat", interval = 2000, chance = 40, type = COMBAT_FIREDAMAGE, minDamage = -1, maxDamage = -1, range = 5, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -801},
+	{name ="combat", interval = 2200, chance = 60, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -450, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = true},
+	{name ="combat", interval = 3100, chance = 35, type = COMBAT_FIREDAMAGE, minDamage = -650, maxDamage = -850, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
+	{name ="gorerilla large ring", interval = 3500, chance = 35, minDamage = -600, maxDamage = -1000},
+	{name ="gorerilla small ring", interval = 3800, chance = 20, minDamage = -600, maxDamage = -1000},
 }
 
 monster.defenses = {

@@ -85,14 +85,12 @@ monster.loot = {
 	{name = "Metal Spats", chance = 2260},
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -0},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Wide Fire Wave
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -450, effect = CONST_ME_ORANGE_ENERGY_SPARK},
-	{name ="combat", interval = 1000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -260, maxDamage = -300, length = 4, spread = 1, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800},
+	{name ="sabretooth wave", interval = 5000, chance = 35, minDamage = -600, maxDamage = -1000},
+	{name ="combat", interval = 3500, chance = 30, type = COMBAT_PHYSICALDAMAGE, minDamage = -800, maxDamage = -1500, range = 1, effect = CONST_ME_BIG_SCRATCH, target = true},
+	{name ="combat", interval = 2700, chance = 35, type = COMBAT_FIREDAMAGE, minDamage = -600, maxDamage = -1200, range = 1, target = true},
+
 }
 
 monster.defenses = {

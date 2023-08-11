@@ -28,7 +28,7 @@ monster.Bestiary = {
 
 monster.health = 20650
 monster.maxHealth = 20650
-monster.race = "blood"
+monster.race = "energy"
 monster.corpse = 39331
 monster.speed = 207
 monster.manaCost = 0
@@ -53,7 +53,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetDistance = 1,
+	targetDistance = 3,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
@@ -96,9 +96,11 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -1037, maxDamage = -1037, range = ?, effect = <>, target = ?}, --Shrieking Wave
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 300, maxDamage = -801},
-	{name ="combat", interval = 1000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -800, length = 7, spread = 0, effect = CONST_ME_PINK_ENERGY_SPARK, target = false},
-	{name ="combat", interval = 3000, chance = 45, type = COMBAT_PHYSICALDAMAGE, minDamage = -1037, maxDamage = -1050, length = 6, spread = 1, effect = CONST_ME_SOUND_PURPLE, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
+	{name ="combat", interval = 5000, chance = 47, type = COMBAT_ENERGYDAMAGE, minDamage = -650 , maxDamage = -900, range = 6, shootEffect = CONST_ANI_ENERGYBALL},
+	{name ="combat", interval = 3500, chance = 30, type = COMBAT_DEATHDAMAGE, minDamage = -500, maxDamage = -700, radius = 6, effect = CONST_ME_MORTAREA, target = false},
+	{name ="energy chain", interval = 2000, chance = 20, minDamage = -425, maxDamage = -550, range = 3, target = true},
+	{name ="combat", interval = 3000, chance = 30, type = COMBAT_ENERGYDAMAGE, minDamage = -700, maxDamage = -1000, length = 5, spread = 2, effect = CONST_ME_SOUND_PURPLE, target = false},
 }
 
 monster.defenses = {
