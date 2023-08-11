@@ -124,7 +124,7 @@ class Party {
 		uint32_t getMinLevel() const;
 		uint32_t getMaxLevel() const;
 
-		std::map<uint32_t, int64_t> ticksMap;
+		phmap::btree_map<uint32_t, int64_t> ticksMap;
 
 		PlayerVector memberList;
 		PlayerVector inviteList;
