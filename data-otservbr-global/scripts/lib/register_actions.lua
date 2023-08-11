@@ -943,6 +943,25 @@ function onUseSpoon(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
+function onUseSpikedSquelcher(player, item, fromPosition, target, toPosition, isHotkey)
+	if target.itemid == 19068 and toPosition == Position(33276, 31797, 6) then -- mysterious ornate chest at Telas' house
+		item:remove(1)
+
+		local rand = math.random(100)
+		if rand <= 10 then
+			toPosition:sendMagicEffect(CONST_ME_BLUE_FIREWORKS)
+			player:say("Success! Within the chest, you discover the fabled golem grench.", TALKTYPE_MONSTER_SAY)
+			player:addItem(16251, 1)
+		else
+			toPosition:sendMagicEffect(CONST_ME_WHITE_SMOKES)
+			player:say("The spiked squelcher vanishes into the chest's abyss.", TALKTYPE_MONSTER_SAY)
+		end
+	else
+		return false
+	end
+	return true
+end
+
 function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
 	if not table.contains({3453, 9596}, item.itemid) then
 		return false
