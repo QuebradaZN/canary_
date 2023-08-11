@@ -5715,7 +5715,7 @@ GameStore.Categories = {
 			{
 				icons = { "Ornate_Bed.png" },
 				name = "Ornate Bed",
-				price = 180,
+				price = 18,
 				itemtype = { 35871, 35872 },
 				count = 1,
 				description = "<i>Sleep in a bed to restore soul, mana and hit points and to train your skills!</i>\n\n{house}\n{boxicon}comes in 2 boxes which can only be unwrapped by purchasing character, put the 2 parts together to get a functional bed\n{storeinbox}\n{usablebyallicon}if not already occupied, it can be used by every Premium character that has access to the house\n{useicon}use it to sleep in it\n{backtoinbox}\n",
