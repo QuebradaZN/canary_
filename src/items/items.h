@@ -282,6 +282,7 @@ class ItemType {
 		uint16_t wareId = 0;
 		uint16_t bedPartOf = 0;
 		uint8_t stackSize = 250;
+		uint16_t m_transformOnUse = 0;
 
 		MagicEffectClasses magicEffect = CONST_ME_NONE;
 		Direction bedPartnerDir = DIRECTION_NONE;
@@ -300,6 +301,8 @@ class ItemType {
 		uint8_t lightColor = 0;
 		uint8_t shootRange = 1;
 		uint8_t imbuementSlot = 0;
+		uint8_t stackSize = 100;
+
 		int8_t hitChance = 0;
 
 		// 12.90
