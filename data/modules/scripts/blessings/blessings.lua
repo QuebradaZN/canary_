@@ -187,6 +187,11 @@ Blessings.sendBlessDialog = function(player)
 	msg:sendToPlayer(player)
 end
 
+Blessings.getCommandFee = function(cost)
+	local fee = configManager.getNumber(configKeys.BUY_BLESS_COMMAND_FEE) or 0
+	return cost + cost * (((fee > 100 and 100) or fee) / 100)
+end
+
 Blessings.getBlessingsCost = function(level)
 	if level <= 100 then
 		return 1000
@@ -195,7 +200,6 @@ Blessings.getBlessingsCost = function(level)
 	else
 		return (level - 100) * 60 + 1000
 	end
-	return byCommand and Blessings.getCommandFee(cost) or cost
 end
 
 Blessings.getPvpBlessingCost = function(level, byCommand)
@@ -259,7 +263,7 @@ Blessings.getInquisitionPrice = function(player)
 	inquifilter = function(b) return b.inquisition end
 	donthavefilter = function(p, b) return not p:hasBlessing(b) end
 	local missing = #player:getBlessings(inquifilter, donthavefilter)
-	local totalBlessPrice = Blessings.getBlessingsCost(player:getLevel(), false) * missing * Blessings.Config.InquisitonBlessPriceMultiplier
+	local totalBlessPrice = Blessings.getBlessingsCost(player:getLevel()) * missing * Blessings.Config.InquisitonBlessPriceMultiplier
 	return missing, totalBlessPrice
 end
 
@@ -290,7 +294,7 @@ Blessings.DropLoot = function(player, corpse, chance, skulled)
 			for i = 0, inbox:getSize() do
 				local item = inbox:getItem(i)
 				if item then
-					toBeDeleted[#toBeDeleted + 1] = item.uid
+					toBeDeleted[#toBeDeleted+1] = item.uid
 				end
 			end
 			if #toBeDeleted > 0 then
@@ -313,7 +317,6 @@ Blessings.ClearBless = function(player, killer, currentBless)
 		return
 	end
 	for i = 1, #currentBless do
-
 		Blessings.DebugPrint(i, "ClearBless curBless i", " | " .. currentBless[i].name)
 		player:removeBlessing(currentBless[i].id, 1)
 	end
@@ -327,11 +330,11 @@ Blessings.BuyAllBlesses = function(player)
 		return
 	end
 
-	local blessCost = Blessings.getBlessingsCost(player:getLevel(), true)
+	local blessCost = Blessings.getBlessingsCost(player:getLevel())
 	local PvPBlessCost = Blessings.getPvpBlessingCost(player:getLevel(), true)
 	local hasToF = Blessings.Config.HasToF and player:hasBlessing(1) or true
-	donthavefilter = function(p, b) return not p:hasBlessing(b) end
-	local missingBless = player:getBlessings(nil,donthavefilter)
+	local donthavefilter = function(p, b) return not p:hasBlessing(b) end
+	local missingBless = player:getBlessings(nil, donthavefilter)
 	local missingBlessAmt = #missingBless + (hasToF and 0 or 1)
 	local totalCost = blessCost * #missingBless
 
@@ -354,7 +357,6 @@ Blessings.BuyAllBlesses = function(player)
 		player:sendCancelMessage("You don't have enough money. You need " .. totalCost .. " to buy all blesses.", cid)
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	end
-
 end
 
 Blessings.PlayerDeath = function(player, corpse, killer)
@@ -363,7 +365,7 @@ Blessings.PlayerDeath = function(player, corpse, killer)
 	local haveSkull = table.contains({ SKULL_RED, SKULL_BLACK }, player:getSkull())
 	local curBless = player:getBlessings()
 
-	if haveSkull then  -- lose all bless + drop all items
+	if haveSkull then -- lose all bless + drop all items
 		Blessings.DropLoot(player, corpse, 100, true)
 	elseif #curBless < 5 and not hasAol then -- lose all items
 		local equipLoss = Blessings.LossPercent[#curBless].item
