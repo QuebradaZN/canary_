@@ -7,11 +7,13 @@ local function synergies(player)
 	local party = player:getParty()
 	local val = {
 		knight = false,
-		druid = false
+		druid = false,
+		sorcerer = false,
 	}
 	if party and party:isSharedExperienceEnabled() then
 		if party:hasKnight() then val.knight = true end
 		if party:hasDruid() then val.druid = true end
+		if party:hasSorcerer() then val.sorcerer = true end
 	end
 	return val
 end
@@ -73,7 +75,7 @@ function onChain(creature, target)
 		monster:addCondition(monsterHaste)
 		if not monster:isChallenged() then
 			monster:changeTargetDistance(1, duration)
-			if synergies(player).druid then
+			if synergies(player).druid or synergies(player).sorcerer then
 				doChallengeCreature(player, monster, 6000)
 			end
 		end

@@ -156,7 +156,7 @@ class Monster final : public Creature {
 
 		bool changeTargetDistance(int32_t distance, uint32_t duration = 12000);
 		bool isChallenged() const {
-			return challengeFocusDuration > 0 || challengeMeleeDuration > 0;
+			return challengeFocusDuration > 0;
 		}
 
 		CreatureIcon_t getIcon() const override {
