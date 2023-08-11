@@ -51776,6 +51776,54 @@
 		<attribute key="decayTo" value="35379"/>
 		<attribute key="containersize" value="30"/>
 	</item>
+	<item id="35381" article="a" name="dead pirat bombardier">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35382" article="a" name="dead pirat bombardier">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="decayTo" value="35381"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35383" article="a" name="dead pirat bombardier">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="decayTo" value="35382"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35384" article="a" name="dead pirat bombardier">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="10"/>
+		<attribute key="decayTo" value="35383"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35385" article="a" name="dead pirat mate">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35386" article="a" name="dead pirat mate">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="decayTo" value="35385"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35387" article="a" name="dead pirat mate">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="decayTo" value="35386"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35388" article="a" name="dead pirat mate">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="10"/>
+		<attribute key="decayTo" value="35387"/>
+		<attribute key="containersize" value="30"/>
+	</item>
 	<item id="35479" article="a" name="bag of smuggled goods">
 		<attribute key="weight" value="800"/>
 	</item>
@@ -52056,6 +52104,30 @@
 	</item>
 	<item id="35695" article="a" name="scrubbing brush" plural="scrubbing brushes">
 		<attribute key="weight" value="350"/>
+	</item>
+	<item id="35843" article="a" name="dead ratmiral blackwhiskers">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35844" article="a" name="dead ratmiral blackwhiskers">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="decayTo" value="35843"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35845" article="a" name="dead ratmiral blackwhiskers">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="decayTo" value="35844"/>
+		<attribute key="containersize" value="30"/>
+	</item>
+	<item id="35846" article="a" name="dead ratmiral blackwhiskers">
+		<attribute key="fluidsource" value="blood"/>
+		<attribute key="duration" value="10"/>
+		<attribute key="decayTo" value="35845"/>
+		<attribute key="containersize" value="30"/>
 	</item>
 	<item id="35848" article="a" name="blue quiver">
 		<attribute key="slotType" value="right-hand"/>
