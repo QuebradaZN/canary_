@@ -5,42 +5,44 @@ ExerciseSpeedMultipliers = {
 	Masterful = 1.30
 }
 ExerciseWeaponsTable = {
-	-- MELE
-	-- Training
+	-- MELEE
+	-- Training (gray)
 	[28540] = { skill = SKILL_MELEE, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_THROWINGKNIFE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
 	[28541] = { skill = SKILL_MELEE, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_THROWINGKNIFE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
 	[28542] = { skill = SKILL_MELEE, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_THROWINGKNIFE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Training },
 
-	-- Exercise
+	-- Exercise (blue)
 	[28552] = { skill = SKILL_MELEE, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
-	[28553] = { skill = SKILL_MELEE, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
-	[28554] = { skill = SKILL_MELEE, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+	[28553] = { skill = SKILL_MELEE, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
+	[28554] = { skill = SKILL_MELEE, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
 
-	-- Enhanced
-	[35279] = { skill = SKILL_MELEE, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	-- Enhanced (green)
+	[35279] = { skill = SKILL_MELEE, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
 	[35280] = { skill = SKILL_MELEE, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
-	[35281] = { skill = SKILL_MELEE, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
+	[35281] = { skill = SKILL_MELEE, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
 
-	-- Supreme
-	[35285] = { skill = SKILL_MELEE, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
-	[35286] = { skill = SKILL_MELEE, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
+	-- Supreme (red)
+	[35285] = { skill = SKILL_MELEE, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
+	[35286] = { skill = SKILL_MELEE, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
 	[35287] = { skill = SKILL_MELEE, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
 
 	-- ROD
-	[28544] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLEARTH, allowFarUse = true },
-	[28556] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
-	[35283] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_EARTH, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
-	[35289] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_ENERGY, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
-	-- RANGE
-	[28543] = { skill = SKILL_DISTANCE, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLSTONE, allowFarUse = true },
-	[28555] = { skill = SKILL_DISTANCE, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_FLASHARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
-	[35282] = { skill = SKILL_DISTANCE, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_EARTHARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
-	[35288] = { skill = SKILL_DISTANCE, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_SNIPERARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful },
+	[28544] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLEARTH, allowFarUse = true }, -- training
+	[28556] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },  -- exercise
+	[35283] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_EARTH, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced }, -- enhanced
+	[35289] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_ENERGY, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful }, --supreme
+
 	-- WAND
-	[28545] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLEARTH, allowFarUse = true },
-	[28557] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },
-	[35284] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_EARTH, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced },
-	[35290] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_ENERGY, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful }
+	[28545] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLEARTH, allowFarUse = true }, -- training
+	[28557] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },  -- exercise
+	[35284] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_EARTH, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced }, -- enhanced
+	[35290] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_ENERGY, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful }, --supreme
+
+	-- RANGE
+	[28543] = { skill = SKILL_DISTANCE, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLSTONE, allowFarUse = true }, -- training
+	[28555] = { skill = SKILL_DISTANCE, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_FLASHARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic }, -- exercise
+	[35282] = { skill = SKILL_DISTANCE, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_EARTHARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced }, -- enhanced
+	[35288] = { skill = SKILL_DISTANCE, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_SNIPERARROW, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful }, --supreme
 }
 
 local dummies = Game.getDummies()
