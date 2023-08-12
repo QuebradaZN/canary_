@@ -129,7 +129,7 @@ local function activateVoucher(player, conf, item)
 	end
 	item:transform(conf.activeItem, 1)
 	item:setName(conf.activeItemName)
-	player:setStorageValueByName("voucher.lastActivation", os.time())
+	player:setStorageValueByName("voucher.last-activation", os.time())
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your " .. conf.type .. " voucher has been activated.")
 	item:decay()
 
@@ -159,7 +159,7 @@ end
 
 local function refreshVouchers(player)
 	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-	player:setStorageValueByName("voucher.lastActivation", 0)
+	player:setStorageValueByName("voucher.last-activation", 0)
 	for _, conf in pairs(config) do
 		deactivateVoucher(player, conf)
 		local deprecatedExpiredItem = findItemInInbox(player, conf.deprecatedExpiredItem)
@@ -200,7 +200,7 @@ local activate = Action()
 function activate.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	for _, conf in pairs(config) do
 		if item:getId() == conf.inactiveItem and item:getName() == conf.inactiveItemName then
-			local lastActivation = player:getStorageValueByName("voucher.lastActivation")
+			local lastActivation = player:getStorageValueByName("voucher.last-activation")
 			Spdlog.info("Last activation: " .. lastActivation)
 			if lastActivation and lastActivation > 0 and (lastActivation + cooldown) > os.time() then
 				local timeLeft = lastActivation + cooldown - os.time()
