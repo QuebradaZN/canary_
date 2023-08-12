@@ -142,7 +142,6 @@ end
 local function canReceiveVoucher(player, conf)
 	local currentDate = getCurrentDateForCompensation()
 	if conf.compensatory and currentDate >= conf.compensationDate and currentDate <= conf.compensationDate + 2 then
-		Spdlog.info("Compensatory voucher for player " .. player:getName() .. " on date " .. currentDate .. ". storage value: " .. player:getStorageValueByName(conf.storage))
 		return player:getStorageValueByName(conf.storage) < 1
 	end
 	if (os.time() - player:getStorageValueByName(conf.storage)) > 7 * 24 * 60 * 60 then
@@ -201,7 +200,6 @@ function activate.onUse(player, item, fromPosition, target, toPosition, isHotkey
 	for _, conf in pairs(config) do
 		if item:getId() == conf.inactiveItem and item:getName() == conf.inactiveItemName then
 			local lastActivation = player:getStorageValueByName("voucher.last-activation")
-			Spdlog.info("Last activation: " .. lastActivation)
 			if lastActivation and lastActivation > 0 and (lastActivation + cooldown) > os.time() then
 				local timeLeft = lastActivation + cooldown - os.time()
 				player:sendTextMessage(MESSAGE_STATUS_SMALL, "You must wait " .. getTimeInWords(timeLeft) .. " before activating another voucher.")
