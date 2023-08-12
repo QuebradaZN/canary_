@@ -50652,8 +50652,8 @@
 		<attribute key="range" value="5"/>
 		<attribute key="weight" value="2600"/>
 		<attribute key="imbuementslot" value="2">
+			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
-			<attribute key="critical hit" value="3"/>
 			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
 	</item>
