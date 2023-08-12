@@ -407,4 +407,4 @@ bossDefaultTimeToFightAgain = 10 * 60 * 60 -- 20 hours
 bossDefaultTimeToDefeat = 20 * 60 -- 20 minutes
 
 rewardChestCollectEnabled = true
-rewardChestMaxCollectItems = 0
+rewardChestMaxCollectItems = 200

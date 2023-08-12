@@ -248,7 +248,7 @@ class Game {
 
 		bool addItemStoreInbox(const Player* player, uint32_t itemId);
 
-		void playerStartRewardChestCollect(uint32_t playerId, const Position &pos, uint16_t itemId, uint8_t stackPos);
+		void playerRewardChestCollect(uint32_t playerId, const Position &pos, uint16_t itemId, uint8_t stackPos, uint32_t maxMoveItems = 0);
 
 		void playerReportRuleViolationReport(uint32_t playerId, const std::string &targetName, uint8_t reportType, uint8_t reportReason, const std::string &comment, const std::string &translation);
 
@@ -739,14 +739,13 @@ class Game {
 		ReturnValue internalCollectLootItems(Player* player, Item* item, ObjectCategory_t category = OBJECTCATEGORY_DEFAULT);
 
 		/**
-		 * @brief Collects items from a given item and places them into the loot container.
+		 * @brief Collects items from the reward chest.
 		 *
 		 * @param player Pointer to the player object.
 		 * @param maxMoveItems Maximum number of items to move (default is 0, which means no limit).
+		 * @return Return value indicating success or error.
 		 */
-		void collectItemsAsync(uint32_t playerId, const std::vector<Item*> &rewardContainers, uint32_t maxMoveItems = 0);
-		void collectItems(uint32_t playerId, const std::vector<Item*> &items, const std::vector<Item*> &rewardContainers, uint32_t maxMoveItems = 0);
-		std::vector<Item*> getRewardContainers(const Container* container) const;
+		ReturnValue collectRewardChestItems(Player* player, uint32_t maxMoveItems = 0);
 
 		phmap::flat_hash_map<std::string, Player*> m_uniqueLoginPlayerNames;
 		phmap::flat_hash_map<uint32_t, Player*> players;

@@ -2657,60 +2657,19 @@ ReturnValue Game::internalCollectLootItems(Player* player, Item* item, ObjectCat
 	return processLootItems(player, lootContainer, item, fallbackConsumed);
 }
 
-void Game::collectItemsAsync(uint32_t playerId, const std::vector<Item*> &rewardContainers, uint32_t maxMoveItems /* = 0 */) {
-	Player* player = getPlayerByID(playerId);
-	if (!player) {
-		return;
+ReturnValue Game::collectRewardChestItems(Player* player, uint32_t maxMoveItems /* = 0*/) {
+	// Check if have item on player reward chest
+	RewardChest* rewardChest = player->getRewardChest();
+	if (!rewardChest || rewardChest->empty()) {
+		SPDLOG_DEBUG("Reward chest is wrong or empty");
+		return RETURNVALUE_NOTPOSSIBLE;
 	}
-	std::vector<Item*> items;
-	for (auto item : rewardContainers) {
-		if (item->getContainer()) {
-			for (auto subItem : item->getContainer()->getItems()) {
-				items.push_back(subItem);
-			}
-		}
-	}
-	for (auto container : rewardContainers) {
-		container->incrementReferenceCounter();
-	}
-	for (auto item : items) {
-		item->incrementReferenceCounter();
-	}
-	try {
-		std::future<void> future = std::async(std::launch::async, &Game::collectItems, this, playerId, items, rewardContainers, 0);
-		futures.push_back(std::move(future));
-	} catch (std::system_error &e) {
-		collectItems(playerId, items, rewardContainers, g_configManager().getNumber(REWARD_CHEST_MAX_COLLECT_ITEMS));
-		SPDLOG_WARN("Failed to create a new thread for asynchronous reward collect, running synchronously: {}", e.what());
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "An error occurred while collecting rewards. Please report it to the administrador.");
-	} catch (std::future_error &e) {
-		collectItems(playerId, items, rewardContainers, g_configManager().getNumber(REWARD_CHEST_MAX_COLLECT_ITEMS));
-		SPDLOG_ERROR("Failed to run asynchronous reward collect: {}", e.what());
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "An error occurred while collecting rewards. Please report it to the administrador.");
-	}
-}
 
-void Game::collectItems(uint32_t playerId, const std::vector<Item*> &items, const std::vector<Item*> &rewardContainers, uint32_t maxMoveItems /* = 0 */) {
-	Player* player = getPlayerByID(playerId);
-	if (!player) {
-		return;
-	}
-	// Ensure that we decrement the reference counter of the items after the function returns
-	auto decrementReferenceCounter = [&items, &rewardContainers]() {
-		for (auto item : items) {
-			item->decrementReferenceCounter();
-		}
-		for (auto container : rewardContainers) {
-			container->decrementReferenceCounter();
-		}
-	};
-
-	defer _(nullptr, [&](...) { decrementReferenceCounter(); });
-
-	auto rewardCount = items.size();
-	uint32_t movedItems = 0;
+	auto rewardItemsVector = player->getRewardsFromContainer(rewardChest->getContainer());
+	auto rewardCount = rewardItemsVector.size();
+	uint32_t movedRewardItems = 0;
 	std::string lootedItemsMessage;
-	for (auto item : items) {
+	for (auto item : rewardItemsVector) {
 		// Stop if player not have free capacity
 		if (item && player->getCapacity() < item->getWeight()) {
 			player->sendCancelMessage(RETURNVALUE_NOTENOUGHCAPACITY);
@@ -2718,28 +2677,27 @@ void Game::collectItems(uint32_t playerId, const std::vector<Item*> &items, cons
 		}
 
 		// Limit the collect count if the "maxMoveItems" is not "0"
-		auto limitMove = maxMoveItems != 0 && movedItems == maxMoveItems;
+		auto limitMove = maxMoveItems != 0 && movedRewardItems == maxMoveItems;
 		if (limitMove) {
-			lootedItemsMessage = fmt::format("You can only collect {} items at a time. {} of {} objects were picked up.", maxMoveItems, movedItems, rewardCount);
+			lootedItemsMessage = fmt::format("You can only collect {} items at a time. {} of {} objects were picked up.", maxMoveItems, movedRewardItems, rewardCount);
 			player->sendTextMessage(MESSAGE_EVENT_ADVANCE, lootedItemsMessage);
-			return;
+			return RETURNVALUE_NOERROR;
 		}
 
 		ObjectCategory_t category = getObjectCategory(item);
 		if (internalCollectLootItems(player, item, category) == RETURNVALUE_NOERROR) {
-			movedItems++;
+			movedRewardItems++;
 		}
 	}
 
-	lootedItemsMessage = fmt::format("{} of {} objects were picked up.", movedItems, rewardCount);
+	lootedItemsMessage = fmt::format("{} of {} objects were picked up.", movedRewardItems, rewardCount);
 	player->sendTextMessage(MESSAGE_EVENT_ADVANCE, lootedItemsMessage);
 
-	if (movedItems == 0) {
-		player->sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
-		return;
+	if (movedRewardItems == 0) {
+		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
-	return;
+	return RETURNVALUE_NOERROR;
 }
 
 ObjectCategory_t Game::getObjectCategory(const Item* item) {
@@ -9804,7 +9762,7 @@ void Game::playerCheckActivity(const std::string &playerName, int interval) {
 	g_scheduler().addEvent(createSchedulerTask(1000, std::bind(&Game::playerCheckActivity, this, playerName, interval)));
 }
 
-void Game::playerStartRewardChestCollect(uint32_t playerId, const Position &pos, uint16_t itemId, uint8_t stackPos) {
+void Game::playerRewardChestCollect(uint32_t playerId, const Position &pos, uint16_t itemId, uint8_t stackPos, uint32_t maxMoveItems /* = 0*/) {
 	Player* player = getPlayerByID(playerId);
 	if (!player) {
 		return;
@@ -9822,27 +9780,15 @@ void Game::playerStartRewardChestCollect(uint32_t playerId, const Position &pos,
 		return;
 	}
 
-	if (auto function = std::bind(&Game::playerStartRewardChestCollect, this, player->getID(), pos, itemId, stackPos);
+	if (auto function = std::bind(&Game::playerRewardChestCollect, this, player->getID(), pos, itemId, stackPos, maxMoveItems);
 		player->canAutoWalk(item->getPosition(), function)) {
 		return;
 	}
-	if (!player->rewardChest) {
-		return;
-	}
-	auto rewardContainers = getRewardContainers(player->rewardChest->getContainer());
-	collectItemsAsync(player->getID(), std::move(rewardContainers));
-}
 
-std::vector<Item*> Game::getRewardContainers(const Container* container) const {
-	std::vector<Item*> containerItems;
-	if (container) {
-		for (auto item : container->getItems(false)) {
-			if (item->getID() == ITEM_REWARD_CONTAINER) {
-				containerItems.push_back(item);
-			}
-		}
+	ReturnValue returnValue = collectRewardChestItems(player, maxMoveItems);
+	if (returnValue != RETURNVALUE_NOERROR) {
+		player->sendCancelMessage(returnValue);
 	}
-	return containerItems;
 }
 
 bool Game::createHazardArea(const Position &positionFrom, const Position &positionTo) {

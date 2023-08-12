@@ -3003,11 +3003,15 @@ void ProtocolGame::parseRewardChestCollect(NetworkMessage &msg) {
 	const auto position = msg.getPosition();
 	auto itemId = msg.get<uint16_t>();
 	auto stackPosition = msg.getByte();
+
+	// Block collect reward
 	auto useCollect = g_configManager().getBoolean(REWARD_CHEST_COLLECT_ENABLED);
 	if (!useCollect) {
 		return;
 	}
-	addGameTask(&Game::playerStartRewardChestCollect, player->getID(), position, itemId, stackPosition);
+
+	auto maxCollectItems = g_configManager().getNumber(REWARD_CHEST_MAX_COLLECT_ITEMS);
+	addGameTask(&Game::playerRewardChestCollect, player->getID(), position, itemId, stackPosition, maxCollectItems);
 }
 
 void ProtocolGame::parseBrowseField(NetworkMessage &msg) {
