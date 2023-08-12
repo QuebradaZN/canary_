@@ -2787,7 +2787,7 @@ GameStore.Categories = {
 			{
 				icons = { "Rolled-up_Crested_Carpet.png" },
 				name = "Crested Carpet",
-				price = 25,
+				price = 5,
 				itemtype = 26152,
 				count = 1,
 				description = "{house}\n{box}\n{storeinbox}\n{use}\n{backtoinbox}",
@@ -6357,7 +6357,12 @@ function generateExerciseOffers()
 		Wand = {28557, 35284, 35290},
 	 }
 	local tiers = {
-		{ name = "Basic", offers = { { price = 27, charges = 1800 }, { price = 165, charges = 7200 }, { price = 375, charges = 1800, coinType = GameStore.CoinType.Online} } },
+		{ name = "Basic", offers = {
+			{ price = 27, charges = 1800 },
+			{ price = 165, charges = 7200 },
+			{ price = 375, charges = 1800, coinType = GameStore.CoinType.Online},
+			{ price = 1500, charges = 7200, coinType = GameStore.CoinType.Online},
+		 } },
 		{ name = "Enhanced", offers = { { price = 60, charges = 3800 }, { price = 220, charges = 15200 } } },
 		{ name = "Masterful", offers = { { price = 120, charges = 7200 }, { price = 440, charges = 28800 } } },
 	}
