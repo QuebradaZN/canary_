@@ -27,7 +27,7 @@ When adding a new range or storage, make sure that the ranges do not overlap, an
 		<storage name="vip.is-vip" key="1" />
 		<storage name="vip.online-coins.gain" key="2" />
 		<storage name="vip.online-tokens.gain" key="3" />
-		<storage name="voucher.lastActivation" key="4" />
+		<storage name="voucher.last-activation" key="4" />
 		<storage name="voucher.experience.received" key="5" />
 		<storage name="voucher.skill.received" key="6" />
 		<storage name="voucher.compensatory.20230812.received" key="7" />
