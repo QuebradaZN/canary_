@@ -203,7 +203,7 @@ PRIVATE
 	game/movement/teleport.cpp
 	game/scheduling/scheduler.cpp
 	game/scheduling/events_scheduler.cpp
-	game/scheduling/tasks.cpp
+	game/scheduling/dispatcher.cpp
 	game/scheduling/save_manager.cpp
 	game/bank/bank.cpp
 	io/fileloader.cpp
