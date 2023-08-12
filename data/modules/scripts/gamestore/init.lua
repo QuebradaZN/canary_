@@ -1520,13 +1520,8 @@ function GameStore.processItemPurchase(player, offerId, offerCount, moveable)
 		return error({ code = 0, message = "Please make sure you have free capacity to hold this item." })
 	end
 
-	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-	if inbox and inbox:getEmptySlots() > offerCount then
-		for t = 1, offerCount do
-			player:addItemStoreInbox(offerId, offerCount or 1, moveable)
-		end
-	else
-		return error({ code = 0, message = "Please make sure you have free slots in your store inbox." })
+	for t = 1, offerCount do
+		player:addItemStoreInbox(offerId, offerCount or 1, moveable)
 	end
 end
 
@@ -1534,13 +1529,7 @@ function GameStore.processChargesPurchase(player, itemtype, name, charges, movea
 	if player:getFreeCapacity() < ItemType(itemtype):getWeight(1) then
 		return error({ code = 0, message = "Please make sure you have free capacity to hold this item." })
 	end
-
-	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-	if inbox and inbox:getEmptySlots() > 1 then
-		player:addItemStoreInbox(itemtype, charges, moveable)
-	else
-		return error({ code = 0, message = "Please make sure you have free slots in your store inbox." })
-	end
+	player:addItemStoreInbox(itemtype, charges, moveable)
 end
 
 function GameStore.processSignleBlessingPurchase(player, blessId, count)
@@ -1603,45 +1592,40 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
 		return error({ code = 0, message = "Please make sure you have free capacity to hold this item." })
 	end
 
-	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-	if inbox and inbox:getEmptySlots() > 0 then
-		if (isKeg and offerCount > 500) or offerCount > 250 then
-			local parcel = player:addItemStoreInbox(PARCEL_ID, 1, moveable)
-			if parcel then
-				parcel:setAttribute(ITEM_ATTRIBUTE_NAME, '' .. offerCount .. 'x ' .. offerName .. ' package.')
-				local pendingCount = offerCount
-				local limit = isKeg and 500 or 100
-				while (pendingCount > 0) do
-					local pack
-					if (pendingCount > limit) then
-						pack = limit
-					else
-						pack = pendingCount
-					end
-					if isKeg then
-						local kegItem = parcel:addItem(offerId, 1)
-						kegItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, pack)
-
-						if moveable ~= true and kegItem then
-							kegItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
-						end
-					else
-						local parcelItem = parcel:addItem(offerId, pack)
-						if moveable ~= true and parcelItem then
-							parcelItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
-						end
-					end
-					pendingCount = pendingCount - pack
+	if (isKeg and offerCount > 500) or offerCount > 250 then
+		local parcel = player:addItemStoreInbox(PARCEL_ID, 1, moveable)
+		if parcel then
+			parcel:setAttribute(ITEM_ATTRIBUTE_NAME, '' .. offerCount .. 'x ' .. offerName .. ' package.')
+			local pendingCount = offerCount
+			local limit = isKeg and 500 or 100
+			while (pendingCount > 0) do
+				local pack
+				if (pendingCount > limit) then
+					pack = limit
+				else
+					pack = pendingCount
 				end
-			end
-		else
-			local item = player:addItemStoreInbox(offerId, isKeg and 1 or offerCount, moveable)
-			if item and isKeg then
-				item:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
+				if isKeg then
+					local kegItem = parcel:addItem(offerId, 1)
+					kegItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, pack)
+
+					if moveable ~= true and kegItem then
+						kegItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
+					end
+				else
+					local parcelItem = parcel:addItem(offerId, pack)
+					if moveable ~= true and parcelItem then
+						parcelItem:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
+					end
+				end
+				pendingCount = pendingCount - pack
 			end
 		end
 	else
-		return error({ code = 0, message = "Please make sure you have free slots in your store inbox." })
+		local item = player:addItemStoreInbox(offerId, isKeg and 1 or offerCount, moveable)
+		if item and isKeg then
+			item:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
+		end
 	end
 end
 
@@ -1652,28 +1636,23 @@ function GameStore.processHouseRelatedPurchase(player, offer)
 				(itemId >= ITEM_SPIRIT_CASK_START and itemId <= ITEM_SPIRIT_CASK_END)
 	end
 
-	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
 	local itemIds = offer.itemtype
 	if type(itemIds) ~= "table" then
 		itemIds = {itemIds}
 	end
-	if inbox and inbox:getEmptySlots() >= #itemIds then
-		for _, itemId in ipairs(itemIds) do
-			local decoKit = inbox:addItem(23398, 1)
-			if decoKit then
-				decoKit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item in the Store.\nUnwrap it in your own house to create a <" .. ItemType(itemId):getName() .. ">.")
-				decoKit:setCustomAttribute("unWrapId", itemId)
-				if isCaskItem(itemId) then
-					decoKit:setAttribute(ITEM_ATTRIBUTE_DATE, offer.count)
-				end
+	for _, itemId in ipairs(itemIds) do
+		local decoKit = player:addItemStoreInbox(23398, 1)
+		if decoKit then
+			decoKit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item in the Store.\nUnwrap it in your own house to create a <" .. ItemType(itemId):getName() .. ">.")
+			decoKit:setCustomAttribute("unWrapId", itemId)
+			if isCaskItem(itemId) then
+				decoKit:setAttribute(ITEM_ATTRIBUTE_DATE, offer.count)
+			end
 
-				if offer.moveable ~= true then
-					decoKit:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
-				end
+			if offer.moveable ~= true then
+				decoKit:setAttribute(ITEM_ATTRIBUTE_STORE, systemTime())
 			end
 		end
-	else
-		return error({ code = 0, message = "Please make sure you have free slots in your store inbox." })
 	end
 end
 
