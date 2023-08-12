@@ -17,7 +17,8 @@ local config = {
 		to = Position(33663, 32920, 15)
 	},
 	exit = Position(33659, 32897, 14),
-	storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.MagmaBubbleTimer
+	storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.MagmaBubbleTimer,
+	disabled = true,
 }
 
 local lever = BossLever(config)

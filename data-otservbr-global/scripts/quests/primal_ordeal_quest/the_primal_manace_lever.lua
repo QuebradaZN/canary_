@@ -16,7 +16,8 @@ local config = {
 		to = Position(33570, 32769, 15)
 	},
 	exit = Position(33520, 32871, 15),
-	storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.ThePrimalMenaceTimer
+	storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.ThePrimalMenaceTimer,
+	disabled = true,
 }
 
 lever = BossLever(config)

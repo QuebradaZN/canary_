@@ -6,6 +6,7 @@
 ---@field private timeToDefeat number
 ---@field private requiredLevel number
 ---@field private storage number
+---@field private disabled boolean
 ---@field private onUseExtra function
 ---@field private _position Position
 ---@field private _uid number
@@ -59,6 +60,7 @@ setmetatable(BossLever, {
 			requiredLevel = config.requiredLevel or 0,
 			createBoss = boss.createFunction,
 			storage = config.storage,
+			disabled = config.disabled,
 			playerPositions = config.playerPositions,
 			onUseExtra = config.onUseExtra or function() end,
 			exit = config.exit,
@@ -106,6 +108,11 @@ function BossLever:onUse(player)
 	end
 	if not isParticipant then
 		return false
+	end
+
+	if self.disabled then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The boss is temporarily disabled.")
+		return true
 	end
 
 	local spec = Spectators()

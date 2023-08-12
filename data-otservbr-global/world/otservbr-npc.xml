@@ -2923,10 +2923,6 @@
 	<npc centerx="33517" centery="32856" centerz="14" radius="1">
 		<npc name="Urks The Mute" x="0" y="0" z="14" spawntime="60" />
 	</npc>
-	<npc centerx="33516" centery="32862" centerz="14" radius="1">
-		<npc name="Elysieran Soldier" x="0" y="0" z="14" spawntime="60" />
-		<npc name="Elysieran Sentry" x="1" y="0" z="14" spawntime="60" />
-	</npc>
 	<npc centerx="33527" centery="32865" centerz="14" radius="1">
 		<npc name="Gnomadness" x="0" y="0" z="14" spawntime="60" />
 	</npc>
