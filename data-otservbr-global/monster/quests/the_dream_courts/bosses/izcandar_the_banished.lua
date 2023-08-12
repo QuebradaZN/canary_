@@ -16,6 +16,7 @@ monster.outfit = {
 monster.bosstiary = {
 	bossRaceId = 1699,
 	bossRace = RARITY_NEMESIS,
+	storage = Storage.Quest.U12_00.TheDreamCourts.ArenaTimer,
 }
 
 monster.health = 320000
