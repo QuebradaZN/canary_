@@ -9,12 +9,9 @@ local function revertAshes()
 	local tile = Tile(Position(32849, 32233, 9))
 	local item = tile:getItemById(1949)
 	if tile and item then
-		item:transform(3134)
-		local tileItemUid = Tile(Position(32849, 32233, 9))
-		local itemUid = tileItemUid:getItemById(3134)
-		if tileItemUid and itemUid then
-			itemUid:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, 2243)
-		end
+		item:remove()
+		local ashes = Game.createItem(3134, 1, Position(32849, 32233, 9))
+		ashes:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, 2243)
 	end
 end
 
