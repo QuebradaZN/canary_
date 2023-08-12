@@ -1,7 +1,7 @@
 -- Functions from The Forgotten Server
 local foodCondition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
 
-function firstToUpper(str)
+local function firstToUpper(str)
 	return (str:gsub("^%l", string.upper))
 end
 
@@ -344,6 +344,16 @@ function Player.sendWeatherEffect(self, groundEffect, fallEffect, thunderEffect)
 	end
 end
 
+function Player:getFamiliarName()
+	local vocation = FAMILIAR_ID[self:getVocation():getBaseId()]
+	local familiarName
+	if vocation then
+		familiarName = vocation.name
+	end
+	return familiarName
+end
+
+
 function Player:CreateFamiliarSpell(spellId)
 	local playerPosition = self:getPosition()
 	if not self:isPremium() then
@@ -358,13 +368,32 @@ function Player:CreateFamiliarSpell(spellId)
 		return false
 	end
 
-	local vocation = FAMILIAR_ID[self:getVocation():getBaseId()]
-	local familiarName
-
-	if vocation then
-		familiarName = vocation.name
+	local familiarName = self:getFamiliarName()
+	if not familiarName then
+		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+		playerPosition:sendMagicEffect(CONST_ME_POFF)
+		return false
 	end
 
+	-- Divide by 2 to get half the time (the default total time is 30 / 2 = 15)
+	local summonDuration = 60 * configManager.getNumber(configKeys.FAMILIAR_TIME) / 2
+	local condition = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, spellId)
+	local cooldown = summonDuration * 2
+	if self:isVip() then
+		local reduction = configManager.getNumber(configKeys.VIP_FAMILIAR_TIME_COOLDOWN_REDUCTION)
+		reduction = (reduction > summonDuration and summonDuration) or reduction
+		cooldown = cooldown - reduction * 60
+	end
+	condition:setTicks(1000 * cooldown / configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN))
+	self:addCondition(condition)
+
+	self:createFamiliar(familiarName, summonDuration)
+
+	return true
+end
+
+function Player:createFamiliar(familiarName, timeLeft)
+	local playerPosition = self:getPosition()
 	if not familiarName then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		playerPosition:sendMagicEffect(CONST_ME_POFF)
@@ -384,9 +413,8 @@ function Player:CreateFamiliarSpell(spellId)
 	playerPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	myFamiliar:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	-- Divide by 2 to get half the time (the default total time is 30 / 2 = 15)
-	local summonDuration = configManager.getNumber(configKeys.FAMILIAR_TIME) / 2
-	self:setStorageValue(Global.Storage.FamiliarSummon, os.time() + summonDuration * 60)
-	addEvent(RemoveFamiliar, summonDuration * 60 * 1000, myFamiliar:getId(), self:getId())
+	self:setStorageValue(Global.Storage.FamiliarSummon, os.time() + timeLeft)
+	addEvent(RemoveFamiliar, timeLeft * 1000, myFamiliar:getId(), self:getId())
 	for sendMessage = 1, #FAMILIAR_TIMER do
 		self:setStorageValue(
 			FAMILIAR_TIMER[sendMessage].storage,
@@ -394,7 +422,7 @@ function Player:CreateFamiliarSpell(spellId)
 			-- Calling function
 				SendMessageFunction,
 				-- Time for execute event
-				(summonDuration * 60 - FAMILIAR_TIMER[sendMessage].countdown) * 1000,
+				(timeLeft - FAMILIAR_TIMER[sendMessage].countdown) * 1000,
 				-- Param "playerId"
 				self:getId(),
 				-- Param "message"
@@ -402,17 +430,20 @@ function Player:CreateFamiliarSpell(spellId)
 			)
 		)
 	end
-	local condition = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, spellId)
-	local cooldown = summonDuration * 60 * 1000
-	if self:isVip() then
-		local reduction = configManager.getNumber(configKeys.VIP_FAMILIAR_TIME_COOLDOWN_REDUCTION)
-		reduction = (reduction > summonDuration and summonDuration) or reduction
-		cooldown = cooldown - reduction
-	end
-	condition:setTicks((cooldown) / configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN))
-	self:addCondition(condition)
-
 	return true
+end
+
+function Player:dispellFamiliar()
+	local summons = self:getSummons()
+	for i = 1, #summons do
+		if summons[i]:getName():lower() == self:getFamiliarName():lower() then
+			self:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+			summons[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
+			summons[i]:remove()
+			return true
+		end
+	end
+	return false
 end
 
 function Player.getFinalBaseRateExperience(self)

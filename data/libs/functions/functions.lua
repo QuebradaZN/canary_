@@ -15,6 +15,8 @@ function PrettyString(tbl, indent)
 			toprint = toprint .. "\"" .. v .. "\",\n"
 		elseif (type(v) == "table") then
 			toprint = toprint .. PrettyString(v, indent + 2) .. ",\n"
+		elseif (type(v) == "userdata") then
+			toprint = toprint .. "\"" .. tostring(v) .. "\",\n"
 		else
 			toprint = toprint .. "\"" .. tostring(v) .. "\",\n"
 		end
@@ -62,7 +64,7 @@ function getHours(seconds)
 end
 
 function getMinutes(seconds)
-	return math.floor(seconds/60)
+	return math.floor(seconds/60)%60
 end
 
 function getSeconds(seconds)
@@ -84,9 +86,6 @@ end
 
 function getTimeInWords(secs)
 	local hours, minutes, seconds = getHours(secs), getMinutes(secs), getSeconds(secs)
-	minutes = minutes-hours*60
-	seconds = seconds-minutes*60-hours*60*60
-
 	local timeStr = ''
 
 	if hours > 0 then
