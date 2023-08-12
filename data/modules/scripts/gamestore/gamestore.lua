@@ -2397,15 +2397,6 @@ GameStore.Categories = {
 				type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
 			},
 			{
-				icons = { "Outfit_Void_Master_Male_Addon_3.png", "Outfit_Void_Master_Female_Addon_3.png" },
-				name = "Full Void Master Outfit",
-				price = 150,
-				sexId = { female = 1203, male = 1202 },
-				addon = 3,
-				description = "{character}\n{info} colours can be changed using the Outfit dialog\n{info} includes basic outfit and 2 addons which can be selected individually\n\n<i>Embrace the abyssal allure of the Void Master outfit! Cloaked in enigmatic darkness, this attire grants you the essence of the void, empowering you to traverse the realms beyond and command mysterious powers unseen. Step into the unknown and wield the darkness at your will!</i>",
-				type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-			},
-			{
 				icons = { "Outfit_Winter_Warden_Male_Addon_3.png", "Outfit_Winter_Warden_Female_Addon_3.png" },
 				name = "Full Winter Warden Outfit",
 				price = 150,
