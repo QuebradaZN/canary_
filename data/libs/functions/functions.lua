@@ -84,6 +84,8 @@ end
 
 function getTimeInWords(secs)
 	local hours, minutes, seconds = getHours(secs), getMinutes(secs), getSeconds(secs)
+	minutes = minutes-hours*60
+	seconds = seconds-minutes*60-hours*60*60
 
 	local timeStr = ''
 
@@ -104,8 +106,6 @@ function getTimeInWords(secs)
 		end
 		timeStr = timeStr .. seconds .. (seconds > 1 and ' seconds' or ' second')
 	end
-
-	timeStr = timeStr .. '.'
 
 	return timeStr
 end
