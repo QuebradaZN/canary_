@@ -12,10 +12,7 @@ class SaveManager : public ThreadHolder<SaveManager> {
 		void operator=(const SaveManager &) = delete;
 
 		static SaveManager &getInstance() {
-			// Guaranteed to be destroyed
-			static SaveManager instance;
-			// Instantiated on first use
-			return instance;
+			return inject<SaveManager>();
 		}
 
 		void shutdown();
@@ -32,6 +29,6 @@ class SaveManager : public ThreadHolder<SaveManager> {
 		std::unordered_set<Player*> playerSet;
 };
 
-constexpr auto g_saveManager = &SaveManager::getInstance;
+constexpr auto g_saveManager = SaveManager::getInstance;
 
 #endif // SRC_GAME_SCHEDULING_SAVE_MANAGER_H_
