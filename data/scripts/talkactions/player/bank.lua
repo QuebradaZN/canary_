@@ -94,5 +94,5 @@ function transfer.onSay(player, words, param)
 end
 
 transfer:separator(" ")
-transfer:groupType("normal")
+transfer:grouptype("normal")
 transfer:register()
