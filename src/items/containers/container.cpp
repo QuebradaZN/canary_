@@ -350,10 +350,7 @@ ReturnValue Container::queryAdd(int32_t addIndex, const Thing &addThing, uint32_
 			return RETURNVALUE_THISISIMPOSSIBLE;
 		}
 		const Container* container = cylinder->getContainer();
-		if (container == nullptr) {
-			return RETURNVALUE_NOTPOSSIBLE;
-		}
-		if (!noLimit && container->isInbox()) {
+		if (!noLimit && container && container->isInbox()) {
 			return RETURNVALUE_CONTAINERNOTENOUGHROOM;
 		}
 		const Cylinder* parent = cylinder->getParent();
