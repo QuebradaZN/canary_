@@ -25736,6 +25736,11 @@
 		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="energy"/>
 		<attribute key="magiclevelpoints" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="mana leech" value="3"/>
+			<attribute key="critical hit" value="3"/>
+			<attribute key="skillboost magic level" value="3"/>
+		</attribute>
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="3700"/>
 	</item>
@@ -25869,6 +25874,11 @@
 		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="fire"/>
 		<attribute key="magiclevelpoints" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="mana leech" value="3"/>
+			<attribute key="critical hit" value="3"/>
+			<attribute key="skillboost magic level" value="3"/>
+		</attribute>
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="3700"/>
 	</item>
@@ -25886,6 +25896,11 @@
 		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="smallearth"/>
 		<attribute key="magiclevelpoints" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="mana leech" value="3"/>
+			<attribute key="critical hit" value="3"/>
+			<attribute key="skillboost magic level" value="3"/>
+		</attribute>
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="3700"/>
 	</item>
@@ -25895,6 +25910,11 @@
 		<attribute key="attack" value="45"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="magiclevelpoints" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="mana leech" value="3"/>
+			<attribute key="critical hit" value="3"/>
+			<attribute key="skillboost magic level" value="3"/>
+		</attribute>
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="3700"/>
 	</item>
