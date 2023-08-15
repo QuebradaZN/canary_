@@ -67,7 +67,7 @@ npcConfig.shop = {
 	{clientId = 10452, sell = 170, itemName = "terramite shell", storageKey = POINTSSTORAGE, storageValue = 10},
 	{clientId = 10273, sell = 95, itemName = "terrorbird beak", storageKey = POINTSSTORAGE, storageValue = 10},
 	-- Buy offers
-	{clientId = 5907, buy = 35000, itemName = "slingshot", storageKey = POINTSSTORAGE, storageValue = 20},
+	{clientId = 5907, buy = 35000, itemName = "slingshot"},
 
 	-- BigGameHunter rank
 	{clientId = 10244, sell = 6000, itemName = "bonebeast trophy", storageKey = POINTSSTORAGE, storageValue = 40},
@@ -88,7 +88,7 @@ npcConfig.shop = {
 	{clientId = 27706, sell = 9000, itemName = "werefox trophy", storageKey = POINTSSTORAGE, storageValue = 70},
 	{clientId = 34219, sell = 12000, itemName = "werehyaena trophy", storageKey = POINTSSTORAGE, storageValue = 70},
 	-- Buy offers
-	{clientId = 9601, buy = 1000, itemName = "demon backpack", storageKey = POINTSSTORAGE, storageValue = 70}
+	{clientId = 9601, buy = 1000, itemName = "demon backpack"}
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
