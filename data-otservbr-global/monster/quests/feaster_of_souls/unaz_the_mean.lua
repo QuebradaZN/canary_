@@ -13,11 +13,6 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.bosstiary = {
-	bossRaceId = 1891,
-	bossRace = RARITY_ARCHFOE,
-}
-
 monster.health = 28000
 monster.maxHealth = 28000
 monster.race = "undead"
