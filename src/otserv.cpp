@@ -71,6 +71,7 @@ void shutdown() {
 	g_scheduler().shutdown();
 	g_databaseTasks().shutdown();
 	g_dispatcher().shutdown();
+	g_saveManager().shutdown();
 }
 
 void startupErrorMessage() {

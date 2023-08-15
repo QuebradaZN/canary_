@@ -4,53 +4,37 @@
 #include "game/scheduling/save_manager.h"
 #include "io/iologindata.h"
 
-void SaveManager::threadMain() {
-	while (getState() != THREAD_STATE_TERMINATED) {
-		std::unique_lock<std::mutex> taskLockUnique(taskLock);
-		taskSignal.wait(taskLockUnique, [this] { return !playerQueue.empty() || getState() == THREAD_STATE_TERMINATED; });
-
-		if (getState() == THREAD_STATE_TERMINATED)
-			break;
-
-		Player* player = playerQueue.front();
-		playerQueue.pop_front();
-		playerSet.erase(player);
-		taskLockUnique.unlock();
-
-		if (player) {
-			g_logger().debug("Saving player {}.", player->getName());
-			bool saveSuccess = IOLoginData::savePlayer(player);
-			if (!saveSuccess) {
-				SPDLOG_ERROR("Failed to save player {}.", player->getName());
-			}
-		}
-	}
+SaveManager &SaveManager::getInstance() {
+	return inject<SaveManager>();
 }
 
 void SaveManager::schedulePlayer(Player* player) {
-	std::lock_guard<std::mutex> taskLockGuard(taskLock);
-	if (playerSet.insert(player).second) {
-		g_logger().debug("Scheduling player {} for saving.", player->getName());
-		playerQueue.push_back(player);
-		taskSignal.notify_all();
-	} else {
-		g_logger().debug("Player {} is already scheduled for saving. Pushing to the back of the queue.", player->getName());
-		playerQueue.erase(std::remove(playerQueue.begin(), playerQueue.end(), player), playerQueue.end());
-		playerQueue.push_back(player);
-	}
+	auto playerId = player->getID();
+	auto scheduledAt = std::chrono::steady_clock::now();
+	playerMap[playerId] = scheduledAt;
+	g_logger().debug("Scheduling player {} for saving.", player->getName());
+
+	addLoad([this, playerId, scheduledAt]() {
+		bool shouldSave = scheduledAt == playerMap[playerId];
+		if (!shouldSave) {
+			g_logger().debug("Skipping save for player {} because another save has been scheduled.", playerId);
+			return;
+		}
+		auto player = g_game().getPlayerByID(playerId);
+		if (!player) {
+			g_logger().debug("Skipping save for player {} because player is no longer online.", playerId);
+			return;
+		}
+		g_logger().debug("Saving player {}.", player->getName());
+		bool saveSuccess = IOLoginData::savePlayer(player);
+		if (!saveSuccess) {
+			g_logger().error("Failed to save player {}.", player->getName());
+		}
+		playerMap.erase(playerId);
+	});
 }
 
 void SaveManager::unschedulePlayer(Player* player) {
-	std::lock_guard<std::mutex> taskLockGuard(taskLock);
-	if (playerSet.contains(player)) {
-		g_logger().debug("Unscheduling player {} from saving.", player->getName());
-		playerSet.erase(player);
-		playerQueue.erase(std::remove(playerQueue.begin(), playerQueue.end(), player), playerQueue.end());
-	}
-}
-
-void SaveManager::shutdown() {
-	std::lock_guard<std::mutex> taskLockGuard(taskLock);
-	setState(THREAD_STATE_TERMINATED);
-	taskSignal.notify_all();
+	g_logger().debug("Unscheduling player {} from saving.", player->getName());
+	playerMap.erase(player->getID());
 }

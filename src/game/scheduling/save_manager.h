@@ -11,22 +11,13 @@ class SaveManager : public ThreadHolder<SaveManager> {
 		SaveManager(const SaveManager &) = delete;
 		void operator=(const SaveManager &) = delete;
 
-		static SaveManager &getInstance() {
-			return inject<SaveManager>();
-		}
-
-		void shutdown();
-
-		void threadMain();
+		static SaveManager &getInstance();
 
 		void schedulePlayer(Player* player);
 		void unschedulePlayer(Player* player);
 
 	private:
-		std::mutex taskLock;
-		std::condition_variable taskSignal;
-		std::deque<Player*> playerQueue;
-		std::unordered_set<Player*> playerSet;
+		phmap::btree_map<uint32_t, std::chrono::steady_clock::time_point> playerMap;
 };
 
 constexpr auto g_saveManager = SaveManager::getInstance;

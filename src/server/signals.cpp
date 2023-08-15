@@ -74,6 +74,7 @@ void Signals::dispatchSignalHandler(int signal) {
 			g_scheduler().join();
 			g_databaseTasks().join();
 			g_dispatcher().join();
+			g_save_manager().join();
 			break;
 #endif
 		default:
