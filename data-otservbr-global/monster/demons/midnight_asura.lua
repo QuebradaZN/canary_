@@ -79,36 +79,36 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 97000, maxCount = 242}, -- gold coin
-	{id = 3035, chance = 18200, maxCount = 6}, -- platinum coin
-	{id = 7368, chance = 2000, maxCount = 2}, -- assassin star
-	{id = 3027, chance = 2000}, -- black pearl
-	{id = 6558, chance = 2000}, -- flask of demonic blood
-	{id = 6499, chance = 2210}, -- demonic essence
-	{id = 3028, chance = 800, maxCount = 3}, -- small diamond
-	{id = 3032, chance = 900, maxCount = 3}, -- small emerald
-	{id = 3030, chance = 650, maxCount = 3}, -- small ruby
-	{id = 3029, chance = 580, maxCount = 3}, -- small sapphire
-	{id = 9057, chance = 580, maxCount = 3}, -- small topaz
-	{id = 239, chance = 700}, -- great health potion
-	{id = 3026, chance = 560}, -- white pearl
-	{id = 7404, chance = 130}, -- assassin dagger
-	{id = 3041, chance = 320}, -- blue gem
-	{id = 3567, chance = 300}, -- blue robe
-	{id = 9058, chance = 300}, -- gold ingot
-	{id = 21974, chance = 300}, -- golden lotus brooch
-	{id = 3070, chance = 300}, -- moonlight rod
-	{id = 3069, chance = 90}, -- necrotic rod
-	{id = 21981, chance = 80}, -- oriental shoes
-	{id = 21975, chance = 200}, -- peacock feather fan
-	{id = 8061, chance = 90}, -- skullcracker armor
-	{id = 3017, chance = 100}, -- silver brooch
-	{id = 3054, chance = 100}, -- silver amulet
-	{id = 5944, chance = 100}, -- soul orb
-	{id = 8074, chance = 100}, -- spellbook of mind control
-	{id = 3403, chance = 100}, -- tribal mask
-	{id = 8082, chance = 70}, -- underworld rod
-	{id = 3037, chance = 100} -- yellow gem
+	{id = 3031, chance = 70980, maxCount = 100}, -- gold coin
+	{id = 3035, chance = 80500, maxCount = 6}, -- platinum coin
+	{id = 7368, chance = 6640, maxCount = 5}, -- assassin star
+	{id = 3027, chance = 3670, maxCount = 2}, -- black pearl
+	{id = 3007, chance = 440}, -- crystal ring
+	{id = 6558, chance = 14110}, -- flask of demonic blood
+	{id = 6499, chance = 9950}, -- demonic essence
+	{id = 3028, chance = 5680, maxCount = 3}, -- small diamond
+	{id = 3032, chance = 3240, maxCount = 1}, -- small emerald
+	{id = 3030, chance = 3090, maxCount = 1}, -- small ruby
+	{id = 3029, chance = 5550, maxCount = 3}, -- small sapphire
+	{id = 9057, chance = 2910, maxCount = 1}, -- small topaz
+	{id = 239, chance = 8450, maxCount = 2}, -- great health potion
+	{id = 3026, chance = 5660 }, -- white pearl
+	{id = 7404, chance = 350}, -- assassin dagger
+	{id = 3041, chance = 290}, -- blue gem
+	{id = 3567, chance = 530}, -- blue robe
+	{id = 9058, chance = 140}, -- gold ingot
+	{id = 21974, chance = 12700}, -- golden lotus brooch
+	{id = 3069, chance = 2460}, -- necrotic rod
+	{id = 21981, chance = 390}, -- oriental shoes
+	{id = 21975, chance = 10740}, -- peacock feather fan
+	{id = 8061, chance = 180}, -- skullcracker armor
+	{id = 3017, chance = 3650}, -- silver brooch
+	{id = 3054, chance = 1050}, -- silver amulet
+	{id = 5944, chance = 14580}, -- soul orb
+	{id = 8074, chance = 150}, -- spellbook of mind control
+	{id = 3403, chance = 2030}, -- tribal mask
+	{id = 8082, chance = 760}, -- underworld rod
+	{id = 3037, chance = 870} -- yellow gem
 }
 
 -- TODO: monster-abilities
