@@ -1,5 +1,5 @@
 local spell = Spell("instant")
-local spellId = 197
+local spellId = 1000
 
 function spell.onCastSpell(player, variant)
 	return player:dispellFamiliar(spellId)
