@@ -95,7 +95,8 @@ monster.loot = {
 	{id = 24958, chance = 500, unique = true}, -- part of a rune
 	{id = 19363, chance = 200}, -- runic ice shield
 	{id = 22721, chance = 100000}, -- gold token
-	{id = 22516, chance = 100000} -- silver token
+	{id = 22516, chance = 100000}, -- silver token
+	{name = "spark sphere", chance = 100000},
 }
 
 -- TODO: monster-abilities

@@ -110,6 +110,7 @@ monster.loot = {
 	{name = "great spirit potion", chance = 25690, maxCount = 10},
 	{name = "blade of corruption", chance = 3775},
 	{name = "magma boots", chance = 15890},
+	{name = "spark sphere", chance = 80000},
 	{name = "spellbook of lost souls", chance = 7890},
 	{name = "shield of corruption", chance = 150},
 	{name = "plasma pearls", chance = 100000},

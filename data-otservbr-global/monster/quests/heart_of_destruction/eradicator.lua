@@ -98,7 +98,8 @@ monster.loot = {
 	{id = 23531, chance = 3500}, -- ring of green plasma
 	{id = 23533, chance = 3500}, -- ring of red plasma
 	{id = 3554, chance = 5000, unique = true}, -- steel boots
-	{id = 8075, chance = 3000, unique = true} -- spellbook of lost souls
+	{id = 8075, chance = 3000, unique = true}, -- spellbook of lost souls
+	{name = "spark sphere", chance = 100000},
 }
 
 -- TODO: monster-abilities

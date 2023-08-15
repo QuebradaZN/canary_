@@ -113,7 +113,8 @@ monster.loot = {
 	{name = "mysterious remains", chance = 5000},
 	{name = "energy bar", chance = 5000},
 	{name = "library ticket", chance = 500, unique = true},
-	{name = "calamity", chance = 500, unique = true}
+	{name = "calamity", chance = 500, unique = true},
+	{name = "spark sphere", chance = 100000},
 }
 
 monster.attacks = {

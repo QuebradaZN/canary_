@@ -94,7 +94,8 @@ monster.loot = {
 	{id = 16119, chance = 4400}, -- blue crystal shard
 	{id = 16121, chance = 4100}, -- green crystal shard
 	{id = 23544, chance = 470}, -- collar of red plasma
-	{id = 23542, chance = 470} -- collar of blue plasma
+	{id = 23542, chance = 470}, -- collar of blue plasma
+	{name = "spark sphere", chance = 14870},
 }
 
 -- TODO: monster-abilities

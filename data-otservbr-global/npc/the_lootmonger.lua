@@ -1062,6 +1062,7 @@ npcConfig.shop = {
 	{ itemName = "souleater trophy", clientId = 11679, sell = 7500 },
 	{ itemName = "sparkion claw", clientId = 23502, sell = 290 },
 	{ itemName = "sparkion legs", clientId = 23504, sell = 310 },
+	{ itemName = "spark sphere", clientId = 23518, sell = 350 },
 	{ itemName = "sparkion stings", clientId = 23505, sell = 280 },
 	{ itemName = "sparkion tail", clientId = 23503, sell = 300 },
 	{ itemName = "spectral gold nugget", clientId = 32724, sell = 500 },
