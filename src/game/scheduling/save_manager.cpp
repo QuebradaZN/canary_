@@ -18,9 +18,7 @@ void SaveManager::threadMain() {
 		taskLockUnique.unlock();
 
 		if (player) {
-			if (isDevMode()) {
-				SPDLOG_INFO("Saving player {}.", player->getName());
-			}
+			g_logger().debug("Saving player {}.", player->getName());
 			bool saveSuccess = IOLoginData::savePlayer(player);
 			if (!saveSuccess) {
 				SPDLOG_ERROR("Failed to save player {}.", player->getName());
@@ -32,15 +30,11 @@ void SaveManager::threadMain() {
 void SaveManager::schedulePlayer(Player* player) {
 	std::lock_guard<std::mutex> taskLockGuard(taskLock);
 	if (playerSet.insert(player).second) {
-		if (isDevMode()) {
-			SPDLOG_INFO("Scheduling player {} for saving.", player->getName());
-		}
+		g_logger().debug("Scheduling player {} for saving.", player->getName());
 		playerQueue.push_back(player);
 		taskSignal.notify_all();
 	} else {
-		if (isDevMode()) {
-			SPDLOG_INFO("Player {} is already scheduled for saving. Pushing to the back of the queue.", player->getName());
-		}
+		g_logger().debug("Player {} is already scheduled for saving. Pushing to the back of the queue.", player->getName());
 		playerQueue.erase(std::remove(playerQueue.begin(), playerQueue.end(), player), playerQueue.end());
 		playerQueue.push_back(player);
 	}
@@ -49,9 +43,7 @@ void SaveManager::schedulePlayer(Player* player) {
 void SaveManager::unschedulePlayer(Player* player) {
 	std::lock_guard<std::mutex> taskLockGuard(taskLock);
 	if (playerSet.contains(player)) {
-		if (isDevMode()) {
-			SPDLOG_INFO("Unscheduling player {} from saving.", player->getName());
-		}
+		g_logger().debug("Unscheduling player {} from saving.", player->getName());
 		playerSet.erase(player);
 		playerQueue.erase(std::remove(playerQueue.begin(), playerQueue.end(), player), playerQueue.end());
 	}
