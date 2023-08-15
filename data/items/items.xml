@@ -41838,7 +41838,6 @@
 		<attribute key="imbuementslot" value="1">
 			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
-			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
@@ -41854,7 +41853,6 @@
 		<attribute key="imbuementslot" value="1">
 			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
-			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
@@ -43042,7 +43040,6 @@
 			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
-			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
@@ -50458,7 +50455,6 @@
 		<attribute key="defense" value="42"/>
 		<attribute key="weight" value="5800"/>
 		<attribute key="imbuementslot" value="1">
-			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
@@ -50703,7 +50699,6 @@
 			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
-			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
@@ -50717,7 +50712,6 @@
 		<attribute key="weight" value="6500"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="elemental protection death" value="3"/>
-			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
@@ -58554,7 +58548,6 @@
 		<attribute key="defense" value="20"/>
 		<attribute key="weight" value="1300"/>
 		<attribute key="imbuementslot" value="1">
-			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
