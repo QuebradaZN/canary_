@@ -1,6 +1,10 @@
 local familiarOnLogin = CreatureEvent("FamiliarLogin")
+local disableFamiliar = true
 
 function familiarOnLogin.onLogin(player)
+	if disableFamiliar then
+		return true
+	end
 	if not player then
 		return false
 	end
