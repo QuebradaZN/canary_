@@ -581,7 +581,13 @@ class Player final : public Creature, public Cylinder, public Bankable {
 			return group->id <= account::GROUP_TYPE_SENIORTUTOR;
 		}
 		bool isPremium() const;
-		void setPremiumDays(int32_t v);
+		uint32_t getPremiumDays() const {
+			return premiumDays;
+		}
+		void setPremiumDays(uint32_t v);
+		time_t getPremiumLastDay() const {
+			return premiumLastDay;
+		}
 
 		int32_t getVipDays() const {
 			return premiumDays;
@@ -2687,6 +2693,7 @@ class Player final : public Creature, public Cylinder, public Bankable {
 		int32_t shopCallback = -1;
 		int32_t MessageBufferCount = 0;
 		uint32_t premiumDays = 0;
+		time_t premiumLastDay = 0;
 		int32_t bloodHitCount = 0;
 		int32_t shieldBlockCount = 0;
 		int8_t offlineTrainingSkill = SKILL_NONE;

@@ -702,7 +702,7 @@ void Party::switchAnalyzerPriceType() {
 }
 
 void Party::resetAnalyzer() {
-	trackerTime = time(nullptr);
+	trackerTime = getTimeNow();
 	for (PartyAnalyzer* analyzer : membersData) {
 		delete analyzer;
 	}

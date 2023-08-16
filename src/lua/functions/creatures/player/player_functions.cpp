@@ -2399,7 +2399,7 @@ int PlayerFunctions::luaPlayerAddPremiumDays(lua_State* L) {
 		int32_t addDays = std::min<int32_t>(0xFFFE - player->premiumDays, days);
 		if (addDays > 0) {
 			player->setPremiumDays(player->premiumDays + addDays);
-			IOLoginData::addPremiumDays(player->getAccount(), addDays);
+			IOLoginData::addPremiumDays(player, addDays);
 		}
 	}
 	pushBoolean(L, true);
@@ -2419,7 +2419,7 @@ int PlayerFunctions::luaPlayerRemovePremiumDays(lua_State* L) {
 		int32_t removeDays = std::min<int32_t>(player->premiumDays, days);
 		if (removeDays > 0) {
 			player->setPremiumDays(player->premiumDays - removeDays);
-			IOLoginData::removePremiumDays(player->getAccount(), removeDays);
+			IOLoginData::removePremiumDays(player, removeDays);
 		}
 	}
 	pushBoolean(L, true);

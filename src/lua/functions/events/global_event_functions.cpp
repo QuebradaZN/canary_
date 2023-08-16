@@ -133,7 +133,7 @@ int GlobalEventFunctions::luaGlobalEventTime(lua_State* L) {
 			}
 		}
 
-		time_t current_time = time(nullptr);
+		time_t current_time = getTimeNow();
 		tm* timeinfo = localtime(&current_time);
 		timeinfo->tm_hour = hour;
 		timeinfo->tm_min = min;

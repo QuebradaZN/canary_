@@ -64,7 +64,7 @@ void GlobalEvents::startup() const {
 }
 
 void GlobalEvents::timer() {
-	time_t now = time(nullptr);
+	time_t now = getTimeNow();
 
 	int64_t nextScheduledTime = std::numeric_limits<int64_t>::max();
 

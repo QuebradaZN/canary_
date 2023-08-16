@@ -91,9 +91,9 @@ void ProtocolLogin::getCharacterList(const std::string &accountIdentifier, const
 	// Add premium days
 	output->addByte(0);
 	uint32_t days;
-	account.GetPremiumRemaningDays(&days);
+	account.GetPremiumRemainingDays(&days);
 	output->addByte(0);
-	output->add<uint32_t>(time(nullptr) + (days * 86400));
+	output->add<uint32_t>(getTimeNow() + (days * 86400));
 
 	send(output);
 
