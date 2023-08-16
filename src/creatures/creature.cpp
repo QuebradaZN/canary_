@@ -408,8 +408,6 @@ void Creature::onChangeZone(ZoneType_t zone) {
 	}
 }
 
-void Creature::onChangeHazard(bool isHazard) { }
-
 void Creature::onAttackedCreatureChangeZone(ZoneType_t zone) {
 	if (zone == ZONE_PROTECTION) {
 		onCreatureDisappear(attackedCreature, false);
@@ -490,12 +488,8 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 			}
 		}
 
-		if (newTile->getZone() != oldTile->getZone()) {
-			onChangeZone(getZone());
-		}
-
-		if (newTile->isHazard() != oldTile->isHazard()) {
-			onChangeHazard(newTile->isHazard());
+		if (newTile->getZoneType() != oldTile->getZoneType()) {
+			onChangeZone(getZoneType());
 		}
 
 		// update map cache
@@ -614,8 +608,8 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 				g_dispatcher().addTask(std::bind(&Game::checkCreatureAttack, &g_game(), getID()));
 			}
 
-			if (newTile->getZone() != oldTile->getZone()) {
-				onAttackedCreatureChangeZone(attackedCreature->getZone());
+			if (newTile->getZoneType() != oldTile->getZoneType()) {
+				onAttackedCreatureChangeZone(attackedCreature->getZoneType());
 			}
 		}
 	}

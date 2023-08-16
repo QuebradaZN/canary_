@@ -29,6 +29,7 @@ class Monster;
 class Npc;
 class Item;
 class Tile;
+class Zone;
 
 static constexpr int32_t EVENT_CREATURECOUNT = 10;
 static constexpr int32_t EVENT_CREATURE_THINK_INTERVAL = 1000;
@@ -236,12 +237,20 @@ class Creature : virtual public Thing {
 			return defaultOutfit;
 		}
 		bool isInvisible() const;
-		ZoneType_t getZone() const {
+		ZoneType_t getZoneType() const {
+			if (getTile()) {
+				return tile->getZoneType();
+			}
+
+			return ZONE_NORMAL;
+		}
+
+		std::shared_ptr<Zone> getZone() {
 			if (getTile()) {
 				return tile->getZone();
 			}
 
-			return ZONE_NORMAL;
+			return nullptr;
 		}
 
 		// walk functions
@@ -403,7 +412,6 @@ class Creature : virtual public Thing {
 		virtual void onChangeZone(ZoneType_t zone);
 		virtual void onAttackedCreatureChangeZone(ZoneType_t zone);
 		virtual void onIdleStatus();
-		virtual void onChangeHazard(bool isHazard);
 
 		virtual LightInfo getCreatureLight() const;
 		virtual void setNormalCreatureLight();

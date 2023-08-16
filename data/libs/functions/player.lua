@@ -522,8 +522,14 @@ function Player.findItemInInbox(self, itemId)
 end
 
 function Player.updateHazard(self)
-	local area = self:getPosition():getHazardArea()
-	if not area then
+	local zone = self:getZone()
+	if not zone then
+		self:setHazardSystemPoints(0)
+		return true
+	end
+
+	local hazard = Hazard.getByName(zone:getName())
+	if not hazard then
 		self:setHazardSystemPoints(0)
 		return true
 	end
@@ -531,7 +537,7 @@ function Player.updateHazard(self)
 	if self:getParty() then
 		self:getParty():refreshHazard()
 	else
-		area:refresh(self)
+		self:setHazardSystemPoints(hazard:getPlayerCurrentLevel(self))
 	end
 	return true
 end

@@ -206,6 +206,7 @@ PRIVATE
 	game/scheduling/dispatcher.cpp
 	game/scheduling/save_manager.cpp
 	game/bank/bank.cpp
+	game/zones/zone.cpp
 	io/fileloader.cpp
 	io/io_wheel.cpp
 	io/iobestiary.cpp
@@ -251,6 +252,7 @@ PRIVATE
 	lua/functions/lua_functions_loader.cpp
 	lua/functions/core/game/config_functions.cpp
 	lua/functions/core/game/game_functions.cpp
+	lua/functions/core/game/zone_functions.cpp
 	lua/functions/core/game/bank_functions.cpp
 	lua/functions/core/game/global_functions.cpp
 	lua/functions/core/game/lua_enums.cpp

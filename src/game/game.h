@@ -626,16 +626,6 @@ class Game {
 		void playerCheckActivity(const std::string &playerName, int interval);
 
 		/**
-		 * @brief Registers a hazard area.
-		 * @details The function registers a hazard area to be used by the hazard system.
-		 *
-		 * @param positionFrom The top-left position of the hazard area at its lowest floor.
-		 * @param positionTo The bottom-right position of the hazard area at its highest floor.
-		 * @return bool
-		 */
-		bool createHazardArea(const Position &positionFrom, const Position &positionTo);
-
-		/**
 		 * @brief Attemtps to retrieve an item from the stash.
 		 *
 		 * @details This function leverages the internalCollectLootItems function with the OBJECTCATEGORY_STASHRETRIEVE category
@@ -865,9 +855,7 @@ class Game {
 
 		void unwrapItem(Item* item, uint16_t unWrapId, House* house, Player* player);
 
-		// using a list to speed up the process of deleting futures on cleanup
-		std::list<std::future<void>> futures;
-		void removeCompletedFutures();
+		ReturnValue onCreatureZoneChange(Creature* creature, std::shared_ptr<Zone> &fromZone, std::shared_ptr<Zone> &toZone);
 
 		// Variable members (m_)
 		std::unique_ptr<IOWheel> m_IOWheel;
