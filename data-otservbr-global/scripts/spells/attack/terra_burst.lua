@@ -27,11 +27,11 @@ function spell.onCastSpell(creature, var)
 
 	local cooldown = 0
 	if grade >= WHEEL_GRADE_MAX then
-		cooldown = 24
+		cooldown = 14
 	elseif grade >= WHEEL_GRADE_UPGRADED then
-		cooldown = 28
+		cooldown = 18
 	elseif grade >= WHEEL_GRADE_REGULAR then
-		cooldown = 32
+		cooldown = 22
 	end
 
 	var.instantName = "Twin Burst"
