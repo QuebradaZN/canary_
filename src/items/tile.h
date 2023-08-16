@@ -20,6 +20,7 @@ class Teleport;
 class TrashHolder;
 class Mailbox;
 class MagicField;
+class QTreeLeafNode;
 class BedItem;
 class Zone;
 

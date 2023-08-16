@@ -177,8 +177,6 @@ class Container : public Item, public Cylinder {
 		bool unlocked;
 		bool pagination;
 
-		friend class MapCache;
-
 	private:
 		void onAddContainerItem(Item* item);
 		void onUpdateContainerItem(uint32_t index, Item* oldItem, Item* newItem);

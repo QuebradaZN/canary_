@@ -122,6 +122,7 @@ bool Item::hasImbuementCategoryId(uint16_t categoryId) const {
 	for (uint8_t slotid = 0; slotid < getImbuementSlot(); slotid++) {
 		ImbuementInfo imbuementInfo;
 		if (getImbuementInfo(slotid, &imbuementInfo)) {
+
 			if (const CategoryImbuement* categoryImbuement = g_imbuements().getCategoryByID(imbuementInfo.imbuement->getCategory());
 				categoryImbuement->id == categoryId) {
 				return true;

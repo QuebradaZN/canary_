@@ -76,15 +76,6 @@ class Towns {
 			return it->second;
 		}
 
-		Town* getOrCreateTown(uint32_t townId) {
-			auto town = getTown(townId);
-			if (!town) {
-				town = new Town(townId);
-				addTown(townId, town);
-			}
-			return town;
-		}
-
 		const TownMap &getTowns() const {
 			return townMap;
 		}
