@@ -108,7 +108,6 @@ monster.loot = {
 --	{name ="healing", interval = 2000, chance = 20, minDamage = 200, maxDamage = 250},
 --}
 monster.attacks = {
-	{name ="renegade knight", interval = 2000, chance = 30, target = false},
 	{name ="melee", interval = 2000, chance = 100, minDamage = 10, maxDamage = -175}
 }
 

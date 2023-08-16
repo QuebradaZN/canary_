@@ -113,7 +113,6 @@ monster.loot = {
 --	{name ="healing", interval = 2000, chance = 20, minDamage = 200, maxDamage = 280},
 --}
 monster.attacks = {
-	{name ="vile grandmaster", interval = 2000, chance = 15, target = false},
 	{name ="melee", interval = 2000, chance = 100, minDamage = 10, maxDamage = -260},
 	-- bleed
 	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 20, minDamage = -150, maxDamage = -225, radius = 4, shootEffect = CONST_ANI_THROWINGKNIFE, target = true}
