@@ -26,13 +26,13 @@ function info.onSay(player, words, param)
 
 	text = text .. 'Skills: \n\n'
 	text = text .. '* Level: ' .. target:getLevel() .. '\n'
-	text = text .. '* Skill Axe: ' .. target:getSkillLevel(SKILL_AXE) .. '\n'
-	text = text .. '* Skill Club: ' .. target:getSkillLevel(SKILL_CLUB) .. '\n'
+	text = text .. '* Skill Runic: ' .. target:getSkillLevel(SKILL_RUNIC) .. '\n'
+	text = text .. '* Skill Melee: ' .. target:getSkillLevel(SKILL_MELEE) .. '\n'
 	text = text .. '* Skill Distance: ' .. target:getSkillLevel(SKILL_DISTANCE) .. '\n'
-	text = text .. '* Skill Fist: ' .. target:getSkillLevel(SKILL_FIST) .. '\n'
+	text = text .. '* Skill Luck: ' .. target:getSkillLevel(SKILL_LUCK) .. '\n'
 	text = text .. '* Skill Magic: ' .. target:getMagicLevel() .. '\n'
-	text = text .. '* Skill Shield: ' .. target:getSkillLevel(SKILL_SHIELD) .. '\n'
-	text = text .. '* Skill Sword: ' .. target:getSkillLevel(SKILL_SWORD) .. '\n'
+	text = text .. '* Skill Defense: ' .. target:getSkillLevel(SKILL_DEFENSE) .. '\n'
+	text = text .. '* Skill Dexterity: ' .. target:getSkillLevel(SKILL_DEXTERITY) .. '\n'
 
 	player:popupFYI(text)
 
