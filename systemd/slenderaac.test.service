@@ -1,0 +1,17 @@
+[Unit]
+Description=Elysiera Web
+After=mysql.service
+StartLimitIntervalSec=1
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+
+WorkingDirectory=/home/ubuntu/slenderaac-test
+ExecStart=/bin/bash /home/ubuntu/slenderaac-test/start.sh
+Environment=NODE_ENV=production
+Environment=PORT=3001
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target

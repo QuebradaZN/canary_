@@ -1,0 +1,15 @@
+[Unit]
+Description=Canary Server
+After=mysql.service
+StartLimitIntervalSec=1
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+
+WorkingDirectory=/home/ubuntu/canary-test
+ExecStart=/bin/bash /home/ubuntu/canary-test/start.sh
+User=ubuntu
+
+[Install]
+WantedBy=multi-user.target

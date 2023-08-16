@@ -6,10 +6,11 @@ on:
   push:
     branches:
       - elysiera
+      - stable
 
 env:
   CMAKE_BUILD_PARALLEL_LEVEL: 2
-  MAKEFLAGS: '-j 2'
+  MAKEFLAGS: "-j 2"
 
 jobs:
   job:
@@ -74,6 +75,6 @@ jobs:
       - name: Create and Upload Artifact
         uses: actions/upload-artifact@main
         with:
-          name: canary-${{ matrix.os }}-${{ matrix.buildtype }}-${{ github.sha }}
+          name: canary-${{ matrix.buildtype }}-${{ github.ref_name }}-${{ github.sha }}
           path: |
             ${{ github.workspace }}/build/${{ matrix.buildtype }}/bin/
