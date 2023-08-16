@@ -40,11 +40,7 @@ bool IOLoginDataLoad::preLoadPlayer(Player* player, const std::string &name) {
 	player->setGroup(group);
 	player->accountNumber = result->getNumber<uint32_t>("account_id");
 	player->accountType = static_cast<account::AccountType>(result->getNumber<uint16_t>("account_type"));
-	if (!g_configManager().getBoolean(FREE_PREMIUM)) {
-		player->premiumDays = result->getNumber<uint16_t>("premium_days");
-	} else {
-		player->premiumDays = std::numeric_limits<uint16_t>::max();
-	}
+	player->premiumDays = result->getNumber<uint16_t>("premium_days");
 
 	/*
 	  Loyalty system:
@@ -96,12 +92,7 @@ bool IOLoginDataLoad::loadPlayerFirst(Player* player, DBResult_ptr result) {
 	acc.GetAccountType(&(player->accountType));
 	acc.GetCoins(&(player->coinBalance));
 	acc.GetTransferableCoins(&(player->coinTransferableBalance));
-
-	if (g_configManager().getBoolean(FREE_PREMIUM)) {
-		player->premiumDays = std::numeric_limits<uint16_t>::max();
-	} else {
-		acc.GetPremiumRemaningDays(&(player->premiumDays));
-	}
+	acc.GetPremiumRemaningDays(&(player->premiumDays));
 
 	Group* group = g_game().groups.getGroup(result->getNumber<uint16_t>("group_id"));
 	if (!group) {
