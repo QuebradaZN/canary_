@@ -27,20 +27,6 @@ local config = {
 		fullDuration = 4 * 60 * 60 * 1000, -- 4 hours
 		storage = "voucher.experience.received",
 	},
-	{
-		type = 'skills',
-		activeItem = 24963,
-		inactiveItem = 21217,
-		inactiveItemName = 'inactive compensatory skill voucher',
-		activeItemName = 'active compensatory skill voucher',
-		deprecatedExpiredItem = 12209,
-
-		compensatory = true,
-		compensationDate = 20230812,
-
-		fullDuration = 12 * 60 * 60 * 1000, -- 12 hours
-		storage = "voucher.compensatory.20230812.received",
-	},
 }
 
 local cooldown = 2 * 60
