@@ -140,5 +140,5 @@ Don't forget to add `GITHUB_TOKEN` to `~/.profile`. Now you can run `./update.sh
 
 ### Canary docs
 
-* [Gitbook](https://docs.opentibiabr.com/projects/canary).
-* [Wiki](https://github.com/opentibiabr/canary/wiki).
+- [Gitbook](https://docs.opentibiabr.com/projects/canary).
+- [Wiki](https://github.com/opentibiabr/canary/wiki).
