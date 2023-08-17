@@ -17,7 +17,7 @@ class SaveManager : public ThreadHolder<SaveManager> {
 		void unschedulePlayer(Player* player);
 
 	private:
-		phmap::btree_map<uint32_t, std::chrono::steady_clock::time_point> playerMap;
+		phmap::parallel_flat_hash_map<uint32_t, std::chrono::steady_clock::time_point> playerMap;
 };
 
 constexpr auto g_saveManager = SaveManager::getInstance;
