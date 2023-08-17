@@ -71,7 +71,7 @@ function primalKill.onKill(_player, creature)
 	end
 
 	local monster = creature:getMonster()
-	if not creature or not monster or not monster:hazard() or not monster:getPosition():isInArea(hazard) then
+	if not creature or not monster or not monster:hazard() or not hazard:isInZone(monster:getPosition()) then
 		return true
 	end
 

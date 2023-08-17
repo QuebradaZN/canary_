@@ -58,6 +58,14 @@ function Hazard:setPlayerMaxLevel(player, level)
 	player:setStorageValue(self.storageMax, level)
 end
 
+function Hazard:isInZone(position)
+	local zone = position:getZone()
+	if not zone then return false end
+	local hazard = Hazard.getByName(zone:getName())
+	if not hazard then return false end
+	return hazard == self
+end
+
 function Hazard:register()
 	if not configManager.getBoolean(configKeys.TOGGLE_HAZARDSYSTEM) then
 		return
