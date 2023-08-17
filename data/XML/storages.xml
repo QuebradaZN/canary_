@@ -23,7 +23,7 @@ When adding a new range or storage, make sure that the ranges do not overlap, an
 -->
 
 <storages>
-	<range start="150000" end="200000">
+	<range start="150000" end="150099">
 		<storage name="vip.is-vip" key="1" />
 		<storage name="vip.online-coins.gain" key="2" />
 		<storage name="vip.online-tokens.gain" key="3" />
@@ -32,6 +32,46 @@ When adding a new range or storage, make sure that the ranges do not overlap, an
 		<storage name="voucher.skill.received" key="6" />
 		<!-- NOT IN USE - <storage name="voucher.compensatory.20230812.received" key="7" /> -->
 	</range>
+<!-- { From = 150100, To = 150300 } -->
+
+	<!-- Waypoints -->
+	<range start="150099" end="150300">
+		<storage name="waypoints.werecreatures-mini-bosses" key="1" />
+		<storage name="waypoints.king-zelos-and-mini-bosses" key="2" />
+		<storage name="waypoints.scarlett-etzel" key="3" />
+		<storage name="waypoints.fear-fester" key="4" />
+		<storage name="waypoints.pale-worm" key="5" />
+		<storage name="waypoints.unwelcome" key="6" />
+		<storage name="waypoints.dread-maiden" key="7" />
+		<storage name="waypoints.feaster-of-souls-mini-bosses" key="8" />
+		<storage name="waypoints.grand-master-oberon-and-mini-bosses" key="9" />
+		<storage name="waypoints.goshnars-cruelty" key="10" />
+		<storage name="waypoints.goshnars-greed" key="11" />
+		<storage name="waypoints.goshnars-hatred" key="12" />
+		<storage name="waypoints.goshnars-malice" key="13" />
+		<storage name="waypoints.goshnars-spite" key="14" />
+		<storage name="waypoints.goshnars-megalomania" key="15" />
+		<storage name="waypoints.magma-bubble" key="16" />
+		<storage name="waypoints.the-primal-menace" key="17" />
+		<storage name="waypoints.forgotten-knowledge" key="18" />
+		<storage name="waypoints.nightmare-beast-and-dream-courts" key="19" />
+		<storage name="waypoints.timira" key="20" />
+		<storage name="waypoints.urmahlullu" key="21" />
+		<storage name="waypoints.ratmiral-blackwhiskers" key="22" />
+		<storage name="waypoints.drume" key="23" />
+		<storage name="waypoints.faceless-bane" key="24" />
+		<storage name="waypoints.asura-palace" key="25" />
+		<storage name="waypoints.ingol" key="26" />
+		<storage name="waypoints.soul-hub" key="27" />
+		<storage name="waypoints.lion-sanctum" key="28" />
+		<storage name="waypoints.elven-courts" key="29" />
+		<storage name="waypoints.deepling-bosses" key="30" />
+		<storage name="waypoints.brainstealer" key="31" />
+		<storage name="waypoints.zao" key="32" />
+		<storage name="waypoints.the-secret-library" key="33" />
+		<storage name="waypoints.the-secret-library-bosses" key="34" />
+	</range>
+
 
 	<range start="1000000" end="2000000">
 		<storage name="wheel.scroll.abridged" key="1" />

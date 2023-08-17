@@ -20,7 +20,7 @@ local waypoints = {
 	-- Grave Danger
 	{
 		id = 1,
-		name = "King Zelos & mini-bosses",
+		name = "King Zelos and mini-bosses",
 		bundle = true,
 		requirements = { bosstiary = { name = "King Zelos", stars = 1 } },
 		waypoints = {
@@ -84,9 +84,16 @@ local waypoints = {
 	-- Secret Library
 	{
 		id = 8,
-		name = "Grand Master Oberon",
-		position = Position(33363, 31342, 9),
-		requirements = { bosstiary = { stars = 1 } }
+		name = "Grand Master Oberon and mini-bosses",
+		bundle = true,
+		requirements = { bosstiary = { stars = 1 } },
+		waypoints = {
+			{ name = "Grand Master Oberon", position = Position(33363, 31342, 9) },
+			{ name = "Preceptor Lazare", position = Position(33371, 31344, 3) },
+			{ name = "Grand Chaplain Gaunder", position = Position(33370, 31330, 5) },
+			{ name = "Grand Commander Soeren", position = Position(33377, 31319, 1) },
+			{ name = "Grand Canon Dominus", position = Position(33383, 31291, 7) },
+		},
 	},
 
 	-- Soul Wars
@@ -229,7 +236,52 @@ local waypoints = {
 			{ name = "Tanjis", position = Position(33646, 31263, 11) },
 			{ name = "Obujos", position = Position(33438, 31250, 11) },
 		},
-	}
+	},
+
+	{
+		id = 30,
+		name = "Brainstealer",
+		position = Position(32536, 31122, 15),
+		requirements = { bosstiary = { name = "The Brainstealer", stars = 1 } },
+	},
+
+	{
+		id = 31,
+		name = "Zao",
+		bundle = true,
+		waypoints = {
+			{ name = "Steppe Teleports", position = Position(33144, 31247, 6) },
+			{ name = "Lizard Chosens", position = Position(33181, 31204, 8) },
+			{ name = "Ghastly Dragons", position = Position(33176, 31017, 7) },
+			{ name = "Draken Walls", position = Position(33040, 31174, 6) },
+		},
+	},
+
+	{
+		id = 32,
+		name = "The Secret Library",
+		bundle = true,
+		waypoints = {
+			{ name = "Fire Section", position = Position(32639, 32726, 12) },
+			{ name = "Energy Section", position = Position(32531, 32707, 12) },
+			{ name = "Ice Section", position = Position(32531, 32707, 12) },
+			{ name = "Earth Section", position = Position(32623, 32547, 12) },
+		},
+	},
+
+	{
+		id = 33,
+		name = "The Secret Library (Bosses)",
+		bundle = true,
+		requirements = { bosstiary = { name = "The Scourge Of Oblivion", stars = 1 } },
+		waypoints = {
+			{ name = "Lokathmor", position = Position(32724, 32747, 10) },
+			{ name = "Mazzinor", position = Position(32723, 32771, 10) },
+			{ name = "Ghulosh", position = Position(32749, 32771, 10) },
+			{ name = "Gorzindel", position = Position(32749, 32747, 10) },
+			{ name = "The Scourge Of Oblivion", position = Position(32679, 32743, 11) },
+		},
+	},
 }
 
 table.sort(waypoints, function(a, b) return a.name < b.name end)
