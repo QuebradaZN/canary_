@@ -424,9 +424,9 @@ Player* LuaFunctionsLoader::getPlayer(lua_State* L, int32_t arg, bool allowOffli
 	return nullptr;
 }
 
-Guild* LuaFunctionsLoader::getGuild(lua_State* L, int32_t arg, bool allowOffline /* = false */) {
+const std::shared_ptr<Guild> LuaFunctionsLoader::getGuild(lua_State* L, int32_t arg, bool allowOffline /* = false */) {
 	if (isUserdata(L, arg)) {
-		return getUserdata<Guild>(L, arg);
+		return getUserdataShared<Guild>(L, arg);
 	} else if (isNumber(L, arg)) {
 		return g_game().getGuild(getNumber<uint64_t>(L, arg), allowOffline);
 	} else if (isString(L, arg)) {
@@ -663,10 +663,9 @@ void LuaFunctionsLoader::registerSharedClass(lua_State* L, const std::string &cl
 }
 
 int LuaFunctionsLoader::luaGarbageCollection(lua_State* L) {
-	auto objPtr = static_cast<std::shared_ptr<SharedObject>*>(lua_touserdata(L, 1));
-	if (objPtr) {
+	const auto &objPtr = static_cast<std::shared_ptr<SharedObject>*>(lua_touserdata(L, 1));
+	if (objPtr && objPtr->get()) {
 		objPtr->reset();
-		delete objPtr;
 	}
 	return 0;
 }

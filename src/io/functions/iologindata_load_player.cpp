@@ -330,7 +330,7 @@ void IOLoginDataLoad::loadPlayerGuild(Player* player, DBResult_ptr result) {
 		uint32_t playerRankId = result->getNumber<uint32_t>("rank_id");
 		player->guildNick = result->getString("nick");
 
-		Guild* guild = g_game().getGuild(guildId);
+		auto guild = g_game().getGuild(guildId);
 		if (!guild) {
 			guild = IOGuild::loadGuild(guildId);
 			g_game().addGuild(guild);
@@ -423,7 +423,7 @@ void IOLoginDataLoad::loadPlayerBestiaryCharms(Player* player, DBResult_ptr resu
 
 		uint16_t raceid_t;
 		while (propBestStream.read<uint16_t>(raceid_t)) {
-			MonsterType* tmp_tt = g_monsters().getMonsterTypeByRaceId(raceid_t);
+			const auto &tmp_tt = g_monsters().getMonsterTypeByRaceId(raceid_t);
 			if (tmp_tt) {
 				player->addBestiaryTrackerList(tmp_tt);
 			}
