@@ -17,6 +17,11 @@ monster.bosstiary = {
 	bossRace = RARITY_ARCHFOE,
 	storageCooldown = Storage.Quest.U12_60.APiratesTail.TentuglyTimer,
 }
+monster.bosstiary = {
+	bossRaceId = 2238,
+	bossRace = RARITY_ARCHFOE,
+	storageCooldown = Storage.Quest.U12_60.APiratesTail.TentuglyTimer,
+}
 
 monster.health = 75000
 monster.maxHealth = 75000
