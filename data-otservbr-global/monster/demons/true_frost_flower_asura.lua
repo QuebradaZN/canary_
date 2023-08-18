@@ -92,7 +92,7 @@ monster.loot = {
 	{id = 8074, chance = 1740}, -- spellbook of mind control
 	{name = "small enchanted sapphire", chance = 9640, maxCount = 3},
 	{id = 3567, chance = 1540}, -- blue robe
-	{itemName = "royal star", chance = 4000, maxCount = 3},
+	{name = "royal star", chance = 4000, maxCount = 3},
 	{id = 7368, chance = 9640, maxCount = 5}, -- assassin star
 	{id = 3403, chance = 3590}, -- tribal mask
 	{id = 9058, chance = 3380}, -- gold ingot
