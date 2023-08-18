@@ -79,6 +79,9 @@ local carpetItems = {
 	[37771] = 37772, [37772] = 37771, -- zaoan bamboo tiles V
 	[37773] = 37774, [37774] = 37773, -- zaoan bamboo tiles VI
 	[39797] = 39798, [39798] = 39797, -- flowery grass
+	[42336] = 42337, [42337] = 42336, -- opulent wooden floor
+	[42338] = 42339, [42339] = 42338, -- opulent floor intarsia
+	[42340] = 42341, [42341] = 42340, -- opulent carpet
 }
 
 local carpets = Action()
