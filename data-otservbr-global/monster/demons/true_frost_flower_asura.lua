@@ -77,33 +77,33 @@ monster.loot = {
 	{id = 3035, chance = 100000, maxCount = 8}, -- platinum coin
 	{id = 6558, chance = 19790}, -- flask of demonic blood
 	{id = 239, chance = 21030, maxCount = 2}, -- great health potion
-	{id = 3028, chance = 11900, maxCount = 3}, -- small diamond
-	{id = 3032, chance = 16000, maxCount = 5}, -- small emerald
-	{id = 3029, chance = 10970, maxCount = 3}, -- small sapphire
+	{id = 3028, chance = 11900, maxCount = 2}, -- small diamond
+	{id = 3032, chance = 16000, maxCount = 2}, -- small emerald
+	{id = 3029, chance = 10970, maxCount = 2}, -- small sapphire
 	{id = 3030, chance = 8000, maxCount = 2}, -- small ruby
 	{id = 9057, chance = 8510, maxCount = 2}, -- small topaz
-	{id = 3041, chance = 2260}, -- blue gem
+	{id = 3041, chance = 1160}, -- blue gem
 	{id = 6499, chance = 15280}, -- demonic essence
-	{id = 21974, chance = 23080}, -- golden lotus brooch
+	{id = 21974, chance = 12080}, -- golden lotus brooch
 	{id = 21981, chance = 920}, -- oriental shoes
-	{id = 21975, chance = 20510}, -- peacock feather fan
+	{id = 21975, chance = 10510}, -- peacock feather fan
 	{id = 3017, chance = 9640}, -- silver brooch
 	{id = 5944, chance = 18670}, -- soul orb
-	{id = 8074, chance = 1740}, -- spellbook of mind control
+	{id = 8074, chance = 940}, -- spellbook of mind control
 	{name = "small enchanted sapphire", chance = 9640, maxCount = 3},
 	{id = 3567, chance = 1540}, -- blue robe
 	{name = "royal star", chance = 4000, maxCount = 3},
 	{id = 7368, chance = 9640, maxCount = 5}, -- assassin star
 	{id = 3403, chance = 3590}, -- tribal mask
-	{id = 9058, chance = 3380}, -- gold ingot
+	{id = 9058, chance = 2380}, -- gold ingot
 	{id = 3027, chance = 10360, maxCount = 2}, -- black pearl
 	{id = 3037, chance = 4510}, -- yellow gem
 	{id = 3026, chance = 8620, maxCount = 2}, -- white pearl
 	{name = "northwind rod", chance = 3180},
 	{id = 3054, chance = 2260}, -- silver amulet
-	{id = 7404, chance = 1330}, -- assassin dagger
-	{id = 8061, chance = 1330}, -- skullcracker armor
-	{id = 3067, chance = 1230}, -- hailstorm rod
+	{id = 7404, chance = 730}, -- assassin dagger
+	{id = 8061, chance = 730}, -- skullcracker armor
+	{id = 3067, chance = 1030}, -- hailstorm rod
 	{id = 3007, chance = 820}, -- crystal ring
 }
 
