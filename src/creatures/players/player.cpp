@@ -6020,29 +6020,27 @@ std::forward_list<Condition*> Player::getMuteConditions() const {
 }
 
 void Player::setGuild(const std::shared_ptr<Guild> &newGuild) {
-	if (newGuild == this->guild) {
+	if (newGuild == guild) {
 		return;
 	}
 
-	const auto &oldGuild = this->guild;
+	if (guild) {
+		guild->removeMember(this);
+		guild = nullptr;
+	}
 
-	this->guildNick.clear();
-	this->guild = nullptr;
-	this->guildRank = nullptr;
+	guildNick.clear();
+	guildRank = nullptr;
 
 	if (newGuild) {
-		GuildRank_ptr rank = newGuild->getRankByLevel(1);
+		const auto &rank = newGuild->getRankByLevel(1);
 		if (!rank) {
 			return;
 		}
 
-		this->guild = newGuild;
-		this->guildRank = rank;
+		guild = newGuild;
+		guildRank = rank;
 		newGuild->addMember(this);
-	}
-
-	if (oldGuild) {
-		oldGuild->removeMember(this);
 	}
 }
 
