@@ -1,12 +1,11 @@
 #ifndef SRC_GAME_SCHEDULING_SAVE_MANAGER_H_
 #define SRC_GAME_SCHEDULING_SAVE_MANAGER_H_
 
-#include "utils/thread_holder_base.h"
-#include <unordered_set>
+#include "lib/thread/thread_pool.hpp"
 
-class SaveManager : public ThreadHolder<SaveManager> {
+class SaveManager {
 	public:
-		SaveManager() = default;
+		explicit SaveManager(ThreadPool &threadPool);
 
 		SaveManager(const SaveManager &) = delete;
 		void operator=(const SaveManager &) = delete;
@@ -18,6 +17,7 @@ class SaveManager : public ThreadHolder<SaveManager> {
 
 	private:
 		phmap::parallel_flat_hash_map<uint32_t, std::chrono::steady_clock::time_point> playerMap;
+		ThreadPool &threadPool;
 };
 
 constexpr auto g_saveManager = SaveManager::getInstance;
