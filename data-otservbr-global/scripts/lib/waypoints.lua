@@ -86,7 +86,7 @@ local waypoints = {
 		id = 8,
 		name = "Grand Master Oberon and mini-bosses",
 		bundle = true,
-		requirements = { bosstiary = { stars = 1 } },
+		requirements = { bosstiary = { name = "Grand Master Oberon", stars = 1 } },
 		waypoints = {
 			{ name = "Grand Master Oberon", position = Position(33363, 31342, 9) },
 			{ name = "Preceptor Lazare", position = Position(33371, 31344, 3) },
