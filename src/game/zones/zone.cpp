@@ -121,7 +121,7 @@ void Zone::clearZones() {
 const std::vector<std::shared_ptr<Zone>> &Zone::getZones() {
 	static std::vector<std::shared_ptr<Zone>> zonesVector;
 	zonesVector.clear();
-	for (const auto &[name, zone] : zones) {
+	for (const auto &[_, zone] : zones) {
 		zonesVector.push_back(zone);
 	}
 	return zonesVector;
