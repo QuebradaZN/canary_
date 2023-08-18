@@ -9,4 +9,3 @@ function event.onEnter(_zone, creature)
 end
 
 event:register()
-zone:register()
