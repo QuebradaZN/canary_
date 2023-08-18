@@ -4789,7 +4789,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position &pos, uint16_t item
 		return;
 	}
 
-	std::lock_guard<std::mutex> lock(player->quickLootMutex);
+	Player::PlayerLock lock(*player);
 	if (!autoLoot) {
 		player->setNextActionTask(nullptr);
 	}
@@ -9827,8 +9827,7 @@ void Game::playerRewardChestCollect(uint32_t playerId, const Position &pos, uint
 		return;
 	}
 
-	std::lock_guard<std::mutex> lock(player->quickLootMutex);
-
+	Player::PlayerLock lock(*player);
 	ReturnValue returnValue = collectRewardChestItems(player, maxMoveItems);
 	if (returnValue != RETURNVALUE_NOERROR) {
 		player->sendCancelMessage(returnValue);

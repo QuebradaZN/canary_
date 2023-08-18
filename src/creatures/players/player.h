@@ -94,6 +94,21 @@ static constexpr int32_t PLAYER_SOUND_HEALTH_CHANGE = 10;
 
 class Player final : public Creature, public Cylinder, public Bankable {
 	public:
+		class PlayerLock {
+			public:
+				explicit PlayerLock(Player &p) :
+					player(p) {
+					player.mutex.lock();
+				}
+
+				~PlayerLock() {
+					player.mutex.unlock();
+				}
+
+			private:
+				Player &player;
+		};
+
 		explicit Player(ProtocolGame_ptr p);
 		~Player();
 
@@ -2502,6 +2517,9 @@ class Player final : public Creature, public Cylinder, public Bankable {
 		Container* getLootPouch() const;
 
 	private:
+		friend class PlayerLock;
+		std::mutex mutex;
+
 		static uint32_t playerFirstID;
 		static uint32_t playerLastID;
 
@@ -2877,8 +2895,6 @@ class Player final : public Creature, public Cylinder, public Bankable {
 		friend class IOLoginDataSave;
 
 		std::unique_ptr<PlayerWheel> m_wheelPlayer;
-
-		std::mutex quickLootMutex;
 
 		account::Account* account_;
 		bool online = true;
