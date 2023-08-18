@@ -1,3 +1,12 @@
+/**
+ * Canary - A free and open-source MMORPG server emulator
+ * Copyright (©) 2019-2022 OpenTibiaBR <opentibiabr@outlook.com>
+ * Repository: https://github.com/opentibiabr/canary
+ * License: https://github.com/opentibiabr/canary/blob/main/LICENSE
+ * Contributors: https://github.com/opentibiabr/canary/graphs/contributors
+ * Website: https://docs.opentibiabr.com/
+ */
+
 #ifndef SRC_GAME_ZONE_ZONE_HPP_
 #define SRC_GAME_ZONE_ZONE_HPP_
 
@@ -29,12 +38,50 @@ struct Area {
 
 		Position from;
 		Position to;
+
+		class PositionIterator {
+			public:
+				PositionIterator(Position startPosition, const Area &refArea) :
+					currentPosition(startPosition), area(refArea) { }
+
+				const Position &operator*() const {
+					return currentPosition;
+				}
+				PositionIterator &operator++() {
+					currentPosition.x++;
+					if (currentPosition.x > area.to.x) {
+						currentPosition.x = area.from.x;
+						currentPosition.y++;
+						if (currentPosition.y > area.to.y) {
+							currentPosition.y = area.from.y;
+							currentPosition.z++;
+						}
+					}
+					return *this;
+				}
+				bool operator!=(const PositionIterator &other) const {
+					return !(currentPosition == other.currentPosition);
+				}
+
+			private:
+				Position currentPosition;
+				const Area &area;
+		};
+
+		PositionIterator begin() const {
+			return PositionIterator(from, *this);
+		}
+
+		PositionIterator end() const {
+			Position endPosition(from.x, from.y, to.z + 1); // z is incremented so it's past the last valid position.
+			return PositionIterator(endPosition, *this);
+		}
 };
 
 class Zone {
 	public:
-		Zone(const std::string &name) :
-			name(name), areas({}) { }
+		explicit Zone(const std::string &name) :
+			name(name) { }
 
 		// Deleted copy constructor and assignment operator.
 		Zone(const Zone &) = delete;
@@ -63,12 +110,12 @@ class Zone {
 		void itemAdded(Item* item);
 		void itemRemoved(Item* item);
 
-		void removeMonsters();
-		void removeNpcs();
+		const void removeMonsters();
+		const void removeNpcs();
 
-		static std::shared_ptr<Zone> &addZone(const std::string &name);
-		static std::shared_ptr<Zone> &getZone(const std::string &name);
-		static std::shared_ptr<Zone> &getZone(const Position &position);
+		const static std::shared_ptr<Zone> &addZone(const std::string &name);
+		const static std::shared_ptr<Zone> &getZone(const std::string &name);
+		const static std::shared_ptr<Zone> &getZone(const Position &position);
 		static const std::vector<std::shared_ptr<Zone>> &getZones();
 		static void clearZones();
 
