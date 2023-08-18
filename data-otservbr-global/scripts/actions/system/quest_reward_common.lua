@@ -29,6 +29,15 @@ local achievementTable = {
 	[6088] = "Annihilator"
 }
 
+local mountTable = {
+	-- [chestUniqueId] = mountId,
+	-- Annihilator
+	[6085] = 121,
+	[6086] = 121,
+	[6087] = 121,
+	[6088] = 121,
+}
+
 local function playerAddItem(params, item)
 	local player = params.player
 	if not checkWeightAndBackpackRoom(player, params.weight, params.message) then
@@ -55,6 +64,10 @@ local function playerAddItem(params, item)
 		local achievement = achievementTable[item.uid]
 		if achievement then
 			player:addAchievement(achievement)
+		end
+		local mount = mountTable[item.uid]
+		if mount then
+			player:addMount(mount)
 		end
 	end
 

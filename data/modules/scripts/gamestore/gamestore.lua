@@ -3768,15 +3768,6 @@ GameStore.Categories = {
 				type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
 			},
 			{
-				icons = { "Sanguine_Frog.png" },
-				name = "Sanguine Frog",
-				price = 150,
-				id = 121,
-				description =
-				"{character}\n{speedboost}\n\n<i>For centuries, humans and monsters have dumped their garbage in the swamps around Venore. The combination of old, rusty weapons, stale mana and broken runes have turned some of the swamp dwellers into gigantic frogs. Benefit from those mutations and make the Sanguine Frog a faithful mount for your adventures even beyond the bounds of the swamp.</i>",
-				type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-			},
-			{
 				icons = { "Savanna_Ostrich.png" },
 				name = "Savanna Ostrich",
 				price = 150,

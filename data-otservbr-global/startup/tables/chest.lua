@@ -810,26 +810,24 @@ ChestUnique = {
 		reward = {{3388, 1}},
 		storage = Storage.Quest.U7_24.TheAnnihilator.Reward
 	},
-	-- Magic sword
+	-- Dread doll
 	[6086] = {
 		itemId = 2472,
 		itemPos = {x = 33229, y = 31656, z = 13},
-		reward = {{3288, 1}},
+		reward = {{12904, 1}},
 		storage = Storage.Quest.U7_24.TheAnnihilator.Reward
 	},
-	-- Stonecutter axe
+	-- Nightmare doll
 	[6087] = {
 		itemId = 2472,
 		itemPos = {x = 33231, y = 31656, z = 13},
-		reward = {{3319, 1}},
+		reward = {{10227, 1}},
 		storage = Storage.Quest.U7_24.TheAnnihilator.Reward
 	},
-	-- Present (annihilation bear)
+	-- Annihilation bear
 	[6088] = {
 		itemId = 2472,
 		itemPos = {x = 33233, y = 31656, z = 13},
-		container = 2856,
-		weight = 50,
 		reward = {{3213, 1}},
 		storage = Storage.Quest.U7_24.TheAnnihilator.Reward
 	},
