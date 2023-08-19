@@ -6,6 +6,7 @@ monster.description = "Timira the Many-Headed"
 monster.experience = 45500
 monster.outfit = {
 	lookType = 1542,
+	lookAddons = 3,
 }
 
 monster.bosstiary = {
