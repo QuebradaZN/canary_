@@ -409,5 +409,5 @@ bossCooldownTime = 10 * 60 * 60 -- 10 hours
 bossDefaultTimeToFightAgain = 10 * 60 * 60 -- 20 hours
 bossDefaultTimeToDefeat = 20 * 60 -- 20 minutes
 
-rewardChestCollectEnabled = true
+rewardChestCollectEnabled = false
 rewardChestMaxCollectItems = 200
