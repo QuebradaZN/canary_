@@ -16,6 +16,11 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	local position = creature:getPosition()
 	local party = creature:getParty()
+	if not party then
+		creature:sendCancelMessage("No party members in range.")
+		position:sendMagicEffect(CONST_ME_POFF)
+		return false
+	end
 	local hasSynergy = false
 	if party and party:isSharedExperienceEnabled() then
 		hasSynergy = party:hasSorcerer()
