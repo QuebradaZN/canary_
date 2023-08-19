@@ -3621,11 +3621,6 @@ void Game::playerConfigureShowOffSocket(uint32_t playerId, const Position &pos, 
 		return;
 	}
 
-	if (g_configManager().getBoolean(ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS) && !InternalGame::playerCanUseItemOnHouseTile(player, item)) {
-		player->sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT);
-		return;
-	}
-
 	bool isPodiumOfRenown = itemId == ITEM_PODIUM_OF_RENOWN1 || itemId == ITEM_PODIUM_OF_RENOWN2;
 	if (!Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
 		std::forward_list<Direction> listDir;
@@ -3665,11 +3660,6 @@ void Game::playerSetShowOffSocket(uint32_t playerId, Outfit_t &outfit, const Pos
 	Item* item = thing->getItem();
 	if (!item || item->getID() != itemId || !item->isPodium() || item->hasAttribute(ItemAttribute_t::UNIQUEID)) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	if (g_configManager().getBoolean(ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS) && !InternalGame::playerCanUseItemOnHouseTile(player, item)) {
-		player->sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT);
 		return;
 	}
 
@@ -8962,11 +8952,6 @@ void Game::playerSetMonsterPodium(uint32_t playerId, uint32_t monsterRaceId, con
 		return;
 	}
 
-	if (g_configManager().getBoolean(ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS) && !InternalGame::playerCanUseItemOnHouseTile(player, item)) {
-		player->sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT);
-		return;
-	}
-
 	if (monsterRaceId != 0) {
 		item->setCustomAttribute("PodiumMonsterRaceId", static_cast<int64_t>(monsterRaceId));
 	} else if (auto podiumMonsterRace = item->getCustomAttribute("PodiumMonsterRaceId")) {
@@ -9008,18 +8993,20 @@ void Game::playerSetMonsterPodium(uint32_t playerId, uint32_t monsterRaceId, con
 		item->setCustomAttribute("LookLegs", static_cast<int64_t>(monsterOutfit.lookLegs));
 		item->setCustomAttribute("LookFeet", static_cast<int64_t>(monsterOutfit.lookFeet));
 		item->setCustomAttribute("LookAddons", static_cast<int64_t>(monsterOutfit.lookAddons));
-		item->setCustomAttribute("PodiumVisible", static_cast<int64_t>(podiumVisible));
-		item->setCustomAttribute("LookDirection", static_cast<int64_t>(direction));
-		item->setCustomAttribute("MonsterVisible", static_cast<int64_t>(monsterVisible));
+	} else {
+		item->removeCustomAttribute("LookType");
+	}
 
+	item->setCustomAttribute("PodiumVisible", static_cast<int64_t>(podiumVisible));
+	item->setCustomAttribute("LookDirection", static_cast<int64_t>(direction));
+	item->setCustomAttribute("MonsterVisible", static_cast<int64_t>(monsterVisible));
+
+	// Change Podium name
+	if (monsterVisible) {
 		std::ostringstream name;
-		item->removeAttribute(ItemAttribute_t::NAME);
 		name << item->getName() << " displaying " << mType->name;
 		item->setAttribute(ItemAttribute_t::NAME, name.str());
 	} else {
-		item->removeCustomAttribute("LookType");
-		item->setCustomAttribute("PodiumVisible", static_cast<int64_t>(0));
-		item->setCustomAttribute("MonsterVisible", static_cast<int64_t>(0));
 		item->removeAttribute(ItemAttribute_t::NAME);
 	}
 
@@ -9048,11 +9035,6 @@ void Game::playerRotatePodium(uint32_t playerId, const Position &pos, uint8_t st
 	Item* item = thing->getItem();
 	if (!item || item->getID() != itemId || item->hasAttribute(ItemAttribute_t::UNIQUEID)) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	if (g_configManager().getBoolean(ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS) && !InternalGame::playerCanUseItemOnHouseTile(player, item)) {
-		player->sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT);
 		return;
 	}
 
