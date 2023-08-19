@@ -19,7 +19,7 @@ monster.health = 75000
 monster.maxHealth = 75000
 monster.race = "blood"
 monster.corpse = 39712
-monster.speed = 400
+monster.speed = 110
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -88,23 +88,14 @@ monster.loot = {
 	{name = "naga crossbow", chance = 200}
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -230+},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Fire Ring
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -560, maxDamage = -577, range = ?, effect = <>, target = ?}, --Fire Ultimate Explosion
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Fire Bomb
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Death Chain
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -273, maxDamage = -273, range = ?, effect = <>, target = ?}, --Energy Strike
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -150~, maxDamage = -150~, range = ?, effect = <>, target = ?}, --Purple Chain
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -, maxDamage = -, range = ?, effect = <>, target = ?}, --Explosion Wave
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -maybe healing, maxDamage = -maybe healing, range = ?, effect = <>, target = ?}, --Swarm
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -800, maxDamage = -1600},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_FIREDAMAGE, minDamage = -700, maxDamage = -1200, radius = 7, target = false, effect = CONST_ME_HITBYFIRE},
-	{name ="combat", interval = 1800, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -700, maxDamage = -1500, range = 7, radius = 1, target = true, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT},
-	{name ="combat", interval = 3000, chance = 30, type = COMBAT_MANADRAIN, minDamage = -100, maxDamage = -700, effect = CONST_ME_PURPLEENERGY}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600},
+	{name ="timira fire ring", interval = 3500, chance = 50, minDamage = -360, maxDamage = -425},
+	{name ="death chain", interval = 2500, chance = 30, minDamage = -190, maxDamage = -225, range = 3, target = true},
+	{name ="mana drain chain", interval = 2500, chance = 20, minDamage = -100, maxDamage = -130},
+	{name ="timira explosion", interval = 4200, chance = 40, minDamage = -350, maxDamage = -560},
+	{name ="combat", interval = 5500, chance = 45, type = COMBAT_PHYSICALDAMAGE, minDamage = -580, maxDamage = -620, length = 6, spread = 2, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name ="combat", interval = 5000, chance = 60, type = COMBAT_ENERGYDAMAGE, minDamage = -230, maxDamage = -450, range = 1, radius = 1, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_ENERGYHIT, target = true},
 }
 
 monster.defenses = {
