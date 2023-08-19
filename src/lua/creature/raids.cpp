@@ -230,7 +230,7 @@ void Raid::startRaid() {
 		state = RAIDSTATE_EXECUTING;
 		nextEventEvent = g_scheduler().addEvent(raidEvent->getDelay(), std::bind(&Raid::executeRaidEvent, this, raidEvent));
 	} else {
-		spdlog::warn("[raids] Raid {} has no events", name);
+		g_logger().warn("[raids] Raid {} has no events", name);
 		resetRaid();
 	}
 }
@@ -330,9 +330,8 @@ bool AnnounceEvent::configureRaidEvent(const pugi::xml_node &eventNode) {
 }
 
 bool AnnounceEvent::executeEvent() {
-	std::string url = g_configManager().getString(DISCORD_WEBHOOK_URL);
 	g_game().broadcastMessage(message, messageType);
-	webhook_send_message("Incoming raid!", message, WEBHOOK_COLOR_RAID, url);
+	g_webhook().sendMessage("Incoming raid!", message, WEBHOOK_COLOR_RAID);
 	return true;
 }
 

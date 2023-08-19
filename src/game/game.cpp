@@ -2638,8 +2638,9 @@ ReturnValue Game::processLootItems(Player* player, Container* lootContainer, Ite
 	uint32_t remainderCount = item->getItemCount();
 	ContainerIterator containerIterator = lootContainer->iterator();
 
+	ReturnValue ret;
 	do {
-		ReturnValue ret = processMoveOrAddItemToLootContainer(item, lootContainer, remainderCount, player);
+		ret = processMoveOrAddItemToLootContainer(item, lootContainer, remainderCount, player);
 		if (ret != RETURNVALUE_CONTAINERNOTENOUGHROOM) {
 			return ret;
 		}
@@ -2651,7 +2652,7 @@ ReturnValue Game::processLootItems(Player* player, Container* lootContainer, Ite
 		fallbackConsumed = fallbackConsumed || (nextContainer == nullptr);
 	} while (remainderCount != 0);
 
-	return RETURNVALUE_NOERROR;
+	return ret;
 }
 
 ReturnValue Game::internalCollectLootItems(Player* player, Item* item, ObjectCategory_t category /* = OBJECTCATEGORY_DEFAULT*/) {
@@ -7381,8 +7382,7 @@ void Game::dieSafely(std::string errorMsg /* = "" */) {
 }
 
 void Game::shutdown() {
-	std::string url = g_configManager().getString(DISCORD_WEBHOOK_URL);
-	webhook_send_message("Server is shutting down", "Shutting down...", WEBHOOK_COLOR_OFFLINE, url);
+	g_webhook().sendMessage("Server is shutting down", "Shutting down...", WEBHOOK_COLOR_OFFLINE);
 
 	g_logger().info("Shutting down...");
 	map.spawnsMonster.clear();
@@ -8957,6 +8957,19 @@ void Game::playerSetMonsterPodium(uint32_t playerId, uint32_t monsterRaceId, con
 		return;
 	}
 
+	if (monsterRaceId != 0) {
+		item->setCustomAttribute("PodiumMonsterRaceId", static_cast<int64_t>(monsterRaceId));
+	} else if (auto podiumMonsterRace = item->getCustomAttribute("PodiumMonsterRaceId")) {
+		monsterRaceId = static_cast<uint32_t>(podiumMonsterRace->getInteger());
+	}
+
+	const auto &mType = g_monsters().getMonsterTypeByRaceId(static_cast<uint16_t>(monsterRaceId), itemId == ITEM_PODIUM_OF_VIGOUR);
+	if (!mType) {
+		player->sendCancelMessage(RETURNVALUE_CONTACTADMINISTRATOR);
+		g_logger().error("[{}] player {} is trying to add invalid monster to podium {}", __FUNCTION__, player->getName(), item->getName());
+		return;
+	}
+
 	const auto tile = item->getParent() ? item->getParent()->getTile() : nullptr;
 	if (!tile) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
@@ -8975,27 +8988,9 @@ void Game::playerSetMonsterPodium(uint32_t playerId, uint32_t monsterRaceId, con
 		return;
 	}
 
-	if (g_configManager().getBoolean(ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS) && !InternalGame::playerCanUseItemOnHouseTile(player, item)) {
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	if (monsterRaceId != 0) {
-		item->setCustomAttribute("PodiumMonsterRaceId", static_cast<int64_t>(monsterRaceId));
-	} else if (auto podiumMonsterRace = item->getCustomAttribute("PodiumMonsterRaceId")) {
-		monsterRaceId = static_cast<uint32_t>(podiumMonsterRace->getInteger());
-	}
-
-	const std::shared_ptr<MonsterType> mType = g_monsters().getMonsterTypeByRaceId(monsterRaceId, itemId == ITEM_PODIUM_OF_VIGOUR);
-	if (!mType) {
-		player->sendCancelMessage(RETURNVALUE_CONTACTADMINISTRATOR);
-		g_logger().error("[{}] player {} is trying to add invalid monster to podium {}", __FUNCTION__, player->getName(), item->getName());
-		return;
-	}
-
 	const auto &[podiumVisible, monsterVisible] = podiumAndMonsterVisible;
 	if (auto monsterOutfit = mType->info.outfit;
-		(monsterOutfit.lookType != 0 || monsterOutfit.lookTypeEx != 0) && monsterVisible) {
+		monsterOutfit.lookType != 0 && monsterVisible) {
 		item->setCustomAttribute("LookTypeEx", static_cast<int64_t>(monsterOutfit.lookTypeEx));
 		item->setCustomAttribute("LookType", static_cast<int64_t>(monsterOutfit.lookType));
 		item->setCustomAttribute("LookHead", static_cast<int64_t>(monsterOutfit.lookHead));
@@ -9014,7 +9009,6 @@ void Game::playerSetMonsterPodium(uint32_t playerId, uint32_t monsterRaceId, con
 	// Change Podium name
 	if (monsterVisible) {
 		std::ostringstream name;
-		item->removeAttribute(ItemAttribute_t::NAME);
 		name << item->getName() << " displaying " << mType->name;
 		item->setAttribute(ItemAttribute_t::NAME, name.str());
 	} else {
@@ -9226,7 +9220,7 @@ void Game::removeMonster(Monster* monster) {
 	monsters.erase(monster->getID());
 }
 
-const std::shared_ptr<Guild> Game::getGuild(uint32_t id, bool allowOffline /* = flase */) const {
+std::shared_ptr<Guild> Game::getGuild(uint32_t id, bool allowOffline /* = flase */) const {
 	auto it = guilds.find(id);
 	if (it == guilds.end()) {
 		if (allowOffline) {
@@ -9237,7 +9231,7 @@ const std::shared_ptr<Guild> Game::getGuild(uint32_t id, bool allowOffline /* = 
 	return it->second;
 }
 
-const std::shared_ptr<Guild> Game::getGuildByName(const std::string &name, bool allowOffline /* = flase */) const {
+std::shared_ptr<Guild> Game::getGuildByName(const std::string &name, bool allowOffline /* = flase */) const {
 	auto id = IOGuild::getGuildIdByName(name);
 	auto it = guilds.find(id);
 	if (it == guilds.end()) {
@@ -9826,7 +9820,6 @@ void Game::playerRewardChestCollect(uint32_t playerId, const Position &pos, uint
 		return;
 	}
 
-	Player::PlayerLock lock(*player);
 	ReturnValue returnValue = collectRewardChestItems(player, maxMoveItems);
 	if (returnValue != RETURNVALUE_NOERROR) {
 		player->sendCancelMessage(returnValue);

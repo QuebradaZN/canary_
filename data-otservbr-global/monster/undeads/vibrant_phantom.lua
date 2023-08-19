@@ -83,7 +83,7 @@ monster.loot = {
 	{name = "terra rod", chance = 13980},
 	{name = "violet gem", chance = 8600},
 	{name = "vibrant heart", chance = 6450},
-	{id =281, chance = 6450}, -- giant shimmering pearl
+	{id = 281, chance = 6450}, -- giant shimmering pearl
 	{name = "gold ingot", chance = 4300},
 	{name = "blue crystal shard", chance = 4300},
 	{name = "vibrant robe", chance = 3230},

@@ -35,7 +35,7 @@ bool IOLoginDataLoad::preLoadPlayer(Player* player, const std::string &name) {
 	player->setGUID(result->getNumber<uint32_t>("id"));
 	Group* group = g_game().groups.getGroup(result->getNumber<uint16_t>("group_id"));
 	if (!group) {
-		SPDLOG_ERROR("Player {} has group id {} which doesn't exist", player->name, result->getNumber<uint16_t>("group_id"));
+		g_logger().error("Player {} has group id {} which doesn't exist", player->name, result->getNumber<uint16_t>("group_id"));
 		return false;
 	}
 	player->setGroup(group);
@@ -75,7 +75,7 @@ bool IOLoginDataLoad::preLoadPlayer(Player* player, const std::string &name) {
 
 bool IOLoginDataLoad::loadPlayerFirst(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return false;
 	}
 
@@ -98,13 +98,13 @@ bool IOLoginDataLoad::loadPlayerFirst(Player* player, DBResult_ptr result) {
 
 	Group* group = g_game().groups.getGroup(result->getNumber<uint16_t>("group_id"));
 	if (!group) {
-		SPDLOG_ERROR("Player {} has group id {} which doesn't exist", player->name, result->getNumber<uint16_t>("group_id"));
+		g_logger().error("Player {} has group id {} which doesn't exist", player->name, result->getNumber<uint16_t>("group_id"));
 		return false;
 	}
 	player->setGroup(group);
 
 	if (!player->setVocation(result->getNumber<uint16_t>("vocation"))) {
-		SPDLOG_ERROR("Player {} has vocation id {} which doesn't exist", player->name, result->getNumber<uint16_t>("vocation"));
+		g_logger().error("Player {} has vocation id {} which doesn't exist", player->name, result->getNumber<uint16_t>("vocation"));
 		return false;
 	}
 
@@ -143,7 +143,7 @@ bool IOLoginDataLoad::loadPlayerFirst(Player* player, DBResult_ptr result) {
 	player->setOfflineTrainingSkill(skill);
 	Town* town = g_game().map.towns.getTown(result->getNumber<uint32_t>("town_id"));
 	if (!town) {
-		SPDLOG_ERROR("Player {} has town id {} which doesn't exist", player->name, result->getNumber<uint16_t>("town_id"));
+		g_logger().error("Player {} has town id {} which doesn't exist", player->name, result->getNumber<uint16_t>("town_id"));
 		return false;
 	}
 	player->town = town;
@@ -164,7 +164,7 @@ bool IOLoginDataLoad::loadPlayerFirst(Player* player, DBResult_ptr result) {
 
 void IOLoginDataLoad::loadPlayerExperience(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -187,7 +187,7 @@ void IOLoginDataLoad::loadPlayerExperience(Player* player, DBResult_ptr result) 
 
 void IOLoginDataLoad::loadPlayerBlessings(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -200,7 +200,7 @@ void IOLoginDataLoad::loadPlayerBlessings(Player* player, DBResult_ptr result) {
 
 void IOLoginDataLoad::loadPlayerConditions(const Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -224,13 +224,13 @@ void IOLoginDataLoad::loadPlayerConditions(const Player* player, DBResult_ptr re
 
 void IOLoginDataLoad::loadPlayerDefaultOutfit(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
 	player->defaultOutfit.lookType = result->getNumber<uint16_t>("looktype");
 	if (g_configManager().getBoolean(WARN_UNSAFE_SCRIPTS) && player->defaultOutfit.lookType != 0 && !g_game().isLookTypeRegistered(player->defaultOutfit.lookType)) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] An unregistered creature looktype type with id '{}' was blocked to prevent client crash.", player->defaultOutfit.lookType);
+		g_logger().warn("[IOLoginData::loadPlayer] An unregistered creature looktype type with id '{}' was blocked to prevent client crash.", player->defaultOutfit.lookType);
 		return;
 	}
 
@@ -246,7 +246,7 @@ void IOLoginDataLoad::loadPlayerDefaultOutfit(Player* player, DBResult_ptr resul
 	player->defaultOutfit.lookFamiliarsType = result->getNumber<uint16_t>("lookfamiliarstype");
 
 	if (g_configManager().getBoolean(WARN_UNSAFE_SCRIPTS) && player->defaultOutfit.lookFamiliarsType != 0 && !g_game().isLookTypeRegistered(player->defaultOutfit.lookFamiliarsType)) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] An unregistered creature looktype type with id '{}' was blocked to prevent client crash.", player->defaultOutfit.lookFamiliarsType);
+		g_logger().warn("[IOLoginData::loadPlayer] An unregistered creature looktype type with id '{}' was blocked to prevent client crash.", player->defaultOutfit.lookFamiliarsType);
 		return;
 	}
 
@@ -255,7 +255,7 @@ void IOLoginDataLoad::loadPlayerDefaultOutfit(Player* player, DBResult_ptr resul
 
 void IOLoginDataLoad::loadPlayerSkullSystem(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -277,7 +277,7 @@ void IOLoginDataLoad::loadPlayerSkullSystem(Player* player, DBResult_ptr result)
 
 void IOLoginDataLoad::loadPlayerSkill(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -299,7 +299,7 @@ void IOLoginDataLoad::loadPlayerSkill(Player* player, DBResult_ptr result) {
 
 void IOLoginDataLoad::loadPlayerKills(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -318,7 +318,7 @@ void IOLoginDataLoad::loadPlayerKills(Player* player, DBResult_ptr result) {
 
 void IOLoginDataLoad::loadPlayerGuild(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -368,7 +368,7 @@ void IOLoginDataLoad::loadPlayerGuild(Player* player, DBResult_ptr result) {
 
 void IOLoginDataLoad::loadPlayerStashItems(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -384,7 +384,7 @@ void IOLoginDataLoad::loadPlayerStashItems(Player* player, DBResult_ptr result) 
 
 void IOLoginDataLoad::loadPlayerBestiaryCharms(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -437,7 +437,7 @@ void IOLoginDataLoad::loadPlayerBestiaryCharms(Player* player, DBResult_ptr resu
 
 void IOLoginDataLoad::loadPlayerInstantSpellList(Player* player, DBResult_ptr result) {
 	if (!player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -453,7 +453,7 @@ void IOLoginDataLoad::loadPlayerInstantSpellList(Player* player, DBResult_ptr re
 
 void IOLoginDataLoad::loadPlayerInventoryItems(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -525,13 +525,13 @@ void IOLoginDataLoad::loadPlayerInventoryItems(Player* player, DBResult_ptr resu
 			}
 		}
 	} catch (const std::exception &e) {
-		SPDLOG_ERROR("[IOLoginDataLoad::loadPlayerInventoryItems] - Exceção durante o carregamento do inventário: {}", e.what());
+		g_logger().error("[IOLoginDataLoad::loadPlayerInventoryItems] - Exceção durante o carregamento do inventário: {}", e.what());
 	}
 }
 
 void IOLoginDataLoad::loadPlayerStoreInbox(Player* player) {
 	if (!player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -542,7 +542,7 @@ void IOLoginDataLoad::loadPlayerStoreInbox(Player* player) {
 
 void IOLoginDataLoad::loadRewardItems(Player* player) {
 	if (!player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -560,7 +560,7 @@ void IOLoginDataLoad::loadRewardItems(Player* player) {
 
 void IOLoginDataLoad::loadPlayerDepotItems(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -600,7 +600,7 @@ void IOLoginDataLoad::loadPlayerDepotItems(Player* player, DBResult_ptr result) 
 
 void IOLoginDataLoad::loadPlayerInboxItems(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -637,7 +637,7 @@ void IOLoginDataLoad::loadPlayerInboxItems(Player* player, DBResult_ptr result) 
 
 void IOLoginDataLoad::loadPlayerStorageMap(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -653,7 +653,7 @@ void IOLoginDataLoad::loadPlayerStorageMap(Player* player, DBResult_ptr result) 
 
 void IOLoginDataLoad::loadPlayerVip(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -669,7 +669,7 @@ void IOLoginDataLoad::loadPlayerVip(Player* player, DBResult_ptr result) {
 
 void IOLoginDataLoad::loadPlayerPreyClass(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -716,7 +716,7 @@ void IOLoginDataLoad::loadPlayerPreyClass(Player* player, DBResult_ptr result) {
 
 void IOLoginDataLoad::loadPlayerTaskHuntingClass(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -766,7 +766,7 @@ void IOLoginDataLoad::loadPlayerTaskHuntingClass(Player* player, DBResult_ptr re
 
 void IOLoginDataLoad::loadPlayerForgeHistory(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -787,7 +787,7 @@ void IOLoginDataLoad::loadPlayerForgeHistory(Player* player, DBResult_ptr result
 
 void IOLoginDataLoad::loadPlayerBosstiary(Player* player, DBResult_ptr result) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Result nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -804,7 +804,7 @@ void IOLoginDataLoad::loadPlayerBosstiary(Player* player, DBResult_ptr result) {
 
 void IOLoginDataLoad::bindRewardBag(Player* player, RewardItemsMap &rewardItemsMap) {
 	if (!player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -844,7 +844,7 @@ void IOLoginDataLoad::insertItemsIntoRewardBag(const RewardItemsMap &rewardItems
 
 void IOLoginDataLoad::loadPlayerInitializeSystem(Player* player) {
 	if (!player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
 		return;
 	}
 
@@ -858,7 +858,7 @@ void IOLoginDataLoad::loadPlayerInitializeSystem(Player* player) {
 
 void IOLoginDataLoad::loadPlayerUpdateSystem(Player* player) {
 	if (!player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player nullptr: {}", __FUNCTION__);
 		return;
 	}
 

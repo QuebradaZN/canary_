@@ -29,7 +29,7 @@ Bank::~Bank() {
 		return;
 	}
 	if (bankable->isGuild()) {
-		auto guild = static_self_cast<Guild>(bankable);
+		const auto &guild = static_self_cast<Guild>(bankable);
 		if (guild && !guild->isOnline()) {
 			IOGuild::saveGuild(guild);
 		}
@@ -47,7 +47,7 @@ bool Bank::debit(uint64_t amount) {
 	return balance(balance() - amount);
 }
 
-bool Bank::balance(uint64_t amount) {
+bool Bank::balance(uint64_t amount) const {
 	if (bankable == nullptr) {
 		return 0;
 	}

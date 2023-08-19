@@ -103,13 +103,13 @@ void IOBosstiary::loadBoostedBoss() {
 	query.str(std::string());
 	query << "UPDATE `player_bosstiary` SET `bossIdSlotOne` = 0 WHERE `bossIdSlotOne` = " << bossId;
 	if (!database.executeQuery(query.str())) {
-		SPDLOG_ERROR("[{}] Failed to reset players selected boss slot 1. (CODE 03)", __FUNCTION__);
+		g_logger().error("[{}] Failed to reset players selected boss slot 1. (CODE 03)", __FUNCTION__);
 	}
 
 	query.str(std::string());
 	query << "UPDATE `player_bosstiary` SET `bossIdSlotTwo` = 0 WHERE `bossIdSlotTwo` = " << bossId;
 	if (!database.executeQuery(query.str())) {
-		SPDLOG_ERROR("[{}] Failed to reset players selected boss slot 1. (CODE 03)", __FUNCTION__);
+		g_logger().error("[{}] Failed to reset players selected boss slot 1. (CODE 03)", __FUNCTION__);
 	}
 
 	setBossBoostedName(bossName);

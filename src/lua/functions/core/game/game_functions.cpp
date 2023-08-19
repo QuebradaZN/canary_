@@ -34,10 +34,15 @@ int GameFunctions::luaGameCreateMonsterType(lua_State* L) {
 	if (isString(L, 1)) {
 		std::string name = getString(L, 1);
 		auto monsterType = std::make_shared<MonsterType>(name);
-		g_monsters().addMonsterType(name, monsterType);
+		if (!g_monsters().tryAddMonsterType(name, monsterType)) {
+			lua_pushstring(L, fmt::format("The monster with name {} already registered", name).c_str());
+			lua_error(L);
+			return 1;
+		}
+
 		if (!monsterType) {
-			reportErrorFunc("MonsterType is nullptr");
-			pushBoolean(L, false);
+			lua_pushstring(L, "MonsterType is nullptr");
+			lua_error(L);
 			return 1;
 		}
 
@@ -175,10 +180,10 @@ int GameFunctions::luaGameGetNpcCount(lua_State* L) {
 
 int GameFunctions::luaGameGetMonsterTypes(lua_State* L) {
 	// Game.getMonsterTypes()
-	auto &type = g_monsters().monsters;
+	const auto &type = g_monsters().monsters;
 	lua_createtable(L, type.size(), 0);
 
-	for (auto &mType : type) {
+	for (const auto &mType : type) {
 		pushUserdata<MonsterType>(L, mType.second);
 		setMetatable(L, -1, "MonsterType");
 		lua_setfield(L, -2, mType.first.c_str());

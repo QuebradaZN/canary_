@@ -9,6 +9,10 @@
 
 #pragma once
 
+class Position;
+class Creature;
+class Tile;
+
 struct AStarNode {
 		AStarNode* parent;
 		int_fast32_t f;
@@ -21,8 +25,8 @@ class AStarNodes {
 
 		AStarNode* createOpenNode(AStarNode* parent, uint32_t x, uint32_t y, int_fast32_t f);
 		AStarNode* getBestNode();
-		void closeNode(AStarNode* node);
-		void openNode(AStarNode* node);
+		void closeNode(const AStarNode* node);
+		void openNode(const AStarNode* node);
 		int_fast32_t getClosedNodes() const;
 		AStarNode* getNodeByPosition(uint32_t x, uint32_t y);
 
@@ -30,6 +34,11 @@ class AStarNodes {
 		static int_fast32_t getTileWalkCost(const Creature &creature, const Tile* tile);
 
 	private:
+		static constexpr int32_t MAX_NODES = 512;
+		static constexpr int32_t MAP_NORMALWALKCOST = 10;
+		static constexpr int32_t MAP_PREFERDIAGONALWALKCOST = 14;
+		static constexpr int32_t MAP_DIAGONALWALKCOST = 25;
+
 		AStarNode nodes[MAX_NODES];
 		bool openNodes[MAX_NODES];
 		phmap::flat_hash_map<uint32_t, AStarNode*> nodeTable;

@@ -309,7 +309,7 @@ std::shared_ptr<MonsterType> Monsters::getMonsterType(const std::string &name) {
 	return nullptr;
 }
 
-std::shared_ptr<MonsterType> Monsters::getMonsterTypeByRaceId(uint16_t raceId, bool isBoss /* = false*/) {
+std::shared_ptr<MonsterType> Monsters::getMonsterTypeByRaceId(uint16_t raceId, bool isBoss /* = false*/) const {
 	const auto &bossType = g_ioBosstiary().getMonsterTypeByBossRaceId(raceId);
 	if (isBoss && bossType) {
 		return bossType;
@@ -324,7 +324,13 @@ std::shared_ptr<MonsterType> Monsters::getMonsterTypeByRaceId(uint16_t raceId, b
 	return g_monsters().getMonsterType(it->second);
 }
 
-void Monsters::addMonsterType(const std::string &name, const std::shared_ptr<MonsterType> &mType) {
+bool Monsters::tryAddMonsterType(const std::string &name, const std::shared_ptr<MonsterType> &mType) {
 	std::string lowerName = asLowerCaseString(name);
+	if (monsters.find(lowerName) != monsters.end()) {
+		g_logger().debug("[{}] the monster with name '{}' already exist", __FUNCTION__, name);
+		return false;
+	}
+
 	monsters[lowerName] = mType;
+	return true;
 }

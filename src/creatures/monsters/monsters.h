@@ -261,8 +261,8 @@ class Monsters {
 		}
 
 		std::shared_ptr<MonsterType> getMonsterType(const std::string &name);
-		std::shared_ptr<MonsterType> getMonsterTypeByRaceId(uint16_t raceId, bool isBoss = false);
-		void addMonsterType(const std::string &name, const std::shared_ptr<MonsterType> &mType);
+		std::shared_ptr<MonsterType> getMonsterTypeByRaceId(uint16_t raceId, bool isBoss = false) const;
+		bool tryAddMonsterType(const std::string &name, const std::shared_ptr<MonsterType> &mType);
 		bool deserializeSpell(const std::shared_ptr<MonsterSpell> &spell, spellBlock_t &sb, const std::string &description = "");
 
 		std::unique_ptr<LuaScriptInterface> scriptInterface;

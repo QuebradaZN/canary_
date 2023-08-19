@@ -138,7 +138,7 @@ bool IOLoginData::loadPlayerByName(Player* player, const std::string &name, bool
 
 bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result, bool disable /* = false*/) {
 	if (!result || !player) {
-		SPDLOG_WARN("[IOLoginData::loadPlayer] - Player or Resultnullptr: {}", __FUNCTION__);
+		g_logger().warn("[IOLoginData::loadPlayer] - Player or Resultnullptr: {}", __FUNCTION__);
 		return false;
 	}
 
@@ -214,10 +214,10 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result, bool disable /
 
 		return true;
 	} catch (const std::system_error &error) {
-		SPDLOG_WARN("[{}] Error while load player: {}", __FUNCTION__, error.what());
+		g_logger().warn("[{}] Error while load player: {}", __FUNCTION__, error.what());
 		return false;
 	} catch (const std::exception &e) {
-		SPDLOG_WARN("[{}] Error while load player: {}", __FUNCTION__, e.what());
+		g_logger().warn("[{}] Error while load player: {}", __FUNCTION__, e.what());
 		return false;
 	}
 }

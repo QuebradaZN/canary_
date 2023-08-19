@@ -89,8 +89,8 @@ class EventCallback : public Script {
 		bool playerOnRotateItem(Player* player, Item* item, const Position &position) const;
 
 		// Monster
-		void monsterPostDropLoot(Monster* monster, Container* corpse) const;
 		void monsterOnDropLoot(Monster* monster, Container* corpse) const;
+		void monsterPostDropLoot(Monster* monster, Container* corpse) const;
 		void monsterOnSpawn(Monster* monster, const Position &position) const;
 
 		// Monster
