@@ -355,7 +355,7 @@ ReturnValue Container::queryAdd(int32_t addIndex, const Thing &addThing, uint32_
 		}
 		const Cylinder* parent = cylinder->getParent();
 		if (cylinder == parent) {
-			spdlog::error("Container::queryAdd: parent == cylinder. Preventing infinite loop.");
+			g_logger().error("Container::queryAdd: parent == cylinder. Preventing infinite loop.");
 			return RETURNVALUE_NOTPOSSIBLE;
 		}
 		cylinder = parent;
