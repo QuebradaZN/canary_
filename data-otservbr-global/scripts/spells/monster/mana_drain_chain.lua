@@ -14,7 +14,7 @@ function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
-spell:name("energy chain")
+spell:name("mana drain chain")
 spell:words("###6030")
 spell:needLearn(true)
 spell:cooldown("2000")
