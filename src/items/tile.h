@@ -22,6 +22,7 @@ class Mailbox;
 class MagicField;
 class BedItem;
 class Zone;
+class House;
 
 using CreatureVector = std::vector<Creature*>;
 using ItemVector = std::vector<Item*>;
@@ -120,8 +121,12 @@ class Tile : public Cylinder {
 		virtual CreatureVector* getCreatures() = 0;
 		virtual const CreatureVector* getCreatures() const = 0;
 		virtual CreatureVector* makeCreatures() = 0;
+		virtual House* getHouse() {
+			return nullptr;
+		}
 
-		int32_t getThrowRange() const override final {
+		int32_t
+		getThrowRange() const override final {
 			return 0;
 		}
 		bool isPushable() const override final {
