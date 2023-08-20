@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Squire of Nictros")
+local mType = Game.createMonsterType("Soul Scourge")
 local monster = {}
 
-monster.description = "a squire of Nictros"
+monster.description = "a soul scourge"
 monster.experience = 0
 monster.outfit = {
-	lookType = 306,
+	lookType = 300,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -62,13 +62,9 @@ monster.voices = {
 monster.loot = {
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -?, maxDamage = -?},
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -190, maxDamage = -335, range = 7, shootEffect = CONST_ANI_WHIRLWINDSWORD, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -700},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -500, maxDamage = -750, range = 5, shootEffect = CONST_ANI_SUDDENDEATH, target = true}
 }
 
 monster.defenses = {

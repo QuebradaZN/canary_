@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 300000
-monster.maxHealth = 300000
+monster.health = 75000
+monster.maxHealth = 75000
 monster.race = "venom"
 monster.corpse = 31599
 monster.speed = 125
@@ -61,9 +61,9 @@ monster.light = {
 }
 
 monster.summon = {
-	maxSummons = 5,
+	maxSummons = 4,
 	summons = {
-		{name = "Frozen Soul", chance = 50, interval = 2000, count = 5}
+		{name = "Frozen Soul", chance = 50, interval = 2000, count = 4}
 	}
 }
 
@@ -109,10 +109,10 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -500, maxDamage = -800, range = ?, effect = <>, target = ?}, --Earth Wave
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 1800, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 2, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_ENERGYDAMAGE, minDamage = -260, maxDamage = -420, range = 3, effect = CONST_ME_BLUE_ENERGY_SPARK, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 0, effect = CONST_ME_ICEATTACK, target = false},
+	{name ="ice chain", interval = 2500, chance = 25, minDamage = -260, maxDamage = -360, range = 3, target = true},
+	{name ="combat", interval = 3500, chance = 37, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 2, effect = CONST_ME_POISONAREA, target = false},
 }
 
 monster.defenses = {

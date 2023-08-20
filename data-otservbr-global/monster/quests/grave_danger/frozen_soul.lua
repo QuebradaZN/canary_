@@ -70,8 +70,8 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Exori
 --}
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 70, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -600, range = 5, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -700, range = 5, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
+	{name ="combat", interval = 2000, chance = 70, type = COMBAT_ICEDAMAGE, minDamage = -460, maxDamage = -600, range = 5, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
+	{name ="combat", interval = 3500, chance = 30, type = COMBAT_LIFEDRAIN, minDamage = -470, maxDamage = -640, range = 5, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_MAGIC_RED, target = true},
 }
 
 monster.defenses = {

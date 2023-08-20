@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 475
-monster.maxHealth = 475
+monster.health = 2000
+monster.maxHealth = 2000
 monster.race = "blood"
 monster.corpse = 6006
 monster.speed = 110
@@ -70,9 +70,8 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -317+, range = ?, effect = <>, target = ?}, --[[Self-Healing|Life steal]]
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -200, range = 1, effect = CONST_ME_SMALLCLOUDS, target = true},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -400, range = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 60000}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -350, range = 1, effect = CONST_ME_MAGIC_RED, target = true},
 }
 
 monster.defenses = {
@@ -80,8 +79,7 @@ monster.defenses = {
 	armor = 30,
 --	mitigation = ???,
 	{name ="outfit", interval = 4000, chance = 10, effect = CONST_ME_GROUNDSHAKER, target = false, duration = 5000, outfitMonster = "bat"},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 3000},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 15, maxDamage = 25, target = false}
+	{name ="combat", interval = 2000, chance = 35, type = COMBAT_HEALING, minDamage = 350, maxDamage = 550, effect = CONST_ME_MAGIC_BLUE, target = false},
 }
 
 monster.elements = {

@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 300000
-monster.maxHealth = 300000
+monster.health = 75000
+monster.maxHealth = 75000
 monster.race = "venom"
 monster.corpse = 31599
 monster.speed = 125
@@ -112,16 +112,15 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --applies [[Hexed|Lesser Hex]] on target
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_STONES, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_POISONAREA, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD},
+	{name ="lord azaram wave", interval = 3500, chance = 50, minDamage = -360, maxDamage = -900},
+	{name ="combat", interval = 2700, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -500, maxDamage = -1200, length = 7, spread = 0, effect = CONST_ME_STONES, target = false},
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 78,
 --	mitigation = ???,
-	{name ="combat", interval = 2000, chance = 50, type = COMBAT_HEALING, minDamage = 150, maxDamage = 550, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
