@@ -6,7 +6,7 @@ local combatLarge = Combat()
 combatLarge:setParameter(COMBAT_PARAM_TYPE, COMBAT_EARTHDAMAGE)
 combatLarge:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITBYPOISON)
 
-arrSmall = {
+local areaSmall = {
 	{0, 0, 0, 0, 0},
 	{0, 1, 1, 1, 0},
 	{0, 1, 1, 1, 0},
@@ -14,7 +14,7 @@ arrSmall = {
 	{0, 0, 3, 0, 0}
 }
 
-arrLarge = {
+local areaLarge = {
 	{0, 1, 1, 1, 1, 1, 0},
 	{0, 1, 1, 1, 1, 1, 0},
 	{0, 1, 1, 1, 1, 1, 0},

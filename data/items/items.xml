@@ -42149,18 +42149,18 @@
 	<item id="28798" article="the" name="dead Diamond Blossom">
 		<attribute key="fluidsource" value="blood"/>
 		<attribute key="duration" value="10"/>
-		<attribute key="decayTo" value="32500"/>
+		<attribute key="decayTo" value="28799"/>
 		<attribute key="containersize" value="24"/>
 	</item>
 	<item id="28799" article="the" name="dead Diamond Blossom">
 		<attribute key="fluidsource" value="blood"/>
 		<attribute key="duration" value="300"/>
-		<attribute key="decayTo" value="32501"/>
+		<attribute key="decayTo" value="28800"/>
 		<attribute key="containersize" value="24"/>
 	</item>
 	<item id="28800" article="the" name="dead Diamond Blossom">
 		<attribute key="duration" value="300"/>
-		<attribute key="decayTo" value="32502"/>
+		<attribute key="decayTo" value="28801"/>
 		<attribute key="containersize" value="10"/>
 	</item>
 	<item id="28801" article="the" name="dead Diamond Blossom">
