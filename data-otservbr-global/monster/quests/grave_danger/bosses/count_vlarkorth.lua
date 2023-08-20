@@ -61,9 +61,9 @@ monster.light = {
 }
 
 monster.summon = {
-	maxSummons = 6,
+	maxSummons = 4,
 	summons = {
-		{name = "Soulless Minion", chance = 70, interval = 1800, count = 6}
+		{name = "Soulless Minion", chance = 70, interval = 5500, count = 4}
 	}
 }
 
