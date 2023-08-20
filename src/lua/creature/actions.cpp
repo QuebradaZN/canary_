@@ -423,6 +423,7 @@ bool Actions::useItemEx(Player* player, const Position &fromPos, const Position 
 			return false;
 		}
 	}
+
 	const std::shared_ptr<Action> &action = getAction(item);
 	if (action == nullptr) {
 		player->sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT);
