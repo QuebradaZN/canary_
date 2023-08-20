@@ -77,6 +77,7 @@ monster.loot = {
 	{name = "dagger", chance = 48250},
 	{name = "dream blossom staff", chance = 1750},
 	{name = "ectoplasmic shield", chance = 1750},
+	{id = 30344, chance = 1750}, -- enchanted pendulet
 	{id = 282, chance = 880}, -- giant shimmering pearl
 	{name = "gold ingot", chance = 8330},
 	{name = "green crystal shard", chance = 4390},
