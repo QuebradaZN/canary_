@@ -925,8 +925,8 @@ void Combat::doChainEffect(const Position &origin, const Position &dest, uint8_t
 
 bool Combat::doCombatChain(Creature* caster, Creature* target, bool aggressive) const {
 	auto targets = std::vector<Creature*>();
-	auto targetSet = phmap::btree_set<uint32_t>();
-	auto visitedChain = phmap::btree_set<uint32_t>();
+	auto targetSet = phmap::flat_hash_set<uint32_t>();
+	auto visitedChain = phmap::flat_hash_set<uint32_t>();
 	if (target != nullptr) {
 		targets.push_back(target);
 		targetSet.insert(target->getID());
@@ -943,9 +943,13 @@ bool Combat::doCombatChain(Creature* caster, Creature* target, bool aggressive) 
 	if (targets.empty() || targets.size() == 1 && targets[0] == caster) {
 		return false;
 	}
-	Creature* previousTarget = caster;
+	auto previousTarget = caster;
+	auto targetted = phmap::flat_hash_set<uint32_t>();
 	for (auto currentTarget : targets) {
 		if (currentTarget == caster) {
+			continue;
+		}
+		if (targetted.contains(currentTarget->getID())) {
 			continue;
 		}
 		g_logger().debug("Combat: {} -> {}", previousTarget ? previousTarget->getName() : "none", currentTarget ? currentTarget->getName() : "none");
@@ -953,6 +957,7 @@ bool Combat::doCombatChain(Creature* caster, Creature* target, bool aggressive) 
 		doChainEffect(origin, currentTarget->getPosition(), params.chainEffect);
 		doCombat(caster, currentTarget, origin);
 		previousTarget = currentTarget;
+		targetted.insert(currentTarget->getID());
 	}
 	return true;
 }
@@ -1389,7 +1394,7 @@ void Combat::setRuneSpellName(const std::string &value) {
 	runeSpellName = value;
 }
 
-void Combat::pickChainTargets(Creature* caster, std::vector<Creature*> &targets, phmap::btree_set<uint32_t> &targetSet, phmap::btree_set<uint32_t> &visited, const CombatParams &params, uint8_t chainDistance, uint8_t maxTargets, bool backtracking, bool aggressive) {
+void Combat::pickChainTargets(Creature* caster, std::vector<Creature*> &targets, phmap::flat_hash_set<uint32_t> &targetSet, phmap::flat_hash_set<uint32_t> &visited, const CombatParams &params, uint8_t chainDistance, uint8_t maxTargets, bool backtracking, bool aggressive) {
 	if (maxTargets == 0 || targets.size() > maxTargets) {
 		return;
 	}
