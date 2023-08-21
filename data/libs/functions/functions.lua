@@ -59,33 +59,11 @@ function getTitle(uid)
 	return false
 end
 
-function getHours(seconds)
-	return math.floor((seconds/60)/60)
-end
-
-function getMinutes(seconds)
-	return math.floor(seconds/60)%60
-end
-
-function getSeconds(seconds)
-	return seconds%60
-end
-
-function getTime(seconds)
-	local hours, minutes = getHours(seconds), getMinutes(seconds)
-	if (minutes > 59) then
-		minutes = minutes-hours*60
-	end
-
-	if (minutes < 10) then
-		minutes = "0" ..minutes
-	end
-
-	return hours..":"..minutes.. "h"
-end
-
-function getTimeInWords(secs)
+function getTimeInWords(secsParam)
+	local secs = tonumber(secsParam)
+	Spdlog.info("Seconds: "..secs)
 	local hours, minutes, seconds = getHours(secs), getMinutes(secs), getSeconds(secs)
+	Spdlog.info("Hours: "..hours.." Minutes: "..minutes.." Seconds: "..seconds)
 	local timeStr = ''
 
 	if hours > 0 then
@@ -1001,7 +979,7 @@ function getHours(seconds)
 end
 
 function getMinutes(seconds)
-	return math.floor(seconds / 60)
+	return math.floor(seconds / 60) % 60
 end
 
 function getSeconds(seconds)
