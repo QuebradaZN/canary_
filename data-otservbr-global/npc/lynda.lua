@@ -109,7 +109,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"... a wand of decay, a wand of cosmic energy and a wand of inferno. Please bring them all at once so that their energy will be balanced. ...",
 				"Secondly, I need 10 ounces of magic sulphur. It can absorb the elemental energy of all the wands and rods and bind it to something else. ...",
 				"Next, I will need a soul stone. These can be used as a vessel for energy, evil as well as good. They are rarely used nowaday though. ...",
-				"Lastly, I need a lot of holy energy. I can extract it from ankhs, but only a small amount each time. I will need about 20 ankhs. ...",
+				"Lastly, I need a lot of holy energy. I can extract it from ankhs, but only a small amount each time. I will need about 10 ankhs. ...",
 				"Did you understand everything I told you and will help me with my blessing?"
 			}, npc, creature)
 			npcHandler:setTopic(playerId, 2)
@@ -141,12 +141,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 		elseif npcHandler:getTopic(playerId) == 5 then
 			if player:removeItem(5809, 1) then
-				npcHandler:say("You have found a rarity there, |PLAYERNAME|. This will become the tip of your blessed wand. Please bring me 20 ankhs now to complete the ritual.", npc, creature)
+				npcHandler:say("You have found a rarity there, |PLAYERNAME|. This will become the tip of your blessed wand. Please bring me 10 ankhs now to complete the ritual.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 5)
 				npcHandler:setTopic(playerId, 0)
 			end
 		elseif npcHandler:getTopic(playerId) == 6 then
-			if player:removeItem(3077, 20) then
+			if player:removeItem(3077, 10) then
 				npcHandler:say("The ingredients for the ritual are complete! I will start to prepare your blessed wand, but I have to medidate first. Please come back later to hear how the ritual went.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 6)
 				player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWandTimer, os.time() + 10800)
