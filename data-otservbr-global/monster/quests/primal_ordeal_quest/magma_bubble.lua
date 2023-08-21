@@ -22,7 +22,7 @@ monster.bosstiary = {
 monster.health = 300000
 monster.maxHealth = 300000
 monster.race = "undead"
-monster.corpse = 36843
+monster.corpse = 36847
 monster.speed = 40
 monster.manaCost = 0
 
@@ -106,7 +106,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -600, maxDamage = -1300},
 	{name ="combat", interval = 200, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -600, maxDamage = -1500, target = false},
-	{name ="combat", interval = 500, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -2100, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 500, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -2100, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 500, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -2600, radius = 8, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -1000, maxDamage = -2000, target = true},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_FIREDAMAGE, minDamage = -1500, maxDamage = -2000, length = 8, spread = 0, effect = CONST_ME_FIREAREA, target = false},
