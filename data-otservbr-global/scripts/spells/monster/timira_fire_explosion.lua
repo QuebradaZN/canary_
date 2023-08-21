@@ -6,7 +6,7 @@ local combatSmall = Combat()
 combatSmall:setParameter(COMBAT_PARAM_TYPE, COMBAT_FIREDAMAGE)
 combatSmall:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITBYFIRE)
 
-arrLarge = {
+local arrLarge = {
     {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
@@ -22,7 +22,7 @@ arrLarge = {
     {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0}
 }
 
-arrSmall = {
+local arrSmall = {
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -46,12 +46,12 @@ local spell = Spell("instant")
 local combats = {combatSmall, combatLarge}
 
 function spell.onCastSpell(creature, var)
-    local randomCombat = combats[math.random(#combats)]
-    return randomCombat:execute(creature, var)
+	local randomCombat = combats[math.random(#combats)]
+	return randomCombat:execute(creature, var)
 end
 
 spell:name("timira explosion")
-spell:words("###6031")
+spell:words("###6032")
 spell:needLearn(true)
 spell:cooldown("2000")
 spell:isSelfTarget(true)
