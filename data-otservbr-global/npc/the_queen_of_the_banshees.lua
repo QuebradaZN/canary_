@@ -88,7 +88,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif MsgContains(message, "orchid") or MsgContains(message, "holy orchid") then
 		if player:getStorageValue(Storage.OutfitQuest.WizardAddon) == 6 then
-			npcHandler:say("Have you really brought me 50 holy orchids?", npc, creature)
+			npcHandler:say("Have you really brought me 30 holy orchids?", npc, creature)
 			npcHandler:setTopic(playerId, 11)
 		end
 	elseif MsgContains(message, "yes") then
@@ -166,7 +166,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Listen... there are no blooming flowers down here and the only smell present is that of death and decay. ...",
 				"I wish that I could breathe the lovely smell of beautiful flowers just one more time, \z
 						especially those which elves cultivate. ...",
-				"Could you please bring me 50 holy orchids?"
+				"Could you please bring me 30 holy orchids?"
 			}, npc, creature)
 			npcHandler:setTopic(playerId, 10)
 		elseif npcHandler:getTopic(playerId) == 10 then
@@ -174,15 +174,15 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.OutfitQuest.WizardAddon, 6)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 11 then
-			if player:removeItem(5922, 50) then
-				npcHandler:say("Thank you! You have no idea what that means to me. As promised,here is your reward... as a follower of Zathroth, I hope that you will like this accessory.", npc, creature)
+			if player:removeItem(5922, 30) then
+				npcHandler:say("Thank you! You have no idea what that means to me. As promised, here is your reward... as a follower of Zathroth, I hope that you will like this accessory.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 7)
 				player:addOutfitAddon(145, 1)
 				player:addOutfitAddon(149, 1)
 				player:addAchievement('Warlock')
 				npcHandler:setTopic(playerId, 0)
 			else
-				npcHandler:say("You need 50 holy orchid.", npc, creature)
+				npcHandler:say("You need 30 holy orchids.", npc, creature)
 				npcHandler:setTopic(playerId, 0)
 			end
 		end
