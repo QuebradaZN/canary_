@@ -498,12 +498,10 @@ class ProtocolGame final : public Protocol {
 		void sendSpecialContainersAvailable();
 		void addBless();
 		void parsePacketDead(uint8_t recvbyte);
+		void addCreatureIcon(NetworkMessage &msg, const Creature* creature);
 
 		void sendSingleSoundEffect(const Position &pos, SoundEffect_t id, SourceEffect_t source);
 		void sendDoubleSoundEffect(const Position &pos, SoundEffect_t mainSoundId, SourceEffect_t mainSource, SoundEffect_t secondarySoundId, SourceEffect_t secondarySource);
-
-		// Hazard system
-		void reloadHazardSystemIcon();
 
 		uint8_t m_playerDeathTime = 0;
 

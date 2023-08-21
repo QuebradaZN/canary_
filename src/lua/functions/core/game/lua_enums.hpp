@@ -50,6 +50,7 @@ class LuaEnums final : LuaScriptInterface {
 		static void initFluidEnums(lua_State* L);
 		static void initItemIdEnums(lua_State* L);
 		static void initPlayerFlagEnums(lua_State* L);
+		static void initCreatureIconEnums(lua_State* L);
 		static void initReportReasonEnums(lua_State* L);
 		static void initSkillEnums(lua_State* L);
 		static void initSkullEnums(lua_State* L);

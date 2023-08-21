@@ -223,8 +223,14 @@ class Creature : virtual public Thing {
 			varBuffs[buff] += modifier;
 		}
 
-		virtual CreatureIcon_t getIcon() const {
-			return CREATUREICON_NONE;
+		virtual CreatureIcon getIcon() const {
+			return creatureIcon;
+		}
+
+		void setIcon(CreatureIcon icon);
+
+		void clearIcon() {
+			setIcon(CreatureIcon());
 		}
 
 		const Outfit_t getCurrentOutfit() const {
@@ -729,6 +735,8 @@ class Creature : virtual public Thing {
 		int8_t buffStacks = 0;
 
 		uint8_t wheelOfDestinyDrainBodyDebuff = 0;
+
+		CreatureIcon creatureIcon = CreatureIcon();
 
 		// creature script events
 		bool hasEventRegistered(CreatureEventType_t event) const {
