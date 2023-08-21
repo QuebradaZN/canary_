@@ -15,6 +15,7 @@
 #include "creatures/players/player.h"
 #include "game/game.h"
 #include "utils/tools.h"
+#include "items/item.h"
 
 void IOBosstiary::loadBoostedBoss() {
 	Database &database = Database::getInstance();
@@ -37,47 +38,43 @@ void IOBosstiary::loadBoostedBoss() {
 		return;
 	}
 
-	std::string bossName;
-	uint16_t bossId = 0;
 	if (date == today) {
-		bossName = result->getString("boostname");
-		bossId = result->getNumber<uint16_t>("raceid");
+		const auto &bossName = result->getString("boostname");
+		auto bossId = result->getNumber<uint16_t>("raceid");
 		setBossBoostedName(bossName);
 		setBossBoostedId(bossId);
 		g_logger().info("Boosted boss: {}", bossName);
 		return;
 	}
 
-	// Filter only archfoe bosses
-	phmap::btree_map<uint16_t, std::string> bossInfo;
-	for (auto [infoBossRaceId, infoBossName] : bossMap) {
-		const auto &mType = getMonsterTypeByBossRaceId(infoBossRaceId);
-		if (!mType || mType->info.bosstiaryRace != BosstiaryRarity_t::RARITY_ARCHFOE) {
-			continue;
-		}
+	uint16_t oldBossRace = result->getNumber<uint16_t>("raceid");
 
-		bossInfo.try_emplace(infoBossRaceId, infoBossName);
+	std::set<uint16_t> uniqueArchfoeBossIds;
+	auto minClassification = static_cast<uint8_t>(uniform_random(2, 4));
+	g_logger().debug("Boosted boss min classification: {}", minClassification);
+	for (const auto &[infoBossRaceId, _] : bossMap) {
+		const auto &mType = getMonsterTypeByBossRaceId(infoBossRaceId);
+		if (mType && infoBossRaceId != 0 && infoBossRaceId != oldBossRace
+			&& mType->info.bosstiaryRace == BosstiaryRarity_t::RARITY_ARCHFOE) {
+			for (const auto &loot : mType->info.lootItems) {
+				const auto &itemType = Item::items[loot.id];
+				if (itemType.upgradeClassification >= minClassification) {
+					uniqueArchfoeBossIds.insert(infoBossRaceId);
+					break;
+				}
+			}
+		}
 	}
 
-	// Check if not have archfoe registered boss
-	if (bossInfo.size() == 0) {
+	if (uniqueArchfoeBossIds.empty()) {
 		g_logger().error("Failed to boost a boss. There is no boss registered with the Archfoe Rarity.");
 		return;
 	}
 
-	uint16_t oldBossRace = result->getNumber<uint16_t>("raceid");
-	while (true) {
-		uint32_t randomIndex = uniform_random(0, static_cast<int32_t>(bossInfo.size()));
-		auto it = std::next(bossInfo.begin(), randomIndex);
-		const auto &[randomBossId, randomBossName] = *it;
-		if (randomBossId == oldBossRace) {
-			continue;
-		}
+	std::vector<uint16_t> archfoeBossIds(uniqueArchfoeBossIds.begin(), uniqueArchfoeBossIds.end());
 
-		bossName = randomBossName;
-		bossId = randomBossId;
-		break;
-	}
+	auto bossId = archfoeBossIds[uniform_random(0, static_cast<uint16_t>(archfoeBossIds.size() - 1))];
+	const auto &bossName = bossMap[bossId];
 
 	query.str(std::string());
 	query << "UPDATE `boosted_boss` SET ";
