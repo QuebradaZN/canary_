@@ -57,7 +57,7 @@ local config = {
 			wrongValue = "Well, I'll give you a little hint. They can sometimes be extracted from creatures \z
 				that consist only of - you guessed it, bones. You need an obsidian knife though.",
 			deliever = "How are you faring with your mission? Have you collected all 100 hardened bones?",
-			success = "I'm surprised. That's pretty good for a man. Now, bring us the 100 turtle shells."
+			success = "I'm surprised. That's pretty good for a man. Now, bring us the 50 turtle shells."
 		},
 		itemId = 5925,
 		count = 100
@@ -66,12 +66,12 @@ local config = {
 		value = 2,
 		message = {
 			wrongValue = "Turtles can be found on some idyllic islands which have recently been discovered.",
-			deliever = "Did you get us 100 turtle shells so we can make new shields?",
+			deliever = "Did you get us 50 turtle shells so we can make new shields?",
 			success = "Well done - for a man. These shells are enough to build many strong new shields. \z
 			Thank you! Now - show me fighting spirit."
 		},
 		itemId = 5899,
-		count = 100
+		count = 50
 	},
 	["fighting spirit"] = {
 		value = 3,
@@ -147,7 +147,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Okay, who knows, maybe you have a chance. A really small one though. Listen up: ...",
 				"First, you have to prove your guts by bringing me 100 hardened bones. ...",
 				"Next, if you actually managed to collect that many, please complete a small task for \z
-					our guild and bring us 100 turtle shells. ...",
+					our guild and bring us 50 turtle shells. ...",
 				"It is said that excellent shields can be created from these. ...",
 				"Alright, um, afterwards show me that you have fighting spirit. Any true hero needs plenty of that. ...",
 				"The last task is the hardest. You will need to bring me a claw from a mighty dragon king. ...",
