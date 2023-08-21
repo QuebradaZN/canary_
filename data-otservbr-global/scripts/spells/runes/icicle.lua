@@ -1,7 +1,7 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ICEDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ICEAREA)
-combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_WHITE_ENERGY_SPARK)
+combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_BLUE_ENERGY_SPARK)
 
 function onGetFormulaValues(player, level, maglevel)
 	local min = (level / 5) + (maglevel * 2.605) + 28
