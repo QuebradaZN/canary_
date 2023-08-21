@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "huge chunk of crude iron", chance = 20830},
 	{name = "slightly rusted shield", chance = 18750},
 	{name = "slightly rusted helmet", chance = 16670},
-	{id = 36706, chance = 14580}, -- red gem
+	{id = 3039, chance = 14580}, -- red gem
 	{name = "luminous orb", chance = 14580},
 	{name = "longing eyes", chance = 14580},
 	{name = "small diamond", chance = 12500},

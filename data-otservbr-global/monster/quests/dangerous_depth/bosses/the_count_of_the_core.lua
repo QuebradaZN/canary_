@@ -88,7 +88,7 @@ monster.loot = {
 	{name = "silver token", chance = 20000},
 	{name = "yellow gem", chance = 20000},
 	{name = "fire sword", chance = 20000},
-	{id = 36706, chance = 20000}, -- red gem
+	{id = 3039, chance = 20000}, -- red gem
 	{name = "green gem", chance = 20000},
 	{name = "slightly rusted helmet", chance = 20000},
 	{name = "gold token", chance = 20000},

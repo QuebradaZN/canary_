@@ -76,7 +76,7 @@ monster.loot = {
 	{name = "energy bar", chance = 100000},
 	{name = "ultimate mana potion", chance = 73080, maxCount = 31},
 	{name = "supreme health potion", chance = 53850, maxCount = 28},
-	{id = 36706, chance = 53850, maxCount = 2}, -- red gem
+	{id = 3039, chance = 53850, maxCount = 2}, -- red gem
 	{name = "lightning pendant", chance = 30770},
 	{name = "berserk potion", chance = 23080, maxCount = 15},
 	{name = "bullseye potion", chance = 23080, maxCount = 15},
