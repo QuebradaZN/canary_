@@ -161,7 +161,7 @@ local function refreshVouchers(player)
 				inbox:addItemEx(item, INDEX_WHEREEVER, FLAG_NOLIMIT)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your received a brand-new " .. item:getName() .. " that will last for " .. getTimeInWords(conf.fullDuration / 1000) .. ".")
 			else
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your " .. item:getName() .. " has been refreshd to " .. getTimeInWords(conf.fullDuration / 1000) .. ".")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your " .. item:getName() .. " has been refreshed to " .. getTimeInWords(conf.fullDuration / 1000) .. ".")
 			end
 
 			item:transform(conf.inactiveItem, 1)
