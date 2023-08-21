@@ -76,7 +76,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("You mean you would like to prove that you deserve to wear such a helmet?", npc, creature)
 			npcHandler:setTopic(playerId, 1)
 		elseif addonProgress == 1 then
-			npcHandler:say("Your current task is to bring me 100 perfect behemoth fangs, |PLAYERNAME|.", npc, creature)
+			npcHandler:say("Your current task is to bring me 50 perfect behemoth fangs, |PLAYERNAME|.", npc, creature)
 		elseif addonProgress == 2 then
 			npcHandler:say("Your current task is to retrieve the helmet of Ramsay the Reckless from Banuta, |PLAYERNAME|.", npc, creature)
 		elseif addonProgress == 3 then
@@ -92,7 +92,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	elseif MsgContains(message, "behemoth fang") then
 		if addonProgress == 1 then
-			npcHandler:say("Have you really managed to fulfil the task and brought me 100 perfect behemoth fangs?", npc, creature)
+			npcHandler:say("Have you really managed to fulfil the task and brought me 50 perfect behemoth fangs?", npc, creature)
 			npcHandler:setTopic(playerId, 3)
 		else
 			npcHandler:say("You're not serious asking that, are you? They come from behemoths, of course. \z
@@ -129,7 +129,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say(
 				{
 					"Well then, listen closely. First, you will have to prove that you are a fierce and \z
-						restless warrior by bringing me 100 perfect behemoth fangs. ...",
+						restless warrior by bringing me 50 perfect behemoth fangs. ...",
 					"Secondly, please retrieve a helmet for us which has been lost a long time ago. \z
 						The famous Ramsay the Reckless wore it when exploring an ape settlement. ...",
 					"Third, we need a new flask of warrior's sweat. We've run out of it recently, \z
@@ -150,7 +150,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.OutfitQuest.Ref, math.max(0, player:getStorageValue(Storage.OutfitQuest.Ref)) + 1)
 			player:setStorageValue(Storage.OutfitQuest.Knight.AddonHelmet, 1)
 			player:setStorageValue(Storage.OutfitQuest.Knight.MissionHelmet, 1)
-			npcHandler:say("Alright then. Come back to me once you have collected 100 perfect behemoth fangs.", npc, creature)
+			npcHandler:say("Alright then. Come back to me once you have collected 50 perfect behemoth fangs.", npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		elseif MsgContains(message, "no") then
 			npcHandler:say("Would you like me to repeat the task requirements then?", npc, creature)
@@ -159,7 +159,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	elseif npcHandler:getTopic(playerId) == 3 then
 		if MsgContains(message, "yes") then
-			if not player:removeItem(5893, 100) then
+			if not player:removeItem(5893, 50) then
 				npcHandler:say("Lying is not exactly honourable, |PLAYERNAME|. Shame on you.", npc, creature)
 				return true
 			end
