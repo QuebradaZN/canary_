@@ -1,6 +1,7 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYAREA)
+combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_BLUE_ENERGY_SPARK)
 
 function onGetFormulaValues(player, level, maglevel)
 	local min = (level / 5) + (maglevel * 2.605) + 28
@@ -12,12 +13,18 @@ combat:setCallback(CALLBACK_PARAM_RUNICVALUE, "onGetFormulaValues")
 
 local rune = Spell("rune")
 
+function getChainValue(creature)
+	return 5, 4, false
+end
+
+combat:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValue")
+
 function rune.onCastSpell(creature, var, isHotkey)
 	local target = Creature(var:getNumber())
 	if not target then
 		return false
 	end
-	return Chain.combat(creature, target, combat, 5, 5, CONST_ANI_ENERGY, true)
+	return combat:execute(creature, var)
 end
 
 rune:id(8)

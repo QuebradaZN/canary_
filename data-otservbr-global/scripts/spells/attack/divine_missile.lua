@@ -2,10 +2,12 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYDAMAGE)
+combat:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_YELLOW_ENERGY_SPARK)
 
 local combatSharpshooter = Combat()
 combatSharpshooter:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
 combatSharpshooter:setParameter(COMBAT_PARAM_EFFECT, COMBAT_ME_HOLYDAMAGE)
+combatSharpshooter:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_YELLOW_ENERGY_SPARK)
 
 
 -- combat for if target does not exist
@@ -38,6 +40,17 @@ combatSharpshooter:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValu
 
 local spell = Spell("instant")
 
+function getChainValue(creature)
+	return 5, 5, false
+end
+
+function getChainValueSharpshooter(creature)
+	return 8, 5, false
+end
+
+combat:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValue")
+combatSharpshooter:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValueSharpshooter")
+
 function spell.onCastSpell(creature, var)
 	local target = Creature(var:getNumber())
 	local player = creature:getPlayer()
@@ -50,9 +63,9 @@ function spell.onCastSpell(creature, var)
 				creature:removeCondition(CONDITION_ATTRIBUTES, CONDITIONID_COMBAT, 5)
 			end
 
-			return Chain.combat(player, target, combatSharpshooter, 8, 2, CONST_ANI_SMALLHOLY, CONST_ANI_SMALLHOLY)
+			return combatSharpshooter:execute(creature, var)
 		else
-			return Chain.combat(player, target, combat, 5, 2, CONST_ANI_SMALLHOLY, CONST_ANI_SMALLHOLY)
+			return combat:execute(creature, var)
 		end
 	else
 		return combat2:execute(creature, var)

@@ -5348,6 +5348,13 @@ axeCombat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
 axeCombat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
 axeCombat:setFormula(COMBAT_FORMULA_SKILL, 0, 0, 0.9, 0)
 axeCombat:setParameter(COMBAT_PARAM_IMPACTSOUND, MELEE_ATK_AXE)
+axeCombat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_WHIRLWINDAXE)
+
+function getChainValueAxe(creature)
+	return 5, 1, false
+end
+
+axeCombat:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValueAxe")
 
 local clubCombat = Combat()
 local area = createCombatArea({
@@ -5415,6 +5422,39 @@ wandCombats.ice:setCallback(CALLBACK_PARAM_SKILLVALUE, "iceCallback")
 wandCombats.earth:setCallback(CALLBACK_PARAM_SKILLVALUE, "earthCallback")
 wandCombats.death:setCallback(CALLBACK_PARAM_SKILLVALUE, "deathCallback")
 
+wandCombats.fire:setParameter(COMBAT_PARAM_TYPE, COMBAT_FIREDAMAGE)
+wandCombats.energy:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
+wandCombats.ice:setParameter(COMBAT_PARAM_TYPE, COMBAT_ICEDAMAGE)
+wandCombats.earth:setParameter(COMBAT_PARAM_TYPE, COMBAT_EARTHDAMAGE)
+wandCombats.death:setParameter(COMBAT_PARAM_TYPE, COMBAT_DEATHDAMAGE)
+
+wandCombats.fire:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_PINK_ENERGY_SPARK)
+wandCombats.energy:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_BLUE_ENERGY_SPARK)
+wandCombats.ice:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_WHITE_ENERGY_SPARK)
+wandCombats.earth:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_GREEN_ENERGY_SPARK)
+wandCombats.death:setParameter(COMBAT_PARAM_CHAIN_EFFECT, CONST_ME_WHITE_ENERGY_SPARK)
+
+wandCombats.fire:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_FIREATTACK)
+wandCombats.energy:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYAREA)
+wandCombats.ice:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ICEAREA)
+wandCombats.earth:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_STONES)
+wandCombats.death:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
+
+function getChainValue(creature)
+	return 4, 2, false
+end
+fireChainValue = getChainValue
+energyChainValue = getChainValue
+iceChainValue = getChainValue
+earthChainValue = getChainValue
+deathChainValue = getChainValue
+
+wandCombats.fire:setCallback(CALLBACK_PARAM_CHAINVALUE, "fireChainValue")
+wandCombats.energy:setCallback(CALLBACK_PARAM_CHAINVALUE, "energyChainValue")
+wandCombats.ice:setCallback(CALLBACK_PARAM_CHAINVALUE, "iceChainValue")
+wandCombats.earth:setCallback(CALLBACK_PARAM_CHAINVALUE, "earthChainValue")
+wandCombats.death:setCallback(CALLBACK_PARAM_CHAINVALUE, "deathChainValue")
+
 for _, w in ipairs(weapons) do
 	local weapon = Weapon(w.type)
 	weapon:id(w.itemid or w.itemId)
@@ -5448,12 +5488,7 @@ for _, w in ipairs(weapons) do
 
 	if (w.type == WEAPON_AXE) then
 		weapon.onUseWeapon = function(player, variant)
-			local target = Creature(variant:getNumber())
-			if not target then
-				return false
-			end
-
-			return Chain.combat(player, target, axeCombat, 5, 1, CONST_ANI_WHIRLWINDAXE)
+			return axeCombat:execute(player, variant)
 		end
 	end
 
@@ -5471,14 +5506,8 @@ for _, w in ipairs(weapons) do
 
 	if (w.type == WEAPON_WAND) then
 		weapon.onUseWeapon = function(player, variant)
-			local target = Creature(variant:getNumber())
 			local wandCombat = wandCombats[w.wandType or w.wandtype]
-			local wandAnim = wandAnims[w.wandType or w.wandtype]
-
-			if not target or not wandCombat then
-				return false
-			end
-			return Chain.combat(player, target, wandCombat, 4, 2, wandAnim, wandAnim)
+			return wandCombat:execute(player, variant)
 		end
 	end
 
