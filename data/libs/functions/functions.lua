@@ -61,9 +61,7 @@ end
 
 function getTimeInWords(secsParam)
 	local secs = tonumber(secsParam)
-	Spdlog.info("Seconds: "..secs)
 	local hours, minutes, seconds = getHours(secs), getMinutes(secs), getSeconds(secs)
-	Spdlog.info("Hours: "..hours.." Minutes: "..minutes.." Seconds: "..seconds)
 	local timeStr = ''
 
 	if hours > 0 then
