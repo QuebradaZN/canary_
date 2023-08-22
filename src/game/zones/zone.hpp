@@ -10,7 +10,7 @@
 #ifndef SRC_GAME_ZONE_ZONE_HPP_
 #define SRC_GAME_ZONE_ZONE_HPP_
 
-#include "game/movement/position.h"
+#include "game/movement/position.hpp"
 
 class Tile;
 class Creature;

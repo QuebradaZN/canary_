@@ -14,7 +14,7 @@
 #include "creatures/creatures_definitions.hpp"
 #include "items/items_definitions.hpp"
 #include "utils/utils_definitions.hpp"
-#include "lua/scripts/scripts.h"
+#include "lua/scripts/scripts.hpp"
 
 class Creature;
 class Player;

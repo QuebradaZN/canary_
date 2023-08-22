@@ -1,8 +1,8 @@
 #include "pch.hpp"
 
-#include "game/game.h"
-#include "game/scheduling/save_manager.h"
-#include "io/iologindata.h"
+#include "game/game.hpp"
+#include "game/scheduling/save_manager.hpp"
+#include "io/iologindata.hpp"
 
 SaveManager::SaveManager(ThreadPool &threadPool) :
 	threadPool(threadPool) { }

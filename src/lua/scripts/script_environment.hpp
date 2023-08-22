@@ -10,7 +10,7 @@
 #ifndef SRC_LUA_SCRIPTS_SCRIPT_ENVIRONMENT_HPP_
 #define SRC_LUA_SCRIPTS_SCRIPT_ENVIRONMENT_HPP_
 
-#include "database/database.h"
+#include "database/database.hpp"
 #include "declarations.hpp"
 
 class Thing;

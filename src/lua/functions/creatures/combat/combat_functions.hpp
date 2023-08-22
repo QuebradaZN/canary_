@@ -10,7 +10,7 @@
 #ifndef SRC_LUA_FUNCTIONS_CREATURES_COMBAT_COMBAT_FUNCTIONS_HPP_
 #define SRC_LUA_FUNCTIONS_CREATURES_COMBAT_COMBAT_FUNCTIONS_HPP_
 
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 #include "lua/functions/creatures/combat/condition_functions.hpp"
 #include "lua/functions/creatures/combat/spell_functions.hpp"
 #include "lua/functions/creatures/combat/variant_functions.hpp"

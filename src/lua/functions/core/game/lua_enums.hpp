@@ -14,7 +14,7 @@
 
 #include "creatures/players/account/account.hpp"
 #include "declarations.hpp"
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 
 class LuaEnums final : LuaScriptInterface {
 	public:

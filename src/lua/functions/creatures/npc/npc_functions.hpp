@@ -12,7 +12,7 @@
 
 #include "lua/functions/creatures/npc/npc_type_functions.hpp"
 #include "lua/functions/creatures/npc/shop_functions.hpp"
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 
 class NpcFunctions final : LuaScriptInterface {
 	private:

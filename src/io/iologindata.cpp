@@ -9,14 +9,14 @@
 
 #include "pch.hpp"
 
-#include "io/iologindata.h"
+#include "io/iologindata.hpp"
 #include "io/functions/iologindata_load_player.hpp"
 #include "io/functions/iologindata_save_player.hpp"
-#include "game/game.h"
-#include "game/scheduling/save_manager.h"
-#include "creatures/monsters/monster.h"
+#include "game/game.hpp"
+#include "game/scheduling/save_manager.hpp"
+#include "creatures/monsters/monster.hpp"
 #include "creatures/players/wheel/player_wheel.hpp"
-#include "io/ioprey.h"
+#include "io/ioprey.hpp"
 #include "security/argon.hpp"
 
 bool IOLoginData::authenticateAccountPassword(const std::string &accountIdentifier, const std::string &password, account::Account* account) {

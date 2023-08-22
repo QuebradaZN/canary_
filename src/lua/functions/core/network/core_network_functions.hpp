@@ -10,7 +10,7 @@
 #ifndef SRC_LUA_FUNCTIONS_CORE_NETWORK_CORE_NETWORK_FUNCTIONS_HPP_
 #define SRC_LUA_FUNCTIONS_CORE_NETWORK_CORE_NETWORK_FUNCTIONS_HPP_
 
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 #include "lua/functions/core/network/network_message_functions.hpp"
 #include "lua/functions/core/network/webhook_functions.hpp"
 

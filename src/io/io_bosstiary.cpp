@@ -11,11 +11,11 @@
 
 #include "io/io_bosstiary.hpp"
 
-#include "creatures/monsters/monsters.h"
-#include "creatures/players/player.h"
-#include "game/game.h"
-#include "utils/tools.h"
-#include "items/item.h"
+#include "creatures/monsters/monsters.hpp"
+#include "creatures/players/player.hpp"
+#include "game/game.hpp"
+#include "utils/tools.hpp"
+#include "items/item.hpp"
 
 void IOBosstiary::loadBoostedBoss() {
 	Database &database = Database::getInstance();

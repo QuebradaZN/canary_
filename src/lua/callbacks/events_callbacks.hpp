@@ -12,7 +12,7 @@
 
 #include "lua/callbacks/callbacks_definitions.hpp"
 #include "lua/callbacks/event_callback.hpp"
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 
 class EventCallback;
 

@@ -10,7 +10,7 @@
 #ifndef SRC_GAME_SCHEDUNLING_EVENTS_SCHEDULER_HPP_
 #define SRC_GAME_SCHEDUNLING_EVENTS_SCHEDULER_HPP_
 
-#include "utils/tools.h"
+#include "utils/tools.hpp"
 
 struct EventScheduler {
 		std::string name;

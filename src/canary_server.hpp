@@ -10,8 +10,8 @@
 #ifndef SRC_CANARY_SERVER_HPP_
 #define SRC_CANARY_SERVER_HPP_
 
-#include "security/rsa.h"
-#include "server/server.h"
+#include "security/rsa.hpp"
+#include "server/server.hpp"
 
 class Logger;
 

@@ -30,33 +30,33 @@
 #else
 	#if defined(__ARM_NEON__) || defined(__ARM_FEATURE_SIMD32)
 		#define __NEON__ 1
-		#include <arm_neon.h>
+		#include <arm_neon.hpp>
 	#endif
 	#if defined(__SSE__)
-		#include <xmmintrin.h>
+		#include <xmmintrin.hpp>
 	#endif
 	#if defined(__SSE2__)
-		#include <emmintrin.h>
+		#include <emmintrin.hpp>
 	#endif
 	#if defined(__SSE3__)
-		#include <pmmintrin.h>
+		#include <pmmintrin.hpp>
 	#endif
 	#if defined(__SSSE3__)
-		#include <tmmintrin.h>
+		#include <tmmintrin.hpp>
 	#endif
 	#if defined(__SSE4_1__)
-		#include <smmintrin.h>
+		#include <smmintrin.hpp>
 	#endif
 	#if defined(__SSE4_2__)
-		#include <nmmintrin.h>
+		#include <nmmintrin.hpp>
 	#endif
 	#if defined(__AVX__) || defined(__AVX2__) || defined(__AVX512F__)
-		#include <immintrin.h>
+		#include <immintrin.hpp>
 	#endif
 #endif
 
 #ifdef _MSC_VER
-	#include <intrin.h>
+	#include <intrin.hpp>
 __forceinline unsigned int _mm_ctz(unsigned int value) {
 	unsigned long i = 0;
 	_BitScanForward(&i, value);

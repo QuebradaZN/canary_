@@ -10,10 +10,10 @@
 #ifndef SRC_ITEMS_FUNCTIONS_ITEM_ITEM_PARSE_HPP_
 #define SRC_ITEMS_FUNCTIONS_ITEM_ITEM_PARSE_HPP_
 
-#include "creatures/combat/condition.h"
+#include "creatures/combat/condition.hpp"
 #include "declarations.hpp"
-#include "items/item.h"
-#include "items/items.h"
+#include "items/item.hpp"
+#include "items/items.hpp"
 
 class ConditionDamage;
 

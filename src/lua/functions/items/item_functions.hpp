@@ -14,7 +14,7 @@
 #include "lua/functions/items/imbuement_functions.hpp"
 #include "lua/functions/items/item_type_functions.hpp"
 #include "lua/functions/items/weapon_functions.hpp"
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 
 class ItemFunctions final : LuaScriptInterface {
 	public:

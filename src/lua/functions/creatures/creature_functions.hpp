@@ -14,7 +14,7 @@
 #include "lua/functions/creatures/monster/monster_functions.hpp"
 #include "lua/functions/creatures/npc/npc_functions.hpp"
 #include "lua/functions/creatures/player/player_functions.hpp"
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 
 class CreatureFunctions final : LuaScriptInterface {
 	public:

@@ -10,7 +10,7 @@
 #ifndef SRC_IO__FUNCTIONS_IOLOGINDATASAVE_HPP_
 #define SRC_IO__FUNCTIONS_IOLOGINDATASAVE_HPP_
 
-#include "io/iologindata.h"
+#include "io/iologindata.hpp"
 
 class IOLoginDataSave : public IOLoginData {
 	public:

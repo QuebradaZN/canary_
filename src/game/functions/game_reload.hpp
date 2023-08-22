@@ -10,7 +10,7 @@
 #ifndef SRC_GAME_FUNCTIONS_GAME_RELOAD_HPP_
 #define SRC_GAME_FUNCTIONS_GAME_RELOAD_HPP_
 
-#include "game/game.h"
+#include "game/game.hpp"
 
 class Game;
 

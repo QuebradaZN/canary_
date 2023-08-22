@@ -10,7 +10,7 @@
 #ifndef SRC_GAME_GAME_DEFINITIONS_HPP_
 #define SRC_GAME_GAME_DEFINITIONS_HPP_
 
-#include "movement/position.h"
+#include "movement/position.hpp"
 
 // Enums
 enum StackPosType_t {

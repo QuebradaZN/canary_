@@ -11,7 +11,7 @@
 #define SRC_LUA_FUNCTIONS_CORE_GAME_CONFIG_FUNCTIONS_HPP_
 
 #include "declarations.hpp"
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 
 class ConfigFunctions final : LuaScriptInterface {
 	public:

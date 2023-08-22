@@ -10,7 +10,7 @@
 #ifndef SRC_LUA_FUNCTIONS_CREATURES_PLAYER_MOUNT_FUNCTIONS_HPP_
 #define SRC_LUA_FUNCTIONS_CREATURES_PLAYER_MOUNT_FUNCTIONS_HPP_
 
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 
 class MountFunctions final : LuaScriptInterface {
 	public:

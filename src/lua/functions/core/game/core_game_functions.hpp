@@ -10,7 +10,7 @@
 #ifndef SRC_LUA_FUNCTIONS_CORE_GAME_CORE_GAME_FUNCTIONS_HPP_
 #define SRC_LUA_FUNCTIONS_CORE_GAME_CORE_GAME_FUNCTIONS_HPP_
 
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 #include "lua/functions/core/game/config_functions.hpp"
 #include "lua/functions/core/game/game_functions.hpp"
 #include "lua/functions/core/game/bank_functions.hpp"

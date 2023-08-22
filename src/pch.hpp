@@ -15,7 +15,7 @@
 // --------------------
 
 // Utils
-#include "utils/definitions.h"
+#include "utils/definitions.hpp"
 #include "utils/simd.hpp"
 
 // --------------------
@@ -43,15 +43,15 @@
 // --------------------
 
 #ifdef _WIN32
-	#include <io.h> // For _isatty() on Windows
+	#include <io.hpp> // For _isatty() on Windows
 	#define isatty _isatty
 	#define STDIN_FILENO _fileno(stdin)
 #else
-	#include <unistd.h> // For isatty() on Linux and other POSIX systems
+	#include <unistd.hpp> // For isatty() on Linux and other POSIX systems
 #endif
 
 #ifdef OS_WINDOWS
-	#include "conio.h"
+	#include "conio.hpp"
 #endif
 
 // --------------------
@@ -59,26 +59,26 @@
 // --------------------
 
 // ABSL
-#include <absl/numeric/int128.h>
+#include <absl/numeric/int128.hpp>
 
 // ARGON2
-#include <argon2.h>
+#include <argon2.hpp>
 
 // ASIO
 #include <asio.hpp>
 
 // CURL
-#include <curl/curl.h>
+#include <curl/curl.hpp>
 
 // FMT
-#include <fmt/chrono.h>
-#include <fmt/core.h>
+#include <fmt/chrono.hpp>
+#include <fmt/core.hpp>
 
 // GMP
-#include <gmp.h>
+#include <gmp.hpp>
 
 // JSON
-#include <json/json.h>
+#include <json/json.hpp>
 
 // LUA
 #if __has_include("luajit/lua.hpp")
@@ -97,22 +97,22 @@
 
 // MySQL
 #if __has_include("<mysql.h>")
-	#include <mysql.h>
+	#include <mysql.hpp>
 #else
-	#include <mysql/mysql.h>
+	#include <mysql/mysql.hpp>
 #endif
 
-#include <mysql/errmsg.h>
+#include <mysql/errmsg.hpp>
 
 // Parallel Hash Map
-#include <parallel_hashmap/phmap.h>
-#include <parallel_hashmap/btree.h>
+#include <parallel_hashmap/phmap.hpp>
+#include <parallel_hashmap/btree.hpp>
 
 // PugiXML
 #include <pugixml.hpp>
 
 // Zlib
-#include <zlib.h>
+#include <zlib.hpp>
 
 #include <boost/di.hpp>
 
@@ -121,7 +121,7 @@
 // -------------------------
 
 #if __has_include("gitmetadata.h")
-	#include "gitmetadata.h"
+	#include "gitmetadata.hpp"
 #endif
 
 // ---------------------
@@ -138,8 +138,8 @@
 #include "lib/messaging/command.hpp"
 #include "lib/messaging/event.hpp"
 
-#include <eventpp/utilities/scopedremover.h>
-#include <eventpp/eventdispatcher.h>
+#include <eventpp/utilities/scopedremover.hpp>
+#include <eventpp/eventdispatcher.hpp>
 
 #include "lib/di/container.hpp"
 

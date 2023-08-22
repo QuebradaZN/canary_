@@ -10,7 +10,7 @@
 #ifndef SRC_LUA_FUNCTIONS_EVENTS_MOVE_EVENT_FUNCTIONS_HPP_
 #define SRC_LUA_FUNCTIONS_EVENTS_MOVE_EVENT_FUNCTIONS_HPP_
 
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 
 class MoveEventFunctions final : LuaScriptInterface {
 	public:

@@ -1,7 +1,7 @@
 #ifndef SRC_LUA_FUNCTIONS_CORE_GAME_ZONE_FUNCTIONS_HPP_
 #define SRC_LUA_FUNCTIONS_CORE_GAME_ZONE_FUNCTIONS_HPP_
 
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 
 class Zone;
 

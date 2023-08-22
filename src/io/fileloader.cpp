@@ -9,7 +9,7 @@
 
 #include "pch.hpp"
 
-#include "io/fileloader.h"
+#include "io/fileloader.hpp"
 
 namespace OTB {
 

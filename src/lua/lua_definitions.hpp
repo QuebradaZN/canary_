@@ -10,7 +10,7 @@
 #ifndef SRC_LUA_LUA_DEFINITIONS_HPP_
 #define SRC_LUA_LUA_DEFINITIONS_HPP_
 
-#include "game/movement/position.h"
+#include "game/movement/position.hpp"
 
 // Enums
 enum {

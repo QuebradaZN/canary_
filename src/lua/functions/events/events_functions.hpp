@@ -10,7 +10,7 @@
 #ifndef SRC_LUA_FUNCTIONS_EVENTS_EVENTS_FUNCTIONS_HPP_
 #define SRC_LUA_FUNCTIONS_EVENTS_EVENTS_FUNCTIONS_HPP_
 
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 #include "lua/functions/events/action_functions.hpp"
 #include "lua/functions/events/creature_event_functions.hpp"
 #include "lua/functions/events/events_scheduler_functions.hpp"

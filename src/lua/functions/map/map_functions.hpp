@@ -10,7 +10,7 @@
 #ifndef SRC_LUA_FUNCTIONS_MAP_MAP_FUNCTIONS_HPP_
 #define SRC_LUA_FUNCTIONS_MAP_MAP_FUNCTIONS_HPP_
 
-#include "lua/scripts/luascript.h"
+#include "lua/scripts/luascript.hpp"
 #include "lua/functions/map/house_functions.hpp"
 #include "lua/functions/map/position_functions.hpp"
 #include "lua/functions/map/teleport_functions.hpp"
