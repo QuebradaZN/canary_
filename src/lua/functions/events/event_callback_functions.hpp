@@ -22,31 +22,31 @@
  * @see LuaScriptInterface
  */
 class EventCallbackFunctions : public LuaScriptInterface {
-	public:
-		/**
-		 * @brief Initializes the Lua state with the event callback functions.
-		 *
-		 * This function registers the event callback-related functions with the given Lua state,
-		 * making them accessible to Lua scripts.
-		 *
-		 * @param luaState The Lua state to initialize.
-		 */
-		static void init(lua_State* luaState);
+public:
+	/**
+	 * @brief Initializes the Lua state with the event callback functions.
+	 *
+	 * This function registers the event callback-related functions with the given Lua state,
+	 * making them accessible to Lua scripts.
+	 *
+	 * @param luaState The Lua state to initialize.
+	 */
+	static void init(lua_State* luaState);
 
-		/**
-		 * @brief Send the load of callbacks to lua
-		 * @param luaState The Lua state to initialize.
-		 */
-		static int luaEventCallbackLoad(lua_State* luaState);
+	/**
+	 * @brief Send the load of callbacks to lua
+	 * @param luaState The Lua state to initialize.
+	 */
+	static int luaEventCallbackLoad(lua_State* luaState);
 
-	private:
-		static int luaEventCallbackCreate(lua_State* luaState);
-		static int luaEventCallbackType(lua_State* luaState);
-		static int luaEventCallbackRegister(lua_State* luaState);
+private:
+	static int luaEventCallbackCreate(lua_State* luaState);
+	static int luaEventCallbackType(lua_State* luaState);
+	static int luaEventCallbackRegister(lua_State* luaState);
 
-		/**
-		 * @note here end the lua binder functions }
-		 */
+	/**
+	 * @note here end the lua binder functions }
+	 */
 };
 
 #endif // SRC_LUA_FUNCTIONS_EVENTS_EVENT_CALLBACK_FUNCTIONS_HPP_

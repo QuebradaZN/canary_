@@ -4,20 +4,20 @@
 #include "lib/thread/thread_pool.hpp"
 
 class SaveManager {
-	public:
-		explicit SaveManager(ThreadPool &threadPool);
+public:
+	explicit SaveManager(ThreadPool &threadPool);
 
-		SaveManager(const SaveManager &) = delete;
-		void operator=(const SaveManager &) = delete;
+	SaveManager(const SaveManager &) = delete;
+	void operator=(const SaveManager &) = delete;
 
-		static SaveManager &getInstance();
+	static SaveManager &getInstance();
 
-		void schedulePlayer(Player* player);
-		void unschedulePlayer(Player* player);
+	void schedulePlayer(Player* player);
+	void unschedulePlayer(Player* player);
 
-	private:
-		phmap::parallel_flat_hash_map<uint32_t, std::chrono::steady_clock::time_point> playerMap;
-		ThreadPool &threadPool;
+private:
+	phmap::parallel_flat_hash_map<uint32_t, std::chrono::steady_clock::time_point> playerMap;
+	ThreadPool &threadPool;
 };
 
 constexpr auto g_saveManager = SaveManager::getInstance;
