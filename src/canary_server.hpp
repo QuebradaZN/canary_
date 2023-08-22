@@ -44,10 +44,12 @@ private:
 	Logger &logger;
 	ServiceManager &serviceManager;
 
-	std::mutex loaderLock;
-	std::condition_variable loaderSignal;
+	std::mutex loaderLock, mapLoaderLock;
+	std::condition_variable loaderSignal, mapSignal;
 	std::unique_lock<std::mutex> loaderUniqueLock;
+	std::string threadFailMsg;
 
+	bool loaderMapDone = false;
 	bool loaderDone = false;
 	bool loadFailed = false;
 
