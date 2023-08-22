@@ -31,7 +31,7 @@ class Decay {
 		void internalDecayItem(Item* item);
 
 		uint32_t eventId { 0 };
-		phmap::parallel_flat_hash_map<int64_t, std::vector<Item*>> decayMap;
+		phmap::btree_map<int64_t, std::vector<Item*>> decayMap;
 };
 
 constexpr auto g_decay = Decay::getInstance;
