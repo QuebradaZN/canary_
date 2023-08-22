@@ -30,7 +30,7 @@ When adding a new range or storage, make sure that the ranges do not overlap, an
 		<storage name="voucher.last-activation" key="4" />
 		<storage name="voucher.experience.received" key="5" />
 		<storage name="voucher.skill.received" key="6" />
-		<!-- NOT IN USE - <storage name="voucher.compensatory.20230812.received" key="7" /> -->
+		<storage name="voucher.compensatory.20230812.received" key="7" />
 	</range>
 <!-- { From = 150100, To = 150300 } -->
 
