@@ -959,6 +959,8 @@ bool Game::removeCreature(Creature* creature, bool isLogout /* = true*/) {
 void Game::executeDeath(uint32_t creatureId) {
 	Creature* creature = getCreatureByID(creatureId);
 	if (creature && !creature->isRemoved()) {
+		phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> toZones = {};
+		onCreatureZoneChange(creature, creature->getZones(), toZones);
 		creature->onDeath();
 	}
 }

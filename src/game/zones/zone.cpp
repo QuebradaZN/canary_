@@ -39,6 +39,28 @@ void Zone::addArea(Area area) {
 		Tile* tile = g_game().map.getTile(pos);
 		if (tile) {
 			tiles.insert(tile);
+			for (auto item : *tile->getItemList()) {
+				itemAdded(item);
+			}
+			for (auto creature : *tile->getCreatures()) {
+				creatureAdded(creature);
+			}
+		}
+	}
+}
+
+void Zone::subtractArea(Area area) {
+	for (const Position &pos : area) {
+		positions.erase(pos);
+		Tile* tile = g_game().map.getTile(pos);
+		if (tile) {
+			tiles.erase(tile);
+			for (auto item : *tile->getItemList()) {
+				itemRemoved(item);
+			}
+			for (auto creature : *tile->getCreatures()) {
+				creatureRemoved(creature);
+			}
 		}
 	}
 }
@@ -52,7 +74,7 @@ const std::shared_ptr<Zone> &Zone::getZone(const std::string &name) {
 	return zones[name];
 }
 
-const phmap::btree_set<Position> &Zone::getPositions() const {
+const phmap::parallel_flat_hash_set<Position> &Zone::getPositions() const {
 	return positions;
 }
 
@@ -96,12 +118,33 @@ void Zone::removeNpcs() const {
 	}
 }
 
+void Zone::refresh() {
+	std::lock_guard lock(zonesMutex);
+	items.clear();
+	creatures.clear();
+	players.clear();
+	monsters.clear();
+	npcs.clear();
+	for (auto position : positions) {
+		const auto &tile = g_game().map.getTile(position);
+		if (tile) {
+			tiles.insert(tile);
+			for (auto item : *tile->getItemList()) {
+				itemAdded(item);
+			}
+			for (auto creature : *tile->getCreatures()) {
+				creatureAdded(creature);
+			}
+		}
+	}
+}
+
 void Zone::clearZones() {
 	std::lock_guard lock(zonesMutex);
 	zones.clear();
 }
 
-phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> Zone::getZones(const Position &postion) {
+phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> Zone::getZones(const Position postion) {
 	std::lock_guard lock(zonesMutex);
 	phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> zonesSet;
 	for (const auto &[_, zone] : zones) {

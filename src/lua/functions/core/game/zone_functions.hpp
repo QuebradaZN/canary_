@@ -13,6 +13,8 @@ class ZoneFunctions final : LuaScriptInterface {
 
 			registerMethod(L, "Zone", "getName", ZoneFunctions::luaZoneGetName);
 			registerMethod(L, "Zone", "addArea", ZoneFunctions::luaZoneAddArea);
+			registerMethod(L, "Zone", "subtractArea", ZoneFunctions::luaZoneSubtractArea);
+			registerMethod(L, "Zone", "refresh", ZoneFunctions::luaZoneRefresh);
 			registerMethod(L, "Zone", "getPositions", ZoneFunctions::luaZoneGetPositions);
 			registerMethod(L, "Zone", "getTiles", ZoneFunctions::luaZoneGetTiles);
 			registerMethod(L, "Zone", "getCreatures", ZoneFunctions::luaZoneGetCreatures);
@@ -36,6 +38,8 @@ class ZoneFunctions final : LuaScriptInterface {
 
 		static int luaZoneGetName(lua_State* L);
 		static int luaZoneAddArea(lua_State* L);
+		static int luaZoneSubtractArea(lua_State* L);
+		static int luaZoneRefresh(lua_State* L);
 		static int luaZoneGetPositions(lua_State* L);
 		static int luaZoneGetTiles(lua_State* L);
 		static int luaZoneGetCreatures(lua_State* L);

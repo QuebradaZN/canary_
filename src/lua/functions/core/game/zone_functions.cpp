@@ -47,7 +47,7 @@ int ZoneFunctions::luaZoneGetName(lua_State* L) {
 }
 
 int ZoneFunctions::luaZoneAddArea(lua_State* L) {
-	// Zone:addArea(area, fromPos, toPos)
+	// Zone:addArea(fromPos, toPos)
 	auto zone = getUserdataShared<Zone>(L, 1);
 	if (!zone) {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_ZONE_NOT_FOUND));
@@ -60,6 +60,33 @@ int ZoneFunctions::luaZoneAddArea(lua_State* L) {
 	zone->addArea(area);
 	pushBoolean(L, true);
 	return 1;
+}
+
+int ZoneFunctions::luaZoneSubtractArea(lua_State* L) {
+	// Zone:subtractArea(fromPos, toPos)
+	auto zone = getUserdataShared<Zone>(L, 1);
+	if (!zone) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_ZONE_NOT_FOUND));
+		pushBoolean(L, false);
+		return 1;
+	}
+	auto fromPos = getPosition(L, 2);
+	auto toPos = getPosition(L, 3);
+	auto area = Area(fromPos, toPos);
+	zone->subtractArea(area);
+	pushBoolean(L, true);
+	return 1;
+}
+
+int ZoneFunctions::luaZoneRefresh(lua_State* L) {
+	// Zone:refresh()
+	auto zone = getUserdataShared<Zone>(L, 1);
+	if (!zone) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_ZONE_NOT_FOUND));
+		return 0;
+	}
+	zone->refresh();
+	return 0;
 }
 
 int ZoneFunctions::luaZoneGetPositions(lua_State* L) {

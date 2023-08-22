@@ -120,6 +120,7 @@ function BossLever:onUse(player)
 	spec:setRemoveDestination(self.exit)
 	spec:setCheckPosition(self.area)
 	spec:check()
+	local zone = self:getZone()
 
 	if spec:getPlayers() > 0 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's already someone fighting with " .. self.name .. ".")
@@ -165,7 +166,7 @@ function BossLever:onUse(player)
 			if not self.createBoss() then
 				return true
 			end
-		else
+		elseif self.bossPosition then
 			local monster = Game.createMonster(self.name, self.bossPosition, true, true)
 			if not monster then
 				return true
@@ -200,12 +201,16 @@ local function toKey(str)
 	return str:lower():gsub(" ", "-"):gsub("%s+", "")
 end
 
+---@param Zone
+function BossLever:getZone()
+	return Zone("bosslever." .. toKey(self.name))
+end
+
 ---@param self BossLever
 ---@return boolean
 function BossLever:register()
 	local missingParams = {}
 	if not self.name then table.insert(missingParams, "boss.name") end
-	if not self.bossPosition and not self.createBoss then table.insert(missingParams, "boss.position") end
 	if not self.storage then table.insert(missingParams, "storage") end
 	if not self.playerPositions then table.insert(missingParams, "playerPositions") end
 	if not self.area then table.insert(missingParams, "specPos") end
@@ -217,7 +222,7 @@ function BossLever:register()
 		return false
 	end
 
-	local zone = Zone("bosslever." .. toKey(self.name))
+	local zone = self:getZone()
 
 	zone:addArea(self.area.from, self.area.to)
 	zone:blockFamiliars()

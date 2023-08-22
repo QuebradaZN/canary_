@@ -9,6 +9,17 @@
 ---@method getNpcs
 ---@method getItems
 
+function Zone:randomPosition()
+	local positions = self:getPositions()
+	local destination = positions[math.random(1, #positions)]
+	local tile = destination:getTile()
+	while not tile or not tile:isWalkable(false, false, false, false, true) do
+		destination = positions[math.random(1, #positions)]
+		tile = destination:getTile()
+	end
+	return destination
+end
+
 ---@class ZoneEvent
 ---@field public zone Zone
 ---@field public onEnter function
@@ -52,6 +63,15 @@ function Zone:blockFamiliars()
 	function event.onEnter(_zone, creature)
 		local monster = creature:getMonster()
 		return not (monster and monster:getMaster() and monster:getMaster():isPlayer())
+	end
+	event:register()
+end
+
+function Zone:trapMonsters()
+	local event = ZoneEvent(self)
+	function event.onLeave(_zone, creature)
+		local monster = creature:getMonster()
+		return not monster
 	end
 	event:register()
 end
