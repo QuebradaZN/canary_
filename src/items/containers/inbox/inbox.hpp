@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_CONTAINERS_INBOX_INBOX_H_
-#define SRC_ITEMS_CONTAINERS_INBOX_INBOX_H_
+#pragma once
 
 #include "items/containers/container.hpp"
 
@@ -46,5 +45,3 @@ public:
 private:
 	uint32_t maxInboxItems;
 };
-
-#endif // SRC_ITEMS_CONTAINERS_INBOX_INBOX_H_

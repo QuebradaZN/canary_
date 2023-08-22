@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_PLAYER_H_
-#define SRC_CREATURES_PLAYERS_PLAYER_H_
+#pragma once
 
 #include "account/account.hpp"
 #include "items/containers/container.hpp"
@@ -86,7 +85,7 @@ struct OpenContainer {
 	uint16_t index;
 };
 
-using MuteCountMap = phmap::btree_map<uint32_t, uint32_t>;
+using MuteCountMap = std::map<uint32_t, uint32_t>;
 
 static constexpr int32_t PLAYER_MAX_SPEED = 65535;
 static constexpr int32_t PLAYER_MIN_SPEED = 10;
@@ -602,14 +601,8 @@ public:
 		return premiumLastDay;
 	}
 
-	int32_t getVipDays() const {
-		return premiumDays;
-	}
 	bool isVip() const {
-		if (!g_configManager().getBoolean(VIP_SYSTEM_ENABLED)) {
-			return false;
-		}
-		return getVipDays() > 0;
+		return g_configManager().getBoolean(VIP_SYSTEM_ENABLED) && getPremiumDays() > 0;
 	}
 
 	void setTibiaCoins(int32_t v);
@@ -1415,7 +1408,7 @@ public:
 			client->sendShop(npc);
 		}
 	}
-	void sendSaleItemList(const phmap::btree_map<uint16_t, uint16_t> &inventoryMap) const {
+	void sendSaleItemList(const std::map<uint16_t, uint16_t> &inventoryMap) const {
 		if (client && shopOwner) {
 			client->sendSaleItemList(shopOwner->getShopItemVector(), inventoryMap);
 		}
@@ -1740,7 +1733,7 @@ public:
 		lastWalking = OTSYS_TIME() + value;
 	}
 
-	const phmap::btree_map<uint8_t, OpenContainer> &getOpenContainers() const {
+	const std::map<uint8_t, OpenContainer> &getOpenContainers() const {
 		return openContainers;
 	}
 
@@ -2281,7 +2274,7 @@ public:
 	void openContainerFromDepotSearch(const Position &pos);
 	Item* getItemFromDepotSearch(uint16_t itemId, const Position &pos);
 
-	std::pair<std::vector<Item*>, phmap::btree_map<uint16_t, phmap::btree_map<uint8_t, uint32_t>>> requestLockerItems(DepotLocker* depotLocker, bool sendToClient = false, uint8_t tier = 0) const;
+	std::pair<std::vector<Item*>, std::map<uint16_t, std::map<uint8_t, uint32_t>>> requestLockerItems(DepotLocker* depotLocker, bool sendToClient = false, uint8_t tier = 0) const;
 
 	/**
 	This function returns a pair of an array of items and a 16-bit integer from a DepotLocker instance, a 8-bit byte and a 16-bit integer.
@@ -2446,7 +2439,7 @@ public:
 		}
 	}
 
-	void sendInventoryImbuements(const phmap::btree_map<Slots_t, Item*> items) const {
+	void sendInventoryImbuements(const std::map<Slots_t, Item*> items) const {
 		if (client) {
 			client->sendInventoryImbuements(items);
 		}
@@ -2479,7 +2472,7 @@ public:
 			activeConcoctions[itemId] = timeLeft;
 		}
 	}
-	phmap::btree_map<uint16_t, uint16_t> getActiveConcoctions() const {
+	std::map<uint16_t, uint16_t> getActiveConcoctions() const {
 		return activeConcoctions;
 	}
 
@@ -2571,10 +2564,10 @@ private:
 	ItemsTierCountList getInventoryItemsId() const;
 
 	// This function is a override function of base class
-	phmap::btree_map<uint32_t, uint32_t> &getAllItemTypeCount(phmap::btree_map<uint32_t, uint32_t> &countMap) const override;
+	std::map<uint32_t, uint32_t> &getAllItemTypeCount(std::map<uint32_t, uint32_t> &countMap) const override;
 	// Function from player class with correct type sizes (uint16_t)
-	phmap::btree_map<uint16_t, uint16_t> &getAllSaleItemIdAndCount(phmap::btree_map<uint16_t, uint16_t> &countMap) const;
-	void getAllItemTypeCountAndSubtype(phmap::btree_map<uint32_t, uint32_t> &countMap) const;
+	std::map<uint16_t, uint16_t> &getAllSaleItemIdAndCount(std::map<uint16_t, uint16_t> &countMap) const;
+	void getAllItemTypeCountAndSubtype(std::map<uint32_t, uint32_t> &countMap) const;
 	Item* getForgeItemFromId(uint16_t itemId, uint8_t tier);
 	Thing* getThing(size_t index) const override;
 
@@ -2585,22 +2578,22 @@ private:
 
 	phmap::flat_hash_set<uint32_t> VIPList;
 
-	phmap::btree_map<uint8_t, OpenContainer> openContainers;
-	phmap::btree_map<uint32_t, DepotLocker*> depotLockerMap;
-	phmap::btree_map<uint32_t, DepotChest*> depotChests;
-	phmap::btree_map<uint8_t, int64_t> moduleDelayMap;
-	phmap::btree_map<uint32_t, int32_t> storageMap;
-	phmap::btree_map<uint16_t, uint64_t> itemPriceMap;
+	std::map<uint8_t, OpenContainer> openContainers;
+	std::map<uint32_t, DepotLocker*> depotLockerMap;
+	std::map<uint32_t, DepotChest*> depotChests;
+	std::map<uint8_t, int64_t> moduleDelayMap;
+	std::map<uint32_t, int32_t> storageMap;
+	std::map<uint16_t, uint64_t> itemPriceMap;
 
-	phmap::btree_map<uint8_t, uint16_t> maxValuePerSkill = {
+	std::map<uint8_t, uint16_t> maxValuePerSkill = {
 		{ SKILL_LIFE_LEECH_CHANCE, 100 },
 		{ SKILL_MANA_LEECH_CHANCE, 100 },
 		{ SKILL_CRITICAL_HIT_CHANCE, g_configManager().getNumber(CRITICALCHANCE) }
 	};
 
-	phmap::btree_map<uint64_t, Reward*> rewardMap;
+	std::map<uint64_t, Reward*> rewardMap;
 
-	phmap::btree_map<ObjectCategory_t, Container*> quickLootContainers;
+	std::map<ObjectCategory_t, Container*> quickLootContainers;
 	std::vector<ForgeHistory> forgeHistoryVector;
 
 	std::vector<uint16_t> quickLootListItemIds;
@@ -2684,9 +2677,11 @@ private:
 	uint32_t inventoryWeight = 0;
 	uint32_t capacity = 40000;
 	uint32_t bonusCapacity = 0;
+
 	std::bitset<CombatType_t::COMBAT_COUNT> m_damageImmunities;
 	std::bitset<ConditionType_t::CONDITION_COUNT> m_conditionImmunities;
 	std::bitset<ConditionType_t::CONDITION_COUNT> m_conditionSuppressions;
+
 	uint32_t level = 1;
 	uint32_t magLevel = 0;
 	uint32_t actionTaskEvent = 0;
@@ -2808,11 +2803,11 @@ private:
 
 	// Concoctions
 	// [ConcoctionID] = time
-	phmap::btree_map<uint16_t, uint16_t> activeConcoctions;
+	std::map<uint16_t, uint16_t> activeConcoctions;
 
 	int32_t specializedMagicLevel[COMBAT_COUNT] = { 0 };
 	int32_t cleavePercent = 0;
-	phmap::btree_map<uint8_t, int32_t> perfectShot;
+	std::map<uint8_t, int32_t> perfectShot;
 	int32_t magicShieldCapacityFlat = 0;
 	int32_t magicShieldCapacityPercent = 0;
 
@@ -2862,8 +2857,10 @@ private:
 	uint64_t getLostExperience() const override {
 		return skillLoss ? static_cast<uint64_t>(experience * getLostPercent()) : 0;
 	}
+
 	bool isSuppress(ConditionType_t conditionType) const override;
 	void addConditionSuppression(const std::array<ConditionType_t, ConditionType_t::CONDITION_COUNT> &addConditions);
+
 	uint16_t getLookCorpse() const override;
 	void getPathSearchParams(const Creature* creature, FindPathParams &fpp) const override;
 
@@ -2911,5 +2908,3 @@ private:
 	void updateDamageReductionFromItemAbility(std::array<double_t, COMBAT_COUNT> &combatReductionMap, const Item* item, uint16_t combatTypeIndex) const;
 	double_t calculateDamageReduction(double_t currentTotal, int16_t resistance) const;
 };
-
-#endif // SRC_CREATURES_PLAYERS_PLAYER_H_

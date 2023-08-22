@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_GROUPING_GUILD_H_
-#define SRC_CREATURES_PLAYERS_GROUPING_GUILD_H_
+#pragma once
 
 #include "game/bank/bank.hpp"
 
@@ -91,5 +90,3 @@ private:
 	uint32_t memberCount = 0;
 	bool online = true;
 };
-
-#endif // SRC_CREATURES_PLAYERS_GROUPING_GUILD_H_

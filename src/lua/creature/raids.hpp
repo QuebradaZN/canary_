@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_CREATURE_RAIDS_H_
-#define SRC_LUA_CREATURE_RAIDS_H_
+#pragma once
 
 #include "utils/utils_definitions.hpp"
 #include "declarations.hpp"
@@ -212,5 +211,3 @@ private:
 	std::string getScriptEventName() const override;
 	std::string scriptName;
 };
-
-#endif // SRC_LUA_CREATURE_RAIDS_H_

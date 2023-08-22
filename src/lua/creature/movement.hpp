@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_CREATURE_MOVEMENT_H_
-#define SRC_LUA_CREATURE_MOVEMENT_H_
+#pragma once
 
 #include "declarations.hpp"
 #include "items/item.hpp"
@@ -22,7 +21,7 @@ struct MoveEventList {
 	std::list<std::shared_ptr<MoveEvent>> moveEvent[MOVE_EVENT_LAST];
 };
 
-using VocEquipMap = phmap::btree_map<uint16_t, bool>;
+using VocEquipMap = std::map<uint16_t, bool>;
 
 class MoveEvents final : public Scripts {
 public:
@@ -42,7 +41,7 @@ public:
 	uint32_t onPlayerDeEquip(Player &player, Item &item, Slots_t slot);
 	uint32_t onItemMove(Item &item, Tile &tile, bool isAdd);
 
-	phmap::btree_map<Position, MoveEventList> getPositionsMap() const {
+	std::map<Position, MoveEventList> getPositionsMap() const {
 		return positionsMap;
 	}
 
@@ -58,7 +57,7 @@ public:
 		positionsMap.try_emplace(position, moveEventList);
 	}
 
-	phmap::btree_map<int32_t, MoveEventList> getItemIdMap() const {
+	std::map<int32_t, MoveEventList> getItemIdMap() const {
 		return itemIdMap;
 	}
 
@@ -74,7 +73,7 @@ public:
 		itemIdMap.try_emplace(itemId, moveEventList);
 	}
 
-	phmap::btree_map<int32_t, MoveEventList> getUniqueIdMap() const {
+	std::map<int32_t, MoveEventList> getUniqueIdMap() const {
 		return uniqueIdMap;
 	}
 
@@ -90,7 +89,7 @@ public:
 		uniqueIdMap.try_emplace(uniqueId, moveEventList);
 	}
 
-	phmap::btree_map<int32_t, MoveEventList> getActionIdMap() const {
+	std::map<int32_t, MoveEventList> getActionIdMap() const {
 		return actionIdMap;
 	}
 
@@ -116,19 +115,19 @@ public:
 	void clear();
 
 private:
-	void clearMap(phmap::btree_map<int32_t, MoveEventList> &map) const;
-	void clearPosMap(phmap::btree_map<Position, MoveEventList> &map);
+	void clearMap(std::map<int32_t, MoveEventList> &map) const;
+	void clearPosMap(std::map<Position, MoveEventList> &map);
 
-	bool registerEvent(const std::shared_ptr<MoveEvent> &moveEvent, int32_t id, phmap::btree_map<int32_t, MoveEventList> &moveListMap) const;
-	bool registerEvent(const std::shared_ptr<MoveEvent> &moveEvent, const Position &position, phmap::btree_map<Position, MoveEventList> &moveListMap) const;
+	bool registerEvent(const std::shared_ptr<MoveEvent> &moveEvent, int32_t id, std::map<int32_t, MoveEventList> &moveListMap) const;
+	bool registerEvent(const std::shared_ptr<MoveEvent> &moveEvent, const Position &position, std::map<Position, MoveEventList> &moveListMap) const;
 	std::shared_ptr<MoveEvent> getEvent(Tile &tile, MoveEvent_t eventType);
 
 	std::shared_ptr<MoveEvent> getEvent(Item &item, MoveEvent_t eventType, Slots_t slot);
 
-	phmap::btree_map<int32_t, MoveEventList> uniqueIdMap;
-	phmap::btree_map<int32_t, MoveEventList> actionIdMap;
-	phmap::btree_map<int32_t, MoveEventList> itemIdMap;
-	phmap::btree_map<Position, MoveEventList> positionsMap;
+	std::map<int32_t, MoveEventList> uniqueIdMap;
+	std::map<int32_t, MoveEventList> actionIdMap;
+	std::map<int32_t, MoveEventList> itemIdMap;
+	std::map<Position, MoveEventList> positionsMap;
 };
 
 constexpr auto g_moveEvents = MoveEvents::getInstance;
@@ -176,7 +175,7 @@ public:
 	uint32_t getWieldInfo() const {
 		return wieldInfo;
 	}
-	const phmap::btree_map<uint16_t, bool> &getVocEquipMap() const {
+	const std::map<uint16_t, bool> &getVocEquipMap() const {
 		return vocEquipMap;
 	}
 	void addVocEquipMap(std::string vocName) {
@@ -288,7 +287,7 @@ private:
 	bool premium = false;
 	std::string vocationString;
 	uint32_t wieldInfo = 0;
-	phmap::btree_map<uint16_t, bool> vocEquipMap;
+	std::map<uint16_t, bool> vocEquipMap;
 	bool tileItem = false;
 
 	std::vector<uint32_t> itemIdVector;
@@ -298,5 +297,3 @@ private:
 
 	friend class MoveEventFunctions;
 };
-
-#endif // SRC_LUA_CREATURE_MOVEMENT_H_

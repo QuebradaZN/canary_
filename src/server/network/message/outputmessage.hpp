@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_NETWORK_MESSAGE_OUTPUTMESSAGE_H_
-#define SRC_SERVER_NETWORK_MESSAGE_OUTPUTMESSAGE_H_
+#pragma once
 
 #include "server/network/message/networkmessage.hpp"
 #include "server/network/connection/connection.hpp"
@@ -92,5 +91,3 @@ private:
 	// and relatively rarely modified (only when a client connects/disconnects)
 	std::vector<Protocol_ptr> bufferedProtocols;
 };
-
-#endif // SRC_SERVER_NETWORK_MESSAGE_OUTPUTMESSAGE_H_

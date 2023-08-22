@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_NETWORK_PROTOCOL_PROTOCOLLOGIN_H_
-#define SRC_SERVER_NETWORK_PROTOCOL_PROTOCOLLOGIN_H_
+#pragma once
 
 #include "server/network/protocol/protocol.hpp"
 
@@ -37,5 +36,3 @@ private:
 
 	bool oldProtocol = false;
 };
-
-#endif // SRC_SERVER_NETWORK_PROTOCOL_PROTOCOLLOGIN_H_

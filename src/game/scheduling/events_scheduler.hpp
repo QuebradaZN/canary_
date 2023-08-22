@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_GAME_SCHEDUNLING_EVENTS_SCHEDULER_HPP_
-#define SRC_GAME_SCHEDUNLING_EVENTS_SCHEDULER_HPP_
+#pragma once
 
 #include "utils/tools.hpp"
 
@@ -82,5 +81,3 @@ private:
 };
 
 constexpr auto g_eventsScheduler = EventsScheduler::getInstance;
-
-#endif // SRC_GAME_SCHEDUNLING_EVENTS_SCHEDULER_HPP_

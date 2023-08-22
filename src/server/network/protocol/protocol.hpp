@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_NETWORK_PROTOCOL_PROTOCOL_H_
-#define SRC_SERVER_NETWORK_PROTOCOL_PROTOCOL_H_
+#pragma once
 
 #include "server/network/connection/connection.hpp"
 #include "config/configmanager.hpp"
@@ -100,5 +99,3 @@ private:
 
 	friend class Connection;
 };
-
-#endif // SRC_SERVER_NETWORK_PROTOCOL_PROTOCOL_H_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_EVENTS_EVENTS_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_EVENTS_EVENTS_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 #include "lua/functions/events/action_functions.hpp"
@@ -34,5 +33,3 @@ public:
 
 private:
 };
-
-#endif // SRC_LUA_FUNCTIONS_EVENTS_EVENTS_FUNCTIONS_HPP_

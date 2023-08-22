@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_ACCOUNT_ACCOUNT_HPP_
-#define SRC_CREATURES_PLAYERS_ACCOUNT_ACCOUNT_HPP_
+#pragma once
 
 #include "database/database.hpp"
 #include "database/databasetasks.hpp"
@@ -206,6 +205,12 @@ namespace account {
 		 */
 		error_t SaveAccountDB();
 
+		/**
+		 * @brief Calculate and update remaining days and last day of premium account
+		 *
+		 */
+		void UpdatePremium();
+
 		/***************************************************************************
 		 * Setters and Getters
 		 **************************************************************************/
@@ -258,5 +263,3 @@ namespace account {
 	};
 
 } // namespace account
-
-#endif // SRC_CREATURES_PLAYERS_ACCOUNT_ACCOUNT_HPP_

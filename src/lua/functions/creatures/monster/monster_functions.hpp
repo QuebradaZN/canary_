@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CREATURES_MONSTER_MONSTER_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CREATURES_MONSTER_MONSTER_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 #include "lua/functions/creatures/monster/charm_functions.hpp"
@@ -124,5 +123,3 @@ private:
 
 	friend class CreatureFunctions;
 };
-
-#endif // SRC_LUA_FUNCTIONS_CREATURES_MONSTER_MONSTER_FUNCTIONS_HPP_

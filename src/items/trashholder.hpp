@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_TRASHHOLDER_H_
-#define SRC_ITEMS_TRASHHOLDER_H_
+#pragma once
 
 #include "items/item.hpp"
 #include "items/cylinder.hpp"
@@ -42,5 +41,3 @@ public:
 	void postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, CylinderLink_t link = LINK_OWNER) override;
 	void postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, CylinderLink_t link = LINK_OWNER) override;
 };
-
-#endif // SRC_ITEMS_TRASHHOLDER_H_

@@ -9,8 +9,8 @@
 #ifndef CANARY_MESSAGE_HPP
 #define CANARY_MESSAGE_HPP
 
-#include <eventpp/utilities/scopedremover.hpp>
-#include <eventpp/eventdispatcher.hpp>
+#include <eventpp/utilities/scopedremover.h>
+#include <eventpp/eventdispatcher.h>
 
 template <typename T>
 struct Message {

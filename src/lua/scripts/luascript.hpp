@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_SCRIPTS_LUASCRIPT_H_
-#define SRC_LUA_SCRIPTS_LUASCRIPT_H_
+#pragma once
 
 #include "lua/functions/lua_functions_loader.hpp"
 #include "lua/scripts/script_environment.hpp"
@@ -70,7 +69,7 @@ protected:
 	lua_State* luaState = nullptr;
 	int32_t eventTableRef = -1;
 	int32_t runningEventId = EVENT_ID_USER;
-	phmap::btree_map<int32_t, std::string> cacheFiles;
+	std::map<int32_t, std::string> cacheFiles;
 
 private:
 	std::string lastLuaError;
@@ -78,5 +77,3 @@ private:
 	std::string loadingFile;
 	std::string loadedScriptName;
 };
-
-#endif // SRC_LUA_SCRIPTS_LUASCRIPT_H_

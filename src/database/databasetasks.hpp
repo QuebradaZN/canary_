@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_DATABASE_DATABASETASKS_H_
-#define SRC_DATABASE_DATABASETASKS_H_
+#pragma once
 
 #include "database/database.hpp"
 #include "lib/thread/thread_pool.hpp"
@@ -33,5 +32,3 @@ private:
 };
 
 constexpr auto g_databaseTasks = DatabaseTasks::getInstance;
-
-#endif // SRC_DATABASE_DATABASETASKS_H_

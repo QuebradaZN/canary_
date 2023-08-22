@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_SCRIPTS_SCRIPTS_H_
-#define SRC_LUA_SCRIPTS_SCRIPTS_H_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -125,5 +124,3 @@ private:
 	int32_t scriptId = 0;
 	LuaScriptInterface* scriptInterface = nullptr;
 };
-
-#endif // SRC_LUA_SCRIPTS_SCRIPTS_H_

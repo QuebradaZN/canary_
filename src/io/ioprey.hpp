@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_IO_IOPREY_H_
-#define SRC_IO_IOPREY_H_
+#pragma once
 
 #include "server/network/protocol/protocolgame.hpp"
 
@@ -238,5 +237,3 @@ public:
 };
 
 constexpr auto g_ioprey = IOPrey::getInstance;
-
-#endif // SRC_IO_IOPREY_H_

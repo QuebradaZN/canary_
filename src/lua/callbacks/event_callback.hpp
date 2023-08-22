@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_CALLBACKS_EVENT_CALLBACK__HPP_
-#define SRC_LUA_CALLBACKS_EVENT_CALLBACK__HPP_
+#pragma once
 
 #include "lua/callbacks/callbacks_definitions.hpp"
 #include "creatures/creatures_definitions.hpp"
@@ -26,12 +25,11 @@ class Zone;
 
 /**
  * @class EventCallback
- * @brief Class representing an event callback.
+ * @brief Represents an individual event callback within the game.
  *
- * @note This class is used to encapsulate the logic of a Lua event callback.
- * @details It is derived from the Script class and includes additional information specific to event callbacks.
- *
- * @see Script
+ * @details This class encapsulates a specific event callback, allowing for the definition,
+ * registration, and execution of custom behavior tied to specific game events.
+ * @note It inherits from the Script class, providing scripting capabilities.
  */
 class EventCallback : public Script {
 private:
@@ -39,15 +37,46 @@ private:
 	std::string m_scriptTypeName; ///< The name associated with the script type.
 
 public:
+	/**
+	 * @brief Constructor that initializes the EventCallback with a given script interface.
+	 * @param scriptInterface Pointer to the LuaScriptInterface object.
+	 */
 	explicit EventCallback(LuaScriptInterface* scriptInterface);
 
+	/**
+	 * @brief Retrieves the script type name.
+	 * @return The script type name as a string.
+	 */
 	std::string getScriptTypeName() const override;
 
+	/**
+	 * @brief Sets a new script type name.
+	 * @param newName The new name to set for the script type.
+	 */
 	void setScriptTypeName(const std::string_view newName);
 
+	/**
+	 * @brief Retrieves the type of the event callback.
+	 * @return The type of the event callback as defined in the EventCallback_t enumeration.
+	 */
 	EventCallback_t getType() const;
 
+	/**
+	 * @brief Sets the type of the event callback.
+	 * @param type The new type to set, as defined in the EventCallback_t enumeration.
+	 */
 	void setType(EventCallback_t type);
+
+	/**
+	 * @defgroup EventCallbacks Event Callback Functions
+	 * @brief These functions are called in response to specific game events.
+	 *
+	 * These functions serve as the entry points for various event types in the game. They are triggered by specific game events related to Creatures, Players, Parties, Monsters, and NPCs. Depending on the event, different parameters are passed to these functions, allowing custom behavior to be defined for each event type.
+	 *
+	 * The functions may return a boolean value or be void. Boolean-returning functions allow for conditional control over the execution of associated actions on the C++ side, while void functions simply execute the custom behavior without altering the flow of the program.
+	 *
+	 * @note here start the lua binder functions {
+	 */
 
 	// Creature
 	bool creatureOnChangeOutfit(Creature* creature, const Outfit_t &outfit) const;
@@ -93,12 +122,14 @@ public:
 	void monsterPostDropLoot(Monster* monster, Container* corpse) const;
 	void monsterOnSpawn(Monster* monster, const Position &position) const;
 
-	// Monster
+	// Npc
 	void npcOnSpawn(Npc* npc, const Position &position) const;
 
 	// Zone
 	bool zoneOnCreatureEnter(std::shared_ptr<Zone> zone, Creature* creature) const;
 	bool zoneOnCreatureLeave(std::shared_ptr<Zone> zone, Creature* creature) const;
-};
 
-#endif // SRC_LUA_CALLBACKS_EVENT_CALLBACK__HPP_
+	/**
+	 * @note here end the lua binder functions }
+	 */
+};

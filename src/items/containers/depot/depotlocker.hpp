@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_CONTAINERS_DEPOT_DEPOTLOCKER_H_
-#define SRC_ITEMS_CONTAINERS_DEPOT_DEPOTLOCKER_H_
+#pragma once
 
 #include "items/containers/container.hpp"
 #include "items/containers/inbox/inbox.hpp"
@@ -52,5 +51,3 @@ public:
 private:
 	uint16_t depotId;
 };
-
-#endif // SRC_ITEMS_CONTAINERS_DEPOT_DEPOTLOCKER_H_

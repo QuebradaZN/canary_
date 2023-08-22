@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_COMBAT_SPELLS_H_
-#define SRC_CREATURES_COMBAT_SPELLS_H_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 #include "creatures/players/player.hpp"
@@ -21,7 +20,7 @@ class InstantSpell;
 class RuneSpell;
 class Spell;
 
-using VocSpellMap = phmap::btree_map<uint16_t, bool>;
+using VocSpellMap = std::map<uint16_t, bool>;
 
 class Spells final : public Scripts {
 public:
@@ -495,5 +494,3 @@ private:
 	uint32_t charges = 0;
 	bool hasCharges = false;
 };
-
-#endif // SRC_CREATURES_COMBAT_SPELLS_H_

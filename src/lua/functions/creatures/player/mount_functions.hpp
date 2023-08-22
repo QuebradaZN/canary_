@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CREATURES_PLAYER_MOUNT_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CREATURES_PLAYER_MOUNT_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -31,5 +30,3 @@ private:
 	static int luaMountGetClientId(lua_State* L);
 	static int luaMountGetSpeed(lua_State* L);
 };
-
-#endif // SRC_LUA_FUNCTIONS_CREATURES_PLAYER_MOUNT_FUNCTIONS_HPP_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_GROUPING_PARTY_H_
-#define SRC_CREATURES_PLAYERS_GROUPING_PARTY_H_
+#pragma once
 
 #include "creatures/players/player.hpp"
 #include "creatures/monsters/monsters.hpp"
@@ -124,7 +123,7 @@ private:
 	uint32_t getMinLevel() const;
 	uint32_t getMaxLevel() const;
 
-	phmap::btree_map<uint32_t, int64_t> ticksMap;
+	std::map<uint32_t, int64_t> ticksMap;
 
 	PlayerVector memberList;
 	PlayerVector inviteList;
@@ -134,5 +133,3 @@ private:
 	bool sharedExpActive = false;
 	bool sharedExpEnabled = false;
 };
-
-#endif // SRC_CREATURES_PLAYERS_GROUPING_PARTY_H_

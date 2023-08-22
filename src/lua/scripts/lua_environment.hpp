@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_SCRIPTS_LUA_ENVIRONMENT_HPP_
-#define SRC_LUA_SCRIPTS_LUA_ENVIRONMENT_HPP_
+#pragma once
 
 #include "creatures/combat/combat.hpp"
 #include "declarations.hpp"
@@ -106,5 +105,3 @@ private:
 };
 
 constexpr auto g_luaEnvironment = LuaEnvironment::getInstance;
-
-#endif // SRC_LUA_SCRIPTS_LUA_ENVIRONMENT_HPP_

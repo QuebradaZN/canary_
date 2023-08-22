@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_IO_FILELOADER_H_
-#define SRC_IO_FILELOADER_H_
+#pragma once
 
 class PropStream;
 
@@ -53,7 +52,6 @@ namespace OTB {
 		bool getProps(const Node &node, PropStream &props);
 		const Node &parseTree();
 	};
-
 } // namespace OTB
 
 class PropStream {
@@ -148,5 +146,3 @@ public:
 private:
 	std::vector<char> buffer;
 };
-
-#endif // SRC_IO_FILELOADER_H_

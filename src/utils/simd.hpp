@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_UTILS_SIMD_HPP_
-#define SRC_UTILS_SIMD_HPP_
+#pragma once
 
 // #define __DISABLE_VECTORIZATION__ 1
 
@@ -30,33 +29,33 @@
 #else
 	#if defined(__ARM_NEON__) || defined(__ARM_FEATURE_SIMD32)
 		#define __NEON__ 1
-		#include <arm_neon.hpp>
+		#include <arm_neon.h>
 	#endif
 	#if defined(__SSE__)
-		#include <xmmintrin.hpp>
+		#include <xmmintrin.h>
 	#endif
 	#if defined(__SSE2__)
-		#include <emmintrin.hpp>
+		#include <emmintrin.h>
 	#endif
 	#if defined(__SSE3__)
-		#include <pmmintrin.hpp>
+		#include <pmmintrin.h>
 	#endif
 	#if defined(__SSSE3__)
-		#include <tmmintrin.hpp>
+		#include <tmmintrin.h>
 	#endif
 	#if defined(__SSE4_1__)
-		#include <smmintrin.hpp>
+		#include <smmintrin.h>
 	#endif
 	#if defined(__SSE4_2__)
-		#include <nmmintrin.hpp>
+		#include <nmmintrin.h>
 	#endif
 	#if defined(__AVX__) || defined(__AVX2__) || defined(__AVX512F__)
-		#include <immintrin.hpp>
+		#include <immintrin.h>
 	#endif
 #endif
 
 #ifdef _MSC_VER
-	#include <intrin.hpp>
+	#include <intrin.h>
 __forceinline unsigned int _mm_ctz(unsigned int value) {
 	unsigned long i = 0;
 	_BitScanForward(&i, value);
@@ -65,5 +64,3 @@ __forceinline unsigned int _mm_ctz(unsigned int value) {
 #else
 	#define _mm_ctz __builtin_ctz
 #endif
-
-#endif // SRC_UTILS_SIMD_HPP_

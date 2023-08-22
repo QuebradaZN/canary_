@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_NETWORK_MESSAGE_NETWORKMESSAGE_H_
-#define SRC_SERVER_NETWORK_MESSAGE_NETWORKMESSAGE_H_
+#pragma once
 
 #include "utils/const.hpp"
 #include "declarations.hpp"
@@ -159,5 +158,3 @@ protected:
 	NetworkMessageInfo info;
 	uint8_t buffer[NETWORKMESSAGE_MAXSIZE];
 };
-
-#endif // SRC_SERVER_NETWORK_MESSAGE_NETWORKMESSAGE_H_

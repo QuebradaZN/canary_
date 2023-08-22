@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_UTILS_UTILS_DEFINITIONS_HPP_
-#define SRC_UTILS_UTILS_DEFINITIONS_HPP_
+#pragma once
 
 // Enums
 enum Icons_t {
@@ -147,6 +146,7 @@ enum Cipbia_Elementals_t : uint8_t {
 	CIPBIA_ELEMENTAL_LIFEDRAIN = 9,
 	CIPBIA_ELEMENTAL_MANADRAIN = 10,
 	CIPBIA_ELEMENTAL_UNDEFINED = 11,
+	CIPBIA_ELEMENTAL_NEUTRAL = 12,
 };
 
 enum MagicEffectClasses : uint16_t {
@@ -819,5 +819,3 @@ enum BedItemPart_t : uint8_t {
 	BED_PILLOW_PART,
 	BED_BLANKET_PART,
 };
-
-#endif // SRC_UTILS_UTILS_DEFINITIONS_HPP_

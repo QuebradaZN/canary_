@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_PCH_HPP_
-#define SRC_PCH_HPP_
+#pragma once
 
 // --------------------
 // Internal Includes
@@ -43,15 +42,15 @@
 // --------------------
 
 #ifdef _WIN32
-	#include <io.hpp> // For _isatty() on Windows
+	#include <io.h> // For _isatty() on Windows
 	#define isatty _isatty
 	#define STDIN_FILENO _fileno(stdin)
 #else
-	#include <unistd.hpp> // For isatty() on Linux and other POSIX systems
+	#include <unistd.h> // For isatty() on Linux and other POSIX systems
 #endif
 
 #ifdef OS_WINDOWS
-	#include "conio.hpp"
+	#include <conio.h>
 #endif
 
 // --------------------
@@ -59,26 +58,28 @@
 // --------------------
 
 // ABSL
-#include <absl/numeric/int128.hpp>
+#include <absl/numeric/int128.h>
 
 // ARGON2
-#include <argon2.hpp>
+#include <argon2.h>
 
 // ASIO
 #include <asio.hpp>
 
 // CURL
-#include <curl/curl.hpp>
+#include <curl/curl.h>
 
 // FMT
-#include <fmt/chrono.hpp>
-#include <fmt/core.hpp>
+#include <fmt/chrono.h>
+#include <fmt/core.h>
+#include <fmt/format.h>
+#include <fmt/args.h>
 
 // GMP
-#include <gmp.hpp>
+#include <gmp.h>
 
 // JSON
-#include <json/json.hpp>
+#include <json/json.h>
 
 // LUA
 #if __has_include("luajit/lua.hpp")
@@ -97,22 +98,22 @@
 
 // MySQL
 #if __has_include("<mysql.h>")
-	#include <mysql.hpp>
+	#include <mysql.h>
 #else
-	#include <mysql/mysql.hpp>
+	#include <mysql/mysql.h>
 #endif
 
-#include <mysql/errmsg.hpp>
+#include <mysql/errmsg.h>
 
 // Parallel Hash Map
-#include <parallel_hashmap/phmap.hpp>
-#include <parallel_hashmap/btree.hpp>
+#include <parallel_hashmap/phmap.h>
+#include <parallel_hashmap/btree.h>
 
 // PugiXML
 #include <pugixml.hpp>
 
 // Zlib
-#include <zlib.hpp>
+#include <zlib.h>
 
 #include <boost/di.hpp>
 
@@ -121,7 +122,7 @@
 // -------------------------
 
 #if __has_include("gitmetadata.h")
-	#include "gitmetadata.hpp"
+	#include "gitmetadata.h"
 #endif
 
 // ---------------------
@@ -138,11 +139,9 @@
 #include "lib/messaging/command.hpp"
 #include "lib/messaging/event.hpp"
 
-#include <eventpp/utilities/scopedremover.hpp>
-#include <eventpp/eventdispatcher.hpp>
+#include <eventpp/utilities/scopedremover.h>
+#include <eventpp/eventdispatcher.h>
 
 #include "lib/di/container.hpp"
 
 #include "lua/global/shared_object.hpp"
-
-#endif // SRC_PCH_HPP_

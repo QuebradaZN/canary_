@@ -47,8 +47,6 @@
 #include "server/network/protocol/protocollogin.hpp"
 #include "server/network/protocol/protocolstatus.hpp"
 
-using defer = std::shared_ptr<void>;
-
 namespace InternalGame {
 	void sendBlockEffect(BlockType_t blockType, CombatType_t combatType, const Position &targetPos, Creature* source) {
 		if (blockType == BLOCK_DEFENSE) {
@@ -426,7 +424,7 @@ bool Game::loadItemsPrice() {
 		marketQuery << "SELECT `price`, `tier` FROM `market_offers` WHERE `itemtype` = " << itemId << " ORDER BY `price` DESC LIMIT 1";
 		DBResult_ptr marketOffersResult = db.storeQuery(marketQuery.str());
 		if (marketOffersResult) {
-			phmap::btree_map<uint8_t, uint64_t> tierAndCount;
+			std::map<uint8_t, uint64_t> tierAndCount;
 			auto tier = marketOffersResult->getNumber<uint8_t>("tier");
 			auto price = marketOffersResult->getNumber<uint64_t>("price");
 			tierAndCount[tier] = price;
@@ -2806,7 +2804,7 @@ ObjectCategory_t Game::getObjectCategory(const Item* item) {
 	return category;
 }
 
-uint64_t Game::getItemMarketPrice(const phmap::btree_map<uint16_t, uint64_t> &itemMap, bool buyPrice) const {
+uint64_t Game::getItemMarketPrice(const std::map<uint16_t, uint64_t> &itemMap, bool buyPrice) const {
 	uint64_t total = 0;
 	for (const auto &it : itemMap) {
 		if (it.first == ITEM_GOLD_COIN) {
@@ -3826,8 +3824,10 @@ void Game::playerWrapableItem(uint32_t playerId, const Position &pos, uint8_t st
 	}
 
 	auto topItem = tile->getTopTopItem();
-	bool canUnwrap = !topItem || !topItem->canReceiveAutoCarpet();
-	if ((item->getHoldingPlayer() && item->getID() == ITEM_DECORATION_KIT) || (!canUnwrap && !item->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID))) {
+	bool unwrappable = item->getHoldingPlayer() && item->getID() == ITEM_DECORATION_KIT;
+	bool blockedUnwrap = topItem && topItem->canReceiveAutoCarpet() && !item->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID);
+
+	if (unwrappable || blockedUnwrap) {
 		player->sendCancelMessage("You can only wrap/unwrap on the floor.");
 		return;
 	}
@@ -6876,9 +6876,6 @@ void Game::buildMessageAsAttacker(
 ) const {
 	ss.str({});
 	ss << ucfirst(target->getNameDescription()) << " loses " << damageString << " due to your attack.";
-	if (damage.critical) {
-		ss << " (Critical hit)";
-	}
 	if (damage.extension) {
 		ss << " " << damage.exString;
 	}
@@ -7520,44 +7517,6 @@ void Game::updateCreatureType(Creature* creature) {
 	}
 }
 
-void Game::updatePremium(account::Account &account) {
-	bool save = false;
-	uint32_t remainingDays = 0;
-	time_t lastDay;
-	std::string accountIdentifier;
-	account.GetPremiumRemainingDays(&remainingDays);
-	account.GetPremiumLastDay(&lastDay);
-	account.GetAccountIdentifier(&accountIdentifier);
-
-	if (remainingDays == 0) {
-		if (lastDay != 0) {
-			account.SetPremiumLastDay(0);
-			save = true;
-		}
-	} else if (lastDay == 0) {
-		account.SetPremiumRemainingDays(0);
-		save = true;
-	} else {
-		time_t currentTime = getTimeNow();
-		uint32_t daysLeft = static_cast<int>((lastDay - currentTime) / 86400);
-		uint32_t timeLeft = static_cast<int>((lastDay - currentTime) % 86400);
-		if (daysLeft > 0) {
-			account.SetPremiumRemainingDays(daysLeft);
-		} else if (daysLeft == 0 && timeLeft > 0) {
-			account.SetPremiumRemainingDays(1);
-		} else {
-			if (!account.SetPremiumRemainingDays(0) || !account.SetPremiumLastDay(0)) {
-				g_logger().error("Failed to set account premium days, account {}: {}", account.getProtocolCompat() ? "name" : " email", accountIdentifier);
-			}
-		}
-		save = true;
-	}
-	if (save && account.SaveAccountDB() != 0) {
-		account.GetAccountIdentifier(&accountIdentifier);
-		g_logger().error("Failed to save account: {}", accountIdentifier);
-	}
-}
-
 void Game::loadMotdNum() {
 	Database &db = Database::getInstance();
 
@@ -8093,7 +8052,7 @@ void Game::playerDebugAssert(uint32_t playerId, const std::string &assertLine, c
 	// TODO: move debug assertions to database
 	FILE* file = fopen("client_assertions.txt", "a");
 	if (file) {
-		fprintf(file, "----- %s - %s (%s) -----\n", formatDate(getTimeNow()).c_str(), player->getName().c_str(), convertIPToString(player->getIP()).c_str());
+		fprintf(file, "----- %s - %s (%s) -----\n", formatDate(time(nullptr)).c_str(), player->getName().c_str(), convertIPToString(player->getIP()).c_str());
 		fprintf(file, "%s\n%s\n%s\n%s\n", assertLine.c_str(), date.c_str(), description.c_str(), comment.c_str());
 		fclose(file);
 	}
@@ -8412,7 +8371,7 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t ite
 	IOMarket::createOffer(player->getGUID(), static_cast<MarketAction_t>(type), it.id, amount, price, tier, anonymous);
 
 	// uint8_t = tier, uint64_t price
-	phmap::btree_map<uint8_t, uint64_t> tierAndPriceMap;
+	std::map<uint8_t, uint64_t> tierAndPriceMap;
 	tierAndPriceMap[tier] = price;
 	auto ColorItem = itemsPriceMap.find(it.id);
 	if (ColorItem == itemsPriceMap.end()) {
@@ -8771,9 +8730,9 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 
 	const int32_t marketOfferDuration = g_configManager().getNumber(MARKET_OFFER_DURATION);
 
-	IOMarket::appendHistory(player->getGUID(), (offer.type == MARKETACTION_BUY ? MARKETACTION_SELL : MARKETACTION_BUY), offer.itemId, amount, offer.price, getTimeNow(), offer.tier, OFFERSTATE_ACCEPTEDEX);
+	IOMarket::appendHistory(player->getGUID(), (offer.type == MARKETACTION_BUY ? MARKETACTION_SELL : MARKETACTION_BUY), offer.itemId, amount, offer.price, time(nullptr), offer.tier, OFFERSTATE_ACCEPTEDEX);
 
-	IOMarket::appendHistory(offer.playerId, offer.type, offer.itemId, amount, offer.price, getTimeNow(), offer.tier, OFFERSTATE_ACCEPTED);
+	IOMarket::appendHistory(offer.playerId, offer.type, offer.itemId, amount, offer.price, time(nullptr), offer.tier, OFFERSTATE_ACCEPTED);
 
 	offer.amount -= amount;
 
@@ -9142,7 +9101,7 @@ void Game::playerRequestInventoryImbuements(uint32_t playerId, bool isTrackerOpe
 		return;
 	}
 
-	phmap::btree_map<Slots_t, Item*> itemsWithImbueSlotMap;
+	std::map<Slots_t, Item*> itemsWithImbueSlotMap;
 	for (uint8_t inventorySlot = CONST_SLOT_FIRST; inventorySlot <= CONST_SLOT_LAST; ++inventorySlot) {
 		auto item = player->getInventoryItem(static_cast<Slots_t>(inventorySlot));
 		if (!item) {
@@ -9207,7 +9166,7 @@ void Game::updatePlayerSaleItems(uint32_t playerId) {
 		return;
 	}
 
-	phmap::btree_map<uint16_t, uint16_t> inventoryMap;
+	std::map<uint16_t, uint16_t> inventoryMap;
 	player->sendSaleItemList(player->getAllSaleItemIdAndCount(inventoryMap));
 	player->setScheduledSaleUpdate(false);
 }

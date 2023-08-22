@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_MAP_TOWN_H_
-#define SRC_MAP_TOWN_H_
+#pragma once
 
 #include "game/movement/position.hpp"
 
@@ -40,7 +39,7 @@ private:
 	Position templePosition;
 };
 
-using TownMap = phmap::btree_map<uint32_t, Town*>;
+using TownMap = std::map<uint32_t, Town*>;
 
 class Towns {
 public:
@@ -92,5 +91,3 @@ public:
 private:
 	TownMap townMap;
 };
-
-#endif // SRC_MAP_TOWN_H_

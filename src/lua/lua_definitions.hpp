@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_LUA_DEFINITIONS_HPP_
-#define SRC_LUA_LUA_DEFINITIONS_HPP_
+#pragma once
 
 #include "game/movement/position.hpp"
 
@@ -18,18 +17,44 @@ enum {
 	EVENT_ID_USER = 1000,
 };
 
-enum LuaDataType {
-	LuaData_Unknown,
+enum class LuaData_t : uint8_t {
+	Unknown,
 
-	LuaData_Item,
-	LuaData_Container,
-	LuaData_Teleport,
-	LuaData_Player,
-	LuaData_Monster,
-	LuaData_Npc,
-	LuaData_Tile,
-	LuaData_Zone,
-	LuaData_Guild,
+	Item,
+	Container,
+	Teleport,
+	Player,
+	Monster,
+	MonsterType,
+	Npc,
+	NpcType,
+	Tile,
+	Variant,
+	Position,
+	NetworkMessage,
+	ModalWindow,
+	Guild,
+	Group,
+	Vocation,
+	Town,
+	House,
+	ItemType,
+	Combat,
+	Condition,
+	Charm,
+	Loot,
+	MonsterSpell,
+	Spell,
+	Party,
+	Action,
+	TalkAction,
+	CreatureEvent,
+	MoveEvent,
+	GlobalEvent,
+	Weapon,
+	Imbuement,
+	Mount,
+	ItemClassification,
 };
 
 enum CreatureEventType_t {
@@ -210,5 +235,3 @@ struct LuaTimerEventDesc {
 	LuaTimerEventDesc() = default;
 	LuaTimerEventDesc(LuaTimerEventDesc &&other) = default;
 };
-
-#endif // SRC_LUA_LUA_DEFINITIONS_HPP_

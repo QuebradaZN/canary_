@@ -41,7 +41,7 @@ bool IOLoginDataLoad::preLoadPlayer(Player* player, const std::string &name) {
 	player->setGroup(group);
 	player->accountNumber = result->getNumber<uint32_t>("account_id");
 	player->accountType = static_cast<account::AccountType>(result->getNumber<uint16_t>("account_type"));
-	player->premiumDays = result->getNumber<uint32_t>("premium_days");
+	player->premiumDays = result->getNumber<uint16_t>("premium_days");
 	player->premiumLastDay = result->getNumber<uint32_t>("premium_last_day");
 
 	/*
@@ -51,23 +51,24 @@ bool IOLoginDataLoad::preLoadPlayer(Player* player, const std::string &name) {
 	  - This should be handled by the account manager, but not all of then do it so we handle it by ourself.
 	*/
 	time_t creation = result->getNumber<time_t>("creation_timestamp");
+	int32_t premiumDays = result->getNumber<int32_t>("premium_days");
 	int32_t premiumDaysPurchased = result->getNumber<int32_t>("premium_days_purchased");
 	if (creation == 0) {
 		query.str(std::string());
-		query << "UPDATE `accounts` SET `creation` = " << static_cast<uint32_t>(getTimeNow()) << " WHERE `id` = " << player->accountNumber;
+		query << "UPDATE `accounts` SET `creation` = " << static_cast<uint32_t>(time(nullptr)) << " WHERE `id` = " << player->accountNumber;
 		db.executeQuery(query.str());
 	}
 
 	// If the player has more premium days than he purchased, it means data existed before the loyalty system was implemented.
 	// Update premdays_purchased to the minimum acceptable value.
-	if (player->premiumDays > premiumDaysPurchased) {
+	if (premiumDays > premiumDaysPurchased) {
 		query.str(std::string());
-		query << "UPDATE `accounts` SET `premdays_purchased` = " << player->premiumDays << " WHERE `id` = " << player->accountNumber;
+		query << "UPDATE `accounts` SET `premdays_purchased` = " << premiumDays << " WHERE `id` = " << player->accountNumber;
 		db.executeQuery(query.str());
 	}
 
-	player->loyaltyPoints = static_cast<uint32_t>(std::ceil((static_cast<double>(getTimeNow() - creation)) / 86400)) * g_configManager().getNumber(LOYALTY_POINTS_PER_CREATION_DAY)
-		+ (premiumDaysPurchased - player->premiumDays) * g_configManager().getNumber(LOYALTY_POINTS_PER_PREMIUM_DAY_SPENT)
+	player->loyaltyPoints = static_cast<uint32_t>(std::ceil((static_cast<double>(time(nullptr) - creation)) / 86400)) * g_configManager().getNumber(LOYALTY_POINTS_PER_CREATION_DAY)
+		+ (premiumDaysPurchased - premiumDays) * g_configManager().getNumber(LOYALTY_POINTS_PER_PREMIUM_DAY_SPENT)
 		+ premiumDaysPurchased * g_configManager().getNumber(LOYALTY_POINTS_PER_PREMIUM_DAY_PURCHASED);
 
 	return true;
@@ -91,10 +92,10 @@ bool IOLoginDataLoad::loadPlayerFirst(Player* player, DBResult_ptr result) {
 	player->name = result->getString("name");
 	acc.GetID(&(player->accountNumber));
 	acc.GetAccountType(&(player->accountType));
-	acc.GetCoins(&(player->coinBalance));
-	acc.GetTransferableCoins(&(player->coinTransferableBalance));
 	acc.GetPremiumRemainingDays(&(player->premiumDays));
 	acc.GetPremiumLastDay(&(player->premiumLastDay));
+	acc.GetCoins(&(player->coinBalance));
+	acc.GetTransferableCoins(&(player->coinTransferableBalance));
 
 	Group* group = g_game().groups.getGroup(result->getNumber<uint16_t>("group_id"));
 	if (!group) {
@@ -260,7 +261,7 @@ void IOLoginDataLoad::loadPlayerSkullSystem(Player* player, DBResult_ptr result)
 	}
 
 	if (g_game().getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
-		const time_t skullSeconds = result->getNumber<time_t>("skulltime") - getTimeNow();
+		const time_t skullSeconds = result->getNumber<time_t>("skulltime") - time(nullptr);
 		if (skullSeconds > 0) {
 			// ensure that we round up the number of ticks
 			player->skullTicks = (skullSeconds + 2);
@@ -309,7 +310,7 @@ void IOLoginDataLoad::loadPlayerKills(Player* player, DBResult_ptr result) {
 	if ((result = db.storeQuery(query.str()))) {
 		do {
 			time_t killTime = result->getNumber<time_t>("time");
-			if ((getTimeNow() - killTime) <= g_configManager().getNumber(FRAG_TIME)) {
+			if ((time(nullptr) - killTime) <= g_configManager().getNumber(FRAG_TIME)) {
 				player->unjustifiedKills.emplace_back(result->getNumber<uint32_t>("target"), killTime, result->getNumber<bool>("unavenged"));
 			}
 		} while (result->next());

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_CONTAINERS_DEPOT_DEPOTCHEST_H_
-#define SRC_ITEMS_CONTAINERS_DEPOT_DEPOTCHEST_H_
+#pragma once
 
 #include "items/containers/container.hpp"
 
@@ -47,5 +46,3 @@ public:
 private:
 	uint32_t maxDepotItems;
 };
-
-#endif // SRC_ITEMS_CONTAINERS_DEPOT_DEPOTCHEST_H_

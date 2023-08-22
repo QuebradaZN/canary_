@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_MAP_HOUSE_HOUSETILE_H_
-#define SRC_MAP_HOUSE_HOUSETILE_H_
+#pragma once
 
 #include "items/tile.hpp"
 
@@ -37,5 +36,3 @@ private:
 
 	House* house;
 };
-
-#endif // SRC_MAP_HOUSE_HOUSETILE_H_

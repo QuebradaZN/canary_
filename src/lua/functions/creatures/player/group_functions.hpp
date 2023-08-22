@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CREATURES_PLAYER_GROUP_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CREATURES_PLAYER_GROUP_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -38,5 +37,3 @@ private:
 	static int luaGroupGetMaxVipEntries(lua_State* L);
 	static int luaGroupHasFlag(lua_State* L);
 };
-
-#endif // SRC_LUA_FUNCTIONS_CREATURES_PLAYER_GROUP_FUNCTIONS_HPP_

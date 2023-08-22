@@ -2172,7 +2172,7 @@ function HandleHirelingNameChange(playerId, offer, newHirelingName)
 				"This mysterious lamp summons your very own personal hireling.\nThis item cannot be traded.\nThis magic lamp is the home of " ..
 				hireling:getName() .. ".")
 		end
-		Spdlog.debug(string.format('%s has been renamed to %s', oldName, newHirelingName))
+		logger.debug('{} has been renamed to {}', oldName, newHirelingName)
 		sendUpdatedStoreBalances(playerId)
 	end
 
@@ -2211,7 +2211,7 @@ function HandleHirelingSexChange(playerId, offer)
 		hireling.sex = changeTo
 		hireling.looktype = lookType
 
-		Spdlog.debug(string.format('%s sex was changed to %s', hireling:getName(), sexString))
+		logger.debug('{} sex was changed to {}', hireling:getName(), sexString)
 		sendUpdatedStoreBalances(playerId)
 	end
 

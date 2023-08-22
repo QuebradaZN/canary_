@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_APPEARANCE_OUTFIT_OUTFIT_H_
-#define SRC_CREATURES_APPEARANCE_OUTFIT_OUTFIT_H_
+#pragma once
 
 #include "declarations.hpp"
 
@@ -50,5 +49,3 @@ public:
 private:
 	std::vector<std::shared_ptr<Outfit>> outfits[PLAYERSEX_LAST + 1];
 };
-
-#endif // SRC_CREATURES_APPEARANCE_OUTFIT_OUTFIT_H_

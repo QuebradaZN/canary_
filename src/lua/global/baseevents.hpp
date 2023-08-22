@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_GLOBAL_BASEEVENTS_H_
-#define SRC_LUA_GLOBAL_BASEEVENTS_H_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -181,5 +180,3 @@ protected:
 private:
 	bool loaded = false;
 };
-
-#endif // SRC_BASEEVENTS_H_

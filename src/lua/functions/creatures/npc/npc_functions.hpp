@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CREATURES_NPC_NPC_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CREATURES_NPC_NPC_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/functions/creatures/npc/npc_type_functions.hpp"
 #include "lua/functions/creatures/npc/shop_functions.hpp"
@@ -87,5 +86,3 @@ private:
 
 	friend class CreatureFunctions;
 };
-
-#endif // SRC_LUA_FUNCTIONS_CREATURES_NPC_NPC_FUNCTIONS_HPP_

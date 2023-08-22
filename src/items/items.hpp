@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_ITEMS_H_
-#define SRC_ITEMS_ITEMS_H_
+#pragma once
 
 #include "config/configmanager.hpp"
 #include "utils/utils_definitions.hpp"
@@ -292,7 +291,7 @@ public:
 	RaceType_t corpseType = RACE_NONE;
 	Fluids_t fluidSource = FLUID_NONE;
 	TileFlags_t floorChange = TILESTATE_NONE;
-	phmap::btree_map<ImbuementTypes_t, uint16_t> imbuementTypes;
+	std::map<ImbuementTypes_t, uint16_t> imbuementTypes;
 
 	uint8_t upgradeClassification = 0;
 	uint8_t alwaysOnTopOrder = 0;
@@ -412,5 +411,3 @@ private:
 	std::unordered_map<uint16_t, uint16_t> dummys;
 	InventoryVector inventory;
 };
-
-#endif // SRC_ITEMS_ITEMS_H_

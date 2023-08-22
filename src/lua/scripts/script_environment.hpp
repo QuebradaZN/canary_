@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_SCRIPTS_SCRIPT_ENVIRONMENT_HPP_
-#define SRC_LUA_SCRIPTS_SCRIPT_ENVIRONMENT_HPP_
+#pragma once
 
 #include "database/database.hpp"
 #include "declarations.hpp"
@@ -76,8 +75,8 @@ public:
 
 private:
 	using VariantVector = std::vector<const LuaVariant*>;
-	using StorageMap = phmap::btree_map<uint32_t, int32_t>;
-	using DBResultMap = phmap::btree_map<uint32_t, DBResult_ptr>;
+	using StorageMap = std::map<uint32_t, int32_t>;
+	using DBResultMap = std::map<uint32_t, DBResult_ptr>;
 
 	LuaScriptInterface* interface;
 
@@ -100,5 +99,3 @@ private:
 	static uint32_t lastResultId;
 	static DBResultMap tempResults;
 };
-
-#endif // SRC_LUA_SCRIPTS_SCRIPT_ENVIRONMENT_HPP_

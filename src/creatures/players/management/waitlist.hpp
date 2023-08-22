@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_MANAGEMENT_WAITLIST_H_
-#define SRC_CREATURES_PLAYERS_MANAGEMENT_WAITLIST_H_
+#pragma once
 
 class Player;
 
@@ -45,5 +44,3 @@ private:
 	void addPlayerToList(const Player* player);
 	std::unique_ptr<WaitListInfo> info;
 };
-
-#endif // SRC_CREATURES_PLAYERS_MANAGEMENT_WAITLIST_H_

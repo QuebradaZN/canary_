@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_NETWORK_PROTOCOL_PROTOCOLSTATUS_H_
-#define SRC_SERVER_NETWORK_PROTOCOL_PROTOCOLSTATUS_H_
+#pragma once
 
 #include "server/network/message/networkmessage.hpp"
 #include "server/network/protocol/protocol.hpp"
@@ -34,7 +33,5 @@ public:
 	static const uint64_t start;
 
 private:
-	static phmap::btree_map<uint32_t, int64_t> ipConnectMap;
+	static std::map<uint32_t, int64_t> ipConnectMap;
 };
-
-#endif // SRC_SERVER_NETWORK_PROTOCOL_PROTOCOLSTATUS_H_

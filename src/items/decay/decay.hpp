@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_DECAY_DECAY_H_
-#define SRC_ITEMS_DECAY_DECAY_H_
+#pragma once
 
 #include "items/item.hpp"
 
@@ -31,9 +30,7 @@ private:
 	void internalDecayItem(Item* item);
 
 	uint32_t eventId { 0 };
-	phmap::btree_map<int64_t, std::vector<Item*>> decayMap;
+	std::map<int64_t, std::vector<Item*>> decayMap;
 };
 
 constexpr auto g_decay = Decay::getInstance;
-
-#endif // SRC_ITEMS_DECAY_DECAY_H_

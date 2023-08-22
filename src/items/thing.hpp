@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_THING_H_
-#define SRC_ITEMS_THING_H_
+#pragma once
 
 #include "game/movement/position.hpp"
 
@@ -70,5 +69,3 @@ public:
 		return true;
 	}
 };
-
-#endif // SRC_ITEMS_THING_H_

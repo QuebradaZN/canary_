@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CREATURES_MONSTER_CHARM_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CREATURES_MONSTER_CHARM_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -47,5 +46,3 @@ private:
 	static int luaCharmCastSound(lua_State* L);
 	static int luaCharmImpactSound(lua_State* L);
 };
-
-#endif // SRC_LUA_FUNCTIONS_CREATURES_MONSTER_CHARM_FUNCTIONS_HPP_

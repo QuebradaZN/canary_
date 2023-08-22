@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_IO__FUNCTIONS_IOLOGINDATASAVE_HPP_
-#define SRC_IO__FUNCTIONS_IOLOGINDATASAVE_HPP_
+#pragma once
 
 #include "io/iologindata.hpp"
 
@@ -37,5 +36,3 @@ protected:
 
 	static bool saveItems(const Player* player, const ItemBlockList &itemList, DBInsert &query_insert, PropWriteStream &stream);
 };
-
-#endif // SRC_IO__FUNCTIONS_IOLOGINDATASAVE_HPP_

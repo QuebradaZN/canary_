@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CREATURES_CREATURE_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CREATURES_CREATURE_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/functions/creatures/combat/combat_functions.hpp"
 #include "lua/functions/creatures/monster/monster_functions.hpp"
@@ -181,5 +180,3 @@ private:
 	static int luaCreatureSetIcon(lua_State* L);
 	static int luaCreatureGetIcon(lua_State* L);
 };
-
-#endif // SRC_LUA_FUNCTIONS_CREATURES_CREATURE_FUNCTIONS_HPP_

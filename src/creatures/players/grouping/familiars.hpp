@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_GROUPING_FAMILIARS_H_
-#define SRC_CREATURES_PLAYERS_GROUPING_FAMILIARS_H_
+#pragma once
 
 #include "declarations.hpp"
 
@@ -26,5 +25,3 @@ public:
 private:
 	std::vector<Familiar> familiars[VOCATION_LAST + 1];
 };
-
-#endif // SRC_CREATURES_PLAYERS_GROUPING_FAMILIARS_H_

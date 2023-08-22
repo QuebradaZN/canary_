@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_GAME_ZONE_ZONE_HPP_
-#define SRC_GAME_ZONE_ZONE_HPP_
+#pragma once
 
 #include "game/movement/position.hpp"
 
@@ -128,7 +127,5 @@ private:
 	phmap::parallel_flat_hash_set<Player*> players;
 
 	static std::mutex zonesMutex;
-	static phmap::btree_map<std::string, std::shared_ptr<Zone>> zones;
+	static std::map<std::string, std::shared_ptr<Zone>> zones;
 };
-
-#endif // SRC_GAME_ZONE_ZONE_HPP_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_CREATURE_EVENTS_H_
-#define SRC_LUA_CREATURE_EVENTS_H_
+#pragma once
 
 #include "creatures/players/imbuements/imbuements.hpp"
 #include "lua/scripts/luascript.hpp"
@@ -132,5 +131,3 @@ private:
 };
 
 constexpr auto g_events = Events::getInstance;
-
-#endif // SRC_LUA_CREATURE_EVENTS_H_

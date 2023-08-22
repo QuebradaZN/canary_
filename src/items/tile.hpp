@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_TILE_H_
-#define SRC_ITEMS_TILE_H_
+#pragma once
 
 #include "items/cylinder.hpp"
 #include "declarations.hpp"
@@ -21,8 +20,8 @@ class TrashHolder;
 class Mailbox;
 class MagicField;
 class BedItem;
-class Zone;
 class House;
+class Zone;
 
 using CreatureVector = std::vector<Creature*>;
 using ItemVector = std::vector<Item*>;
@@ -125,8 +124,7 @@ public:
 		return nullptr;
 	}
 
-	int32_t
-	getThrowRange() const override final {
+	int32_t getThrowRange() const override final {
 		return 0;
 	}
 	bool isPushable() const override final {
@@ -205,7 +203,7 @@ public:
 	ReturnValue queryRemove(const Thing &thing, uint32_t count, uint32_t tileFlags, Creature* actor = nullptr) const override;
 	Tile* queryDestination(int32_t &index, const Thing &thing, Item** destItem, uint32_t &flags) override;
 
-	const std::vector<Tile*> getSurroundingTiles() const;
+	std::vector<Tile*> getSurroundingTiles() const;
 
 	void addThing(Thing* thing) override final;
 	void addThing(int32_t index, Thing* thing) override;
@@ -354,5 +352,3 @@ public:
 		return creatures.get();
 	}
 };
-
-#endif // SRC_ITEMS_TILE_H_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_CALLBACKS_CREATURECALLBACK_H_
-#define SRC_LUA_CALLBACKS_CREATURECALLBACK_H_
+#pragma once
 
 #include "pch.hpp"
 #include "creatures/creature.hpp"
@@ -64,5 +63,3 @@ private:
 	uint32_t params = 0;
 	lua_State* L = nullptr;
 };
-
-#endif // SRC_LUA_CALLBACKS_CREATURECALLBACK_H_

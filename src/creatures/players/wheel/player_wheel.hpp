@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.org/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_WHEEL_PLAYER_WHEEL_HPP_
-#define SRC_CREATURES_PLAYERS_WHEEL_PLAYER_WHEEL_HPP_
+#pragma once
 
 #include "io/io_wheel.hpp"
 
@@ -333,8 +332,6 @@ private:
 	std::array<int32_t, COMBAT_COUNT> m_resistance = { 0 };
 
 	int32_t m_creaturesNearby = 0;
-	phmap::btree_map<std::string, WheelSpellGrade_t> m_spellsSelected;
+	std::map<std::string, WheelSpellGrade_t> m_spellsSelected;
 	std::vector<std::string> m_learnedSpellsSelected;
 };
-
-#endif // SRC_CREATURES_PLAYERS_WHEEL_PLAYER_WHEEL_HPP_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CREATURES_PLAYER_PLAYER_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CREATURES_PLAYER_PLAYER_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 #include "lua/functions/creatures/player/group_functions.hpp"
@@ -348,7 +347,7 @@ private:
 
 		registerMethod(L, "Player", "isVip", PlayerFunctions::luaPlayerIsVip);
 		registerMethod(L, "Player", "getVipDays", PlayerFunctions::luaPlayerGetVipDays);
-
+		registerMethod(L, "Player", "getVipTime", PlayerFunctions::luaPlayerGetVipTime);
 		registerMethod(L, "Player", "getBuffStacks", PlayerFunctions::luaPlayerGetBuffStacks);
 
 		GroupFunctions::init(L);
@@ -692,10 +691,8 @@ private:
 
 	static int luaPlayerIsVip(lua_State* L);
 	static int luaPlayerGetVipDays(lua_State* L);
-
+	static int luaPlayerGetVipTime(lua_State* L);
 	static int luaPlayerGetBuffStacks(lua_State* L);
 
 	friend class CreatureFunctions;
 };
-
-#endif // SRC_LUA_FUNCTIONS_CREATURES_PLAYER_PLAYER_FUNCTIONS_HPP_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CORE_GAME_GLOBAL_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CORE_GAME_GLOBAL_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -51,6 +50,7 @@ public:
 		registerGlobalMethod(L, "rawgetmetatable", GlobalFunctions::luaRawGetMetatable);
 		registerGlobalMethod(L, "createTable", GlobalFunctions::luaCreateTable);
 		registerGlobalMethod(L, "systemTime", GlobalFunctions::luaSystemTime);
+		registerGlobalMethod(L, "getFormattedTimeRemaining", GlobalFunctions::luaGetFormattedTimeRemaining);
 		registerGlobalMethod(L, "reportError", GlobalFunctions::luaReportError);
 	}
 
@@ -88,9 +88,8 @@ private:
 	static int luaRawGetMetatable(lua_State* L);
 	static int luaCreateTable(lua_State* L);
 	static int luaSystemTime(lua_State* L);
+	static int luaGetFormattedTimeRemaining(lua_State* L);
 	static int luaReportError(lua_State* L);
 
 	static bool getArea(lua_State* L, std::list<uint32_t> &list, uint32_t &rows);
 };
-
-#endif // SRC_LUA_FUNCTIONS_CORE_GAME_GLOBAL_FUNCTIONS_HPP_

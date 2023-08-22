@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_CREATURE_ACTIONS_H_
-#define SRC_LUA_CREATURE_ACTIONS_H_
+#pragma once
 
 #include "lua/scripts/scripts.hpp"
 #include "declarations.hpp"
@@ -168,7 +167,7 @@ private:
 		return false;
 	}
 
-	[[nodiscard]] phmap::btree_map<Position, std::shared_ptr<Action>> getPositionsMap() const {
+	[[nodiscard]] std::map<Position, std::shared_ptr<Action>> getPositionsMap() const {
 		return actionPositionMap;
 	}
 
@@ -219,11 +218,9 @@ private:
 	ActionUseMap useItemMap;
 	ActionUseMap uniqueItemMap;
 	ActionUseMap actionItemMap;
-	phmap::btree_map<Position, std::shared_ptr<Action>> actionPositionMap;
+	std::map<Position, std::shared_ptr<Action>> actionPositionMap;
 
 	std::shared_ptr<Action> getAction(const Item* item);
 };
 
 constexpr auto g_actions = Actions::getInstance;
-
-#endif // SRC_LUA_CREATURE_ACTIONS_H_

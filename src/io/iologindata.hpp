@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_IO_IOLOGINDATA_H_
-#define SRC_IO_IOLOGINDATA_H_
+#pragma once
 
 #include "creatures/players/account/account.hpp"
 #include "creatures/players/player.hpp"
@@ -46,5 +45,3 @@ public:
 private:
 	static bool savePlayerGuard(Player* player);
 };
-
-#endif // SRC_IO_IOLOGINDATA_H_

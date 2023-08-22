@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_GAME_MOVEMENT_TELEPORT_H_
-#define SRC_GAME_MOVEMENT_TELEPORT_H_
+#pragma once
 
 #include "items/tile.hpp"
 
@@ -57,5 +56,3 @@ public:
 private:
 	Position destPos;
 };
-
-#endif // SRC_GAME_MOVEMENT_TELEPORT_H_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_MODULES_MODULES_H_
-#define SRC_LUA_MODULES_MODULES_H_
+#pragma once
 
 #include "lua/global/baseevents.hpp"
 #include "declarations.hpp"
@@ -77,12 +76,10 @@ protected:
 	bool registerEvent(Event_ptr event, const pugi::xml_node &node) override;
 	void clear(bool) override final;
 
-	typedef phmap::btree_map<uint8_t, Module> ModulesList;
+	typedef std::map<uint8_t, Module> ModulesList;
 	ModulesList recvbyteList;
 
 	LuaScriptInterface scriptInterface;
 };
 
 constexpr auto g_modules = Modules::getInstance;
-
-#endif // SRC_LUA_MODULES_MODULES_H_

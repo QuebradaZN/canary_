@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_IO_IOMAP_H_
-#define SRC_IO_IOMAP_H_
+#pragma once
 
 #include "declarations.hpp"
 
@@ -18,29 +17,6 @@
 #include "map/map.hpp"
 #include "creatures/monsters/spawns/spawn_monster.hpp"
 #include "creatures/npcs/spawns/spawn_npc.hpp"
-
-#pragma pack(1)
-
-struct OTBM_root_header {
-	uint32_t version;
-	uint16_t width;
-	uint16_t height;
-	uint32_t majorVersionItems;
-	uint32_t minorVersionItems;
-};
-
-struct OTBM_Destination_coords {
-	uint16_t x;
-	uint16_t y;
-	uint8_t z;
-};
-
-struct OTBM_Tile_coords {
-	uint8_t x;
-	uint8_t y;
-};
-
-#pragma pack()
 
 class IOMapException : public std::exception {
 public:
@@ -154,10 +130,8 @@ public:
 	}
 
 private:
-	static void parseMapDataAttributes(OTB::Loader &loader, const OTB::Node &mapNode, Map &map, const std::string &fileName);
-	static void parseWaypoints(OTB::Loader &loader, const OTB::Node &waypointsNode, Map &map);
-	static void parseTowns(OTB::Loader &loader, const OTB::Node &townsNode, Map &map);
-	static void parseTileArea(OTB::Loader &loader, const OTB::Node &tileAreaNode, Map &map, const Position &pos, bool unload);
+	static void parseMapDataAttributes(FileStream &stream, Map* map, const std::string &fileName);
+	static void parseWaypoints(FileStream &stream, Map &map);
+	static void parseTowns(FileStream &stream, Map &map);
+	static void parseTileArea(FileStream &stream, Map &map, const Position &pos);
 };
-
-#endif // SRC_IO_IOMAP_H_

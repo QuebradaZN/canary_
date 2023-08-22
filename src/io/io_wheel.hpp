@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.org/
  */
 
-#ifndef SRC_IO_IO_WHEEL_HPP_
-#define SRC_IO_IO_WHEEL_HPP_
+#pragma once
 
 // Definitions of wheel of destiny enums
 #include "creatures/players/wheel/wheel_definitions.hpp"
@@ -157,7 +156,7 @@ public:
 	const std::vector<std::string> &getFocusSpells() const;
 
 	using VocationBonusFunction = std::function<void(Player &, uint16_t, uint8_t, PlayerWheelMethodsBonusData &)>;
-	using VocationBonusMap = phmap::btree_map<WheelSlots_t, VocationBonusFunction>;
+	using VocationBonusMap = std::map<WheelSlots_t, VocationBonusFunction>;
 	/**
 	 * @brief Retrieves the mapping of wheel slots to vocation bonus functions.
 	 * @return A constant reference to the mapping of wheel slots to vocation bonus functions.
@@ -170,7 +169,7 @@ public:
 	 *
 	 * @details The `VocationBonusFunction` type is defined as a `std::function` that takes references to a `Player` object, an `uint16_t` value, an `uint8_t` value, and a `PlayerWheelMethodsBonusData` object. It represents the signature of the vocation bonus function.
 	 *
-	 * @details The `VocationBonusMap` type is defined as a `phmap::btree_map` that maps `WheelSlots_t` values to `VocationBonusFunction` objects. It provides a way to associate each wheel slot with its corresponding vocation bonus function.
+	 * @details The `VocationBonusMap` type is defined as a `std::map` that maps `WheelSlots_t` values to `VocationBonusFunction` objects. It provides a way to associate each wheel slot with its corresponding vocation bonus function.
 	 *
 	 * @details By returning a constant reference to the mapping, this function allows external code to access and utilize the mapping without modifying it.
 	 */
@@ -376,5 +375,3 @@ private:
 	void slotPurpleBottom150(Player &player, uint16_t points, uint8_t vocationCipId, PlayerWheelMethodsBonusData &bonusData) const;
 	void slotPurple200(Player &player, uint16_t points, uint8_t vocationCipId, PlayerWheelMethodsBonusData &bonusData) const;
 };
-
-#endif // SRC_IO_IO_WHEEL_HPP_

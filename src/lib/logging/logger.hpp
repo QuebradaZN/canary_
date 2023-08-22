@@ -10,35 +10,25 @@
 #define CANARY_LOGGER_HPP
 
 #define LOG_LEVEL_TRACE \
-	std::string {       \
-		"trace"         \
-	}
+	std::string { "trace" }
 #define LOG_LEVEL_DEBUG \
-	std::string {       \
-		"debug"         \
-	}
+	std::string { "debug" }
 #define LOG_LEVEL_INFO \
-	std::string {      \
-		"info"         \
-	}
+	std::string { "info" }
 #define LOG_LEVEL_WARNING \
-	std::string {         \
-		"warning"         \
-	}
+	std::string { "warning" }
 #define LOG_LEVEL_ERROR \
-	std::string {       \
-		"error"         \
-	}
+	std::string { "error" }
 #define LOG_LEVEL_CRITICAL \
-	std::string {          \
-		"critical"         \
-	}
+	std::string { "critical" }
 
 class Logger {
 public:
+	Logger() = default;
 	virtual ~Logger() = default;
 
 	// Ensures that we don't accidentally copy it
+	Logger(const Logger &) = delete;
 	virtual Logger &operator=(const Logger &) = delete;
 
 	virtual void setLevel(const std::string &name) = 0;

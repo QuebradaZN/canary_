@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CANARY_SERVER_HPP_
-#define SRC_CANARY_SERVER_HPP_
+#pragma once
 
 #include "security/rsa.hpp"
 #include "server/server.hpp"
@@ -53,30 +52,18 @@ private:
 	bool loadFailed = false;
 
 	void logInfos();
-
 	static void toggleForceCloseButton();
-
 	static void badAllocationHandler();
-
 	static void shutdown();
 
 	static std::string getCompiler();
-
 	static std::string getPlatform();
 
 	void loadConfigLua();
-
 	void initializeDatabase();
-
 	void loadModules();
-
 	void setWorldType();
-
 	void loadMaps();
-
 	void setupHousesRent();
-
 	void modulesLoadHelper(bool loaded, std::string moduleName);
 };
-
-#endif // SRC_CANARY_SERVER_HPP_

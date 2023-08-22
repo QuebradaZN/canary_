@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_UTILS_WILDCARDTREE_H_
-#define SRC_UTILS_WILDCARDTREE_H_
+#pragma once
 
 #include "declarations.hpp"
 
@@ -35,5 +34,3 @@ private:
 	std::map<char, WildcardTreeNode> children;
 	bool breakpoint;
 };
-
-#endif // SRC_UTILS_WILDCARDTREE_H_

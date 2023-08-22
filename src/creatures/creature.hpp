@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_CREATURE_H_
-#define SRC_CREATURES_CREATURE_H_
+#pragma once
 
 #include "declarations.hpp"
 #include "creatures/combat/condition.hpp"
@@ -526,7 +525,7 @@ public:
 		int32_t total;
 		int64_t ticks;
 	};
-	using CountMap = phmap::btree_map<uint32_t, CountBlock_t>;
+	using CountMap = std::map<uint32_t, CountBlock_t>;
 	CountMap getDamageMap() const {
 		return damageMap;
 	}
@@ -774,5 +773,3 @@ private:
 	bool isLostSummon() const;
 	void handleLostSummon(bool teleportSummons);
 };
-
-#endif // SRC_CREATURES_CREATURE_H_

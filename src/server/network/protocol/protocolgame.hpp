@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_NETWORK_PROTOCOL_PROTOCOLGAME_H_
-#define SRC_SERVER_NETWORK_PROTOCOL_PROTOCOLGAME_H_
+#pragma once
 
 #include "server/network/protocol/protocol.hpp"
 #include "creatures/interactions/chat.hpp"
@@ -333,7 +332,7 @@ private:
 	void sendGameNews();
 	void sendResourcesBalance(uint64_t money = 0, uint64_t bank = 0, uint64_t preyCards = 0, uint64_t taskHunting = 0, uint64_t forgeDust = 0, uint64_t forgeSliver = 0, uint64_t forgeCores = 0);
 	void sendResourceBalance(Resource_t resourceType, uint64_t value);
-	void sendSaleItemList(const std::vector<ShopBlock> &shopVector, const phmap::btree_map<uint16_t, uint16_t> &inventoryMap);
+	void sendSaleItemList(const std::vector<ShopBlock> &shopVector, const std::map<uint16_t, uint16_t> &inventoryMap);
 	void sendMarketEnter(uint32_t depotId);
 	void updateCoinBalance();
 	void sendMarketLeave();
@@ -457,12 +456,12 @@ private:
 	void sendFeatures();
 
 	void parseInventoryImbuements(NetworkMessage &msg);
-	void sendInventoryImbuements(const phmap::btree_map<Slots_t, Item*> items);
+	void sendInventoryImbuements(const std::map<Slots_t, Item*> items);
 
 	// reloadCreature
 	void reloadCreature(const Creature* creature);
 
-	void getForgeInfoMap(const Item* item, phmap::btree_map<uint16_t, phmap::btree_map<uint8_t, uint16_t>> &itemsMap) const;
+	void getForgeInfoMap(const Item* item, std::map<uint16_t, std::map<uint8_t, uint16_t>> &itemsMap) const;
 
 	// Wheel
 	void parseOpenWheel(NetworkMessage &msg);
@@ -503,11 +502,12 @@ private:
 	void sendSingleSoundEffect(const Position &pos, SoundEffect_t id, SourceEffect_t source);
 	void sendDoubleSoundEffect(const Position &pos, SoundEffect_t mainSoundId, SourceEffect_t mainSource, SoundEffect_t secondarySoundId, SourceEffect_t secondarySource);
 
+	// Hazard system
+	void reloadHazardSystemIcon();
+
 	uint8_t m_playerDeathTime = 0;
 
 	void resetPlayerDeathTime() {
 		m_playerDeathTime = 0;
 	}
 };
-
-#endif // SRC_SERVER_NETWORK_PROTOCOL_PROTOCOLGAME_H_

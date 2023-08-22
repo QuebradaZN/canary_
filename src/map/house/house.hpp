@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_MAP_HOUSE_HOUSE_H_
-#define SRC_MAP_HOUSE_HOUSE_H_
+#pragma once
 
 #include "items/containers/container.hpp"
 #include "declarations.hpp"
@@ -242,7 +241,7 @@ private:
 	void handleWrapableItem(ItemList &moveItemList, Item* item, Player* player, HouseTile* houseTile) const;
 };
 
-using HouseMap = phmap::btree_map<uint32_t, House*>;
+using HouseMap = std::map<uint32_t, House*>;
 
 class Houses {
 public:
@@ -289,5 +288,3 @@ public:
 private:
 	HouseMap houseMap;
 };
-
-#endif // SRC_MAP_HOUSE_HOUSE_H_

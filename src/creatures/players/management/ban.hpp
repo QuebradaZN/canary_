@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_MANAGEMENT_BAN_H_
-#define SRC_CREATURES_PLAYERS_MANAGEMENT_BAN_H_
+#pragma once
 
 struct BanInfo {
 	std::string bannedBy;
@@ -25,7 +24,7 @@ struct ConnectBlock {
 	uint32_t count;
 };
 
-using IpConnectMap = phmap::btree_map<uint32_t, ConnectBlock>;
+using IpConnectMap = std::map<uint32_t, ConnectBlock>;
 
 class Ban {
 public:
@@ -42,5 +41,3 @@ public:
 	static bool isIpBanned(uint32_t clientIP, BanInfo &banInfo);
 	static bool isPlayerNamelocked(uint32_t playerId);
 };
-
-#endif // SRC_CREATURES_PLAYERS_MANAGEMENT_BAN_H_

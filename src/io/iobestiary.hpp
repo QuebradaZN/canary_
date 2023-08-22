@@ -7,10 +7,10 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_IO_IOBESTIARY_H_
-#define SRC_IO_IOBESTIARY_H_
+#pragma once
 
 #include "declarations.hpp"
+#include "lib/di/soft_singleton.hpp"
 #include "lua/scripts/luascript.hpp"
 #include "creatures/players/player.hpp"
 
@@ -76,11 +76,13 @@ public:
 
 	charmRune_t getCharmFromTarget(Player* player, const std::shared_ptr<MonsterType> &mtype);
 
-	phmap::btree_map<uint16_t, uint32_t> getBestiaryKillCountByMonsterIDs(Player* player, phmap::btree_map<uint16_t, std::string> mtype_list) const;
-	phmap::btree_map<uint8_t, int16_t> getMonsterElements(const std::shared_ptr<MonsterType> &mtype) const;
-	phmap::btree_map<uint16_t, std::string> findRaceByName(const std::string &race, bool Onlystring = true, BestiaryType_t raceNumber = BESTY_RACE_NONE) const;
+	std::map<uint16_t, uint32_t> getBestiaryKillCountByMonsterIDs(Player* player, std::map<uint16_t, std::string> mtype_list) const;
+	std::map<uint8_t, int16_t> getMonsterElements(const std::shared_ptr<MonsterType> &mtype) const;
+	std::map<uint16_t, std::string> findRaceByName(const std::string &race, bool Onlystring = true, BestiaryType_t raceNumber = BESTY_RACE_NONE) const;
+
+private:
+	static SoftSingleton instanceTracker;
+	SoftSingletonGuard guard { instanceTracker };
 };
 
 constexpr auto g_iobestiary = IOBestiary::getInstance;
-
-#endif // SRC_IO_IOBESTIARY_H_

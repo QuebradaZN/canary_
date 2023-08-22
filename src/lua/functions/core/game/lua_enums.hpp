@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CORE_GAME_LUA_ENUMS_HPP_
-#define SRC_LUA_FUNCTIONS_CORE_GAME_LUA_ENUMS_HPP_
+#pragma once
 
 #include "pch.hpp"
 
@@ -69,5 +68,3 @@ private:
 	static void initSoundEnums(lua_State* L);
 	static void initWheelEnums(lua_State* L);
 };
-
-#endif // SRC_LUA_FUNCTIONS_CORE_GAME_LUA_ENUMS_HPP_

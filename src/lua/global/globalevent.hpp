@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_GLOBAL_GLOBALEVENT_H_
-#define SRC_LUA_GLOBAL_GLOBALEVENT_H_
+#pragma once
 
 #include "utils/utils_definitions.hpp"
 #include "lua/scripts/scripts.hpp"
@@ -91,5 +90,3 @@ private:
 	int64_t nextExecution = 0;
 	uint32_t interval = 0;
 };
-
-#endif // SRC_LUA_GLOBAL_GLOBALEVENT_H_

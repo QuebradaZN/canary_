@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CREATURES_PLAYER_VOCATION_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CREATURES_PLAYER_VOCATION_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -24,7 +23,6 @@ public:
 		registerMethod(L, "Vocation", "getName", VocationFunctions::luaVocationGetName);
 		registerMethod(L, "Vocation", "getDescription", VocationFunctions::luaVocationGetDescription);
 
-		registerMethod(L, "Vocation", "getRequiredSkillTries", VocationFunctions::luaVocationGetRequiredSkillTries);
 		registerMethod(L, "Vocation", "getRequiredSkillTries", VocationFunctions::luaVocationGetRequiredSkillTries);
 		registerMethod(L, "Vocation", "getRequiredManaSpent", VocationFunctions::luaVocationGetRequiredManaSpent);
 
@@ -81,5 +79,3 @@ private:
 	static int luaVocationGetDemotion(lua_State* L);
 	static int luaVocationGetPromotion(lua_State* L);
 };
-
-#endif // SRC_LUA_FUNCTIONS_CREATURES_PLAYER_VOCATION_FUNCTIONS_HPP_

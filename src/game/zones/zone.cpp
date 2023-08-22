@@ -15,7 +15,7 @@
 #include "creatures/npcs/npc.hpp"
 #include "creatures/players/player.hpp"
 
-phmap::btree_map<std::string, std::shared_ptr<Zone>> Zone::zones = {};
+std::map<std::string, std::shared_ptr<Zone>> Zone::zones = {};
 std::mutex Zone::zonesMutex = {};
 const static std::shared_ptr<Zone> nullZone = nullptr;
 

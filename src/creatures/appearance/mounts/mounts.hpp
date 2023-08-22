@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_APPEARANCE_MOUNTS_MOUNTS_H_
-#define SRC_CREATURES_APPEARANCE_MOUNTS_MOUNTS_H_
+#pragma once
 
 struct Mount {
 	Mount(uint8_t initId, uint16_t initClientId, std::string initName, int32_t initSpeed, bool initPremium, std::string initType) :
@@ -38,5 +37,3 @@ public:
 private:
 	std::vector<std::shared_ptr<Mount>> mounts;
 };
-
-#endif // SRC_CREATURES_APPEARANCE_MOUNTS_MOUNTS_H_

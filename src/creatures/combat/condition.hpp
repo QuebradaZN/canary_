@@ -7,15 +7,14 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_COMBAT_CONDITION_H_
-#define SRC_CREATURES_COMBAT_CONDITION_H_
+#pragma once
 
 #include "declarations.hpp"
-#include "io/fileloader.hpp"
 
 class Creature;
 class Player;
 class PropStream;
+class PropWriteStream;
 
 class Condition {
 public:
@@ -467,5 +466,3 @@ public:
 		return new ConditionSpellGroupCooldown(*this);
 	}
 };
-
-#endif // SRC_CREATURES_COMBAT_CONDITION_H_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_IO_IOMAPSERIALIZE_H_
-#define SRC_IO_IOMAPSERIALIZE_H_
+#pragma once
 
 #include "map/map.hpp"
 
@@ -28,5 +27,3 @@ private:
 	static bool loadContainer(PropStream &propStream, Container* container);
 	static bool loadItem(PropStream &propStream, Cylinder* parent, bool isHouseItem = false);
 };
-
-#endif // SRC_IO_IOMAPSERIALIZE_H_

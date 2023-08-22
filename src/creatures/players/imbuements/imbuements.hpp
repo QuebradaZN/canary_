@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_IMBUEMENTS_IMBUEMENTS_H_
-#define SRC_CREATURES_PLAYERS_IMBUEMENTS_IMBUEMENTS_H_
+#pragma once
 
 #include "creatures/players/player.hpp"
 #include "declarations.hpp"
@@ -143,5 +142,3 @@ private:
 
 	std::vector<std::pair<uint16_t, uint16_t>> items;
 };
-
-#endif // SRC_CREATURES_PLAYERS_IMBUEMENTS_IMBUEMENTS_H_

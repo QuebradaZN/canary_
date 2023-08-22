@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_IO_IOGUILD_H_
-#define SRC_IO_IOGUILD_H_
+#pragma once
 
 class Guild;
 using GuildWarVector = std::vector<uint32_t>;
@@ -20,5 +19,3 @@ public:
 	static uint32_t getGuildIdByName(const std::string &name);
 	static void getWarList(uint32_t guildId, GuildWarVector &guildWarVector);
 };
-
-#endif // SRC_IO_IOGUILD_H_

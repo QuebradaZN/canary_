@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_LUA_FUNCTIONS_LOADER_HPP_
-#define SRC_LUA_FUNCTIONS_LUA_FUNCTIONS_LOADER_HPP_
+#pragma once
 
 #include "declarations.hpp"
 #include "lua/scripts/luajit_sync.hpp"
@@ -99,6 +98,7 @@ public:
 		return lua_toboolean(L, arg) != 0;
 	}
 
+	static std::string getFormatedLoggerMessage(lua_State* L);
 	static std::string getString(lua_State* L, int32_t arg);
 	static CombatDamage getCombatDamage(lua_State* L);
 	static Position getPosition(lua_State* L, int32_t arg, int32_t &stackpos);
@@ -119,7 +119,8 @@ public:
 
 	static std::string getFieldString(lua_State* L, int32_t arg, const std::string &key);
 
-	static LuaDataType getUserdataType(lua_State* L, int32_t arg);
+	static LuaData_t getUserdataType(lua_State* L, int32_t arg);
+	static std::string getUserdataTypeName(LuaData_t userType);
 
 	static bool isNumber(lua_State* L, int32_t arg) {
 		return lua_type(L, arg) == LUA_TNUMBER;
@@ -135,6 +136,9 @@ public:
 	}
 	static bool isFunction(lua_State* L, int32_t arg) {
 		return lua_isfunction(L, arg);
+	}
+	static bool isNil(lua_State* L, int32_t arg) {
+		return lua_isnil(L, arg);
 	}
 	static bool isUserdata(lua_State* L, int32_t arg) {
 		return lua_isuserdata(L, arg) != 0;
@@ -217,5 +221,3 @@ protected:
 private:
 	static int luaGarbageCollection(lua_State* L);
 };
-
-#endif

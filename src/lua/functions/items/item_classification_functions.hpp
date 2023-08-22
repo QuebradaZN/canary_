@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_ITEMS_ITEM_CLASSIFICATION_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_ITEMS_ITEM_CLASSIFICATION_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -25,5 +24,3 @@ private:
 	static int luaItemClassificationCreate(lua_State* L);
 	static int luaItemClassificationAddTier(lua_State* L);
 };
-
-#endif // SRC_LUA_FUNCTIONS_ITEMS_ITEM_CLASSIFICATION_FUNCTIONS_HPP_

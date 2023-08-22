@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_NPCS_SPAWNS_SPAWN_NPC_H_
-#define SRC_CREATURES_NPCS_SPAWNS_SPAWN_NPC_H_
+#pragma once
 
 #include "game/movement/position.hpp"
 #include "items/tile.hpp"
@@ -55,7 +54,7 @@ private:
 	SpawnedNpcMap spawnedNpcMap;
 
 	// map of npcs in the spawn
-	phmap::btree_map<uint32_t, spawnBlockNpc_t> spawnNpcMap;
+	std::map<uint32_t, spawnBlockNpc_t> spawnNpcMap;
 
 	Position centerPos;
 	int32_t radius;
@@ -107,5 +106,3 @@ private:
 };
 
 static constexpr int32_t NONBLOCKABLE_SPAWN_NPC_INTERVAL = 1400;
-
-#endif // SRC_CREATURES_NPCS_SPAWNS_SPAWN_NPC_H_

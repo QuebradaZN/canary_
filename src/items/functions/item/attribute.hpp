@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_FUNCTIONS_ITEM_ATTRIBUTE_HPP
-#define SRC_ITEMS_FUNCTIONS_ITEM_ATTRIBUTE_HPP
+#pragma once
 
 #include "enums/item_attribute.hpp"
 #include "items/functions/item/custom_attribute.hpp"
@@ -133,7 +132,7 @@ public:
 	ItemAttribute() = default;
 
 	// CustomAttribute map methods
-	const phmap::btree_map<std::string, CustomAttribute, std::less<>> &getCustomAttributeMap() const;
+	const std::map<std::string, CustomAttribute, std::less<>> &getCustomAttributeMap() const;
 	// CustomAttribute object methods
 	const CustomAttribute* getCustomAttribute(const std::string &attributeName) const;
 
@@ -170,8 +169,6 @@ public:
 	Attributes &getAttributesByType(ItemAttribute_t type);
 
 private:
-	phmap::btree_map<std::string, CustomAttribute, std::less<>> customAttributeMap;
+	std::map<std::string, CustomAttribute, std::less<>> customAttributeMap;
 	std::vector<Attributes> attributeVector;
 };
-
-#endif //  SRC_ITEMS_FUNCTIONS_ITEM_ATTRIBUTE_HPP

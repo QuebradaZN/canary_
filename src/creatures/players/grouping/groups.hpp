@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_GROUPING_GROUPS_H_
-#define SRC_CREATURES_PLAYERS_GROUPING_GROUPS_H_
+#pragma once
 
 #include "declarations.hpp"
 
@@ -35,5 +34,3 @@ public:
 private:
 	std::vector<Group> groups_vector;
 };
-
-#endif // SRC_CREATURES_PLAYERS_GROUPING_GROUPS_H_

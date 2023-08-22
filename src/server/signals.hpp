@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_SIGNALS_H_
-#define SRC_SERVER_SIGNALS_H_
+#pragma once
 
 class Signals {
 	asio::signal_set set;
@@ -26,5 +25,3 @@ private:
 	static void sigtermHandler();
 	static void sigusr1Handler();
 };
-
-#endif // SRC_SERVER_SIGNALS_H_

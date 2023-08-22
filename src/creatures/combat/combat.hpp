@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_COMBAT_COMBAT_H_
-#define SRC_CREATURES_COMBAT_COMBAT_H_
+#pragma once
 
 #include "lua/global/baseevents.hpp"
 #include "creatures/combat/condition.hpp"
@@ -241,10 +240,11 @@ private:
 		if (it == areas.end()) {
 			return nullptr;
 		}
+
 		return it->second;
 	}
 
-	phmap::btree_map<Direction, MatrixArea*> areas;
+	std::map<Direction, MatrixArea*> areas;
 	bool hasExtArea = false;
 };
 
@@ -324,7 +324,7 @@ public:
 
 private:
 	static void doChainEffect(const Position &origin, const Position &pos, uint8_t effect);
-	static void pickChainTargets(Creature* caster, std::vector<Creature*> &targets, phmap::flat_hash_set<uint32_t> &targetSet, phmap::flat_hash_set<uint32_t> &visited, const CombatParams &params, uint8_t chainDistance, uint8_t maxTargets, bool backtracking, bool aggressive);
+	static void pickChainTargets(Creature* caster, std::vector<Creature*> &targets, std::set<uint32_t> &targetSet, std::set<uint32_t> &visited, const CombatParams &params, uint8_t chainDistance, uint8_t maxTargets, bool backtracking, bool aggressive);
 
 	static void doCombatDefault(Creature* caster, Creature* target, const CombatParams &params);
 
@@ -418,5 +418,3 @@ public:
 private:
 	int64_t createTime;
 };
-
-#endif // SRC_CREATURES_COMBAT_COMBAT_H_

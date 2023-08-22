@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_CONTAINERS_REWARDS_REWARD_H_
-#define SRC_ITEMS_CONTAINERS_REWARDS_REWARD_H_
+#pragma once
 
 #include "items/containers/container.hpp"
 
@@ -39,5 +38,3 @@ public:
 		return parent;
 	}
 };
-
-#endif // SRC_ITEMS_CONTAINERS_REWARDS_REWARD_H_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_MONSTERS_MONSTER_H_
-#define SRC_CREATURES_MONSTERS_MONSTER_H_
+#pragma once
 
 #include "creatures/monsters/monsters.hpp"
 #include "declarations.hpp"
@@ -152,7 +151,7 @@ public:
 
 	void onThink(uint32_t interval) override;
 
-	bool challengeCreature(Creature* creature, int targetChangeCooldown);
+	bool challengeCreature(Creature* creature, int targetChangeCooldown) override;
 
 	bool changeTargetDistance(int32_t distance, uint32_t duration = 12000);
 	bool isChallenged() const {
@@ -423,5 +422,3 @@ private:
 		return multiplier * std::pow(1.01f, getForgeStack());
 	}
 };
-
-#endif // SRC_CREATURES_MONSTERS_MONSTER_H_

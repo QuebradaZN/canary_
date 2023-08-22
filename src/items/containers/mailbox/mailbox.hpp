@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_CONTAINERS_MAILBOX_MAILBOX_H_
-#define SRC_ITEMS_CONTAINERS_MAILBOX_MAILBOX_H_
+#pragma once
 
 #include "items/item.hpp"
 #include "items/cylinder.hpp"
@@ -48,5 +47,3 @@ private:
 
 	static bool canSend(const Item* item);
 };
-
-#endif // SRC_ITEMS_CONTAINERS_MAILBOX_MAILBOX_H_

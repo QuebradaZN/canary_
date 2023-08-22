@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_ITEMS_CLASSIFICATION_HPP_
-#define SRC_ITEMS_ITEMS_CLASSIFICATION_HPP_
+#pragma once
 
 struct TierInfo {
 	uint64_t priceToUpgrade = 0;
@@ -30,7 +29,5 @@ public:
 	}
 
 	uint8_t id;
-	phmap::btree_map<uint8_t, TierInfo> tiers;
+	std::map<uint8_t, TierInfo> tiers;
 };
-
-#endif // SRC_ITEMS_ITEMS_CLASSIFICATION_HPP_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_CONTAINERS_REWARDS_REWARDCHEST_H_
-#define SRC_ITEMS_CONTAINERS_REWARDS_REWARDCHEST_H_
+#pragma once
 
 #include "items/containers/container.hpp"
 
@@ -35,5 +34,3 @@ public:
 
 	void removeItem(Thing* thing, bool sendToClient = false) override;
 };
-
-#endif // SRC_ITEMS_CONTAINERS_REWARDS_REWARDCHEST_H_

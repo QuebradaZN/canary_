@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_CREATURE_CREATUREEVENT_H_
-#define SRC_LUA_CREATURE_CREATUREEVENT_H_
+#pragma once
 
 #include "declarations.hpp"
 #include "lua/scripts/luascript.hpp"
@@ -90,10 +89,8 @@ public:
 
 private:
 	// creature events
-	using CreatureEventMap = phmap::btree_map<std::string, std::shared_ptr<CreatureEvent>>;
+	using CreatureEventMap = std::map<std::string, std::shared_ptr<CreatureEvent>>;
 	CreatureEventMap creatureEvents;
 };
 
 constexpr auto g_creatureEvents = CreatureEvents::getInstance;
-
-#endif // SRC_LUA_CREATURE_CREATUREEVENT_H_

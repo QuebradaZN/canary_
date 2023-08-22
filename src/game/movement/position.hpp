@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_GAME_MOVEMENT_POSITION_H_
-#define SRC_GAME_MOVEMENT_POSITION_H_
+#pragma once
 
 enum Direction : uint8_t {
 	DIRECTION_NORTH = 0,
@@ -127,5 +126,3 @@ namespace std {
 
 std::ostream &operator<<(std::ostream &, const Position &);
 std::ostream &operator<<(std::ostream &, const Direction &);
-
-#endif // SRC_GAME_MOVEMENT_POSITION_H_

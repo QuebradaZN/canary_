@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_SERVER_H_
-#define SRC_SERVER_SERVER_H_
+#pragma once
 
 #include "server/network/connection/connection.hpp"
 #include "server/signals.hpp"
@@ -139,5 +138,3 @@ bool ServiceManager::add(uint16_t port) {
 
 	return service_port->add_service(std::make_shared<Service<ProtocolType>>());
 }
-
-#endif // SRC_SERVER_SERVER_H_

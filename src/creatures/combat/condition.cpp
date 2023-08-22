@@ -12,6 +12,7 @@
 #include "creatures/combat/condition.hpp"
 #include "game/game.hpp"
 #include "game/scheduling/dispatcher.hpp"
+#include "io/fileloader.hpp"
 
 /**
  *  Condition
@@ -1819,7 +1820,6 @@ bool ConditionFeared::isStuck(Creature* creature, Position pos) const {
 }
 
 bool ConditionFeared::getRandomDirection(Creature* creature, Position pos) {
-
 	static std::vector<Direction> directions {
 		DIRECTION_NORTH,
 		DIRECTION_NORTHEAST,

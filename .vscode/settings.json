@@ -3,9 +3,7 @@
   "cmake.debugConfig": {
     "cwd": "${workspaceFolder}"
   },
-  "Lua.diagnostics.disable": [
-    "undefined-global"
-  ],
+  "Lua.diagnostics.disable": ["undefined-global"],
   "remote.SSH.defaultForwardedPorts": [
     {
       "localPort": 3306,
@@ -104,5 +102,9 @@
   },
   "vcpkg.general.enable": false,
   "cmake.configureArgs": [],
-  "cmake.configureSettings": {}
+  "cmake.configureSettings": {},
+  "sonarlint.connectedMode.project": {
+    "connectionId": "opentibiabr",
+    "projectKey": "opentibiabr_canary"
+  }
 }

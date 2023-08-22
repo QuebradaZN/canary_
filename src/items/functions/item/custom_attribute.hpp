@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_FUNCTIONS_ITEM_CUSTOM_ATTRIBUTE_HPP_
-#define SRC_ITEMS_FUNCTIONS_ITEM_CUSTOM_ATTRIBUTE_HPP_
+#pragma once
 
 #include "io/fileloader.hpp"
 
@@ -83,5 +82,3 @@ private:
 
 	std::variant<int64_t, std::string, double, bool> value;
 };
-
-#endif //  SRC_ITEMS_FUNCTIONS_CUSTOM_ATTRIBUTE_HPP_

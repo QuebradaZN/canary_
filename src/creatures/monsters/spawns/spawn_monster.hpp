@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_MONSTERS_SPAWNS_SPAWN_MONSTER_H_
-#define SRC_CREATURES_MONSTERS_SPAWNS_SPAWN_MONSTER_H_
+#pragma once
 
 #include "items/tile.hpp"
 #include "game/movement/position.hpp"
@@ -55,7 +54,7 @@ private:
 	SpawnedMap spawnedMonsterMap;
 
 	// map of creatures in the spawn
-	phmap::btree_map<uint32_t, spawnBlock_t> spawnMonsterMap;
+	std::map<uint32_t, spawnBlock_t> spawnMonsterMap;
 
 	Position centerPos;
 	int32_t radius;
@@ -95,5 +94,3 @@ private:
 };
 
 static constexpr int32_t NONBLOCKABLE_SPAWN_MONSTER_INTERVAL = 1400;
-
-#endif // SRC_CREATURES_MONSTERS_SPAWNS_SPAWN_MONSTER_H_

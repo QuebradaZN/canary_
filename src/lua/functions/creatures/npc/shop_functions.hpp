@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_FUNCTIONS_CREATURES_NPC_SHOP_FUNCTIONS_HPP_
-#define SRC_LUA_FUNCTIONS_CREATURES_NPC_SHOP_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -43,5 +42,3 @@ private:
 	static int luaShopSetStorageValue(lua_State* L);
 	static int luaShopAddChildShop(lua_State* L);
 };
-
-#endif // SRC_LUA_FUNCTIONS_CREATURES_NPC_SHOP_FUNCTIONS_HPP_

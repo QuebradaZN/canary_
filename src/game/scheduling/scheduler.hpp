@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_GAME_SCHEDULING_SCHEDULER_H_
-#define SRC_GAME_SCHEDULING_SCHEDULER_H_
+#pragma once
 
 #include "lib/thread/thread_pool.hpp"
 
@@ -42,5 +41,3 @@ private:
 };
 
 constexpr auto g_scheduler = Scheduler::getInstance;
-
-#endif // SRC_GAME_SCHEDULING_SCHEDULER_H_

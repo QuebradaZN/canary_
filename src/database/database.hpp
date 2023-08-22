@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_DATABASE_DATABASE_H_
-#define SRC_DATABASE_DATABASE_H_
+#pragma once
 
 #include "declarations.hpp"
 
@@ -156,7 +155,7 @@ private:
 	MYSQL_RES* handle;
 	MYSQL_ROW row;
 
-	phmap::btree_map<std::string_view, size_t> listNames;
+	std::map<std::string_view, size_t> listNames;
 
 	friend class Database;
 };
@@ -286,5 +285,3 @@ public:
 private:
 	std::string message;
 };
-
-#endif // SRC_DATABASE_DATABASE_H_

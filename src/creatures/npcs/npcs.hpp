@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_NPCS_NPCS_H_
-#define SRC_CREATURES_NPCS_NPCS_H_
+#pragma once
 
 #include "creatures/creature.hpp"
 
@@ -111,9 +110,7 @@ public:
 
 private:
 	std::unique_ptr<LuaScriptInterface> scriptInterface;
-	phmap::btree_map<std::string, NpcType*> npcs;
+	std::map<std::string, NpcType*> npcs;
 };
 
 constexpr auto g_npcs = Npcs::getInstance;
-
-#endif // SRC_CREATURES_NPCS_NPCS_H_

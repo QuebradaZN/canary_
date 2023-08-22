@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_UTILS_PUGICAST_H_
-#define SRC_UTILS_PUGICAST_H_
+#pragma once
 
 namespace pugi {
 	template <typename T>
@@ -51,5 +50,3 @@ namespace pugi {
 		return T {};
 	}
 }
-
-#endif // SRC_UTILS_PUGICAST_H_

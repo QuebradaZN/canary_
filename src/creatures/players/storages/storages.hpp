@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.org/
  */
 
-#ifndef SRC_CREATURES_PLAYERS_STORAGES_STORAGES_HPP_
-#define SRC_CREATURES_PLAYERS_STORAGES_STORAGES_HPP_
+#pragma once
 
 class Storages {
 public:
@@ -24,12 +23,10 @@ public:
 
 	bool loadFromXML();
 
-	const phmap::btree_map<std::string, uint32_t> &getStorageMap() const;
+	const std::map<std::string, uint32_t> &getStorageMap() const;
 
 private:
-	phmap::btree_map<std::string, uint32_t> m_storageMap;
+	std::map<std::string, uint32_t> m_storageMap;
 };
 
 constexpr auto g_storages = Storages::getInstance;
-
-#endif // SRC_CREATURES_PLAYERS_STORAGES_STORAGES_HPP_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_CREATURES_NPCS_NPC_H_
-#define SRC_CREATURES_NPCS_NPC_H_
+#pragma once
 
 #include "creatures/npcs/npcs.hpp"
 #include "declarations.hpp"
@@ -175,9 +174,9 @@ private:
 
 	std::string strDescription;
 
-	phmap::btree_map<uint32_t, uint16_t> playerInteractions;
+	std::map<uint32_t, uint16_t> playerInteractions;
 
-	phmap::btree_set<Player*> shopPlayerSet;
+	std::set<Player*> shopPlayerSet;
 
 	NpcType* npcType;
 	SpawnNpc* spawnNpc = nullptr;
@@ -204,5 +203,3 @@ private:
 };
 
 constexpr auto g_npc = Npc::getInstance;
-
-#endif // SRC_CREATURES_NPCS_NPC_H_

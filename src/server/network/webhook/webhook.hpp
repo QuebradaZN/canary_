@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_NETWORK_WEBHOOK_WEBHOOK_H_
-#define SRC_SERVER_NETWORK_WEBHOOK_WEBHOOK_H_
+#pragma once
 
 #include "lib/thread/thread_pool.hpp"
 
@@ -48,5 +47,3 @@ private:
 };
 
 constexpr auto g_webhook = Webhook::getInstance;
-
-#endif // SRC_SERVER_NETWORK_WEBHOOK_WEBHOOK_H_

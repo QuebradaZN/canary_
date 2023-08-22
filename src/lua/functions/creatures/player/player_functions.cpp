@@ -125,7 +125,7 @@ int PlayerFunctions::luaPlayerCreate(lua_State* L) {
 			return 2;
 		}
 	} else if (isUserdata(L, 2)) {
-		if (getUserdataType(L, 2) != LuaData_Player) {
+		if (getUserdataType(L, 2) != LuaData_t::Player) {
 			lua_pushnil(L);
 			return 1;
 		}
@@ -1995,7 +1995,7 @@ int PlayerFunctions::luaPlayerShowTextDialog(lua_State* L) {
 	} else if (isString(L, 2)) {
 		item = Item::CreateItem(Item::items.getItemIdByName(getString(L, 2)));
 	} else if (isUserdata(L, 2)) {
-		if (getUserdataType(L, 2) != LuaData_Item) {
+		if (getUserdataType(L, 2) != LuaData_t::Item) {
 			pushBoolean(L, false);
 			return 1;
 		}
@@ -3992,7 +3992,20 @@ int PlayerFunctions::luaPlayerGetVipDays(lua_State* L) {
 		return 1;
 	}
 
-	lua_pushnumber(L, player->getVipDays());
+	lua_pushnumber(L, player->getPremiumDays());
+	return 1;
+}
+
+int PlayerFunctions::luaPlayerGetVipTime(lua_State* L) {
+	// player:getVipTime()
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	lua_pushinteger(L, player->getPremiumLastDay());
 	return 1;
 }
 

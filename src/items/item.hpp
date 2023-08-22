@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_ITEM_H_
-#define SRC_ITEMS_ITEM_H_
+#pragma once
 
 #include "items/cylinder.hpp"
 #include "items/thing.hpp"
@@ -32,7 +31,7 @@ class BedItem;
 class Imbuement;
 class Item;
 
-// This class ItemProperties that serves as an interface to access and modify attributes of an item. The item's attributes are stored in an instance of ItemAttribute. The class ItemProperties has methods to get and set integer and string attributes, check if an attribute exists, remove an attribute, get the underlying attribute bits, and get a vector of attributes. It also has methods to get and set custom attributes, which are stored in a phmap::btree_map<std::string, CustomAttribute, std::less<>>. The class has a data member attributePtr of type std::unique_ptr<ItemAttribute> that stores a pointer to the item's attributes methods.
+// This class ItemProperties that serves as an interface to access and modify attributes of an item. The item's attributes are stored in an instance of ItemAttribute. The class ItemProperties has methods to get and set integer and string attributes, check if an attribute exists, remove an attribute, get the underlying attribute bits, and get a vector of attributes. It also has methods to get and set custom attributes, which are stored in a std::map<std::string, CustomAttribute, std::less<>>. The class has a data member attributePtr of type std::unique_ptr<ItemAttribute> that stores a pointer to the item's attributes methods.
 class ItemProperties {
 public:
 	template <typename T>
@@ -77,8 +76,8 @@ public:
 	}
 
 	// Custom Attributes
-	const phmap::btree_map<std::string, CustomAttribute, std::less<>> &getCustomAttributeMap() const {
-		static phmap::btree_map<std::string, CustomAttribute, std::less<>> map = {};
+	const std::map<std::string, CustomAttribute, std::less<>> &getCustomAttributeMap() const {
+		static std::map<std::string, CustomAttribute, std::less<>> map = {};
 		if (!attributePtr) {
 			return map;
 		}
@@ -466,14 +465,14 @@ public:
 	bool isWrapable() const {
 		return items[id].wrapable && items[id].wrapableTo;
 	}
+	bool isAmmo() const {
+		return items[id].isAmmo();
+	}
 	bool hasWalkStack() const {
 		return items[id].walkStack;
 	}
 	bool isQuiver() const {
 		return items[id].isQuiver();
-	}
-	bool isAmmo() const {
-		return items[id].isAmmo();
 	}
 	bool isSpellBook() const {
 		return items[id].isSpellBook();
@@ -585,18 +584,10 @@ public:
 	void incrementReferenceCounter() {
 		++referenceCounter;
 	}
-
 	void decrementReferenceCounter() {
-		if (--referenceCounter != 0) {
-			return;
+		if (--referenceCounter == 0) {
+			delete this;
 		}
-
-		std::lock_guard<std::mutex> lock(deletionMutex);
-		if (referenceCounter != 0) {
-			// Another thread has already deleted this object
-			return;
-		}
-		delete this;
 	}
 
 	Cylinder* getParent() const override {
@@ -713,8 +704,7 @@ public:
 protected:
 	Cylinder* parent = nullptr;
 
-	std::atomic<uint32_t> referenceCounter = 0;
-	std::mutex deletionMutex;
+	uint32_t referenceCounter = 0;
 
 	uint16_t id; // the same id as in ItemType
 	uint8_t count = 1; // number of stacked items
@@ -733,5 +723,3 @@ private:
 using ItemList = std::list<Item*>;
 using ItemDeque = std::deque<Item*>;
 using StashContainerList = std::vector<std::pair<Item*, uint32_t>>;
-
-#endif // SRC_ITEMS_ITEM_H_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SECURITY_RSA_H_
-#define SRC_SECURITY_RSA_H_
+#pragma once
 
 class Logger;
 
@@ -42,5 +41,3 @@ private:
 };
 
 constexpr auto g_RSA = RSA::getInstance;
-
-#endif // SRC_SECURITY_RSA_H_

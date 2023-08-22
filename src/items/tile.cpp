@@ -393,7 +393,7 @@ void Tile::onAddTileItem(Item* item) {
 				continue;
 			}
 			// Check if tile is part of the same house
-			if (auto tileHouse = tile->getHouse(); !tileHouse || house != house) {
+			if (auto tileHouse = tile->getHouse(); !tileHouse || house != tileHouse) {
 				continue;
 			}
 
@@ -516,7 +516,7 @@ void Tile::onRemoveTileItem(const SpectatorHashSet &spectators, const std::vecto
 				continue;
 			}
 			// Check if tile is part of the same house
-			if (auto tileHouse = tile->getHouse(); !tileHouse || house != house) {
+			if (auto tileHouse = tile->getHouse(); !tileHouse || house != tileHouse) {
 				continue;
 			}
 
@@ -912,7 +912,7 @@ Tile* Tile::queryDestination(int32_t &, const Thing &, Item** destItem, uint32_t
 	return destTile;
 }
 
-const std::vector<Tile*> Tile::getSurroundingTiles() const {
+std::vector<Tile*> Tile::getSurroundingTiles() const {
 	const auto &position = getPosition();
 	return {
 		g_game().map.getTile(position.x - 1, position.y, position.z),

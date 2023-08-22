@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_UTILS_DEFINITIONS_H_
-#define SRC_UTILS_DEFINITIONS_H_
+#pragma once
 
 #ifndef __FUNCTION__
 	#define __FUNCTION__ __func__
@@ -69,5 +68,3 @@
 #endif
 
 typedef int error_t;
-
-#endif // SRC_UTILS_DEFINITIONS_H_

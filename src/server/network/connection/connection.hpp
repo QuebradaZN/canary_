@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_SERVER_NETWORK_CONNECTION_CONNECTION_H_
-#define SRC_SERVER_NETWORK_CONNECTION_CONNECTION_H_
+#pragma once
 
 #include "declarations.hpp"
 #include "server/network/message/networkmessage.hpp"
@@ -109,5 +108,3 @@ private:
 	friend class ServicePort;
 	friend class ConnectionManager;
 };
-
-#endif // SRC_SERVER_NETWORK_CONNECTION_CONNECTION_H_

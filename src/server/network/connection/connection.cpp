@@ -13,6 +13,7 @@
 #include "server/network/message/outputmessage.hpp"
 #include "server/network/protocol/protocol.hpp"
 #include "server/network/protocol/protocolgame.hpp"
+#include "game/scheduling/scheduler.hpp"
 #include "game/scheduling/dispatcher.hpp"
 #include "server/server.hpp"
 
@@ -51,7 +52,7 @@ Connection::Connection(asio::io_service &initIoService, ConstServicePort_ptr ini
 	writeTimer(initIoService),
 	service_port(std::move(initservicePort)),
 	socket(initIoService) {
-	timeConnected = getTimeNow();
+	timeConnected = time(nullptr);
 }
 // Constructor end
 
@@ -182,7 +183,7 @@ void Connection::parseHeader(const std::error_code &error) {
 		return;
 	}
 
-	uint32_t timePassed = std::max<uint32_t>(1, (getTimeNow() - timeConnected) + 1);
+	uint32_t timePassed = std::max<uint32_t>(1, (time(nullptr) - timeConnected) + 1);
 	if ((++packetsSent / timePassed) > static_cast<uint32_t>(g_configManager().getNumber(MAX_PACKETS_PER_SECOND))) {
 		g_logger().warn("{} disconnected for exceeding packet per second limit.", convertIPToString(getIP()));
 		close();
@@ -190,7 +191,7 @@ void Connection::parseHeader(const std::error_code &error) {
 	}
 
 	if (timePassed > 2) {
-		timeConnected = getTimeNow();
+		timeConnected = time(nullptr);
 		packetsSent = 0;
 	}
 

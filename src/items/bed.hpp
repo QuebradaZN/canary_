@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_ITEMS_BED_H_
-#define SRC_ITEMS_BED_H_
+#pragma once
 
 #include "items/item.hpp"
 
@@ -61,5 +60,3 @@ private:
 	uint64_t sleepStart;
 	uint32_t sleeperGUID;
 };
-
-#endif // SRC_ITEMS_BED_H_

@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_GAME_SCHEDUNLING_EVENTS_SCHEDULER_FUNCTIONS_HPP_
-#define SRC_GAME_SCHEDUNLING_EVENTS_SCHEDULER_FUNCTIONS_HPP_
+#pragma once
 
 #include "lua/scripts/luascript.hpp"
 
@@ -29,5 +28,3 @@ private:
 	static int luaEventsSchedulergetEventSExp(lua_State* L);
 	static int luaEventsSchedulergetSpawnMonsterSchedule(lua_State* L);
 };
-
-#endif // SRC_GAME_SCHEDUNLING_EVENTS_SCHEDULER_FUNCTIONS_HPP_

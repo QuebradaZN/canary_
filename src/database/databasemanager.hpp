@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_DATABASE_DATABASEMANAGER_H_
-#define SRC_DATABASE_DATABASEMANAGER_H_
+#pragma once
 
 #include "database/database.hpp"
 
@@ -25,4 +24,3 @@ public:
 	static bool getDatabaseConfig(const std::string &config, int32_t &value);
 	static void registerDatabaseConfig(const std::string &config, int32_t value);
 };
-#endif // SRC_DATABASE_DATABASEMANAGER_H_

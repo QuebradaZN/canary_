@@ -7,8 +7,7 @@
  * Website: https://docs.opentibiabr.com/
  */
 
-#ifndef SRC_LUA_CREATURE_TALKACTION_H_
-#define SRC_LUA_CREATURE_TALKACTION_H_
+#pragma once
 
 #include "creatures/players/account/account.hpp"
 #include "lua/global/baseevents.hpp"
@@ -85,14 +84,12 @@ public:
 	bool registerLuaEvent(const TalkAction_ptr &talkAction);
 	void clear();
 
-	const phmap::btree_map<std::string, std::shared_ptr<TalkAction>> &getTalkActionsMap() const {
+	const std::map<std::string, std::shared_ptr<TalkAction>> &getTalkActionsMap() const {
 		return talkActions;
 	};
 
 private:
-	phmap::btree_map<std::string, std::shared_ptr<TalkAction>> talkActions;
+	std::map<std::string, std::shared_ptr<TalkAction>> talkActions;
 };
 
 constexpr auto g_talkActions = TalkActions::getInstance;
-
-#endif // SRC_LUA_CREATURE_TALKACTION_H_
