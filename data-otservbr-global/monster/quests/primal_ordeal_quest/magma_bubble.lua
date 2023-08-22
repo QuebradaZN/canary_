@@ -23,7 +23,7 @@ monster.health = 300000
 monster.maxHealth = 300000
 monster.race = "undead"
 monster.corpse = 36847
-monster.speed = 40
+monster.speed = 0
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -32,10 +32,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 70,
-	health = 10,
-	damage = 10,
-	random = 10,
+	nearest = 100,
 }
 
 monster.flags = {
@@ -53,9 +50,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 }
 
 monster.light = {
@@ -80,6 +77,7 @@ monster.loot = {
 	{ name = "giant emerald", chance = 4082},
 	{ name = "giant sapphire", chance = 2041},
 	{ name = "giant topaz", chance = 2041},
+	{ name = "fiery tear", chance = 1000},
 	{ name = "arboreal tome", chance = 250},
 	{ name = "arboreal crown", chance = 250},
 	{ name = "spiritthorn armor", id = 39147, chance = 250 },
@@ -92,30 +90,21 @@ monster.loot = {
 	{ id = 39186, chance = 250 }, -- name = "charged arboreal ring"
 	{ id = 39180, chance = 250 }, -- name = "charged alicorn ring"
 	{ id = 39177, chance = 250 }, -- name = "charged spiritthorn ring"
+	{ name = "portable flame", chance = 250 },
+	{ name = "firefighting axe", chance = 250 },
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -0},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Death Ball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Dust Ball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Sparkles Bomb
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -407, maxDamage = -556, range = ?, effect = <>, target = ?}, --Fire Ball
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -?, maxDamage = -?, range = ?, effect = <>, target = ?}, --Giant Red Sparkle Wave
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -600, maxDamage = -1300},
-	{name ="combat", interval = 200, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -600, maxDamage = -1500, target = false},
-	{name ="combat", interval = 500, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -2100, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 500, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -2600, radius = 8, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -1000, maxDamage = -2000, target = true},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_FIREDAMAGE, minDamage = -1500, maxDamage = -2000, length = 8, spread = 0, effect = CONST_ME_FIREAREA, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -275, maxDamage = -750},
+	{name ="combat", interval = 2000, chance = 75, type = COMBAT_FIREDAMAGE, minDamage = -525, maxDamage = -650, radius = 3, range = 8, effect = CONST_ME_HITBYFIRE, target = true},
+	{name ="combat", interval = 3700, chance = 37, type = COMBAT_FIREDAMAGE, minDamage = -1700, maxDamage = -2750, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 3100, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -1000, maxDamage = -2000, range = 8, effect = CONST_ME_FIREAREA, shootEffect = CONST_ANI_FIRE, target = true},
 }
 
 monster.defenses = {
 	defense = 65,
 	armor = 0,
---	mitigation = ???,
+	mitigation = 2.0,
 	{name ="combat", interval = 3000, chance = 35, type = COMBAT_HEALING, minDamage = 400, maxDamage = 500, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 320, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }

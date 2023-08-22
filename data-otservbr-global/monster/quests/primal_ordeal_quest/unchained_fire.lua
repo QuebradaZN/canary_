@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 1200
-monster.maxHealth = 1200
+monster.health = 17500
+monster.maxHealth = 17500
 monster.race = "fire"
 monster.corpse = 0
 monster.speed = 238
@@ -32,7 +32,7 @@ monster.strategiesTarget = {
 
 monster.flags = {
 	summonable = false,
-	attackable = false,
+	attackable = true,
 	hostile = true,
 	convinceable = false,
 	pushable = false,
@@ -60,19 +60,10 @@ monster.voices = {
 	chance = 10,
 }
 
--- TODO: monster-abilities
---monster.attacks = {
---	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -1031},
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1127, maxDamage = -1178, range = ?, effect = <>, target = ?}, --Fire Bomb
---	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -1363, maxDamage = -1363, range = ?, effect = <>, target = ?}, --Flame Beam
---}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1031},
-	{name ="firefield", interval = 2000, chance = 10, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="firefield", interval = 2000, chance = 10, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -700, length = 7, spread = 3, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -60, maxDamage = -250, radius = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="massive fire elemental soulfire", interval = 2000, chance = 15, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1700},
+	{name ="unchained fire beam", interval = 3700, chance = 38, minDamage = -775, maxDamage = -1300},
+	{name ="unchained fire explosion", interval = 5100, chance = 35, minDamage = -900, maxDamage = -1400},
 }
 
 monster.defenses = {
