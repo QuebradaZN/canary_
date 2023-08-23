@@ -86,7 +86,6 @@ local callbacks = {
 					count = count + 1
 				end
 			end
-			Spdlog.info("The End of Days has been killed! Count: " .. count)
 			if count == 0 then
 				fight:setStage(stages.MagmaBubble)
 			end
