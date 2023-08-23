@@ -2,12 +2,7 @@
 name: Build - Ubuntu
 
 on:
-  workflow_dispatch:
-    paths:
-      - "src/**"
   push:
-    paths:
-      - "src/**"
     branches:
       - elysiera
       - stable
