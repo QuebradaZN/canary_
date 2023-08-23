@@ -27,6 +27,13 @@ end
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 combatSharpshooter:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetForumulaValuesSharpshooter")
 
+function castDivineCalderaSharpshooter(cid, var)
+	local creature = Creature(cid)
+	if creature and var then
+		combatSharpshooter:execute(creature, var)
+	end
+end
+
 function spell.onCastSpell(creature, var)
 	if not creature then return false end
 	local player = creature:getPlayer()
@@ -43,13 +50,6 @@ function spell.onCastSpell(creature, var)
 	end
 
 	return true
-end
-
-function castDivineCalderaSharpshooter(cid, var)
-	local creature = Creature(cid)
-	if creature and var then
-		combatSharpshooter:execute(creature, var)
-	end
 end
 
 spell:group("attack")
