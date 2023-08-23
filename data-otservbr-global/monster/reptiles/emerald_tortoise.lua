@@ -92,9 +92,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1000},
-	{name ="energy chain", interval = 5000, chance = 37, minDamage = -550, maxDamage = -900, range = 3, target = true},
-	{name ="combat", interval = 2700, chance = 35, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -500, range = 5, shootEffect = CONST_ANI_ENERGY, target = true},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1250},
+	{name ="energy chain", interval = 5000, chance = 37, minDamage = -750, maxDamage = -1000, range = 3, target = true},
+	{name ="combat", interval = 2700, chance = 35, type = COMBAT_ENERGYDAMAGE, minDamage = -500, maxDamage = -600, range = 5, shootEffect = CONST_ANI_ENERGY, target = true},
 	{name ="emerald tortoise large ring", interval = 3500, chance = 35, minDamage = -550, maxDamage = -1000},
 	{name ="emerald tortoise small ring", interval = 4500, chance = 20, minDamage = -550, maxDamage = -700},
 	{name ="emerald tortoise small explosion", interval = 3800, chance = 30, minDamage = -400, maxDamage = -600},

@@ -93,7 +93,7 @@ monster.loot = {
 --}
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -900},
-	{name ="combat", interval = 2000, chance = 75, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -600, range = 4, shootEffect = CONST_ANI_SMALLSTONE, target = true},
+	{name ="combat", interval = 2000, chance = 75, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -750, range = 4, shootEffect = CONST_ANI_SMALLSTONE, target = true},
 	{name ="combat", interval = 3000, chance = 40, type = COMBAT_ENERGYDAMAGE, minDamage = -800, maxDamage = -1500, range = 3, effect = CONST_ME_BLUE_ENERGY_SPARK, target = true},
 	{name ="mercurial menace ring", interval = 4500, chance = 37, minDamage = -500, maxDamage = -700},
 }
