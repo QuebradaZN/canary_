@@ -212,7 +212,7 @@ function overheatedDamage.onThink(interval, lastExecution)
 			player:getPosition():sendMagicEffect(effect)
 		else
 			local damage = player:getMaxHealth() * 0.6 * -1
-			doTargetCombatHealth(0, player, COMBAT_NEUTRALDAMAGE, damage, damage, CONST_ME_NONE)
+			doTargetCombatHealth(0, player, COMBAT_AGONYDAMAGE, damage, damage, CONST_ME_NONE)
 		end
 		::continue::
 	end
