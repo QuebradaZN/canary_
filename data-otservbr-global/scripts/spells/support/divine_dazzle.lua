@@ -34,7 +34,7 @@ function canChain(creature, target)
 			return true
 		elseif synergies(player).druid and monster:getTarget() and monster:getTarget():getId() ~= creature:getId() then
 			return true
-		elseif monster:getPosition():getDistance(player:getPosition()) > 1 and monster:getType():getTargetDistance() > 1 then
+		elseif monster:getPosition():getDistance(player:getPosition()) > 1 then
 			return true
 		end
 		return false

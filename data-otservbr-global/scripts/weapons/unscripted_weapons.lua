@@ -5351,7 +5351,7 @@ axeCombat:setParameter(COMBAT_PARAM_IMPACTSOUND, MELEE_ATK_AXE)
 axeCombat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_WHIRLWINDAXE)
 
 function getChainValueAxe(creature)
-	return 5, 1, false
+	return 5, 1, true
 end
 
 axeCombat:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValueAxe")
@@ -5441,7 +5441,7 @@ wandCombats.earth:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_STONES)
 wandCombats.death:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
 
 function getChainValue(creature)
-	return 4, 2, false
+	return 4, 2, true
 end
 fireChainValue = getChainValue
 energyChainValue = getChainValue
