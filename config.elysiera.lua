@@ -142,7 +142,7 @@ hazardPodsTimeToSpawn = 4000
 hazardExpBonusMultiplier = 2
 hazardLootBonusMultiplier = 2
 hazardPodsDamage = 5
-hazardSpawnPlunderMultiplier = 25
+hazardSpawnPlunderMultiplier = 15
 
 -- Tibiadrome concoctions
 partyShareLootBoosts = true
