@@ -293,7 +293,8 @@ function chargedFlameAction.onUse(player, item, fromPosition, target, toPosition
 	}
 	local position = randomPosition(positions)
 	position:sendMagicEffect(CONST_ME_FIREAREA)
-	Game.createItem(magicFieldId, 1, position)
+	local field = Game.createItem(magicFieldId, 1, position)
+	field:decay()
 	item:remove()
 end
 
