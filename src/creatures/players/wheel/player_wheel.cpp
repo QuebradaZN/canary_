@@ -1210,7 +1210,7 @@ void PlayerWheel::registerPlayerBonusData() {
 		setSpellInstant("Avatar of Storm", false);
 	}
 
-	for (const auto &spell : m_playerBonusData.spells) {
+	for (const auto spell : m_playerBonusData.spells) {
 		upgradeSpell(spell);
 	}
 
@@ -1335,7 +1335,7 @@ void PlayerWheel::printPlayerWheelMethodsBonusData(const PlayerWheelMethodsBonus
 	auto &spellsVector = bonusData.spells;
 	if (!spellsVector.empty()) {
 		g_logger().debug("Spells:");
-		for (const auto &spell : bonusData.spells) {
+		for (const auto spell : bonusData.spells) {
 			g_logger().debug("  {}", spell);
 		}
 	}
@@ -2053,7 +2053,7 @@ void PlayerWheel::reduceAllSpellsCooldownTimer(int32_t value) {
 }
 
 void PlayerWheel::resetUpgradedSpells() {
-	for (const auto &spell : m_learnedSpellsSelected) {
+	for (const auto spell : m_learnedSpellsSelected) {
 		if (m_player.hasLearnedInstantSpell(spell)) {
 			m_player.forgetInstantSpell(spell);
 		}
