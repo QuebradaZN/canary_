@@ -39,7 +39,7 @@ fight.overheatedZone:addArea({ x = 33644, y = 32921, z = 15 }, { x = 33647, y = 
 -- central area where monsters/boss spawns
 fight.spawnZone:addArea({ x = 33644, y = 32899, z = 15 }, { x = 33658, y = 32921, z = 15 })
 fight.spawnZone:addArea({ x = 33641, y = 32899, z = 15 }, { x = 33643, y = 32908, z = 15 })
-fight.spawnZone:addArea({ x = 33645, y = 32897, z = 15 }, { x = 33660, y = 32898, z = 15 })
+fight.spawnZone:addArea({ x = 33645, y = 32897, z = 15 }, { x = 33663, y = 32898, z = 15 })
 
 fight.spawnZone:trapMonsters()
 
