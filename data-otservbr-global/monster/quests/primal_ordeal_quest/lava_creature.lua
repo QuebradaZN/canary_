@@ -61,7 +61,7 @@ monster.voices = {
 	interval = 5000,
 	chance = 10,
 }
-7
+
 monster.loot = {}
 
 monster.attacks = {
