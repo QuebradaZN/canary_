@@ -22,7 +22,7 @@ function onTargetTile(creature, pos)
 	if tile then
 		if tile:getTopCreature() and tile:getTopCreature():isMonster() then
 			if tile:getTopCreature():getName():lower() == "magma bubble" then
-				tile:getTopCreature():addHealth(-math.random(775, 1300))
+				tile:getTopCreature():addHealth(-math.random(2000, 5000))
 				return
 			end
 		end

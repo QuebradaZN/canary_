@@ -75,7 +75,7 @@ local callbacks = {
 		end,
 
 		start = function()
-			fight:spawnMonsters("The End of Days", 6, "TheEndOfDaysDeath")
+			fight:spawnMonsters("The End of Days", 8, "TheEndOfDaysDeath")
 		end,
 
 		tick = function()
@@ -103,8 +103,8 @@ local callbacks = {
 		start = function()
 			local monster = Game.createMonster("Magma Bubble", Position(33654, 32909, 15))
 			monster:registerEvent("MagmaBubbleDeath")
-			for i = 0, 3 do
-				table.insert(fight.events, addEvent(fight.spawnMonsters, (60 * i + 10) * 1000, fight, "Unchained Fire", 4))
+			for i = 0, 4 do
+				table.insert(fight.events, addEvent(fight.spawnMonsters, (45 * i + 10) * 1000, fight, "Unchained Fire", 5))
 			end
 		end,
 	},

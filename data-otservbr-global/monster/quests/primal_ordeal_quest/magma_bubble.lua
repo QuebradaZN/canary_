@@ -19,8 +19,8 @@ monster.bosstiary = {
 	storageCooldown = Storage.Quest.U12_90.PrimalOrdeal.Bosses.MagmaBubbleTimer,
 }
 
-monster.health = 300000
-monster.maxHealth = 300000
+monster.health = 450000
+monster.maxHealth = 450000
 monster.race = "undead"
 monster.corpse = 36847
 monster.speed = 0
@@ -96,9 +96,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -275, maxDamage = -750},
-	{name ="combat", interval = 2000, chance = 75, type = COMBAT_FIREDAMAGE, minDamage = -525, maxDamage = -650, radius = 3, range = 8, effect = CONST_ME_HITBYFIRE, target = true},
+	{name ="combat", interval = 2000, chance = 75, type = COMBAT_FIREDAMAGE, minDamage = -725, maxDamage = -1000, radius = 3, range = 8, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = true},
 	{name ="combat", interval = 3700, chance = 37, type = COMBAT_FIREDAMAGE, minDamage = -1700, maxDamage = -2750, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 3100, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -1000, maxDamage = -2000, range = 8, effect = CONST_ME_FIREAREA, shootEffect = CONST_ANI_FIRE, target = true},
+	{name ="combat", interval = 3100, chance = 27, type = COMBAT_FIREDAMAGE, minDamage = -1000, maxDamage = -2000, range = 8, effect = CONST_ME_FIREAREA, shootEffect = CONST_ANI_FIRE, target = true},
 }
 
 monster.defenses = {
