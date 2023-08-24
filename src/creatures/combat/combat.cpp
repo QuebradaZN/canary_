@@ -940,23 +940,16 @@ bool Combat::doCombatChain(Creature* caster, Creature* target, bool aggressive) 
 		return false;
 	}
 
-	int i = 0;
 	for (const auto &[from, toVector] : targets) {
 		auto combat = this;
-		auto casterID = caster ? caster->getID() : 0;
-		g_scheduler().addEvent(
-			i++ * 50, [combat, from, toVector, casterID]() {
-				auto nextCaster = g_game().getCreatureByID(casterID);
-				if (!nextCaster) {
-					return;
-				}
-				for (auto to : toVector) {
-					auto nextTarget = g_game().getCreatureByID(to);
-					combat->doChainEffect(from, nextTarget->getPosition(), combat->params.chainEffect);
-					combat->doCombat(nextCaster, nextTarget, from);
-				}
+		for (auto to : toVector) {
+			auto nextTarget = g_game().getCreatureByID(to);
+			if (!nextTarget) {
+				continue;
 			}
-		);
+			combat->doChainEffect(from, nextTarget->getPosition(), combat->params.chainEffect);
+			combat->doCombat(caster, nextTarget, from);
+		}
 	}
 
 	return true;
