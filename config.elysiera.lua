@@ -146,7 +146,7 @@ hazardSpawnPlunderMultiplier = 15
 
 -- Tibiadrome concoctions
 partyShareLootBoosts = true
-tibiadromeConcoctionCooldown = 10 * 60 * 60 -- 24 hours
+tibiadromeConcoctionCooldown = 10 * 60 * 60 -- 10 hours
 tibiadromeConcoctionDuration = 60 * 60 -- 1 hour
 tibiadromeConcoctionTickType = "experience" -- "online" | "experience"
 
@@ -227,9 +227,11 @@ deathLosePercent = -1
 -- NOTE: set housePriceEachSQM to -1 to disable the ingame buy house functionality
 -- NOTE: set houseBuyLevel to 0 to disable the min level purchase functionality.
 -- Periods: daily/weekly/monthly/yearly/never
-housePriceEachSQM = 1200
+housePriceRentMultiplier = 1.0
+housePriceEachSQM = 4000
 houseRentPeriod = "monthly"
-houseOwnedByAccount = false
+houseRentRate = 1.5
+houseOwnedByAccount = true
 houseBuyLevel = 100
 
 -- Item Usage
