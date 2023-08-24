@@ -2622,7 +2622,7 @@ void Player::death(Creature* lastHitCreature) {
 		// Charm bless bestiary
 		if (lastHitCreature && lastHitCreature->getMonster()) {
 			if (charmRuneBless != 0) {
-				const auto &mType = g_monsters().getMonsterType(lastHitCreature->getName());
+				const auto mType = g_monsters().getMonsterType(lastHitCreature->getName());
 				if (mType && mType->info.raceid == charmRuneBless) {
 					deathLossPercent = (deathLossPercent * 90) / 100;
 				}
@@ -5148,7 +5148,7 @@ bool Player::isInWar(const Player* player) const {
 		return false;
 	}
 
-	const auto &playerGuild = player->getGuild();
+	const auto playerGuild = player->getGuild();
 	if (!playerGuild) {
 		return false;
 	}
@@ -5532,7 +5532,7 @@ GuildEmblems_t Player::getGuildEmblem(const Player* player) const {
 		return GUILDEMBLEM_NONE;
 	}
 
-	const auto &playerGuild = player->getGuild();
+	const auto playerGuild = player->getGuild();
 	if (!playerGuild) {
 		return GUILDEMBLEM_NONE;
 	}
@@ -5941,7 +5941,7 @@ uint16_t Player::getHelpers() const {
 	if (guild && party) {
 		phmap::flat_hash_set<Player*> helperSet;
 
-		const auto &guildMembers = guild->getMembersOnline();
+		const auto guildMembers = guild->getMembersOnline();
 		helperSet.insert(guildMembers.begin(), guildMembers.end());
 
 		const auto &partyMembers = party->getMembers();
@@ -6084,7 +6084,7 @@ void Player::setGuild(const std::shared_ptr<Guild> newGuild) {
 	guildRank = nullptr;
 
 	if (newGuild) {
-		const auto &rank = newGuild->getRankByLevel(1);
+		const auto rank = newGuild->getRankByLevel(1);
 		if (!rank) {
 			return;
 		}
