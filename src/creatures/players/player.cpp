@@ -5601,8 +5601,8 @@ void Player::setCurrentMount(uint8_t mount) {
 }
 
 bool Player::hasAnyMount() const {
-	for (const auto &mounts = g_game().mounts.getMounts();
-		 const auto &mount : mounts) {
+	const auto mounts = g_game().mounts.getMounts();
+	for (const auto mount : mounts) {
 		if (hasMount(mount)) {
 			return true;
 		}
@@ -5612,9 +5612,8 @@ bool Player::hasAnyMount() const {
 
 uint8_t Player::getRandomMountId() const {
 	std::vector<uint8_t> playerMounts;
-
-	for (const auto &mounts = g_game().mounts.getMounts();
-		 const auto &mount : mounts) {
+	const auto mounts = g_game().mounts.getMounts();
+	for (const auto mount : mounts) {
 		if (hasMount(mount)) {
 			playerMounts.push_back(mount->id);
 		}
@@ -5656,7 +5655,7 @@ bool Player::toggleMount(bool mount) {
 			currentMountId = getRandomMountId();
 		}
 
-		const auto &currentMount = g_game().mounts.getMountByID(currentMountId);
+		const auto currentMount = g_game().mounts.getMountByID(currentMountId);
 		if (!currentMount) {
 			return false;
 		}
@@ -5763,7 +5762,7 @@ bool Player::hasMount(const std::shared_ptr<Mount> mount) const {
 }
 
 void Player::dismount() {
-	const auto &mount = g_game().mounts.getMountByID(getCurrentMount());
+	const auto mount = g_game().mounts.getMountByID(getCurrentMount());
 	if (mount && mount->speed > 0) {
 		g_game().changeSpeed(this, -mount->speed);
 	}
