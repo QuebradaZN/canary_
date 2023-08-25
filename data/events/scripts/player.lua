@@ -1,4 +1,4 @@
-CONTAINER_WEIGHT_CHECK = true -- true = enable / false = disable
+CONTAINER_WEIGHT_CHECK = false -- true = enable / false = disable
 CONTAINER_WEIGHT_MAX = 1000000 -- 1000000 = 10k = 10000.00 oz
 
 local storeItemID = {
