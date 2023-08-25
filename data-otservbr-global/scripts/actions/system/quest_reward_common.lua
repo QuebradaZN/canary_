@@ -69,7 +69,7 @@ local function playerAddItem(params, item)
 		if mountId then
 			local mount = Mount(mountId)
 			if mount:getName() == "Sanguine Frog" then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The Sanguine Frog, awed by your accomplishments, silently hops alongside you. Embrace the unknown, bearer of the arcane mount - <ribbbbiiiiiiit>.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The Sanguine Frog, awed by your accomplishments, silently hops alongside you. You are now the bearer of this eerie mount - <ribbbbiiiiiiit>.")
 			else
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received the " .. mount:getName() .. " mount.")
 			end
