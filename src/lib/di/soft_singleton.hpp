@@ -9,13 +9,14 @@
 #pragma once
 
 #include <iostream>
+#include "lib/logging/logger.hpp"
 
 /**
  * This
  */
 class SoftSingleton {
 public:
-	SoftSingleton(Logger &logger, std::string id);
+	explicit SoftSingleton(std::string id);
 
 	// non-copyable
 	SoftSingleton(const SoftSingleton &) = delete;
