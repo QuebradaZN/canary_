@@ -120,7 +120,7 @@
 	<mount id="118" clientid="1027" name="Gloom Widow" speed="10" premium="no" type="store" />
 	<mount id="119" clientid="1049" name="Mole" speed="10" premium="yes" type="quest" />
 	<mount id="120" clientid="1052" name="Marsh Toad" speed="10" premium="no" type="store" />
-	<mount id="121" clientid="1053" name="Sanguine Frog" speed="10" premium="no" type="store" />
+	<mount id="121" clientid="1053" name="Sanguine Frog" speed="10" premium="no" type="quest" />
 	<mount id="122" clientid="1054" name="Toxic Toad" speed="10" premium="no" type="store" />
 	<mount id="123" clientid="1091" name="Ebony Tiger" speed="10" premium="no" type="store" />
 	<mount id="124" clientid="1092" name="Feral Tiger" speed="10" premium="no" type="store" />
