@@ -502,9 +502,6 @@ private:
 	void sendSingleSoundEffect(const Position &pos, SoundEffect_t id, SourceEffect_t source);
 	void sendDoubleSoundEffect(const Position &pos, SoundEffect_t mainSoundId, SourceEffect_t mainSource, SoundEffect_t secondarySoundId, SourceEffect_t secondarySource);
 
-	// Hazard system
-	void reloadHazardSystemIcon();
-
 	uint8_t m_playerDeathTime = 0;
 
 	void resetPlayerDeathTime() {

@@ -2465,6 +2465,7 @@ public:
 		}
 		return static_cast<uint16_t>(std::max<int32_t>(0, std::min<int32_t>(0xFFFF, points)));
 	}
+
 	/*******************************************************************************/
 
 	// Concoction system
