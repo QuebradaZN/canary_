@@ -512,10 +512,10 @@ function parseBuyStoreOffer(playerId, msg)
 		local alertMessage = pcallError.code and pcallError.message or
 		"Something went wrong. Your purchase has been cancelled."
 
-		if not pcallError.code then -- unhandled error
-			-- log some debugging info
-			Spdlog.warn("[parseBuyStoreOffer] - Purchase failed due to an unhandled script error. Stacktrace: " .. pcallError)
-		end
+	if not pcallError.code then -- unhandled error
+		-- log some debugging info
+		logger.warn("[parseBuyStoreOffer] - Purchase failed due to an unhandled script error. Stacktrace: {}", pcallError)
+	end
 
 		return queueSendStoreAlertToUser(alertMessage, 500, playerId)
 	end

@@ -122,3 +122,16 @@ private:
 	static void parseTowns(FileStream &stream, Map &map);
 	static void parseTileArea(FileStream &stream, Map &map, const Position &pos);
 };
+
+class IOMapException : public std::exception {
+public:
+	explicit IOMapException(const std::string &msg) :
+		message(msg) { }
+
+	const char* what() const noexcept override {
+		return message.c_str();
+	}
+
+private:
+	std::string message;
+};

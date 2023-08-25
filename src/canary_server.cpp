@@ -66,8 +66,9 @@ int CanaryServer::run() {
 			std::unique_lock lock(mapLoaderLock);
 			mapSignal.wait(lock, [this] { return loaderMapDone; });
 
-			if (!threadFailMsg.empty())
+			if (!threadFailMsg.empty()) {
 				throw FailedToInitializeCanary(threadFailMsg);
+			}
 
 			logger.info("Initializing gamestate...");
 			g_game().setGameState(GAME_STATE_INIT);
@@ -144,7 +145,7 @@ void CanaryServer::setWorldType() {
 	logger.debug("World type set as {}", asUpperCaseString(worldType));
 }
 
-void CanaryServer::loadMaps() {
+void CanaryServer::loadMaps() const {
 	g_game().loadMainMap(g_configManager().getString(MAP_NAME));
 
 	// If "mapCustomEnabled" is true on config.lua, then load the custom map
@@ -326,7 +327,7 @@ void CanaryServer::loadModules() {
 	inject<ThreadPool>().addLoad([this] {
 		try {
 			loadMaps();
-		} catch (const std::runtime_error &err) {
+		} catch (const std::exception &err) {
 			threadFailMsg = err.what();
 		}
 		loaderMapDone = true;

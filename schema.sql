@@ -11,7 +11,7 @@ CREATE TABLE
 
 INSERT INTO
     `server_config` (`config`, `value`)
-VALUES ('db_version', '35'), ('motd_hash', ''), ('motd_num', '0'), ('players_record', '0');
+VALUES ('db_version', '36'), ('motd_hash', ''), ('motd_num', '0'), ('players_record', '0');
 
 -- Table structure `accounts`
 
@@ -387,6 +387,7 @@ DELIMITER //
 
 CREATE TRIGGER `ONCREATE_GUILDS` AFTER INSERT ON `GUILDS`
 FOR EACH ROW BEGIN INSERT
+	INSERT
 	INSERT INTO
 	    `guild_ranks` (`name`, `level`, `guild_id`)
 	VALUES ('The Leader', 3, NEW.`id`);
@@ -450,7 +451,7 @@ DELIMITER //
 
 CREATE TRIGGER `ONDELETE_PLAYERS` BEFORE DELETE ON
 `PLAYERS` FOR EACH ROW BEGIN UPDATE
-	UPDATE `houses` SET `owner` = 0 WHERE `owner` = OLD.`id`;
+	UPDATE UPDATE `houses` SET `owner` = 0 WHERE `owner` = OLD.`id`;
 	END //
 
 
