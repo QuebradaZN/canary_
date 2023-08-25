@@ -73,7 +73,7 @@ local function playerAddItem(params, item)
 			else
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received the " .. mount:getName() .. " mount.")
 			end
-			player:addMount(mount)
+			player:addMount(mountId)
 		end
 	end
 
