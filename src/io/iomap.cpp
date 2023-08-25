@@ -260,10 +260,6 @@ void IOMap::parseTowns(FileStream &stream, Map &map) {
 	if (!stream.endNode()) {
 		throw IOMapException("Could not end node.");
 	}
-
-	if (!stream.endNode()) {
-		throw std::runtime_error("Could not end node.");
-	}
 }
 
 void IOMap::parseWaypoints(FileStream &stream, Map &map) {
