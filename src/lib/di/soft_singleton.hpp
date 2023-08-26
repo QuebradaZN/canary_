@@ -9,11 +9,8 @@
 #pragma once
 
 #include <iostream>
-#include "lib/logging/logger.hpp"
+#include "lib/logging/log_with_spd_log.hpp"
 
-/**
- * This
- */
 class SoftSingleton {
 public:
 	explicit SoftSingleton(std::string id);
@@ -27,7 +24,7 @@ public:
 	void decrement();
 
 private:
-	Logger &logger;
+	Logger &logger = g_logger();
 	std::string id;
 	int instance_count = 0;
 };

@@ -13,6 +13,10 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.events = {
+	"MagmaBubbleDeath"
+}
+
 monster.bosstiary = {
 	bossRaceId = 2242,
 	bossRace = RARITY_ARCHFOE,

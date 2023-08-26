@@ -124,7 +124,9 @@ void House::updateDoorDescription() const {
 	if (housePrice != -1) {
 		ss << " It costs " << formatNumber(getPrice()) << " gold coins.";
 		std::string strRentPeriod = asLowerCaseString(g_configManager().getString(HOUSE_RENT_PERIOD));
-		ss << " The rent cost is " << formatNumber(getRent()) << " gold coins and it is billed " << strRentPeriod << ".";
+		if (strRentPeriod != "never") {
+			ss << " The rent cost is " << formatNumber(getRent()) << " gold coins and it is billed " << strRentPeriod << ".";
+		}
 	}
 
 	for (const auto &it : doorList) {
@@ -740,12 +742,11 @@ void Houses::payHouses(RentPeriod_t rentPeriod) const {
 }
 
 uint32_t House::getRent() const {
-	return g_configManager().getFloat(HOUSE_RENT_RATE) * rent;
+	return static_cast<uint32_t>(g_configManager().getFloat(HOUSE_RENT_RATE) * static_cast<float>(rent));
 }
 
-int32_t House::getPrice() const {
-	auto sqmPrice = g_configManager().getNumber(HOUSE_PRICE_PER_SQM) * getSize();
-	auto rentPrice = getRent() * g_configManager().getFloat(HOUSE_PRICE_RENT_MULTIPLIER);
-	auto total = sqmPrice + rentPrice;
-	return total;
+uint32_t House::getPrice() const {
+	uint32_t sqmPrice = static_cast<uint32_t>(g_configManager().getNumber(HOUSE_PRICE_PER_SQM)) * getSize();
+	uint32_t rentPrice = static_cast<uint32_t>(static_cast<float>(getRent()) * g_configManager().getFloat(HOUSE_PRICE_RENT_MULTIPLIER));
+	return sqmPrice + rentPrice;
 }
