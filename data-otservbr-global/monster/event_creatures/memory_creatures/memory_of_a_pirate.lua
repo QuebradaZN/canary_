@@ -13,7 +13,6 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.raceId = 2173
 
 monster.health = 3750
 monster.maxHealth = 3750

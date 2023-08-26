@@ -13,8 +13,6 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.raceId = 1074
-
 monster.health = 50
 monster.maxHealth = 50
 monster.race = "undead"
