@@ -35,13 +35,8 @@ fight.overheatedZone:addArea({ x = 33664, y = 32896, z = 15 }, { x = 33671, y = 
 fight.overheatedZone:addArea({ x = 33635, y = 32911, z = 15 }, { x = 33643, y = 32929, z = 15 })
 fight.overheatedZone:addArea({ x = 33644, y = 32921, z = 15 }, { x = 33647, y = 32928, z = 15 })
 
-
 -- central area where monsters/boss spawns
-fight.spawnZone:addArea({ x = 33644, y = 32899, z = 15 }, { x = 33658, y = 32921, z = 15 })
-fight.spawnZone:addArea({ x = 33641, y = 32899, z = 15 }, { x = 33643, y = 32908, z = 15 })
-fight.spawnZone:addArea({ x = 33645, y = 32897, z = 15 }, { x = 33663, y = 32898, z = 15 })
-
-fight.spawnZone:trapMonsters()
+fight.spawnZone:addArea({ x = 33647, y = 32900, z = 15 }, { x = 33659, y = 32913, z = 15 })
 
 local callbacks = {
 	[stages.MagmaCrystals] = {
@@ -152,6 +147,7 @@ local zoneEvents = ZoneEvent(fight.bossZone)
 function zoneEvents.onEnter(zone, creature)
 	local player = creature:getPlayer()
 	if not player then return true end
+	if player:hasGroupFlag(IgnoredByMonsters) then return true end
 	if fight.stage == stages.NotStarted then fight.spawnZone:refresh() end
 	fight:setStage(stages.MagmaCrystals)
 	return true
