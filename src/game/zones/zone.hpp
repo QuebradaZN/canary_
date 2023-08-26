@@ -112,7 +112,7 @@ public:
 
 	const static std::shared_ptr<Zone> addZone(const std::string &name);
 	const static std::shared_ptr<Zone> getZone(const std::string &name);
-	static phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> getZones(const Position &position);
+	static phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> getZones(const Position position);
 	const static phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &getZones();
 	static void clearZones();
 
