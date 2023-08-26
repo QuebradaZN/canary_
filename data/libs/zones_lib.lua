@@ -20,6 +20,49 @@ function Zone:randomPosition()
 	return destination
 end
 
+function Zone:sendTextMessage(...)
+	local players = self:getPlayers()
+	for _, player in ipairs(players) do
+		player:sendTextMessage(...)
+	end
+end
+
+function Zone:countMonsters(name)
+	local count = 0
+	for _, monster in ipairs(self:getMonsters()) do
+		if not name or monster:getName():lower() == name:lower() then
+			count = count + 1
+		end
+	end
+	return count
+end
+
+function Zone:countPlayers(notFlag)
+	local players = self:getPlayers()
+	local count = 0
+	for _, player in ipairs(players) do
+		if notFlag then
+			if not player:hasGroupFlag(notFlag) then
+				count = count + 1
+			end
+		else
+			count = count + 1
+		end
+	end
+	return count
+end
+
+function Zone:isInZone(position)
+	local zones = position:getZones()
+	if not zones then return false end
+	for _, zone in ipairs(zones) do
+		if zone == self then
+			return true
+		end
+	end
+	return false
+end
+
 ---@class ZoneEvent
 ---@field public zone Zone
 ---@field public onEnter function
@@ -36,7 +79,6 @@ setmetatable(ZoneEvent, {
 		obj.onLeave = nil
 		return obj
 end})
-
 
 function ZoneEvent:register()
 	if self.onEnter then

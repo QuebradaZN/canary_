@@ -1,8 +1,6 @@
 local config = {
-	boss = {
-		name = "Magma Bubble",
-		-- position = Position(33654, 32909, 15) -- handled by fight script (magma_bubble_fight.lua)
-	},
+	boss = { name = "Magma Bubble" },
+	encounter = "Magma Bubble",
 	requiredLevel = 500,
 
 	playerPositions = {

@@ -1,168 +1,98 @@
-local stages = {
-	NotStarted = 0,
-	MagmaCrystals = 1,
-	TheEndOfDays = 2,
-	MagmaBubble = 3,
-	Completed = 4,
-
-	Intermission = -1,
-}
-
 local magicFieldId = 39232
 local chargedFlameId = 39230
 local heatedCrystalId = 39168
 local cooledCrystalId = 39169
 
-local fight = {
-	stage = stages.NotStarted,
-
-	overheatedZone = Zone('fight.magma-bubble.overheated'),
-	bossZone = Zone("bosslever.magma-bubble"),
-	spawnZone = Zone('fight.magma-bubble.spawn'),
-
-	events = {},
-}
+local overheatedZone = Zone('fight.magma-bubble.overheated')
+local bossZone = Zone("boss.magma-bubble")
+local spawnZone = Zone('fight.magma-bubble.spawn')
 
 -- top left
-fight.overheatedZone:addArea({ x = 33634, y = 32891, z = 15 }, { x = 33645, y = 32898, z = 15 })
-fight.overheatedZone:addArea({ x = 33634, y = 32886, z = 15 }, { x = 33648, y = 32892, z = 15 })
+overheatedZone:addArea({ x = 33634, y = 32891, z = 15 }, { x = 33645, y = 32898, z = 15 })
+overheatedZone:addArea({ x = 33634, y = 32886, z = 15 }, { x = 33648, y = 32892, z = 15 })
 
 -- top right
-fight.overheatedZone:addArea({ x = 33651, y = 32890, z = 15 }, { x = 33670, y = 32896, z = 15 })
-fight.overheatedZone:addArea({ x = 33664, y = 32896, z = 15 }, { x = 33671, y = 32899, z = 15 })
+overheatedZone:addArea({ x = 33651, y = 32890, z = 15 }, { x = 33670, y = 32896, z = 15 })
+overheatedZone:addArea({ x = 33664, y = 32896, z = 15 }, { x = 33671, y = 32899, z = 15 })
 
 -- bottom left
-fight.overheatedZone:addArea({ x = 33635, y = 32911, z = 15 }, { x = 33643, y = 32929, z = 15 })
-fight.overheatedZone:addArea({ x = 33644, y = 32921, z = 15 }, { x = 33647, y = 32928, z = 15 })
+overheatedZone:addArea({ x = 33635, y = 32911, z = 15 }, { x = 33643, y = 32929, z = 15 })
+overheatedZone:addArea({ x = 33644, y = 32921, z = 15 }, { x = 33647, y = 32928, z = 15 })
 
 -- central area where monsters/boss spawns
-fight.spawnZone:addArea({ x = 33647, y = 32900, z = 15 }, { x = 33659, y = 32913, z = 15 })
+spawnZone:addArea({ x = 33647, y = 32900, z = 15 }, { x = 33659, y = 32913, z = 15 })
 
-local callbacks = {
-	[stages.MagmaCrystals] = {
-		prepare = function()
-			local players = fight.bossZone:getPlayers()
-			for _, player in ipairs(players) do
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You've entered the volcano.")
-			end
-		end,
+local encounter = Encounter("Magma Bubble", {
+	zone = bossZone,
+	spawnZone = spawnZone,
+	timeToSpawnMonsters = 2,
+})
 
-		start = function()
-			fight:spawnMonsters("The End of Days", 3, "TheEndOfDaysHealth")
-			local crystalPositions = {
+encounter:addStage({
+	prepare = function()
+		encounter:broadcast(MESSAGE_EVENT_ADVANCE, "You've entered the volcano.")
+	end,
+
+	start = function()
+		encounter:spawnMonsters({
+			name = "The End of Days",
+			amount = 3,
+			event = "fight.magma-bubble.TheEndOfDaysHealth",
+		})
+		encounter:spawnMonsters({
+			name = "Magma Crystal",
+			event = "fight.magma-bubble.MagmaCrystalDeath",
+			positions = {
 				Position(33647, 32891, 15),
 				Position(33647, 32926, 15),
 				Position(33670, 32898, 15),
-			}
-			for _, position in ipairs(crystalPositions) do
-				local crystal = Game.createMonster("Magma Crystal", position)
-				crystal:registerEvent("MagmaCrystalDeath")
-			end
-		end,
-	},
+			},
+		})
+	end,
 
-	[stages.TheEndOfDays] = {
-		prepare = function()
-			local players = fight.bossZone:getPlayers()
-			for _, player in ipairs(players) do
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The whole Volcano starts to vibrate! Prepare yourself!")
-			end
-		end,
+	finish = function()
+		encounter:broadcast(MESSAGE_EVENT_ADVANCE, "The whole Volcano starts to vibrate! Prepare yourself!")
+	end,
+})
 
-		start = function()
-			fight:spawnMonsters("The End of Days", 8, "TheEndOfDaysDeath")
-		end,
+encounter:addIntermission(3000)
 
-		tick = function()
-			local count = 0
-			local monsters = fight.bossZone:getMonsters()
-			for _, monster in ipairs(monsters) do
-				if monster:getName():lower() == "the end of days" then
-					count = count + 1
-				end
-			end
-			if count == 0 then
-				fight:setStage(stages.MagmaBubble)
-			end
-		end,
-},
+encounter:addStage({
+	start = function()
+		encounter:spawnMonsters({
+			name = "The End of Days",
+			amount = 8,
+			event = "fight.magma-bubble.TheEndOfDaysDeath",
+		})
+	end,
 
-	[stages.MagmaBubble] = {
-		prepare = function()
-			local players = fight.bossZone:getPlayers()
-			for _, player in ipairs(players) do
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You've upset the volcano and now it's going to take its revenge!")
-			end
-		end,
+	finish = function()
+		encounter:broadcast(MESSAGE_EVENT_ADVANCE, "You've upset the volcano and now it's going to take its revenge!")
+	end,
+})
 
-		start = function()
-			local monster = Game.createMonster("Magma Bubble", Position(33654, 32909, 15))
-			monster:registerEvent("MagmaBubbleDeath")
-			for i = 0, 4 do
-				table.insert(fight.events, addEvent(fight.spawnMonsters, (45 * i + 10) * 1000, fight, "Unchained Fire", 5))
-			end
-		end,
-	},
-}
+encounter:addIntermission(3000)
 
-function fight:spawnMonsters(name, amount, event)
-	for _ = 1, amount do
-		local position = self.spawnZone:randomPosition()
-		local monster = Game.createMonster(name, position)
-		if event then
-			monster:registerEvent(event)
+encounter:addStage({
+	start = function()
+		encounter:spawnMonsters({
+			name = "Magma Bubble",
+			event = "fight.magma-bubble.MagmaBubbleDeath",
+			positions = {
+				Position(33654, 32909, 15),
+			},
+		})
+		for i = 0, 4 do
+			table.insert(encounter.events, addEvent(encounter.spawnMonsters, (45 * i + 10) * 1000, encounter, { name = "Unchained Fire", amount = 5 }))
 		end
-	end
+	end,
+})
+
+function encounter.beforeEach()
+	encounter:removeMonsters()
 end
 
-function fight:enterStage(stage)
-	if self.stage == stage then return end
-	self.stage = stage
-	local callback = callbacks[stage]
-	if callback and callback.start then
-		callback.start()
-	end
-end
-
-function fight:prepareStage(stage)
-	if self.stage == stage then return end
-	local callback = callbacks[stage]
-	if callback and callback.prepare then
-		callback.prepare()
-	end
-	addEvent(self.enterStage, 3000, self, stage)
-end
-
-function fight:setStage(stage)
-	self.stage = stages.Intermission
-	self.bossZone:removeMonsters()
-	for _, event in ipairs(self.events) do
-		stopEvent(event)
-	end
-	addEvent(self.prepareStage, 100, self, stage)
-end
-
-local zoneEvents = ZoneEvent(fight.bossZone)
-
-function zoneEvents.onEnter(zone, creature)
-	local player = creature:getPlayer()
-	if not player then return true end
-	if player:hasGroupFlag(IgnoredByMonsters) then return true end
-	if fight.stage == stages.NotStarted then fight.spawnZone:refresh() end
-	fight:setStage(stages.MagmaCrystals)
-	return true
-end
-
-function zoneEvents.onLeave(zone, creature)
-	if not creature:getPlayer() then return true end
-	local players = zone:getPlayers()
-	if #players > 0 then return true end
-	-- last player left, reset the fight
-	fight:setStage(stages.NotStarted)
-	return true
-end
-
-zoneEvents:register()
+encounter:register()
 
 local function addShieldStack(player)
 	local currentIcon = player:getIcon()
@@ -189,7 +119,7 @@ end
 
 local overheatedDamage = GlobalEvent("self.magma-bubble.overheated.onThink")
 function overheatedDamage.onThink(interval, lastExecution)
-	local players = fight.overheatedZone:getPlayers()
+	local players = overheatedZone:getPlayers()
 	for _, player in ipairs(players) do
 		if player:getHealth() <= 0 then goto continue end
 		local shields = tickShields(player)
@@ -218,9 +148,8 @@ overheatedDamage:interval(1000)
 overheatedDamage:register()
 
 local crystalsCycle = GlobalEvent("self.magma-bubble.crystals.onThink")
-
 function crystalsCycle.onThink(interval, lastExecution)
-	local zoneItems = fight.spawnZone:getItems()
+	local zoneItems = bossZone:getItems()
 	local minCooled = 2
 	local crystals = {}
 	for _, item in ipairs(zoneItems) do
@@ -259,8 +188,6 @@ end
 crystalsCycle:interval(4000)
 crystalsCycle:register()
 
-local chargedFlameAction = Action()
-
 local function randomPosition(positions)
 	local destination = positions[math.random(1, #positions)]
 	local tile = destination:getTile()
@@ -271,6 +198,7 @@ local function randomPosition(positions)
 	return destination
 end
 
+local chargedFlameAction = Action()
 function chargedFlameAction.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not player then return false end
 	if not target or not target:isItem() then return false end
@@ -300,17 +228,7 @@ local shieldField = MoveEvent()
 function shieldField.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then return false end
-	local zones = position:getZones()
-	if not zones then return true end
-	local found = false
-	for _, zone in ipairs(zones) do
-		if zone == fight.bossZone then
-			found = true
-			break
-		end
-	end
-	if not found then return true end
-
+	if not encounter:isInZone(player:getPosition()) then return false end
 	item:remove()
 	addShieldStack(player)
 end
@@ -319,13 +237,13 @@ shieldField:type("stepin")
 shieldField:id(magicFieldId)
 shieldField:register()
 
-local theEndOfDaysHealth = CreatureEvent("TheEndOfDaysHealth")
+local theEndOfDaysHealth = CreatureEvent("fight.magma-bubble.TheEndOfDaysHealth")
 function theEndOfDaysHealth.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType)
 	if not creature then return primaryDamage, primaryType, secondaryDamage, secondaryType end
 	local newHealth = creature:getHealth() - primaryDamage - secondaryDamage
 	if newHealth <= creature:getMaxHealth() * 0.5 then
 		creature:setHealth(creature:getMaxHealth())
-		fight:spawnMonsters("Lava Creature", 8)
+		encounter:spawnMonsters({ name = "Lava Creature", amount = 8 })
 		return false
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
@@ -333,42 +251,31 @@ end
 
 theEndOfDaysHealth:register()
 
-local magmaCrystalDeath = CreatureEvent("MagmaCrystalDeath")
-function magmaCrystalDeath.onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
-	local crystals = 0
-	local monsters = fight.bossZone:getMonsters()
-	for _, monster in ipairs(monsters) do
-		if monster:getName():lower() == "magma crystal" then
-			crystals = crystals + 1
-		end
-	end
+local magmaCrystalDeath = CreatureEvent("fight.magma-bubble.MagmaCrystalDeath")
+function magmaCrystalDeath.onDeath()
+	local crystals = encounter:countMonsters("magma crystal")
 	if crystals == 0 then
-		fight:setStage(stages.TheEndOfDays)
-		return
+		encounter:nextStage()
 	else
-		local players = fight.bossZone:getPlayers()
-		for _, player in ipairs(players) do
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A magma crystal has been destroyed!")
-		end
+		encounter:broadcast(MESSAGE_EVENT_ADVANCE, "A magma crystal has been destroyed! " .. crystals .. " remaining.")
 	end
 end
 
 magmaCrystalDeath:register()
 
-local fightTick = GlobalEvent("fight.magma-bubble.tick")
-function fightTick.onThink(interval)
-	local callback = callbacks[fight.stage]
-	if callback and callback.tick then
-		callback.tick()
+local endOfDaysDeath = CreatureEvent("fight.magma-bubble.TheEndOfDaysDeath")
+function endOfDaysDeath.onDeath()
+	local monsters = encounter:countMonsters("the end of days")
+	if monsters == 0 then
+		encounter:nextStage()
 	end
-	return true
 end
-fightTick:interval(1000)
-fightTick:register()
 
-local magmaBubbleDeath = CreatureEvent("MagmaBubbleDeath")
-function magmaBubbleDeath.onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
-	fight:setStage(stages.Completed)
+endOfDaysDeath:register()
+
+local magmaBubbleDeath = CreatureEvent("fight.magma-bubble.MagmaBubbleDeath")
+function magmaBubbleDeath.onDeath()
+	encounter:reset()
 end
 
 magmaBubbleDeath:register()

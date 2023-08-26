@@ -54,6 +54,7 @@ setmetatable(BossLever, {
 		end
 		return setmetatable({
 			name = boss.name,
+			encounter = config.encounter,
 			bossPosition = boss.position,
 			timeToFightAgain = config.timeToFightAgain or configManager.getNumber(configKeys.BOSS_DEFAULT_TIME_TO_FIGHT_AGAIN),
 			timeToDefeat = config.timeToDefeat or configManager.getNumber(configKeys.BOSS_DEFAULT_TIME_TO_DEFEAT),
@@ -120,7 +121,6 @@ function BossLever:onUse(player)
 	spec:setRemoveDestination(self.exit)
 	spec:setCheckPosition(self.area)
 	spec:check()
-	local zone = self:getZone()
 
 	if spec:getPlayers() > 0 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's already someone fighting with " .. self.name .. ".")
@@ -153,6 +153,10 @@ function BossLever:onUse(player)
 			return false
 		end
 		self.onUseExtra(creature)
+		if self.encounter then
+			local encounter = Encounter(self.encounter)
+			encounter:start()
+		end
 		return true
 	end)
 
@@ -203,7 +207,7 @@ end
 
 ---@param Zone
 function BossLever:getZone()
-	return Zone("bosslever." .. toKey(self.name))
+	return Zone("boss." .. toKey(self.name))
 end
 
 ---@param self BossLever
