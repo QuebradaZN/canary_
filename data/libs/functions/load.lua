@@ -1,6 +1,5 @@
 -- Load core functions
 dofile(CORE_DIRECTORY .. "/libs/functions/bit.lua")
-dofile(CORE_DIRECTORY .. "/libs/functions/chain.lua")
 dofile(CORE_DIRECTORY .. "/libs/functions/combat.lua")
 dofile(CORE_DIRECTORY .. "/libs/functions/constants.lua")
 dofile(CORE_DIRECTORY .. "/libs/functions/container.lua")

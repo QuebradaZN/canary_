@@ -895,6 +895,14 @@ void Combat::addDistanceEffect(Creature* caster, const Position &fromPos, const 
 			case WEAPON_CLUB:
 				effect = CONST_ANI_WHIRLWINDCLUB;
 				break;
+			case WEAPON_MISSILE: {
+				auto weapon = player->getWeapon();
+				if (weapon){
+					const auto& iType = Item::items[weapon->getID()];
+					effect = iType.shootType;
+				}
+				break;
+			}
 			default:
 				effect = CONST_ANI_NONE;
 				break;
