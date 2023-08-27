@@ -110,8 +110,8 @@ public:
 	void removeNpcs() const;
 	void refresh();
 
-	const static std::shared_ptr<Zone> addZone(const std::string &name);
-	const static std::shared_ptr<Zone> getZone(const std::string &name);
+	static std::shared_ptr<Zone> addZone(const std::string &name);
+	static std::shared_ptr<Zone> getZone(const std::string &name);
 	static phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> getZones(const Position position);
 	const static phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &getZones();
 	static void clearZones();
@@ -119,13 +119,14 @@ public:
 private:
 	std::string name;
 	phmap::parallel_flat_hash_set<Position> positions;
-	phmap::parallel_flat_hash_set<Tile*> tiles;
-	phmap::parallel_flat_hash_set<Item*> items;
-	phmap::parallel_flat_hash_set<Creature*> creatures;
-	phmap::parallel_flat_hash_set<Monster*> monsters;
-	phmap::parallel_flat_hash_set<Npc*> npcs;
-	phmap::parallel_flat_hash_set<Player*> players;
+
+	phmap::parallel_flat_hash_set<Tile*> tilesCache;
+	phmap::parallel_flat_hash_set<Item*> itemsCache;
+	phmap::parallel_flat_hash_set<Creature*> creaturesCache;
+	phmap::parallel_flat_hash_set<Monster*> monstersCache;
+	phmap::parallel_flat_hash_set<Npc*> npcsCache;
+	phmap::parallel_flat_hash_set<Player*> playersCache;
 
 	static std::mutex zonesMutex;
-	static std::map<std::string, std::shared_ptr<Zone>> zones;
+	static phmap::parallel_flat_hash_map<std::string, std::shared_ptr<Zone>> zones;
 };

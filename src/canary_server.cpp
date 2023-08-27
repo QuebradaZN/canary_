@@ -18,6 +18,7 @@
 #include "game/game.hpp"
 #include "game/scheduling/dispatcher.hpp"
 #include "game/scheduling/events_scheduler.hpp"
+#include "game/zones/zone.hpp"
 #include "io/iomarket.hpp"
 #include "lib/thread/thread_pool.hpp"
 #include "lua/creature/events.hpp"
@@ -65,6 +66,8 @@ int CanaryServer::run() {
 
 			std::unique_lock lock(mapLoaderLock);
 			mapSignal.wait(lock, [this] { return loaderMapDone; });
+
+			Zone::refreshZones();
 
 			if (!threadFailMsg.empty()) {
 				throw FailedToInitializeCanary(threadFailMsg);
