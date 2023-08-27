@@ -455,7 +455,6 @@ void Tile::onRemoveTileItem(const SpectatorHashSet &spectators, const std::vecto
 			it->second->removeThing(item, item->getItemCount());
 		}
 	}
-
 	for (const auto zone : getZones()) {
 		zone->itemRemoved(item);
 	}

@@ -15,6 +15,7 @@
 ---@field private area {from: Position, to: Position}
 ---@field private monsters {name: string, pos: Position}[]
 ---@field private exit Position
+---@field private timeoutEvent Event
 BossLever = {}
 
 --[[
@@ -116,13 +117,8 @@ function BossLever:onUse(player)
 		return true
 	end
 
-	local spec = Spectators()
-	spec:setOnlyPlayer(false)
-	spec:setRemoveDestination(self.exit)
-	spec:setCheckPosition(self.area)
-	spec:check()
-
-	if spec:getPlayers() > 0 then
+	local zone = self:getZone()
+	if zone:countPlayers(IgnoredByMonsters) > 0 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's already someone fighting with " .. self.name .. ".")
 		return true
 	end
@@ -162,7 +158,7 @@ function BossLever:onUse(player)
 
 	lever:checkPositions()
 	if lever:checkConditions() then
-		spec:removeMonsters()
+		zone:removeMonsters()
 		for _, monster in pairs(self.monsters) do
 			Game.createMonster(monster.name, monster.pos, true, true)
 		end
@@ -178,25 +174,10 @@ function BossLever:onUse(player)
 		end
 		lever:teleportPlayers()
 		lever:setStorageAllPlayers(self.storage, os.time() + self.timeToFightAgain)
-		addEvent(function()
-			local oldPlayers = lever:getInfoPositions()
-			spec:clearCreaturesCache()
-			spec:setOnlyPlayer(true)
-			spec:check()
-			local playerRemove = {}
-			for i, v in pairs(spec:getCreatureDetect()) do
-				for _, vOld in pairs(oldPlayers) do
-					if vOld.creature == nil or vOld.creature:isMonster() then
-						break
-					end
-					if v:getName() == vOld.creature:getName() then
-						table.insert(playerRemove, vOld.creature)
-						break
-					end
-				end
-			end
-			spec:removePlayers(playerRemove)
-		end, self.timeToDefeat * 1000)
+		if self.timeoutEvent then
+			stopEvent(self.timeoutEvent)
+		end
+		self.timeoutEvent = addEvent(zone.removePlayers, self.timeToDefeat * 1000, zone)
 	end
 	return true
 end
@@ -230,6 +211,7 @@ function BossLever:register()
 
 	zone:addArea(self.area.from, self.area.to)
 	zone:blockFamiliars()
+	zone:setRemoveDestination(self.exit)
 
 	local action = Action()
 	action.onUse = function(player) self:onUse(player) end

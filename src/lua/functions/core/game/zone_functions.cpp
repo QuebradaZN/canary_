@@ -78,6 +78,29 @@ int ZoneFunctions::luaZoneSubtractArea(lua_State* L) {
 	return 1;
 }
 
+int ZoneFunctions::luaZoneGetRemoveDestination(lua_State* L) {
+	// Zone:getRemoveDestination()
+	auto zone = getUserdataShared<Zone>(L, 1);
+	if (!zone) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_ZONE_NOT_FOUND));
+		return 1;
+	}
+	pushPosition(L, zone->getRemoveDestination());
+	return 1;
+}
+
+int ZoneFunctions::luaZoneSetRemoveDestination(lua_State* L) {
+	// Zone:setRemoveDestination(pos)
+	auto zone = getUserdataShared<Zone>(L, 1);
+	if (!zone) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_ZONE_NOT_FOUND));
+		return 1;
+	}
+	auto pos = getPosition(L, 2);
+	zone->setRemoveDestination(pos);
+	return 1;
+}
+
 int ZoneFunctions::luaZoneRefresh(lua_State* L) {
 	// Zone:refresh()
 	auto zone = getUserdataShared<Zone>(L, 1);
@@ -235,6 +258,19 @@ int ZoneFunctions::luaZoneGetItems(lua_State* L) {
 	return 1;
 }
 
+int ZoneFunctions::luaZoneRemovePlayers(lua_State* L) {
+	// Zone:removePlayers()
+	auto zone = getUserdataShared<Zone>(L, 1);
+	if (!zone) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_ZONE_NOT_FOUND));
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	zone->removePlayers();
+	return 1;
+}
+
 int ZoneFunctions::luaZoneRemoveMonsters(lua_State* L) {
 	// Zone:removeMonsters()
 	auto zone = getUserdataShared<Zone>(L, 1);
@@ -244,7 +280,7 @@ int ZoneFunctions::luaZoneRemoveMonsters(lua_State* L) {
 		return 1;
 	}
 	zone->removeMonsters();
-	return 0;
+	return 1;
 }
 
 int ZoneFunctions::luaZoneRemoveNpcs(lua_State* L) {
@@ -256,7 +292,7 @@ int ZoneFunctions::luaZoneRemoveNpcs(lua_State* L) {
 		return 1;
 	}
 	zone->removeNpcs();
-	return 0;
+	return 1;
 }
 
 int ZoneFunctions::luaZoneGetByName(lua_State* L) {

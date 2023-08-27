@@ -92,6 +92,10 @@ public:
 	void addArea(Area area);
 	void subtractArea(Area area);
 	bool isPositionInZone(const Position &position) const;
+	Position getRemoveDestination(Creature* creature = nullptr) const;
+	void setRemoveDestination(const Position &position) {
+		removeDestination = position;
+	}
 
 	const phmap::parallel_flat_hash_set<Position> &getPositions() const;
 	const phmap::parallel_flat_hash_set<Tile*> &getTiles() const;
@@ -106,6 +110,7 @@ public:
 	void itemAdded(Item* item);
 	void itemRemoved(Item* item);
 
+	void removePlayers() const;
 	void removeMonsters() const;
 	void removeNpcs() const;
 	void refresh();
@@ -115,8 +120,10 @@ public:
 	static phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> getZones(const Position position);
 	const static phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &getZones();
 	static void clearZones();
+	static void refreshZones();
 
 private:
+	Position removeDestination = Position();
 	std::string name;
 	phmap::parallel_flat_hash_set<Position> positions;
 
@@ -127,6 +134,5 @@ private:
 	phmap::parallel_flat_hash_set<Npc*> npcsCache;
 	phmap::parallel_flat_hash_set<Player*> playersCache;
 
-	static std::mutex zonesMutex;
 	static phmap::parallel_flat_hash_map<std::string, std::shared_ptr<Zone>> zones;
 };

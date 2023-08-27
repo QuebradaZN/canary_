@@ -917,6 +917,9 @@ bool Game::removeCreature(Creature* creature, bool isLogout /* = true*/) {
 		spectator->onRemoveCreature(creature, isLogout);
 	}
 
+	phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> toZones = {};
+	onCreatureZoneChange(creature, creature->getZones(), toZones, true);
+
 	if (creature->getMaster() && !creature->getMaster()->isRemoved()) {
 		creature->setMaster(nullptr);
 	}
@@ -950,8 +953,6 @@ bool Game::removeCreature(Creature* creature, bool isLogout /* = true*/) {
 void Game::executeDeath(uint32_t creatureId) {
 	Creature* creature = getCreatureByID(creatureId);
 	if (creature && !creature->isRemoved()) {
-		phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> toZones = {};
-		onCreatureZoneChange(creature, creature->getZones(), toZones);
 		creature->onDeath();
 	}
 }
@@ -9846,7 +9847,7 @@ phmap::parallel_flat_hash_set<T> setDifference(const phmap::parallel_flat_hash_s
 	return setResult;
 }
 
-ReturnValue Game::onCreatureZoneChange(Creature* creature, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &fromZones, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &toZones) {
+ReturnValue Game::onCreatureZoneChange(Creature* creature, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &fromZones, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &toZones, bool force /* = false*/) {
 	if (!creature) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
@@ -9873,7 +9874,7 @@ ReturnValue Game::onCreatureZoneChange(Creature* creature, const phmap::parallel
 
 	for (const auto &zone : zonesLeft) {
 		bool allowed = g_callbacks().checkCallback(EventCallback_t::zoneOnCreatureLeave, &EventCallback::zoneOnCreatureLeave, zone, creature);
-		if (!allowed) {
+		if (!force && !allowed) {
 			return RETURNVALUE_NOTPOSSIBLE;
 		}
 	}
@@ -9883,7 +9884,7 @@ ReturnValue Game::onCreatureZoneChange(Creature* creature, const phmap::parallel
 
 	for (const auto &zone : zonesEntered) {
 		bool allowed = g_callbacks().checkCallback(EventCallback_t::zoneOnCreatureEnter, &EventCallback::zoneOnCreatureEnter, zone, creature);
-		if (!allowed) {
+		if (!force && !allowed) {
 			return RETURNVALUE_NOTPOSSIBLE;
 		}
 	}

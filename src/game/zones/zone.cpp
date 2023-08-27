@@ -14,13 +14,12 @@
 #include "creatures/monsters/monster.hpp"
 #include "creatures/npcs/npc.hpp"
 #include "creatures/players/player.hpp"
+#include "game/scheduling/dispatcher.hpp"
 
 phmap::parallel_flat_hash_map<std::string, std::shared_ptr<Zone>> Zone::zones = {};
-std::mutex Zone::zonesMutex = {};
 const static std::shared_ptr<Zone> nullZone = nullptr;
 
 std::shared_ptr<Zone> Zone::addZone(const std::string &name) {
-	std::lock_guard lock(zonesMutex);
 	if (name == "default") {
 		g_logger().error("Zone name {} is reserved", name);
 		return nullZone;
@@ -69,8 +68,20 @@ bool Zone::isPositionInZone(const Position &pos) const {
 	return positions.contains(pos);
 }
 
+Position Zone::getRemoveDestination(Creature* creature /* = nullptr */) const {
+	if (!creature || !creature->getPlayer()) {
+		return Position();
+	}
+	if (removeDestination != Position()) {
+		return removeDestination;
+	}
+	if (creature->getPlayer()) {
+		return creature->getPlayer()->getTown()->getTemplePosition();
+	}
+	return Position();
+}
+
 std::shared_ptr<Zone> Zone::getZone(const std::string &name) {
-	std::lock_guard lock(zonesMutex);
 	return zones[name];
 }
 
@@ -102,6 +113,12 @@ const phmap::parallel_flat_hash_set<Item*> &Zone::getItems() const {
 	return itemsCache;
 }
 
+void Zone::removePlayers() const {
+	for (auto player : playersCache) {
+		g_game().internalTeleport(player, getRemoveDestination(player));
+	}
+}
+
 void Zone::removeMonsters() const {
 	// copy monsters because removeCreature will remove monster from monsters
 	phmap::parallel_flat_hash_set<Monster*> monstersCopy = monstersCache;
@@ -119,34 +136,33 @@ void Zone::removeNpcs() const {
 }
 
 void Zone::refresh() {
-	std::lock_guard lock(zonesMutex);
-	itemsCache.clear();
-	creaturesCache.clear();
-	playersCache.clear();
-	monstersCache.clear();
-	npcsCache.clear();
-	tilesCache.clear();
-	for (auto position : positions) {
-		const auto &tile = g_game().map.getTile(position);
-		if (tile) {
-			tilesCache.insert(tile);
-			for (auto item : *tile->getItemList()) {
-				itemAdded(item);
-			}
-			for (auto creature : *tile->getCreatures()) {
-				creatureAdded(creature);
+	g_dispatcher().addTask([this]() {
+		itemsCache.clear();
+		creaturesCache.clear();
+		playersCache.clear();
+		monstersCache.clear();
+		npcsCache.clear();
+		tilesCache.clear();
+		for (auto position : positions) {
+			const auto &tile = g_game().map.getTile(position);
+			if (tile) {
+				tilesCache.insert(tile);
+				for (auto item : *tile->getItemList()) {
+					itemAdded(item);
+				}
+				for (auto creature : *tile->getCreatures()) {
+					creatureAdded(creature);
+				}
 			}
 		}
-	}
+	});
 }
 
 void Zone::clearZones() {
-	std::lock_guard lock(zonesMutex);
 	zones.clear();
 }
 
 phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> Zone::getZones(const Position postion) {
-	std::lock_guard lock(zonesMutex);
 	phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> zonesSet;
 	for (const auto &[_, zone] : zones) {
 		if (zone && zone->isPositionInZone(postion)) {
@@ -168,6 +184,9 @@ const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &Zone::getZones() {
 }
 
 void Zone::creatureAdded(Creature* creature) {
+	if (!creature) {
+		return;
+	}
 	creaturesCache.insert(creature);
 	if (creature->getPlayer()) {
 		playersCache.insert(creature->getPlayer());
@@ -181,6 +200,9 @@ void Zone::creatureAdded(Creature* creature) {
 }
 
 void Zone::creatureRemoved(Creature* creature) {
+	if (!creature) {
+		return;
+	}
 	creaturesCache.erase(creature);
 	if (creature->getPlayer()) {
 		playersCache.erase(creature->getPlayer());
@@ -194,9 +216,23 @@ void Zone::creatureRemoved(Creature* creature) {
 }
 
 void Zone::itemAdded(Item* item) {
+	if (!item) {
+		return;
+	}
 	itemsCache.insert(item);
 }
 
 void Zone::itemRemoved(Item* item) {
+	if (!item) {
+		return;
+	}
 	itemsCache.erase(item);
+}
+
+void Zone::refreshZones() {
+	for (auto &[_, zone] : zones) {
+		if (zone) {
+			zone->refresh();
+		}
+	}
 }
