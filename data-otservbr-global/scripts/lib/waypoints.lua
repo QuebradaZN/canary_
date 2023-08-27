@@ -22,7 +22,7 @@ local waypoints = {
 		id = 1,
 		name = "King Zelos and mini-bosses",
 		bundle = true,
-		requirements = { bosstiary = { name = "King Zelos", stars = 1 } },
+		requirements = { bosstiary = { name = "King Zelos", stars = 1 }, level = 300 },
 		waypoints = {
 			{ name = "King Zelos", position = Position(33489, 31546, 13) },
 			{ name = "Count Vlarkorth", position = Position(33456, 31408, 13), },
@@ -36,7 +36,7 @@ local waypoints = {
 		id = 2,
 		name = "Scarlett Etzel",
 		bundle = true,
-		requirements = { bosstiary = { stars = 1 } },
+		requirements = { bosstiary = { stars = 1 }, level = 250 },
 		waypoints = {
 			{ name = "Gaffir", position = Position(33393, 32674, 4) },
 			{ name = "Guard Captain Quaid", position = Position(33397, 32658, 3) },
@@ -50,30 +50,31 @@ local waypoints = {
 		id = 3,
 		name = "Fear Feaster",
 		position = Position(33739, 31471, 14),
-		requirements = { bosstiary = { name = "The Fear Feaster", kills = 1 } }
+		requirements = { bosstiary = { name = "The Fear Feaster", stars = 1 }, level = 300 }
 	},
 	{
 		id = 4,
 		name = "Pale Worm",
 		position = Position(33776, 31504, 14),
-		requirements = { bosstiary = { name = "The Pale Worm", kills = 1 } }
+		requirements = { bosstiary = { name = "The Pale Worm", stars = 1 }, level = 300 }
 	},
 	{
 		id = 5,
 		name = "Unwelcome",
 		position = Position(33741, 31537, 14),
-		requirements = { bosstiary = { name = "The Unwelcome", kills = 1 } }
+		requirements = { bosstiary = { name = "The Unwelcome", stars = 1 }, level = 300 }
 	},
 	{
 		id = 6,
 		name = "Dread Maiden",
 		position = Position(33744, 31506, 14),
-		requirements = { bosstiary = { name = "The Dread Maiden", kills = 1 } }
+		requirements = { bosstiary = { name = "The Dread Maiden", stars = 1 }, level = 300 }
 	},
 	{
 		id = 7,
 		name = "Feaster of Souls mini-bosses",
 		bundle = true,
+		requirements = { level = 250 },
 		waypoints = {
 			{ name = "Unaz the Mean", position = Position(33566, 31477, 8) },
 			{ name = "Vok the Freakish", position = Position(33509, 31452, 9) },
@@ -86,7 +87,7 @@ local waypoints = {
 		id = 8,
 		name = "Grand Master Oberon and mini-bosses",
 		bundle = true,
-		requirements = { bosstiary = { name = "Grand Master Oberon", stars = 1 } },
+		requirements = { bosstiary = { name = "Grand Master Oberon", stars = 1 }, level = 350 },
 		waypoints = {
 			{ name = "Grand Master Oberon", position = Position(33363, 31342, 9) },
 			{ name = "Preceptor Lazare", position = Position(33371, 31344, 3) },
@@ -101,37 +102,37 @@ local waypoints = {
 		id = 9,
 		name = "Goshnar's Cruelty",
 		position = Position(33859, 31854, 6),
-		requirements = { bosstiary = { kills = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 500 }
 	},
 	{
 		id = 10,
 		name = "Goshnar's Greed",
 		position = Position(33781, 31665, 14),
-		requirements = { bosstiary = { kills = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 500 }
 	},
 	{
 		id = 11,
 		name = "Goshnar's Hatred",
 		position = Position(33778, 31601, 14),
-		requirements = { bosstiary = { kills = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 500 }
 	},
 	{
 		id = 12,
 		name = "Goshnar's Malice",
 		position = Position(33684, 31599, 14),
-		requirements = { bosstiary = { kills = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 500 }
 	},
 	{
 		id = 13,
 		name = "Goshnar's Spite",
 		position = Position(33779, 31634, 14),
-		requirements = { bosstiary = { kills = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 500 }
 	},
 	{
 		id = 14,
 		name = "Goshnar's Megalomania",
 		position = Position(33681, 31634, 14),
-		requirements = { bosstiary = { kills = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 500 }
 	},
 
 	-- The Prime Ordeal
@@ -139,13 +140,13 @@ local waypoints = {
 		id = 15,
 		name = "Magma Bubble",
 		position = Position(33669, 32931, 15),
-		requirements = { bosstiary = { stars = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 500 }
 	},
 	{
 		id = 16,
 		name = "The Primal Menace",
 		position = Position(33553, 32752, 14),
-		requirements = { storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.ThePrimalMenaceKilled }
+		requirements = { storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.ThePrimalMenaceKilled, level = 500 }
 	},
 
 	-- TODO: fix these bosses
@@ -168,38 +169,38 @@ local waypoints = {
 		id = 18,
 		name = "Nightmare Beast / Dream Courts",
 		position = Position(32208, 32094, 13),
-		requirements = { bosstiary = { name = "The Nightmare Beast", kills = 1 } }
+		requirements = { bosstiary = { name = "The Nightmare Beast", stars = 1 }, level = 300 }
 	},
 
 	{
 		id = 19,
 		name = "Timira",
 		position = Position(33804, 32702, 8),
-		requirements = { bosstiary = { name = "Timira the Many-Headed", stars = 1 } }
+		requirements = { bosstiary = { name = "Timira the Many-Headed", stars = 1 }, level = 300 }
 	},
 	{
 		id = 20,
 		name = "Urmahlullu",
 		position = Position(33920, 31623, 8),
-		requirements = { bosstiary = { name = "Urmahlullu the Weakened", stars = 1 } }
+		requirements = { bosstiary = { name = "Urmahlullu the Weakened", stars = 1 }, level = 300 }
 	},
 	{
 		id = 21,
 		name = "Ratmiral Blackwhiskers",
 		position = Position(33894, 31391, 15),
-		requirements = { bosstiary = { stars = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 200 }
 	},
 	{
 		id = 22,
 		name = "Drume",
 		position = Position(32458, 32507, 6),
-		requirements = { bosstiary = { stars = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 300 }
 	},
 	{
 		id = 23,
 		name = "Faceless Bane",
 		position = Position(33618, 32522, 15),
-		requirements = { bosstiary = { stars = 1 } }
+		requirements = { bosstiary = { stars = 1 }, level = 300 }
 	},
 
 	-- General Waypoints
@@ -208,6 +209,7 @@ local waypoints = {
 		id = 25,
 		name = "Ingol",
 		bundle = true,
+		requirements = { level = 300 },
 		waypoints = {
 			{ name = "Ingol Boat", position = Position(33710, 32602, 6) },
 			{ name = "Ingol Deep", position = Position(33798, 32573, 8) },
@@ -219,6 +221,7 @@ local waypoints = {
 		id = 28,
 		name = "Elven Courts",
 		bundle = true,
+		requirements = { level = 250 },
 		waypoints = {
 			{ name = "Winter Courts", position = Position(32354, 31249, 3) },
 			{ name = "Summer Courts", position = Position(33672, 32229, 7) },
@@ -230,7 +233,7 @@ local waypoints = {
 		id = 29,
 		name = "Deepling Bosses",
 		bundle = true,
-		requirements = { bosstiary = { name = "Jaul", kills = 1 } },
+		requirements = { bosstiary = { name = "Jaul", stars = 1 }, level = 200 },
 		waypoints = {
 			{ name = "Jaul", position = Position(33558, 31284, 11) },
 			{ name = "Tanjis", position = Position(33646, 31263, 11) },
@@ -242,7 +245,7 @@ local waypoints = {
 		id = 30,
 		name = "Brainstealer",
 		position = Position(32536, 31122, 15),
-		requirements = { bosstiary = { name = "The Brainstealer", stars = 1 } },
+		requirements = { bosstiary = { name = "The Brainstealer", stars = 1 }, level = 300 },
 	},
 
 	{
@@ -261,6 +264,7 @@ local waypoints = {
 		id = 32,
 		name = "The Secret Library",
 		bundle = true,
+		requirements = { level = 350 },
 		waypoints = {
 			{ name = "Fire Section", position = Position(32639, 32726, 12) },
 			{ name = "Energy Section", position = Position(32531, 32707, 12) },
@@ -273,7 +277,7 @@ local waypoints = {
 		id = 33,
 		name = "The Secret Library (Bosses)",
 		bundle = true,
-		requirements = { bosstiary = { name = "The Scourge Of Oblivion", stars = 1 } },
+		requirements = { bosstiary = { name = "The Scourge Of Oblivion", stars = 1 }, level = 400 },
 		waypoints = {
 			{ name = "Lokathmor", position = Position(32724, 32747, 10) },
 			{ name = "Mazzinor", position = Position(32723, 32771, 10) },
@@ -342,17 +346,55 @@ function Player:getWaypoints()
 	local ownedWaypoints = {}
 	for _, waypoint in ipairs(waypoints) do
 		if self:hasWaypointById(waypoint.id) then
-			if waypoint.bundle then
-				for _, subWaypoint in ipairs(waypoint.waypoints) do
-					table.insert(ownedWaypoints, subWaypoint)
+			if self:waypointAllowed(waypoint) then
+				if waypoint.bundle then
+					for _, subWaypoint in ipairs(waypoint.waypoints) do
+						table.insert(ownedWaypoints, subWaypoint)
+					end
+				else
+					table.insert(ownedWaypoints, waypoint)
 				end
-			else
-				table.insert(ownedWaypoints, waypoint)
 			end
 		end
 	end
 	table.sort(ownedWaypoints, function(a, b) return a.name < b.name end)
 	return ownedWaypoints
+end
+
+function Player:waypointAllowed(waypoint)
+	local requirements = waypoint.requirements
+	local allowed = true
+	if requirements then
+		if requirements.storage then
+			allowed = allowed and self:getStorageValue(requirements.storage) >= 1
+		end
+
+		if requirements.level then
+			allowed = allowed and self:getLevel() >= requirements.level
+		end
+
+		if requirements.bosstiary then
+			local name = requirements.bosstiary.name or waypoint.name
+			if requirements.bosstiary.kills then
+				local currentKills = self:getBosstiaryKills(name)
+				if currentKills then
+					allowed = allowed and currentKills >= requirements.bosstiary.kills
+				else
+					logger.error("No bosstiary entry for " .. name)
+					return false
+				end
+			elseif requirements.bosstiary.stars then
+				local currentStars = self:getBosstiaryLevel(name)
+				if currentStars then
+					allowed = allowed and currentStars >= requirements.bosstiary.stars
+				else
+					logger.error("No bosstiary entry for " .. name)
+					return false
+				end
+			end
+		end
+	end
+	return allowed
 end
 
 function Player:addWaypointModal(onAdd)
@@ -369,33 +411,7 @@ function Player:addWaypointModal(onAdd)
 				choiceName = waypoint.name .. " (bundle)"
 			end
 
-			local allowed = true
-			local requirements = waypoint.requirements
-			if requirements then
-				if requirements.storage then
-					allowed = allowed and self:getStorageValue(requirements.storage) >= 1
-				elseif requirements.bosstiary then
-					local name = requirements.bosstiary.name or waypoint.name
-					if requirements.bosstiary.kills then
-						local currentKills = self:getBosstiaryKills(name)
-						if currentKills then
-							allowed = allowed and currentKills >= requirements.bosstiary.kills
-						else
-							Spdlog.error("No bosstiary entry for " .. name)
-							allowed = false
-						end
-					elseif requirements.bosstiary.stars then
-						local currentStars = self:getBosstiaryLevel(name)
-						if currentStars then
-							allowed = allowed and currentStars >= requirements.bosstiary.stars
-						else
-							Spdlog.error("No bosstiary entry for " .. name)
-							allowed = false
-						end
-					end
-				end
-			end
-
+			local allowed = self:waypointAllowed(waypoint)
 			if not allowed then
 				choiceName = "[LOCKED] " .. choiceName
 			end
