@@ -29,10 +29,8 @@ function addOutfit.onSay(player, words, param)
 				player:getName(), lookType, target:getName())
 		end
 		return true
-	else
-		player:sendCancelMessage("Player not found.")
-		return true
 	end
+	player:sendCancelMessage("Player not found.")
 	return true
 end
 
