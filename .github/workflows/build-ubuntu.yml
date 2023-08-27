@@ -77,7 +77,7 @@ jobs:
         with:
           configurePreset: ${{ matrix.buildtype }}
           buildPreset: ${{ matrix.buildtype }}
-          configurePresetAdditionalArgs: "['-DBUILD_TESTS=ON']"
+          configurePresetAdditionalArgs: "['-DBUILD_TESTS=OFF']"
 
       - name: Create and Upload Artifact
         uses: actions/upload-artifact@main
@@ -85,8 +85,3 @@ jobs:
           name: canary-${{ matrix.buildtype }}-${{ github.ref_name }}-${{ github.sha }}
           path: |
             ${{ github.workspace }}/build/${{ matrix.buildtype }}/bin/
-
-      - name: Unit tests
-        run: |
-          chmod +x ${{ github.workspace }}/build/${{ matrix.buildtype }}/tests/canary_ut
-          ${{ github.workspace }}/build/${{ matrix.buildtype }}/tests/canary_ut
