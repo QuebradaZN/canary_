@@ -55,6 +55,7 @@ function LeaveTraining(playerId)
 
 	local player = Player(playerId)
 	if player then
+		player:deactivateVoucher("skills")
 		player:setTraining(false)
 	end
 	return

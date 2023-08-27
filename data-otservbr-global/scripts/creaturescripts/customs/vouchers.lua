@@ -102,6 +102,7 @@ local function deactivateVoucher(player, conf, item)
 		return false
 	end
 
+	player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your " .. conf.type .. " voucher has been deactivated.")
 	item:transform(conf.inactiveItem, 1)
 	item:setName(conf.inactiveItemName)
 	item:stopDecay()
@@ -123,15 +124,11 @@ local function activateVoucher(player, conf, item)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "Could not activate your voucher, please try again.")
 		return false
 	end
-	local name = item:getName()
-	if name ~= conf.inactiveItemName then
-		return false
-	end
-	item:transform(conf.activeItem, 1)
+	player:sendTextMessage(MESSAGE_STATUS_SMALL, "Could not activate your voucher, please try again.")
 	item:setName(conf.activeItemName)
 	player:setStorageValueByName("voucher.last-activation", os.time())
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your " .. conf.type .. " voucher has been activated.")
 	item:decay()
+	player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your " .. conf.type .. " voucher has been activated.")
 
 	if conf.type == 'experience' then
 		player:setBaseXpGain(player:getBaseXpGain() * 2)
@@ -188,7 +185,7 @@ local function refreshVouchers(player)
 end
 
 function playerLogin.onLogin(player)
-	addPlayerEvent(refreshVouchers, 100, player:getId())
+	addPlayerEvent(refreshVouchers, 1000, player)
 	return true
 end
 
@@ -198,7 +195,7 @@ local activate = Action()
 
 function activate.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	for _, conf in pairs(config) do
-		if item:getId() == conf.inactiveItem and item:getName() == conf.inactiveItemName then
+		if item:getId() == conf.inactiveItem then
 			local lastActivation = player:getStorageValueByName("voucher.last-activation")
 			if lastActivation and lastActivation > 0 and (lastActivation + cooldown) > os.time() then
 				local timeLeft = lastActivation + cooldown - os.time()
@@ -206,9 +203,11 @@ function activate.onUse(player, item, fromPosition, target, toPosition, isHotkey
 				return true
 			end
 
-			addPlayerEvent(activateVoucher, 100, player:getId(), conf)
+			activateVoucher(player, conf, item)
+			return
 		elseif item:getId() == conf.activeItem then
-			addPlayerEvent(deactivateVoucher, 100, player:getId(), conf)
+			deactivateVoucher(player, conf, item)
+			return
 		end
 	end
 	return true
@@ -223,3 +222,14 @@ for id, _ in pairs(ids) do
 	activate:id(id)
 end
 activate:register()
+
+---@alias VoucherType 'skills' | 'experience'
+--- Deactivate a voucher by type
+---@param voucherType VoucherType
+function Player:deactivateVoucher(voucherType)
+	for _, conf in pairs(config) do
+		if conf.type == voucherType then
+			deactivateVoucher(self, conf)
+		end
+	end
+end
