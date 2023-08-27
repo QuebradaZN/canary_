@@ -251,6 +251,20 @@ function Player.hasRookgaardShield(self)
 			or self:getItemCount(3430) > 0
 end
 
+function Player:vocationAbbrev()
+	local vocation = self:getVocation()
+	if not vocation then
+		return "N"
+	end
+
+	local vocationName = vocation:getName():split(" ")
+	local abbrev = ""
+	for _, name in ipairs(vocationName) do
+		abbrev = abbrev .. name:sub(1, 1)
+	end
+	return abbrev:upper()
+end
+
 function Player.isSorcerer(self)
 	return table.contains({ VOCATION.ID.SORCERER, VOCATION.ID.MASTER_SORCERER }, self:getVocation():getId())
 end
