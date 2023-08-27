@@ -63,20 +63,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 40000, maxCount = 30},
-	{name = "small amethyst", chance = 140},
-	{id = 3092, chance = 190}, -- axe ring
-	{name = "battle hammer", chance = 4000},
-	{name = "steel helmet", chance = 1600},
-	{name = "scale armor", chance = 9200},
-	{name = "battle shield", chance = 6000},
-	{name = "white mushroom", chance = 55000, maxCount = 2},
-	{name = "health potion", chance = 380},
-	{id = 12600, chance = 280} -- coal
+	{ name = "gold coin", chance = 40000, maxCount = 30 },
+	{ name = "small amethyst", chance = 140 },
+	{ id = 3092, chance = 190 }, -- axe ring
+	{ name = "battle hammer", chance = 4000 },
+	{ name = "steel helmet", chance = 1600 },
+	{ name = "scale armor", chance = 9200 },
+	{ name = "battle shield", chance = 6000 },
+	{ name = "white mushroom", chance = 55000, maxCount = 2 },
+	{ name = "health potion", chance = 380 },
+	{ id = 12600, chance = 280 } -- coal
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -140}
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -140 }
 }
 
 monster.defenses = {
@@ -86,23 +86,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

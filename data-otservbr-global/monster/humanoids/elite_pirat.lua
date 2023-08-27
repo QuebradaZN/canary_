@@ -63,54 +63,54 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 120}, -- gold coin
-	{id = 7642, chance = 100000, maxCount = 2}, -- great spirit potion
-	{id = 35572, chance = 10000}, -- pirate coin
-	{id = 813, chance = 4761}, -- terra boots
-	{id = 813, chance = 4761}, -- terra boots
-	{id = 17812, chance = 5000}, -- ratana
-	{id = 17813, chance = 5000}, -- life preserver
-	{id = 17817, chance = 16666}, -- cheese cutter
-	{id = 17818, chance = 3846}, -- cheesy figurine
-	{id = 35596, chance = 11111}, -- mouldy powder
-	{id = 17820, chance = 14285}, -- soft cheese
-	{id = 17821, chance = 14285}, -- rat cheese
-	{id = 820, chance = 1612}, -- lightning boots
-	{id = 818, chance = 3225} -- magma boots
+	{ id = 3031, chance = 100000, maxCount = 120 }, -- gold coin
+	{ id = 7642, chance = 100000, maxCount = 2 }, -- great spirit potion
+	{ id = 35572, chance = 10000 }, -- pirate coin
+	{ id = 813, chance = 4761 }, -- terra boots
+	{ id = 813, chance = 4761 }, -- terra boots
+	{ id = 17812, chance = 5000 }, -- ratana
+	{ id = 17813, chance = 5000 }, -- life preserver
+	{ id = 17817, chance = 16666 }, -- cheese cutter
+	{ id = 17818, chance = 3846 }, -- cheesy figurine
+	{ id = 35596, chance = 11111 }, -- mouldy powder
+	{ id = 17820, chance = 14285 }, -- soft cheese
+	{ id = 17821, chance = 14285 }, -- rat cheese
+	{ id = 820, chance = 1612 }, -- lightning boots
+	{ id = 818, chance = 3225 } -- magma boots
 }
 
 -- TODO: monster-abilities
 --monster.attacks = {
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 400, maxDamage = -210},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 80, maxDamage = -110, range = 7, shootEffect = CONST_ANI_WHIRLWINDCLUB, target = false}
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 400, maxDamage = -210 },
+	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 80, maxDamage = -110, range = 7, shootEffect = CONST_ANI_WHIRLWINDCLUB, target = false }
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15
---	mitigation = ???,
+	--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 100 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

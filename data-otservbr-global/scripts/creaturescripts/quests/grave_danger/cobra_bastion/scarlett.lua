@@ -1,13 +1,13 @@
-local combat = Combat()	
+local combat = Combat()
 
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_EARTHDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_GROUNDSHAKER)
 local arr = {
-	{0, 1, 1, 1, 0},
-	{1, 1, 1, 1, 1},
-	{1, 1, 3, 1, 1},
-	{1, 1, 1, 1, 1},
-	{0, 1, 1, 1, 0}
+	{ 0, 1, 1, 1, 0 },
+	{ 1, 1, 1, 1, 1 },
+	{ 1, 1, 3, 1, 1 },
+	{ 1, 1, 1, 1, 1 },
+	{ 0, 1, 1, 1, 0 }
 }
 
 combat:setArea(createCombatArea(arr))
@@ -17,6 +17,7 @@ function onTargetCreature(creature, target)
 	doTargetCombatHealth(0, target, COMBAT_EARTHDAMAGE, min, max, CONST_ME_NONE)
 	return true
 end
+
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")
 
 local storage = Storage.GraveDanger.CobraBastion.Questline

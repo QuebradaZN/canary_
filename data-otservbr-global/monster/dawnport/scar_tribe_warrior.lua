@@ -61,16 +61,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 11453, chance = 6740}, -- broken helmet
-	{id = 3358, chance = 5620}, -- chain armor
-	{id = 3031, chance = 100000, maxCount = 8}, -- gold coin
-	{id = 3577, chance = 13480}, -- meat
-	{id = 11479, chance = 5620}, -- orc leather
-	{id = 11480, chance = 1120} -- skull belt
+	{ id = 11453, chance = 6740 }, -- broken helmet
+	{ id = 3358, chance = 5620 }, -- chain armor
+	{ id = 3031, chance = 100000, maxCount = 8 }, -- gold coin
+	{ id = 3577, chance = 13480 }, -- meat
+	{ id = 11479, chance = 5620 }, -- orc leather
+	{ id = 11480, chance = 1120 } -- skull belt
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 10, attack = 25}
+	{ name = "melee", interval = 2000, chance = 100, skill = 10, attack = 25 }
 }
 
 monster.defenses = {
@@ -80,23 +80,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

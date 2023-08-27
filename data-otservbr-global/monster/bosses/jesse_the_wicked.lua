@@ -65,46 +65,46 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "That banker never saw it coming!", yell = false},
-	{text = "You will not take this gold from me!", yell = false},
-	{text = "KEEP YOUR HANDS OFF THAT BAG!", yell = true},
-	{text = "Kill him, men!", yell = false},
-	{text = "Take from the rich, keep it for yourself. That's my motto.", yell = false},
+	{ text = "That banker never saw it coming!", yell = false },
+	{ text = "You will not take this gold from me!", yell = false },
+	{ text = "KEEP YOUR HANDS OFF THAT BAG!", yell = true },
+	{ text = "Kill him, men!", yell = false },
+	{ text = "Take from the rich, keep it for yourself. That's my motto.", yell = false },
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 99},
-	{name = "bag with stolen gold", chance = 100000}
+	{ name = "platinum coin", chance = 100000, maxCount = 99 },
+	{ name = "bag with stolen gold", chance = 100000 }
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100}
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100 }
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 25,
---	mitigation = ???,
+	--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType.onThink = function(monster, interval)

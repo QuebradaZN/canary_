@@ -107,7 +107,7 @@ function questSystem1.onUse(player, item, fromPosition, target, toPosition, isHo
 			if originalItem:isContainer() then
 				copyContainerItem(Container(originalItem.uid), Container(newItem.uid))
 			end
-			items[#items + 1] = newItem
+			items[#items+1] = newItem
 			::continue::
 		end
 

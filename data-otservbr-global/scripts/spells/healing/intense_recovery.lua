@@ -1,5 +1,5 @@
 local combat = Combat()
-local cooldown = 2* 60 * 1000
+local cooldown = 2 * 60 * 1000
 
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_GREEN)
 combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)

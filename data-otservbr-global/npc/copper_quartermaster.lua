@@ -26,7 +26,7 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{text = 'Trading tokens! Copper level equipment available!'}
+	{ text = 'Trading tokens! Copper level equipment available!' }
 }
 
 npcConfig.currency = 22722
@@ -146,8 +146,8 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 
 	if MsgContains(message, "information") then
-		npcHandler:say({"{Copper Tokens} are pieces of currency. You can use them to buy low level (level 50) equipment from token traders like me.",
-						"You can gain copper tokens from advancing levels. For each level gained in the range of 50-100, you will earn 5 {copper tokens}.", "You can also earn copper tokens by completing tier 1 {hunting tasks}."}, npc, creature)
+		npcHandler:say({ "{Copper Tokens} are pieces of currency. You can use them to buy low level (level 50) equipment from token traders like me.",
+			"You can gain copper tokens from advancing levels. For each level gained in the range of 50-100, you will earn 5 {copper tokens}.", "You can also earn copper tokens by completing tier 1 {hunting tasks}." }, npc, creature)
 	elseif MsgContains(message, "tokens") then
 		npc:openShopWindow(creature)
 		npcHandler:say("If you have any copper tokens with you, let's have a look! These are my offers.", npc, creature)

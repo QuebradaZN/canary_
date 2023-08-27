@@ -17,15 +17,15 @@ combat2:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYDAMAGE)
 combat2:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLHOLY)
 
 function onGetFormulaValues(player, level, maglevel)
-	local min = 1.7*((level / 5) + (maglevel * 1.79) + 11)
-	local max = 1.7*((level / 5) + (maglevel * 3) + 18)
+	local min = 1.7 * ((level / 5) + (maglevel * 1.79) + 11)
+	local max = 1.7 * ((level / 5) + (maglevel * 3) + 18)
 	return -min, -max
 end
 
 function onGetFormulaValuesSharpshooter(player, level, maglevel)
-	local min = 1.7*((level / 5) + (maglevel * 1.79) + 11)
-	local max = 1.7*((level / 5) + (maglevel * 3) + 18)
-	return -1.2*min, -1.2*max
+	local min = 1.7 * ((level / 5) + (maglevel * 1.79) + 11)
+	local max = 1.7 * ((level / 5) + (maglevel * 3) + 18)
+	return -1.2 * min, -1.2 * max
 end
 
 function onGetFormulaValues2(player, level, maglevel)
@@ -54,11 +54,11 @@ combatSharpshooter:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValueSharpsho
 function spell.onCastSpell(creature, var)
 	local target = Creature(var:getNumber())
 	local player = creature:getPlayer()
-	
+
 	if player and target then
 		if player:getBuffStacks() > 0 then
 			player:addCondition(createBuffStacksCondition(player:getBuffStacks() - 1))
-			
+
 			if player:getBuffStacks() == 0 then
 				creature:removeCondition(CONDITION_ATTRIBUTES, CONDITIONID_COMBAT, 5)
 			end

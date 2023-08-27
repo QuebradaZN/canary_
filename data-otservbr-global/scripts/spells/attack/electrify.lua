@@ -7,10 +7,10 @@ local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
 	local player = creature:getPlayer()
-local condition = Condition(CONDITION_ENERGY)
-condition:setParameter(CONDITION_PARAM_DELAYED, 1)
-condition:addDamage(25, 3000, -45)
-combat:addCondition(condition)
+	local condition = Condition(CONDITION_ENERGY)
+	condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+	condition:addDamage(25, 3000, -45)
+	combat:addCondition(condition)
 	return combat:execute(creature, var)
 end
 

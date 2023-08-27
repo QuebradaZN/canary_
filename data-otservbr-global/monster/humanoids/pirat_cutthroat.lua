@@ -73,16 +73,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "great health potion", chance = 44810, maxCount = 4},
-	{name = "ice rapier", chance = 25950},
-	{name = "knight axe", chance = 12500},
-	{name = "crystal sword", chance = 19420},
-	{name = "pirate coin", chance = 17810, maxCount = 10},
-	{name = "crowbar", chance = 7810},
-	{name = "knight armor", chance = 9550},
-	{name = "focus cape", chance = 8250},
-	{name = "pirat's tail", chance = 2120},
-	{name = "shark fins", chance = 1750}
+	{ name = "great health potion", chance = 44810, maxCount = 4 },
+	{ name = "ice rapier", chance = 25950 },
+	{ name = "knight axe", chance = 12500 },
+	{ name = "crystal sword", chance = 19420 },
+	{ name = "pirate coin", chance = 17810, maxCount = 10 },
+	{ name = "crowbar", chance = 7810 },
+	{ name = "knight armor", chance = 9550 },
+	{ name = "focus cape", chance = 8250 },
+	{ name = "pirat's tail", chance = 2120 },
+	{ name = "shark fins", chance = 1750 }
 }
 
 -- TODO: monster-abilities
@@ -92,9 +92,9 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -120, maxDamage = -160?, range = ?, effect = <>, target = ?}, --Blood Exori
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
-	{name ="combat", interval = 2000, chance = 18, type = COMBAT_PHYSICALDAMAGE, minDamage = -110, maxDamage = -190, length = 4, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -120, maxDamage = -175, radius = 3, effect = CONST_ME_ENERGYHIT, target = false}
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450 },
+	{ name = "combat", interval = 2000, chance = 18, type = COMBAT_PHYSICALDAMAGE, minDamage = -110, maxDamage = -190, length = 4, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false },
+	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -120, maxDamage = -175, radius = 3, effect = CONST_ME_ENERGYHIT, target = false }
 }
 
 monster.defenses = {
@@ -104,23 +104,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 20},
-	{type = COMBAT_EARTHDAMAGE, percent = -20},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 10 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 20 },
+	{ type = COMBAT_EARTHDAMAGE, percent = -20 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
-	{type = "outfit", condition = true},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = false },
+	{ type = "outfit", condition = true },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

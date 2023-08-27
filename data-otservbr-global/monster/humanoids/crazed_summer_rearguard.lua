@@ -73,28 +73,28 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Is this real life?", yell = false},
-	{text = "Weeeuuu weeeuuu!!!", yell = false},
+	{ text = "Is this real life?", yell = false },
+	{ text = "Weeeuuu weeeuuu!!!", yell = false },
 }
 
 monster.loot = {
-	{name = "power bolt", chance = 1000000},
-	{name = "small enchanted sapphire", chance = 790, maxCount = 2},
-	{name = "platinum coin", chance = 85000, maxCount = 11},
-	{id = 5921, chance = 10500}, -- heaven blossom
-	{name = "dream essence egg", chance = 8500},
-	{name = "elvish talisman", chance = 7200},
-	{name = "violet crystal shard", chance = 4500},
-	{name = "small enchanted ruby", chance = 6000},
-	{name = "red crystal fragment", chance = 4500},
-	{name = "leaf star", chance = 4000, maxCount = 8},
-	{id = 23529, chance = 2500}, -- ring of blue plasma
-	{name = "sun fruit", chance = 890},
-	{id = 23542, chance = 900},-- collar of blue plasma
-	{name = "wood cape", chance = 1300},
-	{name = "small diamond", chance = 600},
-	{name = "yellow gem", chance = 1000},
-	{name = "crystal crossbow", chance = 500}
+	{ name = "power bolt", chance = 1000000 },
+	{ name = "small enchanted sapphire", chance = 790, maxCount = 2 },
+	{ name = "platinum coin", chance = 85000, maxCount = 11 },
+	{ id = 5921, chance = 10500 }, -- heaven blossom
+	{ name = "dream essence egg", chance = 8500 },
+	{ name = "elvish talisman", chance = 7200 },
+	{ name = "violet crystal shard", chance = 4500 },
+	{ name = "small enchanted ruby", chance = 6000 },
+	{ name = "red crystal fragment", chance = 4500 },
+	{ name = "leaf star", chance = 4000, maxCount = 8 },
+	{ id = 23529, chance = 2500 }, -- ring of blue plasma
+	{ name = "sun fruit", chance = 890 },
+	{ id = 23542, chance = 900 }, -- collar of blue plasma
+	{ name = "wood cape", chance = 1300 },
+	{ name = "small diamond", chance = 600 },
+	{ name = "yellow gem", chance = 1000 },
+	{ name = "crystal crossbow", chance = 500 }
 }
 
 -- TODO: monster-abilities
@@ -105,11 +105,11 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100%, maxDamage = -100%, range = ?, effect = <>, target = ?}, --Reflects Fire Damage
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -210, maxDamage = -530},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -270, maxDamage = -710, length = 3, spread = 0, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -250, maxDamage = -300, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -380, radius = 5, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, radius = 5, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	{ name = "melee", interval = 2000, chance = 100, minDamage = -210, maxDamage = -530 },
+	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -270, maxDamage = -710, length = 3, spread = 0, effect = CONST_ME_FIREAREA, target = false },
+	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -250, maxDamage = -300, range = 7, shootEffect = CONST_ANI_FIRE, target = false },
+	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -380, radius = 5, effect = CONST_ME_EXPLOSIONHIT, target = true },
+	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, radius = 5, effect = CONST_ME_EXPLOSIONAREA, target = true }
 }
 
 monster.defenses = {
@@ -119,27 +119,27 @@ monster.defenses = {
 }
 
 monster.reflects = {
-	{type = COMBAT_FIREDAMAGE, percent = 70}
+	{ type = COMBAT_FIREDAMAGE, percent = 70 }
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 40},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = -25},
-	{type = COMBAT_HOLYDAMAGE, percent = 20},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = -10 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 40 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = -25 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 20 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = true},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = true },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

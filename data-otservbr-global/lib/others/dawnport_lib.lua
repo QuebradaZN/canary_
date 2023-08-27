@@ -32,12 +32,12 @@ function Player.changeVocation(self, newVocationId)
 		magic.manaSpent = magic.manaSpent + self:getVocation():getRequiredManaSpent(level)
 	end
 	local skills = {
-		{id = SKILL_LUCK},
-		{id = SKILL_MELEE},
-		{id = SKILL_DEXTERITY},
-		{id = SKILL_RUNIC},
-		{id = SKILL_DISTANCE},
-		{id = SKILL_DEFENSE}
+		{ id = SKILL_LUCK },
+		{ id = SKILL_MELEE },
+		{ id = SKILL_DEXTERITY },
+		{ id = SKILL_RUNIC },
+		{ id = SKILL_DISTANCE },
+		{ id = SKILL_DEFENSE }
 	}
 	-- Get current vocation skills levels and skills tries
 	for i = 1, #skills do
@@ -88,7 +88,7 @@ function Player.changeVocation(self, newVocationId)
 	-- Set health, mana and capacity stats based on the vocation if is higher than level 8
 	if self:getLevel() > 8 then
 		-- Base stats for level 1
-		local stats = {health = 150, mana = 55, capacity = 45000}
+		local stats = { health = 150, mana = 55, capacity = 45000 }
 		-- No vocation
 		if self:getVocation():getId() == VOCATION.ID.NONE then
 			local level = self:getLevel() - 1

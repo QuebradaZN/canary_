@@ -26,7 +26,7 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{text = 'Change your Bar of Gold\'s for Items here!'}
+	{ text = 'Change your Bar of Gold\'s for Items here!' }
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -58,12 +58,12 @@ end
 
 -- ID, Count, Price
 local eventShopItems = {
-	["small stamina refill"] = {22473, 1, 100},
-	["zaoan chess box"] = {18339, 1, 100},
-	["pannier backpack"] = {19159, 1, 70},
-	["blood herb"] = {3734, 3, 10},
-	["draken doll"] = {12044, 1, 70},
-	["bear doll"] = {3001, 1, 70}
+	["small stamina refill"] = { 22473, 1, 100 },
+	["zaoan chess box"] = { 18339, 1, 100 },
+	["pannier backpack"] = { 19159, 1, 70 },
+	["blood herb"] = { 3734, 3, 10 },
+	["draken doll"] = { 12044, 1, 70 },
+	["bear doll"] = { 3001, 1, 70 }
 }
 
 local function creatureSayCallback(npc, creature, type, message)
@@ -83,10 +83,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:setTopic(playerId, 0)
 		local itemId, itemCount, itemPrice = eventShopItems[message][1], eventShopItems[message][2], eventShopItems[message][3]
 		if (player:getItemCount(14112) > 0) then
-			npcHandler:say("You want buy {" ..message.. "} for " ..itemPrice.. "x?", npc, creature)
+			npcHandler:say("You want buy {" .. message .. "} for " .. itemPrice .. "x?", npc, creature)
 			npcHandler:setTopic(message)
 		else
-			npcHandler:say("You don't have " ..itemPrice.. " {Bar of Gold(s)}!", npc, creature)
+			npcHandler:say("You don't have " .. itemPrice .. " {Bar of Gold(s)}!", npc, creature)
 			return true
 		end
 	end
@@ -98,7 +98,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 0)
 		elseif message == "yes" then
 			if (player:getItemCount(14112) >= itemPrice) then
-				npcHandler:say("You bought {" ..npcHandler:getTopic(playerId).."} " ..itemCount.. "x for " ..itemPrice.. " {Bar of Gold(s)}!", npc, creature)
+				npcHandler:say("You bought {" .. npcHandler:getTopic(playerId) .. "} " .. itemCount .. "x for " .. itemPrice .. " {Bar of Gold(s)}!", npc, creature)
 				player:removeItem(14112, itemPrice)
 				player:addItem(itemId, itemCount)
 			else

@@ -26,7 +26,7 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{text = 'Trading tokens! Titanium level equipment available!'}
+	{ text = 'Trading tokens! Titanium level equipment available!' }
 }
 
 npcConfig.currency = 22724
@@ -42,19 +42,19 @@ npcConfig.shop = {
 	{ itemName = "(x500) masterful exercise wand", clientId = 35290, buy = 20 },
 	{ itemName = "(x500) masterful exercise bow", clientId = 35288, buy = 20 },
 	{ itemName = "5x prey wildcard", clientId = 5779, buy = 50 },
-	{ itemName = "bestiary betterment", clientId = 36728, buy = 100},
-	{ itemName = "fire amplification", clientId = 36736, buy = 100},
-	{ itemName = "ice amplification", clientId = 36737, buy = 100},
-	{ itemName = "earth amplification", clientId = 36738, buy = 100},
-	{ itemName = "energy amplification", clientId = 36739, buy = 100},
-	{ itemName = "holy amplification", clientId = 36740, buy = 100},
-	{ itemName = "death amplification", clientId = 36741, buy = 100},
-	{ itemName = "physical amplification", clientId = 36742, buy = 100},
-	{ itemName = "charm upgrade", clientId = 36726, buy = 100},
-	{ itemName = "strike enhancement", clientId = 36724, buy = 100},
-	{ itemName = "copper token", clientId = 22722, buy = 1},
-	{ itemName = "iron token", clientId = 22720, buy = 1},
-	{ itemName = "platinum token", clientId = 22723, buy = 1},
+	{ itemName = "bestiary betterment", clientId = 36728, buy = 100 },
+	{ itemName = "fire amplification", clientId = 36736, buy = 100 },
+	{ itemName = "ice amplification", clientId = 36737, buy = 100 },
+	{ itemName = "earth amplification", clientId = 36738, buy = 100 },
+	{ itemName = "energy amplification", clientId = 36739, buy = 100 },
+	{ itemName = "holy amplification", clientId = 36740, buy = 100 },
+	{ itemName = "death amplification", clientId = 36741, buy = 100 },
+	{ itemName = "physical amplification", clientId = 36742, buy = 100 },
+	{ itemName = "charm upgrade", clientId = 36726, buy = 100 },
+	{ itemName = "strike enhancement", clientId = 36724, buy = 100 },
+	{ itemName = "copper token", clientId = 22722, buy = 1 },
+	{ itemName = "iron token", clientId = 22720, buy = 1 },
+	{ itemName = "platinum token", clientId = 22723, buy = 1 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
@@ -132,8 +132,8 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 
 	if MsgContains(message, "information") then
-		npcHandler:say({"{Titanium Tokens} are pieces of currency. You can use them to buy advanced level (level 200) equipment from token traders like me.",
-						"You can gain titanium tokens from gaining levels. For each level gained in the range of 200 to 500, you will earn 5 {titanium tokens}.", "You can also earn titanium tokens by completing tier 4 {hunting tasks}."}, npc, creature)
+		npcHandler:say({ "{Titanium Tokens} are pieces of currency. You can use them to buy advanced level (level 200) equipment from token traders like me.",
+			"You can gain titanium tokens from gaining levels. For each level gained in the range of 200 to 500, you will earn 5 {titanium tokens}.", "You can also earn titanium tokens by completing tier 4 {hunting tasks}." }, npc, creature)
 	elseif MsgContains(message, "tokens") then
 		npc:openShopWindow(creature)
 		npcHandler:say("If you have any titanium tokens with you, let's have a look! These are my offers.", npc, creature)

@@ -1,15 +1,15 @@
 local randLoot = {
-	{itemId = 3577},
-	{itemId = 3582},
-	{itemId = 836},
-	{itemId = 3587},
-	{itemId = 3591},
-	{itemId = 3593},
-	{itemId = 3586},
-	{itemId = 3601},
-	{itemId = 30059},
-	{itemId = 30060},
-	{itemId = 30061}
+	{ itemId = 3577 },
+	{ itemId = 3582 },
+	{ itemId = 836 },
+	{ itemId = 3587 },
+	{ itemId = 3591 },
+	{ itemId = 3593 },
+	{ itemId = 3586 },
+	{ itemId = 3601 },
+	{ itemId = 30059 },
+	{ itemId = 30060 },
+	{ itemId = 30061 }
 }
 
 local uglyMonster = nil
@@ -36,6 +36,7 @@ function uglyMonsterSpawn.onHealthChange(creature, attacker, primaryDamage, prim
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+
 uglyMonsterSpawn:register()
 
 local uglyMonsterCleanup = CreatureEvent("UglyMonsterCleanup")
@@ -45,6 +46,7 @@ function uglyMonsterCleanup.onDeath(creature, corpse, killer, mostDamage, unjust
 	table.remove(creatureToSpawn, creature:getId())
 	return true
 end
+
 uglyMonsterCleanup:register()
 
 local uglyMonsterDeath = CreatureEvent("UglyMonsterDeath")
@@ -54,6 +56,7 @@ function uglyMonsterDeath.onDeath(creature, corpse, killer, mostDamage, unjustif
 	end
 	Game.setStorageValue(GlobalStorage.UglyMonster, 0)
 end
+
 uglyMonsterDeath:register()
 
 local uglyMonsterDrop = CreatureEvent("UglyMonsterDrop")
@@ -62,7 +65,7 @@ function uglyMonsterDrop.onHealthChange(creature, attacker, primaryDamage, prima
 	if chance == 100 then
 		chance = math.random(100)
 		if chance >= 98 then
-			chance = math.random(9,11)
+			chance = math.random(9, 11)
 			Game.createItem(randLoot[chance].itemId, 1, creature:getPosition())
 		else
 			chance = math.random(8)
@@ -71,4 +74,5 @@ function uglyMonsterDrop.onHealthChange(creature, attacker, primaryDamage, prima
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+
 uglyMonsterDrop:register()

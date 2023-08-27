@@ -54,7 +54,7 @@ function townsModal(player)
 		message = "Towns"
 	}
 	for i, info in pairs(towns) do
-		window:addChoice(string.format("%s", info.name), function (player, button, choice)
+		window:addChoice(string.format("%s", info.name), function(player, button, choice)
 			if button.name ~= "Select" then
 				return true
 			end
@@ -106,7 +106,7 @@ function housesModal(player)
 	end
 
 	for i, info in pairs(houses) do
-		window:addChoice(string.format("%s", info.name), function (player, button, choice)
+		window:addChoice(string.format("%s", info.name), function(player, button, choice)
 			if button.name ~= "Select" then
 				return true
 			end
@@ -140,27 +140,27 @@ function teleportCube.onUse(player, item, fromPosition, target, toPosition, isHo
 		message = "Choose an option"
 	}
 
-	window:addChoice("Towns", function (player, button, choice)
+	window:addChoice("Towns", function(player, button, choice)
 		if button.name ~= "Select" then
 			return true
 		end
 		townsModal(player)
 		return true
 	end)
-	window:addChoice("Houses", function (player, button, choice)
+	window:addChoice("Houses", function(player, button, choice)
 		if button.name ~= "Select" then
 			return true
 		end
 		housesModal(player)
 		return true
 	end)
-	window:addChoice("Adventurer's Guild", function (player, button, choice)
+	window:addChoice("Adventurer's Guild", function(player, button, choice)
 		if button.name ~= "Select" then
 			return true
 		end
 		teleportPlayer(player, {
 			name = "Adventurer's Guild",
-			position = {x = 32210, y = 32300, z = 6},
+			position = { x = 32210, y = 32300, z = 6 },
 		})
 		return true
 	end)

@@ -11,7 +11,7 @@ function onGetFormulaValues(player, skill, attack, factor)
 	local min = (level / 4) + (skill * 1.1 + attack) * 1.5
 	local max = (level / 4) + (skill * 1.2 + attack) * 2.0
 
-	return -min , -max
+	return -min, -max
 end
 
 combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")

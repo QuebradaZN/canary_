@@ -1,6 +1,6 @@
 local bosses = {
-	["magma bubble"] = {storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.MagmaBubbleKilled},
-	["the primal menace"] = {storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.ThePrimalMenaceKilled},
+	["magma bubble"] = { storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.MagmaBubbleKilled },
+	["the primal menace"] = { storage = Storage.Quest.U12_90.PrimalOrdeal.Bosses.ThePrimalMenaceKilled },
 }
 
 local bossesPrimeOrdeal = CreatureEvent("PrimeOrdealKill")
@@ -23,4 +23,5 @@ function bossesPrimeOrdeal.onKill(creature, target)
 	end
 	return true
 end
+
 bossesPrimeOrdeal:register()

@@ -6,12 +6,12 @@ DailyRewardSystem = {
 }
 
 local ServerPackets = {
-	ShowDialog = 0xED,                -- universal
+	ShowDialog = 0xED, -- universal
 	DailyRewardCollectionState = 0xDE, -- undone
-	OpenRewardWall = 0xE2,            -- Done
-	CloseRewardWall = 0xE3,           -- is it necessary?
-	DailyRewardBasic = 0xE4,          -- Done
-	DailyRewardHistory = 0xE5,        -- Done
+	OpenRewardWall = 0xE2, -- Done
+	CloseRewardWall = 0xE3, -- is it necessary?
+	DailyRewardBasic = 0xE4, -- Done
+	DailyRewardHistory = 0xE5, -- Done
 	-- RestingAreaState = 0xA9 -- Moved to cpp
 }
 
@@ -121,7 +121,8 @@ DailyReward = {
 		[4] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			items = { Concoction.Ids.EarthResilience, Concoction.Ids.EnergyResilience, Concoction.Ids.HolyResilience, Concoction.Ids.DeathResilience, Concoction.Ids.PhysicalResilience, Concoction.Ids.FireResilience, Concoction.Ids.IceResilience, Concoction.Ids.EarthAmplification, Concoction.Ids.EnergyAmplification, Concoction.Ids.HolyAmplification, Concoction.Ids.DeathAmplification, Concoction.Ids.PhysicalAmplification, Concoction.Ids.FireAmplification, Concoction.Ids.IceAmplification },
+			items = { Concoction.Ids.EarthResilience, Concoction.Ids.EnergyResilience, Concoction.Ids.HolyResilience, Concoction.Ids.DeathResilience, Concoction.Ids.PhysicalResilience, Concoction.Ids.FireResilience, Concoction.Ids.IceResilience, Concoction.Ids.EarthAmplification, Concoction.Ids.EnergyAmplification, Concoction.Ids.HolyAmplification, Concoction.Ids.DeathAmplification,
+				Concoction.Ids.PhysicalAmplification, Concoction.Ids.FireAmplification, Concoction.Ids.IceAmplification },
 			freeAccount = 1,
 			premiumAccount = 1
 		},
@@ -354,14 +355,14 @@ function Player.sendOpenRewardWall(self, shrine)
 
 	local msg = NetworkMessage()
 	msg:addByte(ServerPackets.OpenRewardWall) -- initial packet
-	msg:addByte(shrine)                      -- isPlayer taking bonus from reward shrine (1) - taking it from a instant bonus reward (0)
+	msg:addByte(shrine) -- isPlayer taking bonus from reward shrine (1) - taking it from a instant bonus reward (0)
 	if DailyReward.testMode or not (DailyReward.isRewardTaken(self:getId())) then
 		msg:addU32(0)
 	else
 		msg:addU32(GetDailyRewardLastServerSave() + DailyReward.serverTimeThreshold)
 	end
-	msg:addByte(self:getDayStreak())                                                                  -- current reward? day = 0, day 1, ... this should be resetted to 0 every week imo
-	if DailyReward.isRewardTaken(self:getId()) then                                                   -- state (player already took reward? but just make sure noone wpe)
+	msg:addByte(self:getDayStreak()) -- current reward? day = 0, day 1, ... this should be resetted to 0 every week imo
+	if DailyReward.isRewardTaken(self:getId()) then -- state (player already took reward? but just make sure noone wpe)
 		msg:addByte(1)
 		msg:addString("Sorry, you have already taken your daily reward or you are unable to collect it.") -- Unknown message
 		if self:getJokerTokens() > 0 then
@@ -618,7 +619,7 @@ function Player.sendDailyReward(self)
 	msg:addByte(ServerPackets.DailyRewardBasic)
 	msg:addByte(DAILY_REWARD_COUNT)
 	for currentDay = 1, DAILY_REWARD_COUNT do
-		self:readDailyReward(msg, currentDay, DAILY_REWARD_STATUS_FREE)  -- Free rewards
+		self:readDailyReward(msg, currentDay, DAILY_REWARD_STATUS_FREE) -- Free rewards
 		self:readDailyReward(msg, currentDay, DAILY_REWARD_STATUS_PREMIUM) -- Premium rewards
 	end
 	-- Resting area bonuses

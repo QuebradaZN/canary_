@@ -5,7 +5,7 @@ local function calculateLuckExp(chance, experience)
 	if chance > 3000 then
 		return 0
 	end
-	local exp =  math.floor(250 * 0.9947 ^ chance + 0.5)
+	local exp = math.floor(250 * 0.9947 ^ chance + 0.5)
 	local multiplier = experience / 2500
 	return exp * multiplier
 end

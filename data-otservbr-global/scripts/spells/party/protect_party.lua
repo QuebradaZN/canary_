@@ -31,7 +31,7 @@ function spell.onCastSpell(creature, var)
 		boostPercent = 98
 	end
 
-	local members = {party:getLeader()}
+	local members = { party:getLeader() }
 
 	for _, member in ipairs(party:getMembers()) do
 		table.insert(members, member)

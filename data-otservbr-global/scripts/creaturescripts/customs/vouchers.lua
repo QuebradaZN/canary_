@@ -223,4 +223,3 @@ for id, _ in pairs(ids) do
 	activate:id(id)
 end
 activate:register()
-

@@ -39,7 +39,7 @@ deathCombat:setParameter(COMBAT_PARAM_TYPE, COMBAT_DEATHDAMAGE)
 deathCombat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
 deathCombat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SUDDENDEATH)
 
-combats = {physicalCombat, energyCombat, earthCombat, fireCombat, iceCombat, holyCombat, deathCombat}
+combats = { physicalCombat, energyCombat, earthCombat, fireCombat, iceCombat, holyCombat, deathCombat }
 
 function onGetFormulaValues(player, skill, attack, factor)
 	local level = player:getLevel()
@@ -83,13 +83,13 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	local target = Creature(var:getNumber())
 	local player = creature:getPlayer()
-	
+
 	if not target or not target:isMonster() then
 		creature:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
-	
+
 	if player and target then
 		if player:getBuffStacks() > 0 then
 			local monsterType = target:getType()
@@ -103,42 +103,42 @@ function spell.onCastSpell(creature, var)
 			local resistanceIce = resistanceTable[COMBAT_ICEDAMAGE]
 			local resistanceHoly = resistanceTable[COMBAT_HOLYDAMAGE]
 			local resistanceDeath = resistanceTable[COMBAT_DEATHDAMAGE]
-			
+
 			if resistancePhysical < lowestResistanceValue then
 				lowestResistanceValue = resistancePhysical
 				lowestResistanceType = COMBAT_PHYSICALDAMAGE
 			end
-			
+
 			if resistanceEnergy < lowestResistanceValue then
 				lowestResistanceValue = resistanceEnergy
 				lowestResistanceType = COMBAT_ENERGYDAMAGE
 			end
-			
+
 			if resistanceEarth < lowestResistanceValue then
 				lowestResistanceValue = resistanceEarth
 				lowestResistanceType = COMBAT_EARTHDAMAGE
 			end
-			
+
 			if resistanceFire < lowestResistanceValue then
 				lowestResistanceValue = resistanceFire
 				lowestResistanceType = COMBAT_FIREDAMAGE
 			end
-			
+
 			if resistanceIce < lowestResistanceValue then
 				lowestResistanceValue = resistanceIce
 				lowestResistanceType = COMBAT_ICEDAMAGE
 			end
-			
+
 			if resistanceHoly < lowestResistanceValue then
 				lowestResistanceValue = resistanceHoly
 				lowestResistanceType = COMBAT_HOLYDAMAGE
 			end
-			
+
 			if resistanceDeath < lowestResistanceValue then
 				lowestResistanceValue = resistanceDeath
 				lowestResistanceType = COMBAT_DEATHDAMAGE
 			end
-			
+
 			if lowestResistanceType == COMBAT_PHYSICALDAMAGE then
 				physicalCombat:execute(creature, var)
 			end
@@ -168,11 +168,11 @@ function spell.onCastSpell(creature, var)
 			end
 
 			player:addCondition(createBuffStacksCondition(player:getBuffStacks() - 1))
-			
+
 			if player:getBuffStacks() == 0 then
 				creature:removeCondition(CONDITION_ATTRIBUTES, CONDITIONID_COMBAT, 5)
 			end
-		else 
+		else
 			combat:execute(creature, var)
 		end
 	end

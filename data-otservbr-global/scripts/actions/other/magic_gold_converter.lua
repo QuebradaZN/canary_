@@ -2,11 +2,11 @@ local data = {
 	converterIds = {
 		[28525] = 28526,
 		[28526] = 28525,
-		},
+	},
 	coins = {
 		[ITEM_GOLD_COIN] = ITEM_PLATINUM_COIN,
 		[ITEM_PLATINUM_COIN] = ITEM_CRYSTAL_COIN
-		}
+	}
 }
 
 local function finditem(self, cylinder, conv)
@@ -27,7 +27,7 @@ local function finditem(self, cylinder, conv)
 				for fromid, toid in pairs(data.coins) do
 					if item:getId() == fromid and item:getCount() == 100 then
 						item:remove()
-						if not(cylinder:addItem(toid, 1)) then
+						if not (cylinder:addItem(toid, 1)) then
 							player:addItem(toid, 1)
 						end
 
@@ -46,8 +46,7 @@ end
 local function start_converter(pid, itemid)
 	local player = Player(pid)
 	if player ~= nil then
-
-	local item = player:getItemById(itemid,true)
+		local item = player:getItemById(itemid, true)
 		if player:getItemCount(itemid) >= 1 then
 			if item:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then
 				local charges_n = item:getAttribute(ITEM_ATTRIBUTE_CHARGES)
@@ -71,9 +70,9 @@ end
 local magicGoldConverter = Action()
 
 function magicGoldConverter.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-		item:transform(data.converterIds[item.itemid])
-		item:decay()
-		start_converter(player:getId(), 28526)
+	item:transform(data.converterIds[item.itemid])
+	item:decay()
+	start_converter(player:getId(), 28526)
 	return true
 end
 

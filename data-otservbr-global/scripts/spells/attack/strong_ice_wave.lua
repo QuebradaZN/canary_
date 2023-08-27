@@ -35,7 +35,7 @@ function spell.onCastSpell(creature, var)
 	end
 
 	-- if hasSynergy then
-		return synergicCombat:execute(creature, var)
+	return synergicCombat:execute(creature, var)
 	-- end
 
 	-- return combat:execute(creature, var)

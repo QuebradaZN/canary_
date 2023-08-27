@@ -125,7 +125,7 @@ forgeFiendishIntervalTime = "1"
 -- NOTE: bosstiaryKillMultiplier, multiplier value of boss killed, default 1
 bestiaryKillMultiplier = 2
 bosstiaryKillMultiplier = 2
-bestiaryRateCharmShopPrice  = 1.0
+bestiaryRateCharmShopPrice = 1.0
 boostedBossSlot = true
 boostedBossLootBonus = 250
 boostedBossKillBonus = 5
@@ -400,7 +400,7 @@ vipStayOnline = true
 vipFamiliarTimeCooldownReduction = 15
 
 -- Runic
-runicMultiplier = 1/500
+runicMultiplier = 1 / 500
 
 -- Wheel of destiny system
 -- NOTE: set wheelSystemEnabled = false to disable the wheel of destiny

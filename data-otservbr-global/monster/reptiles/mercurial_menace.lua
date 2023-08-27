@@ -70,32 +70,32 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Shwooo...", yell = false},
+	{ text = "Shwooo...", yell = false },
 }
 
 monster.loot = {
-	{name = "Crystal Coin", chance = 24890, minCount = 1, maxCount = 2},
-	{name = "Mercurial Wing", chance = 21500},
-	{name = "Terra Boots", chance = 4250},
-	{name = "Silver Brooch", chance = 2700},
-	{name = "Terra Rod", chance = 1660},
-	{name = "Wand of Defiance", chance = 1230},
-	{name = "Dream Blossom Staff", chance = 1090},
-	{name = "Coral Brooch", chance = 1030},
-	{name = "Lightning Boots", chance = 1000},
-	{name = "Wand of Cosmic Energy", chance = 860},
-	{name = "Gemmed Figurine", chance = 830},
-	{name = "Butterfly Ring", chance = 800},
+	{ name = "Crystal Coin", chance = 24890, minCount = 1, maxCount = 2 },
+	{ name = "Mercurial Wing", chance = 21500 },
+	{ name = "Terra Boots", chance = 4250 },
+	{ name = "Silver Brooch", chance = 2700 },
+	{ name = "Terra Rod", chance = 1660 },
+	{ name = "Wand of Defiance", chance = 1230 },
+	{ name = "Dream Blossom Staff", chance = 1090 },
+	{ name = "Coral Brooch", chance = 1030 },
+	{ name = "Lightning Boots", chance = 1000 },
+	{ name = "Wand of Cosmic Energy", chance = 860 },
+	{ name = "Gemmed Figurine", chance = 830 },
+	{ name = "Butterfly Ring", chance = 800 },
 }
 
 -- TODO: monster-abilities
 --monster.attacks = {
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -900},
-	{name ="combat", interval = 2000, chance = 75, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -750, range = 4, shootEffect = CONST_ANI_SMALLSTONE, target = true},
-	{name ="combat", interval = 3000, chance = 40, type = COMBAT_ENERGYDAMAGE, minDamage = -800, maxDamage = -1500, range = 3, effect = CONST_ME_BLUE_ENERGY_SPARK, target = true},
-	{name ="mercurial menace ring", interval = 4500, chance = 37, minDamage = -500, maxDamage = -700},
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -900 },
+	{ name = "combat", interval = 2000, chance = 75, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -750, range = 4, shootEffect = CONST_ANI_SMALLSTONE, target = true },
+	{ name = "combat", interval = 3000, chance = 40, type = COMBAT_ENERGYDAMAGE, minDamage = -800, maxDamage = -1500, range = 3, effect = CONST_ME_BLUE_ENERGY_SPARK, target = true },
+	{ name = "mercurial menace ring", interval = 4500, chance = 37, minDamage = -500, maxDamage = -700 },
 }
 
 monster.defenses = {
@@ -105,23 +105,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 5},
-	{type = COMBAT_ENERGYDAMAGE, percent = -20},
-	{type = COMBAT_EARTHDAMAGE, percent = -10},
-	{type = COMBAT_FIREDAMAGE, percent = 20},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE, percent = 100},
-	{type = COMBAT_DEATHDAMAGE, percent = -5},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 5 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = -20 },
+	{ type = COMBAT_EARTHDAMAGE, percent = -10 },
+	{ type = COMBAT_FIREDAMAGE, percent = 20 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 10 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 100 },
+	{ type = COMBAT_DEATHDAMAGE, percent = -5 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

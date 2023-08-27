@@ -75,63 +75,63 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "FCHHHHH", yell = true},
-	{text = "HISSSS", yell = true},
+	{ text = "FCHHHHH", yell = true },
+	{ text = "HISSSS", yell = true },
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 87970, maxCount = 212},
-	{name = "ham", chance = 59510, maxCount = 3},
-	{name = "platinum coin", chance = 49910, maxCount = 3},
-	{name = "hydra head", chance = 10820},
-	{name = "cucumber", chance = 6900},
-	{name = "small sapphire", chance = 3920},
-	{name = "warrior helmet", chance = 1310},
-	{name = "knight armor", chance = 1120},
-	{name = "life crystal", chance = 930},
-	{id = 3098, chance = 840}, -- ring of healing
-	{name = "hydra egg", chance = 840},
-	{name = "strong mana potion", chance = 840},
-	{name = "stone skin amulet", chance = 750},
-	{name = "boots of haste", chance = 190},
-	{name = "medusa shield", chance = 190},
-	{name = "royal helmet", chance = 90},
+	{ name = "gold coin", chance = 87970, maxCount = 212 },
+	{ name = "ham", chance = 59510, maxCount = 3 },
+	{ name = "platinum coin", chance = 49910, maxCount = 3 },
+	{ name = "hydra head", chance = 10820 },
+	{ name = "cucumber", chance = 6900 },
+	{ name = "small sapphire", chance = 3920 },
+	{ name = "warrior helmet", chance = 1310 },
+	{ name = "knight armor", chance = 1120 },
+	{ name = "life crystal", chance = 930 },
+	{ id = 3098, chance = 840 }, -- ring of healing
+	{ name = "hydra egg", chance = 840 },
+	{ name = "strong mana potion", chance = 840 },
+	{ name = "stone skin amulet", chance = 750 },
+	{ name = "boots of haste", chance = 190 },
+	{ name = "medusa shield", chance = 190 },
+	{ name = "royal helmet", chance = 90 },
 }
 
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -270},
-	{name ="speed", interval = 2000, chance = 25, speedChange = -700, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = true, duration = 15000},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -250, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -80, maxDamage = -155, shootEffect = CONST_ANI_SMALLICE, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -66, maxDamage = -320, length = 8, spread = 3, effect = CONST_ME_CARNIPHILA, target = false}
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -270 },
+	{ name = "speed", interval = 2000, chance = 25, speedChange = -700, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = true, duration = 15000 },
+	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -250, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false },
+	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -80, maxDamage = -155, shootEffect = CONST_ANI_SMALLICE, target = true },
+	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -66, maxDamage = -320, length = 8, spread = 3, effect = CONST_ME_CARNIPHILA, target = false }
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 27,
 	mitigation = 1.18,
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 260, maxDamage = 407, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{ name = "combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 260, maxDamage = 407, effect = CONST_ME_MAGIC_BLUE, target = false }
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
-	{type = COMBAT_ENERGYDAMAGE, percent = -10},
-	{type = COMBAT_EARTHDAMAGE, percent = 100},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE, percent = 30},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = -5 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = -10 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 100 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 100 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 50 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 30 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

@@ -27,7 +27,7 @@ function spell.onCastSpell(creature, variant)
 	end
 	creature:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	if combat:execute(creature, variant) then
-		local condition = Condition(CONDITION_SPELLGROUPCOOLDOWN , 2)
+		local condition = Condition(CONDITION_SPELLGROUPCOOLDOWN, 2)
 		condition:setTicks((groupCooldown) / configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN))
 		creature:addCondition(condition)
 		return true

@@ -25,7 +25,7 @@ local throwables = {
 		itemid = 17110,
 		breakchance = 3,
 		vocation = {
-			{"None", true}
+			{ "None", true }
 		},
 	},
 	{
@@ -102,7 +102,7 @@ for i = 1, #throwables do
 	local w = throwables[i]
 	local weapon = Weapon(WEAPON_MISSILE)
 	weapon:id(w.itemid or w.itemId)
-	
+
 	if w.breakchance or w.breakChance then
 		weapon:breakChance(w.breakchance or w.breakChance)
 	end
@@ -133,4 +133,3 @@ for i = 1, #throwables do
 
 	weapon:register()
 end
-

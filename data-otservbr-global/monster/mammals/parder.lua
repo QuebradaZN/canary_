@@ -70,19 +70,19 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Grrroaaar!", yell = false},
-	{text = "FCHHH!", yell = true},
+	{ text = "Grrroaaar!", yell = false },
+	{ text = "FCHHH!", yell = true },
 }
 
 monster.loot = {
-	{name = "Gold Coin", chance = 100000, minCount = 1, maxCount = 285},
-	{name = "Ham", chance = 24670},
-	{name = "Parder Fur", chance = 19070},
-	{name = "Parder Tooth", chance = 14320, minCount = 1, maxCount = 2},
-	{name = "Red Crystal Fragment", chance = 14030},
-	{name = "Strong Health Potion", chance = 7560, minCount = 1, maxCount = 3},
-	{name = "Barbarian Axe", chance = 4540},
-	{id = 7385, chance = 1510}, -- Crimson Sword
+	{ name = "Gold Coin", chance = 100000, minCount = 1, maxCount = 285 },
+	{ name = "Ham", chance = 24670 },
+	{ name = "Parder Fur", chance = 19070 },
+	{ name = "Parder Tooth", chance = 14320, minCount = 1, maxCount = 2 },
+	{ name = "Red Crystal Fragment", chance = 14030 },
+	{ name = "Strong Health Potion", chance = 7560, minCount = 1, maxCount = 3 },
+	{ name = "Barbarian Axe", chance = 4540 },
+	{ id = 7385, chance = 1510 }, -- Crimson Sword
 }
 
 -- TODO: monster-abilities
@@ -95,9 +95,9 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown maybe buff, maxDamage = -unknown maybe buff, range = ?, effect = <>, target = ?}, --Sparkles
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -275},
-	{name ="combat", interval = 2500, chance = 47, type = COMBAT_PHYSICALDAMAGE, minDamage = -126, maxDamage = -262, effect = CONST_ME_BIG_SCRATCH, target = true, range = 1},
-	{name ="combat", interval = 2850, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -260, maxDamage = -300, length = 5, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -275 },
+	{ name = "combat", interval = 2500, chance = 47, type = COMBAT_PHYSICALDAMAGE, minDamage = -126, maxDamage = -262, effect = CONST_ME_BIG_SCRATCH, target = true, range = 1 },
+	{ name = "combat", interval = 2850, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -260, maxDamage = -300, length = 5, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false },
 }
 
 monster.defenses = {
@@ -107,23 +107,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 15},
-	{type = COMBAT_FIREDAMAGE, percent = -10},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 10 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 15 },
+	{ type = COMBAT_FIREDAMAGE, percent = -10 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 15 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

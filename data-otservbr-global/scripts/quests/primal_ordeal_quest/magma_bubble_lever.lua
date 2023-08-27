@@ -23,4 +23,4 @@ lever:position({ x = 33669, y = 32925, z = 15 })
 lever:register()
 
 local zone = lever:getZone()
-zone:addArea({x = 33633, y = 32915, z = 15}, {x = 33649, y = 32928, z = 15})
+zone:addArea({ x = 33633, y = 32915, z = 15 }, { x = 33649, y = 32928, z = 15 })

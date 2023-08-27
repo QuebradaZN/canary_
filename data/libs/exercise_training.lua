@@ -28,13 +28,13 @@ ExerciseWeaponsTable = {
 
 	-- ROD
 	[28544] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLEARTH, allowFarUse = true }, -- training
-	[28556] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },  -- exercise
+	[28556] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic }, -- exercise
 	[35283] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_EARTH, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced }, -- enhanced
 	[35289] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_ENERGY, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful }, --supreme
 
 	-- WAND
 	[28545] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_WHITE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLEARTH, allowFarUse = true }, -- training
-	[28557] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic },  -- exercise
+	[28557] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_BLUE_ENERGY_SPARK, shootEffect = CONST_ANI_SMALLICE, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Basic }, -- exercise
 	[35284] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_GREEN_ENERGY_SPARK, shootEffect = CONST_ANI_EARTH, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Enhanced }, -- enhanced
 	[35290] = { skill = SKILL_MAGLEVEL, effect = CONST_ME_PINK_ENERGY_SPARK, shootEffect = CONST_ANI_ENERGY, allowFarUse = true, speedMultiplier = ExerciseSpeedMultipliers.Masterful }, --supreme
 

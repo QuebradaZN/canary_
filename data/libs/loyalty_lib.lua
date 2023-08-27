@@ -23,26 +23,26 @@ local loyaltySystem = {
 		{ name = "Supreme of Elysiera", points = 3600 },
 	},
 	bonus = {
-		{minPoints = 180, percentage = 2.5},
-		{minPoints = 360, percentage = 5},
-		{minPoints = 540, percentage = 7.5},
-		{minPoints = 720, percentage = 10},
-		{minPoints = 900, percentage = 12.5},
-		{minPoints = 1080, percentage = 15},
-		{minPoints = 1260, percentage = 17.5},
-		{minPoints = 1440, percentage = 20},
-		{minPoints = 1620, percentage = 22.5},
-		{minPoints = 1800, percentage = 25},
-		{minPoints = 1980, percentage = 27.5},
-		{minPoints = 2160, percentage = 30},
-		{minPoints = 2340, percentage = 32.5},
-		{minPoints = 2520, percentage = 35},
-		{minPoints = 2700, percentage = 37.5},
-		{minPoints = 2880, percentage = 40},
-		{minPoints = 3060, percentage = 42.5},
-		{minPoints = 3240, percentage = 45},
-		{minPoints = 3420, percentage = 47.5},
-		{minPoints = 3600, percentage = 50},
+		{ minPoints = 180, percentage = 2.5 },
+		{ minPoints = 360, percentage = 5 },
+		{ minPoints = 540, percentage = 7.5 },
+		{ minPoints = 720, percentage = 10 },
+		{ minPoints = 900, percentage = 12.5 },
+		{ minPoints = 1080, percentage = 15 },
+		{ minPoints = 1260, percentage = 17.5 },
+		{ minPoints = 1440, percentage = 20 },
+		{ minPoints = 1620, percentage = 22.5 },
+		{ minPoints = 1800, percentage = 25 },
+		{ minPoints = 1980, percentage = 27.5 },
+		{ minPoints = 2160, percentage = 30 },
+		{ minPoints = 2340, percentage = 32.5 },
+		{ minPoints = 2520, percentage = 35 },
+		{ minPoints = 2700, percentage = 37.5 },
+		{ minPoints = 2880, percentage = 40 },
+		{ minPoints = 3060, percentage = 42.5 },
+		{ minPoints = 3240, percentage = 45 },
+		{ minPoints = 3420, percentage = 47.5 },
+		{ minPoints = 3600, percentage = 50 },
 	},
 	messageTemplate = "Due to your long-term loyalty to " .. SERVER_NAME .. " you currently benefit from a ${bonusPercentage}% bonus on all of your skills. (You have ${loyaltyPoints} loyalty points)"
 }
@@ -78,7 +78,7 @@ function Player.initializeLoyaltySystem(self)
 	self:setLoyaltyBonus(playerBonusPercentage)
 
 	if self:getLoyaltyBonus() ~= 0 then
-		self:sendTextMessage(MESSAGE_STATUS, string.formatNamed(loyaltySystem.messageTemplate, { bonusPercentage = playerBonusPercentage, loyaltyPoints = playerLoyaltyPoints}))
+		self:sendTextMessage(MESSAGE_STATUS, string.formatNamed(loyaltySystem.messageTemplate, { bonusPercentage = playerBonusPercentage, loyaltyPoints = playerLoyaltyPoints }))
 	end
 
 	return true

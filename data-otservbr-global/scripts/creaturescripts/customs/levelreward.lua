@@ -37,14 +37,19 @@ function levelReward.onAdvance(player, skill, oldLevel, newLevel)
 	end
 
 	local levelsGained = newLevel - math.max(previousLevel, oldLevel)
-	if newLevel >= 50 and newLevel < 100 then player:addItemStoreInbox(tokens.copper, 5 * levelsGained)
-		elseif newLevel >= 100 and newLevel < 150 then player:addItemStoreInbox(tokens.iron, 5 * levelsGained)
-		elseif newLevel >= 150 and newLevel < 200 then player:addItemStoreInbox(tokens.platinum, 5 * levelsGained)
-		elseif newLevel >= 200 and newLevel < 500 then player:addItemStoreInbox(tokens.titanium, 5 * levelsGained) end
+	if newLevel >= 50 and newLevel < 100 then
+		player:addItemStoreInbox(tokens.copper, 5 * levelsGained)
+	elseif newLevel >= 100 and newLevel < 150 then
+		player:addItemStoreInbox(tokens.iron, 5 * levelsGained)
+	elseif newLevel >= 150 and newLevel < 200 then
+		player:addItemStoreInbox(tokens.platinum, 5 * levelsGained)
+	elseif newLevel >= 200 and newLevel < 500 then
+		player:addItemStoreInbox(tokens.titanium, 5 * levelsGained)
+	end
 
-		for level, _ in pairs(table) do
-			if newLevel >= level then
-				if newLevel >= level and player:getStorageValue(storage) < level then
+	for level, _ in pairs(table) do
+		if newLevel >= level then
+			if newLevel >= level and player:getStorageValue(storage) < level then
 				if table[level].type == "item" then
 					player:addItem(table[level].id[1], table[level].id[2])
 				elseif table[level].type == "bank" then

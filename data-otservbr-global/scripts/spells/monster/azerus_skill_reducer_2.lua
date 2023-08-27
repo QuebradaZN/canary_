@@ -8,7 +8,7 @@ for i = 40, 55 do
 	local condition = Condition(CONDITION_ATTRIBUTES)
 	condition:setParameter(CONDITION_PARAM_TICKS, 15000)
 	condition:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, i)
-		combat[i]:addCondition(condition)
+	combat[i]:addCondition(condition)
 end
 
 local spell = Spell("instant")

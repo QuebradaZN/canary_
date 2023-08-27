@@ -2,9 +2,9 @@ local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_BLUE_ENERGY_SPARK)
 arr_small = {
-    {1, 1, 1},
-    {1, 3, 1},
-    {1, 1, 1}
+	{ 1, 1, 1 },
+	{ 1, 3, 1 },
+	{ 1, 1, 1 }
 }
 
 

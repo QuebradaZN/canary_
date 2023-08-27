@@ -26,7 +26,7 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{text = 'Halt!'}
+	{ text = 'Halt!' }
 }
 
 npcConfig.currency = 22722
@@ -88,7 +88,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	if MsgContains(message, "halt") then
 		npcHandler:say("The area ahead is currently {closed}.", npc, creature)
 	elseif MsgContains(message, "closed") then
-		npcHandler:say({"We cannot allow you to pass. The authorities have deemed this sector to be too dangerous for citizens to enter.","You don't have to go home, but you can't stay here."}, npc, creature)
+		npcHandler:say({ "We cannot allow you to pass. The authorities have deemed this sector to be too dangerous for citizens to enter.", "You don't have to go home, but you can't stay here." }, npc, creature)
 	end
 	return true
 end

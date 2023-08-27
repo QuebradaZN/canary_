@@ -353,7 +353,6 @@ function Player:getFamiliarName()
 	return familiarName
 end
 
-
 function Player:CreateFamiliarSpell(spellId)
 	local playerPosition = self:getPosition()
 	if not self:isPremium() then

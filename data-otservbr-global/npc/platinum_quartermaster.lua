@@ -26,7 +26,7 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{text = 'Trading tokens! Platinum level equipment available!'}
+	{ text = 'Trading tokens! Platinum level equipment available!' }
 }
 
 npcConfig.currency = 22723
@@ -140,8 +140,8 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 
 	if MsgContains(message, "information") then
-		npcHandler:say({"{Platinum Tokens} are pieces of currency. You can use them to buy advanced level (level 150) equipment from token traders like me.",
-						"You can gain platinum tokens from gaining levels. For each level gained in the range of 150-200, you will earn 5 {platinum tokens}.", "You can also earn platinum tokens by completing tier 3 {hunting tasks}."}, npc, creature)
+		npcHandler:say({ "{Platinum Tokens} are pieces of currency. You can use them to buy advanced level (level 150) equipment from token traders like me.",
+			"You can gain platinum tokens from gaining levels. For each level gained in the range of 150-200, you will earn 5 {platinum tokens}.", "You can also earn platinum tokens by completing tier 3 {hunting tasks}." }, npc, creature)
 	elseif MsgContains(message, "tokens") then
 		npc:openShopWindow(creature)
 		npcHandler:say("If you have any platinum tokens with you, let's have a look! These are my offers.", npc, creature)

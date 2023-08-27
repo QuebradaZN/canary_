@@ -64,11 +64,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small stone", chance = 40000, maxCount = 3},
-	{name = "gold coin", chance = 24500, maxCount = 80},
-	{name = "gold coin", chance = 24500, maxCount = 47},
-	{id = 3129, chance = 22000}, -- some leaves
-	{name = "natural soil", chance = 3750}
+	{ name = "small stone", chance = 40000, maxCount = 3 },
+	{ name = "gold coin", chance = 24500, maxCount = 80 },
+	{ name = "gold coin", chance = 24500, maxCount = 47 },
+	{ id = 3129, chance = 22000 }, -- some leaves
+	{ name = "natural soil", chance = 3750 }
 }
 
 -- TODO: monster-abilities
@@ -82,36 +82,36 @@ monster.loot = {
 --	{name ="healing", interval = 2000, chance = 20, minDamage = 0, maxDamage = 0},
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -160},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -25, maxDamage = -155, range = 7, radius = 2, effect = CONST_ME_STONES, target = true},
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -160 },
+	{ name = "combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -25, maxDamage = -155, range = 7, radius = 2, effect = CONST_ME_STONES, target = true },
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 1000, chance = 10, minDamage = 0, maxDamage = -26, length = 6, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false}
+	{ name = "condition", type = CONDITION_POISON, interval = 1000, chance = 10, minDamage = 0, maxDamage = -26, length = 6, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false }
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30
---	mitigation = ???,
+	--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 85},
-	{type = COMBAT_EARTHDAMAGE, percent = 100},
-	{type = COMBAT_FIREDAMAGE, percent = -15},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 40},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 85 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 100 },
+	{ type = COMBAT_FIREDAMAGE, percent = -15 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 20 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 40 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

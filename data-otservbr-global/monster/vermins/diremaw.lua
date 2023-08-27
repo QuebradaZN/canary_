@@ -76,21 +76,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "ham", chance = 40080, maxCount = 4},
-	{name = "diremaw brainpan", chance = 24120},
-	{name = "poisonous slime", chance = 11930, maxCount = 5},
-	{name = "blue crystal shard", chance = 9660},
-	{name = "violet crystal shard", chance = 8180},
-	{name = "green crystal shard", chance = 8030},
-	{name = "onyx chip", chance = 8560, maxCount = 4},
-	{name = "diremaw legs", chance = 9650, maxCount = 2},
-	{name = "small enchanted emerald", chance = 2940, maxCount = 2},
-	{name = "small emerald", chance = 5080, maxCount = 2},
-	{name = "gold ingot", chance = 2970},
-	{id = 281, chance = 3100}, -- giant shimmering pearl (green)
-	{name = "suspicious device", chance = 600},
-	{name = "mycological bow", chance = 1200},
-	{name = "mushroom backpack", chance = 1500}
+	{ name = "ham", chance = 40080, maxCount = 4 },
+	{ name = "diremaw brainpan", chance = 24120 },
+	{ name = "poisonous slime", chance = 11930, maxCount = 5 },
+	{ name = "blue crystal shard", chance = 9660 },
+	{ name = "violet crystal shard", chance = 8180 },
+	{ name = "green crystal shard", chance = 8030 },
+	{ name = "onyx chip", chance = 8560, maxCount = 4 },
+	{ name = "diremaw legs", chance = 9650, maxCount = 2 },
+	{ name = "small enchanted emerald", chance = 2940, maxCount = 2 },
+	{ name = "small emerald", chance = 5080, maxCount = 2 },
+	{ name = "gold ingot", chance = 2970 },
+	{ id = 281, chance = 3100 }, -- giant shimmering pearl (green)
+	{ name = "suspicious device", chance = 600 },
+	{ name = "mycological bow", chance = 1200 },
+	{ name = "mushroom backpack", chance = 1500 }
 }
 
 -- TODO: monster-abilities
@@ -101,10 +101,10 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -300+, range = ?, effect = <>, target = ?}, --Earth Ball on self
 --}
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -200, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -250, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POFF, target = true},
+	{ name = "combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -200, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false },
+	{ name = "combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -250, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POFF, target = true },
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 21, minDamage = -200, maxDamage = -310, radius = 4, effect = CONST_ME_GREEN_RINGS, target = false}
+	{ name = "condition", type = CONDITION_POISON, interval = 2000, chance = 21, minDamage = -200, maxDamage = -310, radius = 4, effect = CONST_ME_GREEN_RINGS, target = false }
 }
 
 monster.defenses = {
@@ -114,23 +114,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 20},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 20 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = -20 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = false },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

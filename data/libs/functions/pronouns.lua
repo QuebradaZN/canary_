@@ -1,14 +1,14 @@
 Pronouns = {}
 
 local pronounTable = {
-    [PLAYERPRONOUN_THEY] = { subject = "they", object = "them", possessive = "their" },
-    [PLAYERPRONOUN_SHE] = { subject = "she", object = "her", possessive = "her" },
-    [PLAYERPRONOUN_HE] = { subject = "he", object = "him", possessive = "his" },
-    [PLAYERPRONOUN_ZE] = { subject = "ze", object = "zir", possessive = "zir" },
+	[PLAYERPRONOUN_THEY] = { subject = "they", object = "them", possessive = "their" },
+	[PLAYERPRONOUN_SHE] = { subject = "she", object = "her", possessive = "her" },
+	[PLAYERPRONOUN_HE] = { subject = "he", object = "him", possessive = "his" },
+	[PLAYERPRONOUN_ZE] = { subject = "ze", object = "zir", possessive = "zir" },
 }
 
 function Pronouns.getPlayerSubjectPronoun(pronoun, name, sex)
-	if  pronoun == PLAYERPRONOUN_NAME then
+	if pronoun == PLAYERPRONOUN_NAME then
 		return name
 	end
 	local sexPronoun = sex == PLAYERSEX_FEMALE and PLAYERPRONOUN_SHE or PLAYERPRONOUN_HE
@@ -16,7 +16,7 @@ function Pronouns.getPlayerSubjectPronoun(pronoun, name, sex)
 end
 
 function Pronouns.getPlayerObjectPronoun(pronoun, name, sex)
-	if  pronoun == PLAYERPRONOUN_NAME then
+	if pronoun == PLAYERPRONOUN_NAME then
 		return name
 	end
 	local sexPronoun = sex == PLAYERSEX_FEMALE and PLAYERPRONOUN_SHE or PLAYERPRONOUN_HE
@@ -24,7 +24,7 @@ function Pronouns.getPlayerObjectPronoun(pronoun, name, sex)
 end
 
 function Pronouns.getPlayerPossessivePronoun(pronoun, name, sex)
-	if  pronoun == PLAYERPRONOUN_NAME then
+	if pronoun == PLAYERPRONOUN_NAME then
 		return name .. "'s"
 	end
 	local sexPronoun = sex == PLAYERSEX_FEMALE and PLAYERPRONOUN_SHE or PLAYERPRONOUN_HE

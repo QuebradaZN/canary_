@@ -64,35 +64,35 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --[[Drowning|Drowning Damage]]
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 13},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_DROWNDAMAGE, minDamage = -260, maxDamage = -320, radius = 6, effect = CONST_ME_BUBBLES, target = false},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_DROWNDAMAGE, minDamage = -160, maxDamage = -320, range = 6, effect = CONST_ME_BUBBLES, target = false}
+	{ name = "melee", interval = 2000, chance = 100, skill = 50, attack = 13 },
+	{ name = "combat", interval = 2000, chance = 30, type = COMBAT_DROWNDAMAGE, minDamage = -260, maxDamage = -320, radius = 6, effect = CONST_ME_BUBBLES, target = false },
+	{ name = "combat", interval = 2000, chance = 30, type = COMBAT_DROWNDAMAGE, minDamage = -160, maxDamage = -320, range = 6, effect = CONST_ME_BUBBLES, target = false }
 }
 
 monster.defenses = {
 	defense = 65,
 	armor = 40
---	mitigation = ???,
+	--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

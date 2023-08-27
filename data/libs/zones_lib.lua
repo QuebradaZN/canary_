@@ -119,5 +119,6 @@ function Zone:trapMonsters()
 		local monster = creature:getMonster()
 		return not monster
 	end
+
 	event:register()
 end

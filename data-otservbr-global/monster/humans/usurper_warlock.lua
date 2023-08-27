@@ -34,7 +34,7 @@ monster.speed = 165
 monster.manaCost = 0
 
 monster.faction = FACTION_LIONUSURPERS
-monster.enemyFactions = {FACTION_LION, FACTION_PLAYER}
+monster.enemyFactions = { FACTION_LION, FACTION_PLAYER }
 
 monster.changeTarget = {
 	interval = 4000,
@@ -73,27 +73,27 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "What, are you afraid? So you should be!", yell = false},
-	{text = "Die in the flames of true righteousness!", yell = false},
+	{ text = "What, are you afraid? So you should be!", yell = false },
+	{ text = "Die in the flames of true righteousness!", yell = false },
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 77111, maxCount = 4},
-	{name = "gold ingot", chance = 11778},
-	{name = "lion cloak patch", chance = 8444},
-	{name = "lion crest", chance = 8222},
-	{name = "black pearl", chance = 5778},
-	{id = 281, chance = 5556}, -- giant shimmering pearl (green)
-	{name = "terra hood", chance = 4667},
-	{name = "lightning headband", chance = 3778},
-	{name = "green gem", chance = 3556},
-	{name = "springsprout rod", chance = 2667},
-	{name = "ham", chance = 2444},
-	{name = "magma monocle", chance = 1778},
-	{name = "wand of cosmic energy", chance = 1778},
-	{name = "underworld rod", chance = 1333},
-	{name = "knight legs", chance = 1111},
-	{name = "wand of starstorm", chance = 667}
+	{ name = "platinum coin", chance = 77111, maxCount = 4 },
+	{ name = "gold ingot", chance = 11778 },
+	{ name = "lion cloak patch", chance = 8444 },
+	{ name = "lion crest", chance = 8222 },
+	{ name = "black pearl", chance = 5778 },
+	{ id = 281, chance = 5556 }, -- giant shimmering pearl (green)
+	{ name = "terra hood", chance = 4667 },
+	{ name = "lightning headband", chance = 3778 },
+	{ name = "green gem", chance = 3556 },
+	{ name = "springsprout rod", chance = 2667 },
+	{ name = "ham", chance = 2444 },
+	{ name = "magma monocle", chance = 1778 },
+	{ name = "wand of cosmic energy", chance = 1778 },
+	{ name = "underworld rod", chance = 1333 },
+	{ name = "knight legs", chance = 1111 },
+	{ name = "wand of starstorm", chance = 667 }
 }
 
 -- TODO: monster-abilities
@@ -104,10 +104,10 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -0, range = ?, effect = <>, target = ?}, --
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250, effect = CONST_ME_DRAWBLOOD},
-	{name ="singledeathchain", interval = 6000, chance = 15, minDamage = -250, maxDamage = -530, range = 5, effect = CONST_ME_MORTAREA, target = true},
-	{name ="singleicechain", interval = 6000, chance = 18, minDamage = -150, maxDamage = -450, range = 5, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 4000, chance = 12, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -450, radius = 4, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true} -- avalanche
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250, effect = CONST_ME_DRAWBLOOD },
+	{ name = "singledeathchain", interval = 6000, chance = 15, minDamage = -250, maxDamage = -530, range = 5, effect = CONST_ME_MORTAREA, target = true },
+	{ name = "singleicechain", interval = 6000, chance = 18, minDamage = -150, maxDamage = -450, range = 5, effect = CONST_ME_ICEATTACK, target = true },
+	{ name = "combat", interval = 4000, chance = 12, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -450, radius = 4, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true } -- avalanche
 }
 
 monster.defenses = {
@@ -117,23 +117,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 5},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE, percent = 32},
-	{type = COMBAT_DEATHDAMAGE, percent = -10},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 10 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 5 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 30 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 32 },
+	{ type = COMBAT_DEATHDAMAGE, percent = -10 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

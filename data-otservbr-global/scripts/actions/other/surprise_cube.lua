@@ -1,10 +1,10 @@
 local rewards = {
 	[VOCATION.BASE_ID.KNIGHT] = {
-		{ id = 34394, name = "cobra boots"},
-		{ id = 34395, name = "cobra club"},
-		{ id = 34396, name = "cobra axe"},
-		{ id = 34397, name = "cobra hood"},
-		{ id = 34398, name = "cobra sword"},
+		{ id = 34394, name = "cobra boots" },
+		{ id = 34395, name = "cobra club" },
+		{ id = 34396, name = "cobra axe" },
+		{ id = 34397, name = "cobra hood" },
+		{ id = 34398, name = "cobra sword" },
 		{ id = 34154, name = "lion shield" },
 		{ id = 34155, name = "lion longsword" },
 		{ id = 34156, name = "lion spanglehelm" },
@@ -29,8 +29,8 @@ local rewards = {
 		{ id = 28720, name = "falcon greaves" },
 	},
 	[VOCATION.BASE_ID.SORCERER] = {
-		{ id = 34399, name = "cobra wand"},
-		{ id = 34403, name = "amulet of theurgy"},
+		{ id = 34399, name = "cobra wand" },
+		{ id = 34403, name = "amulet of theurgy" },
 		{ id = 34152, name = "lion wand" },
 		{ id = 34153, name = "lion spellbook" },
 		{ id = 34158, name = "lion amulet" },
@@ -38,8 +38,8 @@ local rewards = {
 		{ id = 28717, name = "falcon wand" },
 	},
 	[VOCATION.BASE_ID.DRUID] = {
-		{ id = 34400, name = "cobra rod"},
-		{ id = 34403, name = "amulet of theurgy"},
+		{ id = 34400, name = "cobra rod" },
+		{ id = 34403, name = "amulet of theurgy" },
 		{ id = 34151, name = "lion rod" },
 		{ id = 34153, name = "lion spellbook" },
 		{ id = 34158, name = "lion amulet" },

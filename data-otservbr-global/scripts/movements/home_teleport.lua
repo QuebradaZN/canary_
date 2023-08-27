@@ -11,7 +11,7 @@ function homeTeleport.onStepIn(creature, item, position, fromPosition)
 		message = "Waypoint"
 	}
 	for i, info in pairs(player:getWaypoints()) do
-		window:addChoice(string.format("%s", info.name), function (player, button, choice)
+		window:addChoice(string.format("%s", info.name), function(player, button, choice)
 			if button.name ~= "Select" then
 				return true
 			end

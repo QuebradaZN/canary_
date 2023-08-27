@@ -10,10 +10,10 @@ local waypoints = {
 		bundle = true,
 		waypoints = {
 			{ name = "Black Vixen", position = Position(33442, 32052, 9) },
-			{ name = "Bloodback",   position = Position(33167, 31978, 8) },
-			{ name = "Darkfang",    position = Position(33055, 31911, 9) },
-			{ name = "Shadowpelt",  position = Position(33403, 32097, 9) },
-			{ name = "Sharpclaw",   position = Position(33128, 31972, 9) },
+			{ name = "Bloodback", position = Position(33167, 31978, 8) },
+			{ name = "Darkfang", position = Position(33055, 31911, 9) },
+			{ name = "Shadowpelt", position = Position(33403, 32097, 9) },
+			{ name = "Sharpclaw", position = Position(33128, 31972, 9) },
 		}
 	},
 
@@ -24,12 +24,12 @@ local waypoints = {
 		bundle = true,
 		requirements = { bosstiary = { name = "King Zelos", stars = 1 } },
 		waypoints = {
-			{ name = "King Zelos",      position = Position(33489, 31546, 13) },
+			{ name = "King Zelos", position = Position(33489, 31546, 13) },
 			{ name = "Count Vlarkorth", position = Position(33456, 31408, 13), },
-			{ name = "Duke Krule",      position = Position(33456, 31497, 13), },
-			{ name = "Earl Osam",       position = Position(33517, 31440, 13), },
-			{ name = "Lord Azaram",     position = Position(33423, 31497, 13), },
-			{ name = "Sir Baeloc",      position = Position(33426, 31408, 13), },
+			{ name = "Duke Krule", position = Position(33456, 31497, 13), },
+			{ name = "Earl Osam", position = Position(33517, 31440, 13), },
+			{ name = "Lord Azaram", position = Position(33423, 31497, 13), },
+			{ name = "Sir Baeloc", position = Position(33426, 31408, 13), },
 		}
 	},
 	{
@@ -38,10 +38,10 @@ local waypoints = {
 		bundle = true,
 		requirements = { bosstiary = { stars = 1 } },
 		waypoints = {
-			{ name = "Gaffir",              position = Position(33393, 32674, 4) },
+			{ name = "Gaffir", position = Position(33393, 32674, 4) },
 			{ name = "Guard Captain Quaid", position = Position(33397, 32658, 3) },
-			{ name = "Custodian",           position = Position(33378, 32825, 8) },
-			{ name = "Scarlett Etzel",      position = Position(33395, 32662, 6) },
+			{ name = "Custodian", position = Position(33378, 32825, 8) },
+			{ name = "Scarlett Etzel", position = Position(33395, 32662, 6) },
 		}
 	},
 
@@ -75,7 +75,7 @@ local waypoints = {
 		name = "Feaster of Souls mini-bosses",
 		bundle = true,
 		waypoints = {
-			{ name = "Unaz the Mean",    position = Position(33566, 31477, 8) },
+			{ name = "Unaz the Mean", position = Position(33566, 31477, 8) },
 			{ name = "Vok the Freakish", position = Position(33509, 31452, 9) },
 			{ name = "Irgix the Flimsy", position = Position(33492, 31400, 8) },
 		}
@@ -213,7 +213,7 @@ local waypoints = {
 			{ name = "Ingol Deep", position = Position(33798, 32573, 8) },
 		}
 	},
-	{ id = 26, name = "Soul Hub",     position = Position(33621, 31427, 10) },
+	{ id = 26, name = "Soul Hub", position = Position(33621, 31427, 10) },
 	{ id = 27, name = "Lion Sanctum", position = Position(33123, 32236, 12) },
 	{
 		id = 28,

@@ -158,24 +158,24 @@ GameStore.ServiceTypes = {
 }
 
 GameStore.SendingPackets = {
-	S_CoinBalance = 0xDF,           -- 223
-	S_StoreError = 0xE0,            -- 224
-	S_RequestPurchaseData = 0xE1,   -- 225
-	S_CoinBalanceUpdating = 0xF2,   -- 242
-	S_OpenStore = 0xFB,             -- 251
-	S_StoreOffers = 0xFC,           -- 252
+	S_CoinBalance = 0xDF, -- 223
+	S_StoreError = 0xE0, -- 224
+	S_RequestPurchaseData = 0xE1, -- 225
+	S_CoinBalanceUpdating = 0xF2, -- 242
+	S_OpenStore = 0xFB, -- 251
+	S_StoreOffers = 0xFC, -- 252
 	S_OpenTransactionHistory = 0xFD, -- 253
-	S_CompletePurchase = 0xFE       -- 254
+	S_CompletePurchase = 0xFE -- 254
 }
 
 GameStore.RecivedPackets = {
-	C_StoreEvent = 0xE9,               -- 233
-	C_TransferCoins = 0xEF,            -- 239
-	C_ParseHirelingName = 0xEC,        -- 236
-	C_OpenStore = 0xFA,                -- 250
-	C_RequestStoreOffers = 0xFB,       -- 251
-	C_BuyStoreOffer = 0xFC,            -- 252
-	C_OpenTransactionHistory = 0xFD,   -- 253
+	C_StoreEvent = 0xE9, -- 233
+	C_TransferCoins = 0xEF, -- 239
+	C_ParseHirelingName = 0xEC, -- 236
+	C_OpenStore = 0xFA, -- 250
+	C_RequestStoreOffers = 0xFB, -- 251
+	C_BuyStoreOffer = 0xFC, -- 252
+	C_OpenTransactionHistory = 0xFD, -- 253
 	C_RequestTransactionHistory = 0xFE, -- 254
 }
 
@@ -192,20 +192,20 @@ GameStore.DefaultValues = {
 }
 
 GameStore.DefaultDescriptions = {
-	OUTFIT     = { "This outfit looks nice. Only high-class people are able to wear it!",
+	OUTFIT = { "This outfit looks nice. Only high-class people are able to wear it!",
 		"An outfit that was created to suit you. We are sure you'll like it.",
 		"Legend says only smart people should wear it, otherwise you will burn!" },
-	MOUNT      = { "This is a fantastic mount that helps to become faster, try it!",
+	MOUNT = { "This is a fantastic mount that helps to become faster, try it!",
 		"The first rider of this mount became the leader of his country! legends say that." },
 	NAMECHANGE = { "Are you hunted? Tired of that? Get a new name, a new life!",
 		"A new name to suit your needs!" },
-	SEXCHANGE  = { "Bored of your character's sex? Get a new sex for him now!!" },
-	EXPBOOST   = { "Are you tired of leveling slow? try it!" },
-	PREYSLOT   = {
+	SEXCHANGE = { "Bored of your character's sex? Get a new sex for him now!!" },
+	EXPBOOST = { "Are you tired of leveling slow? try it!" },
+	PREYSLOT = {
 		"It's hunting season! Activate a prey to gain a bonus when hunting a certain monster. Every character can purchase one Permanent Prey Slot, which enables the activation of an additional prey. \nIf you activate a prey, you can select one monster out of nine. The bonus for your prey will be selected randomly from one of the following: damage boost, damage reduction, bonus XP, improved loot. The bonus value may range from 5% to 50%. Your prey will be active for 2 hours hunting time: the duration of an active prey will only be reduced while you are hunting." },
-	PREYBONUS  = {
+	PREYBONUS = {
 		"You activated a prey but do not like the randomly selected bonus? Roll for a new one! Here you can purchase five Prey Bonus Rerolls! \nA Bonus Reroll allows you to get a bonus with a higher value (max. 50%). The bonus for your prey will be selected randomly from one of the following: damage boost, damage reduction, bonus XP, improved loot. The 2 hours hunting time will start anew once you have rolled for a new bonus. Your prey monster will stay the same." },
-	TEMPLE     = {
+	TEMPLE = {
 		"Need a quick way home? Buy this transportation service to get instantly teleported to your home temple. \n\nNote, you cannot use this service while having a battle sign or a protection zone block. Further, the service will not work in no-logout zones or close to your home temple." }
 }
 
@@ -222,17 +222,16 @@ end
 function GameStore.fuzzySearchOffer(searchString)
 	local results = {}
 	for i, category in ipairs(GameStore.Categories) do
-			if category.offers then
-					for j, offer in ipairs(category.offers) do
-							if string.match(offer.name:lower(), searchString:lower()) then
-									table.insert(results, offer)
-							end
-					end
+		if category.offers then
+			for j, offer in ipairs(category.offers) do
+				if string.match(offer.name:lower(), searchString:lower()) then
+					table.insert(results, offer)
+				end
 			end
+		end
 	end
 	return results
 end
-
 
 local function queueSendStoreAlertToUser(message, delay, playerId, storeErrorCode)
 	storeErrorCode = storeErrorCode and storeErrorCode or GameStore.StoreErrors.STORE_ERROR_NETWORK
@@ -289,7 +288,7 @@ function parseTransferableCoins(playerId, msg)
 	end
 
 	local resultId = db.storeQuery("SELECT `account_id` FROM `players` WHERE `name` = " ..
-	db.escapeString(reciver:lower()) .. "")
+		db.escapeString(reciver:lower()) .. "")
 	if not resultId then
 		return addPlayerEvent(sendStoreError, 350, playerId, GameStore.StoreErrors.STORE_ERROR_TRANSFER,
 			"We couldn't find that player.")
@@ -302,7 +301,7 @@ function parseTransferableCoins(playerId, msg)
 	end
 
 	db.query("UPDATE `accounts` SET `coins_transferable` = `coins_transferable` + " ..
-	amount .. " WHERE `id` = " .. accountId)
+		amount .. " WHERE `id` = " .. accountId)
 	player:removeTransferableCoinsBalance(amount)
 	addPlayerEvent(sendStorePurchaseSuccessful, 550, playerId,
 		"You have transfered " .. amount .. " coins to " .. reciver .. " successfully")
@@ -397,8 +396,8 @@ function parseRequestStoreOffers(playerId, msg)
 		end
 
 		local searchResultsCategory = {
-				name = "Search",
-				offers = results,
+			name = "Search",
+			offers = results,
 		}
 
 		addPlayerEvent(sendShowStoreOffers, 250, playerId, searchResultsCategory)
@@ -412,11 +411,11 @@ function parseBuyStoreOffer(playerId, msg)
 	local productType = msg:getByte()
 
 	-- All guarding conditions under which the offer should not be processed must be included here
-	if (table.contains(GameStore.OfferTypes, offer.type) == false)               -- we've got an invalid offer type
-			or (not player)                                                          -- player not found
+	if (table.contains(GameStore.OfferTypes, offer.type) == false) -- we've got an invalid offer type
+			or (not player) -- player not found
 			or (player:getVocation():getId() == 0) and (not GameStore.haveOfferRook(id)) -- we don't have such offer
-			or (not offer)                                                           -- we could not find the offer
-			or (offer.type == GameStore.OfferTypes.OFFER_TYPE_NONE)                  -- offer is disabled
+			or (not offer) -- we could not find the offer
+			or (offer.type == GameStore.OfferTypes.OFFER_TYPE_NONE) -- offer is disabled
 			or (offer.type ~= GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE and
 				offer.type ~= GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and
 				offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYBONUS and
@@ -510,12 +509,12 @@ function parseBuyStoreOffer(playerId, msg)
 
 	if not pcallOk then
 		local alertMessage = pcallError.code and pcallError.message or
-		"Something went wrong. Your purchase has been cancelled."
+				"Something went wrong. Your purchase has been cancelled."
 
-	if not pcallError.code then -- unhandled error
-		-- log some debugging info
-		logger.warn("[parseBuyStoreOffer] - Purchase failed due to an unhandled script error. Stacktrace: {}", pcallError)
-	end
+		if not pcallError.code then -- unhandled error
+			-- log some debugging info
+			logger.warn("[parseBuyStoreOffer] - Purchase failed due to an unhandled script error. Stacktrace: {}", pcallError)
+		end
 
 		return queueSendStoreAlertToUser(alertMessage, 500, playerId)
 	end
@@ -549,7 +548,7 @@ local function getCategoriesRook()
 	local tmpTable, count = {}, 0
 	for i, v in pairs(GameStore.Categories) do
 		if (v.rookgaard) then
-			tmpTable[#tmpTable + 1] = v
+			tmpTable[#tmpTable+1] = v
 			count = count + 1
 		end
 	end
@@ -950,9 +949,9 @@ function sendShowStoreOffers(playerId, category, redirectId)
 			end
 
 			msg:addByte(tryOnType) -- TryOn Type
-			msg:addU16(0)       -- Collection (to-do)
-			msg:addU16(0)       -- Popularity Score (to-do)
-			msg:addU32(0)       -- State New Until (timestamp)
+			msg:addU16(0) -- Collection (to-do)
+			msg:addU16(0) -- Popularity Score (to-do)
+			msg:addU32(0) -- State New Until (timestamp)
 
 			local configure = useOfferConfigure(offer.type)
 			if configure == GameStore.ConfigureOffers.SHOW_CONFIGURE then
@@ -1094,7 +1093,7 @@ function sendStoreTransactionHistory(playerId, page, entriesPerPage)
 
 	local msg = NetworkMessage()
 	msg:addByte(GameStore.SendingPackets.S_OpenTransactionHistory)
-	msg:addU32(totalPages > 0 and page - 1 or 0x0)  -- current page
+	msg:addU32(totalPages > 0 and page - 1 or 0x0) -- current page
 	msg:addU32(totalPages > 0 and totalPages or 0x0) -- total page
 	msg:addByte(#entries)
 
@@ -1322,7 +1321,7 @@ end
 
 GameStore.insertHistory = function(accountId, mode, description, coinAmount, coinType)
 	return db.query(string.format(
-	"INSERT INTO `store_history`(`account_id`, `mode`, `description`, `coin_type`, `coin_amount`, `time`) VALUES (%s, %s, %s, %s, %s, %s)",
+		"INSERT INTO `store_history`(`account_id`, `mode`, `description`, `coin_type`, `coin_amount`, `time`) VALUES (%s, %s, %s, %s, %s, %s)",
 		accountId, mode, db.escapeString(description), coinType, coinAmount, os.time()))
 end
 
@@ -1342,7 +1341,7 @@ GameStore.retrieveHistoryEntries = function(accountId, currentPage, entriesPerPa
 	local offset = currentPage > 1 and entriesPerPage * (currentPage - 1) or 0
 
 	local resultId = db.storeQuery("SELECT * FROM `store_history` WHERE `account_id` = " ..
-	accountId .. " ORDER BY `time` DESC LIMIT " .. offset .. ", " .. entriesPerPage .. ";")
+		accountId .. " ORDER BY `time` DESC LIMIT " .. offset .. ", " .. entriesPerPage .. ";")
 	if resultId ~= false then
 		repeat
 			local entry = {
@@ -1638,7 +1637,7 @@ function GameStore.processHouseRelatedPurchase(player, offer)
 
 	local itemIds = offer.itemtype
 	if type(itemIds) ~= "table" then
-		itemIds = {itemIds}
+		itemIds = { itemIds }
 	end
 	for _, itemId in ipairs(itemIds) do
 		for i = 1, offer.count do
@@ -1828,8 +1827,10 @@ function GameStore.processHirelingChangeNamePurchase(player, offer, productType,
 	local offerId = offer.id
 
 	if player:getClient().version < 1200 then
-		return error({ code = 1,
-			message = "You cannot buy hireling change name on client 10, please relog on client 12 and try again." })
+		return error({
+			code = 1,
+			message = "You cannot buy hireling change name on client 10, please relog on client 12 and try again."
+		})
 	end
 
 	if productType == GameStore.ClientOfferTypes.CLIENT_STORE_OFFER_NAMECHANGE then
@@ -1854,8 +1855,10 @@ function GameStore.processHirelingChangeSexPurchase(player, offer)
 	local playerId = player:getId()
 
 	if player:getClient().version < 1200 then
-		return error({ code = 1,
-			message = "You cannot buy hireling change sex on client 10, please relog on client 12 and try again." })
+		return error({
+			code = 1,
+			message = "You cannot buy hireling change sex on client 10, please relog on client 12 and try again."
+		})
 	end
 
 	local message = 'Close the store window to select which hireling should have the sex changed.'
@@ -1866,8 +1869,10 @@ end
 
 function GameStore.processHirelingSkillPurchase(player, offer)
 	if player:getClient().version < 1200 then
-		return error({ code = 1,
-			message = "You cannot buy hireling skill on client 10, please relog on client 12 and try again." })
+		return error({
+			code = 1,
+			message = "You cannot buy hireling skill on client 10, please relog on client 12 and try again."
+		})
 	end
 
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
@@ -1878,8 +1883,10 @@ end
 
 function GameStore.processHirelingOutfitPurchase(player, offer)
 	if player:getClient().version < 1200 then
-		return error({ code = 1,
-			message = "You cannot buy hireling outfit on client 10, please relog on client 12 and try again." })
+		return error({
+			code = 1,
+			message = "You cannot buy hireling outfit on client 10, please relog on client 12 and try again."
+		})
 	end
 
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
@@ -2067,7 +2074,7 @@ function sendHomePage(playerId)
 
 	for p, offer in pairs(homeOffers) do
 		msg:addString(offer.name)
-		msg:addByte(0x1)        -- ?
+		msg:addByte(0x1) -- ?
 		msg:addU32(offer.id or 0) -- id
 		msg:addU16(0x1)
 		msg:addU32(offer.price)

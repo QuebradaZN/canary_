@@ -9,7 +9,7 @@ for i = 40, 50 do
 	condition:setParameter(CONDITION_PARAM_TICKS, 6000)
 	condition:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, i)
 	condition:setParameter(CONDITION_PARAM_SKILL_DEFENSEPERCENT, i)
-		combat[i]:addCondition(condition)
+	combat[i]:addCondition(condition)
 end
 
 local spell = Spell("instant")

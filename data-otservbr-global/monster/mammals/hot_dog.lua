@@ -70,13 +70,13 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Wuff Wuff", yell = false},
-	{text = "Grrr Wuff", yell = false},
-	{text = "Show me how good you are without some rolled newspaper!", yell = false},
+	{ text = "Wuff Wuff", yell = false },
+	{ text = "Grrr Wuff", yell = false },
+	{ text = "Show me how good you are without some rolled newspaper!", yell = false },
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 50000, maxCount = 75}
+	{ name = "gold coin", chance = 50000, maxCount = 75 }
 }
 
 -- TODO: monster-abilities
@@ -86,9 +86,9 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -Burns for 5 turns, maxDamage = -Burns for 5 turns, range = ?, effect = <>, target = ?}, --Cross Soulfire
 --}
 monster.attacks = {
-	{name ="melee", interval = 1200, chance = 100, minDamage = 0, maxDamage = -55},
-	{name ="hot dog wave", interval = 2000, chance = 30, minDamage = -30, maxDamage = -60, target = false},
-	{name ="combat", interval = 1000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -50, maxDamage = -50, range = 7, effect = CONST_ME_FIREATTACK, target = true}
+	{ name = "melee", interval = 1200, chance = 100, minDamage = 0, maxDamage = -55 },
+	{ name = "hot dog wave", interval = 2000, chance = 30, minDamage = -30, maxDamage = -60, target = false },
+	{ name = "combat", interval = 1000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -50, maxDamage = -50, range = 7, effect = CONST_ME_FIREATTACK, target = true }
 }
 
 monster.defenses = {
@@ -98,23 +98,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 100},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 100},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 100 },
+	{ type = COMBAT_LIFEDRAIN, percent = 100 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 100 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

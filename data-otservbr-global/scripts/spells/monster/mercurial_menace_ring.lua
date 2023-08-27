@@ -2,15 +2,15 @@ local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_PURPLESMOKE)
 local arr = {
-		{0, 0, 1, 1, 1, 0, 0},
-		{0, 1, 1, 1, 1, 1, 0},
-		{1, 1, 1, 0, 1, 1, 1},
-		{1, 1, 0, 3, 0, 1, 1},
-		{1, 1, 1, 0, 1, 1, 1},
-		{0, 1, 1, 1, 1, 1, 0},
-		{0, 0, 1, 1, 1, 0, 0},
+	{ 0, 0, 1, 1, 1, 0, 0 },
+	{ 0, 1, 1, 1, 1, 1, 0 },
+	{ 1, 1, 1, 0, 1, 1, 1 },
+	{ 1, 1, 0, 3, 0, 1, 1 },
+	{ 1, 1, 1, 0, 1, 1, 1 },
+	{ 0, 1, 1, 1, 1, 1, 0 },
+	{ 0, 0, 1, 1, 1, 0, 0 },
 }
-	
+
 combat:setArea(createCombatArea(arr))
 
 

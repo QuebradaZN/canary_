@@ -26,7 +26,7 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{text = 'Trading tokens! Iron level equipment available!'}
+	{ text = 'Trading tokens! Iron level equipment available!' }
 }
 
 npcConfig.currency = 22720
@@ -137,8 +137,8 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 
 	if MsgContains(message, "information") then
-		npcHandler:say({"{Iron Tokens} are pieces of currency. You can use them to buy mid level (level 100) equipment from token traders like me.",
-						"You can gain iron tokens from advancing levels. For each level gained in the range of 100-150, you will earn 5 {iron tokens}.", "You can also earn iron tokens by completing tier 2 {hunting tasks}."}, npc, creature)
+		npcHandler:say({ "{Iron Tokens} are pieces of currency. You can use them to buy mid level (level 100) equipment from token traders like me.",
+			"You can gain iron tokens from advancing levels. For each level gained in the range of 100-150, you will earn 5 {iron tokens}.", "You can also earn iron tokens by completing tier 2 {hunting tasks}." }, npc, creature)
 	elseif MsgContains(message, "tokens") then
 		npc:openShopWindow(creature)
 		npcHandler:say("If you have any iron tokens with you, let's have a look! These are my offers.", npc, creature)

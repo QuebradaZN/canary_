@@ -61,11 +61,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 9689, chance = 1050}, -- bunch of troll hair
-	{id = 3031, chance = 65300, maxCount = 12}, -- gold coin
-	{id = 3577, chance = 15200}, -- meat
-	{id = 3003, chance = 7960}, -- rope
-	{id = 3277, chance = 12970, maxCount = 3} -- spear
+	{ id = 9689, chance = 1050 }, -- bunch of troll hair
+	{ id = 3031, chance = 65300, maxCount = 12 }, -- gold coin
+	{ id = 3577, chance = 15200 }, -- meat
+	{ id = 3003, chance = 7960 }, -- rope
+	{ id = 3277, chance = 12970, maxCount = 3 } -- spear
 }
 
 -- TODO: monster-abilities
@@ -75,35 +75,35 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -unknown effect, maxDamage = -unknown effect, range = ?, effect = <>, target = ?}, --Troll Yelp
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 10, attack = 25}
+	{ name = "melee", interval = 2000, chance = 100, skill = 10, attack = 25 }
 }
 
 monster.defenses = {
 	defense = 13,
 	armor = 7,
 	mitigation = 0.38,
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 10, maxDamage = 25, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="salamander trainer summon", interval = 2000, chance = 30, target = false}
+	{ name = "combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 10, maxDamage = 25, effect = CONST_ME_MAGIC_GREEN, target = false },
+	{ name = "salamander trainer summon", interval = 2000, chance = 30, target = false }
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 15},
-	{type = COMBAT_EARTHDAMAGE, percent = 15},
-	{type = COMBAT_FIREDAMAGE, percent = 15},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 15 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 15 },
+	{ type = COMBAT_FIREDAMAGE, percent = 15 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

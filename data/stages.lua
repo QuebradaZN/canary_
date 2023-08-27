@@ -74,21 +74,21 @@ skillsStages = {
 		maxlevel = 60,
 		multiplier = 15
 	}, {
-		minlevel = 61,
-		maxlevel = 80,
-		multiplier = 12
-	}, {
-		minlevel = 81,
-		maxlevel = 110,
-		multiplier = 8
-	}, {
-		minlevel = 111,
-		maxlevel = 125,
-		multiplier = 5
-	}, {
-		minlevel = 126,
-		multiplier = 3
-	}
+	minlevel = 61,
+	maxlevel = 80,
+	multiplier = 12
+}, {
+	minlevel = 81,
+	maxlevel = 110,
+	multiplier = 8
+}, {
+	minlevel = 111,
+	maxlevel = 125,
+	multiplier = 5
+}, {
+	minlevel = 126,
+	multiplier = 3
+}
 }
 
 luckStages = {
@@ -97,21 +97,21 @@ luckStages = {
 		maxlevel = 60,
 		multiplier = 10
 	}, {
-		minlevel = 61,
-		maxlevel = 80,
-		multiplier = 8
-	}, {
-		minlevel = 81,
-		maxlevel = 110,
-		multiplier = 7
-	}, {
-		minlevel = 111,
-		maxlevel = 125,
-		multiplier = 6
-	}, {
-		minlevel = 126,
-		multiplier = 5
-	}
+	minlevel = 61,
+	maxlevel = 80,
+	multiplier = 8
+}, {
+	minlevel = 81,
+	maxlevel = 110,
+	multiplier = 7
+}, {
+	minlevel = 111,
+	maxlevel = 125,
+	multiplier = 6
+}, {
+	minlevel = 126,
+	multiplier = 5
+}
 }
 
 runicStages = {
@@ -120,21 +120,21 @@ runicStages = {
 		maxlevel = 60,
 		multiplier = 5
 	}, {
-		minlevel = 61,
-		maxlevel = 80,
-		multiplier = 5
-	}, {
-		minlevel = 81,
-		maxlevel = 110,
-		multiplier = 4
-	}, {
-		minlevel = 111,
-		maxlevel = 125,
-		multiplier = 3
-	}, {
-		minlevel = 126,
-		multiplier = 3
-	}
+	minlevel = 61,
+	maxlevel = 80,
+	multiplier = 5
+}, {
+	minlevel = 81,
+	maxlevel = 110,
+	multiplier = 4
+}, {
+	minlevel = 111,
+	maxlevel = 125,
+	multiplier = 3
+}, {
+	minlevel = 126,
+	multiplier = 3
+}
 }
 
 magicLevelStages = {
@@ -143,15 +143,15 @@ magicLevelStages = {
 		maxlevel = 60,
 		multiplier = 5
 	}, {
-		minlevel = 61,
-		maxlevel = 80,
-		multiplier = 8
-	}, {
-		minlevel = 81,
-		maxlevel = 100,
-		multiplier = 6
-	}, {
-		minlevel = 101,
-		multiplier = 5
-	}
+	minlevel = 61,
+	maxlevel = 80,
+	multiplier = 8
+}, {
+	minlevel = 81,
+	maxlevel = 100,
+	multiplier = 6
+}, {
+	minlevel = 101,
+	multiplier = 5
+}
 }

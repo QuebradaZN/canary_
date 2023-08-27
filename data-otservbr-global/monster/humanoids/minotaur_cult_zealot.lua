@@ -76,24 +76,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 150},
-	{name = "snakebite rod", chance = 11670},
-	{name = "taurus mace", chance = 5360},
-	{name = "cultish robe", chance = 9200},
-	{name = "purple robe", chance = 16230},
-	{name = "strong mana potion", chance = 10660, maxCount = 3},
-	{name = "small ruby", chance = 2030, maxCount = 2},
-	{name = "small topaz", chance = 2680, maxCount = 2},
-	{name = "yellow gem", chance = 220},
-	{name = "platinum coin", chance = 39350, maxCount = 3},
-	{name = "small emerald", chance = 2540, maxCount = 2},
-	{name = "small sapphire", chance = 2170, maxCount = 2},
-	{name = "small diamond", chance = 2900, maxCount = 2},
-	{name = "small amethyst", chance = 2610, maxCount = 2},
-	{name = "red piece of cloth", chance = 2460},
-	{id= 3039, chance = 70}, -- red gem
-	{name = "minotaur leather", chance = 4780},
-	{name = "minotaur horn", chance = 2320, maxCount = 2}
+	{ name = "gold coin", chance = 100000, maxCount = 150 },
+	{ name = "snakebite rod", chance = 11670 },
+	{ name = "taurus mace", chance = 5360 },
+	{ name = "cultish robe", chance = 9200 },
+	{ name = "purple robe", chance = 16230 },
+	{ name = "strong mana potion", chance = 10660, maxCount = 3 },
+	{ name = "small ruby", chance = 2030, maxCount = 2 },
+	{ name = "small topaz", chance = 2680, maxCount = 2 },
+	{ name = "yellow gem", chance = 220 },
+	{ name = "platinum coin", chance = 39350, maxCount = 3 },
+	{ name = "small emerald", chance = 2540, maxCount = 2 },
+	{ name = "small sapphire", chance = 2170, maxCount = 2 },
+	{ name = "small diamond", chance = 2900, maxCount = 2 },
+	{ name = "small amethyst", chance = 2610, maxCount = 2 },
+	{ name = "red piece of cloth", chance = 2460 },
+	{ id = 3039, chance = 70 }, -- red gem
+	{ name = "minotaur leather", chance = 4780 },
+	{ name = "minotaur horn", chance = 2320, maxCount = 2 }
 }
 
 -- TODO: monster-abilities
@@ -103,8 +103,8 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -0, maxDamage = -250+, range = ?, effect = <>, target = ?}, --Smoke Beam
 --}
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -340},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -320, range = 7, shootEffect = CONST_ANI_WHIRLWINDAXE, target = true}
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -340 },
+	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -320, range = 7, shootEffect = CONST_ANI_WHIRLWINDAXE, target = true }
 }
 
 monster.defenses = {
@@ -114,23 +114,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 20},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE, percent = 10},
-	{type = COMBAT_DEATHDAMAGE, percent = -10},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 20 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = -10 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 10 },
+	{ type = COMBAT_DEATHDAMAGE, percent = -10 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = false },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)

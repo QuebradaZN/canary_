@@ -49,7 +49,7 @@ function spell.onCastSpell(creature, var)
 		addEvent(castEtherealSpearSharpshooter, 450, player:getId(), var)
 		addEvent(castEtherealSpearSharpshooter, 600, player:getId(), var)
 		player:addCondition(createBuffStacksCondition(player:getBuffStacks() - 1))
-		
+
 		if player:getBuffStacks() == 0 then
 			creature:removeCondition(CONDITION_ATTRIBUTES, CONDITIONID_COMBAT, 5)
 		end

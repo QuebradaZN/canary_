@@ -60,10 +60,10 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Free at last! Free to take revenge on our captor! ", yell = false},
-	{text = " We will make the despoiler of souls suffer!", yell = false},
-	{text = "We will have our revenge on the despoiler!", yell = false},
-	{text = "Now the despoiler will pay!", yell = false},
+	{ text = "Free at last! Free to take revenge on our captor! ", yell = false },
+	{ text = " We will make the despoiler of souls suffer!", yell = false },
+	{ text = "We will have our revenge on the despoiler!", yell = false },
+	{ text = "Now the despoiler will pay!", yell = false },
 }
 
 monster.loot = {
@@ -75,33 +75,33 @@ monster.loot = {
 --	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -4000, maxDamage = -8000 damages boss only, range = ?, effect = <>, target = ?}, --[[Drown Damage|Drown Bomb]] on self
 --}
 monster.attacks = {
-	{name ="freed soul spell", interval = 2000, chance = 100, target = false}
+	{ name = "freed soul spell", interval = 2000, chance = 100, target = false }
 }
 
 monster.defenses = {
 	defense = 50,
 	armor = 50,
---	mitigation = ???,
+	--	mitigation = ???,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE, percent = 0},
-	{type = COMBAT_DEATHDAMAGE, percent = 0},
+	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
+	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_LIFEDRAIN, percent = 0 },
+	{ type = COMBAT_MANADRAIN, percent = 0 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = 0 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
+	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
-	{type = "bleed", condition = false}
+	{ type = "paralyze", condition = true },
+	{ type = "outfit", condition = false },
+	{ type = "invisible", condition = true },
+	{ type = "bleed", condition = false }
 }
 
 mType:register(monster)
