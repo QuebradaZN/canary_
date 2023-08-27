@@ -220,7 +220,7 @@ DailyReward.retrieveHistoryEntries = function(playerId)
 	local entries = {}
 	local resultId = db.storeQuery("SELECT * FROM `daily_reward_history` WHERE `player_id` = \z
 		" .. player:getGuid() .. " ORDER BY `timestamp` DESC LIMIT 15;")
-	if resultId then
+	if resultId ~= false then
 		repeat
 			local entry = {
 				description = Result.getString(resultId, "description"),
@@ -239,10 +239,10 @@ DailyReward.loadDailyReward = function(playerId, target)
 	if not player then
 		return false
 	end
-
-	target = REWARD_FROM_PANEL
 	if target ~= 0 then
 		target = REWARD_FROM_SHRINE
+	else
+		target = REWARD_FROM_PANEL
 	end
 
 	player:sendCollectionResource(ClientPackets.JokerResource, player:getJokerTokens())
@@ -256,6 +256,7 @@ end
 
 DailyReward.pickedReward = function(playerId)
 	local player = Player(playerId)
+
 	if not player then
 		return false
 	end
@@ -415,13 +416,6 @@ function Player.selectDailyReward(self, msg)
 		return false
 	end
 
-	local rewardCount = dailyTable.freeAccount
-	if self:isPremium() then
-		rewardCount = dailyTable.premiumAccount
-	end
-
-	local dailyRewardMessage = false
-
 	-- Items as reward
 	if (dailyTable.type == DAILY_REWARD_TYPE_ITEM) then
 		local items = {}
@@ -478,7 +472,11 @@ function Player.selectDailyReward(self, msg)
 			end
 		end
 
-		dailyRewardMessage = "Picked items: " .. description
+		-- Registering history
+		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
+			" .. self:getDayStreak() + 1 .. ". Picked items: " .. description)
+		DailyReward.processReward(playerId, target)
+	end
 
 	local reward = nil
 	if self:isPremium() then
@@ -504,20 +502,18 @@ function Player.selectDailyReward(self, msg)
 	-- DailyReward.processReward(playerId, target)
 	-- end
 
-	elseif dailyTable.type == DAILY_REWARD_TYPE_XP_BOOST then
-		self:setExpBoostStamina(self:getExpBoostStamina() + (rewardCount * 60))
+	if (dailyTable.type == DAILY_REWARD_TYPE_XP_BOOST) then
+		self:setExpBoostStamina(self:getExpBoostStamina() + (reward * 60))
 		self:setStoreXpBoost(50)
-		dailyRewardMessage = "Picked reward: XP Bonus for " .. rewardCount .. " minutes."
-
-	elseif dailyTable.type == DAILY_REWARD_TYPE_PREY_REROLL then
-		self:addPreyCards(rewardCount)
-		dailyRewardMessage = "Picked reward: " .. rewardCount .. "x Prey bonus reroll(s)."
+		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
+			" .. self:getDayStreak() + 1 .. ". Picked reward: XP Bonus for " .. reward .. " minutes.")
+		DailyReward.processReward(playerId, target)
 	end
 
-	if dailyRewardMessage then
-		-- Registering history
+	if (dailyTable.type == DAILY_REWARD_TYPE_PREY_REROLL) then
+		self:addPreyCards(reward)
 		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
-			" .. self:getDayStreak() + 1 .. ". " .. dailyRewardMessage)
+			" .. self:getDayStreak() + 1 .. ". Picked reward: " .. reward .. "x Prey bonus reroll(s)")
 		DailyReward.processReward(playerId, target)
 	end
 
@@ -577,10 +573,9 @@ function Player.readDailyReward(self, msg, currentDay, state)
 	else
 		itemsToPick = dailyTable.premiumAccount
 	end
-
 	msg:addByte(systemType)
-	if systemType == DAILY_REWARD_SYSTEM_TYPE_ONE then
-		if type == DAILY_REWARD_TYPE_ITEM then
+	if (systemType == 1) then
+		if (type == DAILY_REWARD_TYPE_ITEM) then
 			msg:addByte(itemsToPick)
 			msg:addByte(#rewards)
 			for i = 1, #rewards do
@@ -593,8 +588,8 @@ function Player.readDailyReward(self, msg, currentDay, state)
 				msg:addU32(itemWeight)
 			end
 		end
-	elseif systemType == DAILY_REWARD_SYSTEM_TYPE_TWO then
-		if type == DAILY_REWARD_TYPE_STORAGE then
+	elseif (systemType == 2) then
+		if (type == DAILY_REWARD_TYPE_STORAGE) then
 			-- msg:addByte(#rewards.things)
 			-- for i = 1, #rewards.things do
 			-- msg:addByte(DAILY_REWARD_SYSTEM_TYPE_OTHER) -- type
@@ -602,11 +597,11 @@ function Player.readDailyReward(self, msg, currentDay, state)
 			-- msg:addString(rewards.things[i].name)
 			-- msg:addByte(rewards.things[i].quantity)
 			-- end
-		elseif type == DAILY_REWARD_TYPE_PREY_REROLL then
+		elseif (type == DAILY_REWARD_TYPE_PREY_REROLL) then
 			msg:addByte(DAILY_REWARD_SYSTEM_SKIP)
 			msg:addByte(DAILY_REWARD_SYSTEM_TYPE_PREY_REROLL)
 			msg:addByte(itemsToPick)
-		elseif type == DAILY_REWARD_TYPE_XP_BOOST then
+		elseif (type == DAILY_REWARD_TYPE_XP_BOOST) then
 			msg:addByte(DAILY_REWARD_SYSTEM_SKIP)
 			msg:addByte(DAILY_REWARD_SYSTEM_TYPE_XP_BOOST)
 			msg:addU16(itemsToPick)
