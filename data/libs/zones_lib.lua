@@ -73,12 +73,13 @@ setmetatable(ZoneEvent, {
 	---@param zone Zone
 	__call = function(self, zone)
 		local obj = {}
-		setmetatable(obj, {__index = ZoneEvent})
+		setmetatable(obj, { __index = ZoneEvent })
 		obj.zone = zone
 		obj.onEnter = nil
 		obj.onLeave = nil
 		return obj
-end})
+	end
+})
 
 function ZoneEvent:register()
 	if self.onEnter then
@@ -87,6 +88,7 @@ function ZoneEvent:register()
 			if zone ~= self.zone then return true end
 			return self.onEnter(zone, creature)
 		end
+
 		onEnter:register()
 	end
 
@@ -96,6 +98,7 @@ function ZoneEvent:register()
 			if zone ~= self.zone then return true end
 			return self.onLeave(zone, creature)
 		end
+
 		onLeave:register()
 	end
 end
@@ -106,6 +109,7 @@ function Zone:blockFamiliars()
 		local monster = creature:getMonster()
 		return not (monster and monster:getMaster() and monster:getMaster():isPlayer())
 	end
+
 	event:register()
 end
 

@@ -20,6 +20,7 @@ function canChain(creature, target)
 	end
 	return false
 end
+
 combat:setCallback(CALLBACK_PARAM_CHAINPICKER, "canChain")
 
 function getChainValue(creature)
@@ -30,6 +31,7 @@ function getChainValue(creature)
 	end
 	return targets, 6, false
 end
+
 combat:setCallback(CALLBACK_PARAM_CHAINVALUE, "getChainValue")
 
 function onChain(creature, target)
@@ -57,6 +59,7 @@ function onChain(creature, target)
 	end
 	return true
 end
+
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onChain")
 
 local spell = Spell("instant")

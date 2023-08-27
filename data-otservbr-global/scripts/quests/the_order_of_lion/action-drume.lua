@@ -107,8 +107,7 @@ function drumeAction.onUse(player, item, fromPosition, target, toPosition, isHot
 	for _, pi in pairs(players) do
 		pi:setStorageValue(Storage.TheOrderOfTheLion.Drume.Timer, os.time() + (configManager.getNumber(configKeys.BOSS_DEFAULT_TIME_TO_FIGHT_AGAIN)))
 		pi:teleportTo(config.newPosition)
-		pi:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have " ..config.timeToKill.." minutes to defeat Drume.")
-
+		pi:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have " .. config.timeToKill .. " minutes to defeat Drume.")
 	end
 	if currentEvent then
 		stopEvent(currentEvent)
@@ -120,5 +119,6 @@ function drumeAction.onUse(player, item, fromPosition, target, toPosition, isHot
 	Game.setStorageValue(Storage.TheOrderOfTheLion.Drume.TotalUsurperCommanders, totalUsurper)
 	return true
 end
+
 drumeAction:aid(59601)
 drumeAction:register()

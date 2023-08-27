@@ -23,9 +23,9 @@ for i = 45, 60 do
 
 	function onTargetTile(creature, pos)
 		local creatureTable = {}
-		local n, i = Tile({x=pos.x, y=pos.y, z=pos.z}).creatures, 1
+		local n, i = Tile({ x = pos.x, y = pos.y, z = pos.z }).creatures, 1
 		if n ~= 0 then
-			local v = getThingfromPos({x=pos.x, y=pos.y, z=pos.z, stackpos=i}).uid
+			local v = getThingfromPos({ x = pos.x, y = pos.y, z = pos.z, stackpos = i }).uid
 			while v ~= 0 do
 				if isCreature(v) == true then
 					table.insert(creatureTable, v)
@@ -34,7 +34,7 @@ for i = 45, 60 do
 					end
 				end
 				i = i + 1
-				v = getThingfromPos({x=pos.x, y=pos.y, z=pos.z, stackpos=i}).uid
+				v = getThingfromPos({ x = pos.x, y = pos.y, z = pos.z, stackpos = i }).uid
 			end
 		end
 
@@ -64,7 +64,6 @@ for i = 45, 60 do
 	end
 
 	combat[i]:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
-
 end
 
 local spell = Spell("instant")

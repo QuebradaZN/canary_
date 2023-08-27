@@ -67,4 +67,3 @@ function CheckPremiumAndPrint(player, msgType)
 
 	player:sendTextMessage(msgType, string.format("You have %s of VIP time left.", getFormattedTimeRemaining(playerVipTime)))
 end
-

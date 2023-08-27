@@ -24,7 +24,7 @@ function dawnportAdvance.onAdvance(player, skill, oldLevel, newLevel)
 					"Congratulations! \z
 					You may now choose your vocation and leave Dawnport. Talk to Oressa in the temple."
 				)
-			-- Notify max level to stay in dawnport
+				-- Notify max level to stay in dawnport
 			elseif newLevel >= 20 then
 				Spdlog.info("Player " .. player:getName() .. " reached level " .. newLevel .. " in Dawnport.")
 				player:sendTextMessage(
@@ -36,7 +36,7 @@ function dawnportAdvance.onAdvance(player, skill, oldLevel, newLevel)
 					dawnportEvents[player:getId()] = addEvent(teleportToDawnportTemple, 5 * 60 * 1000, player:getId())
 				end
 			end
-		-- Notify reached a skill limit
+			-- Notify reached a skill limit
 		elseif skill ~= SKILL_LEVEL and isSkillGrowthLimited(player, skill) then
 			if skill == SKILL_MAGLEVEL then
 				player:sendTextMessage(
