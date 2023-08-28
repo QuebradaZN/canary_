@@ -1,6 +1,7 @@
 local gold_rank = TalkAction("/goldrank")
 
 function gold_rank.onSay(player, words, param)
+	-- create log
 	logCommand(player, words, param)
 
 	local resultId = db.storeQuery("SELECT `balance`, `name` FROM `players` WHERE group_id < 3 ORDER BY balance DESC LIMIT 10")
@@ -19,7 +20,7 @@ function gold_rank.onSay(player, words, param)
 	else
 		player:sendCancelMessage("No highscore to show.")
 	end
-	return false
+	return true
 end
 
 gold_rank:separator(" ")

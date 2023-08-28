@@ -1,4 +1,5 @@
 local createSummon = TalkAction("/s")
+
 function createSummon.onSay(player, words, param)
 	-- create log
 	logCommand(player, words, param)

@@ -4,6 +4,7 @@ local new_file_name = 'monster_count.txt'
 local count_monsters = TalkAction("/countmonsters")
 
 function count_monsters.onSay(player, words, param)
+	-- create log
 	logCommand(player, words, param)
 
 	local open_file = io.open(xml_monster_dir, "r")
@@ -31,7 +32,7 @@ function count_monsters.onSay(player, words, param)
 
 	writing_file:close()
 
-	return false
+	return true
 end
 
 count_monsters:separator(" ")

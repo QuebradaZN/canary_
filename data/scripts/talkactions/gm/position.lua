@@ -1,6 +1,9 @@
 local position = TalkAction("/pos", "!pos")
 
 function position.onSay(player, words, param)
+	-- create log
+	logCommand(player, words, param)
+
 	local param = string.gsub(param, "%s+", "")
 	local tile = load("return " .. param)()
 	local split = param:split(",")
@@ -13,7 +16,7 @@ function position.onSay(player, words, param)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your current position is: \z
 		" .. playerPosition.x .. ", " .. playerPosition.y .. ", " .. playerPosition.z .. ".")
 	end
-	return false
+	return true
 end
 
 position:separator(" ")

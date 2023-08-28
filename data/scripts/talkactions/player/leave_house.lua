@@ -7,13 +7,13 @@ function leaveHouse.onSay(player, words, param)
 	if not house then
 		player:sendCancelMessage("You are not inside a house.")
 		playerPosition:sendMagicEffect(CONST_ME_POFF)
-		return false
+		return true
 	end
 
 	if house:getOwnerGuid() ~= player:getGuid() then
 		player:sendCancelMessage("You are not the owner of this house.")
 		playerPosition:sendMagicEffect(CONST_ME_POFF)
-		return false
+		return true
 	end
 
 	-- Move hireling back to lamp
@@ -33,7 +33,7 @@ function leaveHouse.onSay(player, words, param)
 	house:setOwnerGuid(0)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have successfully left your house.")
 	playerPosition:sendMagicEffect(CONST_ME_POFF)
-	return false
+	return true
 end
 
 leaveHouse:separator(" ")

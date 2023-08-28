@@ -1,6 +1,11 @@
+-- /addmoney playername, 100000
+
 local addMoney = TalkAction("/addmoney")
 
 function addMoney.onSay(player, words, param)
+	-- create log
+	logCommand(player, words, param)
+
 	-- Check the first param (player name) exists
 	if param == "" then
 		player:sendCancelMessage("Player name param required")

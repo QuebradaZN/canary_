@@ -1,11 +1,14 @@
-local banDays = 5
+local banDays = 7
 
 local ban = TalkAction("/ban")
 
 function ban.onSay(player, words, param)
+	-- create log
+	logCommand(player, words, param)
+
 	if param == "" then
 		player:sendCancelMessage("Command param required.")
-		return false
+		return true
 	end
 
 	local name = param
@@ -19,13 +22,13 @@ function ban.onSay(player, words, param)
 
 	local accountId = getAccountNumberByPlayerName(name)
 	if accountId == 0 then
-		return false
+		return true
 	end
 
 	local resultId = db.storeQuery("SELECT 1 FROM `account_bans` WHERE `account_id` = " .. accountId)
 	if resultId ~= false then
 		Result.free(resultId)
-		return false
+		return true
 	end
 
 	local timeNow = os.time()
@@ -45,5 +48,5 @@ function ban.onSay(player, words, param)
 end
 
 ban:separator(" ")
-ban:groupType("god")
+ban:groupType("gamemaster")
 ban:register()

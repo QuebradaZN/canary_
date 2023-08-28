@@ -10,9 +10,6 @@ function createItem.onSay(player, words, param)
 
 	local split = param:split(",")
 
-	-- create log
-	logCommand(player, words, param)
-
 	local itemType = ItemType(split[1])
 	if itemType:getId() == 0 then
 		itemType = ItemType(tonumber(split[1]))

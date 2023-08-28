@@ -1,5 +1,8 @@
-local addons = TalkAction("/addons")
+-- /addaddons playername
+
+local addons = TalkAction("/addaddons")
 local looktypes = {
+
 	-- Female Outfits
 	136, 137, 138, 139, 140, 141, 142, 147, 148, 149, 150, 155, 156, 157, 158, 252, 269, 270, 279, 288,
 	324, 329, 336, 366, 431, 433, 464, 466, 471, 513, 514, 542, 575, 578, 618, 620, 632, 635, 636, 664,
@@ -19,6 +22,9 @@ local looktypes = {
 }
 
 function addons.onSay(player, words, param)
+	-- create log
+	logCommand(player, words, param)
+
 	local target
 	if param == '' then
 		target = player:getTarget()
@@ -32,7 +38,12 @@ function addons.onSay(player, words, param)
 
 	if not target then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Player ' .. param .. ' is currently not online.')
-		return false
+		return true
+	end
+
+	if player:getAccountType() < ACCOUNT_TYPE_GOD then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Cannot perform action.')
+		return true
 	end
 
 	for i = 1, #looktypes do
@@ -41,7 +52,7 @@ function addons.onSay(player, words, param)
 
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'All addons unlocked for ' .. target:getName() .. '.')
 	target:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'All of your addons have been unlocked!')
-	return false
+	return true
 end
 
 addons:separator(" ")

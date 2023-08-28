@@ -27,17 +27,17 @@ function deposit.onSay(player, words, param)
 		amount = tonumber(param)
 		if not amount or amount <= 0 and isValidMoney(amount) then
 			player:sendTextMessage(config.messageStyle, "Invalid amount.")
-			return false
+			return true
 		end
 	end
 
 	if not Bank.deposit(player, amount) then
 		player:sendTextMessage(config.messageStyle, "You don't have enough money.")
-		return false
+		return true
 	end
 
 	player:sendTextMessage(config.messageStyle, "You have deposited " .. FormatNumber(amount) .. " gold coins.")
-	return false
+	return true
 end
 
 deposit:separator(" ")
@@ -50,16 +50,16 @@ function withdraw.onSay(player, words, param)
 	local amount = tonumber(param)
 	if not amount or amount <= 0 and isValidMoney(amount) then
 		player:sendTextMessage(config.messageStyle, "Invalid amount.")
-		return false
+		return true
 	end
 
 	if not Bank.withdraw(player, amount) then
 		player:sendTextMessage(config.messageStyle, "You don't have enough money.")
-		return false
+		return true
 	end
 
 	player:sendTextMessage(config.messageStyle, "You have withdrawn " .. FormatNumber(amount) .. " gold coins.")
-	return false
+	return true
 end
 
 withdraw:separator(" ")
@@ -74,23 +74,23 @@ function transfer.onSay(player, words, param)
 	local amount = tonumber(split[2])
 	if not amount or amount <= 0 and isValidMoney(amount) then
 		player:sendTextMessage(config.messageStyle, "Invalid amount.")
-		return false
+		return true
 	end
 
 	local normalizedName = Game.getNormalizedPlayerName(name)
 	if not normalizedName then
 		player:sendTextMessage(config.messageStyle, "A player with name " .. name .. " does not exist.")
-		return false
+		return true
 	end
 	name = normalizedName
 
 	if not Bank.transfer(player, name, amount) then
 		player:sendTextMessage(config.messageStyle, "You don't have enough money.")
-		return false
+		return true
 	end
 
 	player:sendTextMessage(config.messageStyle, "You have transferred " .. FormatNumber(amount) .. " gold coins to " .. name .. ".")
-	return false
+	return true
 end
 
 transfer:separator(" ")
