@@ -202,11 +202,6 @@ bool Map::placeCreature(const Position &centerPos, Creature* creature, bool exte
 		foundTile = false;
 	}
 
-	auto toZones = Zone::getZones(centerPos);
-	if (auto ret = g_game().beforeCreatureZoneChange(creature, {}, toZones); ret != RETURNVALUE_NOERROR) {
-		return false;
-	}
-
 	if (!foundTile) {
 		static std::vector<std::pair<int32_t, int32_t>> extendedRelList {
 			{ 0, -2 },
@@ -279,7 +274,6 @@ bool Map::placeCreature(const Position &centerPos, Creature* creature, bool exte
 
 	const Position &dest = toCylinder->getPosition();
 	getQTNode(dest.x, dest.y)->addCreature(creature);
-	g_game().afterCreatureZoneChange(creature, {}, toZones);
 	return true;
 }
 

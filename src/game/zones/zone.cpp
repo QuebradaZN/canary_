@@ -198,15 +198,32 @@ void Zone::creatureAdded(Creature* creature) {
 	if (!creature) {
 		return;
 	}
-	creaturesCache.insert(creature->getID());
+
+	uint32_t id = 0;
 	if (creature->getPlayer()) {
-		playersCache.insert(creature->getPlayer()->getID());
+		id = creature->getPlayer()->getID();
+		auto [_, playerInserted] = playersCache.insert(id);
+		if (playerInserted) {
+			g_logger().trace("Player {} (ID: {}) added to zone {}", creature->getName(), id, name);
+		}
 	}
 	if (creature->getMonster()) {
-		monstersCache.insert(creature->getMonster()->getID());
+		id = creature->getMonster()->getID();
+		auto [_, monsterInserted] = monstersCache.insert(id);
+		if (monsterInserted) {
+			g_logger().trace("Monster {} (ID: {}) added to zone {}", creature->getName(), id, name);
+		}
 	}
 	if (creature->getNpc()) {
-		npcsCache.erase(creature->getNpc()->getID());
+		id = creature->getNpc()->getID();
+		auto [_, npcInserted] = npcsCache.insert(id);
+		if (npcInserted) {
+			g_logger().trace("Npc {} (ID: {}) added to zone {}", creature->getName(), id, name);
+		}
+	}
+
+	if (id != 0) {
+		creaturesCache.insert(id);
 	}
 }
 
@@ -216,13 +233,19 @@ void Zone::creatureRemoved(Creature* creature) {
 	}
 	creaturesCache.erase(creature->getID());
 	if (creature->getPlayer()) {
-		playersCache.erase(creature->getPlayer()->getID());
+		if (playersCache.erase(creature->getID())) {
+			g_logger().trace("Player {} (ID: {}) removed from zone {}", creature->getName(), creature->getID(), name);
+		}
 	}
 	if (creature->getMonster()) {
-		monstersCache.erase(creature->getMonster()->getID());
+		if (monstersCache.erase(creature->getID())) {
+			g_logger().trace("Monster {} (ID: {}) removed from zone {}", creature->getName(), creature->getID(), name);
+		}
 	}
 	if (creature->getNpc()) {
-		npcsCache.erase(creature->getNpc()->getID());
+		if (npcsCache.erase(creature->getID())) {
+			g_logger().trace("Npc {} (ID: {}) removed from zone {}", creature->getName(), creature->getID(), name);
+		}
 	}
 }
 

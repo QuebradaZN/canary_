@@ -835,6 +835,10 @@ bool Game::internalPlaceCreature(Creature* creature, const Position &pos, bool e
 	if (creature->getParent() != nullptr) {
 		return false;
 	}
+	auto toZones = Zone::getZones(pos);
+	if (auto ret = g_game().beforeCreatureZoneChange(creature, {}, toZones); ret != RETURNVALUE_NOERROR) {
+		return false;
+	}
 
 	if (!map.placeCreature(pos, creature, extendedPos, forced)) {
 		return false;
@@ -848,6 +852,7 @@ bool Game::internalPlaceCreature(Creature* creature, const Position &pos, bool e
 		addCreatureCheck(creature);
 		creature->onPlacedCreature();
 	}
+	g_game().afterCreatureZoneChange(creature, {}, toZones);
 	return true;
 }
 
@@ -942,6 +947,7 @@ void Game::executeDeath(uint32_t creatureId) {
 	Creature* creature = getCreatureByID(creatureId);
 	if (creature && !creature->isRemoved()) {
 		creature->onDeath();
+		afterCreatureZoneChange(creature, creature->getZones(), {});
 	}
 }
 
