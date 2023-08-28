@@ -56,7 +56,7 @@
 	<!-- Calassa North -->
 	<raid name="Crustacea Gigantica calassa2" file="liberty_bay/crustacea_gigantica_3.xml" interval2="300" margin="20"/>
 	<raid name="Diblis The Fair" file="liberty_bay/diblis_the_fair.xml" interval2="1440" margin="180" />
-	<raid name="Ferumbras" file="liberty_bay/ferumbras.xml" interval2="1440" margin="120" />
+	<!-- <raid name="Ferumbras" file="liberty_bay/ferumbras.xml" interval2="1440" margin="120" /> -->
 	<raid name="Morgaroth" file="liberty_bay/morgaroth.xml" interval2="1440" margin="90" />
 	<raid name="Quaras" file="liberty_bay/quaras.xml" interval2="500" margin="50" />
 	<raid name="Tigers" file="liberty_bay/tigers.xml" interval2="500" margin="100" />
