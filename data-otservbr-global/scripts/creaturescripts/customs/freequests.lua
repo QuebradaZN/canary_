@@ -159,6 +159,7 @@ local questTable = {
 	{ storage = Storage.SearoutesAroundYalahar.Carlin, storageValue = 1 },
 	{ storage = Storage.HiddenCityOfBeregar.DefaultStart, storageValue = 1 },
 	{ storage = Storage.HiddenCityOfBeregar.GoingDown, storageValue = 1 },
+	{ storage = Storage.hiddenCityOfBeregar.WayToBeregar, storageValue = 1 },
 	{ storage = Storage.TheIceIslands.Questline, storageValue = 40 },
 	{ storage = Storage.TheIceIslands.Mission01, storageValue = 3 },
 	{ storage = Storage.TheIceIslands.Mission02, storageValue = 5 },
@@ -367,6 +368,9 @@ local questTable = {
 	-- Norseman
 	{ storage = Storage.OutfitQuest.NorsemanAddon, storageValue = 1 },
 	{ storage = Storage.OutfitQuest.DefaultStart, storageValue = 1 },
+
+	{ storage = Storage.HeroRathleton.AccessDoor, storageValue = 1 },
+	{ storage = Storage.HeroRathleton.FastWay, storageValue = 1 },
 }
 
 -- from Position: (33201, 31762, 1)
