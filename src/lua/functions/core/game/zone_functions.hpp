@@ -15,7 +15,6 @@ public:
 		registerMethod(L, "Zone", "subtractArea", ZoneFunctions::luaZoneSubtractArea);
 		registerMethod(L, "Zone", "getRemoveDestination", ZoneFunctions::luaZoneGetRemoveDestination);
 		registerMethod(L, "Zone", "setRemoveDestination", ZoneFunctions::luaZoneSetRemoveDestination);
-		registerMethod(L, "Zone", "refresh", ZoneFunctions::luaZoneRefresh);
 		registerMethod(L, "Zone", "getPositions", ZoneFunctions::luaZoneGetPositions);
 		registerMethod(L, "Zone", "getTiles", ZoneFunctions::luaZoneGetTiles);
 		registerMethod(L, "Zone", "getCreatures", ZoneFunctions::luaZoneGetCreatures);

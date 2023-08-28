@@ -14,6 +14,7 @@
 
 #include "creatures/monsters/monster.hpp"
 #include "game/game.hpp"
+#include "game/zones/zone.hpp"
 #include "io/iomap.hpp"
 #include "io/iomapserialize.hpp"
 
@@ -201,6 +202,11 @@ bool Map::placeCreature(const Position &centerPos, Creature* creature, bool exte
 		foundTile = false;
 	}
 
+	auto toZones = Zone::getZones(centerPos);
+	if (auto ret = g_game().beforeCreatureZoneChange(creature, {}, toZones); ret != RETURNVALUE_NOERROR) {
+		return false;
+	}
+
 	if (!foundTile) {
 		static std::vector<std::pair<int32_t, int32_t>> extendedRelList {
 			{ 0, -2 },
@@ -273,6 +279,7 @@ bool Map::placeCreature(const Position &centerPos, Creature* creature, bool exte
 
 	const Position &dest = toCylinder->getPosition();
 	getQTNode(dest.x, dest.y)->addCreature(creature);
+	g_game().afterCreatureZoneChange(creature, {}, toZones);
 	return true;
 }
 
@@ -281,6 +288,12 @@ void Map::moveCreature(Creature &creature, Tile &newTile, bool forceTeleport /* 
 
 	Position oldPos = oldTile.getPosition();
 	Position newPos = newTile.getPosition();
+
+	auto fromZones = oldTile.getZones();
+	auto toZones = newTile.getZones();
+	if (auto ret = g_game().beforeCreatureZoneChange(&creature, fromZones, toZones); ret != RETURNVALUE_NOERROR) {
+		return;
+	}
 
 	bool teleport = forceTeleport || !newTile.getGround() || !Position::areInRange<1, 1, 0>(oldPos, newPos);
 
@@ -347,6 +360,7 @@ void Map::moveCreature(Creature &creature, Tile &newTile, bool forceTeleport /* 
 
 	oldTile.postRemoveNotification(&creature, &newTile, 0);
 	newTile.postAddNotification(&creature, &oldTile, 0);
+	g_game().afterCreatureZoneChange(&creature, fromZones, toZones);
 }
 
 void Map::getSpectatorsInternal(SpectatorHashSet &spectators, const Position &centerPos, int32_t minRangeX, int32_t maxRangeX, int32_t minRangeY, int32_t maxRangeY, int32_t minRangeZ, int32_t maxRangeZ, bool onlyPlayers) const {

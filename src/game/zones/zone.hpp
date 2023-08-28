@@ -17,6 +17,7 @@ class Monster;
 class Player;
 class Npc;
 class Item;
+class Thing;
 
 struct Area {
 	constexpr Area() = default;
@@ -107,32 +108,30 @@ public:
 
 	void creatureAdded(Creature* creature);
 	void creatureRemoved(Creature* creature);
+	void thingAdded(Thing* thing);
 	void itemAdded(Item* item);
 	void itemRemoved(Item* item);
 
 	void removePlayers() const;
 	void removeMonsters() const;
 	void removeNpcs() const;
-	void refresh();
 
 	static std::shared_ptr<Zone> addZone(const std::string &name);
 	static std::shared_ptr<Zone> getZone(const std::string &name);
 	static phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> getZones(const Position position);
 	const static phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &getZones();
 	static void clearZones();
-	static void refreshZones();
 
 private:
 	Position removeDestination = Position();
 	std::string name;
 	phmap::parallel_flat_hash_set<Position> positions;
 
-	phmap::parallel_flat_hash_set<Tile*> tilesCache;
 	phmap::parallel_flat_hash_set<Item*> itemsCache;
-	phmap::parallel_flat_hash_set<Creature*> creaturesCache;
-	phmap::parallel_flat_hash_set<Monster*> monstersCache;
-	phmap::parallel_flat_hash_set<Npc*> npcsCache;
-	phmap::parallel_flat_hash_set<Player*> playersCache;
+	phmap::parallel_flat_hash_set<uint32_t> creaturesCache;
+	phmap::parallel_flat_hash_set<uint32_t> monstersCache;
+	phmap::parallel_flat_hash_set<uint32_t> npcsCache;
+	phmap::parallel_flat_hash_set<uint32_t> playersCache;
 
 	static phmap::parallel_flat_hash_map<std::string, std::shared_ptr<Zone>> zones;
 };

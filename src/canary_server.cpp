@@ -64,7 +64,6 @@ int CanaryServer::run() {
 			loadModules();
 			setWorldType();
 			loadMaps();
-			Zone::refreshZones();
 
 			logger.info("Initializing gamestate...");
 			g_game().setGameState(GAME_STATE_INIT);

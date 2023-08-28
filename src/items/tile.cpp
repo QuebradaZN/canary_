@@ -347,10 +347,6 @@ void Tile::onAddTileItem(Item* item) {
 
 	setTileFlags(item);
 
-	for (const auto zone : getZones()) {
-		zone->itemAdded(item);
-	}
-
 	const Position &cylinderMapPos = getPosition();
 
 	SpectatorHashSet spectators;
@@ -1536,6 +1532,9 @@ void Tile::internalAddThing(Thing* thing) {
 void Tile::internalAddThing(uint32_t, Thing* thing) {
 	if (!thing) {
 		return;
+	}
+	for (const auto zone : getZones()) {
+		zone->thingAdded(thing);
 	}
 
 	thing->setParent(this);

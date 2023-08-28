@@ -270,23 +270,21 @@ end
 function Encounter:startOnEnter()
 	local zoneEvents = ZoneEvent(self.zone)
 
-	function zoneEvents.onEnter(zone, creature)
+	function zoneEvents.afterEnter(zone, creature)
 		if not self.registered then return true end
 		local player = creature:getPlayer()
 		if not player then return true end
-		if player:hasGroupFlag(IgnoredByMonsters) then return true end
+		if player:hasGroupFlag(IgnoredByMonsters) then return end
 		self:start()
-		return true
 	end
 
-	function zoneEvents.onLeave(zone, creature)
+	function zoneEvents.afterLeave(zone, creature)
 		local player = creature:getPlayer()
-		if not player then return true end
-		if player:hasGroupFlag(IgnoredByMonsters) then return true end
+		if not player then return end
+		if player:hasGroupFlag(IgnoredByMonsters) then return end
 		-- last player left; reset encounter
-		if self:countPlayers() > 1 then return true end
+		if self:countPlayers() == 1 then return end
 		self:reset()
-		return true
 	end
 
 	zoneEvents:register()

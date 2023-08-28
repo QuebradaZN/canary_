@@ -101,17 +101,6 @@ int ZoneFunctions::luaZoneSetRemoveDestination(lua_State* L) {
 	return 1;
 }
 
-int ZoneFunctions::luaZoneRefresh(lua_State* L) {
-	// Zone:refresh()
-	auto zone = getUserdataShared<Zone>(L, 1);
-	if (!zone) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_ZONE_NOT_FOUND));
-		return 0;
-	}
-	zone->refresh();
-	return 0;
-}
-
 int ZoneFunctions::luaZoneGetPositions(lua_State* L) {
 	// Zone:getPositions()
 	auto zone = getUserdataShared<Zone>(L, 1);

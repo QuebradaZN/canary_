@@ -65,8 +65,10 @@ end
 
 ---@class ZoneEvent
 ---@field public zone Zone
----@field public onEnter function
----@field public onLeave function
+---@field public beforeEnter function
+---@field public beforeLeave function
+---@field public afterEnter function
+---@field public afterLeave function
 ZoneEvent = {}
 
 setmetatable(ZoneEvent, {
@@ -82,30 +84,50 @@ setmetatable(ZoneEvent, {
 })
 
 function ZoneEvent:register()
-	if self.onEnter then
-		local onEnter = EventCallback()
-		function onEnter.zoneOnCreatureEnter(zone, creature)
+	if self.beforeEnter then
+		local beforeEnter = EventCallback()
+		function beforeEnter.zoneBeforeCreatureEnter(zone, creature)
 			if zone ~= self.zone then return true end
-			return self.onEnter(zone, creature)
+			return self.beforeEnter(zone, creature)
 		end
 
-		onEnter:register()
+		beforeEnter:register()
 	end
 
-	if self.onLeave then
-		local onLeave = EventCallback()
-		function onLeave.zoneOnCreatureLeave(zone, creature)
+	if self.beforeLeave then
+		local beforeLeave = EventCallback()
+		function beforeLeave.zoneBeforeCreatureLeave(zone, creature)
 			if zone ~= self.zone then return true end
-			return self.onLeave(zone, creature)
+			return self.beforeLeave(zone, creature)
 		end
 
-		onLeave:register()
+		beforeLeave:register()
+	end
+
+	if self.afterEnter then
+		local afterEnter = EventCallback()
+		function afterEnter.zoneAfterCreatureEnter(zone, creature)
+			if zone ~= self.zone then return true end
+			self.afterEnter(zone, creature)
+		end
+
+		afterEnter:register()
+	end
+
+	if self.afterLeave then
+		local afterLeave = EventCallback()
+		function afterLeave.zoneAfterCreatureLeave(zone, creature)
+			if zone ~= self.zone then return true end
+			self.afterLeave(zone, creature)
+		end
+
+		afterLeave:register()
 	end
 end
 
 function Zone:blockFamiliars()
 	local event = ZoneEvent(self)
-	function event.onEnter(_zone, creature)
+	function event.beforeEnter(_zone, creature)
 		local monster = creature:getMonster()
 		return not (monster and monster:getMaster() and monster:getMaster():isPlayer())
 	end
@@ -115,7 +137,7 @@ end
 
 function Zone:trapMonsters()
 	local event = ZoneEvent(self)
-	function event.onLeave(_zone, creature)
+	function event.beforeLeave(_zone, creature)
 		local monster = creature:getMonster()
 		return not monster
 	end

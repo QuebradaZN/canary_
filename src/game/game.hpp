@@ -635,6 +635,9 @@ public:
 	 */
 	bool tryRetrieveStashItems(Player* player, Item* item);
 
+	ReturnValue beforeCreatureZoneChange(Creature* creature, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &fromZones, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &toZones, bool force = false);
+	void afterCreatureZoneChange(Creature* creature, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &fromZones, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &toZones);
+
 	std::unique_ptr<IOWheel> &getIOWheel();
 	const std::unique_ptr<IOWheel> &getIOWheel() const;
 
@@ -852,8 +855,6 @@ private:
 	) const;
 
 	void unwrapItem(Item* item, uint16_t unWrapId, House* house, Player* player);
-
-	ReturnValue onCreatureZoneChange(Creature* creature, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &fromZones, const phmap::parallel_flat_hash_set<std::shared_ptr<Zone>> &toZones, bool force = false);
 
 	// Variable members (m_)
 	std::unique_ptr<IOWheel> m_IOWheel;
