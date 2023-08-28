@@ -124,7 +124,7 @@ local function activateVoucher(player, conf, item)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "Could not activate your voucher, please try again.")
 		return false
 	end
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, "Could not activate your voucher, please try again.")
+	item:transform(conf.activeItem, 1)
 	item:setName(conf.activeItemName)
 	player:setStorageValueByName("voucher.last-activation", os.time())
 	item:decay()
