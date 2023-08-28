@@ -61,7 +61,7 @@ function startServantWave()
 		local mage = Game.createMonster("Mad Mage", mage_positions[math.random(#mage_positions)], true, true)
 		if mage then
 			mageSpawned = true
-			mage:registerEvent("Mage_Death")
+			mage:registerEvent("MageDeath")
 		end
 		return
 	end
@@ -75,7 +75,7 @@ function startServantWave()
 				local servant = Game.createMonster(servants[servant_key][2], servant_positions[pos_key], true, true)
 				if servant then
 					current_servants[#current_servants+1] = servant.uid
-					servant:registerEvent("Servant_Death")
+					servant:registerEvent("ServantDeath")
 					break
 				end
 			end
