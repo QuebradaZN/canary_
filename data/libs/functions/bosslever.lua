@@ -118,6 +118,7 @@ function BossLever:onUse(player)
 	end
 
 	local zone = self:getZone()
+	zone:refresh()
 	if zone:countPlayers(IgnoredByMonsters) > 0 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's already someone fighting with " .. self.name .. ".")
 		return true
