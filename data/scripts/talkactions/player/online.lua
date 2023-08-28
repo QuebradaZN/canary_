@@ -46,7 +46,7 @@ function playersOnline.onSay(player, words, param)
 			end
 		end
 	end
-	return false
+	return true
 end
 
 playersOnline:groupType("normal")
