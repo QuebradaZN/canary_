@@ -216,7 +216,7 @@ toggleNonAggressiveFightOnly = true
 -- toggleFreeQuest = enable/disable the system
 -- freeQuestStage = if you add more quests to the table, change this value to run freeQuest again
 toggleFreeQuest = true
-freeQuestStage = 9
+freeQuestStage = 10
 
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default
