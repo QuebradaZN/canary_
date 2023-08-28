@@ -97,7 +97,8 @@
     "streambuf": "cpp",
     "thread": "cpp",
     "typeinfo": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "typeindex": "cpp"
   },
   "vcpkg.general.enable": false,
   "cmake.configureArgs": [],

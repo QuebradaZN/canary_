@@ -8,7 +8,6 @@
  */
 #include "pch.hpp"
 #include "lib/di/soft_singleton.hpp"
-#include "lib/logging/log_with_spd_log.hpp"
 #include "utils/tools.hpp"
 
 SoftSingleton::SoftSingleton(std::string id) :

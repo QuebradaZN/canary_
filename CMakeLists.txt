@@ -30,7 +30,6 @@ else()
     project(canary)
 endif()
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # Generate compile_commands.json
 
 # *****************************************************************************
 # Append cmake search path
