@@ -176,6 +176,7 @@ function BossLever:onUse(player)
 		lever:setStorageAllPlayers(self.storage, os.time() + self.timeToFightAgain)
 		if self.timeoutEvent then
 			stopEvent(self.timeoutEvent)
+			self.timeoutEvent = nil
 		end
 		self.timeoutEvent = addEvent(zone.removePlayers, self.timeToDefeat * 1000, zone)
 	end
