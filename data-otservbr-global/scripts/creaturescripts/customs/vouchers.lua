@@ -27,27 +27,9 @@ local config = {
 		fullDuration = 4 * 60 * 60 * 1000, -- 4 hours
 		storage = "voucher.experience.received",
 	},
-	{
-		type = 'skills',
-		activeItem = 24963,
-		inactiveItem = 21217,
-		inactiveItemName = 'inactive compensatory skill voucher',
-		activeItemName = 'active compensatory skill voucher',
-		deprecatedExpiredItem = 12209,
-
-		compensatory = true,
-		compensationDate = 20230812,
-
-		fullDuration = 12 * 60 * 60 * 1000, -- 12 hours
-		storage = "voucher.compensatory.20230812.received",
-	},
 }
 
 local cooldown = 2 * 60
-
-local function getCurrentDateForCompensation()
-	return tonumber(os.date("%Y%m%d", os.time()))
-end
 
 -- API
 function Player.activeVoucher(self, type)
@@ -137,10 +119,6 @@ local function activateVoucher(player, conf, item)
 end
 
 local function canReceiveVoucher(player, conf)
-	local currentDate = getCurrentDateForCompensation()
-	if conf.compensatory and currentDate >= conf.compensationDate and currentDate <= conf.compensationDate + 2 then
-		return player:getStorageValueByName(conf.storage) < 1
-	end
 	if (os.time() - player:getStorageValueByName(conf.storage)) > 7 * 24 * 60 * 60 then
 		return true
 	end
