@@ -53,12 +53,12 @@ end
 local topic = {}
 
 local config = {
-	['blue cloth'] = { storageValue = 1, text = { 'Brought the 50 pieces of blue cloth?', 'Good. Get me 50 pieces of green cloth now.' }, itemId = 5912, count = 25 },
-	['green cloth'] = { storageValue = 2, text = { 'Brought the 50 pieces of green cloth?', 'Good. Get me 50 pieces of red cloth now.' }, itemId = 5910, count = 25 },
-	['red cloth'] = { storageValue = 3, text = { 'Brought the 50 pieces of red cloth?', 'Good. Get me 50 pieces of brown cloth now.' }, itemId = 5911, count = 25 },
-	['brown cloth'] = { storageValue = 4, text = { 'Brought the 50 pieces of brown cloth?', 'Good. Get me 50 pieces of yellow cloth now.' }, itemId = 5913, count = 25 },
-	['yellow cloth'] = { storageValue = 5, text = { 'Brought the 50 pieces of yellow cloth?', 'Good. Get me 50 pieces of white cloth now.' }, itemId = 5914, count = 25 },
-	['white cloth'] = { storageValue = 6, text = { 'Brought the 50 pieces of white cloth?', 'Good. Get me 5 spools of yarn now.' }, itemId = 5909, count = 25 },
+	['blue cloth'] = { storageValue = 1, text = { 'Brought the 25 pieces of blue cloth?', 'Good. Get me 25 pieces of green cloth now.' }, itemId = 5912, count = 25 },
+	['green cloth'] = { storageValue = 2, text = { 'Brought the 25 pieces of green cloth?', 'Good. Get me 25 pieces of red cloth now.' }, itemId = 5910, count = 25 },
+	['red cloth'] = { storageValue = 3, text = { 'Brought the 25 pieces of red cloth?', 'Good. Get me 25 pieces of brown cloth now.' }, itemId = 5911, count = 25 },
+	['brown cloth'] = { storageValue = 4, text = { 'Brought the 25 pieces of brown cloth?', 'Good. Get me 25 pieces of yellow cloth now.' }, itemId = 5913, count = 25 },
+	['yellow cloth'] = { storageValue = 5, text = { 'Brought the 25 pieces of yellow cloth?', 'Good. Get me 25 pieces of white cloth now.' }, itemId = 5914, count = 25 },
+	['white cloth'] = { storageValue = 6, text = { 'Brought the 25 pieces of white cloth?', 'Good. Get me 5 spools of yarn now.' }, itemId = 5909, count = 25 },
 	['spools of yarn'] = { storageValue = 7, text = { 'Brought the 5 spools of yarn?', 'Thanks. That\'s it, you\'re done. Good job, |PLAYERNAME|. I keep my promise. Here\'s my old assassin head piece.' }, itemId = 5886, count = 5 },
 	['yarn'] = { storageValue = 7, text = { 'Brought the 5 spools of yarn?', 'Thanks. That\'s it, you\'re done. Good job, |PLAYERNAME|. I keep my promise. Here\'s my old assassin head piece.' }, itemId = 5886, count = 5 }
 }
@@ -88,7 +88,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say({
 				'Thought so. Could use some help anyway. Listen, I need stuff. Someone gave me a strange assignment - sneak into Thais castle at night and shroud it with cloth without anyone noticing it. ...',
 				'I wonder why anyone would want to shroud a castle, but as long as long as the guy pays, no problem, I\'ll do the sneaking part. Need a lot of cloth though. ...',
-				'Gonna make it colourful. Bring me 50 pieces of {blue cloth}, 50 pieces of {green cloth}, 50 pieces of {red cloth}, 50 pieces of {brown cloth}, 50 pieces of {yellow cloth} and 50 pieces of {white cloth}. ...',
+				'Gonna make it colourful. Bring me 25 pieces of {blue cloth}, 25 pieces of {green cloth}, 25 pieces of {red cloth}, 25 pieces of {brown cloth}, 25 pieces of {yellow cloth} and 25 pieces of {white cloth}. ...',
 				'Besides, gonna need 10 {spools of yarn}. Understood?'
 			}, npc, creature)
 			npcHandler:setTopic(playerId, 2)
